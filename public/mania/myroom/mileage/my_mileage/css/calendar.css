@@ -1,0 +1,17 @@
+#mile_year{margin-left:320px;text-align:center}
+#mile_year li{float:left;width:16px;color:#000;font-size:14px;font-weight:bold}
+#mile_year .center{width:100px;margin-top:3px;text-align:center}
+#mile_month{width:782px;margin-top:10px;padding:0 19px;background-color:#F8F8F8;border:1px solid #DCDCDC}
+#mile_month li{width:65px;padding:8px 0;background-color:#F8F8F8;text-align:center;font-size:14px;font-weight:bold;cursor:pointer}
+#mile_month .selected{background-color:#407FD4;color:#FFF}
+#month_mile{width:800px;height:18px;padding:5px 10px;text-align:right;border:1px solid #DCDCDC;border-top:0}
+#month_mile li{float:right;margin-left:15px}
+#mile_calendar{margin:10px 0;border-top:2px solid #666;border-right:1px solid #DCDCDC;border-spacing:0;border-collapse:collapse;color:#444}
+#mile_calendar th{height:25px;background-color:#F8F8F8;text-align:center;border-left:1px solid #DCDCDC;border-bottom:1px solid #DCDCDC}
+#mile_calendar td{height:70px;padding:5px 10px;border-left:1px solid #DCDCDC;border-bottom:1px solid #DCDCDC;vertical-align:top}
+#mile_calendar .g_right{font-weight:bold}
+#mile_calendar .saterday{color:#255CB4;background-color:#E8F1FF}
+#mile_calendar .sunday{background-color:#FFEBF0}
+#mile_calendar .sunday .g_right{color:#DE0000}
+#mile_calendar .in{margin-top:5px;padding-left:16px;background:url(//img3.itemmania.com/images/icon/icon_deposit.gif) no-repeat 0 2px}
+#mile_calendar .out{margin-top:3px;padding-left:16px;background:url(//img4.itemmania.com/images/icon/icon_withdraw.gif) no-repeat 0 2px}

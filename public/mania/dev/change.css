@@ -1,0 +1,406 @@
+.g_header .top_bg {
+    height: initial !important;
+}
+.g_header .g_snav {
+    font-size: 14px;
+}
+.g_header .g_snav a {
+    cursor: pointer;
+}
+.g_header .g_snav {
+    height: 32px;
+    padding: 8px 0;
+}
+.g_header .g_snav .snav_right > li:before {
+    content: "";
+}
+.g_header .top_bg {
+    background: #fdfdfd;
+}
+.g_logo_area {
+    height: 100px !important;
+    min-height: 100px !important;
+}
+.g_logo_area .logo {
+    padding-top: 17px;
+}
+.g_logo_area .logo a {
+    display: initial;
+}
+.g_search_top {
+    margin-left: 70px;
+    top: 22px;
+    padding: 4px 0;
+    border: 2px solid #d3d3d3;
+    border-radius: 20px;
+}
+.search_area {
+    padding: 0;
+    background: transparent;
+}
+.search_area .g_text {
+    font-size: 16px;
+    color: lightgrey;
+    height: 30px;
+    text-align: center;
+    margin-top: 8px;
+}
+.g_search_list .icon_search {
+    background-image: url("../img/icons/icon_search.png");
+    background-position: initial;
+    background-size: 100%;
+    top: 10px;
+    left: 5px;
+    width: 28px;
+    height: 30px;
+}
+.g_search_top .g_search_list {
+    background-color: initial;
+    right: 6px;
+}
+.search_gs_name ~ .delete_btn {
+    top: 16px;
+    right: 4px;
+}
+.g_search_frame {
+    border: 1px solid #d3d3d3;
+    border-top: 1px solid #d3d3d3;
+    top: 54px;
+}
+.g_trade_type {
+    padding: 2px 0 12px;
+}
+.g_trade_type .radiocontainer {
+    padding-left: 26px;
+    padding-top: 3px;
+    font-size: 14px;
+}
+.g_trade_type .f_green1 {
+    margin-left: 40px;
+}
+.initial_screen .tab>div {
+    font-size: 15px;
+    border: 1px solid #32b5ff;
+    border-right: 0;
+    border-top: 0;
+}
+.initial_screen .tab>.active {
+    border-top: 1px solid #32b5ff;
+}
+.initial_screen .popular_game>.popular_game_title {
+    background-color: transparent;
+    color: black;
+}
+.initial_screen .popular_game>.popular_game_title span {
+    border-bottom: solid 2px #37cfff;
+}
+.initial_screen .popular_game>.popular_list {
+    font-size: 14px;
+}
+.g_header .nav_wrap {
+    background-color: #159efd;
+    height: 50px;
+}
+.g_header .nav_wrap .nav_ct {
+    display: block;
+    margin-left: 0;
+}
+.g_header .nav_wrap .nav_highlight {
+    left: 780px;
+}
+.nav_wrap .nav li {
+    padding: 0 43px;
+}
+.nav_wrap .nav li a {
+    height: 50px;
+    line-height: 48px;
+}
+.nav_wrap .nav .highlight {
+    padding: 0 43px;
+}
+.nav_wrap .nav_ct li a:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: "|";
+    font-size: 13px;
+    color: #6ac2ff;
+}
+.nav_wrap .nav_ct li:last-child a:after {
+    content: "";
+}
+
+.SpGroup {
+    /*background-image: url("../img/icons/sp_renew.png");*/
+}
+.initial_screen .tab>div {
+    height: 48px;
+    line-height: 48px;
+}
+/* Region
+ * right navbar for user profile
+ */
+.quickmenu_area .quickmenu_dtl {
+    width: 300px;
+}
+.quickmenu {
+    right: 300px;
+}
+.quickmenu_dtl .quickmenu_cont {
+    padding: 40px 20px 40px;
+}
+.credit_mark.vip {
+    background-image: url("../img/icons/icon_vip.png");
+}
+.quickmenu_cont .myinfo .status .rt_figure{
+    top: 0;
+}
+.quickmenu_cont .user_name {
+    font-size: 16px;
+    padding-top: 3px;
+    color: #159efd !important;
+}
+.quickmenu_cont .rank {
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 3px;
+}
+.quickmenu_cont .myinfo .status .credir_rt {
+    padding: 3px 0 15px 60px;
+}
+#quickmenu_cont .cert {
+    margin-top:25px;
+    display: flex;
+}
+
+.cert_state.off:before,
+.cert_state.on:before {
+    /*background: url("../img/icons/icon_check.png") no-repeat;*/
+    /*background-size: 100% !important;*/
+    /*width: 15px;*/
+    /*height: 15px;*/
+    /*left: 0px;*/
+    /*top:2px;*/
+    /*position: absolute;*/
+    /*display: inline-block;*/
+    /*margin-right: 5px;*/
+    /*content: "";*/
+}
+.cert_state.off:before {
+    background: url("../img/icons/icon_uncheck.png") no-repeat;
+}
+
+.quickmenu_cont .cert span {
+    position: relative;
+    border: none;
+    font-size: 13px;
+    font-weight: 500;
+    display: block;
+    width: calc(33% - 20px);
+    padding-left: 20px;
+    text-align: left;
+}
+.quickmenu_cont .milage {
+    font-weight: 500;
+    letter-spacing:initial;
+}
+#user_charge_proc {
+    width: 33%;
+    background-image: url("../img/button/btn-charge.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+#user_exchange_proc {
+    width: 33%;
+    background-image: url("../img/button/btn-exchange.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+#user_myroom {
+    width: 33%;
+    background-image: url("../img/button/btn-myroom.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.quickmenu_cont .other_link {
+    margin-top: 30px;
+}
+.quickmenu_cont .other_link a {
+    background-color: initial;
+    margin-left: 8px;
+    height: 30px;
+    line-height: 30px;
+}
+.quickmenu_cont .ing_count li {
+    width: 126px;
+}
+/* End region */
+
+/**
+ * Main Region
+ */
+.ads-title {
+    color: #f9c36d;
+    font-weight: bold;
+    font-size: 35px;
+}
+.top-ads-content {
+    padding-top: 40px;
+}
+.ads-content {
+    line-height: 18px;
+    padding-left: 12px;
+}
+.top-ads-part {
+    background-image: url("../img/bkg/ads-header.png");
+    background-size: cover;
+    height: 100px;
+    width: 100%;
+}
+.top_full {
+    margin-bottom: 14px;
+}
+.top_full,
+.top_area,
+.bg_opacity,
+.service_wrap,
+.carousel_module > .banner_in > .banner_item .carousel_images {
+    height: 350px;
+}
+.service_wrap,
+.bg_opacity {
+    left: 0;
+    width: 220px;
+}
+.carousel_module .banner_indicate {
+    right: 505px;
+    bottom: 10px;
+    top: auto;
+}
+.service_favorite {
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+}
+.service_set .setting {
+    top: 24px;
+    right: 14px;
+}
+.service_set li {
+    float: initial;
+    margin-bottom: 2px;
+    padding-top: 2px;
+    width: 100%;
+    height: 34px;
+    display: flex;
+}
+.service_set li span {
+    display: block;
+}
+.service_set li div {
+    line-height: 34px;
+    padding-left: 8px;
+}
+.service_set > ul {
+    padding-left: 26px;
+}
+.realtime_sell_wrapper
+{
+    overflow: auto;
+    height: 200px;
+}
+.realtime_list {
+    width: 90px;
+}
+.realtime_game {
+    width: 100px;
+}
+.realtime_money {
+    width: 80px;
+}
+.sec_left, .sec_right {
+    height: 320px;
+}
+.initial_screen .tab_content {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 10px;
+}
+.tab_content table tr td {
+    padding: 7px;
+}
+.title {
+    background: #f2f4f7;
+    border: none;
+    padding-top: 14px !important;
+}
+#gameChart {
+    height: 270px;
+}
+#gameChart .gameChart_drawGraph_area,
+#gameChart .gameChart_server_list_area {
+    margin-top: 14px;
+}
+#gameChart .gameChart_server_list_area .gameChart_server_list_title {
+    border-top: 1px solid #DEE3EB;
+    font-size: 14px;
+}
+#gameChart .gameChart_server_list_area .gameChart_server .server_name,
+#gameChart .gameChart_server_list_area .gameChart_server .server_price {
+    font-size: 13px;
+}
+#gameChart .gameChart_title_list div {
+    font-size: 15px;
+}
+.rank_list {
+    float: initial;
+    width: 50%;
+    height: 264px;
+    padding-top: 6px;
+}
+.rank_list li {
+    margin-top: 20px;
+}
+.fixed-height {
+    height: 270px;
+}
+.inquery_part {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+.inquery_part .bottom_info {
+    margin-left: 18px;
+}
+.call_num {
+    font: initial;
+    font-size: 40px;
+    font-weight: bold;
+}
+.call_txt {
+    margin-left: 4px;
+}
+.plus_icon,
+.move_btn {
+    top: 16px;
+}
+.charge_list {
+    width: 100%;
+}
+.charge_list li {
+    width: 132px;
+}
+.charge_list li a {
+    border-right:none;
+}
+.service_list label .SpGroup {
+    margin: 10px auto 7px;
+}
+.service_layer .service_list li {
+    height: 90px;
+}
+.service_list .tmp_checkbox {
+    right: 10px;
+    left: initial;
+}
+/* End region

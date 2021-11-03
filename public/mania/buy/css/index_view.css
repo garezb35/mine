@@ -1,0 +1,12 @@
+.aside .title_green{ padding:10px 0; background-color:#39A742; text-align:center; color:#FFF; font-size:16px; }
+.aside .menu_know{ padding:0 10px 25px; border:1px solid #E1E1E1; border-top:0; background-color:#F0F0F0; text-align:center; }
+.aside .menu_know p{ padding:7px 0 5px; text-align:center; font-size:13px; font-weight:bold; }
+.aside .menu_know img{ margin-bottom:12px; }
+.aside .menu_know .g_list{ margin-top:3px; padding:8px 7px; background-color:#FFF; color:#767676; line-height:15px; font-size:11px; }
+.aside .menu_know .g_list li{ margi-bottom:8px; }
+.g_content .box6{ margin-top:20px; padding:40px 0; text-align:center; }
+.reg_icon{ display:inline-block; width:48px; height:39px; background:url(//img2.itemmania.com/new_images/buy/icon_buy_comp.png) no-repeat; }
+.box6 .complete_txt{ margin:14px 0 24px; color:#13A33F; font-size:16px; font-weight:bold; text-align:center; }
+.g_green_table td{ line-height:20px; }
+.add_reg{ display:inline-block; width:156px; height:23px; margin-left:15px; line-height:23px; text-align:center; }
+.btn_list{ display:none }

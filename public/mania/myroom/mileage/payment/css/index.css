@@ -1,0 +1,12 @@
+table .g_text{ text-align:right; }
+.spnPayment_mileage{ font-size:15px; font-weight:bold; color:#FF2400; }
+.tb_bt_txt{ color:#636363; }
+.tb_bt_txt li:before{ content:'- ' }
+.tb_bt_txt li{ text-indent:-10px; padding-left:10px; }
+.ballon_24hours{ position:absolute; top:-36px; left:-32px; display:block; width:203px; height:35px; background:url(//img2.itemmania.com/images/myroom/payment_bubble.png) no-repeat; cursor:default }
+.box6{ margin-top:10px; }
+.box6 li{ position:relative; }
+.guide_txt{ position:absolute; right:0; color:#216ED7; text-decoration:underline; }
+#spnPayment_charge .btn_red1{ padding:0 5px;}
+.guide_info{ top:24px; right:0; width:250px;}
+.list_search_layer1{top:130px;width:270px;margin-left:-135px;}

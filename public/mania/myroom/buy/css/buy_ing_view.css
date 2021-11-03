@@ -1,0 +1,69 @@
+/*
+ * @title		íŒë§¤ì¤‘ì¸ë¬¼í’ˆ
+ * @author		ê¹€ë³´ëžŒ
+ * @date		2012.01.30
+ * @update		ìˆ˜ì •ë‚ ì§œ(ìˆ˜ì •ìž)
+ * @description
+ */
+
+/* â–¼ ë¬¼í’ˆì¸ê³„ì‹œ ì£¼ì˜ì‚¬í•­ */
+#transfer_info{ margin-top:10px }
+#transfer_info li{ margin-left:20px }
+#transfer_info .first{ margin-bottom:10px }
+/* â–² ë¬¼í’ˆì¸ê³„ì‹œ ì£¼ì˜ì‚¬í•­ */
+/* â–¼ ë ˆì´ì–´ */
+#dvTradeSellCheck{ width:668px }
+#dvTradeSellCheck .layer_content{ text-align:center }
+#dvTradeSellCheck #goods_img{ margin-left:66px }
+#dvTradeSellCheck #goods_info{ margin:10px auto 0 }
+#dvTradeSellCheck #goods_info li{ height:25px }
+#dvTradeSellCheck .blue_box{ width:509px; height:55px; margin:10px auto 0; padding:10px 0; border:2px solid #E1E1E1; background-color:#E8F2FF; text-align:center }
+#dvTradeSellCheck .blue_box div{ text-align:center }
+#dvTradeSellCheck .blue_box .g_sideway{ margin:10px 20px; padding-top:10px; border-top:1px dotted #D4D4D4 }
+#dvTradeSellCheck .blue_box .g_sideway .g_radio{ margin-left:25px }
+#dvTradeSellCheck .blue_box .g_sideway .first{ margin-left:0 }
+#dvTradeSellCheck .g_list{ margin-top:15px; padding:10px 0 10px 25px; border:1px solid #EBEBEB; background-color:#FBFBFB }
+#dvTradeSellCheck .g_list li{ margin-left:5px }
+#dvTradeSellCheck .g_list .list_non{ margin:2px 0 0 0; padding-left:0; font-weight:bold }
+#dvTradeSellCheck .g_green_table{ border:1px solid #E2E2E2; border-top:2px solid #E2E2E2 }
+#dvTradeSellCheck .g_green_table th{ background-color:#FBFBFB }
+/* í˜„ê¸ˆì˜ìˆ˜ì¦ */
+.layer_content #receipt_table{ margin-top:25px }
+#receipt_table{ width:630px; border:1px solid #E2E2E2; border-top:2px solid #E2E2E2 }
+#receipt_table tr th{ background-color:#FBFBFB; border-right:1px solid #E2E2E2 }
+#dvTradeSellCheck .g_gray_table #juminnumber td div{ height:25px; line-height:25px }
+#dvTradeSellCheck .g_gray_table #juminnumber td div .g_text{ text-align:center }
+#dvTradeSellCheck .g_gray_table #juminnumber td #info_phone_div .g_text{ width:60px }
+#dvTradeSellCheck .g_gray_table #juminnumber td div #info_jumin{ margin-left:20px }
+/* í˜„ê¸ˆì˜ìˆ˜ì¦ */
+/* â–² ë ˆì´ì–´ */
+.screenshot_info{ margin-bottom:5px; padding:20px 5px 20px 20px; height:70px; background-color:#FBFBFB; border:1px solid #E1E1E1 }
+.bpoint .gray_img{ float:left; padding:18px 10px; background-color:#E7EFF9 }
+.bpoint .user_point{ position:relative; width:110px; height:119px; background:url(//img3.itemmania.com/images/bpoint/img_bpoint.jpg) no-repeat }
+.bpoint .user_point p{ position:absolute; top:75px; left:5px; width:55px; text-align:center; font-size:16px; color:#F4F700; font-weight:bold }
+.bpoint .bpoint_info{ float:left; width:570px; padding:18px 20px 0 }
+.bpoint .top_img{ padding-bottom:13px; border-bottom:1px solid #E2E2E2 }
+.bpoint .g_list{ margin-top:11px; color:#767676; font-size:11px }
+.bpoint_layer .b_box{ overflow:hidden; padding:10px 20px 15px; border:1px solid #E2E2E2; background-color:#E7EFF9 }
+.bpoint_layer .w_box{ float:left; margin:15px 0 0 20px; padding:15px 20px; border:1px solid #C9D3E2; background-color:#FFF; font-size:11px; color:#555 }
+.bpoint_layer .g_list{ margin-top:10px; padding:10px 20px 20px; border:1px solid #E2E2E2; color:#407FD4; font-size:11px }
+.bpoint_layer .g_list dt{ margin-top:10px; font-weight:bold }
+.g_list dd{ padding-left:7px; background:url(//img4.itemmania.com/images/icon/icon_spot.gif) no-repeat 0px 7px }
+.g_list .list_non{ background:none }
+
+.elt_contract{max-width:1000px;}
+.elt_contract .g_btn_wrap .btn_blue3{width:100px;height:35px;line-height:33px;text-align:center;font-weight:bold;}
+.elt_contract .character_info{overflow:hidden;}
+.character_info table{float:left;width:50%;}
+.character_info table+table{margin-top:0;}
+.contract_box{overflow-y:auto;box-sizing:border-box;height:370px;margin-bottom:20px;padding:20px;border:2px solid #D5E2F2;white-space:pre-wrap;color:#5B5B5B;}
+.contract_box .contract_title{padding:10px 0;background-color:#E8F2FF;font-size:18px;font-weight:bold;text-align:center;color:#1D1D1D;}
+.contract_box table{width:60%;border-top:1px solid #000;}
+.contract_box table tr th, .contract_box table tr td{height:auto;padding:5px 10px;border:1px solid #5B5B5B;font-weight:normal;text-align:left;color:#5B5B5B;}
+.contract_box .under{box-sizing:border-box;display:inline-block;min-width:60px;padding:0 20px;border-bottom:1px solid #5B5B5B;}
+.contract_box .uinfo{display:inline-block;width:60px;}
+
+
+.g_title_green{
+    border-bottom: none !important;
+}

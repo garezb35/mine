@@ -1,0 +1,96 @@
+body {
+    font-family: Roboto !important;
+}
+
+.d-flex {
+    display:flex;
+}
+.position-ref {
+    position: relative;
+}
+.m-auto {
+    margin: auto;
+}
+.p-0 {
+    padding: 0 !important;
+}
+
+.w-init {
+    width: inherit;
+}
+.w-100 {
+   width: 100%;
+}
+.w-50 {
+    width: 50%;
+}
+
+.align-center {
+    text-align: center;
+}
+.align-right {
+    text-align: right;
+}
+
+.no-border {
+    border: none !important;
+}
+.border-bottom {
+    border-bottom: solid 1.2px #d3d3d3 !important;
+}
+.border-normal {
+    border: solid 1.2px #d3d3d3 !important;
+}
+
+.c-white {
+    color: white !important;
+}
+.c-black {
+    color: black !important;
+}
+
+.f-30 {
+    font-size: 30px !important;
+}
+.f-28 {
+    font-size: 28px !important;
+}
+.f-26 {
+    font-size: 26px !important;
+}
+.f-24 {
+    font-size: 24px !important;
+}
+.f-22 {
+    font-size: 22px !important;
+}
+.f-20 {
+    font-size: 20px !important;
+}
+.f-18 {
+    font-size: 18px !important;
+}
+.f-16 {
+    font-size: 16px !important;
+}
+.f-15 {
+    font-size: 15px !important;
+}
+.f-14 {
+    font-size: 14px !important;
+}
+.f-13 {
+    font-size: 13px !important;
+}
+.f-12 {
+    font-size: 12px !important;
+}
+.f-11 {
+    font-size: 11px !important;
+}
+.f-normal {
+    font-weight: normal !important;
+}
+.back-normal {
+    background-color: #f2f4f7 !important;
+}

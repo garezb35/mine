@@ -1,0 +1,52 @@
+/* ìƒë‹¨ */
+.top_box{width: 820px;height: 110px;background-position: -2px -1846px;}
+.top_box > .top_title{padding: 20px 0 5px 60px;font-size: 18px;font-weight: bold;color: #454952;}
+.top_box p{padding: 0 0 0 60px;font-size: 14px; color: #454952;}
+
+/* ë¦¬ìŠ¤íŠ¸ */
+.g_subtitle .attention{float:right; font-weight: lighter; font-size:12px;}
+.goods_alarm_table_wrapper p{ text-align: center;}
+.goods_alarm_table_wrapper p.alarm_table_title{font-weight: bold;}
+.goods_alarm_table_wrapper .alarm_switch{background-color: #159efd; width:60px; line-height: 26px; color:#fff; font-weight: bold; display: inline-block; text-align: center; cursor:pointer;}
+.goods_alarm_table_wrapper .alarm_switch.buy{background-color: #13a33f;}
+.goods_alarm_table_wrapper .alarm_switch.off{background-color: #636363; }
+.goods_alarm_table_wrapper .alarm_delete{background-color: #c6c6c6; width:50px; line-height: 26px; font-weight: bold; display: inline-block; text-align: center; cursor:pointer;}
+.goods_alarm_table_wrapper .alarm_show{background-color: #159efd; width:100px; line-height: 26px; color:#fff; font-weight: bold; display: inline-block; text-align: center; cursor:pointer;}
+.goods_alarm_table_wrapper .alarm_show.buy{background-color: #13a33f;}
+.goods_alarm_table_wrapper .alarm_show.off{background-color: #636363; }
+.goods_alarm_table_wrapper .new{display: inline-block;width: 15px;height: 15px;margin-right: 2px;margin-top: -2px;background: url(//img4.itemmania.com/new_images/sell/btn_s_new.gif) no-repeat;vertical-align: middle;text-indent: -9999px;}
+.alarm_icon{margin-left:5px;}
+.alarm_icon img{vertical-align: top; margin-top:2px;}
+/* ë“±ë¡ */
+.g_green_table .search_wrap{border-color:#00C73C;}
+.g_green_table .search_wrap .g_search_list{background-color:#00C73C; }
+.g_green_table .g_search_frame{border-color:#00C73C;}
+.server_select_noti{padding:5px 0;}
+.add_subject{width:100px;padding-left:5px;}
+.character_noti:nth-of-type(1){padding-top:10px;}
+/*.initial_screen{display: none;}*/
+.search_box{ overflow:hidden; margin-bottom:20px; padding:10px 20px; border:1px solid #E2E2E2; background-color:#F6F6F6; line-height:23px; }
+.search_box .pdl{ padding-left:10px; }
+.search_box a input{ vertical-align:middle; }
+.ft_orange{color:#FF4E00;}
+.g_list li:before, .g_list dd:before{content:"-";}
+
+.search_wrap{position:relative;box-sizing:border-box;height:38px;border:2px solid #159EFD;}
+.search_wrap .input_area{position:relative;padding-left:13px;box-sizing:border-box;width:calc(100% - 65px);}
+.search_wrap .input_area .g_text{width:100%;height:23px;margin-top:5px;border:0;outline:0;line-height:23px;}
+.input_area .search_gs_name ~ .delete_btn{top:8px;}
+.search_wrap .favorite_icon{position:absolute;top:6px;right:45px;display:block;width:23px;height:22px;background:url(//img1.itemmania.com/new_images/sell/icon_star_off.png) no-repeat;text-indent:-9999px;}
+.search_wrap .favorite_icon.on{background:url(//img1.itemmania.com/new_images/sell/icon_star.png) no-repeat;}
+.search_wrap .g_search_list{position:absolute;top:-1px;right:-1px;width:40px;height:36px;background-color:#159EFD;}
+.search_wrap .icon_search{top:5px;left:10px;}
+
+#alarmAdd h5{padding-top:20px;}
+#alarmAdd select{width:180px; height:30px; margin-right:10px;}
+.goods_radio_wrapper{margin-top:5px; border:1px solid #ebedee;display: inline-block; line-height: 34px; padding:0 5px;}
+.goods_alarm_btn_wrapper{text-align: center; padding:35px; }
+.form_btn{width:150px; line-height: 44px; text-align: center; color:#fff; font-weight:bold; font-size:14px;}
+.form_btn.sell{background-color:#159efd; }
+.form_btn.buy{background-color:#00C73C; }
+.form_btn.cancel{background-color: #c6c6c6; color:#1d1d1d;}
+.g_popup{max-width: 100%; border:0;}
+.rereg_pop{cursor:pointer;}

@@ -1,0 +1,6 @@
+#search_table .g_selectbox{ display:inline; float:left }
+#search_year, #search_year_end{ width:55px }
+#search_month, #search_month_end, #search_day, #search_day_end{ width:43px }
+#search_date .date_text{ margin:2px 3px 0 }
+#search_date .g_right{ width:190px; margin-top:1px; }
+.tb_list{ margin-top:10px; }

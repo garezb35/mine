@@ -1,0 +1,947 @@
+.aside{
+    border: 1px solid #A3A3A3;
+    padding-bottom: 25px;
+}
+.aside .title_blue{
+    padding:10px 0;
+    font-size:16px;
+    text-align:center;
+    color:#DA9898;
+}
+.aside .menu_know{
+    text-align:center;
+}
+.aside .menu_know p.heads{
+
+    font-size:16px;
+    text-align:center;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background: #DA9898;
+    color: white;
+    margin-bottom: 16px;
+}
+.aside .menu_know img{
+    margin-bottom:12px;
+}
+.aside .menu_know .g_list{
+    margin-top:3px;
+    padding: 8px 7px 0px 7px;
+    background-color:#FFF;
+    font-size:11px;
+    line-height:15px;
+    color:#767676;
+}
+.aside .menu_know .g_list li{
+    margi-bottom:8px;
+    padding-left: 0px !important;
+;
+}
+.g_blue_table td{
+    line-height:20px;
+}
+.g_blue_table input[type=text]:focus{
+    background-color:#FEFEEC;
+}
+.reg_gameserver{
+    width: 100%;
+}
+.search_wrap {
+    position: relative;
+    box-sizing: border-box;
+    height: 38px;
+    border: 2px solid #159EFD;
+}
+
+.search_wrap1{
+    right: 0px;
+    z-index: 111;
+    width: 438px;
+    position:absolute;
+    height: 46px;
+    line-height: 46px;
+}
+
+.search_wrap1 .input_area .g_text{
+    margin-top: 0px !important;
+}
+.search_wrap1 .delete_btn{
+    top: 13px !important;
+}
+
+.search_wrap1 .g_search_list{
+   height: 43px !important;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+}
+
+.search_wrap1 .favorite_icon{
+    top: 10px !important;
+}
+.search_wrap .input_area{
+    position:relative;
+    padding-left:13px;
+    box-sizing:border-box;
+    width:calc(100% - 65px);
+}
+.search_wrap .input_area .g_text{
+    width:100%;
+    height:23px;
+    margin-top:5px;
+    border:0;
+    outline:0;
+    line-height:23px;
+}
+.input_area .search_gs_name ~ .delete_btn{
+    top:8px;
+}
+.search_wrap .favorite_icon{
+    position:absolute;
+    top:6px;
+    right:45px;
+    display:block;
+    width:23px;
+    height:22px;
+    background:url(//img1.itemmania.com/new_images/sell/icon_star_off.png) no-repeat;
+    text-indent:-9999px;
+}
+.search_wrap .favorite_icon.on{
+    background:url(//img1.itemmania.com/new_images/sell/icon_star.png) no-repeat;
+}
+.search_wrap .g_search_list{
+    position:absolute;
+    top:0;
+    right:0;
+    width:40px;
+    height:36px;
+    background-color:#159EFD;
+}
+.search_wrap .icon_search{
+    top:5px;
+    left:10px;
+}
+.mygame{
+    overflow:hidden;
+    box-sizing:border-box;
+    margin-top:7px;
+    border:1px solid #D5E2F2;
+}
+.mygame .th{
+    float:left;
+    box-sizing:border-box;
+    width:130px;
+    height:98px;
+    padding-top:30px;
+    border-right:1px solid #D5E2F2;
+    background-color:#E8F2FF;
+    text-align:center;
+}
+.mygame .th .btn_blue3{
+    padding:0 3px;
+    font-size:11px;
+}
+.mygame .g_blue_table td{
+    padding:3px 5px;
+    cursor:pointer;
+}
+.mygame .sub_txt{
+    margin:7px 0 0 7px;
+    font-size:12px;
+}
+.mygame .mygame_list{
+    float:left;
+    overflow:auto;
+    box-sizing:border-box;
+    width:518px;
+    height:98px;
+    padding:7px 8px;
+    color:#767676;
+}
+.mygame .mygame_list .empty{
+    padding:30px 0;
+    text-align:center;
+}
+.mygame .mygame_list li{
+    position:relative;
+    margin-bottom:2px;
+    padding:0 20px 0 18px;
+}
+.mygame .mygame_list .del_btn{
+    position:absolute;
+    top:4px;
+    right:0;
+    display:block;
+    width:13px;
+    height:13px;
+    background-color:#A0A0A0;
+    text-align:center;
+    cursor:pointer;
+    color:#FFF;
+}
+.mygame .mygame_list .del_btn:before{
+    position:absolute;
+    top:-5px;
+    left:4px;
+    content:"x";
+}
+.coms_area{
+    position:absolute;
+    top:10px;
+    right:0;
+    display:none;
+}
+.coms_area2{
+    position:absolute;
+    top:30px;
+    right:0;
+}
+.g_txtbtn{
+    display:inline-block;
+    padding:0px 5px;
+    border:1px solid #9B9B9B;
+    background-color:#FCFCFC;
+    font-size:11px;
+    cursor:pointer;
+}
+.g_txtbtn:hover{
+    border-color:#1076D1;
+    color:#1076D1;
+}
+.g_txtbtn.first_btn{
+    margin-left:10px
+}
+.discount{
+    position:relative;
+    margin-top:7px;
+}
+.discount .g_text{
+    width:80px;
+    margin-right:5px;
+    text-align:center;
+}
+.discount_quantity_cnt{
+    margin-left:3px;
+}
+.discount_price{
+    margin-left:10px;
+}
+.guide_txt{
+    font-size:11px;
+    text-decoration:underline;
+    color:#216ED7;
+}
+.discount .guide_txt{
+    position:absolute;
+    top:21px;
+    right:0;
+}
+.discount .g_msgbox{
+    top:47px;
+    right:0;
+}
+.dfServer{
+    float:left;
+    margin-right:10px
+}
+.df_server_code{
+    float:left;
+    margin-right:3px;
+}
+.character_noti{
+    clear:both;
+    font-size:12px;
+    color:#FF2400;
+}
+.item_detail_opts{
+    float:left;
+    margin-bottom:5px;
+}
+.item_detail_opts .btn_white1{
+    display:inline-block;
+    width:36px;
+    font-size:11px;
+    font-weight:bold;
+    text-align:center;
+    line-height:16px;
+}
+.bargain_area{
+    margin-bottom:5px;
+}
+.min_user_bargain{
+    display:none;
+}
+.min_user_bargain .g_right{
+    display:none;
+}
+.wideview{
+    float:right;
+    padding:0 4px 2px;
+    border:1px solid #696969;
+    background-color:#8E8E8E;
+    font-size:11px;
+    line-height:15px;
+    color:#F5F4F4;
+}
+.txtarea.wide{
+    height:230px;
+}
+.slt_item_info select{
+    margin-left:5px;
+}
+.slt_item_info_txt{
+    padding-left:5px;
+}
+.slt_item_info .btn_add{
+    display:inline-block;
+    width:42px;
+    height:23px;
+    margin-left:4px;
+    background:url(//img2.itemmania.com/new_images/sell/btn_add.gif) no-repeat;
+    vertical-align:middle;
+    text-indent:-9999px;
+}
+.dv_power{
+    overflow:hidden;
+    padding-bottom:10px;
+}
+.dv_power > .g_left{
+    margin-right:10px;
+}
+/* lineageM ì•„ì´í…œ ìƒì„¸ ê²€ìƒ‰ */
+.item_detail_srh{
+    font-size:12px;
+    letter-spacing:-1px;
+}
+.item_detail_srh p{
+    font-weight:bold;
+}
+.item_detail_srh ul{
+    overflow:hidden;
+    margin-bottom:10px;
+    padding:5px 10px 2px;
+    border-top:1px solid #E2E2E2;
+    border-bottom:1px solid #E2E2E2;
+    background-color:#F7F7F7;
+}
+.item_detail_srh ul li{
+    display:inline-block;
+    margin:0 10px 3px 0;
+;
+}
+.item_detail_srh select{
+    height:20px;
+    vertical-align:top;
+}
+.item_detail_search select{
+    width:170px;
+    font-size:12px;
+}
+.item_detail_srh label{
+    display:inline-block;
+    padding-right:5px;
+    vertical-align:top;
+}
+.item_detail_srh .prc_area{
+    margin-top:5px;
+}
+.item_detail_srh .btn_blue4{
+    margin-right:10px;
+    padding:4px 8px;
+}
+.item_detail_srh .btn_gray1{
+    margin-left:10px;
+    padding:4px 8px;
+}
+.item_detail_srh .item_can{
+    padding:10px 0;
+    background-color:#E8F2FF;
+    font-weight:bold;
+    text-align:center;
+    color:#767676;
+}
+.item_guide_txt{
+    padding:15px 0;
+    font-weight:bold;
+    color:#F26522;
+}
+.item_detail_srh select{
+    color:#000;
+}
+.item_detail_srh select:disabled{
+    color:#9B9B9B;
+}
+/* lineageM ì•„ì´í…œ ìƒì„¸ ê²€ìƒ‰ */
+.g_subtitle .btn_area{
+    position:absolute;
+    right:0;
+    bottom:5px;
+}
+.g_subtitle .btn_white1{
+    display:inline-block;
+    padding:0 19px 0 14px;
+    font-size:11px;
+    font-weight:normal;
+}
+/*.g_subtitle a:after{*/
+/*    position:absolute;*/
+/*    top:-1px;*/
+/*    margin-left:2px;*/
+/*    content:"\203A";*/
+/*    font-size:26px;*/
+/*    color:#159EFD;*/
+/*}*/
+.g_subtitle .btn_blue{
+    display:inline-block;
+    height:23px;
+    padding:0 19px 0 14px;
+    background-color:#4288C6;
+    font-size:11px;
+    font-weight:normal;
+    vertical-align:middle;
+    line-height:20px;
+    color:#FFF;
+}
+.g_subtitle .btn_blue:after{
+    color:#FFF;
+}
+.g_subtitle .f_small{
+    font-weight:normal;
+}
+.charge_service{
+    overflow:hidden;
+    position: absolute;
+    top: 72px;
+    width: 100%;
+}
+.charge_service dl{
+    float:left;
+    box-sizing:border-box;
+    width:25%;
+}
+.charge_service dl:first-child{
+    margin-left:0;
+}
+
+.charge_service dl:first-child>div{
+    border-color: #FDB416;
+}
+.charge_service dl:nth-child(2)>div{
+    border-color: #29DF94;
+}
+.charge_service dl:nth-child(3)>div{
+    border-color: #63A7D2;
+}
+.charge_service dl:nth-child(4)>div{
+    border-color: #B195E0;
+}
+
+.charge_service dt{
+    padding: 3px 0;
+    font-weight: bold;
+    text-align: center;
+    width: 97px;
+    margin: auto;
+}
+
+.charge_service dl>div{
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 1px solid;
+    border-radius: 15px;
+    background: white;
+    height: 354px;
+    position: relative;
+}
+.charge_service dd{
+    box-sizing:border-box;
+    height:153px;
+    padding:10px 0;
+    text-align:center;
+}
+.charge_service dd > div{
+    text-align:center;
+}
+.charge_service .charge_price{
+    margin-bottom:10px;
+}
+.charge_service .sub_txt{
+    margin:7px 0 15px;
+    font-size:12px;
+}
+.charge_service .exp{
+    margin:4px 0 7px;
+    font-size:12px;
+}
+.charge_service select{
+    width:110px;
+    margin-bottom:5px;
+}
+.charge_service #user_icon_use,.charge_service #user_bluepen_use, .charge_service #rereg_count, .charge_service #rereg_time{
+    width:100px;
+}
+.charge_service .premium_sel{
+    margin-top:10px;
+}
+.charge_service .free_view{
+    padding: 10px 20px 10px 20px;
+    border-radius: 18px;
+    display: block;
+    width: 140px;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+}
+.charge_service label{
+    display:inline-block;
+    width:60px;
+    margin:-6px 5px 0 0;
+    text-align:right;
+    vertical-align:middle;
+    font-size: 13px;
+}
+.goods_emphasis label{
+    width:46px;
+}
+.total_charge{
+    clear:both;
+    padding:15px 0;
+    border:1px solid #F3F5FA;
+    border-top:0;
+    background-color:#F3F5FA;
+    font-size:18px;
+    text-align:center;
+    margin-top: 25px;
+}
+.charge_service .total_charge div{
+    margin-top:5px;
+    text-align:center;
+}
+.charge_service .total_label{
+    font-size:15px;
+    font-weight:bold;
+}
+.charge_service .total_charge_money{
+    font-size:17px;
+    font-weight:bold;
+}
+.new{
+    display:inline-block;
+    width:15px;
+    height:15px;
+    margin-right:2px;
+    margin-top:-2px;
+    background: url(//img4.itemmania.com/new_images/sell/btn_s_new.gif) no-repeat;
+    vertical-align:middle;
+    text-indent:-9999px;
+}
+.compensation .box7{
+    position:relative;
+    padding:20px;
+}
+.compensation .box7 .guide_txt{
+    position:absolute;
+    top:20px;
+    right:20px;
+}
+.compensation .box7 .g_msgbox{
+    top:42px;
+    right:20px;
+}
+.compensation .des_txt{
+    position:relative;
+    margin:4px 0 8px;
+}
+.compensation .box3{
+    padding:15px 25px;
+    font-size:12px;
+    line-height:20px;
+}
+.compensation .box3 dd strong{
+    margin-right:3px;
+}
+.compensation .box3 ul{
+    margin-top:10px;
+}
+.private_area .guide_txt{
+    position:absolute;
+    top:10px;
+    right:5px;
+}
+.private_area .safe_area .g_msgbox{
+    top:32px;
+    right:5px;
+}
+.private_area .excellent_txt{
+    float:left
+}
+.private_area .excellent{
+    float:left;
+    margin-left:10px;
+}
+.private_area .excellent li{
+    width:73px;
+}
+.private_area .btn_white1.after{
+    position:relative;
+    display:inline-block;
+    margin-left:3px;
+    padding:0px 18px 1px 10px;
+    font-size:11px;
+}
+.private_area .btn_white1.after:after{
+    position:absolute;
+    top:-3px;
+    margin-left:1px;
+    content:"\203A";
+    font-size:26px;
+    color:#159EFD;
+}
+.g_btn_wrap .sell_reg{
+    display:inline-block;
+    width:139px;
+    height:44px;
+    background:url(/mania/img/button/btn-charge.png) no-repeat 100%;
+    vertical-align:middle;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+}
+.g_btn_wrap .sell_re_reg{
+    display:inline-block;
+    width:137px;
+    height:46px;
+    background:url(//img3.itemmania.com/new_images/btn/btn_sell_re.gif) no-repeat;
+    vertical-align:middle;
+    text-indent:-9999px;
+}
+.g_btn_wrap .cancel_reg{
+    display:inline-block;
+    width:137px;
+    height:44px;
+    background:url(/mania/img/button/btn-myroom.png) no-repeat;
+    vertical-align:middle;
+    color: #fff;
+    text-align: center;
+    line-height: 44px;
+    font-size: 18px;
+}
+.noti_txt{
+    padding-top:20px;
+    font-size:11px;
+;
+    text-align:center;
+    color:#ED1C24;
+}
+/* â–¼ í”„ë¦¬ë¯¸ì—„ ë ˆì´ì–´ */
+.premium_info .inner{
+    width:460px;
+    padding:20px;
+;
+}
+.premium_info .pre_title{
+    font-weight:bold;
+    text-align:center;
+    color:#216ED7;
+}
+.premium_info .middle_text{
+    padding:20px 0;
+    text-align:center;
+}
+.premium_info .mile_area{
+    text-align:center;
+}
+.premium_info .dvpremium{
+    margin-top:20px;
+    border-top:1px solid #000;
+    border-bottom:2px solid #404040;
+}
+.premium_info .dvpremium .g_left, .premium_info ul .dvpremium .g_right{
+    height:32px;
+    padding-left:15px;
+    line-height:28px;
+}
+.premium_info .dvpremium .g_clear{
+    height:32px;
+    padding-left:15px;
+    border-top:1px solid #D9D9D9;
+    background-color:#F2F2F2;
+    line-height:30px;
+}
+.premium_info .dvpremium .btn_blue3{
+    display:block;
+    height:auto;
+    margin-top:6px;
+    padding:2px 4px;
+    line-height:normal;
+}
+/* â–² í”„ë¦¬ë¯¸ì—„ ë ˆì´ì–´ */
+.reg_info .inner{
+    width:670px;
+}
+.reg_info .attention{
+    height:20px;
+    margin-top:10px;
+    padding:12px 0 3px 15px;
+    background:url(//img4.itemmania.com/images/icon/icon_v.gif) no-repeat 0 -491px;
+    font-size:12px;
+    color:#ED1C24;
+}
+.reg_info .attention_box{
+    padding:15px 20px;
+    border:1px solid #E8C5C5;
+    background-color:#FFEDE8;
+    font-size:13px;
+    color:#767676;
+}
+.reg_info .attention_box li{
+    margin-bottom:3px;
+    font-weight:bold;
+}
+.reg_info .attention_box .f_blue3{
+    margin-top:10px;
+    font-size:11px;
+    font-weight:normal;
+}
+.reg_info .attention_box li .deco{
+    text-decoration:underline;
+    color:#FF2400;
+}
+.reg_info .box6{
+    margin-top:10px;
+    padding:15px 20px;
+    color:#767676;
+}
+.reg_info .last_txt{
+    margin-top:10px;
+    font-weight:bold;
+    text-align:center;
+}
+.reg_info .g_btn_wrap{
+    margin-top:20px;
+}
+.reg_info .g_blue_table2{
+    margin-top:10px;
+}
+.restrict_msg{
+    margin-bottom:10px;
+}
+.reg_info_character .inner{
+    width:1000px;
+}
+.reg_info_character .g_btn_wrap .sign_btn{
+    width:100px;
+    height:35px;
+    font-weight:bold;
+    text-align:center;
+    line-height:35px;
+}
+.reg_info_character .character_info{
+    overflow:hidden;
+}
+.character_info table{
+    float:left;
+    width:50%;
+}
+.character_info table + table{
+    margin-top:0;
+}
+.contract_box{
+    overflow-y:auto;
+    box-sizing:border-box;
+    height:370px;
+    margin-bottom:20px;
+    padding:20px;
+    border:2px solid #D5E2F2;
+    white-space:pre-wrap;
+    color:#5B5B5B;
+}
+.contract_box .contract_title{
+    padding:10px 0;
+    background-color:#E8F2FF;
+    font-size:18px;
+    font-weight:bold;
+    text-align:center;
+    color:#1D1D1D;
+}
+.contract_box table{
+    width:60%;
+    border-top:1px solid #000;
+}
+.contract_box table tr th, .contract_box table tr td{
+    height:auto;
+    padding:5px 10px;
+    border:1px solid #5B5B5B;
+    font-weight:normal;
+    text-align:left;
+    color:#5B5B5B;
+}
+.contract_box .under{
+    display:inline-block;
+    box-sizing:border-box;
+    min-width:60px;
+    padding:0 20px;
+    border-bottom:1px solid #5B5B5B;
+}
+.contract_box .uinfo{
+    display:inline-block;
+    width:60px;
+}
+#paycoinLineageEventText{
+    margin-bottom:5px;
+    padding:0 5px;
+    background:#F00;
+    color:white;
+}
+/* ë¬¼í’ˆë“±ë¡ ì•Œë¦¬ë¯¸ */
+#alarm_line{
+    display: none;
+}
+.f_small{
+    display:inline-block;
+    margin-bottom:10px;
+}
+#alarm_line .alarm_notice{
+    vertical-align: top;
+}
+#tag_generator{
+    margin-right:15px;
+    height:23px;
+    padding:0 5px;
+}
+.character_use_info{
+    float:right;
+    position:relative;
+}
+.character_use_info .btn_white1{
+    display: inline-block;
+    padding: 0 19px 0 14px;
+    font-size: 11px;
+    font-weight: normal;
+}
+.character_use_info a:after{
+    position:absolute;
+    top:-1px;
+    margin-left:2px;
+    content:"\203A";
+    font-size:26px;
+    color:#159EFD;
+}
+.tag_wrapper h4{
+    padding:5px 0;
+}
+.tag_wrapper h4 span{
+    color:#7C7C7C;
+    font-size:11px;
+}
+.tag_wrapper span.tag{
+    display: inline-block;
+    margin:0px 15px 10px 0;
+    color:#159efd;
+    cursor: pointer;
+}
+.alarm_ballon{
+    position:absolute;
+    width:150px;
+    text-align: center;
+    padding:10px 0;
+    border:2px solid #159efd;
+    border-radius: 10px;
+    top:-50px;
+    right:10px;
+    background-color: #fff;
+    color:#159efd;
+}
+.alarm_ballon:after{
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 20px;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border: 2px solid #159efd;
+    transform: rotate(45deg);
+    border-left: 0;
+    border-top: 0;
+}
+.alarm_ballon .close_btn:after{
+    position:absolute;
+    top:3px;
+    right:7px;
+    display:block;
+    font-size:15px;
+    content: 'x';
+    margin-top:-4px;
+    font-weight:bold;
+    margin-left:-1px;
+    cursor: pointer;
+    color:#159efd;
+}
+.sell_alarm_keyword{
+    color:#159efd;
+}
+#tag_more{
+    font-size:11px;
+    padding:0 10px;
+}
+.no_keyword{
+    font-size:11px;
+}
+
+
+.g_search_frame{
+
+}
+
+.initial_screen .tab>div{
+    line-height: 45px !important;
+    height: 45px !important;
+}
+
+.g_search_wrapper::before{
+    clear: both;
+}
+
+.g_search_wrapper1{
+    height: 300px !important;
+}
+
+
+.g_search_frame1{
+    height: 280px;
+    display: block !important;
+    top: 0px !important;
+    border: none !important;
+    padding: 0px !important;
+}
+
+.gs_list1{
+    margin-top: 56px;
+    height: calc(100% - 56px) !important;
+    width: 99% !important;
+    border: solid 1px #CACACA;
+}
+
+.g_search_list1 .icon_search{
+    background-image: none !important;
+}
+
+.g_subtitle, .g_subtitle_blue{
+    padding: 15px 0 8px !important;
+}
+
+.euro-service:before{
+    clear: both;
+}
+
+.euro-service{
+    overflow: hidden;
+    position: relative;
+    height: 428px;
+}
+
+

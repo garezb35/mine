@@ -1,0 +1,15 @@
+/*
+ * @title		íŒì—… ìŠ¤íƒ€ì¼
+ * @author		ê¹€ë³´ëžŒ
+ * @date		ë‚ ì§œ
+ * @update		ìˆ˜ì •ë‚ ì§œ(ìˆ˜ì •ìž)
+ * @description
+ */
+
+#popup_title_bar, .popup_title_bar{padding:10px 0 13px 20px;background-color:#1A375B;border-top:5px solid #407FD4;text-align:left;color:#FFF;font-weight:bold;font-size:18px;line-height:22px;}
+#g_POPUP, #g_POPUP2{ margin:0 auto }
+#g_POPUP{ padding:20px 20px 0 }
+#g_POPUP2{ padding:20px; }
+.g_btn{ margin:25px 0 10px; }
+.g_btn .first{ margin-right:6px }
+table td{ font-size:12px; }

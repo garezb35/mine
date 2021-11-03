@@ -1,0 +1,198 @@
+/*
+ * @title		myroom ë©”ì¸
+ * @author		ìœ ì¤€í˜¸
+ * @date		2018.06.25
+ * @update		2020.07.21 (ê°•í¬ê²½)
+ * @description
+ */
+.mr_top{ width:100%; height:150px; margin-bottom:30px;background-color: #F9F9FA; border:1px solid #EFF0F2; /* overflow:hidden; */ }
+.mr_top > div{ float:left; }
+/* â–¼ myroom top box area */
+.credit_mark2 {display:block;width:75px; height:87px; margin:30px 50px 0 55px; text-indent:-9999px;}
+.credit_BRONZE{background-image:url(//img1.itemmania.com/new_images/myroom/mark_bronze.png);}
+.credit_SILVER{background-image:url(//img1.itemmania.com/new_images/myroom/mark_silver.png);}
+.credit_GOLD{background-image:url(//img1.itemmania.com/new_images/myroom/mark_gold.png);}
+.credit_PLATINUM{background-image:url(//img1.itemmania.com/new_images/myroom/mark_platinum.png);}
+.credit_VIP{background-image:url(//img1.itemmania.com/new_images/myroom/mark_vip.png);}
+
+.f_BRONZE{color:#2EB30C;}
+.f_SILVER{color:#9B9B9B;}
+.f_GOLD{color:#FFA62E;}
+.f_PLATINUM{color:#ED3969;}
+.f_VIP{color:#785BDB;}
+
+.mr_top > .mr_user_level_txt{ position:relative; width:400px;font-size:16px; font-weight: bold}
+.mr_top > .mr_user_level_txt > .user_level_txt{height:25px; margin:36px 0 5px 0; line-height:25px; font-size:25px; font-family:Tahoma; font-weight: bold}
+.mr_top > .mr_user_level_txt > .mr_user_benefit_btn_wrapper {margin-top: 15px;}
+.mr_top > .mr_user_level_txt > .mr_user_benefit_btn_wrapper > .mr_user_benefit_btn {display:inline-block; width:75px; height:23px; text-align:center; line-height:23px; border:1px solid #CBCBCB; background-color: #FFF; font-size: 12px; cursor:pointer;}
+.mr_top > .mr_user_level_txt > .mr_user_benefit_btn_wrapper > .mr_user_benefit_btn .arr{display:inline-block; width:5px; margin-left:3px; background: url(//img4.itemmania.com/new_images/myroom/icon_btn_comp.png) no-repeat 0 50%; text-indent: -9999px;}
+.mr_top > .mr_user_level_txt > .mr_user_benefit_btn_wrapper > #credit_condition{ display:none; position:absolute; padding:18px 14px; margin-top:5px; left:20%; width:max-content; min-width:350px; z-index:1; border:2px solid #606E89; text-align:center; font-size:15px; background-color:white; }
+.mr_top > .mr_user_level_txt > .mr_user_benefit_btn_wrapper > #credit_condition > span{ font-size:15px; font-weight:bold; }
+.mr_top > .mr_user_level_txt > .mr_user_benefit_btn_wrapper > #credit_condition > span.credit_up_silver{ color:#9B9B9B; }
+.mr_top > .mr_user_level_txt > .mr_user_benefit_btn_wrapper > #credit_condition > span.credit_up_gold{ color:#FFA62E; }
+.mr_top > .mr_user_level_txt > .mr_user_benefit_btn_wrapper > #credit_condition > span.credit_up_platinum{ color:#ED3969; }
+.mr_top > .mr_user_level_txt > .mr_user_benefit_btn_wrapper > #credit_condition > span.credit_up_vip{ color:#785BDB; }
+
+
+.mr_top > .mr_user_mileage_txt {float:right;margin-right:50px;}
+.mr_top > .mr_user_mileage_txt > .mileage_area{margin-bottom:10px;  text-align: right;}
+.mr_top > .mr_user_mileage_txt > .mileage_area:first-child{margin-top:25px;}
+
+.mr_top > .mr_user_mileage_txt > .mileage_area > .mileage_area_content, .mr_top > .mr_user_mileage_txt > .mileage_area > .mileage_all_result, .mr_top > .mr_user_mileage_txt > .mileage_area > .mileage_result {display: inline-block;}
+.mr_top > .mr_user_mileage_txt > .mileage_area > .mileage_area_content {margin-right:50px; font-size: 18px; font-weight: bold;}
+.mr_top > .mr_user_mileage_txt > .mileage_area > .mileage_result { width:202px; height:36px; font-size: 30px; font-family:Tahoma; font-weight: bold; text-align: right; }
+.mr_top > .mr_user_mileage_txt > .mileage_area > .mileage_result > .over_mile{ overflow:hidden; width:179px; display: inline-block; vertical-align: top; text-align: right;}
+.mr_top > .mr_user_mileage_txt > .mileage_area > .mileage_result > .won {font-size: 16px; font-family:"ë§‘ì€ ê³ ë”•","Malgun Gothic"; font-weight: bold;}
+.mr_top > .mr_user_mileage_txt > .mileage_area > .mileage_all_result {width:202px; font-size: 18px; font-family:Tahoma; font-weight: bold; text-align: right;}
+.mr_top > .mr_user_mileage_txt > .mileage_area > .mileage_all_result > .won {font-size: 16px; font-family:"ë§‘ì€ ê³ ë”•","Malgun Gothic"; font-weight: bold;}
+.mr_top > .mr_user_mileage_txt > .mileage_area > .mileage_btn {display:inline-block; width:165px; height:23px; margin-left:6px; background-color:#FFF; border:1px solid #CBCBCB; text-align:center; line-height:23px; font-size: 12px; cursor:pointer;}
+.mr_top > .mr_user_mileage_txt > .mileage_area > .mileage_charge_btn > .icon_charge{display:inline-block; width:18px; height:15px; margin-right:5px; background-position:-269px -356px; vertical-align:text-bottom; text-indent:-9999px;}
+.mr_top > .mr_user_mileage_txt > .mileage_area > .mileage_withdraw_btn > a > .icon_withdraw{display:inline-block; width:18px; height:15px; margin-right:5px; background-position:-287px -357px; vertical-align:text-bottom;text-indent:-9999px;}
+/* â–² myroom top box area */
+
+/* â–¼ myroom content area */
+.g_content{ width:820px }
+/* â–² myroom content area */
+
+/* â–¼ ë‚˜ì˜ ì¿ í°í•¨ */
+.g_content > .content_coupon {margin-top:-15px;}
+.g_content > .content_area {position: relative; width:100%;}
+.g_content > .content_area > .g_subtitle{display: block; width:100%; height:auto; background-color: initial; font-size:15px;}
+.g_content > .content_coupon {font-size:0;}
+.g_content > .content_coupon > .g_subtitle{margin-top:1px;}
+.g_content > .content_coupon > div {display: inline-block; width:98px; height:100px; margin-right:10px; background-color: #F9F9FA; font-size:12px;}
+.g_content > .content_coupon :last-child {margin-right: 0;}
+.g_content > .content_coupon > .coupon_shop {width:170px; vertical-align:top;}
+.g_content > .content_coupon > .coupon_area_content > .coupon_title {display:block; margin-top:22px; font-size:14px; font-weight: bold; text-align: center;}
+.g_content > .content_coupon > .coupon_area_content > .coupon_result {display:block; margin-top:15px; font-size:25px; font-weight: bold; text-align: center; font-family: Tahoma; cursor:pointer;}
+.g_content > .content_coupon > .coupon_area_content > .coupon_sp {overflow:hidden; width:170px;}
+/* â–² ë‚˜ì˜ ì¿ í°í•¨ */
+
+/* â–¼ ë‚˜ì˜ ê±°ëž˜í˜„í™© */
+.bs_content{width:820px; height:90px; border:none;}
+.g_content > .content_trade > .sell_content2{margin-bottom: 10px; background:linear-gradient(to right,#159EFD, #12CFA9); font-size:0;}
+.g_content > .content_trade > .buy_content2{ background:linear-gradient(to right,#47C826, #DACD00); font-size:0;}
+.g_content > .content_trade > .sell_content2 > .sell_content_left, .g_content > .content_trade > .sell_content2 > .sell_content_right {display:inline-block; vertical-align: top; font-size:0; height:90px;}
+.g_content > .content_trade > .buy_content2 > .buy_content_left, .g_content > .content_trade > .buy_content2 > .buy_content_right {display:inline-block; vertical-align: top; font-size:0; height:90px;}
+.g_content > .content_trade > .sell_content2 > .sell_content_right, .g_content > .content_trade > .buy_content2 > .buy_content_right {margin-left:4px;}
+
+
+.g_content > .content_trade > .sell_content2 >.sell_content_left > div {display: inline-block;}
+.g_content > .content_trade > .buy_content2 > .buy_content_left > div {display: inline-block;}
+.g_content > .content_trade > .sell_content2 .product_title, .g_content > .content_trade > .buy_content2 .product_title{margin:0 23px 12px 0; font-size:14px; font-weight: bold; color:#FFF;}
+.g_content > .content_trade  .product{display:inline-block; width:162px; height:90px; margin:0 auto; vertical-align: top; }
+.g_content > .content_trade  .product > div{vertical-align: top;}
+.g_content > .content_trade  .product_line{ display:inline-block; margin:15px 0 0 0; width:1px; height:60px; background-color: #FFF;}
+.g_content > .content_trade  .arrow_wrap{display:inline-block; width:20px; height:90px; vertical-align:top;}
+.g_content > .content_trade  .arrow_wrap > .arr2{display:block; width:20px; height:90px; background:url(//img4.itemmania.com/new_images/myroom/icon_next_m.png) no-repeat 0 50%; text-indent:-9999px;}
+.g_content > .content_trade  .product > .product_title2 > a {margin-left:5px;}
+.g_content > .content_trade  .product > .product_title2 > a > .detail_btn{display:inline-block; width:13px; background:url(//img4.itemmania.com/new_images/myroom/btn_m_detail01.png) no-repeat 0 50%; text-indent:-9999px;}
+.g_content > .content_trade  .product_wrap{ position:relative; vertical-align: top;}
+.g_content > .content_trade  .product_wrap > div > div {display: inline-block; vertical-align: middle;}
+.g_content > .content_trade  .trade_result{width:90px; color:#FFF; font-size:20px; font-family: Tahoma; font-weight: bold; }
+.g_content > .content_trade  .trade_result > a {overflow: hidden; display:block; width:70px;text-align: center;}
+.g_content > .content_trade  .trade_result2{ color:#FFF; font-size:25px; font-family: Tahoma; font-weight: bold;}
+.g_content > .content_trade  .trade_result2 > a {overflow: hidden; display:block; width:162px; margin-top:-5px; text-align: center;}
+
+.g_content > .content_trade  .complete_wrap > a { display:block; text-align: center;}
+.g_content > .content_trade  .complete_wrap > a > .btn_detail {display:inline-block; width:81px; height:22px;  background:url(//img4.itemmania.com/new_images/myroom/btn_myroom_detail.png) no-repeat; }
+
+.g_content > .content_trade  .icon_wrap > .sell_icon{display:block; width:60px; height:35px; margin:28px 25px 0 25px; background-position: -488px -314px; text-indent:-9999px;}
+.g_content > .content_trade  .icon_wrap > .buy_icon{display:block; width:60px; height:35px; margin:28px 25px 0 25px; background-position: -550px -314px; text-indent:-9999px;}
+
+.g_content > .content_trade  .product_wrap > .sell_product > .product_title,
+.g_content > .content_trade  .product_wrap > .buy_product > .product_title,
+.g_content > .content_trade  .product_wrap > .bargain_product > .product_title {margin:0 23px 0 0}
+
+.g_content > .content_trade  .product_wrap > .sell_product, .g_content > .content_trade  .product_wrap > .buy_product {margin:15px 0 10px 0;}
+.g_content > .content_trade > .sell_content2 .product_title2, .g_content > .content_trade > .buy_content2 .product_title2{ margin-top:17px; margin-right:0; text-align: center;}
+/* â–² ë‚˜ì˜ ê±°ëž˜í˜„í™© */
+
+/* â–¼ ìµœê·¼ ê±°ëž˜ë‚´ì—­ */
+.g_content > .content_area > .content_table_wrap{ position:relative; width:100%; }
+.g_content > .content_area > .content_table_wrap > table{border:none; border-collapse: separate; border-spacing: 0 5px; font-size: 12px;}
+.g_content > .content_area > .content_table_wrap > table > thead > tr > th{ background:none; border-top:2px solid #000; }
+.g_content > .content_area > .content_table_wrap > table > tbody > tr > td{padding-left:0; text-align:center; border:none; }
+.g_content > .content_area > .content_table_wrap > table > tbody > tr > .tbl_subject{ padding-left:36px; text-align:left; }
+/*.g_content > .content_area > .content_table_wrap > table > tbody > tr > .td_blue > span {background-color: green}*/
+.g_content > .content_area > .content_table_wrap > table > tbody > tr > .td_blue::before{ content:'â—' ;}
+.g_content > .content_area > .content_table_wrap > table > tbody > tr > .td_blue{ color:#159EFD}
+.g_content > .content_area > .content_table_wrap > table > tbody > tr > .td_green{ color:#39A742}
+.g_content > .content_area > .content_table_wrap > table > tbody > tr > .td_green::before{ content:'â—' ;}
+.g_content > .content_area > .content_table_wrap > table > tbody > .tbl_sell_area{ background:#F1F7FF;}
+.g_content > .content_area > .content_table_wrap > table > tbody > .tbl_buy_area{ background:#F4FBF4;}
+/*.g_content > .content_area > .content_table_wrap > table > tbody > .tbl_sell_area > td > .tbl_success_btn{ text-align:center; width:53px; height:17px; line-height:16px; margin-top:3px; display:inline-block; background-color:#159EFD; color:#FFF; vertical-align:middle; border:1px solid #1076D1; }*/
+/*.g_content > .content_area > .content_table_wrap > table > tbody > .tbl_buy_area > td > .tbl_success_btn{ text-align:center; width:53px; height:17px; line-height:16px; margin-top:3px; display:inline-block; background-color:#39A742; color:#FFF; vertical-align:middle; border:1px solid #13A33F; }*/
+.g_content > .content_area > .content_table_wrap > table > tbody > .tbl_sell_area > td > .tbl_success_txt{ color:#159EFD; font-weight: bold;}
+.g_content > .content_area > .content_table_wrap > table > tbody > .tbl_buy_area > td > .tbl_success_txt{ color:#39A742; font-weight: bold;}
+/* â–² ìµœê·¼ ê±°ëž˜ë‚´ì—­ */
+
+/* â–¼ ë‚˜ì˜ ë³´ì•ˆ ë° ì¸ì¦ìƒíƒœ */
+.g_content > .content_area_bottom_left{ width:490px; float:left; z-index:1; }
+.g_content > .content_area_bottom_left > .my_security_state_wrap{ position:relative; width:100%; height:200px; }
+/*.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_line{ position:absolute; width:1px; height:150px; background:#E1E1E1; top:25px; left:234px; }*/
+.g_content > .content_area_bottom_left > .my_security_state_wrap .box_inline{ display:inline-block; font-size:0; vertical-align: top;}
+.g_content > .content_area_bottom_left > .my_security_state_wrap .box_inline .box_font{ font-size:14px;}
+.g_content > .content_area_bottom_left > .my_security_state_wrap .box_inline > div {display: inline-block; font-size:0; }
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_up{ width:500px; height:80px; background:#F9F9FA; margin-bottom:10px; font-size:0;}
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down{ width:500px; height:80px; background:#F9F9FA; font-size:0; }
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_up > :first-child,
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down > :first-child {width:215px;}
+
+/*.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down > .box_right_content,*/
+/*.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_up > .box_left_content{ position:absolute; width:167px; left:calc(50% - 83.5px); }*/
+.g_content > .content_area_bottom_left .security_icon,
+.g_content > .content_area_bottom_left .security_center_go{ display: inline-block;}
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_up > .box_inline > .security_wrap,
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down > .box_inline > .certify_wrap{ margin:0 19px 0 30px; width:37px; line-height:80px; }
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_up > .box_inline > .security_wrap > .security_icon{ display:inline-block; width:37px; height:40px; background-position: -269px -314px; vertical-align: middle; }
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_up > .box_inline > .security_center_go{ height:80px; line-height:80px; font-size: 15px; font-weight: bold; vertical-align: top; }
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_up > .box_inline > .security_center_go > a > .arr3{ display:inline-block; width:13px; margin-left:3px; background:url(//img4.itemmania.com/new_images/myroom/btn_m_detail02.png) no-repeat 0 50%; text-indent: -9999px;}
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_up > .box_inline2 { width:245px;}
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_up > .box_inline2 > div{ display:block; font-weight: bold;}
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_up > .box_inline2 > :first-child{margin-top:13px;}
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_up > .box_inline2 > div > .service_state{ float:right;}
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_up > .security_center_go{ top:147px; text-align:center; height:28px; background:#586175; color:#FFF; line-height:26px; letter-spacing:-1px; }
+
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down > .box_inline > .certify_wrap > .certify_icon{ display:inline-block; width:37px; height:40px; background-position: -308px -314px; vertical-align: middle; }
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down > .box_inline > .basic_title{ height:80px; line-height:80px; font-size: 15px; font-weight: bold; vertical-align: top;}
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down > .box_inline2 > div{ display: inline-block; width:46px; height:80px; margin-right: 5px;}
+
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down > .box_inline2 > .cert_excellent{background:url(//img4.itemmania.com/new_images/myroom/img_stats01.png) no-repeat 0 50%; }
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down > .box_inline2 > .cert_hp{background:url(//img4.itemmania.com/new_images/myroom/img_stats02.png) no-repeat 0 50%; cursor:pointer;}
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down > .box_inline2 > .cert_email{background:url(//img4.itemmania.com/new_images/myroom/img_stats03.png) no-repeat 0 50%; cursor:pointer;}
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down > .box_inline2 > .cert_ipin{background:url(//img4.itemmania.com/new_images/myroom/img_stats04.png) no-repeat 0 50%; cursor:pointer;}
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down > .box_inline2 > .cert_account{background:url(//img4.itemmania.com/new_images/myroom/img_stats05.png) no-repeat 0 50%; cursor:pointer;}
+
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down > .box_inline2 > .cert_excellent_on{background:url(//img4.itemmania.com/new_images/myroom/img_stats01_on.png) no-repeat 0 50%; }
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down > .box_inline2 > .cert_hp_on{background:url(//img4.itemmania.com/new_images/myroom/img_stats02_on.png) no-repeat 0 50%; cursor:default;}
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down > .box_inline2 > .cert_email_on{background:url(//img4.itemmania.com/new_images/myroom/img_stats03_on.png) no-repeat 0 50%; cursor:default;}
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down > .box_inline2 > .cert_ipin_on{background:url(//img4.itemmania.com/new_images/myroom/img_stats04_on.png) no-repeat 0 50%; cursor:default;}
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down > .box_inline2 > .cert_account_on{background:url(//img4.itemmania.com/new_images/myroom/img_stats05_on.png) no-repeat 0 50%; cursor:default;}
+
+
+.g_content > .content_area_bottom_left > .my_security_state_wrap > .box_down > .box_inline2 .certify{ z-index:1; position:absolute;left:50%; display:none; box-sizing:border-box; width:max-content; min-width:207px; margin-top:80px; padding:7px; border:2px solid #606E89; background-color:white; font-size:11px; font-weight:normal; text-align:center;color:#1D1D1D; }
+/* â–² ë‚˜ì˜ ë³´ì•ˆ ë° ì¸ì¦ìƒíƒœ */
+
+/* â–¼ ë‚˜ë§Œì˜ ì „ìš©ì„œë¹„ìŠ¤ */
+.g_content > .content_area_bottom_right{ width:310px; height:auto; float:left; margin-left:20px; }
+.g_content > .content_area_bottom_right > .content_box_wrap{ position:relative; width:100%; height:170px; background:#F9F9FA; font-size:0; }
+/*.g_content > .content_area_bottom_right > .content_box_wrap > .content_icon{ position:absolute; width:53px; height:53px; background:url(//img1.itemmania.com/new_images/myroom/myroom_sp.png) no-repeat; top:30px; }*/
+.g_content > .content_area_bottom_right > .content_box_wrap > .my_service_wrap{display:inline-block; width:103px; height:170px; margin:0 auto; }
+.g_content > .content_area_bottom_right > .content_box_wrap > .my_service_wrap > .content_icon{ width:103px; height:40px; margin:24px 0 10px 0; text-align: center;}
+.g_content > .content_area_bottom_right > .content_box_wrap > .my_service_wrap > .content_icon > span { display:inline-block; width:45px; height:40px;}
+.g_content > .content_area_bottom_right > .content_box_wrap > .my_service_wrap > .content_icon >.my_service_icon{ background-position:-346px -314px; }
+.g_content > .content_area_bottom_right > .content_box_wrap > .my_service_wrap > .content_icon >.my_search_icon{ background-position:-394px -314px; }
+.g_content > .content_area_bottom_right > .content_box_wrap > .my_service_wrap > .content_icon >.my_setting_icon{ background-position:-441px -314px; }
+.g_content > .content_area_bottom_right > .content_box_wrap > .my_service_wrap > .content_text{ margin-bottom:15px; font-size:14px; font-weight: bold; text-align: center;}
+.g_content > .content_area_bottom_right > .content_box_wrap > .my_service_wrap > .content_btn{width:103px; text-align: center}
+.g_content > .content_area_bottom_right > .content_box_wrap > .my_service_wrap > .content_btn > a { display:inline-block; width:75px; height:23px; background-color:#FFF; border:1px solid #CBCBCB; font-size:12px; line-height:23px; text-align:center;}
+.g_content > .content_area_bottom_right > .content_box_wrap > .my_service_wrap > .content_btn > a > .arr{display:inline-block; width:5px; margin-left:3px; background: url(//img4.itemmania.com/new_images/myroom/icon_btn_comp.png) no-repeat 0 50%; text-indent: -9999px;}
+.g_content > .content_area_bottom_right > .content_box_wrap > .my_service_text{ }
+.g_content > .content_area_bottom_right > .content_box_wrap > .my_search_text{  }
+.g_content > .content_area_bottom_right > .content_box_wrap > .my_setting_text{ }
+/* â–² ë‚˜ë§Œì˜ ì „ìš©ì„œë¹„ìŠ¤ */
+
+/* â–¼ myroom_banner */
+.myroomBannerdown {position:relative;top:10px;}
+/* â–² myroom_banner */

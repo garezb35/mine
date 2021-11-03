@@ -1,0 +1,45 @@
+/* ë ˆì´ì–´ ë°°ë„ˆ */
+.list_layer{z-index:30;position:relative;left:50%;float:left;clear:both;overflow:hidden;}
+.list_search_layer{top:85px;width:270px;margin-left:-135px;}
+.m_close{height:30px;text-align:center;}
+.m_close_dark{background-color:#000;color:#FFF;}
+.m_close .g_left{display:inline;margin:8px 0 5px 12px;font-size:12px;color:#FFF;}
+.m_close .g_right{display:inline;margin-top:6px;margin-right:10px }
+.trade_search_bottom{padding-top:20px;}
+.layer_banner{z-index:30;position:absolute;left:50%;overflow:hidden;}
+.trade_main{opacity:1;width:446px;height:424px;margin-left:-223px;transition:all .5s ease;}
+.trade_main.off{opacity:0;height:0;}
+
+#top_banner{height:80px;background-position:center center;background-size:auto 80px;text-align:center;}
+#top_banner .banner_center{position:relative;width:1080px;margin:0 auto;}
+#top_banner .banner_center a{display:block;position:relative;width:100%;height:80px;}
+#top_banner .g_button{position:absolute;top:10px;right:-20px;}
+
+.notiBanner{z-index:998;position:absolute;top:-220px;left:50%;width:1850px;height:170px;margin-left:-925px;background:url(//img3.itemmania.com/images/banner/top/bg_shadow.png) no-repeat 0 -50px;text-align:center }
+.notiBanner .notiClose{z-index:999;position:relative;top:65px;left:-10px;margin-left:-60px;cursor:pointer }
+.notiBannerBottom{z-index:998;position:fixed;bottom:-300px;left:50%;width:980px;height:50px;margin-left:-498px;text-align:center }
+.notiBannerBottom .notiClose{z-index:999;position:absolute;top:0;right:0;width:102px;height:50px;background-image:url(about:blank);cursor:pointer }
+.notiBannerBottom .clickArea{display:block;z-index:999;position:absolute;top:0;left:0;width:878px;height:50px;background-image:url(about:blank);}
+
+#credit_appli{width:451px }
+#mobile_app{width:521px }
+#mileage_app, #credit_appli, #mobile_app{left:0;margin-bottom:-250px }
+
+/* í¬íƒˆ ëžœë¤ ë°°ë„ˆ */
+.portalRbGroup{width:100%;height:80px;}
+
+
+/*  ê´‘ê³  ì •ë³´ ìˆ˜ì‹  ë™ì˜ ë ˆì´ì–´  */
+#dvAdInfoAgree .inner .cont_top { margin-top:10px; color:#1D1D1D; font-size:15px; font-weight: bold; text-align: center;}
+#dvAdInfoAgree .inner .inner_check { width:390px; height:60px; margin:10px 0 20px; background-color:#F2F2F2; color:#1D1D1D; font-size:15px; font-weight: bold; text-align: center; line-height: 60px;}
+/*#dvAdInfoAgree .inner .inner_check > input{ display:none; }*/
+/*#dvAdInfoAgree .inner .inner_check label{position:relative; display:inline-block; height:22px; margin-top:20px; padding-left:30px; background:url(//img3.itemmania.com/new_images/icon/icon_check.png) no-repeat;   line-height:22px; cursor:pointer; }*/
+/*#dvAdInfoAgree .inner .inner_check input:checked + label{ background:url(//img3.itemmania.com/new_images/icon/icon_check_on.png) no-repeat; }*/
+#dvAdInfoAgree .inner > p { color:#1D1D1D; font-size:12px; }
+#dvAdInfoAgree .inner .g_btn_wrap {margin:20px 0 5px;}
+#dvAdInfoAgree .cont_bt { height:40px; background-color: #F2F2F2; color:#1D1D1D; font-size:12px; text-align: center; line-height:40px; clear: both; }
+#dvAdInfoAgree .cont_bt > label{ position:relative; padding-left:20px; cursor:pointer;}
+#dvAdInfoAgree .cont_bt > label input[type=checkbox]{ position:absolute; top:10%; left:0; width:12px; height:12px; opacity:0; z-index:1;}
+#dvAdInfoAgree .cont_bt > label input[type=checkbox]+span{ position:absolute;  top:10%; left:0; display: inline-block; height:12px; vertical-align: top; line-height: 12px;}
+#dvAdInfoAgree .cont_bt > label input[type=checkbox]+span:before{ position:absolute; top:10%; left:0; box-sizing: border-box; width:12px; height:12px; content:""; border: 1px solid #1D1D1D;}
+#dvAdInfoAgree .cont_bt > label input[type=checkbox]:checked+span:after{ position:absolute; top:10%;left:0;  box-sizing: border-box; width:7px; height:4px; margin:3px 0 0 2px; content:""; transform: rotate(-45deg);border: 2px solid #1D1D1D; border-top:none; border-right:none;}

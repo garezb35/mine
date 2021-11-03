@@ -1,0 +1,1074 @@
+/*
+ * @title		íŒë‹ˆë‹¤ ë¦¬ìŠ¤íŠ¸
+ * @author		[F/E]ê¹€ë³´ëžŒ
+ * @date		2018.11.13
+ * @update		ìˆ˜ì •ë‚ ì§œ(ìˆ˜ì •ìž)
+ * @description
+ */
+
+.bn_list_top {
+    margin-bottom: 10px;
+}
+
+.list_sprite {
+    display: inline-block;
+    background: url(//img2.itemmania.com/new_images/sell/sp_list.png?190808) no-repeat;
+    vertical-align: middle;
+}
+
+.g_title_blue .trade_sub_title {
+    float: left;
+    font-size: 20px;
+    letter-spacing: -2px;
+}
+
+.g_title_blue .trade_sub_title li,.g_title_noborder .trade_sub_title li {
+    float: left;
+    margin-right: 15px;
+}
+
+.g_title_blue .trade_sub_title .game_name,.g_title_noborder .trade_sub_title .game_name {
+    font-size: 17px;
+    letter-spacing: -1px;
+    color: #1D1D1D;
+}
+
+.g_title_blue .trade_sub_title .game_name span {
+    vertical-align: middle;
+}
+
+.g_title_blue .trade_sub_title .quotation {
+    display: none;
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+.g_title_blue .trade_sub_title .quotation>span {
+    color: #767676;
+}
+
+.g_title_blue .trade_sub_title .quotation>a {
+    margin-left: 10px;
+    color: #9F9F9F;
+}
+
+.g_title_blue .trade_sub_title .quotation .f_normal {
+    font-weight: normal;
+}
+
+.btn_reg {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 98px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #159EFD;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: top;
+    cursor: pointer;
+    line-height: 28px;
+    color: white !important;
+}
+
+.trade_sub_title .favorite {
+    display: inline-block;
+    width: 23px;
+    height: 22px;
+    margin: 0 10px 0 4px;
+    cursor: pointer;
+}
+
+.trade_sub_title .favorite.onfav {
+    background-image: url(//img2.itemmania.com/new_images/sell/icon_star.png);
+}
+
+.trade_sub_title .favorite.offfav {
+    background-image: url(//img2.itemmania.com/new_images/sell/icon_star_off.png);
+}
+
+.g_tab {
+    table-layout: auto;
+    margin-bottom: 0;
+}
+
+.g_tab>* {
+    width: 17%;
+    height: 40px;
+    border-bottom: 2px solid #15E1FD;
+}
+
+.g_tab .selected {
+    border: 1px solid #E1E1E1;
+    border-top: 2px solid #15E1FD;
+    border-bottom: 0;
+    color: #159EFD;
+    border-right: 2px solid #15E1FD;
+    border-left: 2px  solid #15E1FD;
+}
+
+.g_tab .side {
+    width: 305px;
+    background: #E3F0F3;
+}
+
+.g_text_par{
+    border: 1px solid #159EFD;
+}
+
+.g_tab .icon_new {
+    display: inline-block;
+    width: 34px;
+    height: 13px;
+    margin: -3px 0 0 5px;
+    background: url(//img1.itemmania.com/new_images/icon/icon_char_new.png) no-repeat;
+    vertical-align: middle;
+}
+
+
+/* ê²€ìƒ‰ì˜ì—­ */
+
+.search_word {
+    font-size: 0;
+    text-align: right;
+}
+
+.search_word li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.search_word .btn_search {
+    display: inline-block;
+    width: 34px;
+    height: 29px;
+    background: #159efd;
+    cursor: pointer;
+    font-size: 19px;
+    text-align: center;
+    color: #fff;
+}
+
+.search_word input {
+    float: left;
+    width: 234px;
+    height: 29px;
+}
+
+.detail_search {
+    overflow: hidden;
+    width: 100%;
+    margin-top: 45px;
+    border-top: 1px solid #AECEE0;
+}
+
+.search_box {
+    position: relative;
+    overflow: hidden;
+}
+
+.search_box .search_reset {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    width: 75px;
+    height: 26px;
+    cursor: pointer;
+    border: 1px solid #159EFD;
+    line-height: 26px;
+    text-align: center;
+    color: #159EFD;
+}
+
+.search_box .search_row {
+    overflow: hidden;
+    height: 44px;
+    line-height: 44px;
+    border: 1px solid #AECEE0;
+    border-top: 0;
+}
+
+.search_box .search_row .search_tit {
+    float: left;
+    width: 172px;
+    margin-left: 0px;
+    padding-right: 10px;
+    font-weight: bold;
+    text-align: center;
+    border-right: 1px solid #AECEE0;
+}
+
+.search_box .search_row ul {
+    float: left;
+    width: 390px;
+}
+
+.search_box .search_row ul:last-child {
+    width: 450px;
+    margin-left: 25px;
+}
+
+.search_box .search_row li {
+    float: left;
+    margin-right: 12px;
+}
+
+.search_box .spec {
+    background-color: #F9F9F9;
+    line-height: 22px;
+}
+
+
+/* ì•„ì´í…œ ìƒì„¸ ê²€ìƒ‰ */
+
+.item_detail_search {
+    float: left;
+    overflow: hidden;
+    padding-left: 20px;
+}
+
+.item_detail_search .s_title {
+    float: left;
+    margin-top: 2px;
+    font-weight: bold;
+}
+
+.item_detail_search .item_list {
+    float: left;
+}
+
+.item_detail_search select {
+    width: 130px;
+    margin: 0 5px;
+    vertical-align: top;
+}
+
+.item_detail_search .hide {
+    display: none;
+}
+
+.detail_srh_btn {
+    float: left;
+    box-sizing: border-box;
+    width: 60px;
+    height: 23px;
+    margin-left: 10px;
+    padding-top: 1px;
+    border: 1px solid #159EFD;
+    background: #159EFD;
+    text-align: center;
+    color: #FFF;
+}
+
+
+/* ë¦¬ìŠ¤íŠ¸ì˜ì—­ */
+
+.g_subtitle {
+    font-size: 20px;
+}
+
+.loading {
+    width: 40px;
+    height: 40px;
+    margin: 15px auto;
+    background: url(//img1.itemmania.com/new_images/common/loading_blue.gif) no-repeat;
+}
+
+.opt_list {
+    display: inline-block;
+    margin-left: 7px;
+    font-size: 11px;
+    font-weight: 400;
+    vertical-align: middle;
+    color: #9F9F9F;
+}
+
+.opt_list>li {
+    float: left;
+    margin-right: 15px;
+    cursor: pointer;
+    border: 1px  solid #545454;
+    width: 99px;
+    height: 27px;
+    line-height: 27px;
+    text-align: center;
+    font-size: 14px;
+    color: #000;
+}
+
+.opt_list>.active {
+    color: #00B2FF;
+    border-color: #00B2FF;
+}
+
+.opt_list>li:before {
+    display: inline-block;
+    width: 10px;
+    height: 9px;
+    margin: -2px 3px 0 0;
+    content: "";
+    vertical-align: middle;
+}
+
+
+
+.opt_list>li>.orderbox {
+    display: inline-block;
+    width: 10px;
+    height: 9px;
+    margin-right: 3px;
+}
+
+.opt_list>.active>.orderbox {
+    background: url(//img2.itemmania.com/new_images/sell/sp_list.png?190227) no-repeat -194px -104px;
+}
+
+.search_list_all>.search_list>li>.col_01 {
+    width: 120px;
+}
+
+.search_list_all>.search_list>li>.col_02 {
+    width: 480px;
+}
+
+.search_list {
+    display: table;
+    table-layout: fixed;
+    clear: both;
+    width: 100%;
+}
+
+.search_list>li {
+    display: table-row;
+}
+
+.search_list>li>div {
+    position: relative;
+    display: table-cell;
+    box-sizing: border-box;
+    height: 60px;
+    border-bottom: 1px solid #AECEE0;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px;
+}
+
+.search_list>.power_product>.col_02 {
+    height: 80px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #216ED7;
+}
+
+.search_list>.empty>div {
+    width: 1080px
+}
+
+.search_list>li>.mulline {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.search_list>li>.col_01 {
+    width: 80px;
+    border-left: 1px solid #AECEE0;
+}
+
+.search_list>li>.col_02 {
+    width: 520px;
+}
+
+.search_list>li>.col_03 {
+    width: 140px;
+    color: #767676;
+}
+
+.search_list>li>.col_04 {
+    width: 270px;
+}
+
+.search_list>li>.col_05 {
+    width: 70px;
+    border-right: 1px solid #AECEE0;
+}
+
+.list_head>li>div {
+    position: relative;
+    box-sizing: border-box;
+    height: 40px;
+    border: 1px solid #AECEE0;
+    background-color: #E3F0F3;
+    text-align: center;
+    line-height: 38px;
+    color: #1D1D1D !important;
+    border-right: none;
+    border-left: none;
+}
+
+.list_head>li>.col_05{
+    border-right: 1px solid #AECEE0;
+}
+
+.list_head>li>.col_02 {
+    text-align: center;
+}
+
+.search_list>li:hover,
+.search_list>.on {
+    background-color: #E3F4FE;
+}
+
+.search_list>.power_product {
+    background-color: #FFFEF0;
+}
+
+
+/* quick icon*/
+
+.search_list>li>.col_02>.view_detail {
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    display: none;
+    width: 32px;
+    height: 32px;
+    background-image: url(//img2.itemmania.com/new_images/sell/sp_list.png);
+    background-repeat: no-repeat;
+    background-position: -2px -135px;
+    cursor: pointer;
+}
+
+.search_list>.power_product>.col_02>.view_detail {
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    display: none;
+    width: 32px;
+    height: 32px;
+    background-image: url(//img2.itemmania.com/new_images/sell/sp_list.png);
+    background-repeat: no-repeat;
+    background-position: -2px -135px;
+    cursor: pointer;
+}
+
+.search_list>li>.col_02>.view_detail_quick {
+    position: absolute;
+    top: 17px;
+    right: 10px;
+    display: none;
+    width: 102px;
+    height: 25px;
+    background-image: url(/mania/img/icons/speed.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.search_list>.power_product>.col_02>.view_detail_quick {
+    position: absolute;
+    top: 24px;
+    right: 10px;
+    display: none;
+    width: 73px;
+    height: 27px;
+    background-image: url(//img2.itemmania.com/new_images/sell/btn_quick.gif);
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.search_list>li:hover>.col_02:not(.active)>a {
+    cursor: auto;
+}
+
+.search_list>li:hover>.col_02.active>.view_detail {
+    display: block;
+}
+
+.search_list>li>.col_02>.view_detail_quick.on {
+    display: block;
+}
+
+.search_list>li>.col_02 .mulline>.title {
+    display: inline-block;
+    overflow: hidden;
+    max-width: 440px;
+    vertical-align: top;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.search_list>li>.col_02 .mulline>.title.title_bold {
+    font-weight: bold
+}
+
+.search_list>li>.col_02 .mulline>.title.title_blue {
+    color: #216ED7;
+}
+
+/*.search_list>li>.col_03>.mulline {*/
+/*    text-align: right;*/
+/*}*/
+
+.search_list>li>.col_03>.mulline>span {
+    font-weight: bold;
+    color: #216ED7;
+}
+
+.search_list>li>.col_04>i {
+    height: 41px;
+    margin-left: 10px;
+    text-indent: -9999px;
+}
+
+.search_list>li>.col_04>i:first-child {
+    margin-left: 0;
+}
+
+.search_list>li>.col_04>i.icon_good.active_icon {
+
+    background: url(/mania/img/icons/sp_list.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.search_list>li>.col_04>i.icon_dc.active_icon {
+
+    background: url(/mania/img/icons/discont_active.png );
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 50px !important;
+    width: 33px;
+}
+
+.search_list>.on {
+    background-color: #E3F4FE;
+}
+
+.search_list_premium>li {
+    display: block;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-top: 5px;
+    background-color: #F0F8FD;
+    box-shadow: 0px 0 0 1px #C3DAEA inset;
+}
+
+.search_list_premium>.power_product {
+    display: block;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-top: 5px;
+    background-color: #FFFEF0;
+    box-shadow: 0px 0 0 1px #97B0D6 inset;
+}
+
+
+/*.search_list_premium > li:before{content:'';position:absolute;top:0;left:0;!* width:100%;*!height:100%;box-shadow:0 0 0 1px #ADCBE2 inset;}*/
+
+.search_list_premium>li:first-child {
+    margin-top: 0;
+}
+
+.search_list_premium>li:not(.empty):hover,
+.search_list_premium>.on {
+    box-shadow: 0 0 0 2px #399FE7 inset;
+}
+
+.search_list_premium>.power_product:not(.empty):hover,
+.search_list_premium>.on {
+    background-color: #FFFEF0;
+    box-shadow: 0 0 0 2px #399FE7 inset;
+}
+
+.search_list_premium>.empty {
+    background: #E3F4FE;
+}
+
+.search_list_premium>li>div {
+    border-bottom: 0;
+    box-shadow: none;
+}
+
+.search_list_premium>li>.col_01:before {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 47px;
+    height: 58px;
+    content: "";
+    background: url(/mania/img/icons/premium.png) no-repeat;
+    background-size: unset;
+}
+
+.search_list_premium>.power_product>.col_01:before {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 55px;
+    height: 43px;
+    content: "";
+    background: url(//img2.itemmania.com/new_images/sell/img_power_tab.png) no-repeat;
+}
+
+.search_list_premium>li>.col_02 {
+    color: #585858;
+    width: 548px !important;
+}
+
+.search_list_premium>li>.col_04{
+    width: 285px;
+}
+
+.search_list_premium>li>.col_03{
+    width: 147px;
+}
+
+.search_list_premium>li>.col_05{
+    width: 76px;
+}
+
+.search_list_premium>li>.col_01{
+    width: 84px;
+}
+
+.search_list_premium>li>.col_02 .unit {
+    color: #216ED7;
+}
+
+.link_block {
+    color: #BDBDBD !important;
+}
+
+.link_block * {
+    color: #BDBDBD !important;
+}
+
+i.icon_good {
+    width: 45px;
+    height: 52px !important;
+    margin-left: 0;
+    background: url(/mania/img/icons/sp_list_1.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+i.icon_200 {
+    width: 43px;
+    background-position-x: -50px;
+}
+
+i.icon_200_buy {
+    width: 63px;
+    background-position-x: -235px;
+}
+
+i.icon_dc {
+    width: 35px;
+    height: 52px !important;
+    background: url(/mania/img/icons/discont.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+i.icon_nego {
+    width: 38px;
+    background-position-x: -139px;
+}
+
+.icon_bargain {
+    display: inline-block;
+    width: 29px;
+    height: 14px;
+    background: url(//img2.itemmania.com/images/icon/icon_bargain.gif) no-repeat;
+    vertical-align: middle;
+    text-indent: -9999px;
+}
+
+.load_more {
+    height: 38px;
+    margin-top: 20px;
+    border-bottom: 2px solid #AECEE0;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 38px;
+    color: #0AB5FF;
+}
+
+.load_more div{
+    text-align: center;
+}
+
+.more-btn {
+    font-size: 25px !important;
+    color: #978c8c;
+}
+
+.goTopDiv {
+    float: right;
+    margin: 15px 0;
+}
+
+.icon_power {
+    display: inline-block;
+    width: 56px;
+    height: 26px;
+    border-radius: 3px;
+    background-color: #216ED7;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    cursor: default;
+    line-height: 26px;
+    color: white;
+}
+
+.list_info {
+    position: relative;
+    padding-top: 7px;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.list_info>div {
+    float: left;
+    margin-left: 10px;
+}
+
+.list_info>.info_layer {
+    z-index: 1;
+    position: absolute;
+    top: 28px;
+    right: 33px;
+    display: none;
+    box-sizing: border-box;
+    width: 364px;
+    height: 200px;
+    padding: 12px 15px 0;
+    border: 1px solid #707070;
+    background-color: #FFF;
+    color: #636363;
+}
+
+.list_info>.info_layer.active {
+    display: block;
+}
+
+i.icon_info {
+    float: none;
+    width: 14px;
+    height: 14px;
+    margin: 0px 10px 0 5px;
+    background-position: -214px -104px;
+    cursor: pointer;
+}
+
+i.icon_refresh {
+    float: none;
+    width: 14px;
+    height: 14px;
+    margin-right: 10px;
+    background-position: -238px -104px;
+    cursor: pointer;
+}
+
+.list_info>.info_layer>.il_title {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.list_info>.info_layer>.il_close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: block;
+    width: 14px;
+    height: 13px;
+    background-position: -170px -104px;
+    cursor: pointer;
+}
+
+.list_info>.info_layer>.il_row {
+    height: 32px;
+    margin-bottom: 5px;
+    font-size: 11px;
+    line-height: 32px;
+}
+
+.list_info>.info_layer>.il_row>.il_btn {
+    float: left;
+    box-sizing: border-box;
+    width: 103px;
+    height: 32px;
+    margin-right: 10px;
+    border: 1px solid #CFCFCF;
+    border-radius: 3px;
+    background-color: #F7F7F7;
+    text-align: center;
+    line-height: 30px;
+}
+
+.list_info>.info_layer>.il_row>.il_btn>i {
+    height: 21px;
+    margin: -3px 5px 0 0;
+}
+
+.list_info>.info_layer>.il_row>.il_btn>.il_btn_good {
+    width: 15px;
+    background-position: -2px -104px;
+}
+
+.list_info>.info_layer>.il_row>.il_btn>.il_btn_g200 {
+    width: 17px;
+    background-position: -27px -104px;
+}
+
+.list_info>.info_layer>.il_row>.il_btn>.il_btn_g200_buy {
+    width: 17px;
+    background-position: -260px -104px;
+}
+
+.list_info>.info_layer>.il_row>.il_btn>.il_btn_dc {
+    width: 21px;
+    background-position: -53px -104px;
+}
+
+.list_info>.info_layer>.il_row>.il_btn>.il_btn_nego {
+    width: 18px;
+    background-position: -85px -104px;
+}
+
+.toggleer {
+    position: absolute;
+    left: 530px;
+    width: 42px;
+    height: 21px;
+    background-image: url(//img2.itemmania.com/new_images/sell/btn_list_up.gif);
+    cursor: pointer;
+}
+
+.toggleer.down {
+    background-image: url(//img2.itemmania.com/new_images/sell/btn_list_down.gif);
+}
+
+.premium_info {
+    position: absolute;
+    top: 11px;
+    right: 0px;
+    bottom: 5px;
+    box-sizing: border-box;
+    width: 131px;
+    height: 29px;
+    border: 1px solid #E0E0E0;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+    cursor: pointer;
+    line-height: 27px;
+}
+
+.premium_info::after {
+    margin-left: 5px;
+    content: "ã€‰ã€‰ã€‰";
+    font-weight: bold;
+    letter-spacing: -5.5px;
+    /* ê°™ì€ë¬¸ìžë¥¼ ê²¹ì¹˜ê²Œ ë‘ì–´ boldíš¨ê³¼ */
+    color: #159EFD;
+}
+
+.hasScreenshot {
+    display: inline-block;
+    width: 18px;
+    height: 13px;
+    background-image: url(//img2.itemmania.com/new_images/sell/sp_list.png?190227);
+    background-repeat: no-repeat;
+    background-position: -142px -104px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+
+/*.item_regInfo{display:none;box-sizing:border-box;width:450px;height:400px;position:fixed;top:50%;left:50%;margin-top:-225px;margin-left:-200px;background-color:white;z-index:1;border:2px solid #159EFD;}*/
+
+.item_regInfo.layer_active {
+    display: block;
+}
+
+.regInfo_subcontent {
+    overflow: hidden;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.regInfo_subcontent>li>div {
+    float: left;
+    height: 33px;
+    line-height: 31px;
+}
+
+.regInfo_subcontent>li {
+    overflow: hidden;
+    border-bottom: 1px solid #D5E2F2;
+}
+
+.regInfo_subcontent>li:first-child {
+    border-top: 1px solid #D5E2F2;
+}
+
+.regInfo_subcontent_label {
+    width: 110px;
+    background-color: #E8F2FF;
+    text-align: center;
+}
+
+.regInfo_subcontent_in {
+    box-sizing: border-box;
+    width: 232px;
+    padding-left: 15px;
+}
+
+.regInfo_subcontent_in>.credit_mark {
+    margin-bottom: 3px;
+}
+
+.regInfo_subcontent_in>.seller_rank {
+    font-weight: bold;
+}
+
+.regInfo_subcontent_in>.cert_state {
+    width: 62px;
+    height: 19px;
+    margin-right: 0;
+    line-height: 17px;
+}
+
+.item_regInfo .regInfo_btn {
+    width: 97px;
+    height: 35px;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+
+.item_regInfo .regInfo_btn.buyapp {
+    background-image: url(//img2.itemmania.com/new_images/btn/btn_buyapp.gif);
+}
+
+.item_regInfo .regInfo_btn.detail {
+    background-image: url(//img2.itemmania.com/new_images/btn/btn_detail.gif);
+}
+
+.sise_indicator {
+    margin-top: 12px;
+    font-size: 12px;
+    font-weight: normal;
+    letter-spacing: -1px;
+    color: black;
+}
+
+.sise_indicator>span {
+    margin: 0 2px;
+}
+
+.sise_indicator>.sise_up {
+    color: #159EFD;
+}
+
+.sise_indicator>.sise_up:before {
+    content: "â–²";
+}
+
+.sise_indicator>.sise_down {
+    color: #FF2400;
+}
+
+.sise_indicator>.sise_down:before {
+    content: "â–¼";
+}
+
+.list_highlight {
+    background-color: #FF9;
+    font-size: 12px;
+    font-weight: bold;
+    color: red;
+}
+
+.black {
+    color: #1D1D1D;
+}
+
+.alarm_float {
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%);
+    margin-left: 1150px;
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border: 2px solid #159efd;
+    color: #159efd;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: #E3F4FE;
+}
+
+.alarm_float p {
+    text-align: center;
+    font-size: 12px;
+}
+
+.alarm_float p img {
+    animation: swing ease-in-out 1.5s infinite;
+    transform-origin: 50% 0;
+}
+
+.alarm_float p:first-child {
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(10deg)
+    }
+    10% {
+        transform: rotate(-10deg)
+    }
+    20% {
+        transform: rotate(10deg)
+    }
+    30% {
+        transform: rotate(-10deg)
+    }
+    30% {
+        transform: rotate(-5deg)
+    }
+    50% {
+        transform: rotate(0deg)
+    }
+    75% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(0deg)
+    }
+}
+
+.col_02 .mulline>.title {
+    background: none !important;
+    border: none;
+    padding-top: 0px !important;
+}
+
+.g_tab_gray>*{
+    background-color: #E3F0F3;
+}
+
+.mulline{
+    text-align: center;
+}

@@ -1,0 +1,18 @@
+.tab_sib .f_blue3{ padding-left:2px; }
+.tab_sib .g_icon{ margin-left:10px; }
+/* â–¼ ë©”ì‹œì§€ ë¦¬ìŠ¤íŠ¸ */
+#split_btn{ float:left; width:60px }
+#split_btn_layer{ border:solid 1px #ABABAB; border-top:0; text-align:left }
+#split_btn_layer li{ padding:2px 5px }
+#split_btn_layer li:hover{ background-color:#F7F7F7 }
+#split_btn_options{ margin-left:-5px }
+/* â–² ë©”ì‹œì§€ ë¦¬ìŠ¤íŠ¸ */
+/* â–¼ ë©”ì‹œì§€ ë ˆì´ì–´ */
+#message_view{ width:654px }
+#message_view table{ width:614px; margin-bottom:10px }
+#message_view table tr th, #message_view table tr td{ border-left:0; border-right:0 }
+#message_view table tr td{ padding-left:10px; color:#767676; text-align:left }
+#dvMessage_content{ overflow-y:auto; width:580px; height:200px; padding:15px 10px }
+#message_view .g_left img{ margin-right:175px }
+#dvMessage_move{ margin-top:10px; }
+/* â–² ë©”ì‹œì§€ ë ˆì´ì–´ */

@@ -1,0 +1,44 @@
+/*ê³ ê°ì„¼í„° ê°œíŽ¸ */
+.customer_top{ height:125px; width:820px; border-top:0; margin: 20px 0;}
+.customer_top .g_left{ margin:42px 0 0 50px; _margin-left:25px;line-height: 1.6; font-size: 14px;}
+.customer_top .g_left.mt_30 { margin-top:33px;}
+.customer_top .g_left.mt_50 { margin-top:52px;}
+.customer_top .g_left li{ padding-left:10px; font-size:14px; font-weight: bold; color:#454952;}
+.customer_top .g_left .bg_icon{ background:url(//img3.itemmania.com/new_images/icon/img2_1vs1.jpg) no-repeat 0 3px }
+.customer_top .big_title{font-size:20px; font-weight: bold;}
+.g_title_blue{ margin-bottom:0; }
+.list_wrap{ border-top:2px solid #636363; }
+.list_wrap .sub_title{ border-bottom: 1px solid #E0E0E0; padding: 16px 0 16px 35px; cursor: pointer; color: #767676;}
+.list_wrap .subject{float: left;width: 135px; color: #216ED7; font-weight: bold;}
+.list_wrap .gray_box{overflow: hidden; display: none;padding: 15px 0; background-color: #f5f7f8; border-bottom: 1px solid #E8E8E8; }
+.list_wrap .subject .g_left { padding-right: 10px;}
+.list_wrap .gray_box img{ margin:0 9px 0 95px }
+
+.s_subtitle {position: relative; font-size: 16px; letter-spacing: -2px; height: 30px; margin-top:30px; color: #000;}
+
+.conBlockList { display: table; margin: 10px 0; width:100%; border: 1px solid #e0e0e0; table-layout: fixed; word-break: keep-all; clear: both; opacity: 1; padding: 0;}
+.conBlockList > li { display: table-cell; position: relative; padding: 30px 27px; border-left: 1px solid #e0e0e0; vertical-align: top;}
+.conBlockList > li:first-child { border-left: none;}
+.stepArrow > li:before { content: ''; position: absolute; top: 50%; right: -8px; width: 14px; height: 14px; margin-top: -5px; border-top: 1px solid #e2e2e2; border-right: 1px solid #e2e2e2; background-color: #fff; box-sizing: border-box; transform: rotate( 45deg); -ms-transform: rotate(45deg); z-index: 1;}
+.stepArrow > li:last-child:before{display: none;}
+.conBlockList .block { display: inline-block; position: relative; font-size: 16px;}
+.stepArrow .step { padding-top: 5px; color: #666; font-size: 14px; font-weight: 700;}
+.conBlockList .step { display: block; margin-bottom: 10px; color: #767676;}
+.stepArrow .step em { display: inline-block; float: left; margin-top: -18px; margin-right: 7px; color: #44adff; font-size: 30px;}
+.stepArrow .step:after { display: block; content: ''; clear: both;}
+.conBlockList .tit { display: block;  margin-bottom: 15px; color: #333; font-size: 18px; font-weight: 700;}
+.conBlockList .block { display: inline-block; position: relative; font-size: 16px;}
+.conBlockList > li.on{background-color: #159efd; color:#fff;}
+.conBlockList > li.on em, .conBlockList > li.on .step{color:#fff;}
+.stepArrow > li.on:before {background-color: #159efd;}
+
+.btn_submit{width:250px; line-height:55px; text-align: center; color:#fff; background-color: #159efd; font-size:16px; font-weight: bold;}
+.notice_wrapper{background-color: #f5f7f8;padding:25px 0 20px 0;}
+.notice_wrapper dl{margin:0 25px;}
+.notice_wrapper dt{font-size:18px; color:#000; padding-bottom:20px;}
+.notice_wrapper dd{padding:2px 0;}
+
+
+.g_btn .btn{width:150px; line-height: 55px; text-align: center; font-size:16px; font-weight: bold; color:#fff;}
+.g_btn .submit_btn{background-color: #159efd;}
+.g_btn .cancel_btn{background-color:#7C7C7C;}

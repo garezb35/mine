@@ -1,0 +1,9 @@
+
+table tr th, table tr td{ height:28px; border-bottom:1px solid #E2E2E2; border-left:1px solid #E2E2E2; text-align:center }
+table tr .first{ border-left:0 }
+table tr .s_left{ padding-left:5px; text-align:left }
+table tr .s_right{ padding-right:5px; text-align:right }
+table tr .h_auto{ padding-top:5px; padding-bottom:5px }
+.g_blue_table tr th{ background-color:#E8F2FF }
+.g_green_table tr th{ background-color:#EBFBEA }
+.g_gray_table tr th{ background-color:#ECECEC }
