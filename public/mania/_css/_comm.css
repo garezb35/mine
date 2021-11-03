@@ -1030,11 +1030,12 @@ table tr .left {
 }
 
 .g_layer .title {
-    padding: 10px 20px 12px;
-    background-color: #159efd;
+    padding: 10px  20px  12px;
+    background-color: #3AB7D3;
     font-size: 18px;
     font-weight: 700;
     color: #FFF;
+    text-align: center;
 }
 
 .g_layer .close {
@@ -2655,4 +2656,19 @@ table.noborder tr td,.noborder{
 }
 .w50{
     width: 50px;
+}
+
+.mt-40{
+    margin-top: 40px;
+}
+
+.btn_gray{
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid #979797;
+    background-color: #979797;
+    text-align: center;
+    vertical-align: middle;
+    color: #FFF;
+    padding: 6px;
 }

@@ -8,30 +8,36 @@ body {
 .position-ref {
     position: relative;
 }
+.position-abs {
+    position: absolute;
+}
 .m-auto {
     margin: auto;
 }
 .p-0 {
     padding: 0 !important;
 }
+.m-0 {margin: 0 !important}
 
 .w-init {
     width: inherit;
 }
 .w-100 {
-   width: 100%;
+    width: 100%;
 }
 .w-50 {
     width: 50%;
 }
 
 .align-center {
-    text-align: center;
+    text-align: center !important;
 }
 .align-right {
-    text-align: right;
+    text-align: right !important;
 }
-
+.align-left {
+    text-align: left !important;
+}
 .no-border {
     border: none !important;
 }
@@ -47,6 +53,9 @@ body {
 }
 .c-black {
     color: black !important;
+}
+.c-blue-title {
+    color: dodgerblue !important;
 }
 
 .f-30 {
@@ -70,6 +79,9 @@ body {
 .f-18 {
     font-size: 18px !important;
 }
+.f-17 {
+    font-size: 17px !important;
+}
 .f-16 {
     font-size: 16px !important;
 }
@@ -90,6 +102,9 @@ body {
 }
 .f-normal {
     font-weight: normal !important;
+}
+.f-bold {
+    font-weight: bold !important;
 }
 .back-normal {
     background-color: #f2f4f7 !important;

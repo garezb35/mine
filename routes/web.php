@@ -110,7 +110,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/myroom/sell/sell_regist_view', [\App\Http\Controllers\VMyRoomController::class, 'sell_regist_view'])->name('sell_regist_view');
     Route::get('/myroom/sell/sell_re_reg', [\App\Http\Controllers\VMyRoomController::class, 'sell_re_reg'])->name('sell_re_reg');
     Route::get('/myroom/sell/sell_ing_view',[\App\Http\Controllers\VMyRoomController::class, 'sell_ing_view'])->name('sell_ing_view');
-
+    Route::get('/myroom/customer/search',[\App\Http\Controllers\VMyRoomController::class, 'search'])->name('search');
     Route::get('/myroom/buy/buy_check', [\App\Http\Controllers\VMyRoomController::class, 'buy_check'])->name('buy_check');
     Route::get('/myroom/buy/buy_ing', [\App\Http\Controllers\VMyRoomController::class, 'buy_ing'])->name('buy_ing');
     Route::get('/myroom/buy/buy_pay_wait', [\App\Http\Controllers\VMyRoomController::class, 'buy_pay_wait'])->name('buy_pay_wait');

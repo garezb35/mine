@@ -40,7 +40,7 @@
 
 @section('content')
     <div class="g_container" id="g_CONTENT">
-        @include("aside.myroom",['aside'=>'sell'])
+        @include("aside.myroom",['group'=>'sell'])
         <input type="hidden" id="screenshot_info" value="TiUzQg==">
         <div class="g_content">
             <a name="top"></a>

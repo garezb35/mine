@@ -81,14 +81,14 @@
     </style>
     <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
     <div class="g_container" id="g_CONTENT">
-        @include('mania.myroom.aside', ['group'=>'', 'part'=>''])
+        @include("aside.myroom",['group'=>''])
         <div class="g_content">
             <div class="content_area content_coupon">
                 <div class="myroom_status_part">
                     <div class="user-info-part">
                         <img class="position-abs" style="top: 24px; left: 15px;" src="/assets/img/icons/user_dia.png" />
                         <div class="position-abs f-18 c-blue-title align-center f-bold" style="top: 28px; left: 82px; width: 98px;">다이아 회원</div>
-                        <div class="position-abs f-20 align-right" style="top: 24px; left: 251px; width: 34px;">568</div>
+                        <div class="position-abs f-20 align-right" style="top: 24px; left: 251px; width: 34px;">0</div>
                         <div class="position-abs f-16 align-center" style="top: 64px; left: 90px; width: 85px;">
                             <a class="" href="#">혜택보기</a>
                         </div>

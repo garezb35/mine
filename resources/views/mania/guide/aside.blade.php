@@ -25,7 +25,7 @@
 <div class="aside">
     <div class="nav_subject">
         <a href="{{route("guide")}}" class="">
-            <p class="f-18 m-0 c-black align-center">이용안내</p>
+            <p class="f-18 m-0  align-center">이용안내</p>
             <div class="m-auto align-center" style="margin-top: 10px;">
                 <img src="/assets/img/icons/icon_customer.png" />
             </div>

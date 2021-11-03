@@ -639,8 +639,6 @@
 /* â–¼ í”„ë¦¬ë¯¸ì—„ ë ˆì´ì–´ */
 .premium_info .inner{
     width:460px;
-    padding:20px;
-;
 }
 .premium_info .pre_title{
     font-weight:bold;
@@ -652,12 +650,17 @@
     text-align:center;
 }
 .premium_info .mile_area{
-    text-align:center;
+    text-align: center;
+    border: 1px solid #C1C1C1;
+    height: 40px;
+    line-height: 40px;
+    width: 438px;
+    margin: auto;
 }
 .premium_info .dvpremium{
-    margin-top:20px;
-    border-top:1px solid #000;
-    border-bottom:2px solid #404040;
+    margin-top: 20px;
+    background: #F7F7F7;
+    border: 1px solid #C1C1C1;
 }
 .premium_info .dvpremium .g_left, .premium_info ul .dvpremium .g_right{
     height:32px;
@@ -683,12 +686,12 @@
     width:670px;
 }
 .reg_info .attention{
-    height:20px;
-    margin-top:10px;
-    padding:12px 0 3px 15px;
-    background:url(//img4.itemmania.com/images/icon/icon_v.gif) no-repeat 0 -491px;
-    font-size:12px;
-    color:#ED1C24;
+    bottom: -6px;
+    background: #fff;
+    font-size: 14px;
+    left: 268px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .reg_info .attention_box{
     padding:15px 20px;

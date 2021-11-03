@@ -405,4 +405,9 @@ class VMyRoomController extends BaseController
         $game['seller'] = $this->user;
         return view('mania.sell.sell_check_view',$game);
     }
+
+    public function search(Request $request){
+        echo '<script>alert("서비스가 원할하지 않습니다.");window.history.back();</script>';
+        return;
+    }
 }

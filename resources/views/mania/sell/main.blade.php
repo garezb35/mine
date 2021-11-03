@@ -605,15 +605,18 @@
         </div>
         <div id="dvPremium" class="g_layer premium_info">
             <div class="inner">
-                <div class="pre_title">프리미엄 등록안내</div>
-                <div class="f_blue3 middle_text">프리미엄 물품 등록을 하시면 물품 리스트 상단에 판매 물품 노출이 가능합니다.<br/>빠른 거래를 원하신다면 프리미엄 등록서비스를 이용하시기 바랍니다.
+                <div class="title">프리미엄 등록안내</div>
+                <div class="middle_text">프리미엄 물품 등록을 하시면 물품 리스트 상단에 판매 물품 노출이 가능합니다.<br/>빠른 거래를 원하신다면 프리미엄 등록서비스를 이용하시기 바랍니다.
                 </div>
-                <div class="f_blue3 mile_area">(내 사용가능한 마일리지 :
+                <div class="mile_area">(내 사용가능한 마일리지 :
                     <span id="pop_txtCurrentMileage" class="f_org1">{{number_format($user->mileage)}}</span> 원)
+                </div>
+                <div class="mt-40 text-center">
+                    <a href="javascript:;_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list.html?free_use_item=premium',440,450)" class="btn_gray">프리미엄 무료이용권 보기</a>
                 </div>
                 <div class="dvpremium">
                     <div class="g_left">
-                        <strong class="service_title">프리미엄 등록</strong>
+                        <strong class="service_title">프리미엄 등록</strong>&nbsp;&nbsp;&nbsp;&nbsp;
                         <select id="pop_user_premium_time" name="pop_user_premium_time" onchange="fnpremiumSelect($(this), $(this).val());">
                             <option value="">미설정</option>
                             <option value="1">1시간</option>
@@ -643,17 +646,14 @@
                         </select>
                         이용료<strong class="f_black3"> 100원 </strong> / 1시간
                     </div>
-                    <div class="g_right">
-                        <a href="javascript:;_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list.html?free_use_item=premium',440,450)" class="btn_blue3">프리미엄 무료이용권 보기</a>
-                    </div>
+
                     <div class="g_clear">※ 프리미엄 잔여시간이 많을수록 물품리스트 상단에 노출됩니다.</div>
                 </div>
-                <div class="noti_txt">
-                    * 유료등록 서비스는 선불로 부과되며 거래성사여부, 취소여부, 삭제여부, 이용정지여부 등과<br>
-                    관계 없이 환불, 취소, 교환, 반환 등이 되지 않으니 신중하게 구매해 주시기 바랍니다.
-                </div>
+
                 <div class="g_btn_wrap">
-                    <a href="javascript:;" id="premium_btn"><img src="http://img4.itemmania.com/new_images/btn/pop_btn_ok.gif" width="63" height="35" alt="확인"></a>
+                    <a href="javascript:;" id="premium_btn" class="btn-default btn-suc">
+                        확인
+                    </a>
                 </div>
             </div>
         </div>

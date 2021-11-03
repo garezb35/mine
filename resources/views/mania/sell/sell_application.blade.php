@@ -463,7 +463,7 @@
                 <tr>
                     <th class="pay_text">마일리지</th>
                     <td class="mile_td">
-                        <a href="javascript:_window.open('mileage_charge', '/myroom/mileage/charge/index.html', 701, 900);" class="btn btn-outline-secondary btn-sm">마일리지 충전 ></a>
+                        <a href="javascript:_window.open('mileage_charge', '/myroom/mileage/charge/index', 701, 900);" class="btn btn-outline-secondary btn-sm">마일리지 충전 ></a>
                     </td>
                 </tr>
             </table>

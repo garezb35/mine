@@ -1230,7 +1230,7 @@ class ManiaController extends BaseController
 <span class="uinfo">생년월일</span>
 <span class="uinfo">연 락 처</span>
 </div><div class="character_info">
-    <table class="g_blue_table">
+    <table class="table-striped table-green1">
         <colgroup>
             <col width="20%">
             <col width="25%">
@@ -1302,7 +1302,7 @@ class ManiaController extends BaseController
         }
 
         if($params->user_goods_type == 'division'){
-            $r = '<table class="g_blue_table">
+            $r = '<table class="table-striped table-green1">
     <colgroup>
         <col width="122">
         <col width="180">
@@ -1341,19 +1341,15 @@ class ManiaController extends BaseController
             </tr>
     </table>
 
-<div class="attention">거래 사고 주의사항</div>
-    <ul class="attention_box">
-        <li>1. 판매 등록 시 <span class="deco" style="color:red">본인 정보(게임명/서버/캐릭터)를 등록</span>하세요.<br></li>
-        <li>2. 반드시 <span class="deco" style="color:red">구매자 캐릭터에게 거래물품을 전달</span>하세요.</li>
-        <li>3. 입금확인 문자 메시지를 받으신 후 반드시 [홈페이지] > [마이룸]에서 입금 확인 여부를 확인하세요.</li>
-        <li class="f_blue3">타인 게임정보 기재 또는, 다른 게임/서버에 물품 등록, 구매자 캐릭터가 아닌 다른 캐릭터에게 물품을 전달할 경우 판매자에게 불이익이 발생할 수 있습니다.</li>
-    </ul>
+    <div class="position-relative height90">
+        <div class="position-absolute border-one-gray w100"></div>
+        <div class="attention position-absolute">거래 사고 주의사항</div>
+    </div>
+
     <ul class="box6 g_list">
-        <li>분할판매로 등록한 물품은 보유수량이 최소판매수량보다 적어지면 자동으로 숨김상태 됩니다.</li>
-        <li>등록물품의 해킹, 복사, 사기 등의 문제가 발생할 때 민/형사상 책임은 등록자에게 있음을 동의합니다.</li>
-        <li>[물품등록유지기간]<br/></li>
-        <li class="list_non">등록물품은 7일 후 자동으로 삭제됩니다. (캐릭터거래의 경우 30일)<br/></li>
-        <li class="list_non">* 팝니다/삽니다 등록물품 모두 포함</li>
+        <li>1. 전달받은 물품은 절대 돌려주지 마세요.</li>
+        <li>2. 구매 등록시 반드시 본인 정보 (게임명/서버/캐릭터)를 등록하세요</li>
+        <li>&nbsp;&nbsp;&nbsp;타인 게임정보 기재 또는, 다른 게임/서버에 구매 신청할 경우 물품신청자에게 불이익이 발생할수 있습니다.</li>
     </ul>
     <div class="last_txt">등록하시려는 물품이 위와 같습니까?</div>
 <div class="g_btn_wrap">
@@ -1396,21 +1392,15 @@ class ManiaController extends BaseController
                 </tr>
     </table>
 
-<div class="attention">거래 사고 주의사항</div>
-    <ul class="attention_box">
-        <li>1. 판매 등록 시 <span class="deco" style="color:red">본인 정보(게임명/서버/캐릭터)를 등록</span>하세요.<br></li>
-        <li>2. 반드시 <span class="deco" style="color:red">구매자 캐릭터에게 거래물품을 전달</span>하세요.</li>
-        <li>3. 입금확인 문자 메시지를 받으신 후 반드시 [홈페이지] > [마이룸]에서 입금 확인 여부를 확인하세요.</li>
-        <li class="f_blue3">타인 게임정보 기재 또는, 다른 게임/서버에 물품 등록, 구매자 캐릭터가 아닌 다른 캐릭터에게 물품을 전달할 경우 판매자에게 불이익이 발생할 수 있습니다.</li>
-    </ul>
+    <div class="position-relative height90">
+        <div class="position-absolute border-one-gray w100"></div>
+        <div class="attention position-absolute">거래 사고 주의사항</div>
+    </div>
     <ul class="box6 g_list">
-        <li>분할판매로 등록한 물품은 보유수량이 최소판매수량보다 적어지면 자동으로 숨김상태 됩니다.</li>
-        <li>등록물품의 해킹, 복사, 사기 등의 문제가 발생할 때 민/형사상 책임은 등록자에게 있음을 동의합니다.</li>
-        <li>[물품등록유지기간]<br/></li>
-        <li class="list_non">등록물품은 7일 후 자동으로 삭제됩니다. (캐릭터거래의 경우 30일)<br/></li>
-        <li class="list_non">* 팝니다/삽니다 등록물품 모두 포함</li>
+        <li>1. 전달받은 물품은 절대 돌려주지 마세요.</li>
+        <li>2. 구매 등록시 반드시 본인 정보 (게임명/서버/캐릭터)를 등록하세요</li>
+        <li>&nbsp;&nbsp;&nbsp;타인 게임정보 기재 또는, 다른 게임/서버에 구매 신청할 경우 물품신청자에게 불이익이 발생할수 있습니다.</li>
     </ul>
-    <div class="last_txt">등록하시려는 물품이 위와 같습니까?</div>
 <div class="g_btn_wrap">
     <a href="javascript:;" id="reg_submit"><img src="http://img3.itemmania.com/new_images/btn/pop_btn_ok.gif" width="63" height="35" alt="확인"></a>
     <a href="javascript:;" id="cancel_submit"><img src="http://img4.itemmania.com/new_images/btn/pop_btn_cancel.gif" width="63" height="35" alt="취소"></a>
@@ -1426,7 +1416,7 @@ class ManiaController extends BaseController
 <td>'.$params->user_quantity.'당 '.$params->user_price.'원</td>';
             }
 
-            $r =  '<table class="g_blue_table">
+            $r =  '<table class="table-striped table-green1">
     <colgroup>
         <col width="122">
         <col width="180">
@@ -1438,7 +1428,7 @@ class ManiaController extends BaseController
         <td colspan="3">'.$params->game_code_text.' > '.$params->server_code_text.' > <span class="f_blue3">'.$params->unit.'</span></td>
     </tr>
 </table>
-<table class="g_blue_table g_blue_table2">
+<table class="table-striped table-green1">
     <colgroup>
         <col width="122">
         <col width="180">
@@ -1462,24 +1452,18 @@ class ManiaController extends BaseController
     </tr>
     </table>
 
-<div class="attention">거래 사고 주의사항</div>
-    <ul class="attention_box">
-        <li>1. 판매 등록 시 <span class="deco" style="color:red">본인 정보(게임명/서버/캐릭터)를 등록</span>하세요.<br></li>
-        <li>2. 반드시 <span class="deco" style="color:red">구매자 캐릭터에게 거래물품을 전달</span>하세요.</li>
-        <li>3. 입금확인 문자 메시지를 받으신 후 반드시 [홈페이지] > [마이룸]에서 입금 확인 여부를 확인하세요.</li>
-        <li class="f_blue3">타인 게임정보 기재 또는, 다른 게임/서버에 물품 등록, 구매자 캐릭터가 아닌 다른 캐릭터에게 물품을 전달할 경우 판매자에게 불이익이 발생할 수 있습니다.</li>
-    </ul>
+    <div class="position-relative height90">
+        <div class="position-absolute border-one-gray w100"></div>
+        <div class="attention position-absolute">거래 사고 주의사항</div>
+    </div>
     <ul class="box6 g_list">
-        <li>분할판매로 등록한 물품은 보유수량이 최소판매수량보다 적어지면 자동으로 숨김상태 됩니다.</li>
-        <li>등록물품의 해킹, 복사, 사기 등의 문제가 발생할 때 민/형사상 책임은 등록자에게 있음을 동의합니다.</li>
-        <li>[물품등록유지기간]<br/></li>
-        <li class="list_non">등록물품은 7일 후 자동으로 삭제됩니다. (캐릭터거래의 경우 30일)<br/></li>
-        <li class="list_non">* 팝니다/삽니다 등록물품 모두 포함</li>
+        <li>1. 전달받은 물품은 절대 돌려주지 마세요.</li>
+        <li>2. 구매 등록시 반드시 본인 정보 (게임명/서버/캐릭터)를 등록하세요</li>
+        <li>&nbsp;&nbsp;&nbsp;타인 게임정보 기재 또는, 다른 게임/서버에 구매 신청할 경우 물품신청자에게 불이익이 발생할수 있습니다.</li>
     </ul>
-    <div class="last_txt">등록하시려는 물품이 위와 같습니까?</div>
 <div class="g_btn_wrap">
-    <a href="javascript:;" id="reg_submit"><img src="http://img3.itemmania.com/new_images/btn/pop_btn_ok.gif" width="63" height="35" alt="확인"></a>
-    <a href="javascript:;" id="cancel_submit"><img src="http://img4.itemmania.com/new_images/btn/pop_btn_cancel.gif" width="63" height="35" alt="취소"></a>
+    <a href="javascript:;" id="reg_submit" class="btn-default btn-suc">확인</a>
+    <a href="javascript:;" id="cancel_submit" class="btn-default btn-cancel">취소</a>
 </div>';
         }
         echo $r;
