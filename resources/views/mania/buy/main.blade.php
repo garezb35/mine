@@ -210,7 +210,8 @@
                         <td>
                             <div class="item_detail_opts">
                                 <label>
-                                    <input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="g_checkbox"> 물품제목 기본값 : </label> <span id="trade_sign_txt" class="f_blue1">tff</span> <a href="javascript:_window.open('fixed_title', '/sell/fixed_trade_subject.html', 500, 300);" class="btn_white1">설정</a> </div>
+                                    <input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="g_checkbox"> 물품제목 기본값 : </label> <span id="trade_sign_txt" class="f_blue1">tff</span>
+                                <a href="javascript:_window.open('fixed_title', '/sell/fixed_trade_subject', 500, 300);" class="btn_white1">설정</a> </div>
                             <input type="text" class="g_text w90 rad10 input34" name="user_title" id="user_title" maxlength="40" value="게임머니 삽니다."> </td>
                     </tr>
                     <tr>
