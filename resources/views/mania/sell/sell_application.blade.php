@@ -86,7 +86,7 @@
             g_trade_info.quantity = {{$user_quantity_min/$user_division_unit}};
 
             g_trade_info.discount_use='{{$discount_use == 1 ? 'Y' : 'N'}}';
-            g_trade_info.discount_start={{$discount_quantity}};;
+            g_trade_info.discount_start={{$discount_quantity}};
             g_trade_info.discount_cnt={{$discount_quantity_cnt}};
             g_trade_info.discount_money={{$discount_price}};
         @else
