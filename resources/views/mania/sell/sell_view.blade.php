@@ -291,9 +291,8 @@
             </table>
 
             <div class="g_btn_wrap">
-                @if($user_goods_type == 'general')
+                @if($user_goods_type == 'general' || $user_goods_type == 'division')
                     <a href="/sell/application?id={{$orderNo}}" class="btn-default btn-suc">구매신청</a>
-
                 @endif
                 @if($user_goods_type == 'bargain')
                     <a href="/sell/application?id={{$orderNo}}&amp;" class="btn-default btn-suc">즉시 구매</a>
