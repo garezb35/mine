@@ -42,7 +42,7 @@
         <div class="aside">
             <div class="title_blue">알아두기</div>
             <div class="menu_know">
-                <p>판매물품 쉽게 등록하기</p> <img src="http://img2.itemmania.com/new_images/sell/sell_left_know.gif" width="192" height="224" alt="팝니다 쉽게 등록하기">
+                <p>판매물품 쉽게 등록하기</p> <img src="/mania/img/new_images/sell_left_know.png" width="210" alt="팝니다 쉽게 등록하기">
                 <p>판매물품 등록 시 알아둘 점</p>
                 <ul class="g_list">
                     <li>등록자는 등록한 물품의 문제 발생 시 민/형사상의 모든 책임을 질 것에 동의하는 것으로 간주됩니다.</li>
@@ -115,7 +115,7 @@
             <div id="btn_list" class="g_btn_wrap btn_list" style="display: block;">
                 <a href="/myroom/sell/sell_regist_view?id={{$orderNo ?? ''}}" class="btn-default btn-suc" >등록 물품보기</a>
                 <a href="/sell/list_search?pinit=1" class="btn-default btn-suc" style="font-size: 16px">등록 물품알아보기</a>
-                <a href="/indexl" class="btn-default btn-cancel">메인으로 가기</a>
+                <a href="/index" class="btn-default btn-cancel">메인으로 가기</a>
                 <a href="/myroom/sell/sell_regist"class="btn-default btn-cancel">마이룸으로 가기</a>
             </div>
         </div>

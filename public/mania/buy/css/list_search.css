@@ -511,6 +511,11 @@ i.icon_direct {
     text-align: center;
     cursor: pointer;
     line-height: 46px;
+    color: #0AB5FF;
+}
+
+.load_more div {
+    text-align: center;
 }
 
 .goTopDiv {

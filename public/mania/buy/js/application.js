@@ -63,14 +63,14 @@ function _init() {
         var detail = document.getElementById('detail_info');
         if (detail.classList.contains('wide') == true) {
             detail.classList.remove('wide');
-            this.innerHTML = 'íŽ¼ì³ë³´ê¸°â–¼';
+            this.innerHTML = '열기▼';
         } else {
             detail.classList.add('wide');
-            this.innerHTML = 'íŽ¼ì¹¨ë‹«ê¸°â–²';
+            this.innerHTML = '닫기▼';
         }
     });
 
-    /** [ITM-10872] ìºë¦­í„° ê±°ëž˜ ì‹ ê·œ ì„œë¹„ìŠ¤ ì‚½ë‹ˆë‹¤ ì¶”ê°€ by 20200720 KBR */
+
     if (document.getElementById('elt_contract') !== null) {
         document.getElementById('sign_btn').addEventListener('click', function(ev) {
             var strConfirmMsg = 'ì „ìž ì„œëª…ì„ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?\n' +
@@ -82,12 +82,12 @@ function _init() {
             var frm = document.getElementById('frmSell');
             _window.open('contract', '', 650, 550);
             frm.target = 'contract';
-            frm.action = '/certify/payment/user_certify.html';
+            frm.action = '/certify/payment/user_certify';
             frm.submit();
         });
     }
 
-    //ì•ˆì‹¬ë²ˆí˜¸, ì•ˆì‹¬ë²ˆí˜¸ í”ŒëŸ¬ìŠ¤
+
     SafetyNumber();
 }
 
@@ -167,13 +167,13 @@ function fnFormChecker() {
         params['user_mobileB'] = $('#user_mobileB').val();
         params['user_mobileC'] = $('#user_mobileC').val();
     }
-
-    fnAjax('/_include/_user_contact_restrict.php', 'text', 'POST', params, {
+    params['api_token'] = a_token;
+    fnAjax('/api/_include/_user_contact_restrict', 'text', 'POST', params, {
         complete: function(res) {
             var rgResult = res.split('|');
             switch (rgResult[0]) {
                 case 'S':
-                    /** [ITM-10872] ìºë¦­í„° ê±°ëž˜ ì‹ ê·œ ì„œë¹„ìŠ¤ ì‚½ë‹ˆë‹¤ ì¶”ê°€ by 20200720 KBR */
+
                     if (document.getElementById('elt_contract') !== null) {
                         document.getElementById('tmp_character_id').innerHTML = document.getElementById('character_id').value;
                         g_nodeSleep.enable($('#elt_contract'));
@@ -362,10 +362,11 @@ function fnCreditViewCheck() {
 
 function SafetyNumber(){
     ajaxRequest({
-        url: '/_include/_SafetyNumber_Category_Check_AJAX.html',
+        url: '/api/_include/_SafetyNumber_Category_Check_AJAX',
         type: 'post',
         data: {
             gamecode: $('#game_code').val(),
+            api_token: a_token
         },
         success: function(res) {
             if (res === 'true') {
@@ -378,4 +379,20 @@ function SafetyNumber(){
 
         }
     });
+}
+
+
+
+
+function changeP(){
+    var buy_quantity  = $("#buy_quantity").val()
+    if(buy_quantity * user_division_unit < user_quantity_min){
+        alert("최소판매수량보다 작을수 없습니다");
+        return;
+    }
+
+    var s = $("#buy_quantity").val() * user_division_unit;
+    s = $("#buy_quantity").val() * user_division_price;
+    $("#use_creditcard").val(s)
+    $(".trade_money1").text(s)
 }

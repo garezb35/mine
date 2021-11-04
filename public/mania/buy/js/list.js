@@ -144,7 +144,7 @@ function listOptionClick() {
 $(document).ready(function() {
 
     function listLoad(append) {
-        append = append + '&pinit=' + nListPage+"&api_token="+a_token;
+        append = append + '&pinit=' + nListPage+"&api_token="+a_token+"&type=buy";
 
         if (whileReloading) {
             return;

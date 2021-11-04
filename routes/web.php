@@ -152,9 +152,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/buy', [\App\Http\Controllers\VBuyController::class, 'index'])->name('buy');
     Route::get('/buy/index_view', [\App\Http\Controllers\VBuyController::class, 'index_view'])->name('buy_index_view');
+    Route::post('/buy/list', [\App\Http\Controllers\VBuyController::class, 'buy_list'])->name('buy_list');
     Route::post('/buy/list_search', [\App\Http\Controllers\VBuyController::class, 'list_search'])->name('buy_list_search');
     Route::get('/buy/application', [\App\Http\Controllers\VBuyController::class, 'buy_application'])->name('buy_application');
     Route::get('/buy/trade_cancel',[\App\Http\Controllers\VBuyController::class, 'trade_cancel'])->name('trade_cancel');
+    Route::post('/buy/include/index_template',[\App\Http\Controllers\VBuyController::class, 'index_template']);
+    Route::post('/buy/application_ok',[\App\Http\Controllers\ManiaController::class,'application_ok_buy']);
 
     Route::post('/certify/payment/user_certify', [\App\Http\Controllers\VCertifyController::class, 'user_certify'])->name('user_certify');
 

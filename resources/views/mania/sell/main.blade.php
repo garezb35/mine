@@ -146,18 +146,6 @@
                                                 <ul class="g_my_search"></ul>
                                             </div>
                                         </div>
-{{--                                        <div class="popular_game" data-popular="true">--}}
-{{--                                            <div class="popular_game_title">인기게임</div>--}}
-{{--                                            <ul class="popular_list">--}}
-{{--                                                @if(!empty($popular))--}}
-{{--                                                    @foreach($popular as $item)--}}
-{{--                                                        <li data-pgame="{{$item["game_code"]}}">--}}
-{{--                                                            <em class="top_rank">{{$item['order']}}</em>{{$item["game"]["game"]}}--}}
-{{--                                                        </li>--}}
-{{--                                                    @endforeach--}}
-{{--                                                @endif--}}
-{{--                                            </ul>--}}
-{{--                                        </div>--}}
                                     </div>
                                     <div class="gs_list g_hidden gs_list1" data-gslist="true" id="reg_gameserver_list"></div>
                                 </div>

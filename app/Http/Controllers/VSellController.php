@@ -36,7 +36,7 @@ class VSellController extends BaseController
     public function index_view(Request $request)
     {
         $orderNo=  $request->orderNo;
-        $item = MItem::with(['game','server'])->where('userId',$this->user->id)->where('orderNo',$orderNo)->first();
+        $item = MItem::with(['game','server'])->where('userId',$this->user->id)->where('orderNo',$orderNo)->where('type','sell')->first();
         if($item == null) $item = array();
 
         return view('mania.sell.index_view',$item);

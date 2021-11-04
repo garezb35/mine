@@ -115,7 +115,6 @@ class ManiaController extends BaseController
         unset($params->rereg_time);
         $params->orderNo = date("Ymd").generateRandomString(8);
         $param_insert = get_object_vars($params);
-        $param_insert["type"] = 'sell';
         $param_insert["user_price"] = str_replace(",","",$param_insert["user_price"] ?? 0);
         $param_insert["user_division_price"] = str_replace(",","",$param_insert["user_division_price"] ?? 0);
         $param_insert['user_quantity'] = !empty($param_insert['user_quantity'])  ? str_replace(",","", $param_insert['user_quantity']):1;
@@ -152,6 +151,7 @@ class ManiaController extends BaseController
         if ($request->hasFile('user_screen')) {
             $param_insert['screenshots'] =  'Y';
         }
+        $param_insert['type'] = !empty($request->type) ? $request->type: 'sell';
         $param_insert['userId'] =  $this->user->id;
         if(!empty($param_insert['user_price_limit']))
             $param_insert['user_price_limit'] = str_replace(",","",$param_insert["user_price_limit"] ?? 0);
@@ -200,6 +200,7 @@ class ManiaController extends BaseController
                 $this->user->mileage = $this->user->mileage - $charge_money;
                 $this->user->save();
                 MPremium::insert($premium_inserts);
+
                 MPayhistory::insert(['type'=>'premium',
                     'userId'=>$this->user->id,
                     'mania_code'=>$insertId->id,
@@ -217,7 +218,7 @@ class ManiaController extends BaseController
                     $file->storeAs('assets/images/mania/'.$insertId->id.'/', $bankbook);
                 }
             }
-            return Redirect::to('/sell/index_view?orderNo='.$params->orderNo);
+            return Redirect::to('/'.$param_insert['type'].'/index_view?orderNo='.$params->orderNo);
         }
         else{
 
@@ -610,7 +611,7 @@ class ManiaController extends BaseController
             <div class="dfServer" id="dfServer">
                             </div>
             <div class="g_left">
-                <input type="text" class="g_text mode-active" name="user_character" maxlength="30" id="user_character"> 물품을 전달 하실 본인의 캐릭터명
+                <input type="text" class="g_text mode-active rad13" name="user_character" maxlength="30" id="user_character"> 물품을 전달 하실 본인의 캐릭터명
                 <span id="sub_text" class="f_red1"></span>
             </div>
         </td>
@@ -1159,10 +1160,16 @@ class ManiaController extends BaseController
         }
     }
 
-    public function getRegInfoCharacter(Request $request){
+    public function getRegInfoCharacterBuy(Request $request){
         $user = Auth::user();
         $params = $request->all();
         $params = json_decode(json_encode($params));
+        $params->price = !empty($params->user_price) ?  $params->user_price  : 0;
+        if($params->user_goods_type == 'division'){
+            $params->price = str_replace(",",'',$params->user_division_price) * str_replace(",","",$params->user_quantity_min) / str_replace(",","",$params->user_division_unit);
+            $params->price = '최소 '.number_format($params->price);
+        }
+
         $r = '';
         if($params->user_goods_type !== null){
             $r = '<div class="contract_box"><div class="contract_title">계정양도 전자계약서</div>
@@ -1182,7 +1189,92 @@ class ManiaController extends BaseController
     </tr>
     <tr>
         <th>양도대금(거래금액)</th>
-        <td>'.$params->user_price.'원</td>
+        <td>'.$params->price.'원</td>
+    </tr>
+    </table>
+
+</div><div class="character_info">
+    <table class="table-striped table-green1">
+        <colgroup>
+            <col width="20%">
+            <col width="25%">
+            <col width="25%">
+            <col width="30%">
+        </colgroup>
+        <tr>
+            <th colspan="4">양도인</th>
+        </tr>
+        <tr>
+            <th>성명</th>
+            <td>'.$user->name.'</td>
+            <th>게임 캐릭터 ID</th>
+            <td>'.$params->character_id.'</td>
+        </tr>
+        <tr>
+            <th>생년월일</th>
+            <td>'.$params->seller_birth.'</td>
+            <th>연락처</th>
+            <td>'.$params->user_cell_num.'</td>
+        </tr>
+    </table>
+    <table class="g_green_table">
+        <colgroup>
+            <col width="20%">
+            <col width="25%">
+            <col width="25%">
+            <col width="30%">
+        </colgroup>
+        <tr>
+            <th colspan="4">양수인</th>
+        </tr>
+        <tr>
+            <th>성명</th>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            <th>생년월일</th>
+            <td></td>
+            <th>연락처</th>
+            <td></td>
+        </tr>
+    </table>
+</div>
+<div class="g_btn_wrap">
+    <a href="javascript:;" id="reg_submit" class="btn-default btn-suc">서명하기</a>
+    <a href="javascript:;" id="cancel_submit" class="btn-default btn-cancel">취소</a>
+</div>';
+        }
+        echo $r;
+    }
+
+    public function getRegInfoCharacter(Request $request){
+        $user = Auth::user();
+        $params = $request->all();
+        $params = json_decode(json_encode($params));
+        $params->price = !empty($params->user_price) ?  $params->user_price  : 0;
+        if($params->user_goods_type == 'division'){
+            $params->price = str_replace(",",'',$params->user_division_price) * str_replace(",","",$params->user_quantity_min) / str_replace(",","",$params->user_division_unit);
+        }
+        $r = '';
+        if($params->user_goods_type !== null){
+            $r = '<div class="contract_box"><div class="contract_title">계정양도 전자계약서</div>
+양도인 <span class="under">'.$user->name.'</span>(이하 ‘양도인’)과 양수인 <span class="under"></span>(이하 ‘양수인’)은 아래의 양도인의 캐릭터를 이용할 수 있는 인터넷 계정(이하 ‘계정’) 대하여 다음과 같이 양도 계약을 체결한다.
+    <table>
+    <colgroup>
+        <col width="160">
+        <col />
+    </colgroup>
+    <tr>
+        <th>물품번호</th>
+        <td></td>
+    </tr>
+    <tr>
+        <th>작성일자</th>
+        <td></td>
+    </tr>
+    <tr>
+        <th>양도대금(거래금액)</th>
+        <td>'.$params->price.'원</td>
     </tr>
     </table>
 제1조 [보증 및 계약의 효력]
@@ -1481,6 +1573,43 @@ class ManiaController extends BaseController
 
     public function user_certify(Request $request){
         return view('mania.certify');
+    }
+
+    public function application_ok_buy(Request $request){
+        $params = $request->all();
+
+        $use_creditcard = str_replace(",","",$params['use_creditcard']);
+
+        $item = MItem::where('orderNo', $params['id'])->whereNull('toId')->first();
+        if(empty($item)){
+            echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
+            return;
+        }
+        $item = $item->toArray();
+        if(empty($use_creditcard)){
+            echo '<script>alert("마일리지가 비었습니다.");window.history.back();</script>';
+            return;
+        }
+
+        MItem::where('orderNo',$params['id'])->update(['toId'=>$this->user->id]);
+        if($item['user_goods_type'] == 'division'){
+            unset($item['id']);
+            unset($item['created_at']);
+            unset($item['updated_at']);
+            $item['orderNo'] = date("Ymd").generateRandomString(8);
+            $item['status'] = 0;
+            MItem::insert($item);
+        }
+        MPayitem::insert([
+            'userId'=>$this->user->id,
+            'orderNo'=>$params['id'],
+            'status'=>0,
+            'home'=>$this->user->home,
+            'mobile'=>$this->user->mobile,
+            'price'=>$use_creditcard,
+            'character'=>$params['user_character']
+        ]);
+        return redirect('/myroom/sell/sell_pay_wait_view?id='.$item['orderNo'].'&type='.$item['type']);
     }
 
     public function application_ok(Request $request){

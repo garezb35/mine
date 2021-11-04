@@ -142,7 +142,7 @@ else
                     <th class="p-left-10">
                         <div>
                             <span class="credit_mark {{$seller['roles']['name']}}"></span>
-                            <span class="f_green4 f_bold">{{$seller['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($user['point'])}}점)
+                            <span class="f_green4 f_bold">{{$seller['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($seller['point'])}}점)
                         </div>
                     </th>
                     <td>

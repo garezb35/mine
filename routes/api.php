@@ -27,10 +27,12 @@ Route::middleware('auth:api')->group(function(){
     Route::post('/_include/_user_contact_restrict', [\App\Http\Controllers\ManiaController::class,'getUserContactRestrict']);
     Route::post('/sell/include/reg_info', [\App\Http\Controllers\ManiaController::class,'getRegInfo']);
     Route::post('/sell/include/reg_info_character', [\App\Http\Controllers\ManiaController::class,'getRegInfoCharacter']);
+    Route::post('/buy/include/reg_info_character', [\App\Http\Controllers\ManiaController::class,'getRegInfoCharacterBuy']);
     Route::post('/lineagem/_ajax_item_desc', [\App\Http\Controllers\ManiaController::class,'getAjaxItemDesc']);
     Route::post('/_include/_remocon_mileage', [\App\Http\Controllers\ManiaController::class,'getRemoconMileage']);
     Route::post('ajax_list_search',[\App\Http\Controllers\VAjaxController::class, 'ajax_list_search']);
     Route::post('ajax_list',[\App\Http\Controllers\VAjaxController::class, 'ajax_list']);
+    Route::post('/buy/include/index_template', [\App\Http\Controllers\VBuyController::class,'getSellIndexTemplate']);
 });
 
 Route::get('/sell/include/index_template', [\App\Http\Controllers\VSellController::class, 'ajax_template']);

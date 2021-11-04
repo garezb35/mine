@@ -2672,3 +2672,7 @@ table.noborder tr td,.noborder{
     color: #FFF;
     padding: 6px;
 }
+
+.bg-green{
+    background:#8CCE75 !important;
+}
