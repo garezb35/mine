@@ -1656,10 +1656,10 @@ class ManiaController extends BaseController
             'character'=>$params['user_character']
         ]);
         if($status == 0){
-            return redirect('/myroom/buy/buy_pay_wait_view?id='.$item['orderNo'].'&type='.$item['type']);
+            return redirect('/myroom/buy/buy_pay_wait_view?id='.$params['id'].'&type='.$item['type']);
         }
         else{
-            return redirect('/myroom/buy/buy_ing_view?id='.$item['orderNo'].'&type='.$item['type']);
+            return redirect('/myroom/buy/buy_ing_view?id='.$params['id'].'&type='.$item['type']);
         }
     }
 
