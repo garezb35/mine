@@ -89,6 +89,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [\App\Http\Controllers\VCustomerController::class, 'customer'])->name('customer');
         Route::get('/faq', [\App\Http\Controllers\VCustomerController::class, 'faq'])->name('faq');
     });
+    Route::get('/chat/agree', [\App\Http\Controllers\VCustomerController::class, 'chat_agree'])->name('chat_agree');
 
     Route::prefix('myroom')->group(function () {
         Route::get('/', [\App\Http\Controllers\VMyRoomController::class, 'index'])->name('myroom');
