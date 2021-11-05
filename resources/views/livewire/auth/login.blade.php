@@ -1,4 +1,12 @@
 <main>
+    <style>
+        .fmxw-700 {
+            max-width: 700px !important;
+        }
+        .fs-7 {
+            font-size: 14px;
+        }
+    </style>
     <!-- Section -->
     <section class="pb-6 bg-soft bg-white">
         <div class="warning-19-part mb-lg-5">
@@ -80,7 +88,7 @@
                                 회원가입하기
                             </a>
                         </div>
-                       
+
                     </div>
                 </div>
             </div>

@@ -84,10 +84,14 @@ Route::middleware('auth')->group(function () {
      */
 
     Route::prefix('customer')->group(function () {
+        Route::get('/', [\App\Http\Controllers\VCustomerController::class, 'customer'])->name('customer');
+
+        Route::get('/report', [\App\Http\Controllers\VCustomerController::class, 'report'])->name('customer_report');
+        Route::get('/newgame', [\App\Http\Controllers\VCustomerController::class, 'newgame'])->name('customer_newgame');
+        Route::get('/safety', [\App\Http\Controllers\VCustomerController::class, 'safety'])->name('customer_safety');
+
         Route::get('/myqna/list', [\App\Http\Controllers\VCustomerController::class, 'myqna_list'])->name('myqna_list');
         Route::get('/myqna/view', [\App\Http\Controllers\VCustomerController::class, 'myqna_view'])->name('myqna_view');
-        Route::get('/', [\App\Http\Controllers\VCustomerController::class, 'customer'])->name('customer');
-        Route::get('/faq', [\App\Http\Controllers\VCustomerController::class, 'faq'])->name('faq');
     });
 
     Route::prefix('myroom')->group(function () {
