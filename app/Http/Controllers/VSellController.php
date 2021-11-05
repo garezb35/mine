@@ -35,9 +35,12 @@ class VSellController extends BaseController
 
     public function index_view(Request $request)
     {
-        $orderNo=  $request->orderNo;
-        $item = MItem::with(['game','server'])->where('userId',$this->user->id)->where('orderNo',$orderNo)->where('type','sell')->first();
-        if($item == null) $item = array();
+        $orderNo=  $request->id;
+        $item = MItem::with(['game','server','payitem'])->where('userId',$this->user->id)->where('orderNo',$orderNo)->where('type','sell')->where('status',0)->first();
+        if(empty($item) || !empty($item['payitem'])){
+            echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
+            return;
+        }
 
         return view('mania.sell.index_view',$item);
     }

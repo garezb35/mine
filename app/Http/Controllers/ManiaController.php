@@ -217,7 +217,7 @@ class ManiaController extends BaseController
                     $file->storeAs('assets/images/mania/'.$insertId->id.'/', $bankbook);
                 }
             }
-            return Redirect::to('/'.$param_insert['type'].'/index_view?orderNo='.$params->orderNo);
+            return Redirect::to('/'.$param_insert['type'].'/index_view?id='.$params->orderNo);
         }
         else{
 
@@ -229,6 +229,32 @@ class ManiaController extends BaseController
         $user_goods_type = $request->user_goods_type;
         $id = $request->id;
         $update = array();
+        if(!empty($request->user_quantity)){
+            $update['user_quantity'] = str_replace(",","",$request->user_quantity);
+        }
+        if(!empty($request->gamemoney_unit)){
+            $update['gamemoney_unit'] = $request->gamemoney_unit;
+        }
+        if($user_goods_type == 'general'){
+            $update['user_price'] = str_replace(",","",$request->user_price);
+            $update['user_character'] = $request->user_character;
+            $update['user_title'] = $request->user_title;
+            $update['user_text'] = $request->user_text;
+        }
+        if($user_goods_type == 'division'){
+
+        }
+        if($user_goods_type == 'bargain'){
+
+        }
+        if(!empty($update)){
+            MItem::where("orderNo",$id)->update($update);
+            return redirect('/sell/index_view?id='.$id);
+        }
+        else{
+            echo '<script>alert("잘못된 접근입니다.");window.history.go(-1);</script>';
+            return;
+        }
     }
 
     public function buy_re_reg_ok(Request $request){

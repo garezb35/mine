@@ -128,37 +128,37 @@
                         </tr>
                     </tbody>
                     <tbody>
-                    <tr>
-                        <th>물품제목</th>
-                        <td>
-                            <div class="item_detail_opts">
-                                <label><input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="g_checkbox"> 물품제목 기본값 :
-                                </label>
-                                <span id="trade_sign_txt" class="f_blue1">{{$title}}</span>
-                                <a href="javascript:_window.open('fixed_title', '/sell/fixed_trade_subject', 500, 300);" class="btn_white1">설정</a>
-                            </div>
-                            <input type="text" class="g_text w100" name="user_title" id="user_title" maxlength="40" value="{{$user_title}}">
-                            <br>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>상세설명</th>
-                        <td>
-                            <textarea id="user_text" name="user_text" class="txtarea w100" placeholder="* 휴대폰번호, 메신저(카톡) ID 및 거래와 무관한 내용 기재 시 물품은 삭제되며, 서비스 이용에 제재를 받게 됩니다.">{{$user_text}}</textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>스크린샷</th>
-                        <td>
-                            <div class="screen_guide2">
-                                용량 300KB이하 jpg만 가능(최대 10개)
-                                <a href="javascript:_window.open('screenshot', '/sell/guide/screenshot.html', 718, 900);" class="guide_txt">등록가이드</a>
-                            </div>
-                            <div class="screenshot_wrap">
-                                <input type="file" name="user_screen[]" class="g_file">
-                            </div>
-                        </td>
-                    </tr>
+                        <tr>
+                            <th>물품제목</th>
+                            <td>
+                                <div class="item_detail_opts">
+                                    <label><input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="g_checkbox"> 물품제목 기본값 :
+                                    </label>
+                                    <span id="trade_sign_txt" class="f_blue1">{{$title}}</span>
+                                    <a href="javascript:_window.open('fixed_title', '/sell/fixed_trade_subject', 500, 300);" class="btn_white1">설정</a>
+                                </div>
+                                <input type="text" class="g_text w100" name="user_title" id="user_title" maxlength="40" value="{{$user_title}}">
+                                <br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>상세설명</th>
+                            <td>
+                                <textarea id="user_text" name="user_text" class="txtarea w100" placeholder="* 휴대폰번호, 메신저(카톡) ID 및 거래와 무관한 내용 기재 시 물품은 삭제되며, 서비스 이용에 제재를 받게 됩니다.">{{$user_text}}</textarea>
+                            </td>
+                        </tr>
+{{--                    <tr>--}}
+{{--                        <th>스크린샷</th>--}}
+{{--                        <td>--}}
+{{--                            <div class="screen_guide2">--}}
+{{--                                용량 300KB이하 jpg만 가능(최대 10개)--}}
+{{--                                <a href="javascript:_window.open('screenshot', '/sell/guide/screenshot.html', 718, 900);" class="guide_txt">등록가이드</a>--}}
+{{--                            </div>--}}
+{{--                            <div class="screenshot_wrap">--}}
+{{--                                <input type="file" name="user_screen[]" class="g_file">--}}
+{{--                            </div>--}}
+{{--                        </td>--}}
+{{--                    </tr>--}}
                     </tbody>
                 </table>
 
