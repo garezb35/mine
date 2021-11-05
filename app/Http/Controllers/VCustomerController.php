@@ -17,7 +17,40 @@ class VCustomerController extends BaseController
      */
     public function customer()
     {
-        return view('mania.customer.index');
+        $data['searchWord'] = "";
+        if (isset($request->searchWord)) {
+            $data['searchWord'] = $request->searchWord;
+            $data['faqRecord'] = MFag::where('content', 'like', '%'.$data['searchWord'].'%')->get()->toArray();
+        }
+        else {
+            $data['faqRecord'] = MFag::limit(6)->get()->toArray();
+        }
+
+        return view('mania.customer.index', $data);
+    }
+
+    /**
+     * 1:1 문의하기
+     */
+    public function customer_report()
+    {
+        return view('mania.customer.report');
+    }
+
+    /**
+     * 신규게임
+     */
+    public function customer_newgame()
+    {
+        return view('mania.customer.newgame');
+    }
+
+    /**
+     * 안전거래
+     */
+    public function customer_safety()
+    {
+        return view('mania.customer.safety');
     }
 
     /**
@@ -31,11 +64,5 @@ class VCustomerController extends BaseController
     {
         return view('mania.customer.myqna.view');
     }
-    /**
-     * FAQ
-     */
-    public function faq()
-    {
-        return view('mania.customer.faq');
-    }
+
 }
