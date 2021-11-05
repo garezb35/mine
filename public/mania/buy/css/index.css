@@ -7,19 +7,12 @@
 }
 
 .aside .menu_know {
-    padding: 0 10px 25px;
     border: 1px solid #E1E1E1;
     border-top: 0;
-    background-color: #F0F0F0;
     text-align: center;
 }
 
-.aside .menu_know p {
-    padding: 7px 0 5px;
-    font-size: 13px;
-    font-weight: bold;
-    text-align: center;
-}
+
 
 .aside .menu_know img {
     margin-bottom: 12px;
@@ -845,4 +838,26 @@
     font-size: 18px;
     text-align: center;
     margin-top: 25px;
+}
+
+.aside .title_blue {
+    padding: 10px 0;
+    font-size: 16px;
+    text-align: center;
+    color: #DA9898;
+}
+.aside {
+    border: 1px solid #A3A3A3;
+    padding-bottom: 25px;
+}
+
+.aside .menu_know p.heads {
+    font-size: 16px;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background: #DA9898;
+    color: white;
+    margin-bottom: 16px;
 }

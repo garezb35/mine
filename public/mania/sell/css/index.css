@@ -6,7 +6,7 @@
     padding:10px 0;
     font-size:16px;
     text-align:center;
-    color:#DA9898;
+    color:#3088C5;
 }
 .aside .menu_know{
     text-align:center;
@@ -18,7 +18,7 @@
     height: 45px;
     line-height: 45px;
     text-align: center;
-    background: #DA9898;
+    background: #3088C5;
     color: white;
     margin-bottom: 16px;
 }
@@ -933,9 +933,9 @@
     background-image: none !important;
 }
 
-.g_subtitle, .g_subtitle_blue{
-    padding: 15px 0 8px !important;
-}
+/*.g_subtitle, .g_subtitle_blue{*/
+/*    padding: 15px 0 8px !important;*/
+/*}*/
 
 .euro-service:before{
     clear: both;

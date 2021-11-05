@@ -2203,6 +2203,10 @@ label>input,.g_check.charge_service .total_charge,.g_radio {
     padding-left: 10px !important;
 }
 
+.p-left-15{
+    padding-left: 15px !important;
+}
+
 .m-t-40{
     margin-top: 40px;
 }
@@ -2274,7 +2278,7 @@ label>input,.g_check.charge_service .total_charge,.g_radio {
     color: black;
     border-radius: 5px;
     margin-bottom: 7px;
-    margin-right: 37px;
+    margin-right: 3px;
 }
 
 

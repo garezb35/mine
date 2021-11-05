@@ -28,10 +28,10 @@
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js?v=190220"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js?v=21100516"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.min.js?v=21100816"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js?v=21050316"></script>
+    <script type="text/javascript" src="/mania/_js/_jquery3.js"></script>
+    <script type="text/javascript" src="/mania/_js/_comm.js"></script>
+    <script type="text/javascript" src="/mania/_js/_gs_control_200924.min.js"></script>
+    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js"></script>
     <script type="text/javascript" src="/mania/js/index210803.js"></script>
     <script type='text/javascript'>
 
@@ -53,24 +53,14 @@
         <!--▲▲▲ 판매등록 레이어 ▲▲▲ -->
         <div class="aside">
             <div class="title_blue">
-                <img src="/mania/img/icons/exclamation-mark-png-exclamation-mark-icon-11563006763v9utxg8tnp 2.png" />
+                <img src="/mania/img/icons/exclamation-mark-png-exclamation-mark-icon-11563006763v9utxg8tnp 1.png" />
                 판매등록 알아보기
             </div>
             <div class="menu_know">
                 <p class="heads">판매물품 등록 방법</p>
                 <img src="/mania/img/new_images/sell_left_know.png" width="210"  alt="팝니다 쉽게 등록하기">
-                <p class="text-center">물품등록 완료</p>
-                <p class="p-left-25 m-t-40 font-weight-bold">판매등록 알아두기</p>
-                <ul class="g_list p-left-25">
-                    <li>* 물품등록 본인은 물품의 문제 발생시 민/형사사상의
-                        모든 책임을 질 것에 동의을 한것으로 간주됩니다
-                    </li>
-                    <li>* 열락처는 현제 사용중인 열락처로 필히 입력해주세요
-                        열락처가 불분명시 거래에 불이익이 발생할수있습니다
-                    </li>
-                </ul>
-                <p class="p-left-25 m-t-25 font-weight-bold">판매등록 알아두기</p>
-                <ul class="g_list p-left-25">
+                <p class="m-t-40 font-weight-bold p-left-15">판매등록 알아두기</p>
+                <ul class="g_list p-left-15">
                     <li>* 물품등록 본인은 물품의 문제 발생시 민/형사사상의
                         모든 책임을 질 것에 동의을 한것으로 간주됩니다
                     </li>
@@ -109,6 +99,7 @@
                 <input type="hidden" name="good_type" id="good_type" />
                 <!-- 안심번호 -->
 {{--                <div class="g_subtitle first">물품정보</div>--}}
+                <div class="g_subtitle first">물품정보</div>
                 <table class="g_blue_table">
                     <colgroup>
                         <col width="130">
@@ -363,6 +354,7 @@
                                         </select>
                                     </div>
                                     <div class="exp">
+                                        <span id="charge_apply" style="display: none">게임머니 팝니다.</span>
                                         제목 굵기/<strong class="text-green">색</strong> 효과 적용
                                     </div>
                                     <a class="free_view btn-goods" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list.html?free_use_item=highlight',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>

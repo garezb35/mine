@@ -36,7 +36,6 @@ class ManiaController extends BaseController
         $admin_cash = $user_cash = 0;
         $payItem = MPayitem::where("orderNo", $orderNo)->first();
         $sell = User::with('roles')->where('id', $sell_id)->first();
-
         if($payItem['price'] >= $sell['roles']['until']){
             $admin_cash = $sell['roles']['fixed_price'];
             $user_cash = $payItem['price'] - $sell['roles']['fixed_price'];
@@ -225,6 +224,63 @@ class ManiaController extends BaseController
         }
     }
 
+
+    public function sell_re_reg_ok(Request $request){
+        $user_goods_type = $request->user_goods_type;
+        $id = $request->id;
+        $update = array();
+    }
+
+    public function buy_re_reg_ok(Request $request){
+        $user_goods_type = $request->user_goods_type;
+        $id = $request->id;
+        $update = array();
+        if(!empty($request->user_quantity)){
+            $update['user_quantity'] = str_replace(",","",$request->user_quantity);
+        }
+        if(!empty($request->gamemoney_unit)){
+            $update['gamemoney_unit'] = $request->gamemoney_unit;
+        }
+        if($user_goods_type == 'general'){
+            $update['user_price'] = str_replace(",","",$request->user_price);
+            $update['user_character'] = $request->user_character;
+            if(!empty($request->direct_reg_trade)){
+                $update['direct_condition_credit'] = $request->direct_condition_credit;
+                $update['direct_condition_hpp'] = $request->direct_condition_hpp;
+                $update['direct_condition_acc'] = $request->direct_condition_acc;
+                $update['user_title'] = $request->user_title;
+                $update['user_text'] = $request->user_text;
+            }
+        }
+        if($user_goods_type == 'division'){
+            $update['user_quantity_min'] = str_replace(",","",$request->user_quantity_min);
+            $update['user_quantity_max'] = str_replace(",","",$request->user_quantity_max);
+            $update['user_division_unit'] = str_replace(",","",$request->user_division_unit);
+            $update['user_division_price'] = str_replace(",","",$request->user_division_price);
+            $update['user_character'] = $request->user_character;
+            $update['user_title'] = $request->user_title;
+            $update['user_text'] = $request->user_text;
+        }
+        if($user_goods_type = 'bargain'){
+            $update['user_price'] = str_replace(",","",$request->user_price);
+            if(!empty($request->user_deny_use)){
+                $update['user_price_limit'] = str_replace(",","",$request->user_price_limit);
+            }
+            $update['user_character'] = $request->user_character;
+            $update['user_title'] = $request->user_title;
+            $update['user_text'] = $request->user_text;
+        }
+
+        if(!empty($update)){
+            MItem::where("orderNo",$id)->update($update);
+            return redirect('/buy/index_view?id='.$id);
+        }
+        else{
+            echo '<script>alert("잘못된 접근입니다.");window.history.go(-1);</script>';
+            return;
+        }
+    }
+
     public function getChrGames(Request $request){
         $games = MChgame::get()->toArray();
 
@@ -275,7 +331,7 @@ class ManiaController extends BaseController
     }
 
     public function getFreeUse(Request $request){
-        return response()->json(array('premium'=>0,'quickicon'=>0,'highlight'=>5));
+        return response()->json(array('premium'=>0,'quickicon'=>0,'highlight'=>0));
     }
 
     public function getMySearch(Request $request){
@@ -1173,7 +1229,7 @@ class ManiaController extends BaseController
         $r = '';
         if($params->user_goods_type !== null){
             $r = '<div class="contract_box"><div class="contract_title">계정양도 전자계약서</div>
-양도인 <span class="under">'.$user->name.'</span>(이하 ‘양도인’)과 양수인 <span class="under"></span>(이하 ‘양수인’)은 아래의 양도인의 캐릭터를 이용할 수 있는 인터넷 계정(이하 ‘계정’) 대하여 다음과 같이 양도 계약을 체결한다.
+양수인 <span class="under">'.$user->name.'</span>(이하 ‘양수인’)과 양도인 <span class="under"></span>(이하 ‘양도인’)은 아래의 양수인의 캐릭터를 이용할 수 있는 인터넷 계정(이하 ‘계정’) 대하여 다음과 같이 양도 계약을 체결한다.
     <table>
     <colgroup>
         <col width="160">
@@ -1188,7 +1244,7 @@ class ManiaController extends BaseController
         <td></td>
     </tr>
     <tr>
-        <th>양도대금(거래금액)</th>
+        <th>양수대금(거래금액)</th>
         <td>'.$params->price.'원</td>
     </tr>
     </table>
@@ -1202,7 +1258,7 @@ class ManiaController extends BaseController
             <col width="30%">
         </colgroup>
         <tr>
-            <th colspan="4">양도인</th>
+            <th colspan="4">양수인</th>
         </tr>
         <tr>
             <th>성명</th>
@@ -1225,7 +1281,7 @@ class ManiaController extends BaseController
             <col width="30%">
         </colgroup>
         <tr>
-            <th colspan="4">양수인</th>
+            <th colspan="4">양도인</th>
         </tr>
         <tr>
             <th>성명</th>
@@ -1749,9 +1805,9 @@ class ManiaController extends BaseController
             $seller_id = !empty($game['userId']) ? $game['userId']: 0;
         }
         else{
+            $game = MItem::with('payitem')->where("orderNo",$id)->where('userId', $this->user->id)->where('type', 'buy')->first();
             $buyer_id = !empty($game['userId']) ? $game['userId']: 0;
             $seller_id = !empty($game['toId']) ? $game['toId']: 0;
-            $game = MItem::with('payitem')->where("orderNo",$id)->where('userId', $this->user->id)->where('type', 'buy')->first();
         }
         if(empty($game) || empty($game['payitem'])){
             echo '<script>alert("잘못된 요청입니다.");window.history.go(-1);</script>';
@@ -1761,7 +1817,9 @@ class ManiaController extends BaseController
             echo '<script>alert("마일리지가 충분치 않습니다.");window.history.go(-1);</script>';
             return;
         }
+
         $re = $this->processPay($buyer_id, $seller_id, $id);
+
         if($re == 1){
             MItem::where('orderNo', $id)->update(['status'=>1]);
         }
@@ -1840,6 +1898,21 @@ class ManiaController extends BaseController
                 'type'=>2
             ]);
             return redirect('/myroom/buy/buy_regist');
+        }
+    }
+
+    public function buy_regist(Request $request){
+        $process = $request->process;
+        $trade_id = $request->trade_id;
+        if($process == 'hideSelect')
+            MItem::where('orderNo',$trade_id)->update(['hide'=>1]);
+        if($process == 'showSelect')
+            MItem::where('orderNo',$trade_id)->update(['hide'=>0]);
+        return redirect('/myroom/buy/buy_regist_view?id='.$trade_id);
+        if($process == 'deleteSelect')
+        {
+            MItem::where('orderNo',$trade_id)->delete();
+            return redirect('/');
         }
     }
 }

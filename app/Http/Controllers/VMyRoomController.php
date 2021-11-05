@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\MItem;
+use App\Models\MTitle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -139,9 +140,19 @@ class VMyRoomController extends BaseController
         return view('mania.myroom.sell_regist_view',$game);
     }
 
-    public function sell_re_reg()
+    public function sell_re_reg(Request $request)
     {
-        return view('mania.myroom.buy_re_reg');
+        $title_row = MTitle::where('userId',$this->user->id)->first();
+        $title = empty($title_row) ? '' : $title_row['title'];
+        $id = $request->id;
+        $game = MItem::with('game','server','payitem')->where("orderNo",$id)->where('type','sell')->where('userId',$this->user->id)->where('status',0)->first();
+        if(empty($game) || !empty($game['payitem'])){
+            echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
+            return;
+        }
+        $game['cuser'] = $this->user;
+        $game['title'] = $title;
+        return view('mania.myroom.sell_re_reg',$game);
     }
 
     public function buy_regist()
@@ -149,14 +160,31 @@ class VMyRoomController extends BaseController
         return view('mania.myroom.buy_regist');
     }
 
-    public function buy_regist_view()
+    public function buy_regist_view(Request $request)
     {
-        return view('mania.myroom.buy_regist_view');
+        $id = $request->id;
+        $game = MItem::with('game','server')->where('orderNo',$id)->where('userId',$this->user->id)->first();
+        if(empty($game)){
+            echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
+            return;
+        }
+        $game['cuser'] = $this->user;
+        return view('mania.myroom.buy_regist_view',$game);
     }
 
-    public function buy_re_reg()
+    public function buy_re_reg(Request $request)
     {
-        return view('mania.myroom.buy_re_reg');
+        $title_row = MTitle::where('userId',$this->user->id)->first();
+        $title = empty($title_row) ? '' : $title_row['title'];
+        $id = $request->id;
+        $game = MItem::with(['payitem','game','server'])->where("orderNo",$id)->where('type','buy')->where('userId',$this->user->id)->where('status',0)->first();
+        if(empty($game) || !empty($game['payitem'])){
+            echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
+            return;
+        }
+        $game['cuser'] = $this->user;
+        $game['title'] = $title;
+        return view('mania.myroom.buy_re_reg',$game);
     }
     public function buy_check()
     {
@@ -175,13 +203,14 @@ class VMyRoomController extends BaseController
             echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
             return;
         }
+
         if($type == 'sell'){
             $game = MItem::with('game','server','payitem','user.roles')->
             where('orderNo',$orderNo)->
             where('toId',$this->user->id)->
             where('type',$type)->
             where('status','>',0)->first();
-            if(empty($game) || empty($game['payitem']) || $game['payitem']['status'] == 0){
+            if(empty($game) || empty($game['payitem']) || $game['payitem']['status'] == 0 || empty($game['other'])){
                 echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
                 return;
             }
@@ -194,7 +223,7 @@ class VMyRoomController extends BaseController
             where('userId',$this->user->id)->
             where('type',$type)->
             where('status','>',0)->first();
-            if(empty($game) || empty($game['payitem']) || $game['other']){
+            if(empty($game) || empty($game['payitem']) || empty($game['other']) || $game['payitem']['status'] == 0){
                 echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
                 return;
             }
@@ -373,10 +402,13 @@ class VMyRoomController extends BaseController
 
     public function sell_check_view(Request $request){
         $id = $request->id;
+        var_dump($id);
+        return;
         $game = MItem::with(['game','server','bargains','payitem'])
             ->whereHas('bargains',function($query){
               $query->where('id','>',0);
             })
+            ->where('orderNo',$id)
             ->where('userId', $this->user->id)
             ->where('type','sell')
             ->where('user_goods_type','bargain')

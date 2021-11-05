@@ -42,9 +42,12 @@ class VBuyController extends BaseController
 
     public function index_view(Request $request)
     {
-        $orderNo=  $request->orderNo;
+        $orderNo=  $request->id;
         $item = MItem::with(['game','server'])->where('userId',$this->user->id)->where('orderNo',$orderNo)->where('type','buy')->first();
-        if($item == null) $item = array();
+        if($item == null) {
+            echo '<script>alert("정상적인 경로를 이용해주세요.");window.history.back();</script>';
+            return;
+        }
 
         return view('mania.buy.index_view',$item);
     }

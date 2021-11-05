@@ -224,10 +224,10 @@ function _init() {
             var userText = document.getElementById('user_text');
             if (userText.classList.contains('wide') == true) {
                 userText.classList.remove('wide');
-                this.innerHTML = '펼쳐보기▼';
+                this.innerHTML = '열기▼';
             } else {
                 userText.classList.add('wide');
-                this.innerHTML = '펼침닫기▲';
+                this.innerHTML = '닫기▲';
             }
         });
     }

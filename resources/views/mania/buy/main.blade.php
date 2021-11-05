@@ -1,5 +1,4 @@
 @php
-
     $mobile_a = $mobile_b = $mobile_c = '';
     $home_a = $home_b = $home_c = '';
     $home_array = $number_array = array();
@@ -51,19 +50,22 @@
         <!--▼▼▼ 구매등록 레이어 ▼▼▼ -->
         <!--▲▲▲ 구매등록 레이어 ▲▲▲ -->
         <div class="aside">
-            <div class="title_green">알아두기</div>
-            <div class="menu_know">
-                <p>구매물품 쉽게 등록하기</p> <img src="http://img2.itemmania.com/new_images/buy/buy_left_know.gif" width="192" height="224" alt="삽니다 쉽게 등록하기">
-                <p>구매물품 등록 시 알아둘 점</p>
-                <ul class="g_list">
-                    <li>등록자는 등록한 물품의 문제 발생 시 민/형사상의 모든 책임을 질 것에 동의하는 것으로 간주됩니다.</li>
-                    <li>현재 연락처로 꼭 수정해주세요.
-                        <br>연락처가 불분명 시 거래에 불이익을 받으실 수 있습니다. </li>
-                    <li>[나만의 검색메뉴]를 이용하시면 간편하게 물품등록을 할 수 있습니다.</li>
-                </ul>
+            <div class="title_blue">
+                <img src="/mania/img/icons/exclamation-mark-png-exclamation-mark-icon-11563006763v9utxg8tnp 2.png" />
+                구매등록 알아보기
             </div>
-            <div style="margin-top:15px;text-align:center;">
-                <a href="http://www.itemmania.com/counter/survey.php?imcounter=am_yellowmarket_mk_yellowmarket&returnUrl=http%3A%2F%2Fy-market.co.kr%3Fkeywd%3Dzonva169%26logger_kw%3Dzonva169%26source%3Dlogger_kw" target="_blank"> <img src="http://img3.itemmania.com/new_images/banner/210628_yellowmk_214x214.jpg" width="214" height="214" alt="노란마켓"> </a>
+            <div class="menu_know">
+                <p class="heads">구매물품 등록 방법</p>
+                <img src="/mania/img/new_images/buy_left_know.png" width="210"  alt="팝니다 쉽게 등록하기">
+                <p class="m-t-40 font-weight-bold p-left-15">구매등록 알아두기</p>
+                <ul class="g_list p-left-15">
+                    <li>* 물품등록 본인은 물품의 문제 발생시 민/형사사상의
+                        모든 책임을 질 것에 동의을 한것으로 간주됩니다
+                    </li>
+                    <li>* 열락처는 현제 사용중인 열락처로 필히 입력해주세요
+                        열락처가 불분명시 거래에 불이익이 발생할수있습니다
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="g_content">
@@ -212,7 +214,7 @@
                                 <label>
                                     <input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="g_checkbox"> 물품제목 기본값 : </label> <span id="trade_sign_txt" class="f_blue1">tff</span>
                                 <a href="javascript:_window.open('fixed_title', '/sell/fixed_trade_subject', 500, 300);" class="btn_white1">설정</a> </div>
-                            <input type="text" class="g_text w90 rad10 input34" name="user_title" id="user_title" maxlength="40" value="게임머니 삽니다."> </td>
+                            <input type="text" class="g_text w90 rad10 input34" name="user_title" id="user_title" maxlength="40" value=""> </td>
                     </tr>
                     <tr>
                         <th>상세설명</th>
@@ -226,6 +228,7 @@
                             <textarea id="user_text" name="user_text" class="txtarea w100" readonly placeholder="휴대폰번호, 메신저(카톡) ID 및 거래와 무관한 내용 기재 시 물품은 삭제되며, 서비스 이용에 제재를 받게 됩니다.">게임머니 삽니다.</textarea>
                         </td>
                     </tr>
+
                     <!-- 물품등록 알리미 -->
                     <tr id="alarm_line">
                         <th><span class="new">N</span>물품알리미 키워드등록</th>
@@ -300,6 +303,7 @@
                                         </select>
                                     </div>
                                     <div class="exp">
+                                        <span id="charge_apply" style="display: none">게임머니 팝니다.</span>
                                         제목 굵기/<strong class="text-green">색</strong> 효과 적용
                                     </div>
                                     <a class="free_view btn-goods" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list.html?free_use_item=highlight',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>
@@ -401,7 +405,7 @@
                         <th>연락처</th>
                         <td class="text-center">
                 <span id="spnUserPhone">
-                070-3595-6151                </span>
+                {{$user->home}}                </span>
                             ( <label><input type="checkbox" class="g_checkbox" name="user_cell_check" id="chk_user_cell_check" value="on" checked> 자택번호안내</label> ) /
                             <span id="spnUserCell">{{$user->number}}</span>
                             <a href="javascript:_window.open('private_edit', '/user/contact_edit?check=true', 496, 350);" class="btn_white1 after">연락처 수정</a>
@@ -419,9 +423,13 @@
                                         <a href="javascript:;" class="close"></a>
                                     </div>
                                     <div class="cont">
-                                        고객님의 개인정보 보호를 위해 휴대폰번호에 안심번호를 부여하여 실제 휴대폰번호 대신<br> 가상의 안심번호를 상대 거래자에게 노출시켜주는 무료 서비스 입니다.
+                                        고객님의 개인정보 보호를 위해 휴대폰번호에 안심번호를 부여하여 실제 휴대폰번호 대신
+                                        <br> 가상의 안심번호를 상대 거래자에게 노출시켜주는 무료 서비스 입니다.
                                         <ul class="f_red1">
-                                            <strong>안심번호 서비스 사용 시 주의사항</strong><br> 1) 부여받은 안심번호로도 문자 수신이 가능합니다.(발신시에는 부여받은 안심번호 사용)<br> 2) 상대거래자가 안심번호 서비스를 사용하지 않는 상태에서 발신한 경우 실제 번호가 표시됩니다.<br> 3) 부여 받은 안심번호는 거래가 종료되는 시점에 자동 회수되며, 회수된 이후에는 연락이 불가능합니다.<br> 4) 안심번호 사용 후 48시간을 초과하거나 거래종료 후 문제발생 시 실제 전화번호가 노출됩니다.
+                                            <strong>
+                                                안심번호 서비스 사용 시 주의사항</strong><br>
+                                            1) 부여받은 안심번호로도 문자 수신이 가능합니다.(발신시에는 부여받은 안심번호 사용)<br>
+                                            2) 상대거래자가 안심번호 서비스를 사용하지 않는 상태에서 발신한 경우 실제 번호가 표시됩니다.<br> 3) 부여 받은 안심번호는 거래가 종료되는 시점에 자동 회수되며, 회수된 이후에는 연락이 불가능합니다.<br> 4) 안심번호 사용 후 48시간을 초과하거나 거래종료 후 문제발생 시 실제 전화번호가 노출됩니다.
                                         </ul>
                                     </div>
                                     <div class="btn">
@@ -445,7 +453,8 @@
                                     <div class="cont">
                                         고객님의 개인정보 보호를 위해 휴대폰번호에 안심번호를 부여하여 실제 휴대폰번호 대신<br> 가상의 안심번호를 상대 거래자에게 노출시켜주는 무료 서비스 입니다.
                                         <ul class="f_red1">
-                                            <strong>안심번호 플러스 사용 시 주의사항</strong><br> 1) 부여받은 안심번호로 통화 시 수신자에게 10초에 20원의 이용료가 부과됩니다.<br> 2) 안심번호 플러스로 문자 수신은 불가능합니다.<br> 3) 부여 받은 안심번호 플러스는 거래가 종료되는 시점에 자동 회수되며, 회수된 이후에는 연락이 불가능합니다.<br> 4) 가상 번호 사용 후 24시간을 초과하거나 거래종료 후 문제발생 시 실제 전화번호가 노출됩니다.
+                                            <strong>안심번호 플러스 사용 시 주의사항</strong><br>
+                                            1) 부여받은 안심번호로 통화 시 수신자에게 10초에 20원의 이용료가 부과됩니다.<br> 2) 안심번호 플러스로 문자 수신은 불가능합니다.<br> 3) 부여 받은 안심번호 플러스는 거래가 종료되는 시점에 자동 회수되며, 회수된 이후에는 연락이 불가능합니다.<br> 4) 가상 번호 사용 후 24시간을 초과하거나 거래종료 후 문제발생 시 실제 전화번호가 노출됩니다.
                                         </ul>
                                     </div>
                                     <div class="btn">
