@@ -93,6 +93,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/myqna/list', [\App\Http\Controllers\VCustomerController::class, 'myqna_list'])->name('myqna_list');
         Route::get('/myqna/view', [\App\Http\Controllers\VCustomerController::class, 'myqna_view'])->name('myqna_view');
     });
+    Route::get('/chat/agree', [\App\Http\Controllers\VCustomerController::class, 'chat_agree'])->name('chat_agree');
 
     Route::prefix('myroom')->group(function () {
         Route::get('/', [\App\Http\Controllers\VMyRoomController::class, 'index'])->name('myroom');
