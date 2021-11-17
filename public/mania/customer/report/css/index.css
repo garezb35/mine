@@ -1,0 +1,15 @@
+.list_wrap .gray_box div.g_left{ width:608px; line-height: 1.7;}
+.list_wrap .gray_box div.g_left p{ margin:0 }
+.list_wrap .white_box{ height:20px; margin-top:10px; padding:15px 20px; background-color:#FFF; border:1px solid #E8E8E8 }
+.list_wrap .white_box .g_left span{ margin-right:35px }
+
+.g_blue_table #title{ width:98%; color:#666 }
+.g_blue_table textarea{ overflow-y:auto; width:98%; height:80px; padding:5px 3px; font-size:12px }
+.g_blue_table .screenshot_sub{ clear:both; float:left; margin-top:5px; font-size:12px; }
+.g_blue_table .trade_num{ width:200px !important; ime-mode:disabled }
+.best_faq{ float:left; border-top:2px solid #636363; }
+.best_faq li{ float:left; padding:13px 0 13px 10px; border-bottom:1px solid #E0E0E0 }
+.best_faq .category{ clear:both; width:130px; background-color:#f5f7f8; font-weight:bold;text-align: center; }
+.best_faq .subject{ width:670px; cursor:pointer; }
+.best_faq .detail_content{ display:none; width:750px }
+
