@@ -725,15 +725,15 @@ function getPriceLimit() {
 
 /* ▼ 수수료계산 */
 function commissionCalcu(t) {
-    var comsArea = document.getElementById('coms_area');
-    if (t === '2') {
-        comsArea = document.getElementById('coms_area2');
-    }
-
-    if (this.value === '0' || this.value.isEmpty() === true) {
-        comsArea.style.display = 'none';
-        return;
-    }
+    // var comsArea = document.getElementById('coms_area');
+    // if (t === '2') {
+    //     comsArea = document.getElementById('coms_area2');
+    // }
+    //
+    // if (this.value === '0' || this.value.isEmpty() === true) {
+    //     comsArea.style.display = 'none';
+    //     return;
+    // }
 
     comsArea.style.display = 'block';
 
@@ -1331,7 +1331,7 @@ var itemDetailSetting = {
 
 function SafetyNumber(){
     ajaxRequest({
-        url: '/ajpi/_include/_SafetyNumber_Category_Check_AJAX',
+        url: '/api/_include/_SafetyNumber_Category_Check_AJAX',
         type: 'post',
         data: {
             gamecode: $('#game_code').val(),

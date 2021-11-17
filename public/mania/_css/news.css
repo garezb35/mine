@@ -1,0 +1,122 @@
+.ct_cont {
+    overflow: hidden;
+    float: left;
+    width: 690px;
+}
+.detail .title {
+    margin: 23px 0 7px;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: normal;
+}
+em {
+    font-style: normal;
+}
+.right_ct .bn {
+    margin: 20px  0;
+}
+
+.right_ct .rg_tlt {
+    position: relative;
+    padding: 35px 0 10px;
+    border-top: 2px
+    solid #141414;
+    color: #000;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.fv_list {
+    padding-top: 14px;
+    border-top: 1px
+    solid #E5E5E5;
+    color: #323232;
+}
+
+.fv_list2 li {
+    padding-left: 32px;
+    border-bottom: 1px solid #E5E5E5;
+    line-height: 31px;
+}
+
+ul .num1 {
+    background: url(//img1.itemmania.com/images/portal/gamemeca/icon_num_1.gif) no-repeat 0 50%;
+}
+ul .num2 {
+    background: url(//img2.itemmania.com/images/portal/gamemeca/icon_num_2.gif) no-repeat 0 50%;
+}
+ul .num3 {
+    background: url(//img2.itemmania.com/images/portal/gamemeca/icon_num_3.gif) no-repeat 0 50%;
+}
+ul .num4 {
+    background: url(//img2.itemmania.com/images/portal/gamemeca/icon_num_4.gif) no-repeat 0 50%;
+}
+ul .num5 {
+    background: url(//img2.itemmania.com/images/portal/gamemeca/icon_num_5.gif) no-repeat 0 50%;
+}
+ul .num6 {
+    background: url(//img2.itemmania.com/images/portal/gamemeca/icon_num_6.gif) no-repeat 0 50%;
+}
+ul .num7 {
+    background: url(//img2.itemmania.com/images/portal/gamemeca/icon_num_7.gif) no-repeat 0 50%;
+}
+ul .num8 {
+    background: url(//img2.itemmania.com/images/portal/gamemeca/icon_num_8.gif) no-repeat 0 50%;
+}
+ul .num9 {
+    background: url(//img2.itemmania.com/images/portal/gamemeca/icon_num_9.gif) no-repeat 0 50%;
+}
+ul .num10 {
+    background: url(//img2.itemmania.com/images/portal/gamemeca/icon_num_10.gif) no-repeat 0 50%;
+}
+
+.fv_list li {
+    padding-left: 22px;
+    margin-bottom: 15px;
+    line-height: 12px;
+    font-size: 13px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.rg_tlt .more {
+    position: absolute;
+    top: 23px;
+    right: 0;
+    width: 66px;
+    height: 27px;
+    background: url(//img3.itemmania.com/images/portal/gamemeca/btn_more.gif) no-repeat;
+    text-indent: -9999px;
+}
+
+.ct_cont .list {
+    position: relative;
+    padding: 20px 0 20px 170px;
+    border-bottom: 1px solid #F0F0F0;
+}
+.list img {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 150px;
+    height: 85px;
+}
+
+.list_in .title {
+    margin-bottom: 17px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: normal;
+}
+
+.list_in .date {
+    display: block;
+    margin-top: 2px;
+    color: #888;
+}

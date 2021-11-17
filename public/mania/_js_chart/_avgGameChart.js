@@ -15,7 +15,7 @@ var fSs, findE, canvas, x2js = new X2JS(),
     gameChart_ServerList_WrapperIndex = 0,
     gameChart_ListServerCode = 0,
     canvasLayer = ["lineLayer", "circleLayer", "mouseOverLayer"],
-    gameChart_title = "ìµœê·¼ ì‹œì„¸í˜„í™©",
+    gameChart_title = "최근 시세현황",
     gameChart_DOM_create = "",
     onText = "",
     gameChart_priceUpdown = "",
@@ -201,7 +201,7 @@ gameChart = {
                         if(fSs.getAvgPrice(d._code).avgPrice == fSs.getAvgPrice(d._code).prevPrice) {
                             gameChart_priceUpdown = '<span class="priceArrow arrowSame">-</span>'
                         } else {
-                            gameChart_priceUpdown = '<span class="priceArrow mania-red">â–¼</span>'
+                            gameChart_priceUpdown = '<span class="priceArrow mania-red"></span>'
                         }
                     }
                 }
@@ -238,10 +238,10 @@ gameChart = {
         if(a === "ì¼") {
             a = ""
         }
-        gameChart_DOM_create = '<span><span class="mania-blue">' + gameChartFilterDataGame._name + " |</span> " + gameChartDataServer._name + "</span> (ê¸°ì¤€ " + c.currency() + a + " " + gameChartDataServer._Unit + ')<a class="mania-blue-btn gameChart_drawGraph_title_Btn" href="http://trade.itemmania.com/sell/list_search.html?search_type=sell&search_game=' + gameChartFilterDataGame._code + "&search_game_text=" + gameChartFilterDataGame._name + "&search_server=" + gameChartDataServer._code + "&search_server_text=" + gameChartDataServer._name + '">ê±°ëž˜í•˜ëŸ¬ê°€ê¸°</a>';
+        gameChart_DOM_create = '<span><span class="mania-blue">' + gameChartFilterDataGame._name + " |</span> " + gameChartDataServer._name + "</span> (" + c.currency() + a + " " + gameChartDataServer._Unit + ')<a class="mania-blue-btn gameChart_drawGraph_title_Btn" href="/sell/list_search?search_type=sell&search_game=' + gameChartFilterDataGame._code + "&search_game_text=" + gameChartFilterDataGame._name + "&search_server=" + gameChartDataServer._code + "&search_server_text=" + gameChartDataServer._name + '">거래하러가기</a>';
         findE(".gameChart_drawGraph_title").innerHTML = gameChart_DOM_create;
         gmaeChart_DOM_create = "<div>" + fSs.comma(fSs.getAvgPrice(b).avgPrice * 2) + "</div><div>" + fSs.comma(fSs.getAvgPrice(b).avgPrice) + "</div><div>0</div>";
-        findE(".gameChart_drawGraph_basePrice").innerHTML = gmaeChart_DOM_create;
+        findE(".gameChart_drawGraph_basePrice").innerHTML = gmaeChart_DOM_create;``
         gameChart_DOM_create = "";
         gameChartDataServer.price.map(function(e, d) {
             gameChart_DOM_create += "<div>" + e._day + "</div>"
@@ -346,7 +346,7 @@ if(gameChart_Element) {
             gameChart_XY_mapData[b].x > 300 ? a.textAlign = "end" : a.textAlign = "start";
             a.fillStyle = "#333";
             a.font = "11px Dotum";
-            a.fillText(gameChartDataServer.price[b]._day + "ì¼ : " + fSs.comma(gameChartDataServer.price[b].__text), gameChart_XY_mapData[b].x, gameChart_XY_mapData[b].y - 10)
+            a.fillText(gameChartDataServer.price[b]._day + "일 : " + fSs.comma(gameChartDataServer.price[b].__text), gameChart_XY_mapData[b].x, gameChart_XY_mapData[b].y - 10)
         }
     }
 };

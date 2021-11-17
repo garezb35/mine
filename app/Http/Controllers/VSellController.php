@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MGift;
 use App\Models\MItem;
+use App\Models\MMygame;
 use App\Models\MPopularCharacter;
 use App\Models\MRole;
 use App\Models\MTitle;
@@ -26,10 +28,26 @@ class VSellController extends BaseController
         $title_row = MTitle::where('userId',$this->user->id)->first();
         $title = empty($title_row) ? '' : $title_row['title'];
         $popular = MPopularCharacter::with('game')->get()->toArray();
+        $mygame  = MMygame::where('type','buy')->where('userId',$this->user->id)->get();
+        $highlight = $premium = $quickicon = 0;
+        $gift = MGift::where('userId',$this->user->id)->get();
+        foreach($gift as $value){
+            if($value['type'] == 1)
+                $premium = $value['time'];
+            if($value['type'] == 2)
+                $highlight = $value['time'];
+            if($value['type'] == 3)
+                $quickicon = $value['time'];
+        }
         return view('mania.sell.main',[
             'popular'=>$popular,
             'user'=>$this->user,
-            'title'=>$title
+            'title'=>$title,
+            'mygame'=>$mygame,
+            'premium'=>$premium,
+            'highlight'=>$highlight,
+            'quickicon'=>$quickicon,
+
         ]);
     }
 
@@ -49,29 +67,82 @@ class VSellController extends BaseController
     {
         $orderNo = $request->id;
         $type=  $request->type;
-        if($type == 'sell'){
-            $game = MItem::with(['game','server','user.roles'])
-                ->where('orderNo',$orderNo)
-                ->whereNull('toId')
-                ->where("userId","!=",$this->user->id)
-                ->where('type','sell')
-                ->where('status','0')
-                ->first();
-        }
-        else{
-            $game = MItem::with(['game','server','user.roles'])
-                ->where('orderNo',$orderNo)
-                ->whereNull('toId')
-                ->where("userId", $this->user->id)
-                ->where('type','buy')
-                ->where('status','0')
-                ->first();
-        }
-
+        $game = MItem::with(['game','server','user.roles','payitem','bargains','bargain_requests'=>function($query){
+            $query->where('userId',$this->user->id);
+        }])
+            ->where('orderNo',$orderNo)
+            ->first();
         if(empty($game)){
             echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
             return;
         }
+
+        if($game['userId'] == $this->user->id){
+            if($type == 'sell'){
+                if(empty($game['payitem']) && empty($game['toId']) && sizeof($game['bargains']) == 0 && $game['status'] == 0){
+                    return redirect('/sell/index_view?id='.$orderNo.'&type=sell');
+                }
+                if(!empty($game['payitem']) && $game['payitem']['status'] == 0 && $game['status'] == 0 && !empty($game['toId'])){
+                    return redirect('/myroom/sell/sell_pay_wait_view?id='.$orderNo.'&type=sell');
+                }
+                if(!empty($game['payitem']) && ($game['payitem']['status'] == 1 || $game['payitem']['status'] == 2) && $game['status'] > 0 && !empty($game['toId'])){
+                    return redirect('/myroom/sell/sell_ing_view?id='.$orderNo.'&type=sell');
+                }
+                if(empty($game['payitem']) && empty($game['toId']) && sizeof($game['bargains']) > 0){
+                    return redirect('/myroom/sell/sell_check_view?id='.$orderNo);
+                }
+            }
+            else{
+                if(empty($game['payitem']) && empty($game['toId']) && $game['status'] == 0){
+                    return redirect('/buy/index_view?id='.$orderNo.'&type=buy');
+                }
+                if(!empty($game['payitem']) && $game['payitem']['status'] == 0 && $game['status'] == 0 && !empty($game['toId'])){
+                    return redirect('/myroom/buy/buy_pay_wait_view?id='.$orderNo.'&type=buy');
+                }
+                if(!empty($game['payitem']) && ($game['payitem']['status'] == 1 || $game['payitem']['status'] == 2) && $game['status'] > 0 && !empty($game['toId'])){
+                    return redirect('/myroom/buy/buy_ing_view?id='.$orderNo.'&type=buy');
+                }
+            }
+        }
+        else{
+            if($type == 'sell'){
+                if(!empty($game['toId'])){
+                    if($game['toId'] != $this->user->id){
+                        echo '<script>alert("거래중 물품입니다.");window.history.back();</script>';
+                        return;
+                    }
+                    if(!empty($game['payitem']) && $game['payitem']['status'] == 0 && $game['status'] == 0 ){
+                        return redirect('/myroom/buy/buy_pay_wait_view?id='.$orderNo.'&type=sell');
+                    }
+                    if(!empty($game['payitem']) && ($game['payitem']['status'] == 1 || $game['payitem']['status'] == 2) && $game['status'] > 0){
+                        return redirect('/myroom/buy/buy_ing_view?id='.$orderNo.'&type=sell');
+                    }
+                }
+                else{
+                    if(empty($game['payitem']) && $game['status'] == 0 && !empty($game['bargain_requests']) && sizeof($game['bargain_requests']) > 0){
+                        return redirect('/myroom/buy/buy_check_view?id='.$orderNo);
+                    }
+                }
+            }
+            if($type == 'buy'){
+                if(!empty($game['toId'])){
+                    if($game['toId'] != $this->user->id){
+                        echo '<script>alert("거래중 물품입니다.");window.history.back();</script>';
+                        return;
+                    }
+                    if(!empty($game['payitem']) && $game['payitem']['status'] == 0 && $game['status'] == 0 ){
+                        return redirect('/myroom/sell/sell_pay_wait_view?id='.$orderNo.'&type=buy');
+                    }
+                    if(!empty($game['payitem']) && ($game['payitem']['status'] == 1 || $game['payitem']['status'] == 2) && $game['status'] > 0){
+                        return redirect('/myroom/sell/sell_ing_view?id='.$orderNo.'&type=buy');
+                    }
+                }
+                else{
+                    return redirect('/buy/application?id='.$orderNo);
+                }
+            }
+        }
+
         $game['cuser'] = $this->user;
         return view('mania.sell.sell_view',$game);
     }
@@ -79,15 +150,36 @@ class VSellController extends BaseController
     public function sell_application(Request $request)
     {
         $id = $request->id;
-        $game = MItem::with(['game','server','user'])
-            ->whereNull('toId')
+        $game = MItem::with(['game','server','user','payitem','bargains','bargain_requests'=>function($query){
+            $query->where('userId',$this->user->id);
+        }])
             ->where('orderNo',$id)
-            ->where('userId',"!=",$this->user->id)
-            ->where('status',0)
             ->where('type','sell')->first();
         if(empty($game)){
             echo '<script>alert("정상적인 경로를 이용해주세요.");window.history.back();</script>';
             return;
+        }
+        if(!empty($game['payitem']) && $game['toId'] == $this->user->id && $game['payitem']['status'] !=0){
+            return redirect('/myroom/buy/buy_ing_view?id='.$id.'&type=sell');
+        }
+        if(!empty($game['payitem']) && $game['userId'] == $this->user->id && $game['payitem']['status'] !=0){
+            return redirect('/myroom/sell/sell_ing_view?id='.$id.'&type=sell');
+        }
+        if(!empty($game['payitem']) && $game['toId'] == $this->user->id && $game['payitem']['status'] ==0){
+            return redirect('/myroom/buy/buy_pay_wait_view?id='.$id.'&type=sell');
+        }
+        if(!empty($game['payitem']) && $game['userId'] == $this->user->id && $game['payitem']['status'] ==0){
+            return redirect('/myroom/sell/sell_pay_wait_view?id='.$id.'&type=sell');
+        }
+
+        if(empty($game['payitem']) && empty($game['toId']) && !empty($game['bargains']) && sizeof($game['bargains']) > 0 && $game['userId'] == $this->user->id){
+            return redirect('/myroom/sell/sell_check_view?id='.$id);
+        }
+        if(empty($game['payitem']) &&  $game['status'] == 0 && !empty($game['bargain_requests']) && sizeof($game['bargain_requests']) > 0){
+            return redirect('/myroom/buy/buy_check_view?id='.$id);
+        }
+        if($game['userId'] == $this->user->id && empty($game['payitem']) && sizeof($game['bargains']) == 0 && empty($game['toId'])){
+            return redirect('/sell/view?id='.$id.'&type=sell');
         }
         $game['cuser'] = $this->user;
         return view('mania.sell.sell_application',$game);
@@ -121,6 +213,10 @@ class VSellController extends BaseController
         $params['goods_type'] = !empty($params['goods_type']) && $params['goods_type'] !=1  ? $params['goods_type'] : 'all';
         $params['excellent'] = !empty($params['excellent']) ? $params['excellent'] : '';
         $params['discont'] = !empty($params['discont']) ? $params['discont'] : '';
+        $params['search_server'] = !empty($params['search_server']) ? $params['search_server'] : '';
+        $params['search_game_text'] = !empty($params['search_game_text']) ? $params['search_game_text'] : '';
+        $params['search_server_text'] = !empty($params['search_server_text']) ? $params['search_server_text'] : '';
+        $params['search_goods'] = !empty($params['search_goods']) ? $params['search_goods'] : '';
         $params['speed'] = !empty($params['speed']) ? $params['speed'] : '';
         $roles = MRole::orderBy('level',"ASC")->get()->toArray();
         $params['roles'] = $roles;
@@ -132,7 +228,6 @@ class VSellController extends BaseController
      */
     public function user_contact_edit()
     {
-
         return view('mania.sell.user_contact_edit',$this->user);
     }
 

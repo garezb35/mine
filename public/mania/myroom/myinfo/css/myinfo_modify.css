@@ -1,0 +1,121 @@
+.margin_15 {
+    margin-left: 15px
+}
+
+.margin_5 {
+    margin-left: 5px
+}
+
+.cell_num .g_text {
+    width: 49px
+}
+
+.cell_num .g_selectbox {
+    float: left;
+    width: 49px;
+    margin-top: 1px
+}
+
+.cell_num .s_label {
+    float: left;
+    margin: 3px 5px 0 0;
+}
+
+.cell_num .mobile_type {
+    margin-right: 13px;
+}
+
+.cell_num .user_contactA {
+    margin-left: 12px
+}
+
+.myinfo_address .g_text {
+    width: 58px
+}
+
+.myinfo_address_detail .g_text {
+    width: 270px;
+    margin-right: 2px;
+    height: 40px;
+}
+
+.sms_info dl {
+    float: left;
+    margin-bottom: 10px;
+    border: 1px solid #E2E2E2;
+    color: #767676
+}
+
+.sms_info dl dt {
+    float: left;
+    width: 137px;
+    padding: 1px 0;
+    border-right: 1px solid #D7D7D7;
+    text-align: center
+}
+
+.sms_info dl dd {
+    float: left;
+    width: 137px;
+    padding: 1px 0;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sms_info .agree_area {
+    margin-bottom: 10px;
+}
+
+.sms_info .agree_guide {
+    margin-bottom: 20px;
+    font-size: 11px;
+}
+
+.sms_info .btn_gray1,
+.sms_info .btn_blue1 {
+    float: left;
+    width: 137px;
+    padding: 1px 4px;
+    border: 1px solid #9b9b9b;
+    cursor: pointer;
+}
+
+.sms_info .f_org1 {
+    margin: 15px 0;
+    font-size: 11px;
+}
+
+.bank_info {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: 1px solid #D7D7D7;
+    background-color: #F7F7F7;
+    font-size: 12px;
+    color: #636363;
+}
+
+.svc_check {
+    font-size: 12px;
+    color: #636363;
+}
+
+.email_info .s_label {
+    float: left;
+    margin: 2px 13px 0 0;
+}
+
+.email_info .g_text {
+    width: 130px;
+    text-align: center;
+}
+
+.email_info .btn_gray3 {
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+.email_info .agree_guide {
+    margin: 10px 0;
+    font-size: 11px;
+}

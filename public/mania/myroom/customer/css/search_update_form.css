@@ -1,0 +1,73 @@
+/*
+ * @title		나만의 검색 메뉴 수정 팝업
+ * @author		김현진
+ * @date		2012.02.02
+ * @update		수정날짜(수정자)
+ * @description
+ */
+.box {
+    height: 40px;
+    margin: 20px 0;
+    padding: 20px;
+    border: 5px solid #E6E6E6;
+}
+
+.custom_search_wrapper {
+    padding-left: 85px;
+}
+
+.slctType {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    float: left;
+    box-sizing: border-box;
+    width: 75px;
+    height: 40px;
+    margin-top: -20px;
+    border: 1px solid #159EFD;
+    font-size: 13px;
+}
+
+.slctType .value {
+    margin-top: 9px;
+}
+
+.slctType .arrow_img {
+    margin-top: 12px;
+}
+
+.custom_search_wrapper .search_area {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    padding-left: 0;
+    border: 1px solid #159EFD;
+}
+
+.custom_search_wrapper .g_text {
+    width: 100%;
+    padding-left: 13px;
+    margin-left: 0;
+}
+
+.custom_search_wrapper .favorite {
+    position: absolute;
+    top: 7px;
+    right: 45px;
+    display: block;
+    width: 23px;
+    height: 22px;
+    background: url(//img1.itemmania.com/new_images/sell/icon_star.png) no-repeat;
+    text-indent: -9999px;
+}
+
+.custom_search_wrapper .custom_gameserver {
+    left: 85px;
+    width: calc(100% - 85px);
+    height: 200px;
+}
+
+.custom_search_wrapper .gs_selection > div > ul {
+    height: 165px;
+}

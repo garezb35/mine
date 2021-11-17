@@ -1,0 +1,37 @@
+
+#first_title {
+    margin-top: 0
+}
+
+.g_blue_table td {
+    height: 20px;
+    padding-left: 0;
+    text-align: center
+}
+
+.g_blue_table select {
+    padding-top: 2px;
+    text-align: center
+}
+
+.g_blue_table option {
+    width: 44px;
+    height: 16px;
+    text-align: center
+}
+
+.g_blue_table .g_text {
+    text-align: left;
+    border: none
+}
+
+.g_blue_table .first {
+    color: #F26522;
+    font-weight: bold
+}
+
+.arrow_red {
+    color: #ED0000;
+    text-decoration: line-through;
+    font-size: 12px
+}

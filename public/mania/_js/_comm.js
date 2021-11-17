@@ -2871,8 +2871,11 @@ var _myService = {
     },
     deleteFavorite: function(a, b) {
         ajaxRequest({
-            url: "/myroom/customer/search_delete.php",
-            data: "id=" + a,
+            url: "/api/myroom/customer/search_delete",
+            data: {
+                id: a,
+                api_token: a_token
+            },
             type: "POST",
             dataType: "JSON",
             success: function(c) {
@@ -2894,8 +2897,9 @@ var _myService = {
         })
     },
     addFavorite: function(a, b) {
+        a.api_token = a_token;
         ajaxRequest({
-            url: "/myroom/customer/search_add.php",
+            url: "/api/myroom/customer/search_add",
             type: "POST",
             dataType: "json",
             data: a,

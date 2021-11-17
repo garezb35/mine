@@ -10,4 +10,8 @@ class MBargainRequest extends Model
     use HasFactory;
     protected $table = 'm_bargain_request';
     protected $guarded = [];
+
+    public function user(){
+        return $this->hasOne(User::class,'id','userId');
+    }
 }

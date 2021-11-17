@@ -34,6 +34,11 @@ class MItem extends Model
         return $this->hasMany(MBargainRequest::class,'orderNo','orderNo');
     }
 
+    public function bargain_requests(){
+        return $this->hasMany(MBargainRequest::class,'orderNo','orderNo')->where('status',0);
+    }
+
+
     public function premium(){
         return $this->hasOne(MPremium::class,'post_id','id')
             ->where('type',1)

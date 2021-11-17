@@ -106,10 +106,10 @@
     margin-left: 0;
 }
 .g_header .nav_wrap .nav_highlight {
-    left: 780px;
+    left: 761px;
 }
 .nav_wrap .nav li {
-    padding: 0 43px;
+    padding: 0 57px;
 }
 .nav_wrap .nav li a {
     height: 50px;
@@ -154,4 +154,7 @@
     background-size: cover;
     height: 100px;
     width: 100%;
+}
+.g_content {
+    min-height: 480px;
 }

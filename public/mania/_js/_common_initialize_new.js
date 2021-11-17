@@ -64,7 +64,7 @@ function _header() {
                 $(this).addClass("on");
                 i = k;
                 ajaxRequest({
-                    url: "/_include/quicklink" + i.split("_")[0] + ".php",
+                    url: "/_include/quicklink" + i.split("_")[0],
                     type: "POST",
                     async: false,
                     success: function(m) {
@@ -77,7 +77,7 @@ function _header() {
     if(document.getElementById("all_menu") !== null) {
         $("#all_menu").on("click", function() {
             ajaxRequest({
-                url: "/html/sitemap.html",
+                url: "/html/sitemap",
                 dataType: "html",
                 success: function(k) {
                     $("#all_menu_layer").find(".inner").append(k);
@@ -105,11 +105,11 @@ function _header() {
                         if(window.external) {
                             window.external.AddFavorite(l, k)
                         } else {
-                            alert("Ctrl+Dí‚¤ë¥¼ ëˆ„ë¥´ì‹œë©´ ì¦ê²¨ì°¾ê¸°ì— ì¶”ê°€í•˜ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.")
+                            alert("Ctrl+D키를 누르시면 즐겨찾기에 추가하실 수 있습니다.")
                         }
                     }
                 } catch(m) {
-                    alert("Ctrl+Dí‚¤ë¥¼ ëˆ„ë¥´ì‹œë©´ ì¦ê²¨ì°¾ê¸°ì— ì¶”ê°€í•˜ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.")
+                    alert("Ctrl+D키를 누르시면 즐겨찾기에 추가하실 수 있습니다.")
                 }
             })
         }
@@ -124,13 +124,13 @@ function _header() {
                             try {
                                 netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect")
                             } catch(l) {
-                                alert("ì§€ì›í•˜ì§€ ì•ŠëŠ” ë¸Œë¼ìš°ì €ìž…ë‹ˆë‹¤.")
+                                alert("지원하지 않는 브라우저입니다.")
                             }
                         }
                         var k = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
                         k.setCharPref("browser.satrip.homepage", url)
                     } else {
-                        alert("ì§€ì›í•˜ì§€ ì•ŠëŠ” ë¸Œë¼ìš°ì €ìž…ë‹ˆë‹¤.")
+                        alert("지원하지 않는 브라우저입니다.")
                     }
                 }
             })
@@ -145,11 +145,12 @@ function _header() {
     if(document.getElementById("alarm_noti") !== null) {
         var f = document.getElementById("alarm_noti");
         ajaxRequest({
-            url: "/myroom/goods_alarm/_ajax_process.php",
+            url: "/api/myroom/goods_alarm/_ajax_process",
             type: "post",
             dataType: "json",
             data: {
-                mode: "new"
+                mode: "new",
+                api_token: a_token
             },
             async: false,
             success: function(k) {
@@ -160,7 +161,7 @@ function _header() {
                 }
             },
             error: function(k) {
-                alert("ì„œë²„ì™€ì˜ ì ‘ì†ì´ ì›í™œí•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\nìž ì‹œí›„ ë‹¤ì‹œ ì‹œë„í•´ì£¼ì„¸ìš”." + k.message);
+                alert("서버와의 접속이 원활하지 않습니다.\n잠시후 다시 시도해주세요." + k.message);
                 return
             }
         })
@@ -193,7 +194,7 @@ function searchbarSubmit() {
     var d = (g === "0" || g === "") ? "list" : "list_search";
     var e = "/" + b + "/" + d;
     if(a.isEmpty()) {
-        alert("비었습니다.");
+        alert("게임을 선택해주세요.");
         return false
     } else {
         _myService.setLastSearch()
@@ -204,18 +205,19 @@ function searchbarSubmit() {
 
 function dialogAction(a) {
     ajaxRequest({
-        url: "/myroom/goods_alarm/_ajax_process.php",
+        url: "/api/myroom/goods_alarm/_ajax_process",
         type: "post",
         dataType: "json",
         data: {
-            mode: "new_layer"
+            mode: "new_layer",
+            api_token:a_token
         },
         async: false,
         success: function(b) {
             a()
         },
         error: function(b) {
-            alert("ì„œë²„ì™€ì˜ ì ‘ì†ì´ ì›í™œí•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\nìž ì‹œí›„ ë‹¤ì‹œ ì‹œë„í•´ì£¼ì„¸ìš”." + b.message);
+            alert("서버와의 접속이 원활하지 않습니다.\n잠시후 다시 시도해주세요." + b.message);
             return
         }
     })

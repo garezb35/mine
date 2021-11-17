@@ -1,3 +1,4 @@
+
 <div class="g_layer all_menu_layer" id="all_menu_layer">
     <div class="inner"> <a href="javascript:;" class="sp_icon close_r" id="menu_close">닫기</a> </div>
 </div>
@@ -38,8 +39,8 @@
             <div class="g_snav">
                 <ul class="snav_left"></ul>
                 <ul class="snav_right">
-                    <li><a href="#">마이룸</a></li>
-                    <li><a href="#">고객센터</a></li>
+                    <li><a href="{{route('myroom')}}">마이룸</a></li>
+                    <li><a href="{{route('customer')}}">고객센터</a></li>
                     <li><a href="#">회원가입</a></li>
                     <li><a href="#">로그인</a></li>
                 </ul>
@@ -66,9 +67,9 @@
                     <div class="g_search_frame g_hidden">
                         <div class="g_trade_type align-center">
                             <label class="radiocontainer f_blue1"> 팝니다
-                                <input type="radio" name="search_type" value="sell" checked> <span class="checkmark"></span> </label>
+                                <input type="radio" name="search_type" value="sell" @if(empty($_POST['search_type']) || $_POST['search_type'] != 'buy') checked @endif> <span class="checkmark"></span> </label>
                             <label class="radiocontainer f_green1"> 삽니다
-                                <input type="radio" name="search_type" value="buy"> <span class="checkmark"></span> </label>
+                                <input type="radio" name="search_type" value="buy" @if(!empty($_POST['search_type']) && $_POST['search_type'] == 'buy') checked @endif> <span class="checkmark"></span> </label>
                         </div>
                         <div class="initial_screen">
                             <div class="tab searchbar_tab">
@@ -110,7 +111,7 @@
                 <li><a href="/character">캐릭터 거래</a></li>
                 <li><a href="/myroom">마이룸</a></li>
                 <li><a href="{{route("giftcard")}}">상품권샵</a></li>
-                <li><a href="#">이벤트/쿠폰</a></li>
+{{--                <li><a href="#">이벤트/쿠폰</a></li>--}}
                 <li><a href="{{route("guide")}}">이용안내</a></li>
             </ul>
             <ul class="nav nav_highlight">

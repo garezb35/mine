@@ -11,7 +11,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link type="text/css" rel="stylesheet" href="/mania/dev/change.css">
         <link type="text/css" rel="stylesheet" href="/mania/dev/global.css">
-
+        <link type="text/css" rel="stylesheet" href="/mania/photoswipe/css/photoswipe.css">
+        <link type="text/css" rel="stylesheet" href="/mania/photoswipe/css/default-skin/default-skin.css">
     </head>
 
     <body>
@@ -32,8 +33,13 @@
             @yield('content')
             @include('layouts-mania.footer')
         </div>
-
-        @yield('foot_attach')
+        <script type="text/javascript" src="/mania/_js/_jquery3.js"></script>
+        <script type="text/javascript" src="/mania/_js/_comm.js"></script>
+        <script type="text/javascript" src="/mania/_js/_gs_control_200924.js"></script>
+        <script type="text/javascript" src="/mania/_js/_common_initialize_new.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/packery/1.4.3/packery.pkgd.min.js"></script>
+        <script type="text/javascript" src="/mania/photoswipe/js/jquery.photoswipe-global.js"></script>
+    @yield('foot_attach')
 
         <script type="text/javascript">
             _initialize();

@@ -28,10 +28,7 @@
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.min.js"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js"></script>
+
     <script type="text/javascript" src="/mania/js/index210803.js"></script>
     <script type='text/javascript'>
 
@@ -42,6 +39,9 @@
         function __init() {
 
         }
+        e_use.premium = {{$premium}};
+        e_use.highlight = {{$highlight}} / 12;
+        e_use.quickIcon = {{$quickicon}};
     </script>
 
 @endsection
@@ -107,82 +107,99 @@
                     </colgroup>
                     <tr>
                         <th>게임선택</th>
-                        <td class="bg-white">
-                            <div class="g_search_wrapper g_search_wrapper1">
-                                <div class="search_wrap search_wrap1">
+                        <td>
+                            <div class="g_search_wrapper">
+                                <div class="search_wrap">
                                     <div class="input_area">
                                         <input type="text" class="g_text search_gs_name" id="searchRegGameServer" placeholder="게임명 또는 서버명을 입력해주세요." autocomplete="off" data-gameserver="true">
                                     </div>
                                     <a href="javascript:fnSearchAdd();" title="자주 이용하는 게임을 나만의검색메뉴에 추가할 수 있습니다." class="favorite_icon">즐겨찾기</a>
-                                    <button type="button" class="g_search_list g_search_list1" title="검색">
-                                        <i class="icon_search1 fa fa-search"></i>
+                                    <button type="button" class="g_search_list text-center" title="검색">
+                                        <i class="fa fa-search" style="color: #fff;font-size: 23px;"></i>
                                     </button>
                                 </div>
-                                <div class="g_search_frame  reg_gameserver g_search_frame1" id="reg_gameserver">
+                                <div class="g_search_frame g_hidden reg_gameserver" id="reg_gameserver">
                                     <div class="initial_screen">
                                         <div class="tab searchbar_tab">
-                                            <div class="active wid-126">
+                                            <div class="active">
                                                 <a href="javascript:;" data-target="tab_lastsearch">최근검색게임</a>
                                             </div>
-                                            <div class="wid-126">
+                                            <div>
                                                 <a href="javascript:;" data-target="tab_mygame">나만의 게임</a>
                                             </div>
                                         </div>
                                         <div class="tab_content">
                                             <div class="tab_child show" data-content="tab_lastsearch">
-                                                <ul class="last_search">
-                                                </ul>
+                                                <ul class="last_search"></ul>
                                             </div>
                                             <div class="tab_child" data-content="tab_mygame">
                                                 <ul class="g_my_search"></ul>
                                             </div>
                                         </div>
+                                        <div class="popular_game" data-popular="true">
+                                            <div class="popular_game_title">거래가능게임</div>
+                                            <ul class="popular_list">
+                                                @if(!empty($popular))
+                                                    @foreach($popular as $key=>$v)
+                                                        <li data-pgame="{{$v['game_code']}}">
+                                                            <em class="top_rank">{{$key + 1}}</em>{{$v['game']['game']}}
+                                                        </li>
+                                                    @endforeach
+                                                @endif
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="gs_list g_hidden gs_list1" data-gslist="true" id="reg_gameserver_list"></div>
+                                    <div class="gs_list g_hidden" data-gslist="true" id="reg_gameserver_list"></div>
                                 </div>
                             </div>
-{{--                            <div class="mygame">--}}
-{{--                                <div class="th">--}}
-{{--                                    나만의 검색메뉴--}}
-{{--                                    <a href="javascript:;" class="btn_blue3" id="myLastList">최근 등록한 물품보기</a>--}}
-{{--                                    <div class="g_msgbox blue" id="lastList" style="margin-top:10px">--}}
-{{--                                        <div class="title">--}}
-{{--                                            최근 등록한 물품--}}
-{{--                                            <a href="javascript:;" class="close"></a>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="cont">--}}
-{{--                                            <table class="g_blue_table tb_list">--}}
-{{--                                                <colgroup>--}}
-{{--                                                    <col width="100">--}}
-{{--                                                    <col width="130">--}}
-{{--                                                    <col>--}}
-{{--                                                    <col width="120">--}}
-{{--                                                    <col width="80">--}}
-{{--                                                </colgroup>--}}
-{{--                                                <thead>--}}
-{{--                                                <tr>--}}
-{{--                                                    <th>등록일시</th>--}}
-{{--                                                    <th>게임 & 서버</th>--}}
-{{--                                                    <th>제목 & 수량</th>--}}
-{{--                                                    <th>판매금액</th>--}}
-{{--                                                    <th>200%보상</th>--}}
-{{--                                                </tr>--}}
-{{--                                                </thead>--}}
-{{--                                                <tbody id="lastListTbody"></tbody>--}}
-{{--                                            </table>--}}
-{{--                                            <ul class="f_red1 sub_txt">--}}
-{{--                                                <li>※ 최근 등록 물품은 7일 이내 등록했던 물품 중 최대 5개 까지 불러오기가 가능합니다. (흥정물품은 제외)</li>--}}
-{{--                                                <li>※ 해당 표시된 정보로 등록정보를 불러오니, 등록정보 변동 시 체크 수정하시기 바랍니다.</li>--}}
-{{--                                            </ul>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="mygame_list">--}}
-{{--                                    <ul id="mygame_info">--}}
-{{--                                        <li class="empty">게임서버 검색 후 우측 ★표를 클릭하시면 해당물품이 나만의검색메뉴로 등록됩니다.</li>--}}
-{{--                                    </ul>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+                            <div class="mygame">
+                                <div class="th">
+                                    나만의 검색메뉴
+                                    <div class="g_msgbox blue" id="lastList" style="margin-top: 10px;">
+                                        <div class="title">
+                                            최근 등록한 물품
+                                            <a href="javascript:;" class="close"></a>
+                                        </div>
+                                        <div class="cont">
+                                            <table class="g_blue_table tb_list">
+                                                <colgroup>
+                                                    <col width="100" />
+                                                    <col width="130" />
+                                                    <col />
+                                                    <col width="120" />
+                                                    <col width="80" />
+                                                </colgroup>
+                                                <thead>
+                                                <tr>
+                                                    <th>등록일시</th>
+                                                    <th>게임 & 서버</th>
+                                                    <th>제목 & 수량</th>
+                                                    <th>판매금액</th>
+                                                    <th>200%보상</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="lastListTbody"></tbody>
+                                            </table>
+                                            <ul class="f_red1 sub_txt">
+                                                <li>※ 최근 등록 물품은 7일 이내 등록했던 물품 중 최대 5개 까지 불러오기가 가능합니다. (흥정물품은 제외)</li>
+                                                <li>※ 해당 표시된 정보로 등록정보를 불러오니, 등록정보 변동 시 체크 수정하시기 바랍니다.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mygame_list">
+                                    <ul id="mygame_info">
+                                        @if(empty($mygame) || sizeof($mygame) == 0)
+                                            <li class="empty">게임서버 검색 후 우측 ★표를 클릭하시면 해당물품이 나만의검색메뉴로 등록됩니다.</li>
+                                        @else
+                                            @foreach($mygame as $v)
+                                                <li id="mygame_{{$v['id']}}"><a href="javascript:fnSearchSelect('{{$v['game']}}','{{$v['game_text']}}','{{$v['server']}}','{{$v['server_text']}}','{{$v['goods']}}')">{{$v['game_text']}} &gt; {{$v['server_text']}} &gt; @if($v['goods'] == 3) 게임머니 @endif @if($v['goods'] == 1) 아이템 @endif @if($v['goods'] == 4) 기타 @endif @if($v['goods'] == 6) 캐릭터 @endif</a><span class="del_btn" onclick="fnSearchDel('{{$v['id']}}')"></span></li>
+                                            @endforeach
+                                        @endif
+
+                                    </ul>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -315,7 +332,7 @@
                                     <div class="sub_txt m-t-35">
                                         프리미엄 잔여시간이 많을수록<br>물품리스트 상단에 노출됩니다.
                                     </div>
-                                    <a class="free_view btn-premium" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list.html?free_use_item=premium',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i> </a>
+                                    <a class="free_view btn-premium" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=premium',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i> </a>
                                 </dd>
                             </div>
                         </dl>
@@ -357,7 +374,7 @@
                                         <span id="charge_apply" style="display: none">게임머니 팝니다.</span>
                                         제목 굵기/<strong class="text-green">색</strong> 효과 적용
                                     </div>
-                                    <a class="free_view btn-goods" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list.html?free_use_item=highlight',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>
+                                    <a class="free_view btn-goods" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=highlight',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>
                                 </dd>
                             </div>
                         </dl>
@@ -378,7 +395,7 @@
                                     <div class="sub_txt m-t-35">
                                         물품리스트에 스피드 거래 <br /> 아이콘이 현시 됩니다.
                                     </div>
-                                    <a class="free_view btn-speeds" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list.html?free_use_item=quickicon',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>
+                                    <a class="free_view btn-speeds" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=quickicon',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>
                                 </dd>
                             </div>
                         </dl>
@@ -592,7 +609,7 @@
                     <span id="pop_txtCurrentMileage" class="f_org1">{{number_format($user->mileage)}}</span> 원)
                 </div>
                 <div class="mt-40 text-center">
-                    <a href="javascript:;_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list.html?free_use_item=premium',440,450)" class="btn_gray">프리미엄 무료이용권 보기</a>
+                    <a href="javascript:;_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=premium',440,450)" class="btn_gray">프리미엄 무료이용권 보기</a>
                 </div>
                 <div class="dvpremium">
                     <div class="g_left">

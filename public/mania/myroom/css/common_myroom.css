@@ -1,13 +1,4 @@
-/*
- * @title		myroom ê³µí†µ CSS
- * @author		ìœ ì¤€í˜¸
- * @date		2018.07.04
- * @update		ìˆ˜ì •ë‚ ì§œ(ìˆ˜ì •ìž)
- * @description
- */
 
-
-/* â–¼ regist by and sell */
 
 .regist_btn01 {
     width: 86px;
@@ -150,21 +141,16 @@
 }
 
 
-/* â–² regist by and sell */
-
-
-/* â–¼ ë‚˜ì˜ ê±°ëž˜í˜„í™© */
 
 .bs_content {
     position: relative;
     width: 820px;
     height: 104px;
     box-sizing: border-box;
-    border: 5px solid #EFF0F2;
+    border: 1px solid #89C1CE;
 }
 
 
-/*â†“ last-child ë¯¸í™•ì¸*/
 
 .bs_content:last-child {
     background-position: -2px -209px;
@@ -172,32 +158,37 @@
 
 .bs_content>.icon_wrap {
     position: absolute;
-    top: 20px;
+    top: 14px;
     left: 15px;
 }
 
 .bs_content>.icon_wrap>span {
     display: inline-block;
-    width: 55px;
-    height: 55px;
+    width: 77px;
+    height: 77px;
     text-indent: -9999px;
 }
 
 .bs_content>.icon_wrap>.sell_icon {
-    background-position: -612px -314px;
+    background: url(/mania/img/icons/sells.png)
 }
 
 .bs_content>.icon_wrap>.buy_icon {
-    background-position: -669px -314px;
+    background: url(/mania/img/icons/buys.png);
+    background-size: 100% 100% !important;
 }
 
 .bs_content>.arr_icon {
     display: inline-block;
     position: absolute;
     top: 37px;
-    width: 25px;
-    height: 20px;
-    background-position: -726px -314px;
+    width: 29px;
+    height: 29px;
+    background: url(/mania/img/icons/right.png);
+}
+
+.bs_content.buy_content>.arr_icon{
+    background: url(/mania/img/icons/right-blue.png);
 }
 
 .bs_content>.arr1 {
@@ -211,8 +202,8 @@
 .bs_content>.step_title {
     position: absolute;
     top: 15px;
-    font-size: 12px;
-    color: #767676;
+    font-size: 14px;
+    color: #fff;
 }
 
 .bs_content>.deposit_product_title {
@@ -224,23 +215,25 @@
 }
 
 .bs_content>.complete_title {
-    left: 660px;
+    left: 670px;
 }
 
 .bs_content>.regist_product {
     position: absolute;
-    left: 87px;
-    width: 147px;
+    left: 110px;
+    width: 112px;
     top: 30px;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .bs_content>.bargain_request_product {
     position: absolute;
-    left: 87px;
-    width: 147px;
+    left: 110px;
+    width: 112px;
     top: 53px;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .bs_content>.regist_product>.regist_title,
@@ -256,19 +249,25 @@
 
 .bs_content>.box_line {
     position: absolute;
-    top: 10px;
+    top: -1px;
     left: 264px;
-    width: 0;
-    height: 73px;
-    border: 0.5px solid #EFF0F1;
+    width: calc(100% - 265px);
+    height: 100%;
+    border: 1px solid #89C1CE;
+    background: #0081B9;
+}
+
+.bs_content.buy_content>.box_line{
+    background: #0F9E84;
 }
 
 .bs_content>.deposit_product {
     position: absolute;
     left: 293px;
-    top: 45px;
-    font-size: 30px;
+    top: 51px;
+    font-size: 23px;
     font-weight: bold;
+    color: #fff;
 }
 
 .bs_content>.deposit_product span {
@@ -278,9 +277,10 @@
 .bs_content>.sell_product {
     position: absolute;
     left: 475px;
-    top: 45px;
-    font-size: 30px;
+    top: 51px;
+    font-size: 23px;
     font-weight: bold;
+    color: #fff;
 }
 
 .bs_content>.sell_product span {
@@ -298,20 +298,16 @@
     font-size: 12px;
     cursor: pointer;
     line-height: 22px;
-    background-color: #586175;
-    color: #FFF;
+    background-color: #87c4de;
+    color: #000;
+    font-weight: bold;
 }
 
 .bs_content>.detail_btn>.arr_right {
     display: inline-block;
-    margin-left: 7px;
     width: 5px;
     height: 9px;
-    background-position: -802px -74px;
 }
-
-
-/* â–² ë‚˜ì˜ ê±°ëž˜í˜„í™© */
 
 .notice_box {
     margin-top: 20px;
@@ -337,7 +333,7 @@
 }
 
 
-/*ë¬¼í’ˆë“±ë¡ ì•Œë¦¬ë¯¸*/
+
 
 .sell_alarm_keyword {
     color: #159efd;

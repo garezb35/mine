@@ -84,10 +84,14 @@ Route::middleware('auth')->group(function () {
      */
 
     Route::prefix('customer')->group(function () {
-        Route::get('/', [\App\Http\Controllers\VCustomerController::class, 'customer'])->name('customer');
+        Route::any('/', [\App\Http\Controllers\VCustomerController::class, 'customer'])->name('customer');
 
-        Route::get('/report', [\App\Http\Controllers\VCustomerController::class, 'report'])->name('customer_report');
-        Route::get('/newgame', [\App\Http\Controllers\VCustomerController::class, 'newgame'])->name('customer_newgame');
+        Route::any('/report', [\App\Http\Controllers\VCustomerController::class, 'report'])->name('customer_report');
+        Route::any('/report_end', [\App\Http\Controllers\VCustomerController::class, 'report_end'])->name('customer_report_end');
+        Route::any('/ask_guide', [\App\Http\Controllers\VCustomerController::class, 'ask_guide'])->name('customer_ask_guide');
+        Route::any('/report_complete', [\App\Http\Controllers\VCustomerController::class, 'report_complete'])->name('customer_report_complete');
+
+        Route::any('/newgame', [\App\Http\Controllers\VCustomerController::class, 'newgame'])->name('customer_newgame');
         Route::get('/safety', [\App\Http\Controllers\VCustomerController::class, 'safety'])->name('customer_safety');
 
         Route::get('/myqna/list', [\App\Http\Controllers\VCustomerController::class, 'myqna_list'])->name('myqna_list');
@@ -100,10 +104,27 @@ Route::middleware('auth')->group(function () {
         Route::get('/message', [\App\Http\Controllers\VMyRoomController::class, 'message'])->name('message');
         Route::get('/goods_alarm/alarm_sell_list', [\App\Http\Controllers\VMyRoomController::class, 'alarm_sell_list'])->name('alarm_sell_list');
         Route::get('/goods_alarm/alarm_add', [\App\Http\Controllers\VMyRoomController::class, 'alarm_add'])->name('alarm_add');
-        Route::get('/buy_regist', [\App\Http\Controllers\VMyRoomController::class, 'buy_regist'])->name('buy_regist');
+        Route::get('/mileage/charge/{giftid}',[\App\Http\Controllers\VMyRoomController::class, 'mileage_charge_home'])->name('mileage_charge_home');
+        Route::post('/message/save_all',[\App\Http\Controllers\VMyRoomController::class, 'save_all'])->name('save_all');
+        Route::post('/message/delete_all',[\App\Http\Controllers\VMyRoomController::class, 'delete_all'])->name('delete_all');
+
+        Route::get('/cash_receipt/cash_receipt_list',[\App\Http\Controllers\VMyRoomController::class, 'cash_receipt_list'])->name('cash_receipt_list');
+
+        Route::get('/user_leave/user_leave_form',[\App\Http\Controllers\VMyRoomController::class, 'user_leave_form'])->name('user_leave_form');
 
         Route::prefix('customer')->group(function (){
+            Route::get('/', [\App\Http\Controllers\VMyRoomController::class, 'customer'])->name('customer');
             Route::get('/search',[\App\Http\Controllers\VMyRoomController::class, 'search'])->name('search');
+            Route::get('/private',[\App\Http\Controllers\VMyRoomController::class, 'customer_private'])->name('customer_private');
+            Route::post('/search_add',[\App\Http\Controllers\VMyRoomController::class, 'search_add'])->name('search_add');
+            Route::get('/search_startpage',[\App\Http\Controllers\VMyRoomController::class, 'search_startpage'])->name('search_startpage');
+            Route::get('/search_delete',[\App\Http\Controllers\VMyRoomController::class, 'search_delete'])->name('search_delete');
+            Route::post('/search_order',[\App\Http\Controllers\VMyRoomController::class, 'search_order'])->name('search_order');
+            Route::post('/search_update',[\App\Http\Controllers\VMyRoomController::class, 'search_update'])->name('search_update');
+        });
+
+        Route::prefix('coupon')->group(function () {
+           Route::get('free_remainder_list',[\App\Http\Controllers\VMyRoomController::class, 'free_remainder_list'])->name('free_remainder_list');
         });
 
         Route::prefix('complete')->group(function () {
@@ -123,6 +144,8 @@ Route::middleware('auth')->group(function () {
             Route::get('/sell_re_reg', [\App\Http\Controllers\VMyRoomController::class, 'sell_re_reg'])->name('sell_re_reg');
             Route::get('/sell_ing_view',[\App\Http\Controllers\VMyRoomController::class, 'sell_ing_view'])->name('sell_ing_view');
             Route::get('/sell_check_view', [\App\Http\Controllers\VMyRoomController::class, 'sell_check_view'])->name('sell_check_view');
+            Route::get('/sell_check',[\App\Http\Controllers\VMyRoomController::class, 'sell_check'])->name('sell_check');
+            Route::get('/sell_pay_wait',[\App\Http\Controllers\VMyRoomController::class, 'sell_pay_wait'])->name('sell_pay_wait');
         });
 
         Route::prefix('buy')->group(function () {
@@ -130,11 +153,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/buy_ing', [\App\Http\Controllers\VMyRoomController::class, 'buy_ing'])->name('buy_ing');
             Route::get('/buy_pay_wait', [\App\Http\Controllers\VMyRoomController::class, 'buy_pay_wait'])->name('buy_pay_wait');
             Route::get('/buy_pay_wait_view', [\App\Http\Controllers\VMyRoomController::class, 'buy_pay_wait_view'])->name('buy_pay_wait_view');
-
             Route::get('/buy_regist_view', [\App\Http\Controllers\VMyRoomController::class, 'buy_regist_view'])->name('buy_regist_view');
             Route::get('/buy_re_reg', [\App\Http\Controllers\VMyRoomController::class, 'buy_re_reg'])->name('buy_re_reg');
             Route::get('/buy_ing_view', [\App\Http\Controllers\VMyRoomController::class, 'buy_ing_view'])->name('buy_ing_view');
             Route::get('/buy_check_view', [\App\Http\Controllers\VMyRoomController::class, 'buy_check_view'])->name('buy_check_view');
+            Route::get('/buy_regist', [\App\Http\Controllers\VMyRoomController::class, 'buy_regist'])->name('buy_regist');
         });
 
         Route::prefix('my_mileage')->group(function(){
@@ -173,6 +196,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/view', [\App\Http\Controllers\VSellController::class, 'sell_view'])->name('sell_view');
         Route::get('/application', [\App\Http\Controllers\VSellController::class, 'sell_application'])->name('sell_application');
         Route::post('/list_search', [\App\Http\Controllers\VSellController::class, 'list_search'])->name('sell_list_search');
+        Route::get('/list_search', [\App\Http\Controllers\VSellController::class, 'list_search'])->name('sell_list_search');
         Route::post('/list', [\App\Http\Controllers\VSellController::class, 'sell_list'])->name('sell_list');
         Route::get('/fixed_trade_subject',[\App\Http\Controllers\VSellController::class, 'fixed_trade_subject']);
         Route::post('/fixed_trade_subject',[\App\Http\Controllers\VSellController::class, 'addFixed']);
@@ -209,7 +233,16 @@ Route::middleware('auth')->group(function () {
     Route::post('buy_re_reg_ok',[\App\Http\Controllers\ManiaController::class, 'buy_re_reg_ok'])->name('buy_re_reg_ok');
     Route::post('/sell_re_reg_ok',[\App\Http\Controllers\ManiaController::class, 'sell_re_reg_ok'])->name('sell_re_reg_ok');
     Route::post('/buy_regist',[\App\Http\Controllers\ManiaController::class, 'buy_regist'])->name('buy_regist');
-
+    Route::post('/sell_regist',[\App\Http\Controllers\ManiaController::class, 'sell_regist'])->name('sell_regist_post');
+    Route::get('/portal/giftcard', [\App\Http\Controllers\VMainController::class, 'giftcard'])->name('giftcard');
+    Route::get('/portal/giftcard/{giftid}', [\App\Http\Controllers\VMainController::class, 'viewGift'])->name('viewGift');
+    Route::post('/portal/giftcard/{giftid}', [\App\Http\Controllers\VMainController::class, 'viewGift_Post'])->name('viewGift_Post');
+    Route::post('sell_re_reg_auto_ok',[\App\Http\Controllers\ManiaController::class, 'sell_re_reg_auto_ok'])->name('sell_re_reg_auto_ok');
+    Route::post('sell_regist',[\App\Http\Controllers\ManiaController::class, 'sell_regist_post'])->name('sell_regist_post');
+    Route::post('/certify/ini_modi_authcenter/user_certify',[\App\Http\Controllers\ManiaController::class, 'user_certify_myinfo'])->name('user_certify_myinfo');
+    Route::get('cash_receipt_confirm',[\App\Http\Controllers\ManiaController::class, 'cash_receipt_confirm'])->name('cash_receipt_confirm');
+    Route::get('cash_receipt_confirm2',[\App\Http\Controllers\ManiaController::class, 'cash_receipt_confirm2'])->name('cash_receipt_confirm2');
+    Route::get('search_update_form',[\App\Http\Controllers\ManiaController::class, 'search_update_form'])->name('search_update_form');
 });
 
 /**
@@ -219,8 +252,9 @@ Route::get('/index', [\App\Http\Controllers\VMainController::class, 'index'])->n
 Route::get('/character', [\App\Http\Controllers\VChrController::class, 'index'])->name('character');
 Route::get('/event', [\App\Http\Controllers\VEventController::class, 'index'])->name('event');
 Route::get('/guide', [\App\Http\Controllers\VGuideController::class, 'index'])->name('guide');
-
+Route::get('/news/view', [\App\Http\Controllers\VGuideController::class, 'view'])->name('view');
+Route::get('/news', [\App\Http\Controllers\VGuideController::class, 'news'])->name('news');
 
 
 Route::get('/_xml/gamemoney_avg',[\App\Http\Controllers\VSellController::class, 'gamemoney_avg']);
-Route::get('/portal/giftcard', [\App\Http\Controllers\VMainController::class, 'giftcard'])->name('giftcard');
+

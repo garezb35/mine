@@ -143,15 +143,24 @@
 }
 
 .trade_progress>.trade_progress_content>.guide_wrap>.guide_set>.check_apply {
-    background-position: -953px -1224px;
+    background: url(/mania/img/sell/bargain1-1.png) no-repeat 100%;
+}
+.trade_progress>.trade_progress_content>.guide_wrap>.guide_set.active>.check_apply {
+    background: url(/mania/img/sell/bargain1.png) no-repeat 100%;
 }
 
 .trade_progress>.trade_progress_content>.guide_wrap>.guide_set>.check_re_apply {
-    background-position: -953px -1343px;
+    background: url(/mania/img/sell/bargain2-2.png) no-repeat 100%;
+}
+.trade_progress>.trade_progress_content>.guide_wrap>.guide_set.active>.check_re_apply {
+    background: url(/mania/img/sell/bargain2.png) no-repeat 100%;
 }
 
 .trade_progress>.trade_progress_content>.guide_wrap>.guide_set>.check_ok {
-    background-position: -953px -1462px;
+    background: url(/mania/img/sell/bargain3-3.png) no-repeat 100%;
+}
+.trade_progress>.trade_progress_content>.guide_wrap>.guide_set.active>.check_ok {
+    background: url(/mania/img/sell/bargain3.png) no-repeat 100%;
 }
 
 .trade_progress_txt {

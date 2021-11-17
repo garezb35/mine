@@ -22,7 +22,7 @@ function elementFromListData(tradeItem) {
     };
 
     var listHtml = '<li ' + (tradeItem.trade_state == 'p' ? 'class="link_block"' : '') + '>' +
-        '               <div class="col_01"><span class="credit_mark ' + (tradeItem.credit_name_en) + '"></span></div>';
+        '               <div class="col_01"><img src="/mania/img/level/'+tradeItem.credit_img+'" width="36"/></div>';
 
     listHtml += '       <div class="col_02' + ((tradeItem.trade_state === 'a') ? ' active' : '') + '">';
     listHtml += '	        <a href="' + ((tradeItem.user_buyer === 'true') ? '/myroom/buy/buy_regist_view?id=' + tradeItem.trade_id : 'javascript:searchList.application(\'' + tradeItem.trade_id + '\',\'' + tradeItem.trade_state + '\')') + '">';

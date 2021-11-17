@@ -76,12 +76,15 @@ function _init() {
 			return;
 		}
 
-		var strParam = checkList.serializeArray();
+        var strParam = checkList.serializeArray();
+        var param = {};
+        param.api_token = a_token;
+        param.list = strParam;
         ajaxRequest({
-            url : '/_ajax/my_service.php',
+            url : '/api/_ajax/my_service',
             dataType : 'json',
             type : 'post',
-            data : strParam ,
+            data : param ,
             success : function (res) {
                 alert(res.msg);
                 if(res.result === "SUCCESS") {

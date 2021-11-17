@@ -1,0 +1,11 @@
+#report_top{height:100px;border:1px solid #D3D6DB;border-top:0px}
+#report_top .g_left{margin:35px 0 0 50px}
+#report_top .g_left li{padding-left:10px}
+#report_top .g_left .bg_icon{background:url(//img3.itemmania.com/images/icon/icon_arrow3.gif) no-repeat 0 3px}
+#report_complete{margin-top:20px;padding:23px 13px;border:1px solid #E2E2E2;border-top:3px solid #3F79C5}
+#report_complete #complete_info{padding:20px 0;background-color:#F7F7F7}
+#report_complete #complete_info li{font-size:13px;font-weight:bold;color:#767676;text-align:center}
+#report_complete #complete_info .blue_text{margin-bottom:14px;font-size:15px;color:#216ED7}
+#report_complete .g_list{margin:14px 0 0 10px}
+#report_complete .g_list li{padding-left:15px;background:url(//img3.itemmania.com/images/icon/arrow_side.gif) 0 4px no-repeat}
+#report_complete .g_list .list_non{margin-bottom:13px;background:none}

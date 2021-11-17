@@ -33,6 +33,7 @@ $(function(){
 $.fn.extend({
     fnSearch : function ()
     {
+        // debugger;
         var frm = $('#searchForm');
         frm.find('[name="searchWord"]').val($(this).text());
         frm.submit();

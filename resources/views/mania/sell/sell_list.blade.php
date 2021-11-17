@@ -11,10 +11,6 @@
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.min.js"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js"></script>
     <script type="text/javascript" src="/mania/sell/js/list.js"></script>
 @endsection
 
@@ -24,7 +20,7 @@
         <div class="spacer_bottom_20"></div>
         <!--▲▲▲ 리스트 게임 코드 배너 ▲▲▲ -->
         <a name="search_top"></a>
-        <div class="g_title_blue">
+        <div class="g_title_blue noborder">
             <div class="g_left">
                 <ul class="trade_sub_title">
                     <li>팝니다</li>
@@ -79,6 +75,15 @@
         <div class="g_subtitle">
             <div class="g_left">프리미엄</div>
         </div>
+        <ul class="search_list list_head">
+            <li>
+                <div class="col_01">서버종류</div>
+                <div class="col_02">물품제목</div>
+                <div class="col_03">판매금액</div>
+                <div class="col_04">물품정보</div>
+                <div class="col_05">등록일</div>
+            </li>
+        </ul>
         <div class="search_list_all">
             <ul class="search_list search_list_premium">
 
@@ -167,7 +172,7 @@
                         </li>
                         <li>
                             <div class="regInfo_subcontent_label">인증상태</div>
-                            <div class="regInfo_subcontent_in"> <span class="cert_state" id="cell_auth">휴대폰</span> <span class="cert_state" id="email_auth">이메일</span> <span class="cert_state" id="account_auth">출금계좌</span> </div>
+                            <div class="regInfo_subcontent_in"> <span class="cert_state cert_staten" id="cell_auth">휴대폰</span> <span class="cert_state cert_staten" id="email_auth">이메일</span> <span class="cert_state cert_staten" id="account_auth">출금계좌</span> </div>
                         </li>
                     </ul>
                     <div class="g_btn_wrap"> <a href="#" class="regInfo_btn buyapp" id="appBtn">구매신청</a> <a href="#" class="regInfo_btn detail" id="detailBtn">상세보기</a> </div>
