@@ -616,7 +616,7 @@ function setTradePriceValue() {
     var useMileage = frm.find('#use_mileage').val().replace(/[^0-9]/g, '');
 
     frm.find('#trade_money').text(g_trade_info.price.currency());
-    frm.find('.trade_money1').text(g_trade_info.price.currency());
+    $('.trade_money1').text(g_trade_info.price.currency());
 
     frm.find('#pay_mileage').text(g_trade_info.payment_price.currency());
     frm.find('input[name="pay_mileage"]').val(g_trade_info.payment_price.currency());

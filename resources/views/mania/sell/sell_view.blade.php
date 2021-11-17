@@ -45,17 +45,23 @@
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js?v=190220"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js?v=21100516"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.min.js?v=21100816"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js?v=21050316"></script>
-    <script type='text/javascript' src='/mania/sell/js/view.js?v=200528'></script>
+    <script type='text/javascript' src='/mania/sell/js/view.js'></script>
     <script type='text/javascript'>
         g_trade_info.sale = '{{$user_goods_type}}';
         g_trade_info.trade_money = {{$price}};
         function __init() {
             g_trade_info.goods='';
         }
+        $('#js-gallery')
+            .packery({
+                itemSelector: '.slide',
+                gutter: 10
+            })
+            .photoSwipe('.slide', {bgOpacity: 0.8, shareEl: false}, {
+                close: function () {
+                    console.log('closed');
+                }
+            });
     </script>
 @endsection
 
@@ -63,23 +69,7 @@
     <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
     <div class="g_container" id="g_CONTENT">
         <input type="hidden" id="screenshot_info" value="TiUzQg==">
-        <div class="aside">
-            <div class="title_blue">안전거래수칙</div>
-            <div class="menu_know">
-                <p>주의사항</p>
-                <dl class="g_list"> <dt>구매 신청 시</dt>
-                    <dd>구매할 물품 수량 확인</dd>
-                    <dd>구매할 물품 내용 확인</dd>
-                    <dd>구매할 물품 가격 확인</dd> <dt>거래 진행 시</dt>
-                    <dd>입금 확인 후 판매자 연락처 확인</dd>
-                    <dd>등록된 연락처로만 통화하기</dd>
-                    <dd>예약거래 절대 하지 않기</dd>
-                    <dd>받은 물품 되돌려주지 않기</dd>
-                </dl>
-            </div>
-            <div style="margin-top:15px;text-align:center;">
-                <script src="https://compass.adop.cc/assets/js/adop/adopJ.js?v=14"></script><ins class="adsbyadop" _adop_zon="d7a9af59-70d9-41d8-a432-e105ad08348d" _adop_type="re" style="display:inline-block;width:200px;height:200px;" _page_url=""></ins></div>
-        </div>
+        @include('aside.sell-buy_view',['group'=>'sell'])
         <div class="g_content">
             <div class="g_title_noborder"> 팝니다
             </div>
@@ -155,13 +145,13 @@
                     </tr>
                     <tr>
                         <th>최소구매수량</th>
-                        <td>{{$user_quantity_min}}{{$unit}} 개</td>
+                        <td>{{number_format($user_quantity_min)}}{{$unit}} 개</td>
                         <th>최대구매수량</th>
-                        <td>{{$user_quantity_max}}{{$unit}} 개</td>
+                        <td>{{number_format($user_quantity_max)}}{{$unit}} 개</td>
                     </tr>
                     <tr>
                         <th>단위금액</th>
-                        <td>{{$user_division_unit}}개당 {{number_format($user_division_price)}}원</td>
+                        <td>{{number_format($user_division_unit)}}{{$unit}}개당 {{number_format($user_division_price)}}원</td>
                         <th>구매할인</th>
                         <td>
                             @if($discount_use == 1)
@@ -216,7 +206,7 @@
                     <tr>
                         <th class="p-left-10">
                             <div>
-                                <span class="credit_mark {{$user['roles']['name']}}"></span>
+                                <img src="/mania/img/level/{{$user['roles']['icon']}}" width="37"/>
                                 <span class="f_green4 f_bold">{{$user['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($user['point'])}}점)
                             </div>
                         </th>
@@ -271,8 +261,15 @@
                                 <a href="javascript:;" class="wideview"  id="wideview" style="margin-right: 6px">열기▼</a>
                             </div>
                             <div class="detail_info bg-white" id="detail_info">
-                                <div class="detail_text"> {{$user_text}}
-                                    <br>
+                                <div class="detail_text">
+                                    <div id="js-gallery" class="mb-5">
+                                        @foreach (\File::glob(public_path('assets/images/mania/'.$id).'/*') as $file)
+                                            <a href="/{{ str_replace(public_path()."\\", '', $file) }}" class="slide">
+                                                <img src="/{{ str_replace(public_path()."\\", '', $file) }}" class="g_top">
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                    {{$user_text}}
                                 </div>
                             </div>
                             <div class="g_finish"></div>
@@ -324,70 +321,74 @@
                     <div class="layer_content">
                         <!-- ▼ 주문상품정보 //-->
                         <div class="g_subtitle first">주문상품정보</div>
-                        <table class="g_blue_table">
+                        <table class="table-green1">
                             <colgroup>
                                 <col width="150">
                                 <col>
                             </colgroup>
-                            <tbody><tr>
-                                <th>카테고리</th>
-                                <td>{{$category}}</td>
-                            </tr>
-                            <tr>
-                                <th>물품제목</th>
-                                <td>{{$user_title}}</td>
-                            </tr>
-                            <tr>
-                                <th>즉시판매금액</th>
-                                <td>{{number_format($user_price)}}원 (최소흥정 가능금액: {{number_format($user_price_limit)}}원 이상)</td>
-                            </tr>
-                            <tr>
-                                <th>흥정신청금액</th>
-                                <td>
-                                    <input type="text" name="ba_money" maxlength="10" class="g_text" style="text-align:right;"> 원
-                                </td>
-                            </tr>
-                            </tbody></table>
+                            <tbody>
+                                <tr>
+                                    <th>카테고리</th>
+                                    <td>{{$category}}</td>
+                                </tr>
+                                <tr>
+                                    <th>물품제목</th>
+                                    <td>{{$user_title}}</td>
+                                </tr>
+                                <tr>
+                                    <th>즉시판매금액</th>
+                                    <td>{{number_format($user_price)}}원 (최소흥정 가능금액: {{number_format($user_price_limit)}}원 이상)</td>
+                                </tr>
+                                <tr>
+                                    <th>흥정신청금액</th>
+                                    <td>
+                                        <input type="text" name="ba_money" maxlength="10" class="g_text" style="text-align:right;"> 원
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <!-- ▲ 주문상품정보 //-->
                         <!-- ▼ 개인정보 //-->
                         <div class="g_subtitle">
                             <div class="g_left">개인정보</div>
-                            <div class="g_right">
-                                <a href="#" onclick="_window.open('private_edit','/user/contact_edit.html',420,300);"><img src="http://img4.itemmania.com/images/btn/btn_call_edit.gif" width="84" height="20" alt="연락처 수정"></a>
-                            </div>
+{{--                            <div class="g_right">--}}
+{{--                                <a href="#" onclick="_window.open('private_edit','/user/contact_edit',420,300);"><img src="http://img4.itemmania.com/images/btn/btn_call_edit.gif" width="84" height="20" alt="연락처 수정"></a>--}}
+{{--                            </div>--}}
                         </div>
-                        <table class="g_blue_table">
+                        <table class="table-green1">
                             <colgroup>
                                 <col width="150">
                                 <col>
                             </colgroup>
-                            <tbody><tr>
-                                <th>구매자 캐릭터명</th>
-                                <td class="character_area">
-                                    <div class="g_left">
-                                        <input type="text" name="user_character" class="g_text" maxlength="30" id="user_character"> 물품을 전달 받으실 본인의 캐릭터명
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>연락처</th>
-                                <td>
-                                    <div class="g_left">
-                                        <span id="spnUserPhone">{{$cuser['home']}}</span> / <span id="spnUserCell">{{$cuser['number']}}</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody></table>
+                            <tbody>
+                                <tr>
+                                    <th>구매자 캐릭터명</th>
+                                    <td class="character_area">
+                                        <div class="g_left">
+                                            <input type="text" name="user_character" class="g_text" maxlength="30" id="user_character"> 물품을 전달 받으실 본인의 캐릭터명
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>연락처</th>
+                                    <td>
+                                        <div class="g_left">
+                                            <span id="spnUserPhone">{{$cuser['home']}}</span> / <span id="spnUserCell">{{$cuser['number']}}</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <!-- ▲ 개인정보 //-->
-                        <ul class="g_list tb_bt_txt">
+                        <ul class="box6 g_list mt-10">
                             <li>흥정하기 기능은 마일리지 결제만 가능합니다.</li>
                             <li>판매자가 해당 금액에 흥정을 수락하면 1시간 이내에 결제하셔야 합니다..</li>
                             <li>흥정요청 후 1시간 동안 판매자의 응답이 없을 경우 해당 흥정신청은 자동 취소됩니다.</li>
                             <li>판매자가 흥정신청을 거부하면 재신청이 불가하오니 신중히 신청해주시기 바랍니다.</li>
                         </ul>
                         <div class="g_btn">
-                            <img src="http://img4.itemmania.com/images/btn/btn_bargain1.gif" width="90" height="34" alt="흥정신청" class="g_button first" onclick="$('#frmbaRequest').submit();">
-                            <img src="http://img4.itemmania.com/images/btn/btn_cancel3.gif" width="86" height="34" alt="취소" class="g_button" onclick="g_nodeSleep.disable();">
+                            <a href="javascript:void(0)" class="btn-default btn-suc" onclick="$('#frmbaRequest').submit();">흥정신청</a>
+                            <a href="javascript:void(0)" class="btn-default btn-cancel" onclick="g_nodeSleep.disable();">취소</a>
                         </div>
                     </div>
                 </form>
@@ -412,4 +413,6 @@
         <div class="g_finish"></div>
     </div>
     <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection
+

@@ -11,11 +11,21 @@
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js?v=190220"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js?v=21100516"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.js?v=21101416"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js?v=21050316"></script>
-    <script type='text/javascript'>var bankTextCheck = 'YES';var PaymentInfo_type1 = 'N';var PaymentInfo_type2 = 'Y';var PaymentInfo_type2_mess = '죄송합니다\r\n\r\n서비스 점검중입니다. (2021-07-30 09:00:00 ~ 2021-07-30 10:00:00)\r\n\r\n지금 즉시출금을 이용할 수 없습니다.';var PaymentInfo_startTime = 100;var PaymentInfo_endTime = 2250;var PaymentInfo_NowTime = 16;var PaymentInfo_notBankCode = '';var PaymentInfo_userBankCode = '39';var PaymentInfo_userBankName = '경남은행';var true_userIP				 = '경남은행';var inBankModule			 = 'duzn:88'; var e_use_payment=0;
+
+    <script type='text/javascript'>
+        var bankTextCheck = 'YES';
+        var PaymentInfo_type1 = 'N';
+        var PaymentInfo_type2 = 'Y';
+        var PaymentInfo_type2_mess = '죄송합니다\r\n\r\n서비스 점검중입니다. (2021-07-30 09:00:00 ~ 2021-07-30 10:00:00)\r\n\r\n지금 즉시출금을 이용할 수 없습니다.';
+        var PaymentInfo_startTime = 100;
+        var PaymentInfo_endTime = 2250;
+        var PaymentInfo_NowTime = 16;
+        var PaymentInfo_notBankCode = '';
+        var PaymentInfo_userBankCode = '39';
+        var PaymentInfo_userBankName = '경남은행';
+        var true_userIP				 = '경남은행';
+        var inBankModule			 = 'duzn:88';
+        var e_use_payment=0;
     </script>
     <script type='text/javascript' src='/mania/myroom/mileage/payment/js/mile_gift.js?v=210323'></script>
     <script type='text/javascript' src='/mania/myroom/mileage/payment/js/index.js?v=190521'></script>

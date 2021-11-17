@@ -1,0 +1,182 @@
+.top_box {
+    width: 820px;
+    height: 110px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    background-position: -2px -989px;
+}
+
+.top_box>p {
+    padding: 38px 0 0 60px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #454952;
+}
+
+.check_box {
+    box-sizing: border-box;
+    display: table;
+    width: 100%;
+    margin-top: 40px;
+    border: 3px solid #E1E1E1;
+    background-color: #FBFBFB;
+}
+
+.write_area {
+    display: table-cell;
+    width: 50%;
+    padding: 57px 0;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 15px;
+}
+
+.write_area .g_password {
+    width: 376px;
+    height: 50px;
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+.write_area .btn_blue3 {
+    width: 85px;
+    height: 50px;
+    margin-left: 10px;
+    vertical-align: top;
+}
+
+.check_box>dl {
+    display: table-cell;
+    padding: 20px 0;
+}
+
+.check_box dt,
+.check_box dd {
+    float: left;
+    margin-bottom: 10px;
+    line-height: 33px;
+}
+
+.check_box dt {
+    clear: both;
+    width: 150px;
+    padding-right: 20px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.check_box dd .g_text {
+    width: 140px;
+    height: 35px;
+}
+
+.check_box dd .g_password {
+    width: 290px;
+    height: 35px;
+}
+
+.check_box .btn_gray3 {
+    display: inline-block;
+    margin: 0 3px;
+    padding: 0 10px;
+    text-align: center;
+    line-height: 32px;
+    font-size: 12px;
+}
+
+.check_box dd .sub_txt {
+    font-size: 12px;
+    color: #939393;
+}
+
+.login_security {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 267px;
+    margin-top: 40px;
+    padding-top: 75px;
+    background-position: -2px -720px;
+    font-size: 0;
+    text-align: center;
+}
+
+.login_security p.login_title {
+    position: absolute;
+    top: 46px;
+    left: 249px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #1D1D1D;
+}
+
+.login_security>.login_wrap {
+    position: relative;
+    display: inline-block;
+    width: 259px;
+    height: 171px;
+    border: 1px solid #F1F1F1;
+    background-color: #FFF;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.login_security>.login_wrap .SpGroup.new {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    margin-top: 0;
+    display: inline-block;
+    width: 62px;
+    height: 60px;
+    background-position: -925px -482px;
+}
+
+.login_security>.login_wrap div:first-child {
+    margin-left: 21px;
+}
+
+.login_security>.login_wrap .title {
+    display: block;
+    margin-top: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+    text-align: center;
+}
+
+.login_security>.login_wrap .SpGroup {
+    display: inline-block;
+    width: 110px;
+    height: 63px;
+    margin-top: 8px;
+}
+
+.login_security>.login_wrap p {
+    font-size: 12px;
+    font-weight: bold;
+    color: #444;
+    text-align: center;
+    margin: 2px 0 8px;
+}
+
+.login_security>.login_wrap .login_plus {
+    background-position: -536px -380px;
+}
+
+.login_security>.login_wrap .login_prevent {
+    background-position: -646px -380px;
+}
+
+.login_security>.login_wrap .sms_service {
+    background-position: -758px -380px;
+}
+
+.login_security>.login_wrap .detail_btn {
+    padding: 3px 8px;
+    font-size: 12px;
+}
+
+.ft_red {
+    color: #FF2400;
+}

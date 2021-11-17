@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MInbox;
 use App\Models\MItem;
+use App\Models\MMyservice;
 use Illuminate\Http\Request;
 
 class VAjaxController extends BaseController
@@ -36,8 +38,7 @@ class VAjaxController extends BaseController
             ::with(['premiums','game','server','user.roles'])
             ->where('game_code',$search_game)
             ->where('server_code',$search_server)
-            ->where('type',$request->search_type)
-            ->where('userId','!=',$this->user->id) ;
+            ->where('type',$request->search_type);
 
         if(!empty($request->search_goods) && $request->search_goods != 'all')
             $game = $game->where('user_goods',$request->search_goods);
@@ -244,6 +245,7 @@ class VAjaxController extends BaseController
             $temp_object->seller_icon_type = '';
             $temp_object->seller_icon = '';
             $temp_object->money_sort = '-1000';
+            $temp_object->credit_img = !empty($value['user']['roles']) ? $value['user']['roles']['icon']:'';
             $temp_object->credit_name_en = !empty($value['user']['roles']) ? $value['user']['roles']['name']:'';
             $temp_object->trade_subject = $value['user_title'];
             $temp_object->str_trade_kind = $value['good_type'];
@@ -280,9 +282,7 @@ class VAjaxController extends BaseController
         $game = MItem
             ::with(['premiums','premium','game','server','user.roles'])
             ->where('game_code',$search_game)
-            ->where('type',$request->search_type)
-            ->where('userId','!=',$this->user->id);
-
+            ->where('type',$request->search_type);
 
         if(!empty($request->search_goods) && $request->search_goods != 'all')
             $game = $game->where('user_goods',$request->search_goods);
@@ -295,22 +295,18 @@ class VAjaxController extends BaseController
             $game = $game->where('user_goods_type',$request->goods_type);
 
 
-        if($request->order ==2){
-            $game = $game->orderBy('updated_at',"DESC");
+        if($request->order ==2 || empty($request->order)){
+            $game = $game->orderBy('created_at',"DESC");
         }
         if($request->order ==1){
             $game = $game->orderBy('user_price',"ASC");
         }
 
-
         if($request->overlap == 'on')
             $game = $game->groupBy('game_code','server_code');
 
 
-
-
         $game = $game->skip(($request->pinit -1) * 50)->take(50)->get();
-        $game = $game->sortByDesc('premium.until');
         $game = $game->toArray();
         foreach($game as $value){
             $premium_check = false;
@@ -330,6 +326,7 @@ class VAjaxController extends BaseController
             $temp_object->text_icon = 'N';
             $temp_object->blue_end_time = '0000 00:00:00';
             $temp_object->bold_end_time = '0000 00:00:00';
+            $temp_object->premium_end_time = '0000000000';
             $temp_object->character_subject = '';
             $temp_object->ea_range = '';
             $temp_object->trade_kind = '';
@@ -353,6 +350,7 @@ class VAjaxController extends BaseController
                 }
                 if($child['type'] ==1){
                     $temp_object->premium = 'g';
+                    $temp_object->premium_end_time = date("YmdHis",strtotime($child['until']));
                 }
                 if($child['type'] == 2){
                     $temp_object->blue_end_time = date("Y-m-d H:i:s",strtotime($child['until']));
@@ -431,6 +429,7 @@ class VAjaxController extends BaseController
             $temp_object->seller_icon_type = '';
             $temp_object->seller_icon = '';
             $temp_object->money_sort = '-1000';
+            $temp_object->credit_img = !empty($value['user']['roles']) ? $value['user']['roles']['icon']:'';
             $temp_object->credit_name_en = !empty($value['user']['roles']) ? $value['user']['roles']['name']:'';
             $temp_object->trade_subject = $value['user_title'];
             $temp_object->str_trade_kind = $value['good_type'];
@@ -450,7 +449,41 @@ class VAjaxController extends BaseController
                 array_push($premiums_array,$temp_object);
         }
         $result->data->g = $temp;
+        array_multisort(array_column($premiums_array, 'premium_end_time'), SORT_DESC, $premiums_array);
         $result->data->p = $premiums_array;
         return response()->json($result);
+    }
+
+    public function message_view(Request $request){
+        $message_id  = $request->message_id;
+        $inbox = MInbox::with('payitem')->where('id',$message_id)->first();
+        if(!empty($inbox)){
+            MInbox::where('id',$message_id)->update(['readed'=>1]);
+            $price = "";
+            $price = !empty($inbox['payitem']) ? number_format($inbox['payitem']['price']) : '';
+            echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>
+<message id=\"{$inbox['id']}\" result=\"true\"><trade_id>{$inbox['orderId']}</trade_id><price>{$price}</price><type>{$inbox['type']}</type><state>2</state><date>{$request->message_date}</date><subject>{$inbox['title']}</subject><content>{$inbox['content']}</content></message>";
+        return;
+        }
+        echo "";
+    }
+
+    public function message_delete(Request $request){
+        $message_id  = $request->message_id;
+        MInbox::where('id',$message_id)->delete();
+        echo 'success';
+    }
+
+    public function my_service(Request $request){
+        MMyservice::whereNotNull('id')->delete();
+        $list = $request->list;
+        $params = array();
+        foreach($list as $v){
+            array_push($params,array('id'=>$v['value']));
+        }
+        if(!empty($params) && sizeof($params) > 0){
+            MMyservice::insert($params);
+        }
+        return response()->json(array('msg'=>'성공적으로 저장되었습니다.','result'=>'SUCCESS'));
     }
 }

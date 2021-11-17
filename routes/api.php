@@ -33,11 +33,19 @@ Route::middleware('auth:api')->group(function(){
     Route::post('ajax_list_search',[\App\Http\Controllers\VAjaxController::class, 'ajax_list_search']);
     Route::post('ajax_list',[\App\Http\Controllers\VAjaxController::class, 'ajax_list']);
     Route::post('/buy/include/index_template', [\App\Http\Controllers\VBuyController::class,'getSellIndexTemplate']);
+    Route::post('/myroom/customer/search_add',[\App\Http\Controllers\ManiaController::class,'search_add']);
+    Route::post('/myroom/customer/search_delete',[\App\Http\Controllers\ManiaController::class,'search_delete']);
+    Route::get('/mySearch',[\App\Http\Controllers\ManiaController::class,'getMySearch']);
+    Route::post('_include/_list_search.ajax',[\App\Http\Controllers\ManiaController::class,'list_search_ajax']);
+    Route::post('/ajax_trade_check',[\App\Http\Controllers\ManiaController::class,'ajax_trade_check']);
+    Route::post('/myroom/message/view',[\App\Http\Controllers\VAjaxController::class,'message_view']);
+    Route::post('/myroom/message/delete',[\App\Http\Controllers\VAjaxController::class,'message_delete']);
+    Route::post('_ajax/my_service',[\App\Http\Controllers\VAjaxController::class,'my_service']);
 });
 
 Route::get('/sell/include/index_template', [\App\Http\Controllers\VSellController::class, 'ajax_template']);
 Route::get("/json/gameserverlist.json",[\App\Http\Controllers\ManiaController::class,'gameList']);
-Route::get('/mySearch',[\App\Http\Controllers\ManiaController::class,'getMySearch']);
+
 /**
  * Created api by Jong
  */

@@ -38,10 +38,6 @@ if(!empty($cuser['home'])){
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.js"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js"></script>
     <script type="text/javascript" src="/mania/myroom/buy/js/buy_re_reg.js"></script>
     <script type="text/javascript">
         var useMileage = '{{$cuser['mileage']}}';
@@ -51,6 +47,9 @@ if(!empty($cuser['home'])){
             e_use.highlight=0;
 
         }
+        e_use.premium = {{$premium}};
+        e_use.highlight = {{$highlight}} / 12;
+        e_use.quickIcon = {{$quickicon}};
     </script>
 
 @endsection
@@ -257,7 +256,7 @@ if(!empty($cuser['home'])){
                                     <div class="sub_txt m-t-35">
                                         프리미엄 잔여시간이 많을수록<br>물품리스트 상단에 노출됩니다.
                                     </div>
-                                    <a class="free_view btn-premium" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list.html?free_use_item=premium',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i> </a>
+                                    <a class="free_view btn-premium" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=premium',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i> </a>
                                 </dd>
                             </div>
                         </dl>
@@ -299,7 +298,7 @@ if(!empty($cuser['home'])){
                                     <div class="exp">
                                         제목 굵기/<strong class="text-green">색</strong> 효과 적용
                                     </div>
-                                    <a class="free_view btn-goods" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list.html?free_use_item=highlight',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>
+                                    <a class="free_view btn-goods" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=highlight',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>
                                 </dd>
                             </div>
                         </dl>
@@ -320,7 +319,7 @@ if(!empty($cuser['home'])){
                                     <div class="sub_txt m-t-35">
                                         물품리스트에 스피드 거래 <br /> 아이콘이 현시 됩니다.
                                     </div>
-                                    <a class="free_view btn-speeds" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list.html?free_use_item=quickicon',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>
+                                    <a class="free_view btn-speeds" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=quickicon',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>
                                 </dd>
                             </div>
                         </dl>
@@ -531,9 +530,9 @@ if(!empty($cuser['home'])){
                 <div class="title">프리미엄 등록안내</div>
                 <div class="middle_text">프리미엄 물품 등록을 하시면 물품 리스트 상단에 판매 물품 노출이 가능합니다.
                     <br/>빠른 거래를 원하신다면 프리미엄 등록서비스를 이용하시기 바랍니다. </div>
-                <div class="mile_area">(내 사용가능한 마일리지 : <span id="pop_txtCurrentMileage" class="f_org1">245</span> 원) </div>
+                <div class="mile_area">(내 사용가능한 마일리지 : <span id="pop_txtCurrentMileage" class="f_org1">{{number_format($cuser['mileage'])}}</span> 원) </div>
                 <div class="mt-40 text-center">
-                    <a href="javascript:;_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list.html?free_use_item=premium',440,450)" class="btn_gray">프리미엄 무료이용권 보기</a>
+                    <a href="javascript:;_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=premium',440,450)" class="btn_gray">프리미엄 무료이용권 보기</a>
                 </div>
                 <div class="dvpremium">
                     <div class="g_left"> <strong class="service_title">프리미엄 등록</strong>

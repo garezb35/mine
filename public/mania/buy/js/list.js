@@ -46,7 +46,7 @@ var searchList = {
                     $('#account_auth').addClass('on');
                 }
 
-                $('#appBtn').attr('href', 'application.html?id=' + tid + '&pinit=' + $('#pinit').val() + $('#continue').val());
+                $('#appBtn').attr('href', 'application?id=' + tid + '&pinit=' + $('#pinit').val() + $('#continue').val());
                 // $('#detailBtn').attr('href', 'view.html?id=' + tid + '&pinit=' + $('#pinit').val() + $('#continue').val());
 
                 $('.item_regInfo').addClass('layer_active');

@@ -19,7 +19,7 @@
 <html lang="ko">
 
 <head>
-    <title>아이템매니아</title>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="">
@@ -97,15 +97,6 @@
                 <tr>
                     <th>휴대폰</th>
                     <td>
-{{--                        <select id="slctMobile_type" name="user_mobile_type" class="g_hidden" onchange="setMobileMode(arguments[0])">--}}
-{{--                            <option value="1" selected>SKT</option>--}}
-{{--                            <option value="2">KT</option>--}}
-{{--                            <option value="3">LG U+</option>--}}
-{{--                            <option value="4">SKT-A</option>--}}
-{{--                            <option value="5">KT-A</option>--}}
-{{--                            <option value="6">LG-A</option>--}}
-{{--                            <option value="N">휴대폰없음</option>--}}
-{{--                        </select>--}}
                         <select id="user_mobileA" name="user_mobileA" class="g_hidden">
                             <option value="010">010</option>
                             <option value="011">011</option>
@@ -119,8 +110,8 @@
                 </tr>
             </table> <span class="g_red1">※</span> <span class="g_red1_11">013으로 시작되는 번호는 연락처 등록이 불가 합니다.</span>
             <div class="g_btn">
-                <input type="image" src="https://img3.itemmania.com/images/btn/btn_popup_enter.gif" class="g_image" width="63" height="34" alt="확인" /> &#160;
-                <a href="#" onclick="self.close();"><img src="https://img4.itemmania.com/images/btn/btn_popup_cancel.gif" width="63" height="34" alt="취소" /></a>
+                <a class="btn-default btn-suc"  href="javascript:void(0);">확인</a>
+                <a href="#" onclick="self.close();" class="btn-default btn-cancel">취소</a>
             </div>
         </form>
     </div>

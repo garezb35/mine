@@ -1,4 +1,5 @@
 
+
 var e_sale = {
     'general': 0,
     'division': 1,
@@ -27,7 +28,7 @@ var simpleTradeParams = null;
 function _init() {
     _form.protect.price($('#sell_quantity'));
 
-    /* â–¼ ë˜ì „ì•¤íŒŒì´í„° í†µí•©ì„œë²„ ì²˜ë¦¬ */
+    /* ▼ 던전앤파이터 통합서버 처리 */
     if ($('#dfServer').length > 0) {
         new ServerList(document.getElementById('dfServerList'), {
             autoComplete: '#df_server_code_text',
@@ -43,7 +44,7 @@ function _init() {
     } else {
         fnCheckSimpleSubmit();
     }
-    /* â–² ë˜ì „ì•¤íŒŒì´í„° í†µí•©ì„œë²„ ì²˜ë¦¬ */
+    /* ▲ 던전앤파이터 통합서버 처리 */
 
     if (g_trade_info.sale == 'division') {
         $('#sell_quantity').val(g_trade_info.quantity);
@@ -51,8 +52,12 @@ function _init() {
     }
 
     $('#frmSell').submit(function() {
+        if(submit_condition == 0){
+            alert('판매조건에 만족되지 않습니다.');
+            return false;
+        }
         if ($("#user_without").val() == '6') {
-            if (!confirm('ê³ ê°ë‹˜ì€ í˜„ìž¬ íšŒì›íƒˆí‡´ ì‹ ì²­ ì§„í–‰ì¤‘ìž…ë‹ˆë‹¤.\níŒë§¤ ì‹ ì²­ ì§„í–‰ ì‹œ ì‹ ì²­í•˜ì‹  íšŒì›íƒˆí‡´ ì ‘ìˆ˜ê°€ ì² íšŒë©ë‹ˆë‹¤.\nê³„ì† ì§„í–‰ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?')) {
+            if (!confirm('고객님은 현재 회원탈퇴 신청 진행중입니다.\n판매 신청 진행 시 신청하신 회원탈퇴 접수가 철회됩니다.\n계속 진행 하시겠습니까?')) {
                 return false;
             }
         }
@@ -66,15 +71,15 @@ function _init() {
             this.innerHTML = '열기▼';
         } else {
             detail.classList.add('wide');
-            this.innerHTML = '닫기▼';
+            this.innerHTML = '닫기▲';
         }
     });
 
-
+    /** [ITM-10872] 캐릭터 거래 신규 서비스 삽니다 추가 by 20200720 KBR */
     if (document.getElementById('elt_contract') !== null) {
         document.getElementById('sign_btn').addEventListener('click', function(ev) {
-            var strConfirmMsg = 'ì „ìž ì„œëª…ì„ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?\n' +
-                'ì „ìž ì„œëª… ì™„ë£Œ ì‹œ íŒë§¤ì‹ ì²­ì´ ì™„ë£Œ ë©ë‹ˆë‹¤.\n';
+            var strConfirmMsg = '전자 서명을 하시겠습니까?\n' +
+                '전자 서명 완료 시 판매신청이 완료 됩니다.\n';
             if (!confirm(strConfirmMsg)) {
                 return;
             }
@@ -87,7 +92,7 @@ function _init() {
         });
     }
 
-
+    //안심번호, 안심번호 플러스
     SafetyNumber();
 }
 
@@ -100,25 +105,25 @@ function fnCheckSimpleSubmit() {
 function fnFormChecker() {
     var frm = $('#frmSell');
 
-    /* â–¼ ë˜ì „ì•¤íŒŒì´í„° í†µí•©ì„œë²„ ì²˜ë¦¬ */
+    /* ▼ 던전앤파이터 통합서버 처리 */
     if ($('#dfServer').length > 0) {
         if ($('[name="df_server_code"]').val().isEmpty()) {
-            alert('ë¬¼í’ˆì„ ì „ë‹¬ í•˜ì‹¤ ì„œë²„ë¥¼ ì„ íƒ í•´ì£¼ì„¸ìš”.');
+            alert('물품을 전달 하실 서버를 선택 해주세요.');
             return false;
         }
         if ($('#user_character').val().isEmpty()) {
-            alert('ë¬¼í’ˆì„ ì „ë‹¬ í•˜ì‹¤ ìºë¦­í„°ëª…ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”.');
+            alert('물품을 전달 하실 캐릭터명을 입력해주세요.');
             $('#user_character').focus();
             return false;
         }
 
     }
-    /* â–² ë˜ì „ì•¤íŒŒì´í„° í†µí•©ì„œë²„ ì²˜ë¦¬ */
+    /* ▲ 던전앤파이터 통합서버 처리 */
 
-    /** [ITM-10872] ìºë¦­í„° ê±°ëž˜ ì‹ ê·œ ì„œë¹„ìŠ¤ ì‚½ë‹ˆë‹¤ ì¶”ê°€ by 20200720 KBR */
+    /** [ITM-10872] 캐릭터 거래 신규 서비스 삽니다 추가 by 20200720 KBR */
     if(document.getElementById('character_id') !== null) {
         if(document.getElementById('character_id').value.isEmpty() === true) {
-            alert('ìºë¦­í„° ID ìž…ë ¥ í›„ íŒë§¤ì‹ ì²­ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.');
+            alert('캐릭터 ID 입력 후 판매신청이 가능합니다.');
             document.getElementById('character_id').focus();
             return false;
         }
@@ -131,18 +136,18 @@ function fnFormChecker() {
         $("#layer_money").text($("#trade_money").text());
     }
 
-    /* â–¼ ì•ˆì‹¬ë²ˆí˜¸ ì„œë¹„ìŠ¤ */
+    /* ▼ 안심번호 서비스 */
     if ($("#safety_using_flag").val() == "true") {
         if ($("#user_safety_type").val() == "1" && $("#using_safety_number").val() == "on") {
             if ($("#user_cell_auth").val() == '0') {
-                alert("ì•ˆì‹¬ë²ˆí˜¸ ì„œë¹„ìŠ¤ëŠ” íœ´ëŒ€í° ì¸ì¦ì„ ë°›ìœ¼ì…”ì•¼ ì‚¬ìš©ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.\n\në§ˆì´ë£¸ > ë‚´ ê°œì¸ì •ë³´ > ê°œì¸ì •ë³´ ìˆ˜ì •ì—ì„œ íœ´ëŒ€í° ì¸ì¦ í›„ ì‚¬ìš©í•˜ì‹œê¸° ë°”ëžë‹ˆë‹¤.\n\nì‚¬ìš©ì„ ì›í•˜ì§€ ì•Šìœ¼ì‹œë©´ ì•ˆì‹¬ë²ˆí˜¸ ì‚¬ìš©ì•ˆí•¨ìœ¼ë¡œ ì„ íƒ í›„ ë“±ë¡í•˜ì‹œê¸° ë°”ëžë‹ˆë‹¤.");
+                alert("안심번호 서비스는 휴대폰 인증을 받으셔야 사용이 가능합니다.\n\n마이룸 > 내 개인정보 > 개인정보 수정에서 휴대폰 인증 후 사용하시기 바랍니다.\n\n사용을 원하지 않으시면 안심번호 사용안함으로 선택 후 등록하시기 바랍니다.");
                 return false;
             }
         }
     }
-    /* â–² ì•ˆì‹¬ë²ˆí˜¸ ì„œë¹„ìŠ¤ */
+    /* ▲ 안심번호 서비스 */
 
-    /* â–¼ ì—°ë½ì²˜ ì¤‘ë³µì²´í¬ */
+    /* ▼ 연락처 중복체크 */
     var slctContact = $('#user_contactA').val();
     var slctMobileType = $('#slctMobile_type').val();
     var params = {
@@ -153,7 +158,7 @@ function fnFormChecker() {
     };
 
     if (params['contact_yn'] == 'N' && params['mobile_yn'] == 'N') {
-        alert('íœ´ëŒ€í° ë˜ëŠ” ìžíƒ ì—°ë½ì²˜ ì •ë³´ë¥¼ í†µí™” ê°€ëŠ¥í•œ ë²ˆí˜¸ë¡œ ìˆ˜ì • í›„ ì´ìš© ë°”ëžë‹ˆë‹¤.');
+        alert('휴대폰 또는 자택 연락처 정보를 통화 가능한 번호로 수정 후 이용 바랍니다.');
         return;
     }
 
@@ -167,13 +172,13 @@ function fnFormChecker() {
         params['user_mobileB'] = $('#user_mobileB').val();
         params['user_mobileC'] = $('#user_mobileC').val();
     }
-    params['api_token'] = a_token;
+    params.api_token = a_token;
     fnAjax('/api/_include/_user_contact_restrict', 'text', 'POST', params, {
         complete: function(res) {
             var rgResult = res.split('|');
             switch (rgResult[0]) {
                 case 'S':
-
+                    /** [ITM-10872] 캐릭터 거래 신규 서비스 삽니다 추가 by 20200720 KBR */
                     if (document.getElementById('elt_contract') !== null) {
                         document.getElementById('tmp_character_id').innerHTML = document.getElementById('character_id').value;
                         g_nodeSleep.enable($('#elt_contract'));
@@ -187,10 +192,10 @@ function fnFormChecker() {
             }
         },
         error: function() {
-            alert('ì„œë¹„ìŠ¤ê°€ ì›í• í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ìž ì‹œí›„ ì´ìš©í•´ ì£¼ì„¸ìš”.');
+            alert('서비스가 원할하지 않습니다. 잠시후 이용해 주세요.');
         }
     });
-    /* â–² ì—°ë½ì²˜ ì¤‘ë³µì²´í¬ */
+    /* ▲ 연락처 중복체크 */
 }
 
 function sellQuantity() {
@@ -211,7 +216,7 @@ function sellQuantity() {
     if (sellQuantity == 0) return;
 
     if (g_trade_info.max_quantity < sellQuantity) {
-        alert("ìµœëŒ€ êµ¬ë§¤ìˆ˜ëŸ‰ì„ ì´ˆê³¼í•˜ì˜€ìŠµë‹ˆë‹¤!");
+        alert("최대 구매수량을 초과하였습니다!");
         frm.find('input[name="sell_quantity"]').val(g_trade_info.max_quantity.currency());
         sellQuantity = g_trade_info.max_quantity;
     }
@@ -221,7 +226,7 @@ function sellQuantity() {
 
     if (g_trade_info.trade_kind == "money") {
 
-        var rgUnit = new Array("ë§Œ", "ì–µ", "ì¡°");
+        var rgUnit = new Array("만", "억", "조");
         var rgDefaultUnit = new Array(10000, 100000000, 1000000000000);
         var iUnit = 0;
 
@@ -253,7 +258,7 @@ function moneyUnitChange(money) {
     var money = "" + money;
     var reTuenMoney = "";
     var moneyString = new Array(money.length);
-    var unitString = new Array("", "ë§Œ", "ì–µ", "ì¡°", "ê²½");
+    var unitString = new Array("", "만", "억", "조", "경");
     var tmpNumber = '';
 
     if (money.length > 4) {
@@ -296,7 +301,7 @@ function checkForm() {
     sellQuantity = frm.find('input[name="sell_quantity"]').val();
 
     if (sellQuantity.isEmpty()) {
-        alert("íŒë§¤ìˆ˜ëŸ‰ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”.");
+        alert("판매수량을 입력해주세요.");
         frm.find('input[name="sell_quantity"]').focus();
         return false;
     }
@@ -304,18 +309,18 @@ function checkForm() {
     sellQuantity = Number(sellQuantity.replace(/[,]+/g, ""));
 
     if ((sellQuantity * g_trade_info.div_unit) > g_trade_info.curr_unit) {
-        alert("íŒë§¤ìˆ˜ëŸ‰ì´ í˜„ìž¬ êµ¬ë§¤ ìˆ˜ëŸ‰ë³´ë‹¤ ë§ŽìŠµë‹ˆë‹¤.\níŒë§¤ìˆ˜ëŸ‰ì„ ë‹¤ì‹œ ìž…ë ¥í•´ì£¼ì„¸ìš”.");
+        alert("판매수량이 현재 구매 수량보다 많습니다.\n판매수량을 다시 입력해주세요.");
         frm.find('input[name="sell_quantity"]').focus();
         return false;
     }
 
     if (sellQuantity < g_trade_info.min_quantity) {
-        alert("ìµœì†ŒíŒë§¤ìˆ˜ëŸ‰(" + g_trade_info.min_quantity + "ë²ˆ) ë¯¸ë§Œì˜ ë¬¼í’ˆì€ ì‹ ì²­í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+        alert("최소판매수량(" + g_trade_info.min_quantity + "번) 미만의 물품은 신청할 수 없습니다.");
         frm.find('input[name="sell_quantity"]').focus();
         return false;
 
     } else if (sellQuantity > g_trade_info.max_quantity) {
-        alert("ìµœëŒ€íŒë§¤ìˆ˜ëŸ‰(" + g_trade_info.max_quantity + "ë²ˆ) ì´ˆê³¼ì˜ ë¬¼í’ˆì€ ì‹ ì²­í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+        alert("최대판매수량(" + g_trade_info.max_quantity + "번) 초과의 물품은 신청할 수 없습니다.");
         frm.find('input[name="sell_quantity"]').focus();
         return false;
     }
@@ -324,7 +329,7 @@ function checkForm() {
     tradePrice = tradePrice.replace(/[,]+/g, "");
 
     if (tradePrice < 3000) {
-        alert("ê±°ëž˜ëŠ” 3,000ì› ì´ìƒë¶€í„° ê°€ëŠ¥í•©ë‹ˆë‹¤.");
+        alert("거래는 3,000원 이상부터 가능합니다.");
         frm.find('input[name="sell_quantity"]').focus();
         return false;
     }
@@ -335,10 +340,13 @@ function checkForm() {
 
 function fnCreditViewCheck() {
     var infoId = $('#infoId').val();
-    var params = 'id=' + infoId;
+    var params = {
+        id: infoId,
+        api_token:a_token
+    };
 
     ajaxRequest({
-        url: '/user/credit_ajax.php?t=' + (new Date()).getTime(),
+        url: '/api/user/credit_ajax?t=' + (new Date()).getTime(),
         type: 'POST',
         data: params,
         success: function(res) {
@@ -351,7 +359,7 @@ function fnCreditViewCheck() {
                 _window.open('credit_view', '', 570, 640);
                 $('#creditForm').attr({
                     'target': 'credit_view',
-                    'action': '/user/credit_view.html'
+                    'action': '/api/user/credit_view'
                 }).submit();
             } else {
                 alert(rgResult[1]);
@@ -366,7 +374,7 @@ function SafetyNumber(){
         type: 'post',
         data: {
             gamecode: $('#game_code').val(),
-            api_token: a_token
+            api_token:a_token
         },
         success: function(res) {
             if (res === 'true') {
@@ -380,8 +388,6 @@ function SafetyNumber(){
         }
     });
 }
-
-
 
 
 function changeP(){

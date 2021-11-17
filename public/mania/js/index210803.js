@@ -1164,6 +1164,7 @@ function fnSearchAdd() {
             goods_text: goods_text
         };
         _myService.addFavorite(rgData, function(res) {
+
             var mygame_id = res.mygameID;
             if (document.getElementById('mygame_info').children[0].classList.contains('empty') === true) {
                 $('#mygame_info').html('');
@@ -2160,9 +2161,3 @@ function setTit(title){
     $("#trade_sign_txt").text(title)
 }
 
-
-
-$("#searchRegGameServer").focus(function(){
-    $("#searchRegGameServer").val("ㄱ")
-    $("#searchRegGameServer").change()
-});

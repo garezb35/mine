@@ -114,6 +114,7 @@
 
 .g_tab .side {
     width: 305px;
+    background: #E3F0F3;
 }
 
 
@@ -131,17 +132,20 @@
 
 .search_word .btn_search {
     display: inline-block;
-    width: 34px;
-    height: 29px;
-    background-position: -44px -135px;
-    text-indent: -9999px;
+    width: 37px;
+    height: 37px;
+    background: #159efd;
     cursor: pointer;
+    font-size: 19px;
+    text-align: center;
+    color: #fff;
+    line-height: 37px;
 }
 
 .search_word input {
     float: left;
     width: 234px;
-    height: 29px;
+    height: 37px;
 }
 
 .detail_search {
@@ -174,7 +178,7 @@
 
 .search_box .search_row .search_tit {
     float: left;
-    width: 65px;
+    width: 80px;
     margin-left: 40px;
     padding-right: 10px;
     font-weight: bold;

@@ -1,3 +1,10 @@
+.right_ct {
+    float: left;
+    width: 260px;
+    min-height: 390px;
+    margin-left: 30px;
+}
+
 body {
     position: relative;
     height: 100%;
@@ -144,7 +151,7 @@ table tr .left {
 }
 
 .tb_list th:first-child,.tb_list td:first-child {
-    border-left: 0;
+    /*border-left: 0;*/
 }
 
 .tb_top_txt {
@@ -162,15 +169,38 @@ table tr .left {
 }
 
 .g_blue_table tr th, .g_blue_table tr td {
-    background-color: #F3F5FA;
+    background-color: #F8F8F8;
 }
 
 .g_green_table tr th {
     background-color: #ecf8ec;
 }
 
+.g_green_table2 tr th {
+    background-color: #E3F0F3;
+}
+
+.g_green_table2,.g_green_table2 tr th,.g_green_table2 tr td {
+    border-color: #000;
+}
+
+.g_green_table1 tr th {
+    background-color: #E3F0F3;
+}
+
+.g_green_table1,.g_green_table1 tr th,.g_green_table1 tr td {
+    border-color: #89C1CE;
+}
+
+
+
+.g_green_table2 tr td{
+    border-left: 1px solid;
+    text-align: center;
+}
+
 .g_blue_table,.g_blue_table tr th,.g_blue_table tr td {
-    border-color: #d5e2f2;
+    border-color: #A9A9A9;;
 }
 
 .g_green_table,.g_green_table tr th,.g_green_table tr td {
@@ -684,7 +714,7 @@ table tr .left {
     position: relative;
     display: table-cell;
     box-sizing: border-box;
-    height: 45px;
+    height: 37px;
     border-top: 1px solid #e1e1e1;
     border-bottom: 2px solid #666;
     border-left: 1px solid #e1e1e1;
@@ -692,6 +722,18 @@ table tr .left {
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
+}
+
+.g_tab_myroom>*{
+    background-color: #E3F0F3;
+    border-top: 1px solid #89C1CE;
+    border-bottom: 1px solid #89C1CE;
+    border-left: 1px solid #89C1CE;
+}
+
+.g_tab_myroom>.selected{
+    border: 1px solid #89C1CE !important;
+    border-bottom: 0 !important;
 }
 
 .g_tab>*:last-child {
@@ -1369,25 +1411,25 @@ table tr .left {
     height: 25px;
 }
 
-.credit_mark.silver {
-    background-image: url(//img1.itemmania.com/new_images/common/mark_silver.png);
-}
+/*.credit_mark.silver {*/
+/*    background-image: url(//img1.itemmania.com/new_images/common/mark_silver.png);*/
+/*}*/
 
-.credit_mark.gold {
-    background-image: url(//img1.itemmania.com/new_images/common/mark_gold.png);
-}
+/*.credit_mark.gold {*/
+/*    background-image: url(//img1.itemmania.com/new_images/common/mark_gold.png);*/
+/*}*/
 
-.credit_mark.platinum {
-    background-image: url(//img1.itemmania.com/new_images/common/mark_platinum.png);
-}
+/*.credit_mark.platinum {*/
+/*    background-image: url(//img1.itemmania.com/new_images/common/mark_platinum.png);*/
+/*}*/
 
-.credit_mark.vip {
-    background-image: url(//img1.itemmania.com/new_images/common/mark_vip.png);
-}
+/*.credit_mark.vip {*/
+/*    background-image: url(//img1.itemmania.com/new_images/common/mark_vip.png);*/
+/*}*/
 
-.credit_mark.diamond {
-    background-image: url(/mania/img/level/diamond.png);
-}
+/*.credit_mark.diamond {*/
+/*    background-image: url(/mania/img/level/diamond.png);*/
+/*}*/
 
 .basic_txt {
     color: #2ca20e;
@@ -1429,9 +1471,9 @@ table tr .left {
     font-weight: bold;
 }
 
-.cert_state.on {
-    /*border: 1px solid #ff4e00;*/
-    /*color: #ff4e00;*/
+.cert_staten.on {
+    border: 1px solid #ff4e00;
+    color: #ff4e00;
 }
 
 .btn_state{
@@ -2457,12 +2499,19 @@ table.table-greenwith td{
     margin-right: 6px;
 }
 
+.mt-5{
+    margin-top: 5px;
+}
+
 .mt-10{
     margin-top: 10px !important;
 }
 
 .mt-15{
     margin-top: 15px !important;
+}
+.mt-20{
+    margin-top: 20px !important;
 }
 .ml-6{
     margin-left: 6px;
@@ -2490,6 +2539,10 @@ table.noborder tr td,.noborder{
     margin-bottom: 5px;
 }
 
+.mb-20{
+    margin-bottom: 20px;
+}
+
 .btn-default{
     display: inline-block;
     width: 139px;
@@ -2502,6 +2555,42 @@ table.noborder tr td,.noborder{
     cursor: pointer;
 }
 
+.btn-default-medium{
+    display: inline-block;
+    width: 77px;
+    height: 32px;
+    vertical-align: middle;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    line-height: 32px;
+    cursor: pointer;
+}
+
+.btn-default-sm{
+    width: 79px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+}
+
+.btn-secondary{
+    background: #787878;
+    color: #fff;
+}
+.btn-green{
+    background: #2C52B2;
+    color: #fff;
+}
+.btn-suc-rect{
+    background: url(/mania/img/button/change_btn.png) no-repeat 100%;
+}
+.btn-cancel-rect{
+    background: url(/mania/img/button/cancel_btn.png) no-repeat 100%;
+}
+.btn-submit-rect{
+    background: url(/mania/img/button/submit.png) no-repeat 100%;
+}
 .btn-suc{
     background: url(/mania/img/button/btn-charge.png) no-repeat 100%;
 }
@@ -2654,6 +2743,9 @@ table.noborder tr td,.noborder{
     height: 90px;
 }
 
+.height30{
+    height: 30px;
+}
 
 .g_popup .title{
     background: transparent;
@@ -2679,4 +2771,48 @@ table.noborder tr td,.noborder{
 
 .bg-green{
     background:#8CCE75 !important;
+}
+.g_top
+{
+    width: 100px;
+    aspect-ratio: auto 100 / 75;
+    height: 75px;
+}
+
+.pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 0.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.page-item:first-child .page-link {
+    margin-left: 0;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+.page-link:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
 }

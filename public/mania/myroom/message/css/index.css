@@ -16,3 +16,9 @@
 #message_view .g_left img{ margin-right:175px }
 #dvMessage_move{ margin-top:10px; }
 /* â–² ë©”ì‹œì§€ ë ˆì´ì–´ */
+a.save{
+    border: 1px solid #EC0000;
+    padding: 1px 10px;
+    text-align: center;
+    color: #EC0000;
+}

@@ -1,0 +1,29 @@
+.g_black3 {
+    margin-left: 10px;
+    padding-left: 10px;
+    background: url(//img3.itemmania.com/images/icon/icon_arrow1.gif) no-repeat 0 3px;
+}
+
+.g_subtitle_blue {
+    clear: both;
+    margin-top: 0;
+    text-align: left;
+}
+
+.g_blue_table {
+    width: 400px;
+    margin: 10px 0;
+}
+
+.g_blue_table tr th,.g_blue_table tr td {
+    border-right: 1px solid #E2E2E2;
+    border-left: 0;
+}
+
+.g_blue_table tr .last {
+    border-right: 0;
+}
+
+.last_sub {
+    margin-left: 10px;
+}

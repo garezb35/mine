@@ -11,10 +11,6 @@
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js?v=190220"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js?v=21100516"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.min.js?v=21100816"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js?v=21050316"></script>
     <script type="text/javascript" src="/mania/sell/js/list.js?21050316"></script>
     <script type="text/javascript" src="/mania/sell/js/list_search.js?v=201221"></script>
 @endsection
@@ -25,7 +21,7 @@
         <div class="spacer_bottom_20"></div>
         <!--▲▲▲ 리스트 게임 코드 배너 ▲▲▲ -->
         <a name="search_top"></a>
-        <div class="g_title_noborder f15 h15">
+        <div class="g_title_noborder h15">
             <div class="g_left">
                 <ul class="trade_sub_title">
                     <li>판매</li>

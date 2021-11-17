@@ -13,7 +13,7 @@
 .credit_mark.vip {
     background-image: url("../img/icons/icon_vip.png");
 }
-.quickmenu_cont .myinfo .status .rt_figure{
+.quickmenu_cont .myinfo .status .rt_figure{.top_full, .top_area, .bg_opacity, .service_wrap, .carousel_module > .banner_in > .banner_item .carousel_images
     top: 0;
 }
 .quickmenu_cont .user_name {
@@ -108,7 +108,7 @@
 .bg_opacity,
 .service_wrap,
 .carousel_module > .banner_in > .banner_item .carousel_images {
-    height: 350px;
+    height: 371px;
 }
 .service_wrap,
 .bg_opacity {
@@ -157,11 +157,9 @@
     width: 90px;
 }
 .realtime_game {
-    width: 100px;
+    width: 170px;
 }
-.realtime_money {
-    width: 80px;
-}
+
 .sec_left, .sec_right {
     height: 320px;
 }

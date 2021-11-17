@@ -1,0 +1,211 @@
+.top_box {
+    width: 820px;
+    height: 100px;
+    background-position: -2px -1744px;
+}
+
+.top_box > .top_title {
+    padding: 12px 0 0 60px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #454952;
+}
+
+.top_box p {
+    padding: 5px 0 0 60px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #454952;
+}
+
+.ft_orange {
+    color: #FF4E00;
+}
+
+.subtitle {
+    margin: 20px 0 7px;
+    padding-left: 7px;
+    background: url(//img3.itemmania.com/images/icon/icon_spot.gif) no-repeat 0 7px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #767676
+}
+
+.cancel_area {
+    overflow: hidden;
+    zoom:1; width: 820px;
+    margin-bottom: 7px;
+    border: 1px solid #D7D7D7;
+}
+
+.tb_cell1 {
+    float: left;
+    width: 80%;
+    height: 36px;
+    padding-top: 17px;
+    border-right: 1px solid #D7D7D7;
+    background-color: #F7F7F7;
+}
+
+.tb_cell1 label {
+    margin-left: 73px;
+}
+
+.tb_cell2 {
+    float: left;
+    width: 156px;
+    text-align: center
+}
+
+.tb_cell2 .g_image {
+    margin-top: 17px
+}
+
+.g_blue_table .g_text {
+    width: 157px
+}
+
+.ft_red {
+    color: #FF2400;
+}
+
+.service_area {
+    overflow: hidden;
+    zoom:1; padding: 15px 0;
+    width: 820px;
+    height: 253px;
+    box-sizing: border-box;
+    margin-top: 30px;
+    border: 1px solid #DDD;
+    background-color: #F4F4F4
+}
+
+.service_area > .service_title {
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+}
+
+.service_area .service_wrap {
+    margin: 8px 20px 15px;
+    font-size: 0;
+}
+
+.service_area .service_wrap .service_set {
+    display: inline-block;
+    margin-right: 15px;
+    width: 139px;
+    height: 197px;
+    background-color: #FFF;
+    border: 2px solid #CCD4DF;
+    text-align: center;
+    vertical-align: top;
+}
+
+.service_area .service_wrap .service_set:last-child {
+    margin-right: 0;
+}
+
+.service_area .service_wrap .service_set span {
+    display: inline-block;
+    width: 127px;
+    height: 66px;
+    margin-top: 4px;
+    text-indent: -9999px;
+}
+
+.service_area .service_wrap .service_set .title {
+    width: 127px;
+    height: 47px;
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: bold;
+    color: #1D1D1D;
+    text-align: center;
+    line-height: 47px;
+    border-bottom: 1px solid #F4F4F4;
+}
+
+.service_area .service_wrap .service_set .text_area {
+    margin-top: 10px;
+    font-size: 11px;
+    color: #636363;
+    text-align: center;
+}
+
+.service_area .service_wrap .service_set .gamemania {
+    background-position: -824px -720px;
+}
+
+.service_area .service_wrap .service_set .gift {
+    background-position: -824px -788px;
+}
+
+.service_area .service_wrap .service_set .ssada {
+    background-position: -824px -856px;
+}
+
+.service_area .service_wrap .service_set .freecharge {
+    background-position: -824px -922px;
+}
+
+.service_area .service_wrap .service_set .freecoupon {
+    background-position: -824px -1567px;
+}
+
+.g_big_box1 {
+    overflow: hidden;
+    zoom:1; padding: 20px;
+    border: 1px solid #D7D7D7;
+    background-color: #F7F7F7;
+    color: #767676
+}
+
+.g_big_box1 ol {
+    margin: 0;
+    padding: 0 0 0 20px
+}
+
+.g_big_box1 .g_blue_table {
+    margin-top: 15px
+}
+
+.g_big_box1 .g_blue_table td {
+    padding-left: 0;
+    background-color: #FFF;
+    text-align: center;
+    color: #767676
+}
+
+.g_big_box1 .g_blue_table .border {
+    border-right: 1px solid #E2E2E2
+}
+
+.g_big_box2 {
+    padding: 10px 20px
+}
+
+.g_big_box2 li {
+    float: left;
+    width: 179px;
+    padding: 8px 0;
+    font-weight: bold
+}
+
+.g_big_box2 .etc {
+    width: 100%
+}
+
+.g_big_box2 label {
+    vertical-align: middle
+}
+
+textarea {
+    width: 620px;
+    height: 20px;
+    margin-left: 10px;
+    padding: 5px;
+    resize: none;
+    vertical-align: middle
+}

@@ -1,0 +1,50 @@
+.box_wrap {
+    overflow: hidden;
+    width: 316px;
+    margin-top: 5px;
+}
+
+.box {
+    position: relative;
+    width: 150px;
+    margin: 3px 4px 10px 4px;
+    margin: auto;
+}
+
+.box .off {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8)
+}
+
+.box .title {
+    padding: 5px 0;
+    background-color: #F0F0F0;
+    border: 1px solid #DBDBDB;
+    text-align: center;
+    font-weight: bold;
+}
+
+.box .auth_info {
+    padding: 13px 0;
+    border: 1px solid #DBDBDB;
+    border-top: 0;
+    text-align: center;
+}
+
+.box .auth_info .txt {
+    margin: 6px 0;
+    font-size: 12px;
+    text-align: center;
+}
+
+.box .auth_info .btn_blue3 {
+    width: 100px;
+    height: 26px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 23px;
+}

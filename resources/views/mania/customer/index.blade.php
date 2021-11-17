@@ -13,10 +13,7 @@
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js?v=190220"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js?v=21100516"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.js?v=21101416"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js?v=21050316"></script>
+
     <script type="text/javascript" src="/mania/customer/js/index.js?201112"></script>
     <script type="text/javascript" src="/mania/customer/faq/js/search.js?190220"></script>
     <script type='text/javascript'>

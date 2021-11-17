@@ -5,14 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\MAdminCash;
 use App\Models\MBargainRequest;
 use App\Models\MCashReceipt;
+use App\Models\MCharacterDocument;
 use App\Models\MChgame;
 use App\Models\MGame;
+use App\Models\MGift;
+use App\Models\MInbox;
 use App\Models\MItem;
 use App\Models\MOrderNotification;
 use App\Models\MPremium;
+use App\Models\MRole;
+use App\Models\MRoleGift;
 use App\Models\User;
 use App\Models\MPayhistory;
 use App\Models\MPayitem;
+use App\Models\MMygame;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -49,14 +55,23 @@ class ManiaController extends BaseController
                 'status'=>1
             ]);
         }
-        User::where("id", $sell_id)->update(['mileage'=> DB::raw('mileage+'.$user_cash)]);
-        User::where("id", $buy_id)->update(['mileage'=> DB::raw('mileage-'.$payItem['price'])]);
+        User::where("id", $sell_id)->update(['mileage'=> DB::raw('mileage+'.$user_cash),'point'=>DB::raw('point+1')]);
+        User::where("id", $buy_id)->update(['mileage'=> DB::raw('mileage-'.$payItem['price']),'point'=>DB::raw('point+1')]);
         MAdminCash::where("id", 1)->update(['cash'=> DB::raw('cash+'.$admin_cash)]);
         MPayhistory::insert([
             'orderNo'=>$orderNo,
             'pay_type'=>2,
             'price'=>$user_cash,
-            'status'=>1
+            'status'=>1,
+            'userId'=>$sell_id,
+        ]);
+        MPayhistory::insert([
+            'orderNo'=>$orderNo,
+            'pay_type'=>6,
+            'price'=>$payItem['price'],
+            'status'=>1,
+            'userId'=>$buy_id,
+            'minus'=>1
         ]);
         MPayhistory::insert([
             'orderNo'=>$orderNo,
@@ -64,8 +79,59 @@ class ManiaController extends BaseController
             'price'=>$admin_cash,
             'status'=>1
         ]);
-
+        MInbox::insert([
+            'orderId'=>$orderNo,
+            'type'=>'거래',
+            'title'=>'고객님께서 판매중이신 #'.$orderNo.' 물품이 판매종료되었습니다.',
+            'content'=>'고객님께서 판매중이신 #'.$orderNo.' 물품이 판매종료되었습니다.',
+            'userId'=>$sell_id
+        ]);
+        MInbox::insert([
+            'orderId'=>$orderNo,
+            'type'=>'거래',
+            'title'=>'고객님께서 구매중이신 #'.$orderNo.' 물품이 구매종료되었습니다.',
+            'content'=>'고객님께서 구매중이신 #'.$orderNo.' 물품이 구매종료되었습니다.',
+            'userId'=>$buy_id
+        ]);
+        $this->addGift($buy_id);
+        $this->addGift($sell_id);
         return 1;
+    }
+
+    private function addGift($userId){
+        $user = User::with('roles')->where('id',$userId)->first();
+        $role = MRole::where('point','<=',$user['point'])->orderBy('point','DESC')->first();
+        if(!empty($role) && $role['id'] != $user['role']){
+            User::where('id',$userId)->update(['role'=>$role['id']]);
+            MInbox::insert([
+                'type'=>'신용등급',
+                'title'=>'신용등급 갱신',
+                'content'=>'회원님의 신용등급은 '.$role['alias'].'입니다.',
+                'userId'=>$userId
+            ]);
+            $role_gift = MRoleGift::where('role_id',$role['id'])->get();
+            if(!empty($role_gift)){
+                foreach ($role_gift as $value){
+                    $exist_item = MGift::where('userId',$userId)->where('type',$value['type'])->first();
+                    if(!empty($exist_item)){
+                        MGift::where('id',$exist_item['id'])->update(['time'=>DB::raw('time+'.$value['time'])]);
+                    }
+                    else{
+                        MGift::insert([
+                            'userId'=>$userId,
+                            'type'=>$value['type'],
+                            'time'=>$value['time']
+                        ]);
+                    }
+                }
+                MInbox::insert([
+                    'type'=>'무료이용권',
+                    'title'=>'무료이용권 자동지급',
+                    'content'=>'회원님에게 무료이용권이 지급되었습니다.',
+                    'userId'=>$userId
+                ]);
+            }
+        }
     }
 
     public function applicationiBa(Request $request){
@@ -94,6 +160,8 @@ class ManiaController extends BaseController
 
     public function addservice(Request $request){
 
+        $gift_array  = array();
+        $gift_array[1] = $gift_array[2] = $gift_array[3] = 0;
         $params = $request->all();
         $params = json_decode(json_encode($params));
         $user_premium_time   = $params->user_premium_time;
@@ -105,6 +173,10 @@ class ManiaController extends BaseController
         $charge_money=  ($user_premium_time + $user_quickicon_use + ($user_bluepen_use + $user_icon_use) / 12 + $rereg_count / 3) * 100;
         if($charge_money > 0 && $this->user->mileage < $charge_money){
             return response()->json(array("status"=>0,'msg'=>'마일리지가 충분치 않습니다.'));
+        }
+        $gift = MGift::where('userId',$this->user->id)->get();
+        foreach($gift as $value){
+            $gift_array[$value['type']] = $value['time'];
         }
         unset($params->user_premium_time);
         unset($params->user_icon_use);
@@ -158,6 +230,16 @@ class ManiaController extends BaseController
         $insertId = MItem::create($param_insert);
 
         if(!empty($insertId->id)){
+            if($param_insert['user_goods'] == 'character' && $param_insert['type'] == 'sell'){
+                MCharacterDocument::insert([
+                    'orderNo'=>$param_insert['orderNo'],
+                    'price'=>$param_insert["user_price"],
+                    'seller_name'=>$this->user->name,
+                    'seller_birthday'=>$this->user->birthday,
+                    'character_id'=>!empty($param_insert['character_id']) ? $param_insert['character_id'] : '',
+                    'seller_cell'=>$this->user->number,
+                ]);
+            }
             $premium_array = array();
             $premium_inserts = array();
             $premium_array['post_id'] = $insertId->id;
@@ -167,6 +249,7 @@ class ManiaController extends BaseController
                 $premium_array['type'] = 1;
                 $premium_array['until'] = date("Y-m-d H:i:s", strtotime('+'.$user_premium_time.' hours'));
                 array_push($premium_inserts,$premium_array);
+                $gift_array[1] = ($gift_array[1] - $user_premium_time) > 0 ? $gift_array[1] - $user_premium_time: 0;
             }
             if(!empty($user_icon_use)){
                 $premium_array['re_count'] = null;
@@ -174,6 +257,7 @@ class ManiaController extends BaseController
                 $premium_array['type'] = 2;
                 $premium_array['until'] = date("Y-m-d H:i:s", strtotime('+'.$user_icon_use.' hours'));
                 array_push($premium_inserts,$premium_array);
+                $gift_array[2] = ($gift_array[2] - $user_icon_use) > 0 ? $gift_array[2] - $user_icon_use: 0;
             }
             if(!empty($user_bluepen_use)){
                 $premium_array['re_count'] = null;
@@ -181,6 +265,7 @@ class ManiaController extends BaseController
                 $premium_array['type'] = 3;
                 $premium_array['until'] = date("Y-m-d H:i:s", strtotime('+'.$user_bluepen_use.' hours'));
                 array_push($premium_inserts,$premium_array);
+                $gift_array[2] = ($gift_array[2] - $user_bluepen_use) > 0 ? $gift_array[2] - $user_bluepen_use: 0;
             }
             if(!empty($user_quickicon_use)){
                 $premium_array['re_count'] = null;
@@ -188,6 +273,7 @@ class ManiaController extends BaseController
                 $premium_array['type'] = 4;
                 $premium_array['until'] = date("Y-m-d H:i:s", strtotime('+'.$user_quickicon_use.' hours'));
                 array_push($premium_inserts,$premium_array);
+                $gift_array[3] = ($gift_array[3] - $user_quickicon_use) > 0 ? $gift_array[3] - $user_quickicon_use: 0;
             }
             if(!empty($rereg_count) && !empty($rereg_time)){
                 $premium_array['type'] = 5;
@@ -200,11 +286,13 @@ class ManiaController extends BaseController
                 $this->user->save();
                 MPremium::insert($premium_inserts);
 
-                MPayhistory::insert(['type'=>'premium',
+                MPayhistory::insert([
+                    'type'=>'premium',
                     'userId'=>$this->user->id,
                     'mania_code'=>$insertId->id,
                     'price'=>$charge_money,
-                    'status'=>1]);
+                    'status'=>1,
+                    'orderNo'=>$param_insert['orderNo']]);
 
             }
 
@@ -214,8 +302,13 @@ class ManiaController extends BaseController
                     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
                     $extension = $file->getClientOriginalExtension();
                     $bankbook = $filename .'_'.time().'.' . $extension;
-                    $file->storeAs('assets/images/mania/'.$insertId->id.'/', $bankbook);
+                    $file->move(public_path('assets/images/mania/'.$insertId->id),$bankbook);
                 }
+            }
+            if(!empty($gift)){
+                MGift::where('type',1)->where('userId',$this->user->id)->update(['time'=>$gift_array[1]]);
+                MGift::where('type',2)->where('userId',$this->user->id)->update(['time'=>$gift_array[2]]);
+                MGift::where('type',3)->where('userId',$this->user->id)->update(['time'=>$gift_array[3]]);
             }
             return Redirect::to('/'.$param_insert['type'].'/index_view?id='.$params->orderNo);
         }
@@ -226,8 +319,30 @@ class ManiaController extends BaseController
 
 
     public function sell_re_reg_ok(Request $request){
+        $gift_array  = array();
+        $gift_array[1] = $gift_array[2] = $gift_array[3] = 0;
+        $gift = MGift::where('userId',$this->user->id)->get();
+        foreach($gift as $value){
+            $gift_array[$value['type']] = $value['time'];
+        }
         $user_goods_type = $request->user_goods_type;
         $id = $request->id;
+        $mit = MItem::where('orderNo',$id)->first();
+        if(empty($mit)){
+            echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
+            return;
+        }
+        $user_premium_time   = $request->user_premium_time;
+        $user_icon_use   = empty($request->user_icon_use) ? 0 : $request->user_icon_use;
+        $user_bluepen_use   = empty($request->user_bluepen_use) ? 0 : $request->user_bluepen_use;
+        $user_quickicon_use   = empty($request->user_quickicon_use) ? 0 : $request->user_quickicon_use;
+        $rereg_count = empty($request->rereg_count) ? 0 : $request->rereg_count;
+        $rereg_time = $request->rereg_time;
+        $charge_money=  ($user_premium_time + $user_quickicon_use + ($user_bluepen_use + $user_icon_use) / 12 + $rereg_count / 3) * 100;
+        if($charge_money > 0 && $this->user->mileage < $charge_money){
+            echo '<script>alert("마일리지가 충분치 않습니다.");window.history.back();</script>';
+            return;
+        }
         $update = array();
         if(!empty($request->user_quantity)){
             $update['user_quantity'] = str_replace(",","",$request->user_quantity);
@@ -242,13 +357,82 @@ class ManiaController extends BaseController
             $update['user_text'] = $request->user_text;
         }
         if($user_goods_type == 'division'){
-
+            $update['user_quantity_min'] = str_replace(",","",$request->user_quantity_min);
+            $update['user_quantity_max'] = str_replace(",","",$request->user_quantity_max);
+            $update['user_division_unit'] = str_replace(",","",$request->user_division_unit);
+            $update['user_division_price'] = str_replace(",","",$request->user_division_price);
+            if(!empty($request->discount_quantity)){
+                $update['discount_quantity'] = str_replace(",","",$request->discount_quantity);
+            }
+            if(!empty($request->discount_quantity_cnt)){
+                $update['discount_quantity_cnt'] = str_replace(",","",$request->discount_quantity_cnt);
+            }
+            if(!empty($request->discount_price)){
+                $update['discount_price'] = str_replace(",","",$request->discount_price);
+            }
+            $update['user_character'] = $request->user_character;
+            $update['user_title'] = $request->user_title;
+            $update['user_text'] = $request->user_text;
         }
         if($user_goods_type == 'bargain'){
-
+            $update['user_price'] = str_replace(",","",$request->user_price);
+            if(!empty($request->user_deny_use)){
+                $update['user_price_limit'] = str_replace(",","",$request->user_price_limit);
+            }
+            $update['user_character'] = $request->user_character;
+            $update['user_title'] = $request->user_title;
+            $update['user_text'] = $request->user_text;
         }
         if(!empty($update)){
+            $update['created_at'] = date('Y-m-d H:i:s');
             MItem::where("orderNo",$id)->update($update);
+            $premium_array = array();
+            $premium_inserts = array();
+            if(!empty($user_premium_time)){
+                $premium_array['re_count'] = null;
+                $premium_array['re_minutes'] = 5;
+                $premium_array['type'] = 1;
+                $premium_array['until'] = date("Y-m-d H:i:s", strtotime('+'.$user_premium_time.' hours'));
+                array_push($premium_inserts,$premium_array);
+                $gift_array[1] = ($gift_array[1] - $user_premium_time) > 0 ? $gift_array[1] - $user_premium_time: 0;
+            }
+            if(!empty($user_icon_use)){
+                $premium_array['re_count'] = null;
+                $premium_array['re_minutes'] = 5;
+                $premium_array['type'] = 2;
+                $premium_array['until'] = date("Y-m-d H:i:s", strtotime('+'.$user_icon_use.' hours'));
+                array_push($premium_inserts,$premium_array);
+                $gift_array[2] = ($gift_array[2] - $user_icon_use) > 0 ? $gift_array[2] - $user_icon_use: 0;
+            }
+            if(!empty($user_bluepen_use)){
+                $premium_array['re_count'] = null;
+                $premium_array['re_minutes'] = 5;
+                $premium_array['type'] = 3;
+                $premium_array['until'] = date("Y-m-d H:i:s", strtotime('+'.$user_bluepen_use.' hours'));
+                array_push($premium_inserts,$premium_array);
+                $gift_array[2] = ($gift_array[2] - $user_bluepen_use) > 0 ? $gift_array[2] - $user_bluepen_use: 0;
+            }
+            if(!empty($user_quickicon_use)){
+                $premium_array['re_count'] = null;
+                $premium_array['re_minutes'] = 5;
+                $premium_array['type'] = 4;
+                $premium_array['until'] = date("Y-m-d H:i:s", strtotime('+'.$user_quickicon_use.' hours'));
+                array_push($premium_inserts,$premium_array);
+                $gift_array[3] = ($gift_array[3] - $user_quickicon_use) > 0 ? $gift_array[3] - $user_quickicon_use: 0;
+            }
+            if(!empty($rereg_count) && !empty($rereg_time)){
+                $premium_array['type'] = 5;
+                $premium_array['re_count'] = $rereg_count;
+                $premium_array['re_minutes'] = $rereg_time;
+                array_push($premium_inserts,$premium_array);
+            }
+            if(!empty($premium_inserts) && $charge_money > 0 && sizeof($premium_inserts) > 0){
+                $this->user->mileage = $this->user->mileage - $charge_money;
+                $this->user->save();
+                foreach ($premium_inserts as $v){
+                    MPremium::where('post_id',$mit['id'])->update($v);
+                }
+            }
             return redirect('/sell/index_view?id='.$id);
         }
         else{
@@ -258,8 +442,30 @@ class ManiaController extends BaseController
     }
 
     public function buy_re_reg_ok(Request $request){
+        $gift_array  = array();
+        $gift_array[1] = $gift_array[2] = $gift_array[3] = 0;
+        $gift = MGift::where('userId',$this->user->id)->get();
+        foreach($gift as $value){
+            $gift_array[$value['type']] = $value['time'];
+        }
         $user_goods_type = $request->user_goods_type;
         $id = $request->id;
+        $mit = MItem::where('orderNo',$id)->first();
+        if(empty($mit)){
+            echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
+            return;
+        }
+        $user_premium_time   = $request->user_premium_time;
+        $user_icon_use   = empty($request->user_icon_use) ? 0 : $request->user_icon_use;
+        $user_bluepen_use   = empty($request->user_bluepen_use) ? 0 : $request->user_bluepen_use;
+        $user_quickicon_use   = empty($request->user_quickicon_use) ? 0 : $request->user_quickicon_use;
+        $rereg_count = empty($request->rereg_count) ? 0 : $request->rereg_count;
+        $rereg_time = $request->rereg_time;
+        $charge_money=  ($user_premium_time + $user_quickicon_use + ($user_bluepen_use + $user_icon_use) / 12 + $rereg_count / 3) * 100;
+        if($charge_money > 0 && $this->user->mileage < $charge_money){
+            echo '<script>alert("마일리지가 충분치 않습니다.");window.history.back();</script>';
+            return;
+        }
         $update = array();
         if(!empty($request->user_quantity)){
             $update['user_quantity'] = str_replace(",","",$request->user_quantity);
@@ -298,7 +504,55 @@ class ManiaController extends BaseController
         }
 
         if(!empty($update)){
+            $update['created_at'] = date('Y-m-d H:i:s');
             MItem::where("orderNo",$id)->update($update);
+            $premium_array = array();
+            $premium_inserts = array();
+            if(!empty($user_premium_time)){
+                $premium_array['re_count'] = null;
+                $premium_array['re_minutes'] = 5;
+                $premium_array['type'] = 1;
+                $premium_array['until'] = date("Y-m-d H:i:s", strtotime('+'.$user_premium_time.' hours'));
+                array_push($premium_inserts,$premium_array);
+                $gift_array[1] = ($gift_array[1] - $user_premium_time) > 0 ? $gift_array[1] - $user_premium_time: 0;
+            }
+            if(!empty($user_icon_use)){
+                $premium_array['re_count'] = null;
+                $premium_array['re_minutes'] = 5;
+                $premium_array['type'] = 2;
+                $premium_array['until'] = date("Y-m-d H:i:s", strtotime('+'.$user_icon_use.' hours'));
+                array_push($premium_inserts,$premium_array);
+                $gift_array[2] = ($gift_array[2] - $user_icon_use) > 0 ? $gift_array[2] - $user_icon_use: 0;
+            }
+            if(!empty($user_bluepen_use)){
+                $premium_array['re_count'] = null;
+                $premium_array['re_minutes'] = 5;
+                $premium_array['type'] = 3;
+                $premium_array['until'] = date("Y-m-d H:i:s", strtotime('+'.$user_bluepen_use.' hours'));
+                array_push($premium_inserts,$premium_array);
+                $gift_array[2] = ($gift_array[2] - $user_bluepen_use) > 0 ? $gift_array[2] - $user_bluepen_use: 0;
+            }
+            if(!empty($user_quickicon_use)){
+                $premium_array['re_count'] = null;
+                $premium_array['re_minutes'] = 5;
+                $premium_array['type'] = 4;
+                $premium_array['until'] = date("Y-m-d H:i:s", strtotime('+'.$user_quickicon_use.' hours'));
+                array_push($premium_inserts,$premium_array);
+                $gift_array[3] = ($gift_array[3] - $user_quickicon_use) > 0 ? $gift_array[3] - $user_quickicon_use: 0;
+            }
+            if(!empty($rereg_count) && !empty($rereg_time)){
+                $premium_array['type'] = 5;
+                $premium_array['re_count'] = $rereg_count;
+                $premium_array['re_minutes'] = $rereg_time;
+                array_push($premium_inserts,$premium_array);
+            }
+            if(!empty($premium_inserts) && $charge_money > 0 && sizeof($premium_inserts) > 0){
+                $this->user->mileage = $this->user->mileage - $charge_money;
+                $this->user->save();
+                foreach ($premium_inserts as $v){
+                    MPremium::where('post_id',$mit['id'])->update($v);
+                }
+            }
             return redirect('/buy/index_view?id='.$id);
         }
         else{
@@ -326,7 +580,11 @@ class ManiaController extends BaseController
 
     public function gameList(){
         $gamelist = $serverlist = array();
-        $data = MGame::with('firstOfproperty')->where("depth",0)->where("status",1)->get()->toArray();
+        $data = MGame::
+        with('firstOfproperty')->
+        where("depth",0)->
+        where("status",1)->
+        get()->toArray();
         foreach($data as $item){
             $temp = array();
             $temp["C"] = $item["id"];
@@ -338,7 +596,13 @@ class ManiaController extends BaseController
             $temp["CV"] = $item['character_enabled'] == 1 ? 'y' : '';
             array_push($gamelist,$temp);
         }
-        $data = MGame::with('threeOfproperty.firstOfproperty')->where("depth",1)->where("status",1)->orderBy("order","ASC")->get()->toArray();
+        $data = MGame::
+        with('threeOfproperty.firstOfproperty')->
+        where("depth",1)->
+        where("status",1)->
+        orderBy("order","ASC")->
+        get()->
+        toArray();
         foreach($data as $item){
             $temp = array();
             $temp["GC"] = $item["parent"];
@@ -361,7 +625,22 @@ class ManiaController extends BaseController
     }
 
     public function getMySearch(Request $request){
-        echo '<mysearch result=""/>';
+        $content = "";
+        $userId = $this->user->id;
+        $mygame = MMygame::where('userId',$userId)->orderBy('order','ASC')->get();
+
+        if(!empty($mygame)){
+            foreach ($mygame as $v){
+                $content .='<item id="'.$v['id'].'" type="'.$v['type'].'">
+                                <game id="'.$v['game'].'"><![CDATA['.$v['game_text'].']]></game>
+                                <server id="'.$v['server'].'"><![CDATA['.$v['server_text'].']]></server>
+                                <goods id="'.$v['goods'].'"><![CDATA['.$v['goods_text'].']]></goods>
+                                <goods_type id="'.get($v['goods'])['alias'].'"><![CDATA['.get($v['goods'])['alias'].']]></goods_type>
+                            </item>';
+            }
+        }
+
+        echo '<mysearch result="search_list">'.$content.'</mysearch>';
     }
 
     public function getPowerCheck(Request $request){
@@ -508,7 +787,7 @@ class ManiaController extends BaseController
                 <option value="1">이중연동 O</option>
                 <option value="2">이중연동 x</option>
             </select>
-            <input type="text" class="g_text mode-active" name="character_id" id="character_id" placeholder="게임 ID" size="30" disabled>
+            <input type="text" class="g_text mode-active" name="character_id" id="character_id" placeholder="게임 ID" size="30">
             <div class="character_noti">
                 ※ 캐릭터 정보 주의사항<br>
                 - 모든 정보 입력 후 물품 등록이 가능합니다.<br>
@@ -678,7 +957,7 @@ class ManiaController extends BaseController
                 <option value="1">이중연동 O</option>
                 <option value="2">이중연동 x</option>
             </select>
-            <input type="text" class="g_text mode-active" name="character_id" id="character_id" placeholder="게임 ID" size="30" disabled>
+            <input type="text" class="g_text mode-active" name="character_id" id="character_id" placeholder="게임 ID" size="30" >
             <div class="character_noti">
                 ※ 캐릭터 정보 주의사항<br>
                 - 모든 정보 입력 후 물품 등록이 가능합니다.<br>
@@ -1243,17 +1522,28 @@ class ManiaController extends BaseController
     }
 
     public function getRegInfoCharacterBuy(Request $request){
+        $item_info = '';
         $user = Auth::user();
         $params = $request->all();
         $params = json_decode(json_encode($params));
         $params->price = !empty($params->user_price) ?  $params->user_price  : 0;
+        if(!empty($params->discount_use)){
+            $allcount = $params->discount_quantity * $params->discount_quantity_cnt;
+            $discount = '<td>    '.$allcount.' 게임머니 당 '.$params->discount_price.'원        </td>';
+        }
+        if(!empty($params->item_info_txt)){
+            $item_info = '<tr>
+            <th>아이템정보</th>
+            <td colspan="3" class="f_blue3 f_bold">'.$params->item_info_txt.'</td>
+        </tr>';
+        }
         if($params->user_goods_type == 'division'){
             $params->price = str_replace(",",'',$params->user_division_price) * str_replace(",","",$params->user_quantity_min) / str_replace(",","",$params->user_division_unit);
             $params->price = '최소 '.number_format($params->price);
         }
 
         $r = '';
-        if($params->user_goods_type !== null){
+        if($params->user_goods == 'character'){
             $r = '<div class="contract_box"><div class="contract_title">계정양도 전자계약서</div>
 양수인 <span class="under">'.$user->name.'</span>(이하 ‘양수인’)과 양도인 <span class="under"></span>(이하 ‘양도인’)은 아래의 양수인의 캐릭터를 이용할 수 있는 인터넷 계정(이하 ‘계정’) 대하여 다음과 같이 양도 계약을 체결한다.
     <table>
@@ -1325,6 +1615,136 @@ class ManiaController extends BaseController
     <a href="javascript:;" id="reg_submit" class="btn-default btn-suc">서명하기</a>
     <a href="javascript:;" id="cancel_submit" class="btn-default btn-cancel">취소</a>
 </div>';
+        }
+        else{
+            if(!empty($params->discount_use)){
+                $allcount = $params->discount_quantity * $params->discount_quantity_cnt;
+                $discount = '<td>    '.$allcount.' 게임머니 당 '.$params->discount_price.'원        </td>';
+            }
+            if(!empty($params->item_info_txt)){
+                $item_info = '<tr>
+            <th>아이템정보</th>
+            <td colspan="3" class="f_blue3 f_bold">'.$params->item_info_txt.'</td>
+        </tr>';
+            }
+
+            if($params->user_goods_type == 'division'){
+                $r = '<table class="table-striped table-green1">
+    <colgroup>
+        <col width="122">
+        <col width="180">
+        <col width="122">
+        <col width="180">
+    </colgroup>
+    <tr>
+        <th>카테고리</th>
+        <td colspan="3">'.$params->game_code_text.' > '.$params->server_code_text.' > <span class="f_blue3">'.$params->unit.'</td>
+    </tr>
+</table>
+<table class="table-striped g_blue_table2">
+    <colgroup>
+        <col width="122">
+        <col width="180">
+        <col width="122">
+        <col width="180">
+    </colgroup>
+    <tr>
+        <th>물품제목</th>
+        <td colspan="3">
+                        '.$params->user_title.'        </td>
+    </tr>
+    '.$item_info.'
+     <tr>
+        <th>거래유형</th>
+        <td colspan="3">분할판매</td>
+    </tr>
+    <tr>
+        <th>판매수량</th>
+        <td colspan="3">'.$params->user_quantity_max.' '.$params->unit.' (최소 '.$params->user_quantity_min.' '.$params->unit.')</td>
+    </tr>
+    <tr>
+
+        <th>판매금액</th>
+        <td colspan="3">'.$params->user_division_unit.' '.$params->unit.' 당 '.$params->user_division_price.'원</td>
+    </tr>
+    </table>
+
+    <div class="position-relative height90">
+        <div class="position-absolute border-one-gray w100"></div>
+        <div class="attention position-absolute">거래 사고 주의사항</div>
+    </div>
+
+    <ul class="box6 g_list">
+        <li>1. 전달받은 물품은 절대 돌려주지 마세요.</li>
+        <li>2. 구매 등록시 반드시 본인 정보 (게임명/서버/캐릭터)를 등록하세요</li>
+        <li>&nbsp;&nbsp;&nbsp;타인 게임정보 기재 또는, 다른 게임/서버에 구매 신청할 경우 물품신청자에게 불이익이 발생할수 있습니다.</li>
+    </ul>
+    <div class="last_txt">등록하시려는 물품이 위와 같습니까?</div>
+<div class="g_btn_wrap">
+    <a href="javascript:;" id="reg_submit" class="btn-default btn-suc">확인</a>
+    <a href="javascript:;" id="cancel_submit" class="btn-default btn-cancel">취소</a>
+</div>';
+            }
+            if($params->user_goods_type == 'general'){
+                if(!empty($params->user_quantity)){
+                    $price_type = '<th>판매수량</th>
+        <td>'.$params->user_quantity.' '.$params->unit.'</td>
+    </tr>
+<tr>
+<th>단위금액</th>
+<td>'.$params->user_quantity.'당 '.$params->user_price.'원</td>';
+                }
+
+                $r =  '<table class="table-striped table-green1">
+    <colgroup>
+        <col width="122">
+        <col width="180">
+        <col width="122">
+        <col width="180">
+    </colgroup>
+    <tr>
+        <th>카테고리</th>
+        <td colspan="3">'.$params->game_code_text.' > '.$params->server_code_text.' > <span class="f_blue3">'.$params->unit.'</span></td>
+    </tr>
+</table>
+<table class="table-striped table-green1">
+    <colgroup>
+        <col width="122">
+        <col width="180">
+        <col width="122">
+        <col width="180">
+    </colgroup>
+    <tr>
+        <th>물품제목</th>
+        <td colspan="3">
+            '.$params->user_title.'
+        </td>
+    </tr>
+    '.$item_info.'
+
+     <tr>
+        <th>거래유형</th>
+        <td>일반 판매</td>
+
+        <th>판매금액</th>
+        <td>'.$params->user_price.'원</td>
+    </tr>
+    </table>
+
+    <div class="position-relative height90">
+        <div class="position-absolute border-one-gray w100"></div>
+        <div class="attention position-absolute">거래 사고 주의사항</div>
+    </div>
+    <ul class="box6 g_list">
+        <li>1. 전달받은 물품은 절대 돌려주지 마세요.</li>
+        <li>2. 구매 등록시 반드시 본인 정보 (게임명/서버/캐릭터)를 등록하세요</li>
+        <li>&nbsp;&nbsp;&nbsp;타인 게임정보 기재 또는, 다른 게임/서버에 구매 신청할 경우 물품신청자에게 불이익이 발생할수 있습니다.</li>
+    </ul>
+<div class="g_btn_wrap">
+    <a href="javascript:;" id="reg_submit" class="btn-default btn-suc">확인</a>
+    <a href="javascript:;" id="cancel_submit" class="btn-default btn-cancel">취소</a>
+</div>';
+            }
         }
         echo $r;
     }
@@ -1488,7 +1908,7 @@ class ManiaController extends BaseController
         <td colspan="3">'.$params->game_code_text.' > '.$params->server_code_text.' > <span class="f_blue3">'.$params->unit.'</td>
     </tr>
 </table>
-<table class="g_blue_table g_blue_table2">
+<table class="table-striped table-green1">
     <colgroup>
         <col width="122">
         <col width="180">
@@ -1527,8 +1947,8 @@ class ManiaController extends BaseController
     </ul>
     <div class="last_txt">등록하시려는 물품이 위와 같습니까?</div>
 <div class="g_btn_wrap">
-    <a href="javascript:;" id="reg_submit"><img src="http://img3.itemmania.com/new_images/btn/pop_btn_ok.gif" width="63" height="35" alt="확인"></a>
-    <a href="javascript:;" id="cancel_submit"><img src="http://img4.itemmania.com/new_images/btn/pop_btn_cancel.gif" width="63" height="35" alt="취소"></a>
+    <a href="javascript:;" id="reg_submit" class="btn-default btn-suc">확인</a>
+    <a href="javascript:;" id="cancel_submit" class="btn-default btn-cancel">취소</a>
 </div>';
         }
         if($params->user_goods_type == 'bargain'){
@@ -1544,7 +1964,7 @@ class ManiaController extends BaseController
         <td colspan="3">'.$params->game_code_text.' > '.$params->server_code_text.' > <span class="f_blue3">'.$params->unit.'</td>
     </tr>
 </table>
-<table class="g_blue_table g_blue_table2">
+<table class="table-striped table-green1">
     <colgroup>
         <col width="122">
         <col width="180">
@@ -1576,8 +1996,8 @@ class ManiaController extends BaseController
         <li>&nbsp;&nbsp;&nbsp;타인 게임정보 기재 또는, 다른 게임/서버에 구매 신청할 경우 물품신청자에게 불이익이 발생할수 있습니다.</li>
     </ul>
 <div class="g_btn_wrap">
-    <a href="javascript:;" id="reg_submit"><img src="http://img3.itemmania.com/new_images/btn/pop_btn_ok.gif" width="63" height="35" alt="확인"></a>
-    <a href="javascript:;" id="cancel_submit"><img src="http://img4.itemmania.com/new_images/btn/pop_btn_cancel.gif" width="63" height="35" alt="취소"></a>
+    <a href="javascript:;" id="reg_submit" class="btn-default btn-suc">확인</a>
+    <a href="javascript:;" id="cancel_submit" class="btn-default btn-cancel">취소</a>
 </div>';
         }
         if($params->user_goods_type == 'general'){
@@ -1650,9 +2070,6 @@ class ManiaController extends BaseController
         return response()->json(array("FAIL"=>false,'message'=>$category.' '.$kind.' '.$item_name));
     }
 
-
-
-
     public function user_certify(Request $request){
         return view('mania.certify');
     }
@@ -1689,9 +2106,10 @@ class ManiaController extends BaseController
             'home'=>$this->user->home,
             'mobile'=>$this->user->mobile,
             'price'=>$use_creditcard,
-            'character'=>$params['user_character']
+            'character'=>$params['user_character'],
+            'buy_quantity'=>!empty($params['buy_quantity']) ? $params['buy_quantity']: 0
         ]);
-        return redirect('/myroom/sell/sell_pay_wait_view?id='.$item['orderNo'].'&type='.$item['type']);
+        return redirect('/myroom/sell/sell_pay_wait_view?id='.$params['id'].'&type='.$item['type']);
     }
 
     public function application_ok(Request $request){
@@ -1735,7 +2153,8 @@ class ManiaController extends BaseController
             'home'=>$this->user->home,
             'mobile'=>$this->user->mobile,
             'price'=>$use_creditcard,
-            'character'=>$params['user_character']
+            'character'=>$params['user_character'],
+            'buy_quantity'=>!empty($params['buy_quantity']) ? $params['buy_quantity']: 0
         ]);
         if($status == 0){
             return redirect('/myroom/buy/buy_pay_wait_view?id='.$params['id'].'&type='.$item['type']);
@@ -1930,15 +2349,158 @@ class ManiaController extends BaseController
     public function buy_regist(Request $request){
         $process = $request->process;
         $trade_id = $request->trade_id;
-        if($process == 'hideSelect')
-            MItem::where('orderNo',$trade_id)->update(['hide'=>1]);
-        if($process == 'showSelect')
-            MItem::where('orderNo',$trade_id)->update(['hide'=>0]);
-        return redirect('/myroom/buy/buy_regist_view?id='.$trade_id);
+
         if($process == 'deleteSelect')
         {
             MItem::where('orderNo',$trade_id)->delete();
             return redirect('/');
         }
+        if($process == 'hideSelect')
+            MItem::where('orderNo',$trade_id)->update(['hide'=>1]);
+        if($process == 'showSelect')
+            MItem::where('orderNo',$trade_id)->update(['hide'=>0]);
+        return redirect('/myroom/buy/buy_regist_view?id='.$trade_id);
+
+    }
+
+    public function sell_regist(Request $request){
+        $process = $request->process;
+        $trade_id = $request->trade_id;
+        if($process == 'deleteSelect')
+        {
+            MItem::where('orderNo',$trade_id)->delete();
+            return redirect('/');
+        }
+        if($process == 'hideSelect')
+            MItem::where('orderNo',$trade_id)->update(['hide'=>1]);
+        if($process == 'showSelect')
+            MItem::where('orderNo',$trade_id)->update(['hide'=>0]);
+        return redirect('/myroom/sell/sell_regist_view?id='.$trade_id);
+
+    }
+
+    public function search_add(Request $request){
+        $params = $request->all();
+        unset($params['api_token']);
+        $params['userId'] = $this->user->id;
+        $game = MMygame::where('created_at',"!=","");
+        $insertId = 0;
+        foreach($params as $key=>$value){
+            $game = $game->where($key,$value);
+        }
+        $game = $game->first();
+        if(empty($game)){
+            $insertId = MMygame::create($params);
+            return response()->json(['result'=>'SUCCESS','mygameID'=>$insertId['id']]);
+        }
+        else{
+            return response()->json(['result'=>'ERROR','msg'=>'이미 추가되었습니다.']);
+        }
+    }
+
+    public function search_delete(Request $request){
+        $id = $request->id;
+        $game = MMygame::where('userId',$this->user->id)->where('id',$id)->first();
+        if(empty($game)){
+            return response()->json(['result'=>'ERROR','msg'=>'자료가 비었습니다.']);
+        }
+        else{
+            MMygame::where('id',$id)->delete();
+            return response()->json(['result'=>'SUCCESS']);
+        }
+    }
+
+    public function list_search_ajax(Request $request){
+        $trade_id = $request->trade_id;
+        $strTradeType = $request->strTradeType;
+        $game = MItem::with(['user.roles'])->where('orderNo',$trade_id)->first();
+        if(empty($game) || empty($game['user']) || empty($game['user']['roles'])){
+            return response()->json(['bExists'=>false]);
+        }
+        $price = "";
+        $gamemoney_unit = empty($game['gamemoney_unit']) || $game['gamemoney_unit'] == 1 ? $game['gamemoney_unit'] : '';
+        $trade_kind_txt = $game['good_type'];
+        $price = $game['user_price'];
+        if(!empty($gamemoney_unit) || $game['user_quantity'] > 1)
+            $price = number_format($game['user_quantity']).$gamemoney_unit.'개당'.' '.$game['user_price'];
+        if($game['user_goods_type'] == 'division'){
+            $price = number_format($game['user_division_unit']).$gamemoney_unit.'개당'.' '.$game['user_division_price'];
+        }
+        $credit_name_en = $game['user']['roles']['name'];
+        $credit_name  = $game['user']['roles']['alias'];
+        $credit_point = $this->user->point;
+        $cell_auth = $this->user->mobile_verified;
+        $email_auth = empty($this->user->email_verified_at) ? 0 : 1;
+        $public_auth = 0;
+        $account_auth = $this->user->bank_verified;
+        return response()->json([
+            'bExists'=>true,
+            'trade_kind_txt'=>$trade_kind_txt,
+            'trade_money'=>$price,
+            'credit_name_en'=>$credit_name_en,
+            'credit_name'=>$credit_name,
+            'credit_point'=>number_format($credit_point),
+            'cell_auth'=>$cell_auth,
+            'email_auth'=>$email_auth,
+            'public_auth'=>$public_auth,
+            'account_auth'=>$account_auth,
+            'image'=>$game['user']['roles']['icon']
+        ]);
+    }
+
+    public function ajax_trade_check(Request $request){
+        $trade_id = $request->trade_id;
+        $item = MItem::with(['payitem'])->where('status',0)->whereNull('toId')->where('userId','!=',$this->user->id)->where('orderNo',$trade_id)->first();
+        if(!empty($item) && empty($item['payitem'])){
+            return response()->json(['result'=>'SUCCESS']);
+        }
+        else{
+            return response()->json(['result'=>'FAIL','msg'=>'거래 가능한 물품이 아닙니다.']);
+        }
+    }
+    public function sell_re_reg_auto_ok(Request $request){
+        $id = $request->id;
+        MItem::where('orderNo',$id)->update(['created_at'=>date("Y-m-d H:i:s")]);
+        return redirect('/myroom/sell/sell_regist');
+    }
+    public function sell_regist_post(Request $request){
+        $id = $request->trade_id;
+        $process = $request->process;
+        if($process == 'deleteSelect'){
+            MItem::where('orderNo',$id)->delete();
+        }
+
+        return redirect('/myroom/sell/sell_regist');
+    }
+    public function user_certify_myinfo(Request $request){
+        return view('mania.myroom.certify');
+    }
+    public function cash_receipt_confirm(Request $request){
+        $id = $request->id;
+        $cash = MCashReceipt::with('payitem')->whereHas('payitem')->where('orderNo',$id)->where('userId',$this->user->id)->where('status',1)->first();
+        if(empty($cash)){
+            echo '<script>alert("잘못된 접근입니다.");self.close();</script>';
+            return;
+        }
+        return view('mania.myroom.cash_receipt_confirm',$cash);
+    }
+
+    public function cash_receipt_confirm2(Request $request){
+        $id = $request->id;
+        $cash = MCashReceipt::where('orderNo',$id)->where('userId',$this->user->id)->where('status',2)->first();
+        if(empty($cash)){
+            echo '<script>alert("잘못된 접근입니다.");self.close();</script>';
+            return;
+        }
+        return view('mania.myroom.cash_receipt_confirm2',$cash);
+    }
+
+    public function search_update_form(Request $request){
+        $item = MMygame::where('id',$request->id)->first();
+        if(empty($item)){
+            echo '<script>alert("잘못된 접근입니다.");self.close();</script>';
+            return;
+        }
+        return view('mania.myroom.search_update_form',$item);
     }
 }
