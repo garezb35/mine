@@ -1,0 +1,9 @@
+.g_gray_tb #title{ width:98%; color:#666 }
+.g_gray_tb textarea{ overflow-y:auto; width:98%; height:80px; padding:5px 3px; font-size:12px }
+.g_gray_tb .screenshot_sub{ clear:both; float:left; margin-top:5px; font-size:12px; }
+.g_gray_tb .trade_num{ width:200px !important; ime-mode:disabled }
+.best_faq{ float:left; border-top:2px solid #ACACAC }
+.best_faq li{ float:left; padding:7px 0 7px 10px; border-bottom:1px solid #E2E2E2 }
+.best_faq .category{ clear:both; width:130px; background-color:#ECECEC; font-weight:bold }
+.best_faq .subject{ width:670px; cursor:pointer; }
+.best_faq .detail_content{ display:none; width:750px }

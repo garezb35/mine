@@ -1,0 +1,24 @@
+/*
+ * @title			신규게임/서버 추가
+ * @author			김현진
+ * @date			2012.02.15
+ * @update			수정날짜(수정자)
+ * @description
+ */
+
+div.game_title{ background:url(//img3.itemmania.com/images/myroom/img_newgame.gif) no-repeat 100% 0; height:64px; padding:35px 0 0 39px; margin-bottom:18px; border:1px solid #E1E1E1; }
+/* ▼ 신규게임/서버 추가 */
+div.gray_box{ border:5px solid #F4F4F4; padding:0 70px 21px; width:460px; margin:0 auto }
+div.gray_box table tr th{ border-left:none }
+div.gray_box table tr td{ text-align:left; padding-left:10px; height:34px }
+div.gray_box table tr td input.g_radio{ margin-left:20px }
+div.gray_box table tr td input.first_radio{ margin-left:0 }
+div.gray_box table tr td input.g_text{ width:180px }
+div.gray_box table tr td div#dvGame,
+div.gray_box table tr td div#dvServer{ width:186px; border-color:#CCC; }
+div.gray_box table tr td input.g_search_input{ width:150px }
+div.gray_box table tr td input.subject{ width:270px }
+div.gray_box table tr td textarea{ resize:none; width:272px; height:50px; padding:3px 0 0 3px; margin:5px 0 }
+/* ▲ 신규게임/서버 추가 */
+
+.newgame_top{background:url(//img4.itemmania.com/new_images/customer/v2/img_newgame.jpg) no-repeat 100% 0;}

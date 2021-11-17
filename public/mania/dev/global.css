@@ -1,7 +1,6 @@
 body {
     font-family: Roboto !important;
 }
-
 .d-flex {
     display:flex;
 }
@@ -18,12 +17,11 @@ body {
     padding: 0 !important;
 }
 .m-0 {margin: 0 !important}
-
 .w-init {
     width: inherit;
 }
 .w-100 {
-    width: 100%;
+   width: 100%;
 }
 .w-50 {
     width: 50%;
@@ -53,6 +51,9 @@ body {
 }
 .c-black {
     color: black !important;
+}
+.c-light-red {
+    color: #ff1c0b !important;
 }
 .c-blue-title {
     color: dodgerblue !important;
@@ -108,4 +109,52 @@ body {
 }
 .back-normal {
     background-color: #f2f4f7 !important;
+}
+.btn-blue-img {
+    background-image: url('../img/button/btn-charge.png')
+}
+.btn-gray-img {
+    background-image: url('../img/button/btn-cancel.png')
+}
+.btn-color-img {
+    width: 139px;
+    height: 33px;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    line-height: 32px;
+    font-size: 14px;
+    background-size: 100% 100%;
+    background-color: transparent;
+}
+.g_sky_table {
+    border-left: solid 1px #89c1ce;
+}
+.g_sky_table, .g_sky_table tr th, .g_sky_table tr td {
+    border-color: #89c1ce;
+}
+.g_sky_table tr th {
+    background-color: #e3f0f3;
+}
+.gn_button {
+    padding: 2px 5px;
+    background: #001897;
+    cursor: pointer;
+}
+#popup_title_bar {
+    background-color: #0081b9 !important;
+}
+.button_ok {
+    background: #0d819b;
+    color: white;
+    padding: 8px 12px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+.button_cancel {
+    background: #797a7a;
+    color: white;
+    padding: 8px 12px;
+    font-weight: bold;
+    border-radius: 4px;
 }

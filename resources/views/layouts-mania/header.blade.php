@@ -38,8 +38,8 @@
             <div class="g_snav">
                 <ul class="snav_left"></ul>
                 <ul class="snav_right">
-                    <li><a href="#">마이룸</a></li>
-                    <li><a href="#">고객센터</a></li>
+                    <li><a href="{{route('myroom')}}">마이룸</a></li>
+                    <li><a href="{{route('customer')}}">고객센터</a></li>
                     <li><a href="#">회원가입</a></li>
                     <li><a href="#">로그인</a></li>
                 </ul>

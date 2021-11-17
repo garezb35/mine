@@ -155,3 +155,6 @@
     height: 100px;
     width: 100%;
 }
+.g_content {
+    min-height: 480px;
+}
