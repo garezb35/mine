@@ -10,10 +10,6 @@
     <link type="text/css" rel="stylesheet" href="/mania/_css/_comm.css?v=210317">
     <link type="text/css" rel="stylesheet" href="/mania/_head_tail/css/_head_popup.css">
     <link type="text/css" rel="stylesheet" href="/mania/css/fixed_trade_subject.css">
-    <script type="text/javascript" src="/mania/_js/_jquery3.js?v=190220"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js?v=21100516"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.min.js?v=21100816"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js?v=21050316"></script>
 
     <style>
         #top_title{text-align:center}

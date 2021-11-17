@@ -1,0 +1,18 @@
+
+.g_blue_table td {
+    padding-left: 20px;
+    border-right: 1px solid #E2E2E2;
+    text-align: left
+}
+
+.g_btn {
+    margin: 20px 0 25px
+}
+
+.g_big_box1 {
+    padding-left: 17px
+}
+
+.g_big_box1 li {
+    margin: 5px 0
+}

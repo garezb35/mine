@@ -16,10 +16,10 @@ var searchList = {
         $('#account_auth').removeClass("");
 
         ajaxRequest({
-            url: "/_include/_list_search.ajax",
+            url: "/api/_include/_list_search.ajax",
             dataType: "json",
             type: "POST",
-            data: "trade_id=" + tid + "&strTradeType=sell",
+            data: "trade_id=" + tid + "&strTradeType=sell&api_token="+a_token,
             success: function(res) {
                 if (res.bExists == false) {
                     alert('해당 물품이 재등록 되거나 삭제되었습니다.\n[확인] 버튼 클릭 시 물품리스트를 다시 불러옵니다.');
@@ -30,19 +30,19 @@ var searchList = {
                 $('#kind').html(res.trade_kind_txt);
                 $("#tid").html('#' + tid);
                 $('#money').html((res.trade_money).currency() + '원');
-                $('#credit_info').html('<span class="credit_mark _xsm ' + (res.credit_name_en) + '"></span> <span class="seller_rank ' + (res.credit_name_en) + '_txt">' + (res.credit_name) + '회원</span>');
+                $('#credit_info').html('<img src="/mania/img/level/'+res.image+'" width="24" height="24"/> <span class="seller_rank ' + (res.credit_name_en) + '_txt">' + (res.credit_name) + '회원</span>');
                 $('#credit_point').html(res.credit_point + '점');
 
-                if (res.cell_auth === '1') {
+                if (res.cell_auth === 1) {
                     $('#cell_auth').addClass('on');
                 }
-                if (res.public_auth === '1') {
+                if (res.public_auth === 1) {
                     $('#public_auth').addClass('on');
                 }
-                if (res.email_auth === '1') {
+                if (res.email_auth === 1) {
                     $('#email_auth').addClass('on');
                 }
-                if (res.account_auth === '1') {
+                if (res.account_auth === 1) {
                     $('#account_auth').addClass('on');
                 }
 

@@ -32,11 +32,19 @@ if(sizeof($split_number) == 3){
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.js"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js"></script>
     <script type="text/javascript" src="/mania/myroom/buy/js/buy_ing_view.js"></script>
+    <script>
+        $('#js-gallery')
+            .packery({
+                itemSelector: '.slide',
+                gutter: 10
+            })
+            .photoSwipe('.slide', {bgOpacity: 0.8, shareEl: false}, {
+                close: function () {
+                    console.log('closed');
+                }
+            });
+    </script>
 @endsection
 
 @section('content')
@@ -125,7 +133,7 @@ if(sizeof($split_number) == 3){
                 </tr>
                 </tbody>
             </table>
-            <table class="table-green1">
+            <table class="table-greenwith">
                 <colgroup>
                     <col width="310px" />
                     <col width="*" />
@@ -133,7 +141,7 @@ if(sizeof($split_number) == 3){
                 <tr>
                     <th class="p-left-10">
                         <div>
-                            <span class="credit_mark {{$user['roles']['name']}}"></span>
+                            <img src="/mania/img/level/{{$user['roles']['icon']}}" width="37"/>
                             <span class="f_green4 f_bold">{{$user['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($user['point'])}}점)
                         </div>
                     </th>
@@ -209,7 +217,16 @@ if(sizeof($split_number) == 3){
                             <!-- ▼ 상세설명 //-->
                             <div class="g_subtitle gray mt-0 p-left-10">상세설명</div>
                             <div class="detail_info">
-                                <div class="detail_text">{{$user_text}}</div>
+                                <div class="detail_text">
+                                    <div id="js-gallery" class="mb-5">
+                                        @foreach (\File::glob(public_path('assets/images/mania/'.$id).'/*') as $file)
+                                            <a href="/{{ str_replace(public_path()."\\", '', $file) }}" class="slide">
+                                                <img src="/{{ str_replace(public_path()."\\", '', $file) }}" class="g_top">
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                    {{$user_text}}
+                                </div>
                             </div>
                         </td>
                         <td class="vt">
@@ -301,92 +318,99 @@ if(sizeof($split_number) == 3){
                     물품 인수 확인
                     <img class="btn_close" src="http://img3.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();">
                 </div>
+
                 <form name="moneyreceipt" id="moneyreceipt" method="POST">
                     @csrf
                     <input type="hidden" name="process">
                     <input type="hidden" id="answer" name="answer">
                     <input type="hidden" id="character_sign" name="character_sign">
                     <div class="layer_content">
-                        <div id="goods_img" class="g_left"><img src="http://img4.itemmania.com/images/myroom/img_transfer.gif" width="106" height="85" alt=""></div>
-                        <ul id="goods_info" class="g_left g_black2">
-                            <li><span class="bold_txt">판매자에게 물품을 받으셨습니까?</span></li>
-                            <li>
-                                <span class="f_blue1 f_bold">물품 인수 확인</span> 후에는 거래 취소가 불가능합니다.<br>
-                                <span style="font-size:12px;">(물품 인수 확인은 판매자로부터 물품을 받으신 후 하시기 바랍니다.)</span>
-                            </li>
-                        </ul>
+                        <div style="height: 86px;border: 1px solid #BBBBBB;">
+                            <div id="goods_img" class="g_left"><img src="/mania/img/icons/cash-receipt.png" width="106" height="85" alt=""></div>
+                            <ul id="goods_info" class="g_left g_black2">
+                                <li><span class="bold_txt">판매자에게 물품을 받으셨습니까?</span></li>
+                                <li>
+                                    <span class="f_blue1 f_bold">물품 인수 확인</span> 후에는 거래 취소가 불가능합니다.<br>
+                                    <span style="font-size:12px;">(물품 인수 확인은 판매자로부터 물품을 받으신 후 하시기 바랍니다.)</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="gray-div">
+                            현금영수증
+                        </div>
                         <div class="g_finish"></div>
                         <!-- ▼ 물품인수 버튼 //-->
-                        <div class="g_btn">
-                            <a  class="first btn-default btn-suc" onclick="TradeComplete('',{{$payitem['price']}},'m','{{$orderNo}}','check','N');">물품 인수 확인</a>
-                            <a  class="btn-default btn-cancel" onclick="g_nodeSleep.disable()">취소</a>
-                        </div>
                         <!-- ▲ 물품인수 버튼 //-->
                         <!-- ▼ 현금영수증 발급 폼 //-->
-                        <table class="table-striped table-green1" id="receipt_table">
+                        <table class="table-green1" id="receipt_table">
                             <colgroup>
-                                <col width="134">
                                 <col width="164">
                                 <col>
                             </colgroup>
-                            <tbody><tr>
-                                <th rowspan="6" class="receipt">현금영수증</th>
-                                <th>신청구분</th>
-                                <td>
-                                    <input type="radio" id="moneyreceipt_check" name="moneyreceipt_check" value="ok" class="g_radio" disabled>
-                                    <label for="moneyreceipt_check">발급</label>&nbsp;&nbsp;
-                                    <input type="radio" id="moneyreceipt_check2" name="moneyreceipt_check" value="no" class="g_radio" checked="">
-                                    <label for="moneyreceipt_check2">미발급</label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>발급구분</th>
-                                <td>
-                                    <input type="radio" name="moneyreceipt_type" value="u" class="g_checkbox" checked="" onclick="inputChange(1);"> 소득공제용 (일반개인용)
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>신청자 성명</th>
-                                <td>
-                                    <input type="text" name="moneyreceipt_name" class="g_text" value="{{$cuser['name']}}">
-                                </td>
-                            </tr>
-                            <tr id="juminnumber">
-                                <th>신청자 정보</th>
-                                <td>
-                                    <div>
-                                        <input type="radio" name="member_info" id="info_phone" class="g_radio" value="p" checked="">
-                                        <label for="info_phone">휴대폰 번호</label>
-                                    </div>
-                                    <div id="info_phone_div" class="sub_div">
-                                        <input type="text" name="user_phone1" id="user_phone1" class="g_text w50" maxlength="3" value="{{$user_phone1}}"> -
-                                        <input type="text" name="user_phone2" id="user_phone2" class="g_text w50" maxlength="4" value="{{$user_phone2}}"> -
-                                        <input type="text" name="user_phone3" id="user_phone3" class="g_text w50" maxlength="4" value="{{$user_phone3}}">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr style="border-bottom:1px solid #E2E2E2">
-                                <th>신청자 이메일</th>
-                                <td>
-                                    <input type="text" class="g_text" name="moneyreceipt_email" size="23" style="width:200px;" value="{{$cuser['email']}}">
-                                </td>
-                            </tr>
-                            </tbody></table>
+                            <tbody>
+                                <tr>
+                                    <th>신청구분</th>
+                                    <td>
+                                        <input type="radio" id="moneyreceipt_check" name="moneyreceipt_check" value="ok" class="g_radio" disabled>
+                                        <label for="moneyreceipt_check">발급</label>&nbsp;&nbsp;
+                                        <input type="radio" id="moneyreceipt_check2" name="moneyreceipt_check" value="no" class="g_radio" checked="">
+                                        <label for="moneyreceipt_check2">미발급</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>발급구분</th>
+                                    <td>
+                                        <input type="radio" name="moneyreceipt_type" value="u" class="g_checkbox" checked="" onclick="inputChange(1);"> 소득공제용 (일반개인용)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>신청자 성명</th>
+                                    <td>
+                                        <input type="text" name="moneyreceipt_name" class="g_text" value="{{$cuser['name']}}">
+                                    </td>
+                                </tr>
+                                <tr id="juminnumber">
+                                    <th>신청자 정보</th>
+                                    <td>
+                                        <div id="info_phone_div" class="sub_div">
+                                            <input type="radio" name="member_info" id="info_phone" class="g_radio" value="p" checked="">
+                                            <label for="info_phone">휴대폰 번호</label>
+                                            <input type="text" name="user_phone1" id="user_phone1" class="g_text w50" maxlength="3" value="{{$user_phone1}}"> -
+                                            <input type="text" name="user_phone2" id="user_phone2" class="g_text w50" maxlength="4" value="{{$user_phone2}}"> -
+                                            <input type="text" name="user_phone3" id="user_phone3" class="g_text w50" maxlength="4" value="{{$user_phone3}}">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom:1px solid #E2E2E2">
+                                    <th>신청자 이메일</th>
+                                    <td>
+                                        <input type="text" class="g_text" name="moneyreceipt_email" size="23" style="width:200px;" value="{{$cuser['email']}}">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="position-relative height30">
+                            <div class="position-absolute border-one-gray w100"></div>
+                            <div class="attention position-absolute"
+                                 style="bottom: -6px;background: #fff; font-size: 14px;left: 217px;padding-left: 10px;padding-right: 10px;">현금영수증 발급 안내 & 조회</div>
+                        </div>
                         <!-- ▲ 현금영수증 발급 폼 //-->
                         <!-- ▼ 현금영수증 발급 안내문 //-->
-                        <ul class="g_list f_small">
+                        <ul class="box6 g_list">
                             <li class="list_non">* 현금영수증 미발급 시 승인번호만 발급됩니다. (마이룸 &gt; 현금영수증 발급에서 확인 가능)</li>
                             <li class="list_non">* 현금영수증 발급 안내 사항</li>
                             <li>보유하신 물품 판매시 판매수수료에 대한 현금영수증이 자동 발급됩니다.</li>
-                            <li>구매 200% 보상 서비스 이용 수수료에 대한 현금영수증이 자동 발급 됩니다. </li>
                             <li>이전에 발행 신청하신 고객님의 명의로 자동 발급됩니다.<br>(판매 시 현금영수증 신청 정보를 변경하실 수 있습니다.)</li>
-                            <li>한시적으로 현금영수증은 '아이템매니아'명의로 대행발행됩니다.</li>
                             <li class="list_non">* 현금영수증 조회</li>
                             <li>발급된 현금영수증은 '마이룸&gt;현금영수증' 메뉴 및 국세청 현금영수증 홈페이지에서 확인하실 수 있습니다.<br><span class="g_red1_b">(2일 후 반영됨)</span>
                             </li>
                         </ul>
                         <!-- ▲ 현금영수증 발급 안내문 //-->
                         <div class="g_finish"></div>
+                        <div class="g_btn">
+                            <a  class="first btn-default btn-suc" onclick="TradeComplete('',{{$payitem['price']}},'m','{{$orderNo}}','check','N');">물품 인수 확인</a>
+                            <a  class="btn-default btn-cancel" onclick="g_nodeSleep.disable()">취소</a>
+                        </div>
                     </div>
                 </form>
             </div>

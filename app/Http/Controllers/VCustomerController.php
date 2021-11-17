@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller as BaseController;
 
 class VCustomerController extends BaseController
 {
     public function __construct()
     {
-
+        parent::__construct();
     }
 
     /**

@@ -31,11 +31,19 @@
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.js"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js"></script>
     <script type="text/javascript" src="/mania/sell/js/sell_ing_view.js"></script>
+    <script>
+        $('#js-gallery')
+            .packery({
+                itemSelector: '.slide',
+                gutter: 10
+            })
+            .photoSwipe('.slide', {bgOpacity: 0.8, shareEl: false}, {
+                close: function () {
+                    console.log('closed');
+                }
+            });
+    </script>
 @endsection
 
 @section('content')
@@ -58,7 +66,7 @@
             </form>
             <!-- ▼ 물품정보 //-->
             <div class="g_subtitle first">물품정보</div>
-            <table class="g_blue_table">
+            <table class="table-striped table-green1">
                 <colgroup>
                     <col width="160">
                     <col width="250">
@@ -102,7 +110,7 @@
             <!-- ▲ 물품정보 //-->
             <!-- ▼ 구매자 정보 //-->
             <div class="g_subtitle">구매자 정보</div>
-            <table class="g_blue_table">
+            <table class="table-striped table-green1">
                 <colgroup>
                     <col width="160">
                     <col>
@@ -163,7 +171,7 @@
             </table>
             <!-- ▼ 내 개인정보 //-->
             <div class="g_subtitle">내 거래정보</div>
-            <table class="g_blue_table">
+            <table class="table-striped table-green1">
                 <colgroup>
                     <col width="160">
                     <col>
@@ -176,7 +184,7 @@
                 <tr>
                     <th>연락처</th>
                     <td>
-                        {{$cuser['home']}} / {{$cuser['number']}} / 0508-4278-0877 <span class="f_green2"></span>
+                        {{$cuser['home']}} / {{$cuser['number']}} <span class="f_green2"></span>
                     </td>
                 </tr>
                 </tbody>
@@ -196,7 +204,16 @@
                     <!-- ▼ 상세설명 //-->
                     <div class="g_subtitle gray mt-0 p-left-10">상세설명</div>
                     <div class="detail_info">
-                        <div class="detail_text">{{$user_text}}</div>
+                        <div class="detail_text">
+                            <div id="js-gallery" class="mb-5">
+                                @foreach (\File::glob(public_path('assets/images/mania/'.$id).'/*') as $file)
+                                    <a href="/{{ str_replace(public_path()."\\", '', $file) }}" class="slide">
+                                        <img src="/{{ str_replace(public_path()."\\", '', $file) }}" class="g_top">
+                                    </a>
+                                @endforeach
+                            </div>
+                            {{$user_text}}
+                        </div>
                     </div>
                 </td>
                 <td class="vt">
@@ -289,7 +306,7 @@
                 @if(!str_contains($status, 3))
                     <a  class="first btn-default btn-suc" id="trade_btn" onclick="popLayer_2('dvTradeSellCheck');">물품인계확인</a>
                 @endif
-                @if(!str_contains($status, 2))
+                @if($status == 0)
                         <a   id="cancel_btn" onclick="popLayer('trade_cancel');" class="btn-default btn-cancel">거래취소</a>
                 @endif
             </div>
@@ -312,20 +329,22 @@
                 <input type="hidden" id="process" name="process">
                 <input type="hidden" id="answer" name="answer">
                 <div class="layer_content">
-                    <div id="goods_img" class="g_left"><img src="http://img3.itemmania.com/images/myroom/img_transfer.gif" width="106" height="85" alt=""></div>
-                    <ul id="goods_info" class="g_left g_black2">
-                        <li><span class="bold_txt">구매자에게 물품을 건네주셨습니까?</span></li>
-                        <li><span class="bold_txt g_blue1_b">물품 인계 확인</span>은 구매자에게 물품을 건네주신 후 하시기 바랍니다.</li>
-                    </ul>
+                    <div style="height: 86px;border: 1px solid #BBBBBB;">
+                        <div id="goods_img" class="g_left"><img src="/mania/img/icons/cash-receipt.png" width="106" height="85" alt=""></div>
+                        <ul id="goods_info" class="g_left g_black2">
+                            <li><span class="bold_txt">구매자에게 물품을 건네주셨습니까?</span></li>
+                            <li><span class="bold_txt g_blue1_b">물품 인계 확인</span>은 구매자에게 물품을 건네주신 후 하시기 바랍니다.</li>
+                        </ul>
+                    </div>
+                    <div class="gray-div">
+                        현금영수증
+                    </div>
                     <div class="g_finish"></div>
                     <!-- ▼ 물품인계 버튼 //-->
-                    <div class="g_btn">
-                        <a  class="first btn-default btn-suc" onclick="TradeComplete('Y29tcGxldGU=','{{$orderNo}}','check','N');">물품인계 확인</a>
-                        <a  class="btn-default btn-cancel"  onclick="g_nodeSleep.disable();">취소</a>
-                    </div>
+
                     <!-- ▲ 물품인계 버튼 //-->
                     <!-- ▼ 현금영수증 발급 폼 //-->
-                    <table class="table-green1">
+                    <table class="table-green1 mt-5">
                         <colgroup>
                             <col width="164">
                         </colgroup>
@@ -369,20 +388,28 @@
                         </tr>
                         </tbody>
                     </table>
+                    <div class="position-relative height30">
+                        <div class="position-absolute border-one-gray w100"></div>
+                        <div class="attention position-absolute"
+                             style="bottom: -6px;background: #fff; font-size: 14px;left: 217px;padding-left: 10px;padding-right: 10px;">현금영수증 발급 안내 & 조회</div>
+                    </div>
                     <!-- ▲ 현금영수증 발급 폼 //-->
                     <!-- ▼ 현금영수증 발급 안내문 //-->
-                    <ul class="g_list g_black3_11">
+                    <ul class="box6 g_list">
                         <li class="list_non">* 현금영수증 미발급 시 승인번호만 발급됩니다. (마이룸 &gt; 현금영수증 발급에서 확인 가능)</li>
                         <li class="list_non">* 현금영수증 발급 안내 사항</li>
                         <li>보유하신 물품 판매시 판매수수료에 대한 현금영수증이 자동 발급됩니다.</li>
                         <li>이전에 발행 신청하신 고객님의 명의로 자동 발급됩니다.<br>(판매 시 현금영수증 신청 정보를 변경하실 수 있습니다.)</li>
-                        <li>한시적으로 현금영수증은 '아이템매니아'명의로 대행발행됩니다.</li>
                         <li class="list_non">* 현금영수증 조회</li>
                         <li>발급된 현금영수증은 '마이룸&gt;현금영수증' 메뉴 및 국세청 현금영수증 홈페이지에서 확인하실 수 있습니다.<br><span class="g_red1_b">(2일 후 반영됨)</span>
                         </li>
                     </ul>
                     <!-- ▲ 현금영수증 발급 안내문 //-->
                     <div class="g_finish"></div>
+                    <div class="g_btn">
+                        <a  class="first btn-default btn-suc" onclick="TradeComplete('Y29tcGxldGU=','{{$orderNo}}','check','N');">물품인계 확인</a>
+                        <a  class="btn-default btn-cancel"  onclick="g_nodeSleep.disable();">취소</a>
+                    </div>
                 </div>
             </form>
         </div>

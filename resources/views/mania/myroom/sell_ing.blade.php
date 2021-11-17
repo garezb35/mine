@@ -1,7 +1,7 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href=/mania/_css/_comm.min.css?v=210317">
+    <link type="text/css" rel="stylesheet" href=/mania/_css/_comm.css?v=210317">
     <link type="text/css" rel="stylesheet" href="/mania/_head_tail/css/_head_comm.css?v=211007">
     <link type="text/css" rel="stylesheet" href="/mania/_banner/css/banner_module.css?v=210422">
     <link type="text/css" rel="stylesheet" href="/mania/myroom/css/common_myroom.css?210503" />
@@ -11,93 +11,23 @@
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js?v=190220"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js?v=21100516"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.js?v=21101416"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js?v=21050316"></script>
 @endsection
 
 @section('content')
-<!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
 <div class="g_container" id="g_CONTENT">
-    <div class="aside">
-        <div class="nav_subject"><a href="http://trade.itemmania.com/myroom/" class="myroom">MyRoom</a></div>
-        <div class="nav">
-            <div class="nav_title "><a href="http://trade.itemmania.com/myroom/message/">메세지함</a></div>
-            <div class="nav_title on_active"><a href="http://trade.itemmania.com/myroom/sell/sell_regist.html">판매관련</a></div>
-            <div class="nav_title "><a href="http://trade.itemmania.com/myroom/buy/buy_regist.html">구매관련</a></div>
-            <div class="nav_title "><a href="http://trade.itemmania.com/myroom/goods_alarm/alarm_sell_list.html">물품등록 알리미<span class="new">N</span></a></div>
-            <div class="nav_title "><a href="http://trade.itemmania.com/myroom/complete/sell.html">종료내역</a></div>
-            <div class="nav_title "><a href="http://trade.itemmania.com/myroom/complete/cancel_sell.html">취소내역</a></div>
-            <div class="nav_title "><a href="http://trade.itemmania.com/myroom/mileage/my_mileage/">마일리지</a></div>
-            <ul class='nav_sub g_list'>
-                <li class=""><a href="http://trade.itemmania.com/myroom/mileage/my_mileage/">내마일리지</a></li>
-                <li class=""><a href="http://trade.itemmania.com/myroom/mileage/guide/charge.html">마일리지충전</a></li>
-                <li class=""><a href="http://trade.itemmania.com/myroom/mileage/payment/payment_switch.html">마일리지출금</a></li>
-                <li class=""><a href="http://trade.itemmania.com/myroom/mileage/change/culturecash/">마일리지전환</a></li>
-            </ul>
-            <div class="nav_title "><a href="http://trade.itemmania.com/myroom/myinfo/myinfo_check.html">개인정보</a></div>
-            <ul class='nav_sub g_list'>
-                <li class=""><a href="http://trade.itemmania.com/myroom/myinfo/myinfo_check.html">개인정보수정</a></li>
-                <li class=""><a href="http://trade.itemmania.com/myroom/myinfo/myinfo_login_sync.html">로그인연동관리</a></li>
-                <li class=""><a href="http://trade.itemmania.com/myroom/myinfo/myinfo_offer_check.html">수신/동의철회</a></li>
-                <li class=""><a href="http://trade.itemmania.com/myroom/myinfo/credit_rating.html">신용등급/인증</a></li>
-            </ul>
-            <div class="nav_title "><a href="http://trade.itemmania.com/myroom/lotto/lottopot.html">로또 추천번호</a></div>
-            <div class="nav_title "><a href="http://trade.itemmania.com/myroom/pmall/spointmall.html">쇼핑포인트</a></div>
-            <div class="nav_title "><a href="http://trade.itemmania.com/myroom/cash_receipt/cash_receipt_list.html">현금영수증</a></div>
-            <div class="nav_title "><a href="http://trade.itemmania.com/myroom/coupon/free.html">이용권현황</a></div>
-            <div class="nav_title "><a href="http://trade.itemmania.com/myroom/myinfo/myinfo_safe_settlement.html">보안센터</a></div>
-            <div class="nav_title "><a href="http://trade.itemmania.com/myroom/customer/">환경설정</a></div>
-            <div class="nav_title "><a href="http://trade.itemmania.com/myroom/user_leave/user_leave_form.html">회원탈퇴</a></div>
-        </div>
-    </div>
+    @include('aside.myroom',['group'=>'sell'])
     <div class="g_content">
-        <!-- ▼ 타이틀 //-->
-        <div class="g_title_blue"> 판매 <span>관련</span>
-            <ul class="g_path">
-                <li>홈</li>
-                <li>마이룸</li>
-                <li>판매관련</li>
-                <li class="select">판매중인 물품</li>
-            </ul>
-        </div>
-        <!-- ▲ 타이틀 //-->
-        <!-- ▼ 판매관련 //-->
-        <div class="bs_content sell_content">
-            <div class="icon_wrap"> <span class="SpGroup sell_icon">판매</span> </div>
-            <div class="regist_product">
-                <div class="regist_title">판매 등록 물품</div> <a href="/myroom/sell/sell_regist.html?strRelationType=regist" class="regist_result f_blue1">1건</a> </div>
-            <div class="bargain_request_product">
-                <div class="bargain_request_title">흥정 신청된 물품</div> <a href="/myroom/sell/sell_check.html?strRelationType=check" class="bargain_request_result f_blue1">0건</a> </div>
-            <div class="box_line"></div>
-            <div class="step_title deposit_product_title">STEP 1
-                <br/>입금 대기 물품</div> <a href="/myroom/sell/sell_pay_wait.html?strRelationType=pay" class="deposit_product f_blue1">0<span> 건</span></a> <span class="SpGroup arr_icon arr1"></span>
-            <div class="step_title product_title">STEP 2
-                <br/>판매중인 물품</div> <a href="/myroom/sell/sell_ing.html?strRelationType=ing" class="sell_product f_blue1">0<span> 건</span></a> <span class="SpGroup arr_icon arr2"></span>
-            <div class="step_title complete_title">STEP 3
-                <br/>판매 종료물품</div> <a href="/myroom/complete/sell.html" class="detail_btn">자세히보기<span class="SpGroup arr_right"></span></a> </div>
-        <!-- ▲ 판매관련 //-->
-        <!-- ▼ 메뉴탭 //-->
-        <div class="g_tab">
-            <div><a href="/myroom/sell/sell_regist.html?strRelationType=regist">판매등록물품</a></div>
-            <div><a href="/myroom/sell/sell_check.html?strRelationType=check">흥정 신청된 물품</a></div>
-            <div><a href="/myroom/sell/sell_pay_wait.html?strRelationType=pay">입금 대기 물품</a></div>
-            <div class="selected"><a href="/myroom/sell/sell_ing.html?strRelationType=ing">판매중인 물품</a></div>
-            <!--    <a href="/myroom/complete/sell.html"><div class="last">판매 종료 물품</div></a>--></div>
-        <!-- ▲ 메뉴탭 //-->
+        <div class="g_title_blue noborder"> 판매 <span>관련</span></div>
+        @include('tab.bs_content',['group'=>'sell'])
+        @include('tab.g_tab',['group'=>'sell_ing'])
         <div class="tab_sib">- 구매자가 입금을 완료한 상태입니다. 구매자와 전화통화 또는 1:1대화함으로 거래를 진행해주시기 바랍니다.</div>
-        <!--	<div id="attention" class="g_balloons3"></div>-->
-        <!--	<div class="att_btn"><img src="-->
-        <!--/images/btn/btn_attention.gif" width="129" height="20" alt="거래시 주의사항 보기" id="att_btn" class="g_button" onclick="if($('#attention').css('display') != 'none') $('#attention').hide(); else make_msgBox('attention', 'attention_info', 'top', -9, 15, 'blue', 27, 10, 'close');"></div>-->
-        <!-- ▼ 판매중인물품 //-->
-        <table class="g_blue_table tb_list">
+        <table class="g_green_table1 tb_list">
             <colgroup>
                 <col width="150">
                 <col width="70">
                 <col />
                 <col width="95">
-                <col width="80">
+                <col width="114">
                 <col width="100">
             </colgroup>
             <tr>
@@ -108,10 +38,11 @@
                 <th>등록일</th>
                 <th>구분</th>
             </tr>
-            <tr>
-                <td colspan="6">등록된 물품이 없습니다.</td>
-            </tr>
+            @include('template.myroom',['game'=>$games,'type'=>3])
         </table>
+        <div class="dvPaging">
+            {{$games->links()}}
+        </div>
         <!-- ▲ 판매중인물품 //-->
         <div class="g_finish"></div>
         <!-- ▼ 판매진행안내 //-->

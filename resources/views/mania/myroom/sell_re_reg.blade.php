@@ -38,23 +38,22 @@
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.min.js"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js"></script>
     <script type="text/javascript" src="/mania/myroom/sell/js/sell_re_reg.js"></script>
     <script type="text/javascript">
         var useMileage = '{{$cuser['mileage']}}';
         function __init() {
             e_select.goods = "{{$user_goods}}";
             e_select.sale = "{{$user_goods_type}}";
-            e_use.highlight=0;
         }
+        e_use.premium = {{$premium}};
+        e_use.highlight = {{$highlight}} / 12;
+        e_use.quickIcon = {{$quickicon}};
     </script>
 
 @endsection
 
 @section('content')
+
     <div class="g_container" id="g_CONTENT">
         @include('aside.myroom',['group'=>'sell'])
         <div class="g_content">
@@ -84,12 +83,177 @@
                 <!-- 안심번호 -->
                 <!-- ▼ 재등록 물품정보 //-->
                 <div class="g_subtitle first">물품정보</div>
-                <table class="g_blue_table">
-                    <colgroup>
-                        <col width="160">
-                        <col>
-                    </colgroup>
-                    <tbody>
+                @if($user_goods_type == 'general')
+                    <table class="g_blue_table">
+                        <colgroup>
+                            <col width="130">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>카테고리</th>
+                                <td>{{$category}}</td>
+                            </tr>
+                            <tr>
+                                <th>판매유형</th>
+                                <td>일반</td>
+                            </tr>
+                        </tbody>
+                        <tbody id="d_template">
+                            <tr>
+                                <th>판매금액</th>
+                                <td>
+                                    <input type="text" name="user_price" id="user_price" maxlength="10" class="g_text f_right rad13" value="{{number_format($user_price)}}"> 원 (3,000원 이상, 10원 단위 등록 가능)
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>캐릭터명</th>
+                                <td>
+                                    <div class="dfServer" id="dfServer">
+                                    </div>
+                                    <div class="g_left">
+                                        <input type="text" class="g_text mode-active rad13" name="user_character" maxlength="30" value="{{$user_character}}" id="user_character"> 물품을 전달 하실 본인의 캐릭터명
+                                        <span id="sub_text" class="f_red1"></span>
+                                    </div>
+                                    <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                        <tr>
+                            <th>물품제목</th>
+                            <td>
+                                <div class="item_detail_opts">
+                                    <label><input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="g_checkbox"> 물품제목 기본값 :
+                                    </label>
+                                    <span id="trade_sign_txt" class="f_blue1">{{$title}}</span>
+                                    <a href="javascript:_window.open('fixed_title', '/sell/fixed_trade_subject', 500, 300);" class="btn_white1">설정</a>
+                                </div>
+                                <input type="text" class="g_text w90 rad10 input34" name="user_title" id="user_title" maxlength="40" value="{{$user_title}}">
+                                <br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>상세설명</th>
+                            <td>
+                                <textarea id="user_text" name="user_text" class="txtarea w100" placeholder="* 휴대폰번호, 메신저(카톡) ID 및 거래와 무관한 내용 기재 시 물품은 삭제되며, 서비스 이용에 제재를 받게 됩니다.">{{$user_text}}</textarea>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                @endif
+                @if($user_goods_type == 'division')
+                    <table class="g_blue_table">
+                        <colgroup>
+                            <col width="130">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>카테고리</th>
+                            <td>{{$category}}</td>
+                        </tr>
+                        <tr>
+                            <th>판매유형</th>
+                            <td>분할</td>
+                        </tr>
+                        </tbody>
+                        <tbody id="d_template">
+                        <tr>
+                            <th>판매수량</th>
+                            <td>
+                                @if(!empty($gamemoney_unit))
+                                    <div class="unit_type" id="unit_type">
+                                        <label>
+                                            <input type="radio" name="gamemoney_unit" value="1" class="g_radio" @if($gamemoney_unit == 1) checked="" @endif>없음</label>
+                                        <label>
+                                            <input type="radio" name="gamemoney_unit" value="만" class="g_radio" @if($gamemoney_unit == "만") checked="" @endif>만</label>
+                                        <label>
+                                            <input type="radio" name="gamemoney_unit" value="억" class="g_radio" @if($gamemoney_unit == "억") checked="" @endif>억</label>
+                                        <label class="f_blue1 f_small">(단위)</label>
+                                    </div>
+                                @endif
+                                <div id="game_money">
+                                    최소
+                                    <input type="text" name="user_quantity_min" id="user_quantity_min" maxlength="7" class="g_text f_right rad13" value="{{number_format($user_quantity_min)}}">
+                                    <span class="unit"> </span> 개 ~
+                                    최대
+                                    <input type="text" name="user_quantity_max" id="user_quantity_max" maxlength="7" class="g_text f_right rad13" value="{{number_format($user_quantity_max)}}">
+                                    <span class="unit"> </span> 개
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>판매금액</th>
+                            <td>
+                                <input type="text" name="user_division_unit" id="user_division_unit" maxlength="7" class="g_text f_right rad13" value="{{number_format($user_division_unit)}}" size="18">
+                                <span class="unit"></span> 개 당
+                                <input type="text" name="user_division_price" id="user_division_price" maxlength="10" class="g_text f_right rad13" value="{{number_format($user_division_price)}}" size="18"> 원에 판매합니다.
+                                <span class="f_small f_black1">(100원 이상, 10원 단위 등록 가능)</span>
+                                <div class="discount">
+                                    <label><input type="checkbox" class="g_checkbox" name="discount_use" id="discount_use" value="1" onclick="fnRevenDiscount();" @if(!empty($discount_use)) checked @endif>복수구매 할인적용</label>
+                                    <div id="reven_discount">
+                                        <input type="text" class="g_text rad13" name="discount_quantity" id="discount_quantity" maxlength="10" readonly="" onfocus="$(this).blur();" value="{{number_format($discount_quantity)}}"><span id="SpnDiscount"></span>x
+                                        <input type="text" class="g_text discount_quantity_cnt rad13" name="discount_quantity_cnt" id="discount_quantity_cnt" maxlength="10" value="{{number_format($discount_quantity_cnt)}}">번 구매시
+                                        <input type="text" class="g_text discount_price rad13" name="discount_price" id="discount_price" maxlength="10" value="{{number_format($discount_price)}}">원 할인
+                                    </div>
+                                </div>
+                                <div class="g_msgbox blue" id="discount_layer">
+                                    <div class="title">복수 구매할인이란?</div>
+                                    <div class="cont">구매자가 분할물품에 구매신청을 할 때, 판매자가 정해놓은 일정 구매수량 조건을
+                                        <br>충족할 경우 구매자에게 거래금액을 할인해주는 거래 방식입니다.
+                                        <br>복수구매할인 적용 시 물품리스트 제목에 할인마크가 부여되며 묶음당 할인금액은
+                                        <br>판매자의 거래금액에서 차감됩니다.
+                                        <br>복수구매 할인에 대한 자세한 사항은 홈페이지 &gt; 이용안내를 참고해 주시기 바랍니다.</div>
+                                    <div class="btn"> <a href="/guide/div_trade/index.html?file=02" class="btn_blue4">복수구매할인 이용안내 &gt;</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>캐릭터명</th>
+                            <td>
+                                <div class="dfServer" id="dfServer">
+                                </div>
+                                <div class="g_left">
+                                    <input type="text" class="g_text mode-active rad13" name="user_character" maxlength="30" value="{{$user_character}}" id="user_character"> 물품을 전달 하실 본인의 캐릭터명
+                                    <span id="sub_text" class="f_red1"></span>
+                                </div>
+                                <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tbody>
+                        <tr>
+                            <th>물품제목</th>
+                            <td>
+                                <div class="item_detail_opts">
+                                    <label><input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="g_checkbox"> 물품제목 기본값 :
+                                    </label>
+                                    <span id="trade_sign_txt" class="f_blue1">{{$title}}</span>
+                                    <a href="javascript:_window.open('fixed_title', '/sell/fixed_trade_subject', 500, 300);" class="btn_white1">설정</a>
+                                </div>
+                                <input type="text" class="g_text w90 rad10 input34" name="user_title" id="user_title" maxlength="40" value="{{$user_title}}">
+                                <br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>상세설명</th>
+                            <td>
+                                <textarea id="user_text" name="user_text" class="txtarea w100" placeholder="* 휴대폰번호, 메신저(카톡) ID 및 거래와 무관한 내용 기재 시 물품은 삭제되며, 서비스 이용에 제재를 받게 됩니다.">{{$user_text}}</textarea>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                @endif
+                @if($user_goods_type == 'bargain')
+                    <table class="g_blue_table">
+                        <colgroup>
+                            <col width="130">
+                            <col>
+                        </colgroup>
+                        <tbody>
                         <tr>
                             <th>카테고리</th>
                             <td>{{$category}}</td>
@@ -98,8 +262,8 @@
                             <th>판매유형</th>
                             <td>흥정</td>
                         </tr>
-                    </tbody>
-                    <tbody id="d_template">
+                        </tbody>
+                        <tbody id="d_template">
                         <tr>
                             <th>흥정거래금액</th>
                             <td>
@@ -126,8 +290,8 @@
                                 <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
                             </td>
                         </tr>
-                    </tbody>
-                    <tbody>
+                        </tbody>
+                        <tbody>
                         <tr>
                             <th>물품제목</th>
                             <td>
@@ -137,7 +301,7 @@
                                     <span id="trade_sign_txt" class="f_blue1">{{$title}}</span>
                                     <a href="javascript:_window.open('fixed_title', '/sell/fixed_trade_subject', 500, 300);" class="btn_white1">설정</a>
                                 </div>
-                                <input type="text" class="g_text w100" name="user_title" id="user_title" maxlength="40" value="{{$user_title}}">
+                                <input type="text" class="g_text w90 rad10 input34" name="user_title" id="user_title" maxlength="40" value="{{$user_title}}">
                                 <br>
                             </td>
                         </tr>
@@ -147,21 +311,9 @@
                                 <textarea id="user_text" name="user_text" class="txtarea w100" placeholder="* 휴대폰번호, 메신저(카톡) ID 및 거래와 무관한 내용 기재 시 물품은 삭제되며, 서비스 이용에 제재를 받게 됩니다.">{{$user_text}}</textarea>
                             </td>
                         </tr>
-{{--                    <tr>--}}
-{{--                        <th>스크린샷</th>--}}
-{{--                        <td>--}}
-{{--                            <div class="screen_guide2">--}}
-{{--                                용량 300KB이하 jpg만 가능(최대 10개)--}}
-{{--                                <a href="javascript:_window.open('screenshot', '/sell/guide/screenshot.html', 718, 900);" class="guide_txt">등록가이드</a>--}}
-{{--                            </div>--}}
-{{--                            <div class="screenshot_wrap">--}}
-{{--                                <input type="file" name="user_screen[]" class="g_file">--}}
-{{--                            </div>--}}
-{{--                        </td>--}}
-{{--                    </tr>--}}
-                    </tbody>
-                </table>
-
+                        </tbody>
+                    </table>
+                @endif
 
                 <div class="g_subtitle euro-service">
                     <p class="euro-title">유료 등록 서비스</p>
@@ -183,7 +335,7 @@
                                     <div class="sub_txt m-t-35">
                                         프리미엄 잔여시간이 많을수록<br>물품리스트 상단에 노출됩니다.
                                     </div>
-                                    <a class="free_view btn-premium" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list.html?free_use_item=premium',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i> </a>
+                                    <a class="free_view btn-premium" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=premium',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i> </a>
                                 </dd>
                             </div>
                         </dl>
@@ -225,7 +377,7 @@
                                         <span id="charge_apply" style="display: none">게임머니 팝니다.</span>
                                         제목 굵기/<strong class="text-green">색</strong> 효과 적용
                                     </div>
-                                    <a class="free_view btn-goods" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list.html?free_use_item=highlight',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>
+                                    <a class="free_view btn-goods" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=highlight',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>
                                 </dd>
                             </div>
                         </dl>
@@ -246,7 +398,7 @@
                                     <div class="sub_txt m-t-35">
                                         물품리스트에 스피드 거래 <br /> 아이콘이 현시 됩니다.
                                     </div>
-                                    <a class="free_view btn-speeds" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list.html?free_use_item=quickicon',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>
+                                    <a class="free_view btn-speeds" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=quickicon',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>
                                 </dd>
                             </div>
                         </dl>
@@ -310,33 +462,32 @@
                 <input type="hidden" name="user_mobileA" id="user_mobileA" value="{{$mobile_a}}">
                 <input type="hidden" name="user_mobileB" id="user_mobileB" value="{{$mobile_b}}">
                 <input type="hidden" name="user_mobileC" id="user_mobileC" value="{{$mobile_c}}"><!-- ▲ 연락처 중복 //-->
-                <div class="g_subtitle">내 거래정보</div>
-                <table class="g_blue_table private_area">
+                <div class="g_subtitle">등록 유저 정보</div>
+                <table class="g_gray_table private_area">
                     <colgroup>
-                        <col width="160">
-                        <col>
+                        <col width="74">
+                        <col width="200"/>
+                        <col width="85"/>
+                        <col width="*"/>
                     </colgroup>
-                    <tbody>
                     <tr>
                         <th>이름</th>
-                        <td>이장훈</td>
-                    </tr>
-                    <tr>
+                        <td>{{$cuser['name']}}</td>
                         <th>연락처</th>
-                        <td>
-                     <span id="spnUserPhone">
-                     자택번호 없음                </span>
-                            ( <label><input type="checkbox" class="g_checkbox" name="user_cell_check" id="chk_user_cell_check" value="on" checked=""> 자택번호안내</label> ) /
-                            <span id="spnUserCell">010-4797-3690</span>
+                        <td class="text-center">
+                <span id="spnUserPhone">
+                {{$cuser['home']}}                </span>
+                            ( <label><input type="checkbox" class="g_checkbox" name="user_cell_check" id="chk_user_cell_check" value="on" checked> 자택번호안내</label> ) /
+                            <span id="spnUserCell">{{$cuser['number']}}</span>
                             <a href="javascript:_window.open('private_edit', '/user/contact_edit?check=true', 496, 350);" class="btn_white1 after">연락처 수정</a>
                         </td>
                     </tr>
                     <tr class="SafetyNumber">
                         <th>안심번호</th>
-                        <td>
-                            개인정보보호 및 사고예방을 위해<br> 고객님의 휴대폰으로 거래 시 0508로 시작하는 무료안심번호가 휴대폰으로 부여되어 상대방에게 안내됩니다.
+                        <td colspan="3">
+                            개인정보보호 및 사고예방을 위해<br> 고객님의 휴대폰으로 거래시 502로 시작하는 무료안심번호가 휴대폰으로 부여되어 상대방에게 안내됩니다.
                             <div class="safe_area">
-                                <a href="javascript:;" class="guide_txt" id="safe_guide">안심번호란?</a>
+                                {{--                                <a href="javascript:;" class="guide_txt" id="safe_guide">안심번호란?</a>--}}
                                 <div class="g_msgbox blue" id="safe_layer">
                                     <div class="title">
                                         안심번호란?
@@ -349,13 +500,13 @@
                                         </ul>
                                     </div>
                                     <div class="btn">
-                                        <a href="/guide/add/security_number.html" class="btn_blue4">안심번호 이용안내 &gt;</a>
+                                        <a href="/guide/add/security_number" class="btn_blue4">안심번호 이용안내 ></a>
                                     </div>
                                 </div>
                             </div>
                         </td>
                     </tr>
-                    <tr class="SafetyNumber_plus" style="display: none;">
+                    <tr class="SafetyNumber_plus">
                         <th>안심번호 플러스</th>
                         <td>
                             개인정보보호 및 사고예방을 위해<br> 고객님의 휴대폰으로 거래 시 02-1234-1234 형태의 번호가 부과되어 상대방에게 안내됩니다.
@@ -373,35 +524,54 @@
                                         </ul>
                                     </div>
                                     <div class="btn">
-                                        <a href="/guide/add/security_number_plus.html" class="btn_blue4"> 이용안내 &gt;</a>
+                                        <a href="/guide/add/security_number_plus" class="btn_blue4"> 이용안내 ></a>
                                     </div>
                                 </div>
                             </div>
                         </td>
                     </tr>
+                </table>
+                <table class="g_gray_table private_area mt-0 border-top-0">
+                    <colgroup>
+                        <col width="74">
+                        <col width="400"/>
+                        <col width="85"/>
+                        <col width="*"/>
+                    </colgroup>
                     <tr>
                         <th>거래알림</th>
                         <td>
-                            <label><input type="checkbox" name="user_sms" id="user_sms" value="1" class="g_checkbox" checked=""> SMS 수신 동의</label>
-                            <label><input type="checkbox" name="user_push" id="user_push" value="1" class="g_checkbox">모바일앱 거래관련 PUSH 알림</label><br>
-                            <a href="javascript:_window.open('push_guide', '/sell/guide/apppush.html', 650, 1000)" class="guide_txt">앱 PUSH알림이란?</a>
+                            카카오톡 ,채널/문자 알림
                         </td>
-                    </tr>
-                    <tr>
-                        <th>우수인증</th>
-                        <td>
-                            <div class="excellent_txt">
-                                우수인증 회원이 아닙니다.
-                            </div>
+                        <th>우수회원인증</th>
+                        <td class="text-center">
                             <ul class="excellent">
-                                <li class="cert_state">휴대폰</li>
-                                <li class="cert_state">이메일</li>
-                                <li class="cert_state on">출금계좌</li>
+                                <li class="cert_state">
+                                    @if($cuser['mobile_verified'] == 1)
+                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                    @else
+                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                    @endif
+                                    휴대폰
+                                </li>
+
+                                <li class="cert_state">
+                                    @if(!empty($cuser['email_verified_at']))
+                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                    @else
+                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                    @endif
+                                    이메일</li>
+                                <li class="cert_state">
+                                    @if($cuser['bank_verified'] == 1 )
+                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                    @else
+                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                    @endif
+                                    출금계좌</li>
                             </ul>
-                            <a href="javascript:_window.open('excellent_guide','/popup/excellent_guide.html',520, 440);" class="guide_txt">우수인증회원이란?</a>
                         </td>
                     </tr>
-                    </tbody>
                 </table>
                 <script>
                     window.onload = function(){

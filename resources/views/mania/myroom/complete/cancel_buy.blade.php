@@ -11,10 +11,6 @@
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js?v=190220"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js?v=21100516"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.js?v=21101416"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js?v=21050316"></script>
 @endsection
 
 @section('content')
@@ -24,7 +20,7 @@
             <div class="nav_subject"><a href="http://trade.itemmania.com/myroom/" class="myroom">MyRoom</a></div>
             <div class="nav">
                 <div class="nav_title "><a href="http://trade.itemmania.com/myroom/message/">메세지함</a></div>
-                <div class="nav_title "><a href="http://trade.itemmania.com/myroom/sell/sell_regist.html">판매관련</a></div>
+                <div class="nav_title "><a href="/myroom/sell/sell_regist">판매관련</a></div>
                 <div class="nav_title "><a href="http://trade.itemmania.com/myroom/buy/buy_regist.html">구매관련</a></div>
                 <div class="nav_title "><a href="http://trade.itemmania.com/myroom/goods_alarm/alarm_sell_list.html">물품등록 알리미<span class="new">N</span></a></div>
                 <div class="nav_title "><a href="http://trade.itemmania.com/myroom/complete/sell.html">종료내역</a></div>

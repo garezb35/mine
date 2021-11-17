@@ -45,24 +45,26 @@
         $home_b = $home_array[1];
         $home_c = $home_array[2];
     }
+
+$submit_condition = 1;
+$direct_condition_credit = empty($direct_condition_credit) ? 0: $direct_condition_credit;
+if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $cuser['mobile_verified'] !=1) || ($direct_condition_acc == 1 && empty($cuser['bank_verified']))){
+    $submit_condition = 0;
+}
 @endphp
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/_css/_comm.css?v=210317">
-    <link type="text/css" rel="stylesheet" href="/mania/_head_tail/css/_head_comm.css?v=211007">
-    <link type="text/css" rel="stylesheet" href="/mania/_banner/css/banner_module.css?v=210422">
-    <link type='text/css' rel='stylesheet' href='/mania/buy/css/application.css?v=210512'>
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/mania/_css/_comm.css">
+    <link type="text/css" rel="stylesheet" href="/mania/_head_tail/css/_head_comm.css">
+    <link type="text/css" rel="stylesheet" href="/mania/_banner/css/banner_module.css">
+    <link type='text/css' rel='stylesheet' href='/mania/buy/css/application.css'>
+    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js"></script>
+    <script type="text/javascript" src="/mania/_banner/js/banner_module.js"></script>
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js?v=190220"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js?v=21100516"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.js?v=21101416"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js?v=21050316"></script>
-    <script type='text/javascript' src='/mania/buy/js/application.js?v=200803'></script>
+    <script type='text/javascript' src='/mania/buy/js/application.js'></script>
 @endsection
 
 @section('content')
@@ -72,6 +74,7 @@
         var user_quantity_min = {{$user_quantity_min}};
         var user_division_unit=  {{$user_division_unit}};
         @endif
+        var submit_condition = {{$submit_condition}};
     </script>
 <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
 <div class="g_container" id="g_CONTENT">
@@ -224,7 +227,7 @@
                 <tr>
                     <th class="p-left-10">
                         <div>
-                            <span class="credit_mark {{$cuser['roles']['name']}}"></span>
+                            <img src="/mania/img/level/{{$cuser['roles']['icon']}}" width="37"/>
                             <span class="f_green4 f_bold">{{$cuser['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($cuser['point'])}}점)
                         </div>
                     </th>
@@ -303,17 +306,14 @@
                     <td> <span id="spnUserPhone">
                 자택번호 없음                </span> (
                         <label>
-                            <input type="checkbox" class="g_checkbox" name="user_cell_check" id="user_cell_check" value="on" checked> 자택번호안내</label> ) / <span id="spnUserCell">010-4797-3690</span> <a href="javascript:_window.open('private_edit', '/user/contact_edit.html', 496, 350);" class="btn_white1 after">연락처 수정</a> </td>
+                            <input type="checkbox" class="g_checkbox" name="user_cell_check" id="user_cell_check" value="on" checked> 자택번호안내</label> ) / <span id="spnUserCell">010-4797-3690</span> <a href="javascript:_window.open('private_edit', '/user/contact_edit', 496, 350);" class="btn_white1 after">연락처 수정</a> </td>
                 </tr>
                 <tr class="SafetyNumber">
                     <th>안심번호</th>
                     <td> 개인정보보호 및 사고예방을 위해
                         <br> 고객님의 휴대폰으로 거래 시 0508로 시작하는 무료안심번호가 휴대폰으로 부여되어 상대방에게 안내됩니다.
-                        <div class="safe_area"> <a href="javascript:;" class="guide_txt" id="safe_guide">안심번호란?</a>
+                        <div class="safe_area">
                             <div class="g_msgbox green" id="safe_layer" style="right:0;margin-top:-14px;">
-                                <div class="title"> 안심번호란?
-                                    <a href="javascript:;" class="close"></a>
-                                </div>
                                 <div class="cont"> 고객님의 개인정보 보호를 위해 휴대폰번호에 안심번호를 부여하여 실제 휴대폰번호 대신
                                     <br> 가상의 안심번호를 상대 거래자에게 노출시켜주는 무료 서비스 입니다.
                                     <ul class="f_red1"> <strong>안심번호 서비스 사용 시 주의사항</strong>
@@ -384,7 +384,7 @@
         </form>
         <!-- ▲ 판매신청 //-->
         <!-- ▼ 상세설명 //-->
-        <div class="g_subtitle"> 상세설명 <a href="javascript:;" class="wideview" id="wideview">펼쳐보기▼</a> </div>
+        <div class="g_subtitle"> 상세설명 <a href="javascript:;" class="wideview" id="wideview">열기▼</a> </div>
         <div class="detail_info" id="detail_info">
             <div class="detail_text">{{$user_text}}</div>
         </div>
@@ -410,7 +410,7 @@
                 </tr>
                 <tr>
                     <th>판매금액</th>
-                    <td>{{number_format($user_price)}}원</td>
+                    <td><span class="trade_money1">{{number_format($user_price)}}</span>원</td>
                 </tr>
                 <tr>
                     <th>판매자 캐릭터명</th>

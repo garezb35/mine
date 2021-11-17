@@ -11,7 +11,7 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/_css/_comm.min.css?v=210317">
+    <link type="text/css" rel="stylesheet" href="/mania/_css/_comm.css?v=210317">
     <link type="text/css" rel="stylesheet" href="/mania/_head_tail/css/_head_comm.css?v=211007">
     <link type="text/css" rel="stylesheet" href="/mania/_banner/css/banner_module.css?v=210422">
     <link type="text/css" rel="stylesheet" href="/mania/myroom/css/common_myroom.css?210503" />
@@ -21,10 +21,18 @@
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js?v=190220"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js?v=21100516"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.js?v=21101416"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js?v=21050316"></script>
+    <script>
+        $('#js-gallery')
+            .packery({
+                itemSelector: '.slide',
+                gutter: 10
+            })
+            .photoSwipe('.slide', {bgOpacity: 0.8, shareEl: false}, {
+                close: function () {
+                    console.log('closed');
+                }
+            });
+    </script>
 @endsection
 
 @section('content')
@@ -35,13 +43,13 @@
     <div class="g_content">
         <a name="top"></a>
         <!-- ▼ 타이틀 //-->
-        <div class="g_title_blue"> 구매자의 입금을 기다리는 <span>물품</span>
+        <div class="g_title_blue noborder"> 구매자의 입금을 기다리는 <span>물품</span>
         </div>
         <div class="g_gray_border"></div>
         <!-- ▲ 타이틀 //-->
         <!-- ▼ 물품정보 //-->
         <div class="g_subtitle first">물품정보</div>
-        <table class="g_blue_table">
+        <table class="table-striped table-green1">
             <colgroup>
                 <col width="160">
                 <col width="250">
@@ -80,7 +88,7 @@
         <!-- ▲ 물품정보 //-->
         <!-- ▼ 내 개인정보 //-->
         <div class="g_subtitle">내 거래정보</div>
-        <table class="g_blue_table">
+        <table class="table-striped table-green1">
             <colgroup>
                 <col width="160">
                 <col>
@@ -135,12 +143,16 @@
         <!-- ▼ 상세설명 //-->
         <div class="g_subtitle">상세설명</div>
         <div class="detail_info">
-            <div class="detail_text"> 기타&#160;삽니다. </div>
-        </div>
-        <!-- ▲ 상세설명 //-->
-        <div class="g_right">
-            <a href="/myroom/sell/sell_pay_wait.html?strRelationType=pay"><img src="http://img3.itemmania.com/images/btn/btn_list.gif" width="32" height="14" alt="목록" /></a>
-            <a href="#top"><img src="http://img4.itemmania.com/images/btn/btn_top.gif" width="32" height="14" alt="TOP" /></a>
+            <div class="detail_text">
+                <div id="js-gallery" class="mb-5">
+                    @foreach (\File::glob(public_path('assets/images/mania/'.$id).'/*') as $file)
+                        <a href="/{{ str_replace(public_path()."\\", '', $file) }}" class="slide">
+                            <img src="/{{ str_replace(public_path()."\\", '', $file) }}" class="g_top">
+                        </a>
+                    @endforeach
+                </div>
+                {{$user_text}}
+            </div>
         </div>
     </div>
     <div class="g_finish"></div>

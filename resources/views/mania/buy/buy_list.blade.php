@@ -11,10 +11,6 @@
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.min.js"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js"></script>
     <script type="text/javascript" src="/mania/buy/js/list.js"></script>
 @endsection
 
@@ -27,7 +23,7 @@
         <div class="g_title_green noborder">
             <div class="g_left">
                 <ul class="trade_sub_title">
-                    <li>팝니다</li>
+                    <li>삽니다</li>
                     <li class="game_name"> <span>서버전체</span> </li>
                 </ul>
             </div>

@@ -1,43 +1,184 @@
-/*
- * @title		íŒë§¤ì¤‘ì¸ë¬¼í’ˆ
- * @author		ê¹€ë³´ëžŒ
- * @date		2012.01.30
- * @update		ìˆ˜ì •ë‚ ì§œ(ìˆ˜ì •ìž)
- * @description
- */
 
-/* â–¼ ë ˆì´ì–´ */
-.g_popup{ width:668px }
-.g_popup .layer_content{ text-align:center }
-.g_popup #goods_img{ margin-left:66px }
-.g_popup #goods_info{ margin:10px auto 0 }
-.g_popup #goods_info li{ height:20px }
-.g_popup .blue_box{ width:509px; height:55px; margin:10px auto 0; padding:10px 0; border:2px solid #E1E1E1; background-color:#E8F2FF; text-align:center }
-.g_popup .blue_box div{ text-align:center }
-.g_popup .blue_box .g_sideway{ margin:10px 20px; padding-top:10px; border-top:1px dotted #D4D4D4 }
-.g_popup .blue_box .g_sideway .g_radio{ margin-left:25px }
-.g_popup .blue_box .g_sideway .first{ margin-left:0 }
-#dvTradeSellCheck .g_list{ margin-top:15px; padding:10px 0 10px 25px; border:1px solid #EBEBEB; background-color:#FBFBFB }
-#dvTradeSellCheck .g_list li{ margin-left:5px }
-#dvTradeSellCheck .g_list .list_non{ margin:2px 0 0 0; padding-left:0; font-weight:bold }
-#dvTradeSellCheck .g_gray_table{ margin-top:20px; border:1px solid #E2E2E2; border-top:2px solid #E2E2E2 }
-#dvTradeSellCheck .g_gray_table th{ background-color:#FBFBFB; border-right:1px solid #E2E2E2 }
-#dvTradeSellCheck .g_gray_table #juminnumber td div{ height:25px; line-height:25px }
-#dvTradeSellCheck .g_gray_table #juminnumber td div .g_text{ text-align:center }
-#dvTradeSellCheck .g_gray_table #juminnumber td #info_phone_div .g_text{ width:60px }
-#dvTradeSellCheck .g_gray_table #juminnumber td div #info_jumin{ margin-left:20px }
-#trade_cancel{ width:560px }
-#trade_cancel .gray_box{ float:left; width:519px; padding:10px 0; border:2px solid #DDD; background-color:#F7F7F7; text-align:center; font-weight:bold; font-size:15px; color:#DE1C24 }
-#trade_cancel .g_gray_table{ margin:10px 0; border-left:1px solid #E2E2E2; border-right:1px solid #E2E2E2 }
-#trade_cancel .g_gray_table th{ background-color:#F7F7F7 }
-#trade_cancel .g_list li{ height:15px }
-/* â–² ë ˆì´ì–´ */
-.screenshot_info{ height:70px; margin-bottom:5px; padding:20px 5px 20px 20px; background-color:#FBFBFB; border:1px solid #E1E1E1 }
-#trade_reserve .g_blue_table{ margin-top:10px }
-#trade_reserve .g_blue_table th{ padding-left:15px; text-align:left }
-#trade_reserve .g_blue_table td{ padding-top:10px; padding-bottom:10px }
-#trade_reserve .g_blue_table img{ margin-top:10px }
-.dfGameNotice{ width:770px; max-width:770px; letter-spacing:-1px; }
-.dfGameNotice .title{ font-size:16px; font-weight:bold; color:#FFF; line-height:normal }
-.dfGameNotice .sub_txt{ margin-bottom:10px; color:#767676 }
-.dfGameNotice .g_right{ display:inline; margin:10px 20px 0 0 }
+.g_popup {
+    width: 668px
+}
+
+.g_popup .layer_content {
+    text-align: center
+}
+
+.g_popup #goods_img {
+    margin-left: 66px
+}
+
+.g_popup #goods_info {
+    margin: 22px auto 0
+}
+
+.g_popup #goods_info li {
+    height: 20px
+}
+
+.g_popup .blue_box {
+    width: 509px;
+    height: 55px;
+    margin: 10px auto 0;
+    padding: 10px 0;
+    border: 2px solid #E1E1E1;
+    background-color: #E8F2FF;
+    text-align: center
+}
+
+.g_popup .blue_box div {
+    text-align: center
+}
+
+.g_popup .blue_box .g_sideway {
+    margin: 10px 20px;
+    padding-top: 10px;
+    border-top: 1px dotted #D4D4D4
+}
+
+.g_popup .blue_box .g_sideway .g_radio {
+    margin-left: 25px
+}
+
+.g_popup .blue_box .g_sideway .first {
+    margin-left: 0
+}
+
+#dvTradeSellCheck .g_list {
+    margin-top: 15px;
+}
+
+#dvTradeSellCheck .g_list li {
+    margin-left: 5px
+}
+
+#dvTradeSellCheck .g_list .list_non {
+    margin: 2px 0 0 0;
+    padding-left: 0;
+    font-weight: bold
+}
+
+#dvTradeSellCheck .g_gray_table {
+    margin-top: 20px;
+    border: 1px solid #E2E2E2;
+    border-top: 2px solid #E2E2E2
+}
+
+#dvTradeSellCheck .g_gray_table th {
+    background-color: #FBFBFB;
+    border-right: 1px solid #E2E2E2
+}
+
+#dvTradeSellCheck .g_gray_table #juminnumber td div {
+    height: 25px;
+    line-height: 25px
+}
+
+#dvTradeSellCheck .g_gray_table #juminnumber td div .g_text {
+    text-align: center
+}
+
+#dvTradeSellCheck .g_gray_table #juminnumber td #info_phone_div .g_text {
+    width: 60px
+}
+
+#dvTradeSellCheck .g_gray_table #juminnumber td div #info_jumin {
+    margin-left: 20px
+}
+
+#trade_cancel {
+    width: 560px
+}
+
+#trade_cancel .gray_box {
+    float: left;
+    width: 519px;
+    padding: 10px 0;
+    border: 2px solid #DDD;
+    background-color: #F7F7F7;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: #DE1C24
+}
+
+#trade_cancel .g_gray_table {
+    margin: 10px 0;
+    border-left: 1px solid #E2E2E2;
+    border-right: 1px solid #E2E2E2
+}
+
+#trade_cancel .g_gray_table th {
+    background-color: #F7F7F7
+}
+
+#trade_cancel .g_list li {
+    height: 15px
+}
+
+
+/* â–² ë ˆì´ì–´ */
+
+.screenshot_info {
+    height: 70px;
+    margin-bottom: 5px;
+    padding: 20px 5px 20px 20px;
+    background-color: #FBFBFB;
+    border: 1px solid #E1E1E1
+}
+
+#trade_reserve .g_blue_table {
+    margin-top: 10px
+}
+
+#trade_reserve .g_blue_table th {
+    padding-left: 15px;
+    text-align: left
+}
+
+#trade_reserve .g_blue_table td {
+    padding-top: 10px;
+    padding-bottom: 10px
+}
+
+#trade_reserve .g_blue_table img {
+    margin-top: 10px
+}
+
+.dfGameNotice {
+    width: 770px;
+    max-width: 770px;
+    letter-spacing: -1px;
+}
+
+.dfGameNotice .title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFF;
+    line-height: normal
+}
+
+.dfGameNotice .sub_txt {
+    margin-bottom: 10px;
+    color: #767676
+}
+
+.dfGameNotice .g_right {
+    display: inline;
+    margin: 10px 20px 0 0
+}
+
+.gray-div{
+    width: 137px;
+    height: 27px;
+    line-height: 27px;
+    text-align: center;
+    background: #9F9F9F;
+    color: #fff;
+    font-size: 18px;
+    margin: auto;
+    margin-top: 16px;
+}

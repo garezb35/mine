@@ -415,7 +415,7 @@ function setDefaultText() {
     if (e_select.goods === 'money' && g_unit.isEmpty() === false) {
         strGoods = g_unit;
     }
-
+    $("#good_type").val(strGoods);
     var defaultText = strGoods + ' 삽니다.';
     var fixed_trade_subject = document.getElementById('fixed_trade_subject');
     var strFixTag = document.getElementById('trade_sign_txt').innerHTML;
@@ -791,7 +791,11 @@ function createLayerContent(b) {
     }
     rgData.user_cell_num = frm.user_cell_num.value;
     rgData.seller_birth = frm.seller_birth.value;
-    rgData.character_id = "";
+    rgData.character_id = '';
+    if(rgData.user_goods == 'character'){
+        rgData.character_id = frm.character_id.value;;
+    }
+
     rgData.api_token=  a_token
     ajaxRequest({
         url: strLayerURL,

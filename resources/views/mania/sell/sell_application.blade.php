@@ -2,6 +2,7 @@
 
     $goods = 'money';
     $goods_label = '게임머니';
+    $game_unit = !empty($gamemoney_unit) && $gamemoney_unit != 1 ? $gamemoney_unit : '';
     if($good_type != '기타')
         $goods_label = $good_type;
     $selltype = '일반';
@@ -57,10 +58,6 @@
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js?v=190220"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js?v=21100516"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.min.js?v=21100816"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js?v=21050316"></script>
     <script type='text/javascript' src='/mania/sell/js/application.js?v=210802'></script>
     <script type='text/javascript'>
         g_trade_info.curr_mileage = Number({{$cuser['mileage']}});
@@ -99,32 +96,7 @@
 @section('content')
 <!--▼▼▼ 캐릭터 등록 알리미 ▼▼▼ -->
 <div class="g_container" id="g_CONTENT">
-    <div class="aside">
-        <div class="title_blue">안전거래수칙</div>
-        <div class="menu_know">
-            <p>결제전에 이것만은 꼭!!</p>
-            <dl class="g_list"> <dt>판매자 연락처,캐릭터명 확인</dt>
-                <dd>상대 거래자의 연락처, 캐릭터명을 반드시 확인합니다. 결제가 완료
-                    <br>되면 마이룸에서 판매자 정보를
-                    <br>확인하실 수 있습니다.</dd> <dt>게임 상에서 채팅은 금물!</dt>
-                <dd>게임상에서 채팅은 금물입니다.
-                    <br>전화 통화 또는 1:1 대화함으로
-                    <br>거래를 하시기 바랍니다.</dd> <dt>받은 물품 되돌려 주지 않기!</dt>
-                <dd>판매자가 물품을 인계한 후 다시
-                    <br>물품을 돌려달라고 하는 경우,
-                    <br>절대 물품을 돌려주지 마시고,
-                    <br>고객감동센터로 문의해 주시기
-                    <br>바랍니다.</dd> <dt>고의적 취소,직거래유도 주의</dt>
-                <dd>고의적인 취소 또는 직거래를
-                    <br>유도할 경우 사이트 이용에
-                    <br>제한을 받으실 수 있습니다.</dd>
-            </dl>
-            <div class="f_blue3 f_small"> * 다른사람의 정보를 기재하거나
-                <br>다른 게임 서버에 거래신청을 하여
-                <br>문제가 발생할 경우, 거래신청자에게
-                <br>책임이 있습니다. </div>
-        </div>
-    </div>
+    @include('aside.sell-buy_view',['group'=>'sell-application'])
     <div class="g_content">
         <!-- ▼ 타이틀 //-->
         <div class="g_title_noborder"> 구매정보 확인
@@ -214,19 +186,19 @@
                     </tr>
                     <tr>
                         <th>최소구매수량</th>
-                        <td>{{number_format($user_quantity_min)}} {{$goods_label}}</td>
+                        <td>{{number_format($user_quantity_min)}}{{$game_unit}} {{$goods_label}}</td>
                         <th>최대구매수량</th>
-                        <td>{{number_format($user_quantity_max)}} {{$goods_label}}</td>
+                        <td>{{number_format($user_quantity_max)}}{{$game_unit}} {{$goods_label}}</td>
                     </tr>
                     <tr>
                         <th>구매수량</th>
                         <td>
                             <input type="text" id="buy_quantity" name="buy_quantity" class="g_text buy_quantity" value="0"> 번 (<span id="spnQuantity_Unit">{{$user_division_unit}}</span> x
                             <span id="spnQuantity"></span>번 =
-                            <span id="spnQuantity_total"></span> {{$goods_label}})
+                            <span id="spnQuantity_total"></span>{{$game_unit}} {{$goods_label}})
                         </td>
                         <th>단위금액</th>
-                        <td>{{$user_division_unit}}당 {{number_format($user_division_price)}}원</td>
+                        <td>{{$user_division_unit}}{{$game_unit}}당 {{number_format($user_division_price)}}원</td>
                     </tr>
                     <tr>
                         <th>복수구매할인</th>
@@ -353,7 +325,7 @@
                 <div class="card text-white bg-success mb-3 fl" style="max-width: 18rem;">
                     <div class="card-header">
                         구매금액
-                        <span class="h_price fr">{{number_format($user_price)}}원</span>
+                        <span class="h_price fr trade_money1">{{number_format($user_price)}}</span>원
                     </div>
                     <div class="card-body">
                         <div style="clear: both;margin-bottom: 10px;height: 20px">
@@ -369,7 +341,7 @@
                 <div class="card text-white bg-success mb-3 fr" style="max-width: 18rem;">
                     <div class="card-header">
                         총 결제금액
-                        <span class="h_price fr text-red">{{number_format($user_price)}}원</span>
+                        <span class="h_price fr text-red trade_money1">{{number_format($user_price)}}</span>원
                     </div>
                     <div class="card-body">
                         <div style="clear: both;margin-bottom: 10px;height: 20px">
@@ -511,7 +483,7 @@
                     </tr>
                     <tr>
                         <th>구매금액</th>
-                        <td>{{number_format($user_price)}}원</td>
+                        <td><span class="trade_money1">{{number_format($user_price)}}</span>원</td>
                     </tr>
                     <tr>
                         <th>구매자 캐릭터명</th>

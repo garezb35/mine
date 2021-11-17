@@ -22,7 +22,7 @@ function elementFromListData(tradeItem) {
     }
 
     var listHtml = '<li class="'+(tradeItem.premium === 'power' ? 'power_product':'')+' ' + ( tradeItem.trade_state == 'p' ? 'link_block' : '') + '">' +
-        '               <div class="col_01"><span class="credit_mark ' + (tradeItem.credit_name_en) + '"></span></div>';
+        '               <div class="col_01"><img src="/mania/img/level/'+tradeItem.credit_img+'" width="36"/></div>';
 
     listHtml += '       <div class="col_02' + ((tradeItem.trade_state === 'a') ? " active" : "") + '">';
     listHtml += '	        <a href="' + ((tradeItem.user_seller === 'true') ? "/myroom/sell/sell_regist_view?id=" + tradeItem.trade_id : "javascript:searchList.view('" + tradeItem.trade_id + "','" + tradeItem.trade_state + "')") + '">';
@@ -110,8 +110,8 @@ function fnajax_ag_quotation() {
                     var icon = "-";
                 }
 
-                $("#ag_quotation").append("í‰ê· ì‹œì„¸ <span class='" + font_color + "'>" + addComma($(xml).find("data").attr("price")) + "</span>ì› ( <span class='" + font_color + "'>" + icon + " " + addComma($(xml).find("data").attr("amount")) + "</span> )");
-                $("#ag_quotation").append("<span class='f_normal'> (ì „ì¼ê¸°ì¤€/" + addComma($(xml).find("quotation").attr("multiple")) + " " + $(xml).find("quotation").attr("unit_trade") + "ë‹¹)");
+                $("#ag_quotation").append("<span class='" + font_color + "'>" + addComma($(xml).find("data").attr("price")) + "</span>ì› ( <span class='" + font_color + "'>" + icon + " " + addComma($(xml).find("data").attr("amount")) + "</span> )");
+                $("#ag_quotation").append("<span class='f_normal'> (" + addComma($(xml).find("quotation").attr("multiple")) + " " + $(xml).find("quotation").attr("unit_trade") + "ë‹¹)");
             }
         },
         error: function() {
@@ -137,7 +137,8 @@ function mySearch_menu_check() {
         type: 'sell',
         game: game_code,
         server: server_code,
-        goods: goods_type[goods]
+        goods: goods_type[goods],
+        api_token: a_token
     };
 
     if (!server_code) {
@@ -145,7 +146,7 @@ function mySearch_menu_check() {
     }
 
     ajaxRequest({
-        url: '/myroom/customer/mySearchGame.php',
+        url: '/api/myroom/customer/mySearchGame',
         type: 'POST',
         dataType: "json",
         data: rgData,

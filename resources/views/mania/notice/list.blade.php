@@ -160,9 +160,6 @@
         </div>
     </div>
 </div>
-<script type="text/javascript " src="/mania/_js/_jquery3.js?190220 "></script>
-<script type="text/javascript " src="/mania/_js/_comm.js?v=2110051622 "></script>
-<script type="text/javascript " src="/mania/_js/_gs_control_200924.js?v=2110141617 "></script>
 <script type="text/javascript " src="/mania/_js/_window.js "></script>
 <script type="text/javascript ">
     function _init(){

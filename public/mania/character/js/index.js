@@ -57,7 +57,7 @@ function _init(){
 function moreBtnAction(code, name){
     var form = document.getElementById("g_searchbar_form");
     form.setAttribute("method", "post");
-    form.setAttribute("action", "/sell/list.html");
+    form.setAttribute("action", "/sell/list");
 
     var hiddenField = document.createElement("input");
     hiddenField.setAttribute("type", "hidden");
@@ -95,17 +95,18 @@ function moreBtnAction(code, name){
 function selectGoodsAction(code){
 
     ajaxRequest({
-        url: 'ajax_trade_check.php',
+        url: '/api/ajax_trade_check',
         type: 'post',
         dataType: 'json',
         data: {
-            'trade_id': code
+            trade_id: code,
+            api_token: a_token
         },
         async: false,
         success: function (res) {
             switch (res.result) {
                 case 'SUCCESS':
-                    location.href = 'http://trade.itemmania.com/sell/view.html?id='+code;
+                    location.href = '/sell/view?id='+code;
                     break;
                 case 'FAIL':
                     alert(res.msg);
