@@ -32,8 +32,14 @@ class VMainController extends BaseController
      */
     public function index()
     {
-        $sells = MItem::with(['game','server'])->where('type','sell')->where('userId',"!=",$this->user->id)->whereNull('toId')->where('status',0)->limit(10)->get();
-        $buys = MItem::with(['game','server'])->where('type','buy')->where('userId',"!=",$this->user->id)->whereNull('toId')->where('status',0)->limit(10)->get();
+        if(!$this->isLogged){
+            $userId = "";
+        }
+        else{
+            $userId = $this->user->id;
+        }
+        $sells = MItem::with(['game','server'])->where('type','sell')->where('userId',"!=",$userId)->whereNull('toId')->where('status',0)->limit(10)->get();
+        $buys = MItem::with(['game','server'])->where('type','buy')->where('userId',"!=",$userId)->whereNull('toId')->where('status',0)->limit(10)->get();
         $notices = MNotice::orderBy('created_at',"DESC")->limit(10)->get();
         $game_list = MGameRate::with('game')->orderBy('orders',"ASC")->limit(10)->get();
         $list = MMyservice::get()->toArray();

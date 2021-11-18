@@ -25,8 +25,8 @@ class Login extends Component
             return redirect()->intended('/index');
         }
         $this->fill([
-            'email' => 'admin@volt.com',
-            'password' => 'secret',
+            'email' => '',
+            'password' => '',
         ]);
     }
 
@@ -41,6 +41,15 @@ class Login extends Component
                 ->update([
                     "api_token"=>$this->apiToken,
                 ]);
+            if($user['state'] == 2 || $user['state'] == 3){
+                auth()->logout();
+                if($user['state'] == 2){
+                    return $this->addError('email', trans('회원님은 탈퇴한 상태입니다.고객센터 문의주세요.'));
+                }
+                if($user['state'] == 3){
+                    return $this->addError('email', trans('불법행위로 인해 탈퇴되었습니다.고객센터 문의주세요.'));
+                }
+            }
             return redirect()->intended('/index');
         } else {
             return $this->addError('email', trans('auth.failed'));

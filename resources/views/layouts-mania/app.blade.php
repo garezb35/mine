@@ -17,6 +17,7 @@
 
     <body>
     <script>
+        var server_domain = '127.0.0.1';
         @if(Auth::check())
         var a_token = '{{Auth::user()->api_token}}';
         var _LOGINCHECK = '1';

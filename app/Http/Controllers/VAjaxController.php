@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\MInbox;
 use App\Models\MItem;
 use App\Models\MMyservice;
+use App\Models\MPrivateMessage;
 use Illuminate\Http\Request;
 
 class VAjaxController extends BaseController
@@ -485,5 +486,45 @@ class VAjaxController extends BaseController
             MMyservice::insert($params);
         }
         return response()->json(array('msg'=>'성공적으로 저장되었습니다.','result'=>'SUCCESS'));
+    }
+    public function msg_get(Request $request){
+        $next = false;
+        $rst = true;
+        $msg_list = array();
+        $paging = $request->paging;
+        $token = $request->token;
+        $msg = MPrivateMessage::with('u1')->where('orderNo',$token)->orderBy("created_at","DESC")->skip($paging * 20)->take(20)->get()->toArray();
+        if(count($msg) > 0){
+//            $msg = array_reverse($msg);
+            $msg_next = MPrivateMessage::where('orderNo',$token)->skip(($paging+1) * 20)->take(20)->get()->count();
+            if($msg_next > 0){
+                $next = true;
+            }
+            foreach($msg as $v){
+                array_push($msg_list,array(
+                    "id"=>$v['u1']['loginId'],
+                    "whoAmI"=>$v['type'],
+                    "msg"=>$v['msg'],
+                    "chat_de"=>date("Y-m-d H:i:s",strtotime($v['created_at']))
+                ));
+            }
+        }
+        else{
+            $rst = false;
+        }
+        return response()->json(array("NEXT"=>$next,"RST"=>$rst,"MSG"=>json_encode($msg_list)));
+    }
+
+    public function msg_encrypt(Request $request){
+        $whoAmI = $request->whoAmI;
+        $msg = $request->msg;
+        $token = $request->token;
+        MPrivateMessage::insert([
+           'orderNo'=>$token,
+            'userId1'=>$this->user->id,
+            'type'=>$whoAmI,
+            'msg'=>$msg
+        ]);
+        return response()->json(array("RST"=>true,'MSG'=>$msg,'TIME'=>date("Y-m-d H:i:s"),'FILTER'=>false));
     }
 }

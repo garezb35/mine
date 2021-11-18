@@ -461,9 +461,9 @@
 
         <div class="sec_left no-border">
             <div class="title">게임별 시세정보
-                <a href="javascript:_window.open('game_money', '{{route("gameinfo_money")}}', 800, 900);">
-                    <i class="sp_icon plus_icon">더보기</i>
-                </a>
+{{--                <a href="javascript:_window.open('game_money', '{{route("gameinfo_money")}}', 800, 900);">--}}
+{{--                    <i class="sp_icon plus_icon">더보기</i>--}}
+{{--                </a>--}}
             </div>
             <div id="gameChart" class="border-normal"></div>
         </div>

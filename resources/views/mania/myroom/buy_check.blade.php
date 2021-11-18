@@ -36,7 +36,7 @@
                 <th>분류</th>
                 <th>제목</th>
                 <th>금액</th>
-                <th>등록일</th>
+                <th>등록일시</th>
             </tr>
             @include('template.myroom_buy',['game'=>$games,'type'=>1])
         </table>

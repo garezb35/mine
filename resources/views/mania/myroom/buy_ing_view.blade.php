@@ -230,9 +230,13 @@ if(sizeof($split_number) == 3){
                             </div>
                         </td>
                         <td class="vt">
+                            <script type="text/javascript" src="/mania/socket/socket.io.js"></script>
+                            <script type="text/javascript" src="/mania/socket/connect.js"></script>
                             <div id="chat_wrapper" style="display: block;margin: 0px auto;">
+                                <input id="CHAT_TOKEN" type="hidden" value="{{$orderNo}}">
                                 <input id="CHAT_USER" type="hidden" value="buyer" />
                                 <input id="CHAT_FIRST" type="hidden" value="1" />
+                                <input id="CHAT_FILTER" type="hidden" value="YTo3OntzOjk6InVzZXJfdHlwZSI7czoxOiJTIjtzOjg6InRyYWRlX2lkIjtzOjE2OiIyMDIxMTAyNTA4NDQ0OTQyIjtzOjExOiJ0cmFkZV9tb25leSI7czo0OiI0MDAwIjtzOjg6ImJ1eWVyX2lkIjtzOjk6ImRsd2tkMTY0MCI7czo3OiJnc19uYW1lIjtzOjE5OiJBRkvslYTroIjrgph86riw7YOAIjtzOjk6ImdhbWVfY29kZSI7czo0OiI0NDQyIjtzOjExOiJzZXJ2ZXJfY29kZSI7czo1OiIxNjgxMCI7fQ==">
                                 <div id="chat_notice">
                                     <span class="">(1:1 채팅) 거래 시 상대방과 통화후 거래 요망!</span>
                                 </div>
@@ -242,7 +246,7 @@ if(sizeof($split_number) == 3){
                                     </div>
                                 </div>
                                 <div id="chat_input_wrapper">
-                                    <textarea id="chat" type="text"></textarea>
+                                    <textarea id="chat" type="text" @if($status == 23 || $status == 32 || $status == -1) disabled @endif></textarea>
                                     <button id="send_btn">전송</button>
                                 </div>
                             </div>

@@ -50,4 +50,8 @@ class MItem extends Model
             ->where('until','>',date("Y-m-d H:i:s"));
     }
 
+    public function privateMessage(){
+        return $this->hasOne(MPrivateMessage::class,'orderNo','orderNo');
+    }
+
 }

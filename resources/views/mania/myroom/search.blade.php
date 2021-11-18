@@ -112,14 +112,13 @@
                     <colgroup>
                         <col width="90">
                         <col width="450">
-                        <col width="110">
-                        <col width="*">
+                        <col width="140">
                     </colgroup>
                     <tbody>
                     <tr>
                         <th class="first">&nbsp;</th>
                         <th>카테고리</th>
-                        <th>기본페이지</th>
+{{--                        <th>기본페이지</th>--}}
                         <th>&nbsp;</th>
                     </tr>
                     @foreach($list as $v)
@@ -130,10 +129,10 @@
                             <input type="hidden" name="id[]" value="{{$v['id']}}">
                         </td>
                         <td class="category">{{$v['type'] == 'sell' ? '팝니다' : '삽니다'}} > {{$v['game_text']}} > {{$v['server_text']}} > {{$v['goods_text']}}</td>
-                        <td>
-                            <input type="radio" name="startPage" id="startPage{{$v['id']}}" value="{{$v['id']}}" class="g_radio" onclick="startpage_update(this);" @if($v['default'] == 1) checked @endif>
-                            <label for="startPage{{$v['id']}}">설정</label>
-                        </td>
+{{--                        <td>--}}
+{{--                            <input type="radio" name="startPage" id="startPage{{$v['id']}}" value="{{$v['id']}}" class="g_radio" onclick="startpage_update(this);" @if($v['default'] == 1) checked @endif>--}}
+{{--                            <label for="startPage{{$v['id']}}">설정</label>--}}
+{{--                        </td>--}}
                         <td>
                             <a href="javascript:_window.open('search_update','/search_update_form?id={{$v['id']}}',657,260)" class="btn-default-medium btn-suc-rect">
                                 수정
