@@ -26,17 +26,17 @@
                 <col width="150">
                 <col width="70">
                 <col />
-                <col width="95">
                 <col width="114">
-                <col width="100">
+                <col width="114">
+{{--                <col width="100">--}}
             </colgroup>
             <tr>
                 <th>카테고리</th>
                 <th>분류</th>
                 <th>제목</th>
                 <th>거래금액</th>
-                <th>등록일</th>
-                <th>구분</th>
+                <th>등록일시</th>
+{{--                <th>구분</th>--}}
             </tr>
             @include('template.myroom',['game'=>$games,'type'=>3])
         </table>

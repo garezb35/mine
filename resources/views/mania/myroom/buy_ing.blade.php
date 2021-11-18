@@ -27,7 +27,7 @@
         <!-- ▲ 메뉴탭 //-->
             <div class="tab_sib">- 입금을 완료한 상태입니다. 판매자와 전화 통화 또는 1:1대화함으로 거래를 진행해주시기 바랍니다.</div>
             <!-- ▼ 판매중인물품 //-->
-            <table class="g_green_table tb_list">
+            <table class="g_green_table1 tb_list">
                 <colgroup>
                     <col width="150">
                     <col width="70">
@@ -40,7 +40,7 @@
                     <th>분류</th>
                     <th>제목</th>
                     <th>거래금액</th>
-                    <th>등록일</th>
+                    <th>등록일시</th>
                 </tr>
                 @include('template.myroom_buy',['game'=>$games,'type'=>3])
             </table>

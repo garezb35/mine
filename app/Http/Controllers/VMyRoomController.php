@@ -9,6 +9,8 @@ use App\Models\MMygame;
 use App\Models\MMyservice;
 use App\Models\MPayhistory;
 use App\Models\MPayitem;
+use App\Models\MRole;
+use App\Models\MRoleGift;
 use App\Models\MTitle;
 use App\Models\MUserbank;
 use Illuminate\Http\Request;
@@ -29,7 +31,145 @@ class VMyRoomController extends BaseController
      */
     public function index()
     {
-        return view('mania.myroom.main');
+        $user_coupon = array(1=>0,2=>0,3=>0,4=>0);
+        $user = $this->user;
+        $roleGift_items = MGift::where('userId',$this->user->id)->get();
+        $role = MRole::where('level',$this->user->role)->first();
+        foreach($roleGift_items as $v){
+            $user_coupon[$v['type']] = $v['time'];
+        }
+        $selling_register = MItem::
+        where('userId',$this->user->id)->
+        where('type','sell')->
+        where('status',0)->
+        whereNull('toId')->
+        whereDoesntHave('bargains')->
+        whereDoesntHave('payitem')->get()->count();
+        $bargain_request_selling = MItem::
+        where('userId',$this->user->id)->
+        where('type','sell')->
+        where('status',0)->
+        whereNull('toId')->
+        whereHas('bargain_requests')->
+        whereDoesntHave('payitem')->get()->count();
+        $pay_pending_selling = MItem::
+        whereHas('payitem',function($query){
+            $query->where('status',0);
+        })->
+        where(function($query){
+            $query->where(function($query1){
+                $query1->where('userId',$this->user->id);
+                $query1->where('type','sell');
+                $query1->where('toId',">", 0);
+            });
+            $query->orWhere(function($query2){
+                $query2->where('toId',$this->user->id);
+                $query2->where('type','buy');
+                $query2->where('toId',">", 0);
+            });
+        })->
+        where('status',0)->
+        get()->count();
+        $selling_count = MItem::
+        whereHas('payitem',function($query){
+            $query->where('status',1);
+        })->
+        where(function($query){
+            $query->where('userId',$this->user->id);
+            $query->where('type','sell');
+            $query->where('status',"!=",0);
+            $query->where('status',"!=",23);
+            $query->where('status',"!=",32);
+            $query->where('status',"!=",-1);
+        })->orWhere(function($query){
+            $query->where('toId',$this->user->id);
+            $query->where('type','buy');
+            $query->where('status',"!=",0);
+            $query->where('status',"!=",23);
+            $query->where('status',"!=",32);
+            $query->where('status',"!=",-1);
+        })->
+        get()->count();
+        $buying_register = MItem::
+        where('userId',$this->user->id)->
+        where('type','buy')->
+        where('status',0)->
+        whereNull('toId')->
+        whereDoesntHave('bargains')->
+        whereDoesntHave('payitem')->get()->count();
+        $bargain_request = MItem::
+        where('userId','!=',$this->user->id)->
+        where('type','sell')->
+        where('status',0)->
+        whereNull('toId')->
+        whereHas('bargain_requests',function($query){
+            $query->where('userId',$this->user->id);
+        })->
+        whereDoesntHave('payitem')->get()->count();
+        $pay_pending = MItem::
+        whereHas('payitem',function($query){
+            $query->where('status',0);
+        })->
+        where(function($query){
+            $query->where(function($query1){
+                $query1->where('toId',$this->user->id);
+                $query1->where('type','sell');
+                $query1->where('toId',">", 0);
+            });
+            $query->orWhere(function($query2){
+                $query2->where('userId',$this->user->id);
+                $query2->where('type','buy');
+                $query2->where('toId',">", 0);
+            });
+        })->
+        where('status',0)->
+        get()->count();
+        $buying_count = MItem::
+        whereHas('payitem',function($query){
+            $query->where('status',1);
+        })->
+        where(function($query){
+            $query->where('toId',$this->user->id);
+            $query->where('type','sell');
+            $query->where('status',"!=",0);
+            $query->where('status',"!=",23);
+            $query->where('status',"!=",32);
+            $query->where('status',"!=",-1);
+        })->orWhere(function($query){
+            $query->where('toId',$this->user->id);
+            $query->where('type','buy');
+            $query->where('status',"!=",0);
+            $query->where('status',"!=",23);
+            $query->where('status',"!=",32);
+            $query->where('status',"!=",-1);
+        })->
+        get()->count();
+        $recent_orders = MItem::with(['game','server','payitem'])->
+        where(function($query){
+            $query->where('userId',$this->user->id);
+            $query->orWhere('toId',$this->user->id);
+        })->
+            where(function($query){
+            $query->where('status',23);
+            $query->orWhere('status',32);
+        })->
+        where('updated_at',">=",date("Y-m-d H:i:s",strtotime('-1 week')))->
+        orderBy('updated_at',"DESC")->
+        limit(5)->get()->toArray();
+        return view('mania.myroom.main',[
+            'user'=>$this->user,
+            'coupon'=>$user_coupon,
+            'role'=>$role,
+            'buying_register'=>$buying_register,
+            'bargain_request'=>$bargain_request,
+            'pay_pending'=>$pay_pending,
+            'buying_count'=>$buying_count,
+            'selling_register'=>$selling_register,
+            'bargain_request_selling'=>$bargain_request_selling,
+            'pay_pending_selling'=>$pay_pending_selling,
+            'selling_count'=>$selling_count,
+            'recent_orders'=>$recent_orders
+            ]);
     }
 
     public function message(Request $request)
@@ -1169,7 +1309,7 @@ class VMyRoomController extends BaseController
     public function sell_ing_view(Request $request){
         $buyer = "";
         if($request->type == 'sell'){
-            $game = MItem::with('server','game','other','payitem')
+            $game = MItem::with('server','game','other','payitem','privateMessage')
                 ->where('orderNo',$request->id)
                 ->where('userId',$this->user->id)
                 ->where('type', $request->type)
@@ -1481,5 +1621,9 @@ class VMyRoomController extends BaseController
     public function mileage_charge_home(Request $request){
         echo '<script>alert("서비스 업데이트중입니다.");self.close();</script>';
         return;
+    }
+
+    public function credit_rating(Request $request){
+        return view('mania.myroom.credit_rating');
     }
 }

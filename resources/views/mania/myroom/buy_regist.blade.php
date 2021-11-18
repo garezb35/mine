@@ -42,14 +42,15 @@
                         <col width="70" />
                         <col/>
                         <col width="95" />
-                        <col width="80" />
-                        <col width="110" /> </colgroup>
+                        <col width="114" />
+                        <col width="114" />
+                    </colgroup>
                     <tr>
                         <th>카테고리</th>
                         <th>분류</th>
                         <th>제목</th>
                         <th>거래금액</th>
-                        <th>등록일</th>
+                        <th>등록일시</th>
                         <th>구분</th>
                     </tr>
                     @include('template.myroom_buy',['game'=>$games,'type'=>0])

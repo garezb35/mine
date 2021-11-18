@@ -41,6 +41,8 @@ Route::middleware('auth:api')->group(function(){
     Route::post('/myroom/message/view',[\App\Http\Controllers\VAjaxController::class,'message_view']);
     Route::post('/myroom/message/delete',[\App\Http\Controllers\VAjaxController::class,'message_delete']);
     Route::post('_ajax/my_service',[\App\Http\Controllers\VAjaxController::class,'my_service']);
+    Route::post('/myroom/chat/msg_get',[\App\Http\Controllers\VAjaxController::class,'msg_get']);
+    Route::post('/myroom/chat/msg_encrypt',[\App\Http\Controllers\VAjaxController::class,'msg_encrypt']);
 });
 
 Route::get('/sell/include/index_template', [\App\Http\Controllers\VSellController::class, 'ajax_template']);

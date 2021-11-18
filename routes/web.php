@@ -37,7 +37,7 @@ use App\Http\Livewire\Users;
 |
 */
 
-Route::redirect('/', '/login');
+Route::redirect('/', '/index');
 
 Route::get('/register', Register::class)->name('register');
 
@@ -113,7 +113,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/user_leave/user_leave_form',[\App\Http\Controllers\VMyRoomController::class, 'user_leave_form'])->name('user_leave_form');
 
         Route::prefix('customer')->group(function (){
-            Route::get('/', [\App\Http\Controllers\VMyRoomController::class, 'customer'])->name('customer');
+            Route::get('/', [\App\Http\Controllers\VMyRoomController::class, 'customer'])->name('customer_myroom');
             Route::get('/search',[\App\Http\Controllers\VMyRoomController::class, 'search'])->name('search');
             Route::get('/private',[\App\Http\Controllers\VMyRoomController::class, 'customer_private'])->name('customer_private');
             Route::post('/search_add',[\App\Http\Controllers\VMyRoomController::class, 'search_add'])->name('search_add');

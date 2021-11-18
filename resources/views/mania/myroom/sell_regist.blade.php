@@ -55,7 +55,7 @@
                     <th>분류</th>
                     <th>제목</th>
                     <th>거래금액</th>
-                    <th>등록일</th>
+                    <th>등록일시</th>
                     <th>구분</th>
                 </tr>
                 @include('template.myroom',['game'=>$games,'type'=>0])

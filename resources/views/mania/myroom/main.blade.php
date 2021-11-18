@@ -5,7 +5,6 @@
     <link type="text/css" rel="stylesheet" href="/mania/_banner/css/banner_module.css?v=210422">
     <link type="text/css" rel="stylesheet" href="/mania/myroom/css/common_myroom.css?210503" />
     <link type="text/css" rel="stylesheet" href="/mania/myroom/css/index.css?">
-    {{--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>--}}
     <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
@@ -55,13 +54,15 @@
             border: solid 1px gray;
         }
         .verify-status:before {
-            background-image: url("/assets/img/icons/icon_check.png");
-            background-size: 100%;
             display: inline-block;
             width: 14px;
             height: 14px;
             content:"";
             background-repeat: no-repeat;
+        }
+        .verify-status.on:before{
+            background-image: url("/assets/img/icons/icon_check.png");
+            background-size: 100%;
         }
         .btn-favorite-service {
             display: block;
@@ -86,28 +87,28 @@
             <div class="content_area content_coupon">
                 <div class="myroom_status_part">
                     <div class="user-info-part">
-                        <img class="position-abs" style="top: 24px; left: 15px;" src="/assets/img/icons/user_dia.png" />
-                        <div class="position-abs f-18 c-blue-title align-center f-bold" style="top: 28px; left: 82px; width: 98px;">다이아 회원</div>
-                        <div class="position-abs f-20 align-right" style="top: 24px; left: 251px; width: 34px;">0</div>
+                        <img class="position-abs" style="top: 24px; left: 15px;" src="/mania/img/level/{{$role['icon']}}" />
+                        <div class="position-abs f-18 c-blue-title align-center f-bold" style="top: 28px; left: 82px; width: 98px;">{{$role['alias']}} 회원</div>
+                        <div class="position-abs f-20 align-right" style="top: 24px; left: 251px; width: 34px;">{{number_format($user['point'])}}</div>
                         <div class="position-abs f-16 align-center" style="top: 64px; left: 90px; width: 85px;">
-                            <a class="" href="#">혜택보기</a>
+                            <a class="" href="/myroom/myinfo/credit_rating">혜택보기</a>
                         </div>
-                        <div class="position-abs f-16 align-center" style="top: 64px; left: 190px; width: 85px;">
-                            <a href="#">승급조건</a>
-                        </div>
+{{--                        <div class="position-abs f-16 align-center" style="top: 64px; left: 190px; width: 85px;">--}}
+{{--                            <a href="#">승급조건</a>--}}
+{{--                        </div>--}}
                     </div>
                     <div class="user-money-info position-abs f-17" style="width:330px; left:350px;">
-                        <div class="d-flex w-100" style="margin-top: 12px">
-                            <div class="align-left" style="width: 60%; padding-top: 2px;">사용가능 마일리지</div>
-                            <div class="c-blue-title align-right" style="width: 40%"><b class="f-20">128,126</b>원</div>
-                        </div>
-                        <div class="d-flex w-100" style="margin-top: 5px">
-                            <div class="align-left" style="width: 60%; padding-top: 1px;">구매전용 마일리지</div>
-                            <div class="align-right " style="width: 40%"><span class="f-18">128,126</span>원</div>
-                        </div>
-                        <div class="d-flex w-100" style="margin-top: 5px">
+{{--                        <div class="d-flex w-100" style="margin-top: 12px">--}}
+{{--                            <div class="align-left" style="width: 60%; padding-top: 2px;">사용가능 마일리지</div>--}}
+{{--                            <div class="c-blue-title align-right" style="width: 40%"><b class="f-20">128,126</b>원</div>--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex w-100" style="margin-top: 5px">--}}
+{{--                            <div class="align-left" style="width: 60%; padding-top: 1px;">구매전용 마일리지</div>--}}
+{{--                            <div class="align-right " style="width: 40%"><span class="f-18">128,126</span>원</div>--}}
+{{--                        </div>--}}
+                        <div class="d-flex w-100" style="margin-top: 25px">
                             <div class="align-left" style="width: 60%; padding-top: 1px;">총 마일리지</div>
-                            <div class="align-right " style="width: 40%"><span class="f-18">128,126</span>원</div>
+                            <div class="align-right " style="width: 40%"><span class="f-18">{{number_format($user['mileage'])}}</span>원</div>
                         </div>
                         <div class="position-abs f-16 align-center" style="top: 22px; left: 358px; width: 82px;">
                             <a href="#">충전하기</a>
@@ -120,54 +121,50 @@
                         <div class="d-flex w-100">
                             <div class="each-part">
                                 <div class="align-center" style="padding-top:2px;">프리미엄</div>
-                                <div class="align-center f-20 c-blue-title">65</div>
+                                <div class="align-center f-20 c-blue-title">{{$coupon[1]}}</div>
                             </div>
                             <div class="each-part">
                                 <div class="align-center" style="padding-top:2px;">물품강조</div>
-                                <div class="align-center f-20 c-blue-title">65</div>
-                            </div>
-                            <div class="each-part">
-                                <div class="align-center" style="padding-top:2px;">출금무료</div>
-                                <div class="align-center f-20 c-blue-title">65</div>
+                                <div class="align-center f-20 c-blue-title">{{$coupon[2]}}</div>
                             </div>
                             <div class="each-part">
                                 <div class="align-center" style="padding-top:2px;">스피드 거래</div>
-                                <div class="align-center f-20 c-blue-title">65</div>
+                                <div class="align-center f-20 c-blue-title">{{$coupon[3]}}</div>
                             </div>
                         </div>
                     </div>
                     <div class="user-market-status f-28">
                         <!-- 판매등록 -->
                         <div class="position-abs align-center " style="top: 298px; left: 235px; width: 50px;" title="판매등록">
-                            <a class="c-white" href="#">3</a>
+                            <a class="c-white" href="/myroom/sell/sell_regist?strRelationType=regist">{{$selling_register}}</a>
                         </div>
                         <div class="position-abs align-center" style="top: 355px; left: 235px; width: 50px;" title="흥정신청">
-                            <a class="c-white" href="#">0</a>
+                            <a class="c-white" href="/myroom/sell/sell_check?strRelationType=check">{{$bargain_request_selling}}</a>
                         </div>
                         <div class="position-abs align-center" style="top: 374px; left: 360px; width: 50px;" title="입금대기">
-                            <a class="c-white" href="#">0</a>
+                            <a class="c-white" href="/myroom/sell/sell_pay_wait?strRelationType=pay">{{$pay_pending_selling}}</a>
                         </div>
                         <div class="position-abs align-center" style="top: 374px; left: 520px; width: 50px;" title="판매중">
-                            <a class="c-white" href="#">0</a>
+                            <a class="c-white" href="/myroom/sell/sell_ing?strRelationType=ing">{{$selling_count}}</a>
                         </div>
                         <div class="position-abs align-center f-14" style="top: 380px; left: 685px; width: 86px; padding: 4px 0; background-color: #87c4de;">
-                            <a class="c-black" href="#" >자세히보기</a>
+                            <a class="c-black" href="/myroom/complete/sell" >자세히보기</a>
                         </div>
                         <!-- 구매등록 -->
                         <div class="position-abs align-center " style="top: 450px; left: 235px; width: 50px;" title="구매등록">
-                            <a class="c-white" href="#">3</a>
+                            <a class="c-white" href="/myroom/buy/buy_regist?strRelationType=regist">{{$buying_register}}</a>
                         </div>
                         <div class="position-abs align-center" style="top: 507px; left: 235px; width: 50px;" title="흥정신청">
-                            <a class="c-white" href="#">0</a>
+                            <a class="c-white" href="/myroom/buy/buy_check?strRelationType=check">{{$bargain_request}}</a>
                         </div>
                         <div class="position-abs align-center" style="top: 526px; left: 360px; width: 50px;" title="입금예정">
-                            <a class="c-white" href="#">0</a>
+                            <a class="c-white" href="/myroom/buy/buy_pay_wait?strRelationType=pay">{{$pay_pending}}</a>
                         </div>
                         <div class="position-abs align-center" style="top: 526px; left: 520px; width: 50px;" title="구매중">
-                            <a class="c-white" href="#">0</a>
+                            <a class="c-white" href="/myroom/buy/buy_ing?strRelationType=ing">{{$buying_count}}</a>
                         </div>
                         <div class="position-abs align-center f-14" style="top: 532px; left: 685px; width: 86px; padding: 4px 0; background-color: #87c4de;">
-                            <a class="c-black" href="#" >자세히보기</a>
+                            <a class="c-black" href="/myroom/complete/buy" >자세히보기</a>
                         </div>
                     </div>
                 </div>
@@ -185,17 +182,26 @@
                             <col width="80">
                         </colgroup>
                         <tbody>
-                        <tr>
-                            <td>아이온 클랙-바이젤(천족)</td>
-                            <td>아이템</td>
-                            <td>아이템 팝니다.</td>
-                            <td>3,000원</td>
-                            <td>2021/07/03</td>
-                            <td style="background-color: white;" class="c-blue-title">판매완료</td>
-                        </tr>
-                        <tr>
-                            <td colspan="6">최근 거래내역이 없습니다.</td>
-                        </tr>
+                        @foreach($recent_orders as $v)
+                            @php
+                            $order_alias = '판매';
+                            if( ($v['type'] == 'buy' && $v['userId'] == $user['id']) || ($v['type'] == 'sell' && $v['toId'] == $user['id']) )
+                                $order_alias = '구매';
+                            @endphp
+                            <tr>
+                                <td>{{$v['game']['game']}} {{$v['server']['game']}}</td>
+                                <td>{{$v['good_type']}}</td>
+                                <td>{{$v['user_title']}}</td>
+                                <td>{{number_format($v['payitem']['price'])}}원</td>
+                                <td>{{date("Y/m/d",strtotime($v['updated_at']))}}</td>
+                                <td style="background-color: white;" class="c-blue-title">{{$order_alias}}완료</td>
+                            </tr>
+                        @endforeach
+                        @if(sizeof($recent_orders) == 0)
+                            <tr>
+                                <td colspan="6">최근 거래내역이 없습니다.</td>
+                            </tr>
+                        @endif
                         </tbody>
                     </table>
                 </div>
@@ -235,12 +241,12 @@
                         <div class="f-14" style="width: calc(100% - 150px); border: solid 1px gray;">
                             <div style="margin: 46px 35px;">
                                 <div class="d-flex">
-                                    <span class="verify-status">휴대폰</span>
-                                    <span class="verify-status">계좌</span>
+                                    <span class="verify-status @if($user['mobile_verified'] == 1) on @endif">휴대폰</span>
+                                    <span class="verify-status @if($user['bank_verified'] == 1) on @endif">계좌</span>
                                 </div>
                                 <div class="d-flex">
-                                    <span class="verify-status">아이핀</span>
-                                    <span class="verify-status">이메일</span>
+                                    <span class="verify-status @if($user['pin'] == 1) on @endif">아이핀</span>
+                                    <span class="verify-status @if(!empty($user['email_verified_at'])) on @endif">이메일</span>
                                 </div>
                             </div>
                         </div>
@@ -253,9 +259,9 @@
                     <div class="align-center">
                         <img src="/assets/img/bkg/myroom_menu.jpg" />
                         <div class="position-ref">
-                            <a class="position-abs btn-favorite-service" href="#" style="left: 218px;">바로가기</a>
-                            <a class="position-abs btn-favorite-service" href="#" style="left: 385px;">바로가기</a>
-                            <a class="position-abs btn-favorite-service" href="#" style="left: 532px;">바로가기</a>
+                            <a class="position-abs btn-favorite-service" href="/myroom/customer/" style="left: 218px;">바로가기</a>
+                            <a class="position-abs btn-favorite-service" href="/myroom/customer/search" style="left: 385px;">바로가기</a>
+                            <a class="position-abs btn-favorite-service" href="/myroom/customer/" style="left: 532px;">바로가기</a>
                         </div>
                     </div>
                 </div>

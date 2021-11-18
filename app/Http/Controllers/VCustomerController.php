@@ -256,7 +256,7 @@ class VCustomerController extends BaseController
     public function myqna_list()
     {
         $data['askRecord'] = MAsk::where('create_id', $this->user->id)
-            ->orderByDesc('create_at')
+            ->orderByDesc('created_at')
             ->get()->toArray();
         return view('mania.customer.myqna.list', $data);
     }
