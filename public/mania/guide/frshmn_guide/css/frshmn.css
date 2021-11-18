@@ -1,0 +1,27 @@
+/*
+ * @title			초보자 가이드
+ * @author			김현진
+ * @date			2012.05.29
+ * @update          수정날짜
+ * @description
+ */
+.top_menu{ margin:10px 0 20px }
+#guide_sell li, #guide_buy li{ float:left; width:134px; _height:72px; text-align:center }
+#guide_sell .next_arrow, #guide_buy .next_arrow{width: 37px;margin:0;}
+ul li .first{ margin-bottom:5px }
+#guide_sell .next_arrow img, #guide_buy .next_arrow img{margin:26px 0 0 0;}
+.gray_box, .gray_box2{border:1px solid #D7D7D7;}
+.gray_box2{ padding:10px }
+.gray_box2 .f_bold{ margin-top:10px }
+.gray_box2 .g_list{margin-left:15px;color:#767676;}
+.inner_box{ margin:15px }
+.inner_box .f_bold{ margin-bottom:5px }
+.inner_box .small_box{ padding-left:12px }
+/* 거래 사기 실시간 조회 */
+.way_txt{ margin-bottom:5px; letter-spacing:-1px }
+.way{margin:10px 0 20px;color:#767676;font-size:12px;}
+/* 거래 사기 실시간 조회 */
+.sub_txt{margin-bottom:10px;}
+.movie_list{overflow:hidden;margin:0 0 40px 0;}
+.movie_list :first-child{margin-left:0;}
+.movie_list li{float:left;margin-left:33px;}

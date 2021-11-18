@@ -22,6 +22,7 @@ class VGuideController extends BaseController
     {
         return view('mania.guide.main');
     }
+
     public function view(Request $request){
         $seq = $request->seq;
         $notice = MNotice::where('id',$seq)->first();
@@ -34,6 +35,7 @@ class VGuideController extends BaseController
         $notice['notice_list'] = $notice_list;
         return view('mania.guide.news',$notice);
     }
+
     public function news(Request $request){
         $data = array();
         $notice_list = MNotice::orderBy('view',"DESC")->limit(10)->get();
@@ -41,5 +43,23 @@ class VGuideController extends BaseController
         $data['notice_list'] = $notice_list;
         $data['notices'] = $notices;
         return view('mania.guide.news_lst',$data);
+    }
+
+    public function howto(Request $request)
+    {
+        switch ($request->file)
+        {
+            case '02':
+                return view('mania.guide.newuser.howto.file02');
+            case '03':
+                return view('mania.guide.newuser.howto.file03');
+            default:
+                return view('mania.guide.newuser.howto');
+        }
+    }
+
+    public function howto2(Request $request)
+    {
+        return view('mania.guide.newuser.howto2');
     }
 }

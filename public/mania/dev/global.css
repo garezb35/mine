@@ -158,3 +158,22 @@ body {
     font-weight: bold;
     border-radius: 4px;
 }
+.btn-arrow-left,
+.btn-arrow-right {
+    position: relative;
+}
+.btn-arrow-left:after,
+.btn-arrow-right:after {
+    position: absolute;
+    width: 14px;
+    top: 18px;
+    height: 18px;
+    right: 30px;
+    content: "";
+    display: inline-block;
+    background: url(../img/icons/btn-arrow.png) no-repeat;
+}
+.btn-arrow-left:after {
+    background: url(../img/icons/btn-arrow-left.png) no-repeat;
+    left: 34px;
+}

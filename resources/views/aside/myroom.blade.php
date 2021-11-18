@@ -12,7 +12,7 @@
 {{--        <div class="nav_title @if($group == 'alert') on_active @endif"><a href="/myroom/goods_alarm/alarm_sell_list">물품등록 알리미<span class="new">N</span></a></div>--}}
         <div class="nav_title @if($group == 'end') on_active @endif"><a href="/myroom/complete/sell">종료내역</a></div>
         <div class="nav_title @if($group == 'cancel') on_active @endif"><a href="/myroom/complete/cancel_sell">취소내역</a></div>
-        <div class="nav_title {{$group == 'mileage' ? 'on_active' : ''}}"><a href="/myroom/mileage/my_mileage/">마일리지</a></div>
+        <div class="nav_title {{$group == 'mileage' ? 'on_active' : ''}}"><a href="{{route('my_mileage_index_c')}}">마일리지</a></div>
         <div class="nav_title @if($group == 'person') on_active @endif"><a href="/myroom/myinfo/myinfo_check">개인정보</a></div>
         <div class="nav_title @if($group == 'money') on_active @endif"><a href="/myroom/cash_receipt/cash_receipt_list">현금영수증</a></div>
 {{--        <div class="nav_title @if($group == 'using') on_active @endif"><a href="/myroom/coupon/free">이용권현황</a></div>--}}
