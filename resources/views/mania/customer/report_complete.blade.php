@@ -87,7 +87,7 @@
                     <li>다른 문의사항이 있으시면 [1:1 상담하기]를 이용해 주시기 바랍니다.</li>
                 </ul>
                 <div class="g_btn">
-                    <a href="{{route('customer')}}" class="button_ok">고객센터 메인으로</a>
+                    <a href="{{route('main_customer')}}" class="button_ok">고객센터 메인으로</a>
                     <a href="{{route('index')}}" class="button_cancel">TAXIFY 메인으로</a>
                 </div>
             </div>

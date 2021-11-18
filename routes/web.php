@@ -84,7 +84,7 @@ Route::middleware('auth')->group(function () {
      */
 
     Route::prefix('customer')->group(function () {
-        Route::any('/', [\App\Http\Controllers\VCustomerController::class, 'customer'])->name('customer');
+        Route::any('/', [\App\Http\Controllers\VCustomerController::class, 'customer'])->name('main_customer');
 
         Route::any('/report', [\App\Http\Controllers\VCustomerController::class, 'report'])->name('customer_report');
         Route::any('/report_end', [\App\Http\Controllers\VCustomerController::class, 'report_end'])->name('customer_report_end');
@@ -162,9 +162,13 @@ Route::middleware('auth')->group(function () {
 
         Route::prefix('my_mileage')->group(function(){
             Route::prefix('')->group(function (){
-                Route::get('/index', [\App\Http\Controllers\VMyRoomController::class, 'my_mileage_index'])->name('my_mileage_index');
+                Route::get('/index_c', [\App\Http\Controllers\VMyRoomController::class, 'my_mileage_index_c'])->name('my_mileage_index_c');
+                Route::get('/index_e', [\App\Http\Controllers\VMyRoomController::class, 'my_mileage_index_e'])->name('my_mileage_index_e');
                 Route::get('/calendar', [\App\Http\Controllers\VMyRoomController::class, 'my_mileage_calendar'])->name('my_mileage_calendar');
-                Route::get('/detail_list', [\App\Http\Controllers\VMyRoomController::class, 'my_mileage_detail_list'])->name('my_mileage_detail_list');
+                Route::any('/detail_list', [\App\Http\Controllers\VMyRoomController::class, 'my_mileage_detail_list'])->name('my_mileage_detail_list');
+                Route::get('/popup/mile_detail', [\App\Http\Controllers\VMyRoomController::class, 'popup_mile_detail'])->name('popup_mile_detail');
+                Route::get('/charge', [\App\Http\Controllers\VMyRoomController::class, 'mileage_payment_charge'])->name('mileage_payment_charge');
+                Route::get('/exchange', [\App\Http\Controllers\VMyRoomController::class, 'mileage_payment_exchange'])->name('mileage_payment_exchange');
             });
 
             Route::prefix('guide')->group(function (){
@@ -251,7 +255,10 @@ Route::middleware('auth')->group(function () {
 Route::get('/index', [\App\Http\Controllers\VMainController::class, 'index'])->name('index');
 Route::get('/character', [\App\Http\Controllers\VChrController::class, 'index'])->name('character');
 Route::get('/event', [\App\Http\Controllers\VEventController::class, 'index'])->name('event');
+
 Route::get('/guide', [\App\Http\Controllers\VGuideController::class, 'index'])->name('guide');
+Route::get('/guide/howto', [\App\Http\Controllers\VGuideController::class, 'howto'])->name('guide_howto');
+Route::get('/guide/howto2', [\App\Http\Controllers\VGuideController::class, 'howto2'])->name('guide_howto2');
 Route::get('/news/view', [\App\Http\Controllers\VGuideController::class, 'view'])->name('view');
 Route::get('/news', [\App\Http\Controllers\VGuideController::class, 'news'])->name('news');
 

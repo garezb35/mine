@@ -144,7 +144,7 @@
                 color: #195e6c;
             }
         </style>
-        @include('mania.guide.aside', ['group'=>'', 'part'=>''])
+        @include('mania.guide.aside', ['group'=>'guide', 'part'=>''])
         <div class="g_content">
             <div class="g_title">이용안내</div>
             <div class="notice-part d-flex">
@@ -160,7 +160,7 @@
                     <table class="notice-main-menu no-border">
                         <tbody>
                         <tr>
-                            <td><a href="#">거래 방법 안내</a></td>
+                            <td><a href="{{route('guide_howto')}}">거래 방법 안내</a></td>
                             <td><a href="#">안전보호 시스템</a></td>
                         </tr>
                         <tr>
