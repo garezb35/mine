@@ -1598,7 +1598,7 @@ class VMyRoomController extends BaseController
     }
 
     public function user_leave_form(Request $request){
-        return view('mania.myroom.user_leave_form');
+        return view('mania.myroom.user_leave_form', ['user' => $this->user]);
     }
 
     public function save_all(Request $request){

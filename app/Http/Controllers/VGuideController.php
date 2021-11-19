@@ -66,6 +66,20 @@ class VGuideController extends BaseController
 
     public function howto2(Request $request)
     {
-        return view('mania.guide.newuser.howto2');
+        switch ($request->file)
+        {
+            case '12':
+                return view('mania.guide.newuser.howto2.file12');
+            case '13':
+                return view('mania.guide.newuser.howto2.file13');
+            case '04':
+                return view('mania.guide.newuser.howto2.file04');
+            case '05':
+                return view('mania.guide.newuser.howto2.file05');
+            case '06':
+                return view('mania.guide.newuser.howto2.file06');
+            default:
+                return view('mania.guide.newuser.howto2');
+        }
     }
 }

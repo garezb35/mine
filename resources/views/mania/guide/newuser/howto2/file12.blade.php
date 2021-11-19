@@ -55,10 +55,6 @@
         }
     </style>
 
-    <style>
-
-    </style>
-
     <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
     <div class="g_container" id="g_CONTENT">
         <style>
@@ -153,68 +149,61 @@
             <div class="g_finish"></div>
             <!-- ▲ 메뉴탭 //-->
             <div class="top_menu">
-                <a href="{{route('guide_howto')}}"><span class="f_blue3 f_bold">판매자 가이드</span></a> |
-                <a href="{{route('guide_howto2')}}"><span class="g_black2">구매자 가이드</span></a>
+                <a href="{{route('guide_howto')}}"><span class="g_black2">판매자 가이드</span></a> |
+                <a href="{{route('guide_howto2')}}"><span class="f_green2 f_bold">구매자 가이드</span></a>
             </div>
             <div class="g_finish"></div>
             <ul id="guide_sell">
                 <li>
                     <a href="{{route('guide_howto')}}" class="blue_arrow_right">
-                        <div>판매할<br>물품 등록</div>
+                        <div>구매할 물품<br>검색 후 구매신청</div>
                     </a>
-                    <a href="?file=02" class="blue_arrow_right2">
-                        <div>삽니다 물품<br>검색 후 판매신청</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="?file=03" class="blue_arrow1">
-                        <div style="padding-right: 0;">판매물품<br>입금확인</div>
+                    <a href="?file=12" class="green_arrow_right2">
+                        <div>구매할<br>물품등록</div>
                     </a>
                 </li>
                 <li>
-                    <a href="?file=04" class="blue_arrow2 ">
-                        <div style="padding-right: 0;">구매자<br>정보확인</div>
+                    <a href="?file=13" class="blue_arrow2_right">
+                        <div style="line-height: 33px;margin-left: 32px;">결제하기</div>
+                    </a>
+                    <a href="?file=14" class="blue_arrow2_right2">
+                        <div style="line-height: 33px;margin-left: 28px;">구매결정/결제하기</div>
                     </a>
                 </li>
                 <li>
-                    <a href="?file=05" class="blue_arrow3 green_arrow">
-                        <div style="padding-right: 0;">물품전달 및<br>인계확인</div>
+                    <a href="?file=15" class="blue_arrow2">
+                        <div style="padding-right: 0;">판매자<br>정보확인</div>
                     </a>
                 </li>
                 <li>
-                    <a href="?file=06" class="blue_arrow4">
-                        <div style="padding-right: 0; padding-left: 30px;">판매종료<br>물품확인</div>
+                    <a href="?file=16" class="blue_arrow3">
+                        <div style="padding-right: 0;">물품받기 및<br>인수확인</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="?file=17" class="blue_arrow4">
+                        <div style="padding-right: 0; padding-left: 30px;">구매종료<br>물품확인</div>
                     </a>
                 </li>
             </ul>
             <div class="g_finish"></div>
-            <div class="g_subtitle_blue">물품전달 및 인계확인</div>
+            <div class="g_subtitle_blue">구매할 물품등록</div>
             <div class="guide_subtitle">
-                <span class="f_red1 f_bold">하나. </span>구매자와 연락을 하시면서 게임상에서 물품을 구매자에게 전달합니다.
+                <span class="f_red1 f_bold">하나. </span> 메인 상단의 "구매등록" 메뉴를 클릭합니다.
             </div>
-            <img src="/mania/img/guide/screenshot/img_hand_01.png" width="820" height="227" alt="">
-            <dl class="notice">
-                <dt>[주의사항]</dt>
-                <dd>
-                    게임상에서 물품을 건네 주실 때 채팅이나 귓말은 삼가 하시기 바랍니다.<br>
-                    (특정 게임의 경우 귓말 등의 채팅 기록으로 현금거래로 인정되어 불이익을 받을 수 있습니다.
-                </dd>
-                <dd>
-                    물품 인계는 거래정보의 판매자 캐릭터명으로 진행합니다.<br>
-                    물품을 받을 구매자의 캐릭터명이 거래정보에 기재되어 있는 캐릭터명과 동일한지 다시 한번 확인 하시기 바랍니다.
-                </dd>
-            </dl>
+            <img src="/mania/img/guide/screenshot/img_buyreg_01.png" width="820" alt="">
             <div class="g_finish"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 f_bold">둘. </span>구매자에게 거래물품을 건네주신 후 <b>[물품인계확인]</b> 버튼을 클릭합니다.
+                <span class="f_red1 f_bold">둘. </span>구매를 원하는 물품의 정보를 순서대로 입력하신 후 하단의 <b>[구매등록]</b> 버튼을 클릭 합니다.<br>
+                삽니다 등록 페이지의 <b>삽니다 등록 알아두기</b>를 먼저 꼼꼼히 읽어보세요.
             </div>
-            <img src="/mania/img/guide/screenshot/img_hand_02.gif" width="820" height="510" alt="">
+            <img src="/mania/img/guide/screenshot/img_buyreg_02.png" width="820" alt="">
             <div class="g_finish"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 f_bold">셋. </span>현금영수증 정보를 확인 후 [물품인계확인] 버튼을 클릭하세요.
-                <br>현금영수증 발급을 원하지 않으시면 [미발급] 을 선택해주시기 바랍니다.
+                <span class="f_red1 f_bold">셋. </span>구매 물품정보를 다시 확인 합니다.
             </div>
-            <img src="/mania/img/guide/screenshot/img_hand_03.gif" width="820" height="800" alt="">
+            <img src="/mania/img/guide/screenshot/img_buyreg_03.png" width="820"  alt="">
+            <br> <span class="guide_subtxt">* 등록한 물품은 </span><span class="f_bold">마이룸 > 판매관련 > 판매등록물품</span>에서 확인가능합니다.
             <div class="g_finish"></div>
             <div class="divi_line"></div>
             <a href="#top">
@@ -222,8 +211,7 @@
             </a>
             <div class="g_finish"></div>
             <div class="g_btn">
-                <a class="btn-arrow-left" href="{{route('guide_howto')}}?file=04" style="padding: 14px 50px; background: #07819C; color: white; font-size: 16px;">구매자 정보확인</a>
-                <a class="btn-arrow-right" href="{{route('guide_howto')}}?file=06" style="padding: 14px 50px; background: #07819C; color: white; font-size: 16px;">판매종료 물품확인</a>
+                <a class="btn-arrow-right" href="{{route('guide_howto2')}}?file=13" style="padding: 14px 50px; background: #079c43; color: white; font-size: 16px;">결제하기</a>
             </div>
         </div>
         <div class="g_finish"></div>
