@@ -53,6 +53,12 @@ class VGuideController extends BaseController
                 return view('mania.guide.newuser.howto.file02');
             case '03':
                 return view('mania.guide.newuser.howto.file03');
+            case '04':
+                return view('mania.guide.newuser.howto.file04');
+            case '05':
+                return view('mania.guide.newuser.howto.file05');
+            case '06':
+                return view('mania.guide.newuser.howto.file06');
             default:
                 return view('mania.guide.newuser.howto');
         }
