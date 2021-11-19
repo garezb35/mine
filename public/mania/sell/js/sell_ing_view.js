@@ -220,7 +220,7 @@ function TraceCancel(process,tid)
     frm.append(INPUT);
 
     frm.find('input[name="process"]').val(process);
-    frm.attr('action', "sell_ing_ok.php?tid="+tid);
+    frm.attr('action', "/sell_ing_ok?tid="+tid);
     frm.submit();
 }
 /* ▲ 거래취소 */

@@ -58,4 +58,16 @@ function getmyService(){
         10=>array('alias'=>"메시지함",'href'=>'/myroom/message/')
     );
 }
+
+function getReasonList(){
+    return array(
+        1=>"상대방 연락 안됨",
+        2=>"이미 팔린 물품",
+        3=>"잘못 등록 또는 신청한 물품",
+        4=>"상대방이 직거래 유도",
+        5=>"상대방이 타사이트 거래 유도",
+        6=>"상대방이 가격 흥정 요청",
+        7=>"기타 사유"
+    );
+}
 ?>

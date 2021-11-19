@@ -7,6 +7,7 @@ use App\Models\MGift;
 use App\Models\MItem;
 use App\Models\MMygame;
 use App\Models\MOrderNotification;
+use App\Models\MPayhistory;
 use App\Models\MPayitem;
 use App\Models\MPopularCharacter;
 use App\Models\MRole;
@@ -172,7 +173,7 @@ class VBuyController extends BaseController
         $game = MItem::with('payitem')->where('orderNo',$id)->first();
         $buyer = $seller = "";
 
-        if(empty($game) || empty($game['payitem']) || $game['payitem']['status'] != 1  || empty($game['toId'])||
+        if(empty($game) || empty($game['payitem']) || $game['payitem']['status'] != 1  || empty($game['toId'] || str_contains($game['status'],2))||
             ($game['type'] == 'sell' && $this->user->id != $game['toId']) ||
             ($game['type'] == 'buy' && $this->user->id != $game['userId'])){
             echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
@@ -199,6 +200,21 @@ class VBuyController extends BaseController
         ]);
         User::where('id',$seller)->update([
             'mileage'=>DB::raw('mileage - '.$game['payitem']['price'])
+        ]);
+        MPayhistory::insert([
+             'price'=>$game['payitem']['price'],
+             'status'=>1,
+             'userId'=>$buyer,
+             'pay_type'=>21,
+             'orderNo'=>$id
+            ]);
+        MPayhistory::insert([
+            'price'=>$game['payitem']['price'],
+            'status'=>1,
+            'userId'=>$seller,
+            'pay_type'=>20,
+            'orderNo'=>$id,
+            'minus'=>1
         ]);
         MOrderNotification::updateOrCreate([
             'userId'=>$this->user->id,

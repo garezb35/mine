@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MAdminCash;
 use App\Models\MBargainRequest;
+use App\Models\MCancelReason;
 use App\Models\MCashReceipt;
 use App\Models\MCharacterDocument;
 use App\Models\MChgame;
@@ -45,6 +46,10 @@ class ManiaController extends BaseController
         if($payItem['price'] >= $sell['roles']['until']){
             $admin_cash = $sell['roles']['fixed_price'];
             $user_cash = $payItem['price'] - $sell['roles']['fixed_price'];
+        }
+        elseif($payItem['price'] <= $sell['roles']['min_price']){
+            $admin_cash = 1000;
+            $user_cash = $payItem['price'] - 1000;
         }
         else{
             $admin_cash = $payItem['price'] * $sell['roles']['fee'] / 100;
@@ -2205,8 +2210,80 @@ class ManiaController extends BaseController
     }
 
     public function sell_ing_ok(Request $request){
+
         $buy_id = $sell_id = "";
-        if($request->mode == 'check'){
+
+        if($request->process == 'order_cancel'){
+            $item = MItem::with('payitem')->where('orderNo',$request->id)->first();
+            if(empty($item) || empty($item['payitem'])){
+                echo '<script>alert("잘못된 접근입니다.");window.history.go(-1);</script>';
+                return;
+            }
+            if($item['type'] == 'sell'){
+                $sell_id = $item['userId'];
+                $buy_id = $item['toId'];
+            }
+            if($item['type'] == 'buy'){
+                $sell_id = $item['toId'];
+                $buy_id = $item['userId'];
+            }
+
+            if($sell_id != $this->user->id){
+                echo '<script>alert("거래즉시취소는 판매자만 가능합니다.");window.history.go(-1);</script>';
+                return;
+            }
+//            if(empty($sell_price)){
+//                echo '<script>alert("잘못된 접근입니다.");window.history.go(-1);</script>';
+//                return;
+//            }
+            if($item['payitem']['status'] == 1){
+                MPremium::where('post_id',$item['id'])->delete();
+                MBargainRequest::where('orderNo',$item['id'])->delete();
+
+                User::where('id',$buy_id)->update(['mileage'=> DB::raw('mileage+'.$item['payitem']['price'])]);
+                User::where('id',$sell_id)->update(['mileage'=> DB::raw('mileage-'.$item['payitem']['price'])]);
+                MPayhistory::insert([
+                    'orderNo'=>$request->id,
+                    'pay_type'=>20,
+                    'price'=>$item['payitem']['price'],
+                    'status'=>1,
+                    'userId'=>$sell_id,
+                    'minus'=>1
+                ]);
+                MPayhistory::insert([
+                    'orderNo'=>$request->id,
+                    'pay_type'=>21,
+                    'price'=>$item['payitem']['price'],
+                    'status'=>1,
+                    'userId'=>$buy_id,
+                    'minus'=>1
+                ]);
+            }
+            MItem::where('orderNo',$request->id)->update(["status"=>-1]);
+            MCancelReason::insert([
+                'orderNo'=>$request->id,
+                'reason'=>$request->cancel_contents,
+                'content'=>$request->CANCEL_DETAIL_CONTENT,
+                'userId'=>$sell_id
+            ]);
+            MInbox::insert([
+                'orderId'=>$request->id,
+                'type'=>'거래',
+                'title'=>'고객님께서 판매중이신 #'.$request->id.' 물품이 거래취소되었습니다.',
+                'content'=>getReasonList()[$request->cancel_contents],
+                'userId'=>$sell_id
+            ]);
+            MInbox::insert([
+                'orderId'=>$request->id,
+                'type'=>'거래',
+                'title'=>'고객님께서 구매중이신 #'.$request->id.' 물품이 거래취소되었습니다.',
+                'content'=>getReasonList()[$request->cancel_contents]." ".$request->CANCEL_DETAIL_CONTENT,
+                'userId'=>$buy_id
+            ]);
+            echo '<script>alert("거래취소되었습니다.거래취소내역에서 확인해주세요");location.href="/";</script>';
+            return;
+        }
+        elseif($request->mode == 'check'){
             MCashReceipt::updateOrCreate([
                 'userId'=>$this->user->id,
                 'orderNo'=>$request->id,
@@ -2419,12 +2496,14 @@ class ManiaController extends BaseController
         }
         $price = "";
         $gamemoney_unit = empty($game['gamemoney_unit']) || $game['gamemoney_unit'] == 1 ? $game['gamemoney_unit'] : '';
+        $gamemoney_unit = $gamemoney_unit == 1 || $gamemoney_unit == '1' ? "": $gamemoney_unit;
+
         $trade_kind_txt = $game['good_type'];
         $price = $game['user_price'];
-        if(!empty($gamemoney_unit) || $game['user_quantity'] > 1)
-            $price = number_format($game['user_quantity']).$gamemoney_unit.'개당'.' '.$game['user_price'];
+        if(!empty($gamemoney_unit)|| $game['user_quantity'] > 1 )
+            $price = $game['user_quantity'].$gamemoney_unit.'개당'.' '.$game['user_price'];
         if($game['user_goods_type'] == 'division'){
-            $price = number_format($game['user_division_unit']).$gamemoney_unit.'개당'.' '.$game['user_division_price'];
+            $price = $game['user_division_unit'].$gamemoney_unit.'개당'.' '.$game['user_division_price'];
         }
         $credit_name_en = $game['user']['roles']['name'];
         $credit_name  = $game['user']['roles']['alias'];
