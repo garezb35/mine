@@ -2816,3 +2816,8 @@ table.noborder tr td,.noborder{
     background-color: #007bff;
     border-color: #007bff;
 }
+
+.admin_point_table tr td{
+    border: 1px solid #89C1CE;
+}
+

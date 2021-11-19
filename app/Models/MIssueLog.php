@@ -5,12 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MRole extends Model
+class MIssueLog extends Model
 {
     use HasFactory;
+    protected $table = 'm_issue_log';
     protected $guarded = [];
-    protected $table = 'm_role';
-    public function rolegift(){
-        return $this->hasMany(MRoleGift::class,'role_id','id');
-    }
 }

@@ -13,6 +13,7 @@ use App\Models\MRole;
 use App\Models\MRoleGift;
 use App\Models\MTitle;
 use App\Models\MUserbank;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -1624,6 +1625,94 @@ class VMyRoomController extends BaseController
     }
 
     public function credit_rating(Request $request){
-        return view('mania.myroom.credit_rating');
+        $user = User::with('roles')->where('id',$this->user->id)->first();
+        $gift = MGift::where('userId',$this->user->id)->sum('time');
+        $roles = MRole::with('rolegift')->orderBy('level','ASC')->get();
+
+        $sell_list = $buy_list = array();
+        $sell_list['up'] = $sell_list['down'] = $buy_list['up'] = $buy_list['down'] = array();
+        $selectYear = date("Y");
+        $game_sell = MPayhistory::
+        selectRaw('count(id) as sum_count, sum(price) as price,updated_at,pay_type,month(updated_at) as month')->
+        whereHas('complete_orders',function($query){
+            $query->where(function($query1){
+                $query1->where(function($query3){
+                    $query3->where(function($query4){
+                        $query4->where('type','sell');
+                        $query4->where('userId',$this->user->id);
+                    });
+                    $query3->orWhere(function($query5){
+                        $query5->where('type','buy');
+                        $query5->where('toId',$this->user->id);
+                    });
+                });
+            });
+            $query->where(function($query2){
+                $query2->where('status',23);
+                $query2->orWhere('status',32);
+            });
+        })->
+        where('status',1)->
+        whereYear('updated_at','=',$selectYear)->
+        groupBy(array(DB::raw('MONTH(updated_at)'),DB::raw('pay_type')))->get()->toArray();
+
+        $game_buy = MPayhistory::
+        selectRaw('count(id) as sum_count, sum(price) as price,updated_at,pay_type,month(updated_at) as month')->
+        whereHas('complete_orders',function($query){
+            $query->where(function($query1){
+                $query1->where(function($query3){
+                    $query3->where(function($query4){
+                        $query4->where('type','sell');
+                        $query4->where('toId',$this->user->id);
+                    });
+                    $query3->orWhere(function($query5){
+                        $query5->where('type','buy');
+                        $query5->where('userId',$this->user->id);
+                    });
+                });
+            });
+            $query->where(function($query2){
+                $query2->where('status',23);
+                $query2->orWhere('status',32);
+            });
+        })->
+
+        where('status',1)->
+        whereYear('updated_at','=',$selectYear)->
+        groupBy(array(DB::raw('MONTH(updated_at)'),DB::raw('pay_type')))->get()->toArray();
+        $sell_all = $buy_all = array(0,0);
+        if(!empty($game_sell)){
+            foreach($game_sell as $v){
+                $temp = array();
+                if(empty($sell_list[$v['month'].'m'])){
+                    $sell_list[$v['month'].'m'] = array();
+                }
+
+                if($v['pay_type'] == 2){
+                    $sell_all[0] += $v['sum_count'];
+                    $sell_all[1] += $v['price'];
+                    $sell_list[$v['month'].'m']['order'] = $v['price'];
+                    $sell_list[$v['month'].'m']['count'] = $v['sum_count'];
+                }
+            }
+        }
+
+        if(!empty($game_buy)){
+            foreach($game_buy as $v){
+                if(empty($buy_list[$v['month'].'m'])){
+                    $buy_list[$v['month'].'m'] = array();
+                }
+
+                if($v['pay_type'] == 6){
+                    $buy_all[0] += $v['sum_count'];
+                    $buy_all[1] += $v['price'];
+                    $buy_list[$v['month'].'m']['order'] = $v['price'];
+                    $buy_list[$v['month'].'m']['count'] = $v['sum_count'];
+                }
+            }
+        }
+
+
+        return view('mania.myroom.credit_rating',['user'=>$user,'gift'=>$gift,'roles'=>$roles,'sell_list'=>$sell_list,'buy_list'=>$buy_list,'buy_all'=>$buy_all,'sell_all'=>$sell_all]);
     }
 }
