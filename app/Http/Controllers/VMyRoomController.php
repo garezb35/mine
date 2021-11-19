@@ -1243,12 +1243,27 @@ class VMyRoomController extends BaseController
     }
 
     /***************** Resion 마일리지 ****************/
+    /***************** Resion 마일리지 ****************/
     /**
-     * 마이룸 > 마일리지 > 내 마일리지 > 마이리지 현황
+     * 마이룸 > 마일리지 > 내 마일리지 > 마이리지 충전탭
      */
-    public function my_mileage_index()
+    public function my_mileage_index_c()
     {
-        return view('mania.myroom.mileage.my_mileage.index');
+        return view('mania.myroom.mileage.my_mileage.index', ['userDetail'=>$this->user, 'type'=>'charge']);
+    }
+    /**
+     * 마이룸 > 마일리지 > 내 마일리지 > 마이리지 환전탭
+     */
+    public function my_mileage_index_e()
+    {
+        return view('mania.myroom.mileage.my_mileage.index', ['userDetail'=>$this->user, 'type'=>'exchange']);
+    }
+    /**
+     * 마이룸 > 마일리지 > 내 마일리지 > 아일리지 상세 팝업
+     */
+    public function popup_mile_detail()
+    {
+        return view('mania.myroom.mileage.my_mileage.popup.mile_detail');
     }
     /**
      * * 마이룸 > 마일리지 > 내 마일리지 > 마일리지 달력보기
@@ -1258,33 +1273,98 @@ class VMyRoomController extends BaseController
         return view('mania.myroom.mileage.my_mileage.calendar');
     }
     /**
-     * * 마이룸 > 마일리지 > 내 마일리지 > 마일리지 달력보기
+     * * 마이룸 > 마일리지 > 내 마일리지 > 마일리지 리스트
      */
-    public function my_mileage_detail_list()
+    public function my_mileage_detail_list(Request $request)
     {
-        return view('mania.myroom.mileage.my_mileage.detail_list');
+        $formData = array(
+            "date_start" => date("Y-m-d"),
+            "date_end" => date("Y-m-d"),
+            "search_type" => 0,
+            "payRecord" => array()
+        );
+
+        if (isset($request->date_start))
+            $formData['date_start'] = $request->date_start;
+        if (isset($request->date_end))
+            $formData['date_end'] = $request->date_end;
+        if (isset($request->search_select))
+            $formData['search_type'] = $request->search_select;
+
+        $payRecord = array();
+        if ($formData['search_type'] == 0) {
+            $payRecord = MMileage::whereDate("createdByDtm", '>=', $formData['date_start'])
+                ->whereDate("createdByDtm", '<=', $formData['date_end'])
+                ->get()->toArray();
+        }
+        else {
+            $payRecord = MMileage::whereDate("createdByDtm", '>=', $formData['date_start'])
+                ->whereDate("createdByDtm", '<=', $formData['date_end'])
+                ->where("type", ($formData['search_type'] - 1))
+                ->get()->toArray();
+        }
+        $formData["payRecord"] = $payRecord;
+
+        return view('mania.myroom.mileage.my_mileage.detail_list', $formData);
     }
     /**
      * 마이룸 > 마일리지 > 마일리지 충전
      */
-    public function mileage_guide_charge()
+    public function mileage_payment_charge()
     {
-        return view('mania.myroom.mileage.guide.charge');
+        $pageData['userDetail'] = $this->user;
+        $pageData['snzProc'] = "충전";
+        return view('mania.myroom.mileage.charge.index_account_iframe', $pageData);
+    }
+    /**
+     * 마일리지 충전 처리
+     */
+    public function mileage_payment_charge_proc(Request $request)
+    {
+        MMileage::Insert([
+            'userId' => $this->user->id,
+            'money' => $request->price,
+            'type' => 0,
+            'keep_money' => $this->user->mileage,
+            'memo' => '마일리지 충전',
+            'status' => 0
+        ]);
+
+        echo "success";
     }
     /**
      * 마이룸 > 마일리지 > 마일리지 출금
      */
-    public function payment_index()
+    public function mileage_payment_exchange()
     {
-        return view('mania.myroom.mileage.payment.index');
+        $pageData['userDetail'] = $this->user;
+        $pageData['snzProc'] = "출금";
+        return view('mania.myroom.mileage.charge.index_account_iframe', $pageData);
     }
     /**
-     * 마이룸 > 마일리지 > 마일리지  > 휴대폰번호 출금
+     * 마일리지 충전 처리
      */
-    public function payment_phone()
+    public function mileage_payment_exchange_proc(Request $request)
     {
-        return view('mania.myroom.mileage.payment.payment_phone');
+        $price = $request->price;
+
+        if ($price <= $this->user->mileage) {
+            MMileage::Insert([
+                'userId' => $this->user->id,
+                'money' => $price,
+                'type' => 1,
+                'keep_money' => $this->user->mileage,
+                'memo' => '마일리지 출금',
+                'status' => 0
+            ]);
+
+            User::where("id", $this->user->id)->update(['mileage'=> DB::raw('mileage - '.$price)]);
+            echo "success";
+            return;
+        }
+        echo "fail";
     }
+
     /**
      * 마이룸 > 마일리지 > 마일리지  > 마일리지 출금내역 보기
      */
@@ -1292,13 +1372,7 @@ class VMyRoomController extends BaseController
     {
         return view('mania.myroom.mileage.payment.payment_list');
     }
-    /**
-     * 마이룸 > 마일리지 > 마일리지  > 휴대폰번호 출금내역 보기
-     */
-    public function payment_phone_list()
-    {
-        return view('mania.myroom.mileage.payment.payment_phone_list');
-    }
+
     /**
      * 마이룸 > 마일리지 > 마일리지  > 마일리지 전환
      */
