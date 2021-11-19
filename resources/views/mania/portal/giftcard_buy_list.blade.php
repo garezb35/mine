@@ -38,10 +38,10 @@
             <table class="g_blue_table tb_list">
                 <tbody>
                 <tr>
-                    <th class="first">번호</th>
-                    <th>상품권번호</th>
+                    <th class="first">순번</th>
+                    <th>핀번호</th>
                     <th>금액</th>
-                    <th>구매일</th>
+                    <th>구매시간</th>
                 </tr>
                 @foreach($list as $key=>$v)
                 <tr>
