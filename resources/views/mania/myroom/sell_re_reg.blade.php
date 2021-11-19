@@ -45,6 +45,8 @@
             e_select.goods = "{{$user_goods}}";
             e_select.sale = "{{$user_goods_type}}";
         }
+        e_select.goods = "{{$user_goods}}";
+        e_select.sale = "{{$user_goods_type}}";
         e_use.premium = {{$premium}};
         e_use.highlight = {{$highlight}} / 12;
         e_use.quickIcon = {{$quickicon}};

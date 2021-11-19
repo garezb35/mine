@@ -289,18 +289,14 @@
     float: left;
     margin-right: 15px;
     cursor: pointer;
-    border: 1px  solid #545454;
-    width: 99px;
-    height: 27px;
-    line-height: 27px;
-    text-align: center;
-    font-size: 14px;
-    color: #000;
 }
 
 .opt_list>.active {
     color: #00B2FF;
     border-color: #00B2FF;
+}
+.opt_list>.active:before {
+    background: url(//img2.itemmania.com/new_images/sell/sp_list.png?190227) no-repeat -194px -104px;
 }
 
 .opt_list>li:before {

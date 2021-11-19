@@ -41,11 +41,11 @@ if(!empty($cuser['home'])){
     <script type="text/javascript" src="/mania/myroom/buy/js/buy_re_reg.js"></script>
     <script type="text/javascript">
         var useMileage = '{{$cuser['mileage']}}';
+        e_select.goods = "{{$user_goods}}";
+        e_select.sale = "{{$user_goods_type}}";
         function __init() {
             e_select.goods = "{{$user_goods}}";
             e_select.sale = "{{$user_goods_type}}";
-            e_use.highlight=0;
-
         }
         e_use.premium = {{$premium}};
         e_use.highlight = {{$highlight}} / 12;

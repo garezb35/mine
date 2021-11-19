@@ -443,7 +443,7 @@ if(sizeof($split_number) == 3){
                 @if(!str_contains($status,2) && !str_contains($status,5) && !str_contains($status,6))
                 <a href="javascript:void(0)" id="trade_btn" class="btn-default btn-suc">물품인수확인</a>
                 @endif
-                @if(!str_contains($status, 2))
+                @if($status == 0)
                 <a href="/buy/trade_cancel?id={{$orderNo}}" class="btn-default btn-cancel">
                     거래취소
                 </a>

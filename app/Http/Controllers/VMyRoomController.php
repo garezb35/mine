@@ -206,7 +206,7 @@ class VMyRoomController extends BaseController
         $search_type = empty($request->search_type)? '': $request->search_type;
         $search_month = empty($request->search_month)? date("Y"): $request->search_month;
         $from = date('Y-m-d', strtotime('-1 week', strtotime('now')));
-        $to = date('Y-m-d');
+        $to = date('Y-m-d',strtotime('+1 day', strtotime('now')));
         $data = array();
         $game = MItem::
         with('game','server','payitem')->
@@ -286,7 +286,7 @@ class VMyRoomController extends BaseController
         $search_type = empty($request->search_type)? '': $request->search_type;
         $search_month = empty($request->search_month)? date("Y"): $request->search_month;
         $from = date('Y-m-d', strtotime('-1 week', strtotime('now')));
-        $to = date('Y-m-d');
+        $to = date('Y-m-d',strtotime('+1 day', strtotime('now')));
         $data = array();
         $game = MItem::
         with('game','server','payitem')->
@@ -305,7 +305,7 @@ class VMyRoomController extends BaseController
                 });
             }
             else{
-                $query->orWhere(function($query1){
+                $query->where(function($query1){
                     $query1->where('type','buy');
                     $query1->where('userId',$this->user->id);
                 });

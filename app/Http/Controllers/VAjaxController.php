@@ -336,7 +336,7 @@ class VAjaxController extends BaseController
                 $temp_object->trade_kind = '6';
             }
             if($value['user_quantity'] > 1 || !empty($unit)){
-                $temp_object->trade_money = number_format($value['user_quantity']).'당 '.number_format($value['user_price']);
+                $temp_object->trade_money = number_format($value['user_quantity']).$unit.'당 '.number_format($value['user_price']);
                 $temp_object->ea_range = number_format($value['user_quantity']).$unit;
             }
             else{
@@ -362,7 +362,8 @@ class VAjaxController extends BaseController
             }
 
             $temp_object->trade_state = 'a';
-
+            $gamemoney_unit = empty($value['gamemoney_unit']) || $value['gamemoney_unit'] == 1 ? $value['gamemoney_unit'] : '';
+            $gamemoney_unit = $gamemoney_unit == 1 || $gamemoney_unit == '1' ? "": $gamemoney_unit;
             if($value['status'] == 23 || $value['status'] == 32){
                 $temp_object->trade_state = 'p';
             }
@@ -376,6 +377,12 @@ class VAjaxController extends BaseController
             else
                 $temp_object->trade_show_time = 'N';
             $temp_object->ea_trade_money = number_format($value['user_price']).'원';
+            if($value['user_quantity'] > 1 || !empty($unit)){
+                $temp_object->ea_trade_money = number_format($value['user_quantity']).$unit.'당 '.number_format($value['user_price']).'원';
+            }
+            else{
+                $temp_object->ea_trade_money = number_format($value['user_price']).'원';
+            }
             if($value['user_division_unit'] > 0 && $value['user_division_price'] > 0){
                 $temp_object->ea_trade_money = number_format($value['user_division_unit']).$unit.'당 '.number_format($value['user_division_price']);
                 $temp_object->min_trade_money ='최소 '.number_format((int)$value['user_quantity_min'] / $value['user_division_unit'] * $value['user_division_price']);
@@ -461,7 +468,7 @@ class VAjaxController extends BaseController
         if(!empty($inbox)){
             MInbox::where('id',$message_id)->update(['readed'=>1]);
             $price = "";
-            $price = !empty($inbox['payitem']) ? number_format($inbox['payitem']['price']) : '';
+            $price = !empty($inbox['payitem']) ? $inbox['payitem']['price'] : '';
             echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>
 <message id=\"{$inbox['id']}\" result=\"true\"><trade_id>{$inbox['orderId']}</trade_id><price>{$price}</price><type>{$inbox['type']}</type><state>2</state><date>{$request->message_date}</date><subject>{$inbox['title']}</subject><content>{$inbox['content']}</content></message>";
         return;

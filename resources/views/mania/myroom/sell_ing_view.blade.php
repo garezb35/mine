@@ -59,6 +59,7 @@
             <div class="g_gray_border"></div>
             <!-- ▲ 타이틀 //-->
             <form id="frmIngView" name="frmIngView" method="post">
+                @csrf
                 <input type="hidden" id="id" name="id" value="{{$orderNo}}">
                 <input type="hidden" id="process" name="process">
                 <input type="hidden" id="trade_type" name="trade_type" value="c2VsbA==">
@@ -308,7 +309,7 @@
                 @if(!str_contains($status, 3))
                     <a  class="first btn-default btn-suc" id="trade_btn" onclick="popLayer_2('dvTradeSellCheck');">물품인계확인</a>
                 @endif
-                @if($status == 0)
+                @if($status != 23 && $status != 32 )
                         <a   id="cancel_btn" onclick="popLayer('trade_cancel');" class="btn-default btn-cancel">거래취소</a>
                 @endif
             </div>
@@ -418,49 +419,60 @@
         <!-- ▲ 물품 인계 확인 //-->
         <!-- ▼ 거래 취소시 //-->
         <div id="trade_cancel" class="g_popup">
-            <div class="layer_title">
-                <img src="http://img3.itemmania.com/images/myroom/title/titles_deal_cancel.gif" width="72" height="19" alt="거래 취소">
-                <img class="btn_close" src="http://img4.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();">
-            </div>
-            <div class="layer_content">
-                <div class="gray_box">판매자의 거래 취소는 즉시 취소가 됩니다.</div>
-                <div class="g_finish"></div>
-                <table class="g_gray_table">
-                    <colgroup>
-                        <col width="160">
-                        <col width="350">
-                    </colgroup>
-                    <tbody>
-                    <tr>
-                        <th>거래번호</th>
-                        <td>#{{$orderNo}}&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <th>취소사유</th>
-                        <td>
-                            <div class="g_selectbox" id="SELECT_CANCEL" style="width: 180px;">
-                                <input type="hidden" name="cancel_contents" value="">
-                                <div class="value">선택해 주세요</div>
-                                <div class="arrow_img"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr id="cancelDetail" style="display:none;">
-                        <th>사유내용</th>
-                        <td>
-                            <textarea name="CANCEL_DETAIL_CONTENT" id="CANCEL_DETAIL_CONTENT" cols="42" rows="5" class="g_textarea"></textarea>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <ul class="g_list">
-                    <li>흥정거래 프리미엄 등록 물품은 거래 취소 시 등록된 물품이 삭제 처리됩니다.</li>
-                </ul>
-                <div class="g_btn">
-                    <img src="http://img2.itemmania.com/images/btn/btn_deal_cancel.gif" width="90" height="34" alt="거래취소" class="first" onclick="TraceCancel('Y2FuY2Vs','2021102508444942');">
-                    <img src="http://img3.itemmania.com/images/btn/btn_closed.gif" width="63" height="34" alt="닫기" onclick="g_nodeSleep.disable();">
+            <form id="frmIngViewCancel" name="frmIngViewCancel" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="2021111401457996">
+                <input type="hidden" name="process">
+                <input type="hidden" name="trade_type" value="c2VsbA==">
+                <input type="hidden" name="trade_rereg">
+                <div class="layer_title">
+                    <img src="http://img3.itemmania.com/images/myroom/title/titles_deal_cancel.gif" width="72" height="19" alt="거래 취소">
+                    <img class="btn_close" src="http://img4.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();">
                 </div>
-            </div>
+                <div class="layer_content">
+                    <div class="gray_box">판매자의 거래 취소는 즉시 취소가 됩니다.</div>
+                    <div class="g_finish"></div>
+                    <table class="g_blue_table table-striped">
+                        <colgroup>
+                            <col width="160">
+                            <col width="350">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>거래번호</th>
+                            <td>#{{$orderNo}}&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th>취소사유</th>
+                            <td>
+                                <select id="SELECT_CANCEL" name="cancel_contents" class="g_hidden" onchange="cancel_select(arguments[0])">
+                                    <option value="">선택해 주세요</option>
+                                    <option value="1">상대방 연락 안됨</option>
+                                    <option value="2">이미 팔린 물품</option>
+                                    <option value="3">잘못 등록 또는 신청한 물품</option>
+                                    <option value="4">상대방이 직거래 유도</option>
+                                    <option value="5">상대방이 타사이트 거래 유도</option>
+                                    <option value="6">상대방이 가격 흥정 요청</option>
+                                    <option value="7">기타 사유</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr id="cancelDetail" style="display:none;">
+                            <th>사유내용</th>
+                            <td>
+                                <textarea name="CANCEL_DETAIL_CONTENT" id="CANCEL_DETAIL_CONTENT" cols="42" rows="5" class="g_textarea"></textarea>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <ul class="g_list">
+                        <li>흥정거래 프리미엄 등록 물품은 거래 취소 시 등록된 물품이 삭제 처리됩니다.</li>
+                    </ul>
+                    <div class="g_btn">
+                        <a  href="javascript:void(0)" alt="거래취소" class="btn-default btn-suc" onclick="TraceCancel('order_cancel','{{$orderNo}}');">거래취소</a>
+                        <a  href="javascript:void(0)" class="btn-default btn-cancel" onclick="g_nodeSleep.disable();">닫기</a>
+                    </div>
+                </div>
+            </form>
         </div>
         <!-- ▲ 거래 취소시 //-->
         <div id="trade_reserve" class="g_popup">
