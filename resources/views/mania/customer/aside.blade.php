@@ -41,7 +41,7 @@
 
 <div class="aside">
     <div class="nav_subject">
-        <a href="{{route("customer")}}" class="">
+        <a href="{{route("main_customer")}}" class="">
             <p class="f-18 m-0 align-center c-black">고객센터</p>
             <div class="m-auto align-center" style="margin-top: 10px;">
                 <img src="/assets/img/icons/icon_customer.png" />
@@ -49,7 +49,7 @@
         </a>
     </div>
     <div class="nav">
-        <div class="nav_title {{$group == "faq" ? "on_active" : ""}}"><a href="{{route("customer")}}">FAQ</a></div>
+        <div class="nav_title {{$group == "faq" ? "on_active" : ""}}"><a href="{{route("main_customer")}}">FAQ</a></div>
         <div class="nav_title {{$group == "report" ? "on_active" : ""}}"><a href="{{route('customer_report')}}">1:1 이용문의</a></div>
         <ul class="nav_sub g_list">
             <li class="">

@@ -19,23 +19,27 @@
         text-align: center;
     }
     .aside .nav_subject {
-        /*background: #3AB7D3;*/
+        background: white;
+        /*border: solid 1px #3AB7D3;*/
+    }
+    .aside {
+        border: solid 1px #3AB7D3;
     }
 </style>
 <div class="aside">
     <div class="nav_subject">
-        <a href="{{route("guide")}}" class="">
-            <p class="f-18 m-0  align-center">이용안내</p>
+        <a href="{{route("guide")}}" class="m-0">
+            <p class="f-18 m-0 c-black align-center" style="padding-top: 10px;">이용안내</p>
             <div class="m-auto align-center" style="margin-top: 10px;">
-                <img src="/assets/img/icons/icon_customer.png" />
+                <img src="/mania/img/icons/guide2.png" />
             </div>
         </a>
     </div>
     {{--    <div class="nav_subject"><a href="/guide/" class="guide">이용안내</a></div>--}}
     <div class="nav">
-        <div class=" nav_title"><a href="#">이용안내</a></div>
-        <div class=" nav_title"><a href="#">초보자 가이드</a></div>
-        <div class=" nav_title"><a href="#">공지사항</a></div>
+        <div class="@if($group == 'guide') on_active @endif nav_title"><a href="#">이용안내</a></div>
+        <div class="@if($group == 'new_guide') on_active @endif nav_title"><a href="#">초보자 가이드</a></div>
+        <div class="@if($group == 'notices') on_active @endif nav_title"><a href="#">공지사항</a></div>
     </div>
     <!-- ▼ 배너 //-->
 {{--    <div class="img_wrap">--}}

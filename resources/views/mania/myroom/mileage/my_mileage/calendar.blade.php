@@ -1,7 +1,7 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/_css/_comm.min.css?v=210317">
+    <link type="text/css" rel="stylesheet" href="/mania/_css/_comm.css?v=210317">
     <link type="text/css" rel="stylesheet" href="/mania/_head_tail/css/_head_comm.css?v=211007">
     <link type="text/css" rel="stylesheet" href="/mania/_banner/css/banner_module.css?v=210422">
     <link type="text/css" rel="stylesheet" href="/mania/myroom/mileage/my_mileage/css/calendar.css?190220">
@@ -10,6 +10,10 @@
 @endsection
 
 @section('foot_attach')
+    <script type="text/javascript" src="/mania/_js/_jquery3.js?v=190220"></script>
+    <script type="text/javascript" src="/mania/_js/_comm.js?v=21100516"></script>
+    <script type="text/javascript" src="/mania/_js/_gs_control_200924.js?v=21101416"></script>
+    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js?v=21050316"></script>
     <script type="text/javascript" src="/mania/myroom/mileage/my_mileage/js/calendar.js?190220"></script>
     <script type='text/javascript'>
         var t_SearchScope = {
@@ -24,23 +28,47 @@
 @section('content')
 <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
 <div class="g_container" id="g_CONTENT">
-    @include('mania.myroom.aside', ['group'=>'mileage', 'part'=>'my_mileage'])
+    <style>
+        .g_title_blue {
+            margin-left: 20px;
+        }
+        .g_tab>* {
+            background-color: #e3f0f3;
+            border-bottom: 2px solid #0081b9;
+        }
+        .g_tab>.selected {
+            border: 2px solid #0081b9;
+            border-bottom: 0;
+        }
+        .g_tab>*>a {
+            font-size: 14px;
+        }
+        .tb_list th {
+            font-size: 14px;
+        }
+        .tb_list td {
+            font-size: 13px;
+        }
+        .g_blue_table tr th {
+            background-color: #e3f0f3;
+        }
+        .g_blue_table,
+        .g_blue_table tr th,
+        .g_blue_table tr td {
+            border: solid 1px #89c1ce;
+        }
+    </style>
+    @include('aside.myroom',['group'=>'mileage'])
     <div class="g_content">
         <!-- ▼ 타이틀 //-->
-        <div class="g_title_blue"> 내 마일리지
-            <ul class="g_path">
-                <li>홈</li>
-                <li>마이룸</li>
-                <li>마일리지</li>
-                <li class="select">내 마일리지</li>
-            </ul>
-        </div>
+        <div class="g_title_blue no-border"> 내 마일리지</div>
         <!-- ▲ 타이틀 //-->
         <!-- ▼ 메뉴탭 //-->
-        <div class="g_tab">
-            <div class=""><a href="/myroom/mileage/my_mileage/index.html">마일리지 현황</a></div>
-            <div class="selected"><a href="/myroom/mileage/my_mileage/calendar.html">마일리지 달력보기</a></div>
-            <div class=""><a href="/myroom/mileage/my_mileage/detail_list.html">상세내역보기</a></div>
+        <div class="g_tab f-14">
+            <div class=""><a href="{{route('my_mileage_index_c')}}">마일리지 충전</a></div>
+            <div class=""><a href="{{route('my_mileage_index_e')}}">마일리지 출금</a></div>
+            <div class="selected"><a href="{{route('my_mileage_calendar')}}">마일리지 달력보기</a></div>
+            <div class=""><a href="{{route('my_mileage_detail_list')}}">상세내역보기</a></div>
         </div>
         <!-- ▲ 메뉴탭 //-->
         <!-- ▼ 년도 //-->
