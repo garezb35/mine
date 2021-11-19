@@ -172,17 +172,17 @@
                     </a>
                 </li>
                 <li>
-                    <a href="?file=03" class="blue_arrow2">
+                    <a href="?file=04" class="blue_arrow2">
                         <div style="padding-right: 0;">구매자<br>정보확인</div>
                     </a>
                 </li>
                 <li>
-                    <a href="?file=03" class="blue_arrow3">
+                    <a href="?file=05" class="blue_arrow3">
                         <div style="padding-right: 0;">물품전달 및<br>인계확인</div>
                     </a>
                 </li>
                 <li>
-                    <a href="?file=03" class="blue_arrow4">
+                    <a href="?file=06" class="blue_arrow4">
                         <div style="padding-right: 0; padding-left: 30px;">판매종료<br>물품확인</div>
                     </a>
                 </li>
