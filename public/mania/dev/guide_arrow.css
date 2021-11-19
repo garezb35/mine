@@ -45,6 +45,7 @@
     background-image: url("../img/guide/green_arrow_right2.png");
     color: white;
 }
+.green_arrow2,
 .green_arrow,
 .blue_arrow1,
 .blue_arrow2,
@@ -87,4 +88,11 @@
 .green_arrow {
     background-image: url("../img/guide/green_arrow.png");
     color: white;
+}
+.green_arrow2 {
+    background-image: url("../img/guide/green_arrow_last.png");
+    color: white;
+}
+#guide_sell li, #guide_buy li {
+    width: 148px;
 }

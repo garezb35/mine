@@ -208,7 +208,7 @@
             </a>
             <div class="g_finish"></div>
             <div class="g_btn">
-                <a class="btn-arrow-right" href="/mania/img/guide/frshmn_guide/howto.html?file=03" style="padding: 14px 50px; background: #07819C; color: white; font-size: 16px;">판매물품 입금확인</a>
+                <a class="btn-arrow-right" href="{{route('guide_howto')}}?file=03" style="padding: 14px 50px; background: #07819C; color: white; font-size: 16px;">판매물품 입금확인</a>
             </div>
         </div>
         <div class="g_finish"></div>
