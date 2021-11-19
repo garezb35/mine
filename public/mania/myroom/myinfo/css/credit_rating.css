@@ -1,13 +1,15 @@
 .credit_info {
     padding: 25px 32px;
-    border: 3px solid #B4C4DE;
-    background-color: #F5F8FE;
+    border: 1px solid #89C1CE;
+    background-color: #fff;
+    width: 506px;
 }
 
 .credit_name {
     display: inline-block;
     margin-left: 13px;
     vertical-align: middle;
+    font-size: 15px;
 }
 
 .credit_name > div {
@@ -65,25 +67,36 @@
 
 .my_benefit {
     position: relative;
-    height: 363px;
-    background: url(//img4.itemmania.com/new_images/myroom/img_credit.jpg?190920) no-repeat;
+    height: 280px;
+    /*background: #F1F1F1;*/
 }
 
 .benefit_cnt {
     float: left;
-    margin: 165px 0 0 3px;
     font-size: 0;
 }
 
 .benefit_cnt li {
     display: inline-block;
-    width: 136px;
-    margin-left: 22px;
+    width: 158px;
+    margin-left: 7px;
     vertical-align: bottom;
     text-align: center;
     font-size: 13px;
     color: #6B6D7A;
     line-height: 20px;
+    height: 277px;
+    border : 1px solid #89C1CE;
+    background: #fff;
+    position: relative;
+}
+
+.benefit_cnt li:first-child{
+    margin-left: 0px;
+}
+
+.benefit_cnt li:last-child{
+    margin-right: 0px;
 }
 
 .benefit_cnt li > span {
@@ -96,288 +109,326 @@
     font-weight: bold;
 }
 
-.benefit_cnt li > div {
-    height: 41px;
+.benefit_cnt li > div{
+    text-align: center;
+    height: 100%;
+}
+
+.benefit_cnt li > div div{
+
     margin-top: 4px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     text-align: center;
-    color: #FFF;
-    line-height: 40px;
+    color: #000;
+    font-size: 13px;
+
 }
 
 .my_benefit .over {
-    box-sizing: border-box;
-    position: absolute;
-    top: 104px;
-    left: 24px;
-    width: 137px;
-    height: 187px;
-    border: 4px solid #2CA20E;
-    border-radius: 8px;
+box-sizing: border-box;
+position: absolute;
+top: 104px;
+left: 24px;
+width: 137px;
+height: 187px;
+border: 4px solid #2CA20E;
+border-radius: 8px;
 }
 
 .my_benefit .over:before {
-    content: "ë‚˜ì˜ í˜œíƒ";
-    position: absolute;
-    top: -16px;
-    left: 19px;
-    width: 93px;
-    height: 24px;
-    border-radius: 15px;
-    background-color: #2CA20E;
-    line-height: 22px;
-    color: #FFF;
-    text-align: center;
-    font-weight: bold;
+content: "ë‚˜ì˜ í˜œíƒ";
+position: absolute;
+top: -16px;
+left: 19px;
+width: 93px;
+height: 24px;
+border-radius: 15px;
+background-color: #2CA20E;
+line-height: 22px;
+color: #FFF;
+text-align: center;
+font-weight: bold;
 }
 
 .my_benefit .credit_btn {
-    position: absolute;
-    display: block;
-    top: 300px;
-    left: 25px;
-    width: 137px;
-    height: 36px;
-    background: url(//img4.itemmania.com/new_images/myroom/btn_begin.jpg) no-repeat;
-    text-indent: -9999px;
+position: absolute;
+display: block;
+top: 300px;
+left: 25px;
+width: 137px;
+height: 36px;
+background: url(//img4.itemmania.com/new_images/myroom/btn_begin.jpg) no-repeat;
+text-indent: -9999px;
 }
 
 .ssada_benefit {
-    position: relative;
-    height: 502px;
-    background: url(//img4.itemmania.com/new_images/myroom/img_credit_ssada.jpg?211006) no-repeat;
+position: relative;
+height: 502px;
+background: url(//img4.itemmania.com/new_images/myroom/img_credit_ssada.jpg?211006) no-repeat;
 }
 
 .ssada_benefit .btn_ssada {
-    display: block;
-    position: absolute;
-    top: 86px;
-    left: calc(50% - 81px);
+display: block;
+position: absolute;
+top: 86px;
+left: calc(50% - 81px);
 }
 
 .ssada_benefit .btn_ssada_gift {
-    display: block;
-    position: absolute;
-    top: 261px;
-    left: 148px;
+display: block;
+position: absolute;
+top: 261px;
+left: 148px;
 }
 
 .ssada_benefit .btn_ssada_down {
-    display: block;
-    position: absolute;
-    top: 261px;
-    left: 455px;
+display: block;
+position: absolute;
+top: 261px;
+left: 455px;
 }
 
 .ssada_benefit .ssada_info {
-    position: absolute;
-    top: 352px;
-    left: 90px;
-    width: 460px;
-    color: #636363;
+position: absolute;
+top: 352px;
+left: 90px;
+width: 460px;
+color: #636363;
 }
 
 .ssada_benefit .ssada_info p {
-    margin: 3px 0;
-    font-size: 14px;
-    font-weight: bold;
-    color: #159EFD;
+margin: 3px 0;
+font-size: 14px;
+font-weight: bold;
+color: #159EFD;
 }
 
 .ssada_benefit .ssada_info .ssada_infobox {
-    width: 100%;
+width: 100%;
 }
 
 .ssada_benefit .btn_blue4 {
-    display: inline-block;
-    margin-left: 5px;
-    padding: 2px 13px;
-    font-size: 12px;
-    font-weight: normal;
+display: inline-block;
+margin-left: 5px;
+padding: 2px 13px;
+font-size: 12px;
+font-weight: normal;
 }
 
 .basic .on > div {
-    background-color: #2CA20E;
+background-color: #2CA20E;
 }
 
 .silver .over {
-    top: 83px;
-    left: 182px;
-    height: 207px;
-    border-color: #9F9F9F;
+top: 83px;
+left: 182px;
+height: 207px;
+border-color: #9F9F9F;
 }
 
 .silver .over:before, .silver .on > div {
-    background-color: #9F9F9F;
+background-color: #9F9F9F;
 }
 
 .silver .credit_btn {
-    left: 182px;
-    background-image: url(//img4.itemmania.com/new_images/myroom/btn_silver.jpg);
+left: 182px;
+background-image: url(//img4.itemmania.com/new_images/myroom/btn_silver.jpg);
 }
 
 .gold .over {
-    top: 69px;
-    left: 341px;
-    height: 222px;
-    border-color: #FBA929;
+top: 69px;
+left: 341px;
+height: 222px;
+border-color: #FBA929;
 }
 
 .gold .over:before, .gold .on > div {
-    background-color: #FBA929;
+background-color: #FBA929;
 }
 
 .gold .credit_btn {
-    left: 341px;
-    background-image: url(//img4.itemmania.com/new_images/myroom/btn_gold.jpg);
+left: 341px;
+background-image: url(//img4.itemmania.com/new_images/myroom/btn_gold.jpg);
 }
 
 .platinum .over {
-    top: 54px;
-    left: 499px;
-    height: 237px;
-    border-color: #EC3868;
+top: 54px;
+left: 499px;
+height: 237px;
+border-color: #EC3868;
 }
 
 .platinum .over:before, .platinum .on > div {
-    background-color: #EC3868;
+background-color: #EC3868;
 }
 
 .platinum .credit_btn {
-    left: 499px;
-    background-image: url(//img4.itemmania.com/new_images/myroom/btn_platinum.jpg);
+left: 499px;
+background-image: url(//img4.itemmania.com/new_images/myroom/btn_platinum.jpg);
 }
 
 .vip .over {
-    top: 39px;
-    left: 657px;
-    height: 252px;
-    border-color: #785BDB;
+top: 39px;
+left: 657px;
+height: 252px;
+border-color: #785BDB;
 }
 
 .vip .over:before, .vip .on > div {
-    background-color: #785BDB;
+background-color: #785BDB;
 }
 
 .vip .credit_btn {
-    left: 657px;
-    background-image: url(//img4.itemmania.com/new_images/myroom/btn_vip.jpg);
+left: 657px;
+background-image: url(//img4.itemmania.com/new_images/myroom/btn_vip.jpg);
 }
 
 .add_info {
-    box-sizing: border-box;
-    height: 200px;
-    padding: 30px 0 0 46px;
-    background: url(//img4.itemmania.com/new_images/myroom/img_credit_bg.jpg) no-repeat;
-    font-size: 12px;
-    color: #636363;
+box-sizing: border-box;
+height: 200px;
+padding: 30px 0 0 46px;
+background: url(//img4.itemmania.com/new_images/myroom/img_credit_bg.jpg) no-repeat;
+font-size: 12px;
+color: #636363;
 }
 
 .add_info > ul {
-    overflow: hidden;
-    margin-bottom: 26px;
+overflow: hidden;
+margin-bottom: 26px;
 }
 
 .add_info > ul > li {
-    float: left;
-    margin-right: 14px;
+float: left;
+margin-right: 14px;
 }
 
 .add_info p {
-    margin: 3px 0;
-    font-size: 14px;
-    font-weight: bold;
-    color: #159EFD;
+margin: 3px 0;
+font-size: 14px;
+font-weight: bold;
+color: #159EFD;
 }
 
 .add_info .btn_blue4 {
-    display: inline-block;
-    margin-left: 5px;
-    padding: 2px 13px;
-    font-size: 12px;
-    font-weight: normal;
+display: inline-block;
+margin-left: 5px;
+padding: 2px 13px;
+font-size: 12px;
+font-weight: normal;
 }
 
 .add_info > ul > li > span {
-    display: inline-block;
-    width: 50px;
-    height: 45px;
-    margin-top: 3px;
+display: inline-block;
+width: 50px;
+height: 45px;
+margin-top: 3px;
 }
 
 .add_info > ul > li .icon_member {
-    background-position: -774px -314px;
+background-position: -774px -314px;
 }
 
 .add_info > ul > li .icon_sp {
-    background-position: -829px -314px;
+background-position: -829px -314px;
 }
 
 .user_class dt {
-    margin-top: 10px;
-    font-weight: bold;
+margin-top: 10px;
+font-weight: bold;
 }
 
 .cert_box {
-    padding: 15px 20px;
-    text-align: center;
-    white-space: nowrap;
+padding: 15px 20px;
+text-align: center;
+white-space: nowrap;
 }
 
 .cert_box > span {
-    position: relative;
-    box-sizing: border-box;
-    width: 113px;
-    margin: 0 5px;
-    cursor: pointer;
+position: relative;
+box-sizing: border-box;
+width: 113px;
+margin: 0 5px;
+cursor: pointer;
 }
 
 .cert_box > span:first-child, .cert_box > .on {
-    cursor: default;
+cursor: default;
 }
 
 .cert_box .certify {
-    z-index: 1;
-    position: absolute;
-    left: -50%;
-    display: none;
-    box-sizing: border-box;
-    width: max-content;
-    min-width: 207px;
-    margin-top: 5px;
-    padding: 7px;
-    border: 2px solid #606E89;
-    background-color: white;
-    font-size: 11px;
-    font-weight: normal;
-    text-align: center;
-    color: #1D1D1D;
+z-index: 1;
+position: absolute;
+left: -50%;
+display: none;
+box-sizing: border-box;
+width: max-content;
+min-width: 207px;
+margin-top: 5px;
+padding: 7px;
+border: 2px solid #606E89;
+background-color: white;
+font-size: 11px;
+font-weight: normal;
+text-align: center;
+color: #1D1D1D;
 }
 
 .admin_point {
-    overflow: hidden;
-    border: 1px solid #E1E1E1;
+overflow: hidden;
+border: 1px solid #E1E1E1;
 }
 
 .admin_point li {
-    box-sizing: border-box;
-    float: left;
-    width: 80%;
-    padding: 10px 15px;
+box-sizing: border-box;
+float: left;
+width: 80%;
+padding: 10px 15px;
 }
 
 .admin_point .gray_bg {
-    width: 20%;
-    padding: 12px 8px 12px 10px;
-    background-color: #F0F0F0;
-    text-align: center;
+width: 20%;
+padding: 12px 8px 12px 10px;
+background-color: #F0F0F0;
+text-align: center;
 }
 
 .g_content .tb_list .th2 {
-    background-color: #FAFAFA;
+background-color: #FAFAFA;
 }
 
 .g_content .tb_list td {
-    position: static;
+position: static;
+}
+
+.g_rating_table tr td{
+border: 1px solid #89C1CE;
+}
+
+.point_parts{
+background: #E3F0F3;
+font-size: 16px;
+}
+
+.last-part{
+    position: absolute;
+    bottom: 15px;
+    left: 57px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.sec_td {
+    background: #E3F0F3;
+}
+
+.cert_states{
+    border: 1px solid #87A5B6;
+    width: 91px;
+    height: 28px;
+    display: inline-block;
+    line-height: 28px;
+    text-align: center;
+    background: #fff;
+
 }

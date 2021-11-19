@@ -12,9 +12,8 @@ use App\Models\MPayitem;
 use App\Models\MRole;
 use App\Models\MRoleGift;
 use App\Models\MTitle;
-use App\Models\User;
-use App\Models\MMileage;
 use App\Models\MUserbank;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -1243,6 +1242,71 @@ class VMyRoomController extends BaseController
         return view('mania.myroom.buy_pay_wait_view', $game);
     }
 
+    /***************** Resion 마일리지 ****************/
+    /**
+     * 마이룸 > 마일리지 > 내 마일리지 > 마이리지 현황
+     */
+    public function my_mileage_index()
+    {
+        return view('mania.myroom.mileage.my_mileage.index');
+    }
+    /**
+     * * 마이룸 > 마일리지 > 내 마일리지 > 마일리지 달력보기
+     */
+    public function my_mileage_calendar()
+    {
+        return view('mania.myroom.mileage.my_mileage.calendar');
+    }
+    /**
+     * * 마이룸 > 마일리지 > 내 마일리지 > 마일리지 달력보기
+     */
+    public function my_mileage_detail_list()
+    {
+        return view('mania.myroom.mileage.my_mileage.detail_list');
+    }
+    /**
+     * 마이룸 > 마일리지 > 마일리지 충전
+     */
+    public function mileage_guide_charge()
+    {
+        return view('mania.myroom.mileage.guide.charge');
+    }
+    /**
+     * 마이룸 > 마일리지 > 마일리지 출금
+     */
+    public function payment_index()
+    {
+        return view('mania.myroom.mileage.payment.index');
+    }
+    /**
+     * 마이룸 > 마일리지 > 마일리지  > 휴대폰번호 출금
+     */
+    public function payment_phone()
+    {
+        return view('mania.myroom.mileage.payment.payment_phone');
+    }
+    /**
+     * 마이룸 > 마일리지 > 마일리지  > 마일리지 출금내역 보기
+     */
+    public function payment_list()
+    {
+        return view('mania.myroom.mileage.payment.payment_list');
+    }
+    /**
+     * 마이룸 > 마일리지 > 마일리지  > 휴대폰번호 출금내역 보기
+     */
+    public function payment_phone_list()
+    {
+        return view('mania.myroom.mileage.payment.payment_phone_list');
+    }
+    /**
+     * 마이룸 > 마일리지 > 마일리지  > 마일리지 전환
+     */
+    public function culturecash()
+    {
+        return view('mania.myroom.mileage.payment.change.culturecash');
+    }
+
     public function sell_ing_view(Request $request){
         $buyer = "";
         if($request->type == 'sell'){
@@ -1560,145 +1624,95 @@ class VMyRoomController extends BaseController
         return;
     }
 
-
     public function credit_rating(Request $request){
-        return view('mania.myroom.credit_rating');
+        $user = User::with('roles')->where('id',$this->user->id)->first();
+        $gift = MGift::where('userId',$this->user->id)->sum('time');
+        $roles = MRole::with('rolegift')->orderBy('level','ASC')->get();
 
-    /***************** Resion 마일리지 ****************/
-    /**
-     * 마이룸 > 마일리지 > 내 마일리지 > 마이리지 충전탭
-     */
-    public function my_mileage_index_c()
-    {
-        return view('mania.myroom.mileage.my_mileage.index', ['userDetail'=>$this->user, 'type'=>'charge']);
-    }
-    /**
-     * 마이룸 > 마일리지 > 내 마일리지 > 마이리지 환전탭
-     */
-    public function my_mileage_index_e()
-    {
-        return view('mania.myroom.mileage.my_mileage.index', ['userDetail'=>$this->user, 'type'=>'exchange']);
-    }
-    /**
-     * 마이룸 > 마일리지 > 내 마일리지 > 아일리지 상세 팝업
-     */
-    public function popup_mile_detail()
-    {
-        return view('mania.myroom.mileage.my_mileage.popup.mile_detail');
-    }
-    /**
-     * * 마이룸 > 마일리지 > 내 마일리지 > 마일리지 달력보기
-     */
-    public function my_mileage_calendar()
-    {
-        return view('mania.myroom.mileage.my_mileage.calendar');
-    }
-    /**
-     * * 마이룸 > 마일리지 > 내 마일리지 > 마일리지 리스트
-     */
-    public function my_mileage_detail_list(Request $request)
-    {
-        $formData = array(
-            "date_start" => date("Y-m-d"),
-            "date_end" => date("Y-m-d"),
-            "search_type" => 0,
-            "payRecord" => array()
-        );
+        $sell_list = $buy_list = array();
+        $sell_list['up'] = $sell_list['down'] = $buy_list['up'] = $buy_list['down'] = array();
+        $selectYear = date("Y");
+        $game_sell = MPayhistory::
+        selectRaw('count(id) as sum_count, sum(price) as price,updated_at,pay_type,month(updated_at) as month')->
+        whereHas('complete_orders',function($query){
+            $query->where(function($query1){
+                $query1->where(function($query3){
+                    $query3->where(function($query4){
+                        $query4->where('type','sell');
+                        $query4->where('userId',$this->user->id);
+                    });
+                    $query3->orWhere(function($query5){
+                        $query5->where('type','buy');
+                        $query5->where('toId',$this->user->id);
+                    });
+                });
+            });
+            $query->where(function($query2){
+                $query2->where('status',23);
+                $query2->orWhere('status',32);
+            });
+        })->
+        where('status',1)->
+        whereYear('updated_at','=',$selectYear)->
+        groupBy(array(DB::raw('MONTH(updated_at)'),DB::raw('pay_type')))->get()->toArray();
 
-        if (isset($request->date_start))
-            $formData['date_start'] = $request->date_start;
-        if (isset($request->date_end))
-            $formData['date_end'] = $request->date_end;
-        if (isset($request->search_select))
-            $formData['search_type'] = $request->search_select;
+        $game_buy = MPayhistory::
+        selectRaw('count(id) as sum_count, sum(price) as price,updated_at,pay_type,month(updated_at) as month')->
+        whereHas('complete_orders',function($query){
+            $query->where(function($query1){
+                $query1->where(function($query3){
+                    $query3->where(function($query4){
+                        $query4->where('type','sell');
+                        $query4->where('toId',$this->user->id);
+                    });
+                    $query3->orWhere(function($query5){
+                        $query5->where('type','buy');
+                        $query5->where('userId',$this->user->id);
+                    });
+                });
+            });
+            $query->where(function($query2){
+                $query2->where('status',23);
+                $query2->orWhere('status',32);
+            });
+        })->
 
-        $payRecord = array();
-        if ($formData['search_type'] == 0) {
-            $payRecord = MMileage::whereDate("createdByDtm", '>=', $formData['date_start'])
-                ->whereDate("createdByDtm", '<=', $formData['date_end'])
-                ->get()->toArray();
+        where('status',1)->
+        whereYear('updated_at','=',$selectYear)->
+        groupBy(array(DB::raw('MONTH(updated_at)'),DB::raw('pay_type')))->get()->toArray();
+        $sell_all = $buy_all = array(0,0);
+        if(!empty($game_sell)){
+            foreach($game_sell as $v){
+                $temp = array();
+                if(empty($sell_list[$v['month'].'m'])){
+                    $sell_list[$v['month'].'m'] = array();
+                }
+
+                if($v['pay_type'] == 2){
+                    $sell_all[0] += $v['sum_count'];
+                    $sell_all[1] += $v['price'];
+                    $sell_list[$v['month'].'m']['order'] = $v['price'];
+                    $sell_list[$v['month'].'m']['count'] = $v['sum_count'];
+                }
+            }
         }
-        else {
-            $payRecord = MMileage::whereDate("createdByDtm", '>=', $formData['date_start'])
-                ->whereDate("createdByDtm", '<=', $formData['date_end'])
-                ->where("type", ($formData['search_type'] - 1))
-                ->get()->toArray();
+
+        if(!empty($game_buy)){
+            foreach($game_buy as $v){
+                if(empty($buy_list[$v['month'].'m'])){
+                    $buy_list[$v['month'].'m'] = array();
+                }
+
+                if($v['pay_type'] == 6){
+                    $buy_all[0] += $v['sum_count'];
+                    $buy_all[1] += $v['price'];
+                    $buy_list[$v['month'].'m']['order'] = $v['price'];
+                    $buy_list[$v['month'].'m']['count'] = $v['sum_count'];
+                }
+            }
         }
-        $formData["payRecord"] = $payRecord;
 
-        return view('mania.myroom.mileage.my_mileage.detail_list', $formData);
-    }
-    /**
-     * 마이룸 > 마일리지 > 마일리지 충전
-     */
-    public function mileage_payment_charge()
-    {
-        $pageData['userDetail'] = $this->user;
-        $pageData['snzProc'] = "충전";
-        return view('mania.myroom.mileage.charge.index_account_iframe', $pageData);
-    }
-    /**
-     * 마일리지 충전 처리
-     */
-    public function mileage_payment_charge_proc(Request $request)
-    {
-        MMileage::Insert([
-            'userId' => $this->user->id,
-            'money' => $request->price,
-            'type' => 0,
-            'keep_money' => $this->user->mileage,
-            'memo' => '마일리지 충전',
-            'status' => 0
-        ]);
 
-        echo "success";
-    }
-    /**
-     * 마이룸 > 마일리지 > 마일리지 출금
-     */
-    public function mileage_payment_exchange()
-    {
-        $pageData['userDetail'] = $this->user;
-        $pageData['snzProc'] = "출금";
-        return view('mania.myroom.mileage.charge.index_account_iframe', $pageData);
-    }
-    /**
-     * 마일리지 충전 처리
-     */
-    public function mileage_payment_exchange_proc(Request $request)
-    {
-        $price = $request->price;
-
-        if ($price <= $this->user->mileage) {
-            MMileage::Insert([
-                'userId' => $this->user->id,
-                'money' => $price,
-                'type' => 1,
-                'keep_money' => $this->user->mileage,
-                'memo' => '마일리지 출금',
-                'status' => 0
-            ]);
-
-            User::where("id", $this->user->id)->update(['mileage'=> DB::raw('mileage - '.$price)]);
-            echo "success";
-            return;
-        }
-        echo "fail";
-    }
-
-    /**
-     * 마이룸 > 마일리지 > 마일리지  > 마일리지 출금내역 보기
-     */
-    public function payment_list()
-    {
-        return view('mania.myroom.mileage.payment.payment_list');
-    }
-
-    /**
-     * 마이룸 > 마일리지 > 마일리지  > 마일리지 전환
-     */
-    public function culturecash()
-    {
-        return view('mania.myroom.mileage.payment.change.culturecash');
+        return view('mania.myroom.credit_rating',['user'=>$user,'gift'=>$gift,'roles'=>$roles,'sell_list'=>$sell_list,'buy_list'=>$buy_list,'buy_all'=>$buy_all,'sell_all'=>$sell_all]);
     }
 }
