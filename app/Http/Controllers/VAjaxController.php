@@ -38,6 +38,7 @@ class VAjaxController extends BaseController
         $game = MItem
             ::with(['premiums','game','server','user.roles'])
             ->where('game_code',$search_game)
+            ->where('status',"!=",-1)
             ->where('server_code',$search_server)
             ->where('type',$request->search_type);
 
@@ -283,6 +284,7 @@ class VAjaxController extends BaseController
         $game = MItem
             ::with(['premiums','premium','game','server','user.roles'])
             ->where('game_code',$search_game)
+            ->where('status',"!=",-1)
             ->where('type',$request->search_type);
 
         if(!empty($request->search_goods) && $request->search_goods != 'all')

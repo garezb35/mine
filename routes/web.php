@@ -80,7 +80,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/sell_check_ok',[\App\Http\Controllers\ManiaController::class,'sell_check_ok']);
     Route::post('/buy_check_ok',[\App\Http\Controllers\ManiaController::class,'buy_check_ok']);
     /**
-     * By Jongbuy_pay_wait_view
+     * By Jong
      */
 
     Route::prefix('customer')->group(function () {

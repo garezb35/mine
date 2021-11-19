@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MCancelReason;
 use App\Models\MGame;
 use App\Models\MGift;
 use App\Models\MItem;
@@ -201,6 +202,7 @@ class VBuyController extends BaseController
         User::where('id',$seller)->update([
             'mileage'=>DB::raw('mileage - '.$game['payitem']['price'])
         ]);
+
         MPayhistory::insert([
              'price'=>$game['payitem']['price'],
              'status'=>1,

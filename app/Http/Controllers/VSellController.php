@@ -59,7 +59,10 @@ class VSellController extends BaseController
             echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
             return;
         }
-
+        if($item['status'] == -1){
+            echo '<script>alert("거래취소된 물품입니다.");window.history.back();</script>';
+            return;
+        }
         return view('mania.sell.index_view',$item);
     }
 
@@ -76,7 +79,10 @@ class VSellController extends BaseController
             echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
             return;
         }
-
+        if($game['status'] == -1){
+            echo '<script>alert("거래취소된 물품입니다.");window.history.back();</script>';
+            return;
+        }
         if($game['userId'] == $this->user->id){
             if($type == 'sell'){
                 if(empty($game['payitem']) && empty($game['toId']) && sizeof($game['bargains']) == 0 && $game['status'] == 0){
@@ -157,6 +163,10 @@ class VSellController extends BaseController
             ->where('type','sell')->first();
         if(empty($game)){
             echo '<script>alert("정상적인 경로를 이용해주세요.");window.history.back();</script>';
+            return;
+        }
+        if($game['status'] == -1){
+            echo '<script>alert("거래취소된 물품입니다.");window.history.back();</script>';
             return;
         }
         if(!empty($game['payitem']) && $game['toId'] == $this->user->id && $game['payitem']['status'] !=0){

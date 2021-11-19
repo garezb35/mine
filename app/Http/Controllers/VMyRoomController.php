@@ -14,6 +14,7 @@ use App\Models\MRoleGift;
 use App\Models\MTitle;
 use App\Models\MUserbank;
 use App\Models\User;
+use App\Models\MMileage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -497,6 +498,10 @@ class VMyRoomController extends BaseController
 
         if(empty($game) || empty($game['payitem'])){
             echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
+            return;
+        }
+        if($game['status'] == -1){
+            echo '<script>alert("거래취소된 물품입니다.");window.history.back();</script>';
             return;
         }
         if($game['payitem']['status'] == 1 && $game['status'] > 0){
@@ -1117,7 +1122,10 @@ class VMyRoomController extends BaseController
             $game['cuser'] = $this->user;// 구매자
             $game['user'] = $game['other']; // 구매자
         }
-
+        if($game['status'] == -1){
+            echo '<script>alert("거래취소된 물품입니다.");window.history.back();</script>';
+            return;
+        }
         return view('mania.myroom.buy_ing_view',$game);
     }
 
@@ -1218,6 +1226,7 @@ class VMyRoomController extends BaseController
                 echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
                 return;
             }
+
             $game['buyer']=  $this->user;
             $game['seller'] = $game['user'];
             $game['buyer']['character'] = $game['payitem']['character'];
@@ -1238,7 +1247,10 @@ class VMyRoomController extends BaseController
             $game['seller']['character'] = $game['payitem']['character'];
             $game['buyer']['character'] = $game['user_character'];
         }
-
+        if($game['status'] == -1){
+            echo '<script>alert("거래취소된 물품입니다.");window.history.back();</script>';
+            return;
+        }
         return view('mania.myroom.buy_pay_wait_view', $game);
     }
 
@@ -1395,6 +1407,10 @@ class VMyRoomController extends BaseController
                 echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
                 return;
             }
+            if($game['status'] == -1){
+                echo '<script>alert("거래취소된 물품입니다.");window.history.back();</script>';
+                return;
+            }
             $game['user']=  $game['other'];
             $game['cuser'] = $this->user;
             $game['buy_character'] = $game['payitem']['character'];
@@ -1435,6 +1451,10 @@ class VMyRoomController extends BaseController
             echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
             return;
         }
+        if($game['status'] == -1){
+            echo '<script>alert("거래취소된 물품입니다.");window.history.back();</script>';
+            return;
+        }
         $game['seller'] = $this->user;
         return view('mania.buy.buy_check_view',$game);
     }
@@ -1471,6 +1491,10 @@ class VMyRoomController extends BaseController
                 echo '<script>alert("잘못된 접근입니다.");window.history.back();</script>';
                 return;
             }
+        }
+        if($game['status'] == -1){
+            echo '<script>alert("거래취소된 물품입니다.");window.history.back();</script>';
+            return;
         }
         $game['seller'] = $this->user;
         return view('mania.sell.sell_check_view',$game);
