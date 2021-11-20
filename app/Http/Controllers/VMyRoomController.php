@@ -43,10 +43,9 @@ class VMyRoomController extends BaseController
         $selling_register = MItem::
         where('userId',$this->user->id)->
         where('type','sell')->
-        where('status',0)->
-        whereNull('toId')->
+        where('status',"!=",-1)->
         whereDoesntHave('bargains')->
-        whereDoesntHave('payitem')->get()->count();
+        get()->count();
         $bargain_request_selling = MItem::
         where('userId',$this->user->id)->
         where('type','sell')->
@@ -95,10 +94,8 @@ class VMyRoomController extends BaseController
         $buying_register = MItem::
         where('userId',$this->user->id)->
         where('type','buy')->
-        where('status',0)->
-        whereNull('toId')->
-        whereDoesntHave('bargains')->
-        whereDoesntHave('payitem')->get()->count();
+        where('status','!=',-1)->
+        get()->count();
         $bargain_request = MItem::
         where('userId','!=',$this->user->id)->
         where('type','sell')->
@@ -526,12 +523,12 @@ class VMyRoomController extends BaseController
     public function sell_regist()
     {
         $selling_register = MItem::
+            with('payitem')->
         where('userId',$this->user->id)->
         where('type','sell')->
-        where('status',0)->
-        whereNull('toId')->
+        where('status',"!=", -1)->
         whereDoesntHave('bargains')->
-        whereDoesntHave('payitem')->get()->count();
+        get()->count();
         $bargain_request = MItem::
         where('userId',$this->user->id)->
         where('type','sell')->
@@ -581,10 +578,9 @@ class VMyRoomController extends BaseController
         $games = MItem::with(['game','server'])->
         where('userId',$this->user->id)->
         where('type','sell')->
-        where('status',0)->
-        whereNull('toId')->
+        where('status','!=',-1)->
         whereDoesntHave('bargains')->
-        whereDoesntHave('payitem')->orderBy('created_at',"DESC")->paginate(15);
+        orderBy('created_at',"DESC")->paginate(15);
 
         return view('mania.myroom.sell_regist',[
             'selling_register'=>$selling_register,
@@ -599,10 +595,9 @@ class VMyRoomController extends BaseController
         $selling_register = MItem::
         where('userId',$this->user->id)->
         where('type','sell')->
-        where('status',0)->
-        whereNull('toId')->
+        where('status','!=',-1)->
         whereDoesntHave('bargains')->
-        whereDoesntHave('payitem')->get()->count();
+        get()->count();
         $bargain_request = MItem::
         where('userId',$this->user->id)->
         where('type','sell')->
@@ -682,10 +677,9 @@ class VMyRoomController extends BaseController
         $selling_register = MItem::
         where('userId',$this->user->id)->
         where('type','sell')->
-        where('status',0)->
-        whereNull('toId')->
+        where('status','!=',-1)->
         whereDoesntHave('bargains')->
-        whereDoesntHave('payitem')->get()->count();
+        get()->count();
         $bargain_request = MItem::
         where('userId',$this->user->id)->
         where('type','sell')->
@@ -811,10 +805,8 @@ class VMyRoomController extends BaseController
         $buying_register = MItem::
         where('userId',$this->user->id)->
         where('type','buy')->
-        where('status',0)->
-        whereNull('toId')->
-        whereDoesntHave('bargains')->
-        whereDoesntHave('payitem')->get()->count();
+        where('status','!=',-1)->
+        get()->count();
         $bargain_request = MItem::
         where('userId','!=',$this->user->id)->
         where('type','sell')->
@@ -863,12 +855,11 @@ class VMyRoomController extends BaseController
         })->
         get()->count();
         $games = MItem::
-        whereDoesntHave('payitem')->
+        with('payitem')->
         where(function($query){
             $query->where('userId',$this->user->id);
             $query->where('type','buy');
-            $query->where('status',0);
-            $query->whereNull('toId');
+            $query->where('status','!=,-1');
         })->paginate(15);
 
         return view('mania.myroom.buy_regist',[
@@ -933,10 +924,8 @@ class VMyRoomController extends BaseController
         $buying_register = MItem::
         where('userId',$this->user->id)->
         where('type','buy')->
-        where('status',0)->
-        whereNull('toId')->
-        whereDoesntHave('bargains')->
-        whereDoesntHave('payitem')->get()->count();
+        where('status','!=',-1)->
+        get()->count();
         $bargain_request = MItem::
         where('userId','!=',$this->user->id)->
         where('type','sell')->
@@ -1008,10 +997,8 @@ class VMyRoomController extends BaseController
         $buying_register = MItem::
         where('userId',$this->user->id)->
         where('type','buy')->
-        where('status',0)->
-        whereNull('toId')->
-        whereDoesntHave('bargains')->
-        whereDoesntHave('payitem')->get()->count();
+        where('status','!=',-1)->
+        get()->count();
         $bargain_request = MItem::
         where('userId','!=',$this->user->id)->
         where('type','sell')->
@@ -1135,10 +1122,8 @@ class VMyRoomController extends BaseController
         $buying_register = MItem::
         where('userId',$this->user->id)->
         where('type','buy')->
-        where('status',0)->
-        whereNull('toId')->
-        whereDoesntHave('bargains')->
-        whereDoesntHave('payitem')->get()->count();
+        where('status','!=',-1)->
+        get()->count();
         $bargain_request = MItem::
         where('userId','!=',$this->user->id)->
         where('type','sell')->
@@ -1532,10 +1517,9 @@ class VMyRoomController extends BaseController
         $selling_register = MItem::
         where('userId',$this->user->id)->
         where('type','sell')->
-        where('status',0)->
-        whereNull('toId')->
+        where('status',"!=",-1)->
         whereDoesntHave('bargains')->
-        whereDoesntHave('payitem')->get()->count();
+        get()->count();
         $bargain_request = MItem::
         where('userId',$this->user->id)->
         where('type','sell')->

@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\MInbox;
 use App\Models\MItem;
+use App\Models\MMygame;
 use App\Models\MMyservice;
 use App\Models\MPrivateMessage;
+use App\Models\MRole;
+use App\Models\MRoleGift;
 use Illuminate\Http\Request;
 
 class VAjaxController extends BaseController
@@ -535,5 +538,170 @@ class VAjaxController extends BaseController
             'msg'=>$msg
         ]);
         return response()->json(array("RST"=>true,'MSG'=>$msg,'TIME'=>date("Y-m-d H:i:s"),'FILTER'=>false));
+    }
+
+    public function quicklinkuser_home(Request $request){
+        $role = MRole::where('level',$this->user->role)->first();
+        $point = number_format($this->user->point);
+        $m = $a = $e = "";
+        if($this->user->mobile_verified ==1)
+            $m = "<img src='/mania/img/icons/icon_check.png'>";
+        if($this->user->bank_verified ==1)
+            $a = "<img src='/mania/img/icons/icon_check.png'>";
+        if(!empty($this->user->email_verified_at))
+            $e = "<img src='/mania/img/icons/icon_check.png'>";
+        $mileage = number_format($this->user->mileage);
+        $buying_register = MItem::
+        where('userId',$this->user->id)->
+        where('type','buy')->
+        where('status','!=',-1)->
+        get()->count();
+        $selling_register = MItem::
+        where('userId',$this->user->id)->
+        where('type','sell')->
+        where('status',"!=",-1)->
+        whereDoesntHave('bargains')->
+        get()->count();
+        $selling_count = MItem::
+        whereHas('payitem',function($query){
+            $query->where('status',1);
+        })->
+        where(function($query){
+            $query->where('userId',$this->user->id);
+            $query->where('type','sell');
+            $query->where('status',"!=",0);
+            $query->where('status',"!=",23);
+            $query->where('status',"!=",32);
+            $query->where('status',"!=",-1);
+        })->orWhere(function($query){
+            $query->where('toId',$this->user->id);
+            $query->where('type','buy');
+            $query->where('status',"!=",0);
+            $query->where('status',"!=",23);
+            $query->where('status',"!=",32);
+            $query->where('status',"!=",-1);
+        })->
+        get()->count();
+        $buying_count = MItem::
+        whereHas('payitem',function($query){
+            $query->where('status',1);
+        })->
+        where(function($query){
+            $query->where('toId',$this->user->id);
+            $query->where('type','sell');
+            $query->where('status',"!=",0);
+            $query->where('status',"!=",23);
+            $query->where('status',"!=",32);
+            $query->where('status',"!=",-1);
+        })->orWhere(function($query){
+            $query->where('toId',$this->user->id);
+            $query->where('type','buy');
+            $query->where('status',"!=",0);
+            $query->where('status',"!=",23);
+            $query->where('status',"!=",32);
+            $query->where('status',"!=",-1);
+        })->
+        get()->count();
+        $bargain_request_buy = MItem::
+        where('userId','!=',$this->user->id)->
+        where('type','sell')->
+        where('status',0)->
+        whereNull('toId')->
+        whereHas('bargain_requests',function($query){
+            $query->where('userId',$this->user->id);
+        })->
+        whereDoesntHave('payitem')->get()->count();
+        $bargain_request = MItem::
+        where('userId',$this->user->id)->
+        where('type','sell')->
+        where('status',0)->
+        whereNull('toId')->
+        whereHas('bargain_requests')->
+        whereDoesntHave('payitem')->get()->count();
+        $games = MMygame::orderBy('order','ASC')->get();
+        $game_list = '';
+        foreach($games as $v){
+            $m_type = '팝니다';
+            $item_alias = itemAlias($v['goods_text']);
+            if($v['type'] == 'buy')
+                $m_type = '삽니다';
+            $game_list .= "<dd title=\"{$v['game_text']}{$v['serer_text']}\">
+                <span class='title-{$v['type']}'><img src='/mania/img/icons/{$v['type']}-i.png' />-{$m_type}-</span>
+                <strong>{$v['game_text']} > {$v['server_text']}</strong>{$v['serer_text']}
+                <div class=\"btn_area\">
+                    <a href=\"/sell/list_search?search_type={$v['type']}&search_game={$v['game']}&search_game_text={$v['game_text']}&search_server={$v['server']}&search_server_text={$v['server_text']}&search_goods={$item_alias}\">검색</a>
+                    <a href=\"/{$v['type']}?game={$v['game']}&server={$v['server']}\">등록</a>
+                 </div>
+             </dd>";
+        }
+
+        echo "<div class=\"myinfo\">
+        <dl class=\"status\">
+            <dd class=\"credir_rt\">
+                <div class=\"rt_figure\">
+                    <img src='/mania/img/level/{$role['icon']}' />
+                </div>
+                <div class=\"user_name\">{$this->user->name}</div>
+                <span class=\"rank _txt\">{$role['alias']}회원 &nbsp;&nbsp;<span class='f_blue1 f_bold f-16'>{$point}</span></span>
+            </dd>
+            <dd class=\"cert\">
+                <span class=\"cert_state\">{$m}&nbsp;&nbsp;휴대폰</span>
+                <span class=\"cert_state\">{$a}&nbsp;&nbsp;계좌</span>
+                <span class=\"cert_state\">{$e}&nbsp;&nbsp;이메일</span>
+            </dd>
+        </dl>
+        <dl class=\"milage\">
+            <dt>총 마일리지</dt>
+            <dd>{$mileage}원</dd>
+        </dl>
+        <div class=\"other_link\">
+            <a href=\"/myroom/my_mileage/index_c\" class='head_charge'>충전</a>
+            <a href=\"/myroom/my_mileage/index_e\" class='head_give'>출금</a>
+            <a href=\"/myroom/\" class='head_myroom'>마이룸</a>
+        </div>
+    </div>
+
+    <div class=\"trade_list\">
+        <ul class=\"ing_count\">
+            <li class=\"sell\">
+                <span class=\"c_txt sells\">판매목록</span>
+                <div class=\"qbox\">
+                    <div class=\"ings\">
+                        <div>
+                            <span class='mr-15'>판매등록</span>
+                            <span><a href=\"/myroom/sell/sell_regist\">{$selling_register}건</a></span>
+                        </div>
+                        <div>
+                            <span class='mr-15'>흥정신청</span>
+                            <span><a href=\"/myroom/sell/sell_check\">{$bargain_request}건</a></span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class=\"buy\">
+                <span class=\"c_txt buys\">구매목록</span>
+                <div class=\"qbox\">
+
+                    <dl class=\"ings\">
+                        <div>
+                            <span class='mr-15'>구매등록</span>
+                            <span><a href=\"/myroom/buy/buy_regist\">{$buying_register}건</a></span>
+                        </div>
+
+                    </dl>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class=\"favorite\">
+        <div class=\"s_title\">
+            나만의 검색메뉴
+            <a href=\"/myroom/customer/search\" style='margin-left: 15px'><i class='fa fa-cog'></i></a>
+        </div>
+        <dl class=\"my_game\">
+            {$game_list}
+        </dl>
+    </div>";
     }
 }

@@ -58,7 +58,7 @@
 @endsection
 
 @section('foot_attach')
-    <script type='text/javascript' src='/mania/sell/js/application.js?v=210802'></script>
+    <script type='text/javascript' src='/mania/sell/js/application.js'></script>
     <script type='text/javascript'>
         g_trade_info.curr_mileage = Number({{$cuser['mileage']}});
         g_trade_info.sale	= '{{$user_goods_type}}';
@@ -87,9 +87,7 @@
             g_trade_info.discount_cnt={{$discount_quantity_cnt ?? 0}};
             g_trade_info.discount_money={{$discount_price ?? 0}};
         @else
-
         @endif
-
     </script>
 @endsection
 
@@ -204,7 +202,7 @@
                         <th>복수구매할인</th>
                         <td>- <span id="discount_money"></span> 원 ({{$discount_quantity_cnt * $discount_quantity}}{{$goods_label}} 당 {{$discount_price}}원 할인)</td>
                         <th>예상결제금액</th>
-                        <td><span class="trade_money1">33,750</span> 원</td>
+                        <td><span class="trade_money1"></span> 원</td>
                     </tr>
                     </tbody>
                 </table>
@@ -320,70 +318,26 @@
             <input type="hidden" name="my_mileage" value="{{$cuser['mileage']}}">
             <input type="hidden" id="other_pay" name="use_creditcard" value="{{number_format($user_price)}}">
             <div class="g_subtitle">결제정보</div>
-
-            <div>
-                <div class="card text-white bg-success mb-3 fl" style="max-width: 18rem;">
-                    <div class="card-header">
-                        구매금액
-                        <span class="h_price fr trade_money1">{{number_format($user_price)}}</span>원
-                    </div>
-                    <div class="card-body">
-                        <div style="clear: both;margin-bottom: 10px;height: 20px">
-                            <span class="fl">물품금액</span>
-                            <span class="fr">{{number_format($user_price)}}원</span>
-                        </div>
-                        <div style="clear: both;height: 20px">
-                            <span class="fl">구매보상 서비스 금액</span>
-                            <span class="fr">{{number_format(0)}}원</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card text-white bg-success mb-3 fr" style="max-width: 18rem;">
-                    <div class="card-header">
-                        총 결제금액
-                        <span class="h_price fr text-red trade_money1">{{number_format($user_price)}}</span>원
-                    </div>
-                    <div class="card-body">
-                        <div style="clear: both;margin-bottom: 10px;height: 20px">
-                            <span class="fl">내 마일리지</span>
-                            <span class="fr">{{number_format($cuser['mileage'])}}원</span>
-                        </div>
-                        <div style="clear: both;height: 20px;margin-bottom: 10px">
-                            <span class="fl">게임 마일리지</span>
-                            <span class="fr">{{number_format(0)}}원</span>
-                        </div>
-                        <div style="clear: both;height: 20px">
-                            <span class="fl">사용할 마일리지</span>
-                            <span class="fr"><input style="width: 100px" type="text" class="g_text" id="use_mileage" name="use_mileage" value="{{number_format($user_price)}}" readonly disabled>원</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-{{--            <table class="g_blue_table price_info">--}}
-{{--                <colgroup>--}}
-{{--                    <col width="286">--}}
-{{--                    <col width="246">--}}
-{{--                    <col>--}}
-{{--                </colgroup>--}}
-{{--                <tr>--}}
-{{--                    <th> <span>구매금액</span> <span class="price_font" id="trade_money">{{number_format($user_price)}}</span> <span class="won">원</span> </th>--}}
-{{--                    <th></th>--}}
-{{--                    <th> <span>총 결제금액</span> <span id="pay_mileage" class="price_font f_red1">{{number_format($user_price)}}</span> <span class="won">원</span> </th>--}}
-{{--                </tr>--}}
-{{--                <tr>--}}
-{{--                    <td> </td>--}}
-{{--                    <td class="bd_cell">--}}
-{{--                    </td>--}}
-{{--                    <td>--}}
-{{--                        <dl class="my_mileage"> <dt>내 마일리지</dt>--}}
-{{--                            <dd id="span_cur_mile">{{number_format($cuser['mileage'])}} 원</dd> <dt>사용할 마일리지</dt>--}}
-{{--                            <dd>--}}
-{{--                                <input type="text" class="g_text" id="use_mileage" name="use_mileage" value="{{number_format($user_price)}}" readonly disabled>원 </dd>--}}
-{{--                        </dl>--}}
-{{--                    </td>--}}
-{{--                </tr>--}}
-{{--            </table>--}}
+            <table class="table-striped table-green1">
+                <colgroup>
+                    <col width="160">
+                    <col/>
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th>구매금액</th>
+                    <td><span class="trade_money1">{{number_format($user_price)}}</span>원</td>
+                    <th>내 마일리지</th>
+                    <td>{{number_format($cuser['mileage'])}}원</td>
+                </tr>
+                <tr>
+                    <th>사용할 마일리지</th>
+                    <td colspan="3">
+                        <input type="text" class="g_text" id="use_mileage" name="use_mileage" value="" readonly="" disabled="">원
+                    </td>
+                </tr>
+                </tbody>
+            </table>
             <table class="table-greenwith payment_table mt-10">
                 <colgroup>
                     <col width="160">

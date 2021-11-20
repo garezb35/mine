@@ -2,22 +2,22 @@
 <div class="g_layer all_menu_layer" id="all_menu_layer">
     <div class="inner"> <a href="javascript:;" class="sp_icon close_r" id="menu_close">닫기</a> </div>
 </div>
-{{--<div class="quickmenu_area" id="quickmenu_area">--}}
-{{--    <div class="inner">--}}
-{{--        <ul class="quickmenu close" id="quickmenu">--}}
-{{--            <li><a href="javascript:;" data-type="user_info"><span class="sp_icon user_info"></span></a>--}}
-{{--                <div><i>나의 거래정보</i></div>--}}
-{{--            </li>--}}
+<div class="quickmenu_area" id="quickmenu_area">
+    <div class="inner">
+        <ul class="quickmenu close" id="quickmenu">
+            <li><a href="javascript:;" data-type="user_info"><i class="fa fa-chevron-left"></i> </a>
+                <div><i>나의 거래정보</i></div>
+            </li>
 {{--            <li><a href="javascript:;" data-type="pluszone"><span class="sp_icon pluszone"></span></a>--}}
 {{--                <div><i>플러스존</i></div>--}}
 {{--            </li>--}}
 {{--            <li><a href="javascript:;" class="top_btn" id="top_btn">TOP</a></li>--}}
-{{--        </ul>--}}
-{{--        <div class="quickmenu_dtl" id="quickmenu_dtl"> <a href="javascript:;" class="sp_icon close" id="quickmenu_close">닫기</a>--}}
-{{--            <div class="quickmenu_cont" id="quickmenu_cont"></div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
+        </ul>
+        <div class="quickmenu_dtl" id="quickmenu_dtl"> <a href="javascript:;" class="sp_icon close" id="quickmenu_close">닫기</a>
+            <div class="quickmenu_cont" id="quickmenu_cont"></div>
+        </div>
+    </div>
+</div>
 <!--▲▲▲ 거래 탑 배너 ▲▲▲ -->
 <div class="g_header ">
     <div class="top_bg">
@@ -123,11 +123,11 @@
                 <li class="highlight"><a href="/buy">구매등록</a></li>
             </ul>
 
-            {{--<div class="right_icon">
-                <a href="http://trade.itemmania.com/myroom/goods_alarm/alarm_sell_list.html" id="alarm_noti" class="user_noti"> <span class="sp_icon goods_alarm"></span> <span class="new_alarm">N</span> </a>
-                <a href="http://trade.itemmania.com/myroom/message/" class="user_noti"> <span class="sp_icon bell"></span> <span class="icon_bubble">99+</span> </a>
-                <a href="javascript:;" class="all_menu" id="all_menu"> <span class="sp_icon list"></span> </a>
-            </div>--}}
+{{--            --}}{{--<div class="right_icon">--}}
+{{--                <a href="http://trade.itemmania.com/myroom/goods_alarm/alarm_sell_list.html" id="alarm_noti" class="user_noti"> <span class="sp_icon goods_alarm"></span> <span class="new_alarm">N</span> </a>--}}
+{{--                <a href="http://trade.itemmania.com/myroom/message/" class="user_noti"> <span class="sp_icon bell"></span> <span class="icon_bubble">99+</span> </a>--}}
+{{--                <a href="javascript:;" class="all_menu" id="all_menu"> <span class="sp_icon list"></span> </a>--}}
+{{--            </div>--}}
         </div>
     </div>
 </div>

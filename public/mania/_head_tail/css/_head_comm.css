@@ -32,6 +32,10 @@ body{
     /* min-width:43px;
      */
 }
+
+.quickmenu_cont .cert_state:before{
+    background: url(/mania/img/icon_check.png);
+}
 .quickmenu_area .inner{
     position:relative;
     height:100%;
@@ -53,11 +57,8 @@ body{
     z-index:51;
     position:fixed;
     top:50%;
-    right:230px;
+    right:250px;
     margin-top:-76px;
-    border:1px solid #A4A4A4;
-    border-right:0;
-    background-color:#919199;
 }
 .quickmenu.close, .quickmenu_area ~ .quickmenu{
     right:0;
@@ -135,19 +136,23 @@ body{
     display:none;
     white-space:nowrap;
 }
-.quickmenu li:not(.on):hover{
-    background-color:#AEAFB2;
-}
+/*.quickmenu li:not(.on):hover{*/
+/*    background-color:#AEAFB2;*/
+/*}*/
 .quickmenu li i{
-    position:relative;
-    display:block;
-    height:28px;
-    padding:0 5px;
-    border:1px solid #E0E0E0;
-    background-color:#FFF;
-    font-style:normal;
-    line-height:28px;
-    color:#767676;
+    position: relative;
+    display: block;
+    height: 50px;
+    padding: 0 5px;
+    border: 1px solid #E0E0E0;
+    background-color: #FFF;
+    font-style: normal;
+    line-height: 50px;
+    color: #767676;
+    border-right: none;
+}
+.qickmenu_on .fa-chevron-left:before{
+    content: "\f054";
 }
 .quickmenu li i:after{
     position:absolute;
@@ -175,7 +180,7 @@ body{
 }
 .quickmenu_area .quickmenu_dtl{
     display:none;
-    width:230px;
+    width:250px;
     height:100%;
     margin-left:43px;
     border-left:1px solid #A4A4A4;
@@ -194,11 +199,39 @@ body{
     background-position:-503px -11px;
 }
 .quickmenu_dtl .quickmenu_cont{
-    padding:40px 8px 40px 10px;
+    padding:40px 0px 40px 0px !important;
     color:#767676;
 }
+
+.head_charge{
+    background: url(/mania/img/button/head_charge.png) no-repeat 100%;
+    width: 74px !important;
+    height: 26px;
+    display: inline-block;
+}
+.head_give{
+    background: url(/mania/img/button/head_give.png) no-repeat 100%;
+    width: 74px !important;
+    height: 26px;
+    display: inline-block;
+}
+.head_myroom{
+    background: url(/mania/img/button/head_myroom.png) no-repeat 100%;
+    width: 74px !important;
+    height: 26px;
+    display: inline-block;
+}
+
+.quickmenu_cont .cert{
+    background: #F3F5FA;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 .quickmenu_cont .user_name{
-    font-size:14px;
+    font-size: 17px;
+    color: #6D6D6D;
+    margin-left: 10px;
+    font-weight: 600;
 }
 .quickmenu_cont .myinfo .status dt{
     font-size:14px;
@@ -206,7 +239,7 @@ body{
 }
 .quickmenu_cont .myinfo .status .credir_rt{
     position:relative;
-    margin-left:4px;
+    margin-left:17px;
     padding:3px 0 15px 54px;
 }
 .quickmenu_cont .myinfo .status .rt_figure{
@@ -215,21 +248,25 @@ body{
     left:0;
 }
 .quickmenu_cont .rank{
-    display:inline-block;
-    font-size:16px;
-    font-weight:700;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    margin-left: 10px;
+    margin-top: 2px;
+    color: #6D6D6D;
 }
 .quickmenu_cont .cert span{
-    width:66px;
+    width:77px;
     height:20px;
     margin-right:0;
     font-size:12px;
     line-height:18px;
 }
 .quickmenu_cont .milage{
-    margin-top:15px;
-    padding-left:80px;
-    font-weight:700;
+    margin-top: 15px;
+    padding-left: 91px;
+    font-weight: 700;
+    padding-right: 10px;
 }
 .quickmenu_cont .milage dt{
     float:left;
@@ -263,13 +300,15 @@ body{
 }
 .quickmenu_cont .trade_list{
     margin-top:15px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .quickmenu_cont .ing_count{
     overflow:hidden;
 }
 .quickmenu_cont .ing_count li{
-    float:left;
-    width:103px;
+    display: block;
+    width: 100% !important;
 }
 .quickmenu_cont .ing_count .buy{
     margin-left:6px;
@@ -278,18 +317,27 @@ body{
     padding:4px 0 5px;
     font-weight:700;
     text-align:center;
-    color:#FFF;
+    background: #fff;
+
+}
+.quickmenu_cont .ing_count .c_txt.sells{
+    color:#1FAEFF;
+    border-bottom :2px solid #1FAEFF;
+}
+.quickmenu_cont .ing_count .c_txt.buys{
+    color: #13BA41;
+    border-bottom: 2px solid #13BA41;
 }
 .quickmenu_cont .ing_count .qbox{
     margin-top:3px;
-    padding:7px 10px;
+    padding:7px 0px;
 }
-.quickmenu_cont .ing_count .sell .qbox{
-    background-color:#F2FAFF;
-}
-.quickmenu_cont .ing_count .buy .qbox{
-    background-color:#EBFCF0;
-}
+/*.quickmenu_cont .ing_count .sell .qbox{*/
+/*    background-color:#F2FAFF;*/
+/*}*/
+/*.quickmenu_cont .ing_count .buy .qbox{*/
+/*    background-color:#EBFCF0;*/
+/*}*/
 .quickmenu_cont .ing_count .cnt{
     display:block;
     font-size:16px;
@@ -298,7 +346,11 @@ body{
 }
 .quickmenu_cont .ing_count .ings{
     margin-top:9px;
-    padding-left:55px;
+    /*padding-left:55px;*/
+}
+.quickmenu_cont .ing_count .ings > div{
+    display: inline-block;
+    width: 49%;
 }
 .quickmenu_cont .ing_count .ings dt{
     float:left;
@@ -319,11 +371,11 @@ body{
     position:relative;
     height:30px;
     padding-left:12px;
-    background-color:#737888;
+    background-color:#F3F5FA;
     font-size:14px;
     font-weight:bold;
     line-height:27px;
-    color:#FFF;
+    color:#000;
 }
 .quickmenu_cont .s_title .setting{
     position:absolute;
@@ -340,7 +392,7 @@ body{
 }
 .quickmenu_cont .my_game .btn_area a{
     padding:0 4px 2px;
-    background-color:#A9BCCE;
+    background-color:#39C4FF;
     font-size:11px;
     color:#FFF;
 }
@@ -1205,3 +1257,11 @@ body{
     }
 }
 
+.title-sell{
+    color: #1BB0F0;
+    font-weight: 600;
+}
+.title-buy{
+    color: #13BA41;
+    font-weight: 600;
+}

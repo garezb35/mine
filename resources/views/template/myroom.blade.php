@@ -26,12 +26,22 @@
         <td>{{$v['good_type']}}</td>
         <td class="left">
             <input type="hidden" name="check[]" value="{{$v['orderNo']}}">
-            <div class="trade_title"><a href="{{$href}}">{{$v['user_title']}}</a> </div>
+            @if($v['status'] == 2 || $v['status'] == 3 || $v['status'] == 1)
+            <span class="attached_noti">거래중</span><br>
+            @endif
+            <div class="trade_title">
+                <a href="{{$href}}">{{$v['user_title']}}</a>
+            </div>
         </td>
         <td class="right f_red1">{{$price}}원</td>
         <td>{{date("Y-m-d H:i:s",strtotime($v['created_at']))}}</td>
         @if($type == 0)
-            <td><a href="javascript:;" onclick="reInsert('{{$v['orderNo']}}');" class="regist_btn09">재등록</a><a href="javascript:;" onclick="tradeProcess('deleteSelect', '{{$v['orderNo']}}')" class="regist_btn10">삭제</a></td>
+            <td>
+                @if(empty($v['payitem']) && $v['status'] == 0 && empty($v['toId']))
+                <a href="javascript:;" onclick="reInsert('{{$v['orderNo']}}');" class="regist_btn09">재등록</a>
+                <a href="javascript:;" onclick="tradeProcess('deleteSelect', '{{$v['orderNo']}}')" class="regist_btn10">삭제</a>
+                @endif
+            </td>
         @endif
     </tr>
 @endforeach

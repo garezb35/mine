@@ -67,6 +67,7 @@ function _header() {
 					url: "/api/quicklink" + i.split("_")[0],
 					type: "POST",
 					async: false,
+                    data:{api_token:a_token},
 					success: function(m) {
 						document.getElementById("quickmenu_cont").innerHTML = "" + m
 					}

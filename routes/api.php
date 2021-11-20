@@ -44,9 +44,10 @@ Route::middleware('auth:api')->group(function(){
 
     Route::post('/myroom/chat/msg_get',[\App\Http\Controllers\VAjaxController::class,'msg_get']);
     Route::post('/myroom/chat/msg_encrypt',[\App\Http\Controllers\VAjaxController::class,'msg_encrypt']);
-  
+
     Route::post('/mileage/charge/proc', [\App\Http\Controllers\VMyRoomController::class, 'mileage_payment_charge_proc'])->name('mileage_payment_charge_proc');
     Route::post('/mileage/exchange/proc', [\App\Http\Controllers\VMyRoomController::class, 'mileage_payment_exchange_proc'])->name('mileage_payment_exchange_proc');
+    Route::post('/_include/quicklinkuser',[\App\Http\Controllers\VAjaxController::class, 'quicklinkuser_home']);
 });
 
 Route::get('/sell/include/index_template', [\App\Http\Controllers\VSellController::class, 'ajax_template']);

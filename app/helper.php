@@ -70,4 +70,17 @@ function getReasonList(){
         7=>"기타 사유"
     );
 }
+
+function itemAlias($alias){
+    $en_alias = 'all';
+    if($alias == '아이템')
+        $alias = 'item';
+    if($alias == '캐릭터')
+        $alias = 'character';
+    if($alias == '게임머니')
+        $alias = 'money';
+    if($alias == '기타')
+        $alias = 'etc';
+    return $alias;
+}
 ?>

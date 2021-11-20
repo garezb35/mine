@@ -2411,6 +2411,10 @@ label>input,.g_check.charge_service .total_charge,.g_radio {
     margin-top: 0px !important;
 }
 
+.mr-15{
+    margin-right: 15px;
+}
+
 .border-top-0{
     border-top: 0px !important;
 }
@@ -2821,3 +2825,9 @@ table.noborder tr td,.noborder{
     border: 1px solid #89C1CE;
 }
 
+.attached_noti{
+    background: #0081B9;
+    padding: 2px;
+    color: #fff;
+    font-size: 12px;
+}
