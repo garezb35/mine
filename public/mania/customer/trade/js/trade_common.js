@@ -156,7 +156,7 @@ function _init() {
         var locationHref = "";
         if (nowAcode == 'A1') {
             var cCode = (this.id == 'a10101') ? "01" : "02";
-            locationHref = "/customer/trade/trade_ing_list.html?a_code=" + nowAcode + "&b_code=01&c_code=" + cCode;
+            locationHref = "/customer/trade/trade_ing_list?a_code=" + nowAcode + "&b_code=01&c_code=" + cCode;
         }
         else if (nowAcode == 'A2') {
             var returnUrl = "";
@@ -183,10 +183,10 @@ function _init() {
         else {
             var nowAcode = $(this).attr('data-acode');
             if (this.id == 'faulty') {
-                locationHref = "/customer/faulty.html";
+                locationHref = "/customer/faulty";
             }
             else {
-                locationHref = "/customer/report.html?a_code=" + nowAcode + "&b_code=" + $(this).val() + '#customer_report';
+                locationHref = "/customer/report?a_code=" + nowAcode + "&b_code=" + $(this).val() + '#customer_report';
             }
         }
         location.href = locationHref;
@@ -903,7 +903,7 @@ function initXhr(seq, table, code, type, reflag, t_type) {
     var procPage = "";
     var paramsValue = "";
 
-    procPage = "./trade_process.php";
+    procPage = "./trade_process";
     paramsValue = "seq=" + seq + "&table=" + table + "&code=" + code + "&type=" + type + "&reflag=" + reflag + "&key=trade" + seq + "777&t_type=" + t_type;
     fnAjax(procPage, 'text', 'POST', paramsValue, {complete: insertRs});
 }
@@ -1111,7 +1111,7 @@ function TraceCancel(process, tid, c_code) {
 //		alert($("input[name='id']").val());
 //		alert($("input[name='process']").val());
 //		alert($("input[name='trade_type']").val());
-        frm.attr("action", "/myroom/sell/sell_ing_ok.php?mode=pass");
+        frm.attr("action", "/myroom/sell/sell_ing_ok?mode=pass");
         frm.submit();
     }
     return false;
@@ -1129,10 +1129,10 @@ function fnTrade_Ajax(trade_id, pMode) {
     var paramsValue = "trade_id=" + trade_id + "&pMode=" + pMode;
 
     if (pMode == 'cancel') {
-        fnAjax('/_include/_ACS_check_AJAX.html', 'text', 'POST', paramsValue, {complete: fnTrade_Cancel_Ajax_Complete});
+        fnAjax('/_include/_ACS_check_AJAX', 'text', 'POST', paramsValue, {complete: fnTrade_Cancel_Ajax_Complete});
     }
     else if (pMode == 'complete') {
-        fnAjax('/_include/_ACS_check_AJAX.html', 'text', 'POST', paramsValue, {complete: fnTrade_Complete_Ajax_Complete});
+        fnAjax('/_include/_ACS_check_AJAX', 'text', 'POST', paramsValue, {complete: fnTrade_Complete_Ajax_Complete});
 //		new _xhr('/_include/_ACS_check_AJAX.html',{type:'POST',params:paramsValue},null,{complete:fnTrade_Complete_Ajax_Complete});
     }
     else {
@@ -1211,7 +1211,7 @@ function fnTrade_Cancel_Ajax_Complete(request) {
                     var frm = $('#frmACS');
 
                     frm.find('input[name="acs_trade_id"]').val(element_trade_id);
-                    frm.attr('action', "buy_acs_cancel_ok.php").submit();
+                    frm.attr('action', "buy_acs_cancel_ok").submit();
                 }
             }
             else if (returnData == "BOARD") {

@@ -1,9 +1,6 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/_css/_comm.css?v=210317">
-    <link type="text/css" rel="stylesheet" href="/mania/_head_tail/css/_head_comm.css?v=211109">
-    <link type="text/css" rel="stylesheet" href="/mania/_banner/css/banner_module.css?v=210422">
     <link type="text/css" rel="stylesheet" href="/mania/customer/css/customer_common.css" />
     <link type="text/css" rel="stylesheet" href="/mania/_css/_table.css?190219" />
     <link type="text/css" rel="stylesheet" href="/mania/customer/css/report.css?210503" />
@@ -14,10 +11,6 @@
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_jquery3.js?v=190220"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js?v=21100516"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.js?v=21101416"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js?v=21110910"></script>
     <script type="text/javascript" src="/mania/customer/report/js/index.js?210503"></script>
 @endsection
 

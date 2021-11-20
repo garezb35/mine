@@ -1,9 +1,6 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/_css/_comm.css?v=210317">
-    <link type="text/css" rel="stylesheet" href="/mania/_head_tail/css/_head_comm.css?v=211007">
-    <link type="text/css" rel="stylesheet" href="/mania/_banner/css/banner_module.css?v=210422">
     <link type="text/css" rel="stylesheet" href="/mania/customer/faq/css/faq_category.css?201112" />
     <link type="text/css" rel="stylesheet" href="/mania/customer/faq/css/search.css?210524" />
     <link type="text/css" rel="stylesheet" href="/mania/customer/faq/css/index.css?210524" />

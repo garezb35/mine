@@ -1952,9 +1952,10 @@ $.extend(_gamelist, {
     loadXML: function() {
         ajaxRequest({
             scope: this,
-            url: "/mania/_xml/gamelist.xml",
+            url: "/api/mania/_xml/gamelist.xml",
             dataType: "xml",
             cache: 6,
+            data:{api_token: a_token},
             success: this.OnLoadXML,
             error: this.OnError
         })
@@ -2392,9 +2393,9 @@ $.extend(_serverlist, {
         }
         ajaxRequest({
             scope: this,
-            url: "/_xml/serverlist.php",
+            url: "/api/_xml/serverlist",
             dataType: "xml",
-            data: "game=" + this.status.where,
+            data: {game:this.status.where,api_token:a_token},
             cache: 6,
             success: this.OnLoadXML,
             error: this.OnError
@@ -2412,9 +2413,10 @@ $.extend(_serverlist, {
         } else {
             ajaxRequest({
                 scope: this,
-                url: "/mania/_xslt/serverlist" + this.template + ".xsl",
+                url: "/api/mania/_xslt/serverlist" + this.template + ".xsl",
                 dataType: "xml",
                 cache: true,
+                data:{api_token:a_token},
                 success: this.OnLoadXSLT,
                 error: this.OnError
             })

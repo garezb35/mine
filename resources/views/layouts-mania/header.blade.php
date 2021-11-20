@@ -67,7 +67,7 @@
                     <div class="search_area no-border">
                         <input type="text" class="g_text search_gs_name" name="searchGameServer" id="searchGameServer" title="게임검색" style="ime-mode:active" placeholder="게임명 또는 서버명을 입력해주세요." autocomplete="off" data-gameserver="true">
                     </div>
-                    <button type="submit" class="g_search_list" id="g_search_list" title="검색"> <span class="icon_search"></span> </button>
+                    <button type="submit" class="g_search_list" id="g_search_list" title="검색"> <i class="fa fa-search" style="font-size: 19px"></i> </button>
                     <div class="g_search_frame g_hidden">
                         <div class="g_trade_type align-center">
                             <label class="radiocontainer f_blue1"> 팝니다

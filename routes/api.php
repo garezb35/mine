@@ -48,6 +48,10 @@ Route::middleware('auth:api')->group(function(){
     Route::post('/mileage/charge/proc', [\App\Http\Controllers\VMyRoomController::class, 'mileage_payment_charge_proc'])->name('mileage_payment_charge_proc');
     Route::post('/mileage/exchange/proc', [\App\Http\Controllers\VMyRoomController::class, 'mileage_payment_exchange_proc'])->name('mileage_payment_exchange_proc');
     Route::post('/_include/quicklinkuser',[\App\Http\Controllers\VAjaxController::class, 'quicklinkuser_home']);
+    Route::post('/_xslt/gamelist.xsl', [\App\Http\Controllers\VAjaxController::class, 'gamelist']);
+    Route::get('/mania/_xml/gamelist.xml', [\App\Http\Controllers\VAjaxController::class, 'gamelist_xml']);
+    Route::get('/_xml/serverlist', [\App\Http\Controllers\VAjaxController::class, 'serverlist']);
+    Route::get('/mania/_xslt/serverlist.xsl',[\App\Http\Controllers\VAjaxController::class, 'serverlist_xsl']);
 });
 
 Route::get('/sell/include/index_template', [\App\Http\Controllers\VSellController::class, 'ajax_template']);
@@ -58,4 +62,6 @@ Route::get("/json/gameserverlist.json",[\App\Http\Controllers\ManiaController::c
  */
 Route::post('/quicklinkuser', [\App\Http\Controllers\VAjaxController::class, 'quicklinkuser']);
 Route::get('/character', [\App\Http\Controllers\VAjaxController::class, 'character']);
+
+
 

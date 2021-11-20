@@ -1,27 +1,36 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/_css/_comm.css?v=210317">
-    <link type="text/css" rel="stylesheet" href="/mania/_head_tail/css/_head_comm.css?v=211102">
-    <link type="text/css" rel="stylesheet" href="/mania/_banner/css/banner_module.css?v=210422">
-    <link type="text/css" rel="stylesheet" href="/mania/customer/css/menu.css?190220" />
-    <link type="text/css" rel="stylesheet" href="/mania/customer/css/_report_top.css?210503" />
-    <link type="text/css" rel="stylesheet" href="/mania/customer/trade/css/trade_common.css?210901" />
-    <link type="text/css" rel="stylesheet" href="/mania/customer/css/customer_common.css?210901" />
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
-    <script type="text/javascript" src="/mania/_js/_jquery3.js?v=190220"></script>
+    <link type="text/css" rel="stylesheet" href="/mania/customer/css/menu.css" />
+    <link type="text/css" rel="stylesheet" href="/mania/customer/css/_report_top.css" />
+    <link type="text/css" rel="stylesheet" href="/mania/customer/trade/css/trade_common.css" />
+    <link type="text/css" rel="stylesheet" href="/mania/customer/css/customer_common.css" />
+    <script type="text/javascript" src="/mania/_banner/js/banner_module.js"></script>
+
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_comm.js?v=21100516"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.js?v=21101416"></script>
-    <script type="text/javascript" src="/mania/_js/_common_initialize_new.js?v=21050316"></script>
-    <script type="text/javascript" src="/mania/_js/_screenshot.js?v=190220"></script>
-{{--    <script type="text/javascript" src="/mania/customer/trade/js/trade_common.js?211005"></script>--}}
+
+    <script type="text/javascript" src="/mania/_js/_screenshot.js"></script>
+    <script type="text/javascript" src="/mania/customer/trade/js/trade_common.js"></script>
     <script type="text/javascript">
         function __init() {
             strThisCode = 'A101';
             fnCreateDom('ACS', '01');
+        }
+        $(document).ready(function() {
+            $("#trade_list").on("click", ".btn_red1", function() {
+                var orderNo = $(this).data("order");
+                $("#tradeNum").text(orderNo);
+                $("#tradeNum2").text(orderNo);
+                $("#Form_table").show();
+            });
+        });
+        function goCloseReqest() {
+            location.href = "{{route('customer_report')}}";
+        }
+        function goEndReqest() {
+            location.href = "{{route('customer_report_end')}}";
         }
     </script>
 @endsection
@@ -127,6 +136,7 @@
             <div class="g_finish"></div>
             <div class="g_big_box1">
                 <form id="frmSearch" action="" method="post">
+                    @csrf
                     <input type="hidden" name="a_code" value="A1" />
                     <input type="hidden" name="b_code" value="01" />
                     <input type="hidden" name="c_code" value="01" />
@@ -136,18 +146,20 @@
                     <input type="hidden" name="retry" value="" />
                     <input type="hidden" name="reflag" value="" />
                     <div class="" style="height: 35px;">
-                        <div id="dvGame" class="g_selectbox" style="width: 150px;">
-                            <input type="hidden" name="selected" value="">
-                            <input type="hidden" name="game">
-                            <input type="text" name="game_text" class="g_search_input" style="width: 117px;">
-                            <div class="arrow_img"></div>
-                        </div>
-                        <div id="dvServer" class="g_selectbox" style="width: 150px;">
-                            <input type="hidden" name="selected" value="">
-                            <input type="hidden" name="server" value="">
-                            <input type="text" name="server_text" class="g_search_input" style="width: 117px;">
-                            <div class="arrow_img"></div>
-                        </div>
+{{--                        <div id="dvGame" class="g_selectbox" style="width: 150px;">--}}
+{{--                            <input type="hidden" name="selected" value="">--}}
+{{--                            <input type="hidden" name="game">--}}
+{{--                            <input type="text" name="game_text" class="g_search_input" style="width: 117px;">--}}
+{{--                            <div class="arrow_img"></div>--}}
+{{--                        </div>--}}
+{{--                        <div id="dvServer" class="g_selectbox" style="width: 150px;">--}}
+{{--                            <input type="hidden" name="selected" value="">--}}
+{{--                            <input type="hidden" name="server" value="">--}}
+{{--                            <input type="text" name="server_text" class="g_search_input" style="width: 117px;">--}}
+{{--                            <div class="arrow_img"></div>--}}
+{{--                        </div>--}}
+                        <div id="dvGame" name="game"><input type="hidden" name="selected" value=""/></div>
+                        <div id="dvServer" name="server"><input type="hidden" name="selected" value=""/></div>
                         <select id="dvGoods" name="search_goods" class="g_hidden">
                             <option value="all">물품전체</option>
                             <option value="3">게임머니</option>
@@ -305,21 +317,4 @@
         <div class="g_finish"></div>
     </div>
     <!-- ▲ 컨텐츠 영역 //-->
-
-    <script>
-        $(document).ready(function() {
-            $("#trade_list").on("click", ".btn_red1", function() {
-                var orderNo = $(this).data("order");
-                $("#tradeNum").text(orderNo);
-                $("#tradeNum2").text(orderNo);
-                $("#Form_table").show();
-            });
-        });
-        function goCloseReqest() {
-            location.href = "{{route('customer_report')}}";
-        }
-        function goEndReqest() {
-            location.href = "{{route('customer_report_end')}}";
-        }
-    </script>
 @endsection

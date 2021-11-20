@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MGame;
 use App\Models\MInbox;
 use App\Models\MItem;
 use App\Models\MMygame;
@@ -703,5 +704,143 @@ class VAjaxController extends BaseController
             {$game_list}
         </dl>
     </div>";
+    }
+
+    public function gamelist(Request $request){
+        echo '<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+
+<xsl:variable name="len" select="0" />
+
+<xsl:for-each select="/gamelist/game">
+
+<xsl:element name="div">
+	<xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
+
+	<xsl:choose>
+		<xsl:when test="@level=\'1\'"><xsl:attribute name="style">color:#407FD4</xsl:attribute></xsl:when>
+		<xsl:when test="@level=\'2\'"><xsl:attribute name="style">color:#03A307</xsl:attribute></xsl:when>
+		<xsl:when test="@level=\'3\'"><xsl:attribute name="style">color:#FF9000</xsl:attribute></xsl:when>
+		<xsl:when test="@level=\'4\'"><xsl:attribute name="style">color:#B651F2</xsl:attribute></xsl:when>
+	</xsl:choose>
+
+	<xsl:element name="span">
+		<xsl:attribute name="style">font-weight:bold;color:#FF3300</xsl:attribute>
+		<xsl:value-of select="substring(@name,1,$len)" />
+	</xsl:element>
+
+	<xsl:value-of select="substring(@name,$len+1)" />
+
+	<xsl:element name="input">
+		<xsl:attribute name="type">hidden</xsl:attribute>
+		<xsl:attribute name="name">unit</xsl:attribute>
+		<xsl:attribute name="value"><xsl:value-of select="@unit" /></xsl:attribute>
+	</xsl:element>
+
+</xsl:element>
+
+</xsl:for-each>
+
+</xsl:template>
+
+</xsl:stylesheet>';
+    }
+
+    public function gamelist_xml(Request $request){
+        $gameList = "<gamelist>";
+        $game_items = "";
+        $games = MGame::with('firstOfproperty')->whereHas('firstOfproperty')->where('status',1)->orderBY('order','ASC')->get();
+        foreach($games as $v){
+            $character_view = $v['character_enabled'] == 1 ? 'Y':'N';
+            $game_items .= "<game id=\"{$v['id']}\" name=\"{$v['game']}\" level=\"1\" unit=\"{$v['firstOfproperty']['game']}\" search=\"R\" premium_view=\"y\" lowest_view=\"n\" character_view=\"{$character_view}\"/>";
+        }
+        $gameList .= $game_items;
+        $gameList .= "</gamelist>";
+        echo $gameList;
+    }
+
+    public function serverlist(Request $request){
+       $id = $request->game;
+       $serverList = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>
+                        <SERVERLIST GAME_ID=\"{$id}\" RESULT=\"success\">";
+       $server_games = "";
+       $item_type = MGame::where("parent",$id)->where('depth',2)->orderBY('order','ASC')->first();
+       $item_type=  !empty($item_type) ? $item_type['game'] : '';
+       $games = MGame::where("status",1)->where('parent',$id)->where('depth',1)->orderBy('order','ASC')->get();
+       $server_games .= "<SERVER ID=\"0\" TYPE=\"all\" NAME=\"서버전체\" MONEY=\"1\" MONEY_UNIT=\"\" UNIT=\"{$item_type}\" MONEYSORT_TYPE=\"Y\" TIMELIST_TYPE=\"00\" PREMIUM_VIEW=\"y\" LOWEST_VIEW=\"n\" />";
+       foreach($games as $v){
+           if($v['game']  != '기타')
+                $server_games .= "<SERVER ID=\"{$v['id']}\" NAME=\"{$v['game']}\" MONEY=\"46\" MONEY_UNIT=\"\" UNIT=\"{$item_type}\" MONEYSORT_TYPE=\"Y\" TIMELIST_TYPE=\"00\" PREMIUM_VIEW=\"y\" LOWEST_VIEW=\"n\" />";
+           else
+               $server_games .= "<SERVER ID=\"{$v['id']}\" TYPE=\"etc\" NAME=\"기타\" MONEY=\"65535\" MONEY_UNIT=\"\" UNIT=\"{$item_type}\" MONEYSORT_TYPE=\"Y\" TIMELIST_TYPE=\"00\" PREMIUM_VIEW=\"y\" LOWEST_VIEW=\"n\" />";
+       }
+       $serverList .= $server_games;
+       $serverList .= "</SERVERLIST>";
+       echo $serverList;
+    }
+
+    public function serverlist_xsl(Request $request){
+        echo '<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+
+<xsl:variable name="len" select="0" />
+
+<xsl:for-each select="/SERVERLIST/SERVER[not(@TYPE)]">
+
+<xsl:element name="div">
+	<!--<xsl:attribute name="onmouseover">_item.option2.onmouseover.bind(this)()</xsl:attribute>
+	<xsl:attribute name="onmouseout">_item.option2.onmouseout.bind(this)()</xsl:attribute>
+	<xsl:attribute name="onclick">_item.option2.onclick.bind(this)()</xsl:attribute>//-->
+	<xsl:attribute name="value"><xsl:value-of select="@ID" /></xsl:attribute>
+
+	<xsl:element name="span">
+		<xsl:attribute name="style">font-weight:bold;color:#FF3300</xsl:attribute>
+		<xsl:value-of select="substring(@NAME,1,$len)" />
+	</xsl:element>
+
+	<xsl:value-of select="substring(@NAME,$len+1)" />
+
+	<!-- <xsl:element name="input">
+		<xsl:attribute name="type">hidden</xsl:attribute>
+		<xsl:attribute name="name">servercode</xsl:attribute>
+		<xsl:attribute name="value"><xsl:value-of select="@ID" /></xsl:attribute>
+	</xsl:element> -->
+
+	<xsl:element name="input">
+		<xsl:attribute name="type">hidden</xsl:attribute>
+		<xsl:attribute name="name">gamecode</xsl:attribute>
+		<xsl:attribute name="value"><xsl:value-of select="../@GAME_ID" /></xsl:attribute>
+	</xsl:element>
+
+	<xsl:element name="input">
+		<xsl:attribute name="type">hidden</xsl:attribute>
+		<xsl:attribute name="name">money</xsl:attribute>
+		<xsl:attribute name="value"><xsl:value-of select="@MONEY" /></xsl:attribute>
+	</xsl:element>
+
+	<xsl:element name="input">
+		<xsl:attribute name="type">hidden</xsl:attribute>
+		<xsl:attribute name="name">money_unit</xsl:attribute>
+		<xsl:attribute name="value"><xsl:value-of select="@MONEY_UNIT" /></xsl:attribute>
+	</xsl:element>
+
+	<xsl:element name="input">
+		<xsl:attribute name="type">hidden</xsl:attribute>
+		<xsl:attribute name="name">unit</xsl:attribute>
+		<xsl:attribute name="value"><xsl:value-of select="@UNIT" /></xsl:attribute>
+	</xsl:element>
+
+</xsl:element>
+
+</xsl:for-each>
+
+</xsl:template>
+
+
+</xsl:stylesheet>';
     }
 }
