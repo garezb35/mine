@@ -32,18 +32,20 @@
     top: 22px;
     padding: 4px 0;
     border: 2px solid #d3d3d3;
-    border-radius: 20px;
+    border-radius: 24px;
 }
 .search_area {
     padding: 0;
     background: transparent;
+    height: 37px;
 }
 .search_area .g_text {
     font-size: 16px;
     color: lightgrey;
     height: 30px;
     text-align: center;
-    margin-top: 8px;
+    margin-top: 5px;
+    background: transparent;
 }
 .g_search_list .icon_search {
     background-image: url("../img/icons/icon_search.png");
@@ -57,9 +59,10 @@
 .g_search_top .g_search_list {
     background-color: initial;
     right: 6px;
+    text-align: center;
 }
 .search_gs_name ~ .delete_btn {
-    top: 16px;
+    top: 11px;
     right: 4px;
 }
 .g_search_frame {

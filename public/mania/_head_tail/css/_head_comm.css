@@ -28,9 +28,6 @@ body{
     position:fixed;
     top:0;
     right:0;
-    bottom:0;
-    /* min-width:43px;
-     */
 }
 
 .quickmenu_cont .cert_state:before{
@@ -59,6 +56,9 @@ body{
     top:50%;
     right:250px;
     margin-top:-76px;
+    border: 1px solid #A4A4A4;
+    border-right: 0;
+    background-color: #919199;
 }
 .quickmenu.close, .quickmenu_area ~ .quickmenu{
     right:0;
@@ -86,7 +86,8 @@ body{
     display:inline-block;
     width:28px;
     height:32px;
-    background-position:-32px -230px;
+    background: url(/mania/img/icons/user.png);
+    background-size: cover;
 }
 .quickmenu .trade_list{
     display:inline-block;

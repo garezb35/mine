@@ -5,7 +5,9 @@
 <div class="quickmenu_area" id="quickmenu_area">
     <div class="inner">
         <ul class="quickmenu close" id="quickmenu">
-            <li><a href="javascript:;" data-type="user_info"><i class="fa fa-chevron-left"></i> </a>
+            <li><a href="javascript:;" data-type="user_info">
+                    <span class="user_info"></span>
+                </a>
                 <div><i>나의 거래정보</i></div>
             </li>
 {{--            <li><a href="javascript:;" data-type="pluszone"><span class="sp_icon pluszone"></span></a>--}}
