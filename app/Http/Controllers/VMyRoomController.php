@@ -1243,7 +1243,6 @@ class VMyRoomController extends BaseController
     }
 
     /***************** Resion 마일리지 ****************/
-    /***************** Resion 마일리지 ****************/
     /**
      * 마이룸 > 마일리지 > 내 마일리지 > 마이리지 충전탭
      */
@@ -1312,7 +1311,9 @@ class VMyRoomController extends BaseController
      */
     public function mileage_payment_charge()
     {
+        $bankInfo = MUserbank::where('id', $this->user->id)->first()->toArray();
         $pageData['userDetail'] = $this->user;
+        $pageData['bankDetail'] = $bankInfo;
         $pageData['snzProc'] = "충전";
         return view('mania.myroom.mileage.charge.index_account_iframe', $pageData);
     }
@@ -1338,6 +1339,9 @@ class VMyRoomController extends BaseController
     public function mileage_payment_exchange()
     {
         $pageData['userDetail'] = $this->user;
+        $bankInfo = MUserbank::where('id', $this->user->id)->first()->toArray();
+        $pageData['userDetail'] = $this->user;
+        $pageData['bankDetail'] = $bankInfo;
         $pageData['snzProc'] = "출금";
         return view('mania.myroom.mileage.charge.index_account_iframe', $pageData);
     }

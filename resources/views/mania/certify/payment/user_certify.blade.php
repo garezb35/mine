@@ -52,7 +52,7 @@
             <li class="list_non">(보안서비스는 <strong>마이룸 &gt; 보안센터</strong>에서 설정 가능합니다.)</li>
         </ul>
         <div class="simple_box">
-            <a href="http://trade.itemmania.com/myroom/myinfo/my_pin_info.html" target="_blank"><img src="http://img4.itemmania.com/new_images/certify/210602_470X158.jpg" width="470" alt="마일리지 간편결제"></a>
+            <a href="http://trade.itemmania.com/myroom/myinfo/my_pin_info target="_blank"><img src="http://img4.itemmania.com/new_images/certify/210602_470X158.jpg" width="470" alt="마일리지 간편결제"></a>
         </div>
         <div id="dvPopup" class="g_popup"> <img src="http://img4.itemmania.com/images/certify/loading_top.gif" width="168" height="74" alt="로딩중"> <img src="http://img4.itemmania.com/images/certify/loading.gif" width="354" height="40" alt="로딩중"> </div>
         <div id="dvPopup2" class="g_popup kakaopay">

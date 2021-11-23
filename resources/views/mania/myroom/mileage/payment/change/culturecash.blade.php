@@ -46,8 +46,8 @@
             </dl>
         </div>
         <div class="tabMenu">
-            <div class="active"><a href="index.html">컬쳐캐시 전환</a></div>
-            <div class=""><a href="exchange_list.html">컬쳐캐시 전환 내역</a></div> <a href="https://www.cultureland.co.kr/signin/findId/mobileAuth.do" target="_blank" class="sub_btn">컬쳐랜드 ID 찾기</a> </div>
+            <div class="active"><a href="index>컬쳐캐시 전환</a></div>
+            <div class=""><a href="exchange_list>컬쳐캐시 전환 내역</a></div> <a href="https://www.cultureland.co.kr/signin/findId/mobileAuth.do" target="_blank" class="sub_btn">컬쳐랜드 ID 찾기</a> </div>
         <!-- ▼ 마일리지 출금 정보 //-->
         <form id="frmCertify" name="frmCertify" method="post">
             <input type="hidden" id="security_type" name="security_type" value="INCS">

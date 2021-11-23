@@ -69,7 +69,7 @@
                     </tr>
                     <tr>
                         <td class="noborder text-center bg-white"><a href="/myroom/mileage/my_mileage/">{{number_format($user['mileage'])}} 원</a></td>
-{{--                        <td class="noborder text-center bg-white">VIP <a href="http://trade.itemmania.com/myroom/myinfo/credit_rating.html"><img src="http://img4.itemmania.com/images/myroom/user_leave/btn_calssbe.gif" width="109" height="20" alt="신용등급 혜택받기" title="신용등급 혜택받기"></a></td>--}}
+{{--                        <td class="noborder text-center bg-white">VIP <a href="http://trade.itemmania.com/myroom/myinfo/credit_rating><img src="http://img4.itemmania.com/images/myroom/user_leave/btn_calssbe.gif" width="109" height="20" alt="신용등급 혜택받기" title="신용등급 혜택받기"></a></td>--}}
                         <td class="noborder text-center bg-white">VIP</td>
                         <td class="noborder text-center bg-white">907 점</td>
                     </tr>

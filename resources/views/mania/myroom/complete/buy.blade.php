@@ -35,9 +35,9 @@
                 <div><a href="{{route("complete_report")}}">전체이용내역</a></div>
             </div>
             <div class="search_box">
-                <a href="buy.html">
+                <a href="buy>
                     <input type="radio" name="list_type" value="2" checked onclick="location.href='buy.html'"> 최근종료내역</a>
-                <a href="before_buy_end.html" class="pdl">
+                <a href="before_buy_end class="pdl">
                     <input type="radio" name="list_type" value="1" onclick="location.href='before_buy_end.html'"> 이전종료내역</a>
                 <form id="frmSearch" action="" method="post">
                     <ul class="g_right g_sideway">

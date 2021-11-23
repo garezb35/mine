@@ -69,7 +69,7 @@
                 </ul>
             </div>
             <div class="g_finish"></div>
-            <form name="searchForm" id="searchForm" method="post" action="/customer/faq/index.html">
+            <form name="searchForm" id="searchForm" method="post" action="/customer/faq/index>
                 <input type="hidden" name="second_code">
                 <div class="search">
                     <div class="search_img_wrap"> 아이템매니아 고객센터. 무엇이든 물어보세요!! </div>
@@ -261,7 +261,7 @@
             <div class="g_finish"></div>
             <div class="gray_content">
                 <div class="g_left">궁금한 항목에 대한 FAQ가 없으시다면, 1:1 상담하기를 이용해 주세요.</div>
-                <div class="s_btn"><a href="/customer/report/index.html">1:1상담하기</a></div>
+                <div class="s_btn"><a href="/customer/report/index>1:1상담하기</a></div>
             </div>
         </div>
         <div class="g_finish"></div>

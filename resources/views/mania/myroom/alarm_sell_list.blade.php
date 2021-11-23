@@ -34,15 +34,15 @@
             <p>이를 회원에게(캐릭터거래에 한해) 알림 해주는 편리한 무료서비스입니다.</p>
         </div>
         <div class="g_tab">
-            <div class="selected"><a href="/myroom/goods_alarm/alarm_sell_list.html">등록 알림 내역</a></div>
-            <div class=""><a href="/myroom/goods_alarm/alarm_add.html">알림 설정 등록</a></div>
+            <div class="selected"><a href="/myroom/goods_alarm/alarm_sell_list>등록 알림 내역</a></div>
+            <div class=""><a href="/myroom/goods_alarm/alarm_add>알림 설정 등록</a></div>
         </div>
         <!-- 알림 설정 리스트 -->
         <div class="g_subtitle first">알림 설정 내역</div>
         <div class="search_box">
-            <a href="alarm_sell_list.html">
+            <a href="alarm_sell_list>
                 <input type="radio" name="list_type" value="2" checked="" onclick="location.href='alarm_sell_list.html'"> 팝니다</a>
-            <a href="alarm_buy_list.html" class="pdl">
+            <a href="alarm_buy_list class="pdl">
                 <input type="radio" name="list_type" value="1" onclick="location.href='alarm_buy_list.html'"> 삽니다</a>
         </div>
         <div class="goods_alarm_table_wrapper">

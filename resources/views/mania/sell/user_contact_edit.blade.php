@@ -55,7 +55,7 @@
             <input type="hidden" name="user_mobileA">
             <input type="hidden" name="user_mobileB">
             <input type="hidden" name="user_mobileC"> </form>
-        <form id="frmContact" action="https://trade.itemmania.com/user/contact_edit_ok.html" method="post">
+        <form id="frmContact" action="https://trade.itemmania.com/user/contact_edit_ok method="post">
             <input type="hidden" name="check" value="true">
             <input type="hidden" name="security_service_userinfo" value="N">
             <input type="hidden" name="security_type" value="none">

@@ -4,8 +4,8 @@
 <div class="top_area">
     <div class="g_container">
         <ul class="tab">
-            <li class="selected"><a href="/event/index.html">진행중인 이벤트</a></li>
-            <li><a href="/event/event_close/index.html">종료된 이벤트</a></li>
+            <li class="selected"><a href="/event/index>진행중인 이벤트</a></li>
+            <li><a href="/event/event_close/index>종료된 이벤트</a></li>
         </ul>
         <ul class="g_path">
             <li>홈</li>

@@ -35,10 +35,10 @@
         <!-- ▲ 타이틀 //-->
         <!-- ▼ 메뉴탭 //-->
         <div class="g_tab">
-            <div class=""><a href="https://trade.itemmania.com/myroom/mileage/payment/index.html">은행계좌 출금</a></div>
-            <div class="selected icon_new"> <a href="http://trade.itemmania.com/myroom/mileage/payment/payment_phone.html">휴대폰번호 출금<span class="ballon_24hours"></span></a> </div>
-            <div class=""><a href="http://trade.itemmania.com/myroom/mileage/payment/payment_list.html">마일리지 출금내역 보기</a></div>
-            <div class=" icon_new"><a href="http://trade.itemmania.com/myroom/mileage/payment/payment_phone_list.html">휴대폰번호 출금내역 보기</a></div>
+            <div class=""><a href="https://trade.itemmania.com/myroom/mileage/payment/index>은행계좌 출금</a></div>
+            <div class="selected icon_new"> <a href="http://trade.itemmania.com/myroom/mileage/payment/payment_phone>휴대폰번호 출금<span class="ballon_24hours"></span></a> </div>
+            <div class=""><a href="http://trade.itemmania.com/myroom/mileage/payment/payment_list>마일리지 출금내역 보기</a></div>
+            <div class=" icon_new"><a href="http://trade.itemmania.com/myroom/mileage/payment/payment_phone_list>휴대폰번호 출금내역 보기</a></div>
         </div>
         <!-- ▲ 메뉴탭 //-->
         <form id="payment" name="payment" method="post" action="payment_phone_ok.php">
