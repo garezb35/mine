@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ResetPasswordExample;
 use App\Http\Livewire\UpgradeToPro;
 use App\Http\Livewire\Users;
+use App\Http\AdminAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,15 +53,23 @@ Route::get('/404', Err404::class)->name('404');
 Route::get('/500', Err500::class)->name('500');
 Route::get('/upgrade-to-pro', UpgradeToPro::class)->name('upgrade-to-pro');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', Profile::class)->name('profile');
+//Route::get('/login-example', LoginExample::class);
+Route::get('/alogin', LoginExample::class)->name('login-example');
+Route::post('admin/login', [\App\Http\Controllers\AdminAuthController::class,'postLogin'])->name('adminLoginPost');
+//Route::get('admin/logout', [\App\Http\Controllers\AdminAuthController::class,'logout'])->name('adminLogout');
+
+Route::group(['middleware' => ['web', 'admins']], function () {
+    Route::get('admin/tables', [\App\Http\Controllers\AdminController::class,'tableList'])->name('tables');
+    Route::get('admin/logout', [\App\Http\Controllers\AdminAuthController::class,'logout'])->name('adminLogout');
+    Route::get('/admin/profile', [\App\Http\Controllers\AdminController::class,'profile'])->name('profile.edit');
+    Route::post('/updateProfile', [\App\Http\Controllers\AdminController::class,'updateProfile'])->name('profile.update');
+    Route::post('/passwordProfile', [\App\Http\Controllers\AdminController::class,'passwordProfile'])->name('profile.password');
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
-    Route::get('/users', Users::class)->name('users');
-    Route::get('/login-example', LoginExample::class)->name('login-example');
+    Route::get('/admin/users', [\App\Http\Controllers\AdminController::class,'userList'])->name('users');
     Route::get('/register-example', RegisterExample::class)->name('register-example');
     Route::get('/forgot-password-example', ForgotPasswordExample::class)->name('forgot-password-example');
     Route::get('/reset-password-example', ResetPasswordExample::class)->name('reset-password-example');
-    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::get('/dashboard', [\App\Http\Controllers\AdminController::class,'dashboard'])->name('dashboard');
     Route::get('/transactions', Transactions::class)->name('transactions');
     Route::get('/bootstrap-tables', BootstrapTables::class)->name('bootstrap-tables');
     Route::get('/lock', Lock::class)->name('lock');
@@ -69,6 +78,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/forms', Forms::class)->name('forms');
     Route::get('/modals', Modals::class)->name('modals');
     Route::get('/typography', Typography::class)->name('typography');
+});
+
+Route::middleware('auth')->group(function () {
 
     Route::get('/logout', [\App\Http\Controllers\ManiaController::class,'logout'])->name('logout');
     Route::post('/sell/application_ba_ok',[\App\Http\Controllers\ManiaController::class,'applicationiBa']);
@@ -124,7 +136,7 @@ Route::middleware('auth')->group(function () {
         });
 
         Route::prefix('coupon')->group(function () {
-           Route::get('free_remainder_list',[\App\Http\Controllers\VMyRoomController::class, 'free_remainder_list'])->name('free_remainder_list');
+            Route::get('free_remainder_list',[\App\Http\Controllers\VMyRoomController::class, 'free_remainder_list'])->name('free_remainder_list');
         });
 
         Route::prefix('complete')->group(function () {
