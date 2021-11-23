@@ -43,7 +43,7 @@ $user_contactC = !empty($splited_mobile[2]) ? $splited_mobile[2] : "";
             </div>
             {{--        <div class="g_tab">--}}
             {{--            <div class="selected">기본정보수정</div>--}}
-            {{--            <div><a href="/myroom/myinfo/myinfo_passwd_modify.html">비밀번호수정</a></div>--}}
+            {{--            <div><a href="/myroom/myinfo/myinfo_passwd_modify>비밀번호수정</a></div>--}}
 
             {{--        </div>--}}
             <form id="frmInfo" name="frmInfo" method="post" action="/myroom/myinfo/myinfo_modify_ok">

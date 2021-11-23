@@ -498,7 +498,7 @@
                                         </ul>
                                     </div>
                                     <div class="btn">
-                                        <a href="/guide/add/security_number.html" class="btn_blue4">안심번호 이용안내 ></a>
+                                        <a href="/guide/add/security_number class="btn_blue4">안심번호 이용안내 ></a>
                                     </div>
                                 </div>
                             </div>
@@ -523,7 +523,7 @@
                                         </ul>
                                     </div>
                                     <div class="btn">
-                                        <a href="/guide/add/security_number_plus.html" class="btn_blue4"> 이용안내 ></a>
+                                        <a href="/guide/add/security_number_plus class="btn_blue4"> 이용안내 ></a>
                                     </div>
                                 </div>
                             </div>

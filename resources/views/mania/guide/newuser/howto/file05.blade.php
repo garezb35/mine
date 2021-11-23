@@ -138,10 +138,10 @@
             <!-- ▼ 메뉴탭 //-->
             <div class="g_tab">
                 <div class="selected"><a href="{{route('guide_howto')}}">거래방법 보기</a></div>
-                <div class=""><a href="/guide/frshmn_guide/movie.html">동영상 가이드</a></div>
-                <div class=""><a href="/guide/frshmn_guide/safe.html">안전 거래 시스템</a></div>
-                <div class=""><a href="/guide/frshmn_guide/trade.html">거래시 주의사항</a></div>
-                <div class=""><a href="/guide/frshmn_guide/fraud_srh.html">거래 사기 실시간 조회</a></div>
+                <div class=""><a href="{{route('guide_movie')}}">동영상 가이드</a></div>
+                <div class=""><a href="{{route('guide_safe')}}">안전 거래 시스템</a></div>
+                <div class=""><a href="{{route('guide_trade')}}">거래시 주의사항</a></div>
+                <div class=""><a href="{{route('guide_failed')}}">거래 사기 실시간 조회</a></div>
             </div>
             <div class="g_finish"></div>
             <!-- ▲ 메뉴탭 //-->

@@ -177,3 +177,6 @@ body {
     background: url(../img/icons/btn-arrow-left.png) no-repeat;
     left: 34px;
 }
+.g_title_blue {
+    margin-left: 0px !important;
+}

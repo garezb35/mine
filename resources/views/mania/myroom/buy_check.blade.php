@@ -27,6 +27,7 @@
                 <col />
                 <col width="114">
                 <col width="114">
+                <col width="100">
             </colgroup>
             <tr>
                 <th>카테고리</th>
@@ -34,6 +35,7 @@
                 <th>제목</th>
                 <th>금액</th>
                 <th>등록일시</th>
+                <th>구분</th>
             </tr>
             @include('template.myroom_buy',['game'=>$games,'type'=>1])
         </table>

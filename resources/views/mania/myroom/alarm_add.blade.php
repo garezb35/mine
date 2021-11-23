@@ -30,8 +30,8 @@
             <p>이를 회원에게(캐릭터거래에 한해) 알림 해주는 편리한 무료서비스입니다.</p>
         </div>
         <div class="g_tab">
-            <div class=""><a href="/myroom/goods_alarm/alarm_sell_list.html">등록 알림 내역</a></div>
-            <div class="selected"><a href="/myroom/goods_alarm/alarm_add.html">알림 설정 등록</a></div>
+            <div class=""><a href="/myroom/goods_alarm/alarm_sell_list>등록 알림 내역</a></div>
+            <div class="selected"><a href="/myroom/goods_alarm/alarm_add>알림 설정 등록</a></div>
         </div>
         <form name="alarmAdd" id="alarmAdd" method="post" action="alarm_add_ok.php">
             <input type="hidden" name="save_type" id="save_type" value="write">

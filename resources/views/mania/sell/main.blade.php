@@ -494,7 +494,7 @@
                                         </ul>
                                     </div>
                                     <div class="btn">
-                                        <a href="/guide/add/security_number.html" class="btn_blue4">안심번호 이용안내 ></a>
+                                        <a href="/guide/add/security_number class="btn_blue4">안심번호 이용안내 ></a>
                                     </div>
                                 </div>
                             </div>
@@ -518,7 +518,7 @@
                                         </ul>
                                     </div>
                                     <div class="btn">
-                                        <a href="/guide/add/security_number_plus.html" class="btn_blue4"> 이용안내 ></a>
+                                        <a href="/guide/add/security_number_plus class="btn_blue4"> 이용안내 ></a>
                                     </div>
                                 </div>
                             </div>
@@ -592,7 +592,7 @@
                     };
                 </script>                        <div class="g_btn_wrap">
                     <button type="submit" href="javascript:;" class="sell_reg" id="ok_btn">판매등록</button>
-                    <a href="/index.html" class="cancel_reg">등록 취소</a>
+                    <a href="/index class="cancel_reg">등록 취소</a>
                 </div>
             </form>
             <div class="qntKorean" id="qntKorean"></div>

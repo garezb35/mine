@@ -65,7 +65,7 @@
         </div>
         <!-- ▲ 메뉴탭 //-->
         <!-- ▼ 년도 //-->
-        <form name="frmData" id="frmData" method="POST" action="calendar.html">
+        <form name="frmData" id="frmData" method="POST" action="calendar>
             <input type="hidden" id="date_Y" name="date_Y" value="2021">
             <input type="hidden" id="date_M" name="date_M" value="10">
             <ul id="mile_year">

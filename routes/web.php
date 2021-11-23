@@ -256,9 +256,59 @@ Route::get('/index', [\App\Http\Controllers\VMainController::class, 'index'])->n
 Route::get('/character', [\App\Http\Controllers\VChrController::class, 'index'])->name('character');
 Route::get('/event', [\App\Http\Controllers\VEventController::class, 'index'])->name('event');
 
-Route::get('/guide', [\App\Http\Controllers\VGuideController::class, 'index'])->name('guide');
-Route::get('/guide/howto', [\App\Http\Controllers\VGuideController::class, 'howto'])->name('guide_howto');
-Route::get('/guide/howto2', [\App\Http\Controllers\VGuideController::class, 'howto2'])->name('guide_howto2');
+Route::prefix('guide')->group(function() {
+    Route::get('/', [\App\Http\Controllers\VGuideController::class, 'index'])->name('guide');
+    Route::get('/howto', [\App\Http\Controllers\VGuideController::class, 'howto'])->name('guide_howto');
+    Route::get('/howto2', [\App\Http\Controllers\VGuideController::class, 'howto2'])->name('guide_howto2');
+    Route::get('/movie', [\App\Http\Controllers\VGuideController::class, 'movie'])->name('guide_movie');
+    Route::get('/safe', [\App\Http\Controllers\VGuideController::class, 'safe'])->name('guide_safe');
+    Route::get('/trade', [\App\Http\Controllers\VGuideController::class, 'trade'])->name('guide_trade');
+    Route::get('/failed', [\App\Http\Controllers\VGuideController::class, 'failed'])->name('guide_failed');
+    Route::get('/join', [\App\Http\Controllers\VGuideController::class, 'join'])->name('guide_join');
+    Route::get('/charge', [\App\Http\Controllers\VGuideController::class, 'charge'])->name('guide_charge');
+    Route::get('/cancel', [\App\Http\Controllers\VGuideController::class, 'cancel'])->name('guide_cancel');
+    Route::get('/myroom', [\App\Http\Controllers\VGuideController::class, 'myroom'])->name('guide_myroom');
+    Route::get('/safe_grade/point', [\App\Http\Controllers\VGuideController::class, 'safe_grade_point'])->name('safe_grade_point');
+    Route::get('/safe_grade/certify', [\App\Http\Controllers\VGuideController::class, 'safe_grade_certify'])->name('safe_grade_certify');
+
+    Route::prefix('cancel')->group(function() {
+        Route::get('/cancel', [\App\Http\Controllers\VGuideController::class, 'cancel_cancel'])->name('guide_cancel_cancel');
+        Route::get('/bad_report', [\App\Http\Controllers\VGuideController::class, 'cancel_bad'])->name('guide_cancel_bad');
+    });
+
+    Route::get('/char_trade', [\App\Http\Controllers\VGuideController::class, 'safe_char_trade'])->name('safe_char_trade');
+    Route::get('/deposit_check', [\App\Http\Controllers\VGuideController::class, 'safe_deposit_check'])->name('safe_deposit_check');
+    Route::get('/buyer_info', [\App\Http\Controllers\VGuideController::class, 'safe_buyer_info'])->name('safe_buyer_info');
+    Route::get('/char_transfer', [\App\Http\Controllers\VGuideController::class, 'safe_char_transfer'])->name('safe_char_transfer');
+    Route::get('/sell_end', [\App\Http\Controllers\VGuideController::class, 'safe_sell_end'])->name('safe_sell_end');
+
+    Route::get('/buy_reg', [\App\Http\Controllers\VGuideController::class, 'safe_buy_reg'])->name('safe_buy_reg');
+    Route::get('/seller_info', [\App\Http\Controllers\VGuideController::class, 'safe_seller_info'])->name('safe_seller_info');
+    Route::get('/take_over', [\App\Http\Controllers\VGuideController::class, 'safe_take_over'])->name('safe_take_over');
+    Route::get('/buy_end', [\App\Http\Controllers\VGuideController::class, 'safe_buy_end'])->name('safe_buy_end');
+
+    Route::prefix('bar_trade')->group(function() {
+        Route::get('/sell_reg', [\App\Http\Controllers\VGuideController::class, 'bar_sell_reg'])->name('bar_sell_reg');
+        Route::get('/buyer_req', [\App\Http\Controllers\VGuideController::class, 'bar_buyer_req'])->name('bar_buyer_req');
+        Route::get('/seller_app', [\App\Http\Controllers\VGuideController::class, 'bar_seller_app'])->name('bar_seller_app');
+        Route::get('/buyer_pay', [\App\Http\Controllers\VGuideController::class, 'bar_buyer_pay'])->name('bar_buyer_pay');
+        Route::get('/re_bargain', [\App\Http\Controllers\VGuideController::class, 'bar_re_bargain'])->name('bar_re_bargain');
+    });
+    Route::get('/withdraw', [\App\Http\Controllers\VGuideController::class, 'guide_withdraw'])->name('guide_withdraw');
+    Route::get('/g_charge', [\App\Http\Controllers\VGuideController::class, 'guide_charge'])->name('guide_charge');
+
+    Route::prefix('convnce')->group(function() {
+        Route::get('/talk_box', [\App\Http\Controllers\VGuideController::class, 'talk_box'])->name('talk_box');
+        Route::get('/hide_func', [\App\Http\Controllers\VGuideController::class, 'hide_func'])->name('hide_func');
+        Route::get('/howto_search', [\App\Http\Controllers\VGuideController::class, 'howto_search'])->name('howto_search');
+    });
+
+    Route::prefix('add')->group(function() {
+        Route::get('/security_number', [\App\Http\Controllers\VGuideController::class, 'security_number'])->name('security_number');
+        Route::get('/security_number_plus', [\App\Http\Controllers\VGuideController::class, 'security_number_plus'])->name('security_number_plus');
+    });
+});
+
 Route::get('/news/view', [\App\Http\Controllers\VGuideController::class, 'view'])->name('view');
 Route::get('/news', [\App\Http\Controllers\VGuideController::class, 'news'])->name('news');
 

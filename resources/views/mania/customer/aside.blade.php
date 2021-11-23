@@ -62,8 +62,8 @@
         <div class="nav_title {{$group == "myqna" ? "on_active" : ""}}"><a href="{{route('myqna_list')}}">나의 질문과 답변</a></div>
         <div class="nav_title {{$group == "newgame" ? "on_active" : ""}}"><a href="{{route('customer_newgame')}}">신규게임/서버 추가</a></div>
         <div class="nav_title {{$group == "safety" ? "on_active" : ""}}"><a href="{{route('customer_safety')}}">안전거래</a></div>
-        {{--        <div class="nav_title "><a href="/customer/compensate/index.html">보상제도</a></div>--}}
-        {{--        <div class="nav_title "><a href="/customer/compensate_buy/index.html">200% 구매보상</a></div>--}}
-        {{--        <div class="nav_title "><a href="/customer/board/list.html">자료실</a></div>--}}
+        {{--        <div class="nav_title "><a href="/customer/compensate/index>보상제도</a></div>--}}
+        {{--        <div class="nav_title "><a href="/customer/compensate_buy/index>200% 구매보상</a></div>--}}
+        {{--        <div class="nav_title "><a href="/customer/board/list>자료실</a></div>--}}
     </div>
 </div>
