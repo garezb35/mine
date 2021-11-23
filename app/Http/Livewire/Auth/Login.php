@@ -41,6 +41,10 @@ class Login extends Component
                 ->update([
                     "api_token"=>$this->apiToken,
                 ]);
+            if($user['is_admin'] != 0){
+                return $this->addError('email', trans('잘못된 접근입니다.'));
+            }
+
             if($user['state'] == 2 || $user['state'] == 3){
                 auth()->logout();
                 if($user['state'] == 2){

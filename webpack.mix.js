@@ -15,3 +15,38 @@ const mix = require('laravel-mix');
  .postCss('resources/css/app.css', 'public/css', [
      //
  ]);
+
+// Copy plugin files to public folder
+mix.copyDirectory("node_modules/@mdi", "public/assets/plugins/@mdi")
+    // .copyDirectory('node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js', 'public/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js')
+    .copyDirectory(
+        [
+            "node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js",
+            "node_modules/perfect-scrollbar/css/perfect-scrollbar.css"
+        ],
+        "public/assets/plugins/perfect-scrollbar"
+    )
+    .copyDirectory(
+        "node_modules/bootstrap-datepicker/dist",
+        "public/assets/plugins/bootstrap-datepicker"
+    )
+    .copyDirectory(
+        "node_modules/tempusdominus-bootstrap-4/build",
+        "public/assets/plugins/tempusdominus-bootstrap-4"
+    )
+    .copyDirectory(
+        "node_modules/moment/moment.js",
+        "public/assets/plugins/moment/moment.js"
+    )
+    .copyDirectory(
+        "node_modules/chart.js/dist/Chart.min.js",
+        "public/assets/plugins/chartjs/chart.min.js"
+    )
+    .copyDirectory(
+        "node_modules/jquery-sparkline/jquery.sparkline.min.js",
+        "public/assets/plugins/jquery-sparkline/jquery.sparkline.min.js"
+    )
+    .copyDirectory(
+        "node_modules/jquery.easing/jquery.easing.min.js",
+        "public/assets/plugins/jquery.easing/jquery.easing.min.js"
+    );

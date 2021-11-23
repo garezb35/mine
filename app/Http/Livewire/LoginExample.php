@@ -8,6 +8,6 @@ class LoginExample extends Component
 {
     public function render()
     {
-        return view('livewire.login-example');
+        return view('livewire.login');
     }
 }

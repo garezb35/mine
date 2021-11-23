@@ -115,9 +115,9 @@ body{
     margin-left:3px;
     background-position:-573px -230px;
 }
-.quickmenu .on .user_info{
-    background-position:-70px -230px;
-}
+/*.quickmenu .on .user_info{*/
+/*    background-position:-70px -230px;*/
+/*}*/
 .quickmenu .on .trade_list{
     background-position:-142px -230px;
 }
