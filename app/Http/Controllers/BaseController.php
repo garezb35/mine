@@ -18,6 +18,8 @@ class BaseController extends Controller
         $this->isLogged = false;
         $this->game = array();
         $this->middleware(function ($request, $next) {
+            $this->game = MPopularCharacter::with('game')->get()->toArray();
+            View::share ( 'popular', $this->game );
             if (Auth::check()) {
                 $this->isLogged = true;
                 $this->user = Auth::user();
@@ -25,7 +27,6 @@ class BaseController extends Controller
             return $next($request);
         });
 
-        $this->game = MPopularCharacter::with('game')->get()->toArray();
-        View::share ( 'popular', $this->game );
+
     }
 }

@@ -2081,7 +2081,7 @@ class ManiaController extends BaseController
 
     public function application_ok_buy(Request $request){
         $params = $request->all();
-
+        $unit = 1;
         $use_creditcard = str_replace(",","",$params['use_creditcard']);
 
         $item = MItem::where('orderNo', $params['id'])->whereNull('toId')->first();
@@ -2094,7 +2094,6 @@ class ManiaController extends BaseController
             echo '<script>alert("마일리지가 비었습니다.");window.history.back();</script>';
             return;
         }
-
         MItem::where('orderNo',$params['id'])->update(['toId'=>$this->user->id]);
         if($item['user_goods_type'] == 'division'){
             unset($item['id']);
@@ -2103,7 +2102,12 @@ class ManiaController extends BaseController
             $item['orderNo'] = date("Ymd").generateRandomString(8);
             $item['status'] = 0;
             MItem::insert($item);
+            $unit = !empty($params['buy_quantity']) ? $params['buy_quantity'] * $item['gamemoney_unit']: 1;
         }
+        else{
+            $unit = $item['user_quantity'] * numberUnit($item['gamemoney_unit']);
+        }
+
         MPayitem::insert([
             'userId'=>$this->user->id,
             'orderNo'=>$params['id'],
@@ -2112,14 +2116,14 @@ class ManiaController extends BaseController
             'mobile'=>$this->user->mobile,
             'price'=>$use_creditcard,
             'character'=>$params['user_character'],
-            'buy_quantity'=>!empty($params['buy_quantity']) ? $params['buy_quantity']: 0
+            'buy_quantity'=>$unit
         ]);
         return redirect('/myroom/sell/sell_pay_wait_view?id='.$params['id'].'&type='.$item['type']);
     }
 
     public function application_ok(Request $request){
         $params = $request->all();
-
+        $unit = 1;
         $use_creditcard = str_replace(",","",$params['use_creditcard']);
         $status = 1;
         $item = MItem::where('orderNo', $params['id'])->whereNull('toId')->first();
@@ -2143,6 +2147,7 @@ class ManiaController extends BaseController
             $this->user->save();
             MItem::where('orderNo',$params['id'])->update(['toId'=>$this->user->id,'status'=>1]);
         }
+
         if($item['user_goods_type'] == 'division'){
             unset($item['id']);
             unset($item['created_at']);
@@ -2150,6 +2155,10 @@ class ManiaController extends BaseController
             $item['orderNo'] = date("Ymd").generateRandomString(8);
             $item['status'] = 0;
             MItem::insert($item);
+            $unit = !empty($params['buy_quantity']) ? $params['buy_quantity'] * $item['gamemoney_unit']: 1;
+        }
+        else{
+            $unit = $item['user_quantity'] * numberUnit($item['gamemoney_unit']);
         }
         MPayitem::insert([
             'userId'=>$this->user->id,
@@ -2159,7 +2168,7 @@ class ManiaController extends BaseController
             'mobile'=>$this->user->mobile,
             'price'=>$use_creditcard,
             'character'=>$params['user_character'],
-            'buy_quantity'=>!empty($params['buy_quantity']) ? $params['buy_quantity']: 0
+            'buy_quantity'=>$unit
         ]);
         if($status == 0){
             return redirect('/myroom/buy/buy_pay_wait_view?id='.$params['id'].'&type='.$item['type']);

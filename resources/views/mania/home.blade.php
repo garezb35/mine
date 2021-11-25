@@ -141,7 +141,7 @@
                         @foreach($list as $v)
                             <a href="{{getmyService()[$v['id']]['href']}}" target="_self">
                                 <li>
-                                    <span class="SpGroup counsel"></span><div class="f-16">{{getmyService()[$v['id']]['alias']}}</div>
+                                    <img style="margin-top:10px" src="{{getmyService()[$v['id']]['img']}}" height="{{getmyService()[$v['id']]['height']}}" width="17"><div class="f-16">{{getmyService()[$v['id']]['alias']}}</div>
                                 </li>
                             </a>
                         @endforeach
@@ -474,7 +474,7 @@
                                 continue;
                             @endphp
                         @endif
-                        <li @if($i < 3)class="top"@endif> <span class="num">{{$i+1}}</span> <span class="game_name">{{$game_list[$i]['game']['game']}}</span> <span class="sp_icon @if(($game_list[$i]['orders'] - $game_list[$i]['old_order']) > 0)up @endif @if(($game_list[$i]['orders'] - $game_list[$i]['old_order']) < 0)down @endif  @if(($game_list[$i]['orders'] - $game_list[$i]['old_order']) == 0) none @endif"></span> </li>
+                        <li @if($i < 3)class="top"@endif> <span class="num">{{$game_list[$i]['id']}}</span> <span class="game_name">{{$game_list[$i]['game']}}</span> <span class="sp_icon {{$game_list[$i]['type']}}"></span> </li>
                     @endfor
                 </ul>
                 <ul class="rank_list">
@@ -484,7 +484,7 @@
                                 continue;
                             @endphp
                         @endif
-                        <li> <span class="num">{{$i+1}}</span> <span class="game_name">{{$game_list[$i]['game']['game']}}</span> <span class="sp_icon @if(($game_list[$i]['orders'] - $game_list[$i]['old_order']) > 0)up @endif @if(($game_list[$i]['orders'] - $game_list[$i]['old_order']) < 0)down @endif @if(($game_list[$i]['orders'] - $game_list[$i]['old_order']) == 0) none @endif"></span> </li>
+                        <li @if($i < 3)class="top"@endif> <span class="num">{{$game_list[$i]['id']}}</span> <span class="game_name">{{$game_list[$i]['game']}}</span> <span class="sp_icon {{$game_list[$i]['type']}}"></span> </li>
                     @endfor
                 </ul>
             </div>

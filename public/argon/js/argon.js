@@ -20,6 +20,8 @@
 // Bootstrap Datepicker
 //
 
+var sales_list = new Array();
+
 'use strict';
 
 var Datepicker = (function() {
@@ -955,17 +957,17 @@ var OrdersChart = (function() {
 							}
 
 							content += '<span class="popover-body-value">' + yLabel + '</span>';
-							
+
 							return content;
 						}
 					}
 				}
 			},
 			data: {
-				labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+				labels: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월','9월','10월','11월','12월'],
 				datasets: [{
 					label: 'Sales',
-					data: [25, 20, 30, 22, 17, 29]
+					data: users
 				}]
 			}
 		});
@@ -992,72 +994,85 @@ var OrdersChart = (function() {
 // Sales chart
 //
 
-var SalesChart = (function() {
+var salesChart = new Chart($("#chart-sales"), {
+    type: 'line',
+    options: {
+        scales: {
+            yAxes: [{
+                gridLines: {
+                    color: Charts.colors.gray[900],
+                    zeroLineColor: Charts.colors.gray[900]
+                },
+                ticks: {
+                    callback: function(value) {
+                        if (!(value % 10)) {
+                            return  formatNumber(value) + '원';
+                        }
+                    }
+                }
+            }]
+        },
+        tooltips: {
+            callbacks: {
+                label: function(item, data) {
+                    var label = data.datasets[item.datasetIndex].label || '';
+                    var yLabel = item.yLabel;
+                    var content = '';
 
-	// Variables
+                    if (data.datasets.length > 1) {
+                        content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                    }
 
-	var $chart = $('#chart-sales');
+                    content += '<span class="popover-body-value">'+ formatNumber(yLabel) + '</span>';
+                    return content;
+                }
+            }
+        }
+    },
+    data: {
+        labels: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월','9월','10월','11월','12월'],
+        datasets: [{
+            label: 'Performance',
+            data: data
+        }]
+    }
+});
 
+function initSalesChart(symbol = '',chart= 'chart-sales') {
+    var $chart = $('#'+chart);
+    // Save to jQuery object
+    $chart.data('chart', salesChart);
 
-	// Methods
+};
 
-	function init($chart) {
+function getSalesChart(year){
+    if(!sales_list[year]){
+        $.ajax({
+            method:'POST',
+            dataType:'json',
+            url: '/api/admin/graphOrdersByYear',
+            data: {
+                api_token:a_token,
+                year: year
+            },
+            success: function (response) {
+                salesChart.data.datasets[0].data = response;
+                salesChart.update();
+                sales_list[year] = response;
+            }
+        });
+    }
+    else{
+        salesChart.data.datasets[0].data = sales_list[year];
+        salesChart.update();
+    }
+}
 
-		var salesChart = new Chart($chart, {
-			type: 'line',
-			options: {
-				scales: {
-					yAxes: [{
-						gridLines: {
-							color: Charts.colors.gray[900],
-							zeroLineColor: Charts.colors.gray[900]
-						},
-						ticks: {
-							callback: function(value) {
-								if (!(value % 10)) {
-									return '$' + value + 'k';
-								}
-							}
-						}
-					}]
-				},
-				tooltips: {
-					callbacks: {
-						label: function(item, data) {
-							var label = data.datasets[item.datasetIndex].label || '';
-							var yLabel = item.yLabel;
-							var content = '';
-
-							if (data.datasets.length > 1) {
-								content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-							}
-
-							content += '<span class="popover-body-value">$' + yLabel + 'k</span>';
-							return content;
-						}
-					}
-				}
-			},
-			data: {
-				labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-				datasets: [{
-					label: 'Performance',
-					data: [0, 20, 10, 30, 15, 40, 20, 60, 60]
-				}]
-			}
-		});
-
-		// Save to jQuery object
-
-		$chart.data('chart', salesChart);
-
-	};
-
-
-	// Events
-
-	if ($chart.length) {
-		init($chart);
-	}
-
-})();
+$(function () {
+    initSalesChart();
+    getSalesChart(new Date().getFullYear());
+    $("#input-address").change(function(){
+        var year = $(this).val();
+        getSalesChart(year);
+    })
+})

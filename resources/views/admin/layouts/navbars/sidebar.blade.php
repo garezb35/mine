@@ -109,6 +109,48 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#mileage-lists" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="mileage-lists">
+                        <i class="ni ni-tv-2" style="color: #f4645f;"></i>
+                        <span class="nav-link-text">{{ __('마일리지 관리') }}</span>
+                    </a>
+
+                    <div class="collapse" id="mileage-lists">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">
+                                    {{ __('마일리지충환전관리') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">
+                                    {{ __('마일리지사용내역') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#orders-lists" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="mileage-lists">
+                        <i class="ni ni-tv-2" style="color: #f4645f;"></i>
+                        <span class="nav-link-text">{{ __('물품관리') }}</span>
+                    </a>
+
+                    <div class="collapse" id="orders-lists">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">
+                                    {{ __('등록물품') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">
+                                    {{ __('주문취소/접수') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="/">
@@ -126,35 +168,31 @@
                       <span class="nav-link-text">Tables</span>
                     </a>
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="#">--}}
-{{--                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Register') }}--}}
-{{--                    </a>--}}
-{{--                </li>--}}
+
 
             </ul>
-            <!-- Divider -->
-            <hr class="my-3">
-            <!-- Heading -->
-            <h6 class="navbar-heading text-muted">Documentation</h6>
-            <!-- Navigation -->
-            <ul class="navbar-nav mb-md-3">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/getting-started/overview.html">
-                        <i class="ni ni-spaceship"></i> Getting started
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/foundation/colors.html">
-                        <i class="ni ni-palette"></i> Foundation
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/components/alerts.html">
-                        <i class="ni ni-ui-04"></i> Components
-                    </a>
-                </li>
-            </ul>
+{{--            <!-- Divider -->--}}
+{{--            <hr class="my-3">--}}
+{{--            <!-- Heading -->--}}
+{{--            <h6 class="navbar-heading text-muted">Documentation</h6>--}}
+{{--            <!-- Navigation -->--}}
+{{--            <ul class="navbar-nav mb-md-3">--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/getting-started/overview.html">--}}
+{{--                        <i class="ni ni-spaceship"></i> Getting started--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/foundation/colors.html">--}}
+{{--                        <i class="ni ni-palette"></i> Foundation--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/components/alerts.html">--}}
+{{--                        <i class="ni ni-ui-04"></i> Components--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--            </ul>--}}
         </div>
     </div>
 </nav>

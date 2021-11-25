@@ -56,7 +56,7 @@ Route::get('/upgrade-to-pro', UpgradeToPro::class)->name('upgrade-to-pro');
 //Route::get('/login-example', LoginExample::class);
 Route::get('/alogin', LoginExample::class)->name('login-example');
 Route::post('admin/login', [\App\Http\Controllers\AdminAuthController::class,'postLogin'])->name('adminLoginPost');
-//Route::get('admin/logout', [\App\Http\Controllers\AdminAuthController::class,'logout'])->name('adminLogout');
+Route::get('admin/logout', [\App\Http\Controllers\AdminAuthController::class,'logout'])->name('adminLogout');
 
 Route::group(['middleware' => ['web', 'admins']], function () {
     Route::get('admin/tables', [\App\Http\Controllers\AdminController::class,'tableList'])->name('tables');
@@ -276,4 +276,6 @@ Route::get('/news', [\App\Http\Controllers\VGuideController::class, 'news'])->na
 
 
 Route::get('/_xml/gamemoney_avg',[\App\Http\Controllers\VSellController::class, 'gamemoney_avg']);
+
+Route::get('/testXML',[\App\Http\Controllers\VMainController::class, 'testXML']);
 
