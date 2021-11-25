@@ -2,7 +2,7 @@
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/mania/_banner/css/banner_module.css?v=210422">
-    <link type="text/css" rel="stylesheet" href="/mania/guide/css/index.css?v=210810">
+    <link type="text/css" rel="stylesheet" href="/mania/portal/gamemeca/comm.css?v=210810">
     <script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>
     <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
 @endsection
@@ -44,16 +44,9 @@
                 인게게임순위
             </div>
             <ul class="fv_list2">
-                <li class="num1">디아블로 2</li>
-                <li class="num2">리그 오브 레전드</li>
-                <li class="num3">로스트아크</li>
-                <li class="num4">서든어택</li>
-                <li class="num5">플레이어언노운스 배틀그라운드</li>
-                <li class="num6">피파 온라인 4</li>
-                <li class="num7">발로란트</li>
-                <li class="num8">오버워치</li>
-                <li class="num9">메이플스토리</li>
-                <li class="num10">아이온: 영원의 탑</li>
+                @foreach($game_list as $key=>$g)
+                    <li class="num{{$key+1}}">{{$g['game']}}</li>
+                @endforeach
             </ul>
         </div>
     </div>

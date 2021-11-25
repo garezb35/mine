@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Str;
+
 class AdminAuthController extends Controller
 {
     //
@@ -24,6 +27,10 @@ class AdminAuthController extends Controller
             $user = auth()->guard('admin')->user();
 
             if($user->is_admin == 1){
+                User::where("id",$user->id)
+                    ->update([
+                        "api_token"=>Str::random(60),
+                    ]);
                 \Session::put('success','You are Login successfully!!');
             }
             else{

@@ -23,20 +23,20 @@
 <!--▲▲▲ 거래 탑 배너 ▲▲▲ -->
 <div class="g_header ">
     <div class="top_bg">
-        <div class="top-ads-part">
-            <div class="top-ads-content">
-                <table class="w-init m-auto no-border p-0" cellpadding="0" cellspacing="0" style="padding-top :40px">
-                    <tr>
-                        <td class="p-0 no-border">
-                            <p class="ads-title p-0">봄맞이 이벤트</p>
-                        </td>
-                        <td class="p-0 no-border">
-                            <p class="f-16 c-white ads-content">모바일캐시비 충전하면 2천원추가충전</br>꽝없는 적립금 지급은 Bonus!</p>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+{{--        <div class="top-ads-part">--}}
+{{--            <div class="top-ads-content">--}}
+{{--                <table class="w-init m-auto no-border p-0" cellpadding="0" cellspacing="0" style="padding-top :40px">--}}
+{{--                    <tr>--}}
+{{--                        <td class="p-0 no-border">--}}
+{{--                            <p class="ads-title p-0">봄맞이 이벤트</p>--}}
+{{--                        </td>--}}
+{{--                        <td class="p-0 no-border">--}}
+{{--                            <p class="f-16 c-white ads-content">모바일캐시비 충전하면 2천원추가충전</br>꽝없는 적립금 지급은 Bonus!</p>--}}
+{{--                        </td>--}}
+{{--                    </tr>--}}
+{{--                </table>--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <div class="border-bottom">
             <div class="g_snav">
                 <ul class="snav_left"></ul>

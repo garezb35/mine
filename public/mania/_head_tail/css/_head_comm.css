@@ -200,7 +200,7 @@ body{
     background-position:-503px -11px;
 }
 .quickmenu_dtl .quickmenu_cont{
-    padding:40px 0px 40px 0px !important;
+    padding:40px 0px 0px 0px !important;
     color:#767676;
 }
 
@@ -367,6 +367,7 @@ body{
 .quickmenu_cont .favorite{
     margin-top:15px;
     border:1px solid #C4C4C4;
+    border-left: none;
 }
 .quickmenu_cont .favorite .s_title{
     position:relative;
