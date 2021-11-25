@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MGame;
 use App\Models\MGameRate;
 use App\Models\MItem;
 use App\Models\MMall;
@@ -41,7 +42,7 @@ class VMainController extends BaseController
         $sells = MItem::with(['game','server'])->where('type','sell')->where('userId',"!=",$userId)->whereNull('toId')->where('status',0)->limit(10)->get();
         $buys = MItem::with(['game','server'])->where('type','buy')->where('userId',"!=",$userId)->whereNull('toId')->where('status',0)->limit(10)->get();
         $notices = MNotice::orderBy('created_at',"DESC")->limit(10)->get();
-        $game_list = MGameRate::with('game')->orderBy('orders',"ASC")->limit(10)->get();
+        $game_list = MGameRate::get();
         $list = MMyservice::get()->toArray();
         $params = array();
         foreach($list as $v){
@@ -112,5 +113,10 @@ class VMainController extends BaseController
             MMallBuy::insert($insert);
         }
         echo '<script>alert("성공적으로 구매하었습니다.");self.close();</script>';
+    }
+
+    public function testXML(){
+        $games = MGame::with('firstOfproperty')->whereHas('firstOfproperty')->orderBy('order','ASC')->limit(5)->get();
+
     }
 }

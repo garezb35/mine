@@ -52,6 +52,11 @@ Route::middleware('auth:api')->group(function(){
     Route::get('/mania/_xml/gamelist.xml', [\App\Http\Controllers\VAjaxController::class, 'gamelist_xml']);
     Route::get('/_xml/serverlist', [\App\Http\Controllers\VAjaxController::class, 'serverlist']);
     Route::get('/mania/_xslt/serverlist.xsl',[\App\Http\Controllers\VAjaxController::class, 'serverlist_xsl']);
+
+
+    Route::prefix('admin')->group(function () {
+        Route::post('/graphOrdersByYear', [\App\Http\Controllers\AdminController::class, 'graphOrdersByYear']);
+    });
 });
 
 Route::get('/sell/include/index_template', [\App\Http\Controllers\VSellController::class, 'ajax_template']);

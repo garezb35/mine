@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MGameRate;
 use App\Models\MNotice;
 use Illuminate\Http\Request;
 
@@ -33,6 +34,7 @@ class VGuideController extends BaseController
         MNotice::where('id',$notice['id'])->update(['view'=>$notice['view']+1]);
         $notice_list = MNotice::orderBy('view',"DESC")->limit(10)->get();
         $notice['notice_list'] = $notice_list;
+        $notice['game_list'] = MGameRate::limit(10)->get();
         return view('mania.guide.news',$notice);
     }
 
@@ -42,6 +44,7 @@ class VGuideController extends BaseController
         $notices = MNotice::orderBy('created_at',"DESC")->paginate(15);
         $data['notice_list'] = $notice_list;
         $data['notices'] = $notices;
+        $data['game_list'] = MGameRate::limit(10)->get();
         return view('mania.guide.news_lst',$data);
     }
 
