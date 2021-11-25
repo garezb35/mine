@@ -196,7 +196,7 @@ gameChart = {
                 gameChart_priceUpdown = '<span class="priceArrow arrowSame">-</span>';
                 if(fSs.getAvgPrice(d._code).prevPrice !== "") {
                     if(fSs.getAvgPrice(d._code).avgPrice > fSs.getAvgPrice(d._code).prevPrice) {
-                        gameChart_priceUpdown = '<span class="priceArrow mania-blue">â–²</span>'
+                        gameChart_priceUpdown = '<span class="priceArrow mania-blue">▲</span>'
                     } else {
                         if(fSs.getAvgPrice(d._code).avgPrice == fSs.getAvgPrice(d._code).prevPrice) {
                             gameChart_priceUpdown = '<span class="priceArrow arrowSame">-</span>'

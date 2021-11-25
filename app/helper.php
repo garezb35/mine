@@ -126,4 +126,22 @@ function numberReverseUnit($param){
         $unit = '백억';
     return $unit;
 }
+function createDateRangeArray($start, $end) {
+// Modified by JJ Geewax
+
+    $range = array();
+
+    if (is_string($start) === true) $start = strtotime($start);
+    if (is_string($end) === true ) $end = strtotime($end);
+
+    if ($start > $end) return createDateRangeArray($end, $start);
+
+    do {
+        $range[] = [date('m', $start),date('d', $start)];
+        $start = strtotime("+ 1 day", $start);
+    }
+    while($start < $end);
+
+    return $range;
+}
 ?>

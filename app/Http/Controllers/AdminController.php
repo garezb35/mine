@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MAdminCash;
+use App\Models\MGame;
 use App\Models\MItem;
 use App\Models\MMileage;
 use App\Models\MPayitem;
@@ -76,7 +77,7 @@ class AdminController extends BaseAdminController
         for($i = 0; $i < 12 ; $i ++)
             $order_list[$i]= 0;
         $items = MPayitem::
-        select(DB::raw('SUM(price) a_price'),DB::raw('YEAR(updated_at) year, MONTH(updated_at) month'))
+        select(DB::raw('SUM(price)/a_price'),DB::raw('YEAR(updated_at) year, MONTH(updated_at) month'))
             ->where('status',2)
             ->whereYear('created_at',$year)
             ->groupby('year','month')->get();
@@ -84,5 +85,68 @@ class AdminController extends BaseAdminController
             $order_list[$v['month']-1] = $v['a_price'];
         }
         return response()->json($order_list);
+    }
+
+    public function exportXML(){
+
+        $days_ago = date('Y-m-d', strtotime('-10 days'));
+        $days_between = createDateRangeArray($days_ago,'now');
+
+        $ordered_game = array();
+        $xml_list = "";
+        $xml  = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><games>";
+        $games = MGame::with(['firstOfproperty','childGames'])->whereHas('firstOfproperty')->orderBy('order','ASC')->limit(5)->get()->toArray();
+        $game_raws = DB::select("SELECT
+                              (SUM(m_payitem.price) / SUM(m_payitem.buy_quantity)) * m_game.ruler AS a_price,
+                              MONTH(m_payitem.updated_at) month ,
+                              DAY(m_payitem.updated_at) day ,
+                              m_item.server_code,
+                              m_item.game_code,
+                              m_payitem.buy_quantity,
+                              m_game.ruler
+                            FROM
+                              `m_payitem`
+                              INNER JOIN `m_item`
+                                ON `m_payitem`.`orderNo` = `m_item`.`orderNo`
+                              INNER JOIN `m_game`
+                                ON `m_item`.`server_code` = `m_game`.`id`
+                            WHERE YEAR(`m_payitem`.`updated_at`) = 2021
+                              AND `m_payitem`.`buy_quantity` > m_game.ruler
+                              AND  `m_item`.`user_goods` = 'money'
+                              AND  `m_payitem`.`updated_at` > '{$days_ago}'
+                            GROUP BY `month`,`day`,`m_item`.`server_code` ");
+
+        foreach($game_raws as $raw){
+            $ordered_game['m'.$raw->game_code.$raw->server_code.$raw->month.$raw->day] = intval($raw->a_price);
+        }
+
+        foreach($games as $g){
+            $xml_list .= "<game code='{$g['id']}' name='{$g['game']}'>";
+            $total_cnt = 0;
+            $viewNumber = 1;
+            $temp = 0;
+            foreach($g['child_games'] as $child){
+                if($temp > 3){
+                    $temp=0;
+                    $viewNumber++;
+                }
+                $numberUnit = numberReverseUnit($g['ruler']);
+                $xml_list .= "<server viewNumber='{$viewNumber}' code='{$child['id']}' name='{$child['game']}' standardUnit ='{$numberUnit}' Unit ='{$g['first_ofproperty']['game']}'>";
+                foreach($days_between as $day){
+
+                    $price = !empty($ordered_game['m'.$g['id'].$child['id'].$day[0].$day[1]]) ? number_format($ordered_game['m'.$g['id'].$child['id'].$day[0].$day[1]]) : 0;
+
+                    $xml_list .= "<price day='{$day[1]}'>{$price}</price>";
+                }
+                $xml_list .= "</server>";
+                $temp++;
+            }
+            $xml_list .= "<totalCnt>{$viewNumber}</totalCnt>";
+            $xml_list .= "</game>";
+        }
+        $xml .= $xml_list;
+        $xml .= "</games>";
+        file_put_contents(base_path().'\public\mania\_xml\avgPriceXml\gamechart.xml', $xml);
+        echo 1;
     }
 }

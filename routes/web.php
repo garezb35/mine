@@ -78,6 +78,7 @@ Route::group(['middleware' => ['web', 'admins']], function () {
     Route::get('/forms', Forms::class)->name('forms');
     Route::get('/modals', Modals::class)->name('modals');
     Route::get('/typography', Typography::class)->name('typography');
+
 });
 
 Route::middleware('auth')->group(function () {
@@ -326,6 +327,6 @@ Route::get('/news', [\App\Http\Controllers\VGuideController::class, 'news'])->na
 
 
 Route::get('/_xml/gamemoney_avg',[\App\Http\Controllers\VSellController::class, 'gamemoney_avg']);
+Route::get('/mania_export_xml',[\App\Http\Controllers\AdminController::class, 'exportXML']);
 
-Route::get('/testXML',[\App\Http\Controllers\VMainController::class, 'testXML']);
 

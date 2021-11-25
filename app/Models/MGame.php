@@ -24,4 +24,7 @@ class MGame extends Model
         return $this->belongsTo(MGame::class,'parent','id')->orderBy("order","ASC");
     }
 
+    public function childGames(){
+        return $this->hasMany(MGame::class,'parent','id')->where("depth",1)->orderBy('order','ASC');
+    }
 }

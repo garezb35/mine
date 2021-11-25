@@ -12,12 +12,13 @@ use App\Models\MMygame;
 use App\Models\MMyservice;
 use App\Models\MNotice;
 use App\Models\MPayhistory;
+use App\Models\MPayitem;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use function Livewire\str;
-
+use DB;
 
 class VMainController extends BaseController
 {
@@ -113,10 +114,5 @@ class VMainController extends BaseController
             MMallBuy::insert($insert);
         }
         echo '<script>alert("성공적으로 구매하었습니다.");self.close();</script>';
-    }
-
-    public function testXML(){
-        $games = MGame::with('firstOfproperty')->whereHas('firstOfproperty')->orderBy('order','ASC')->limit(5)->get();
-
     }
 }

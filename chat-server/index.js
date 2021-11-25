@@ -5,12 +5,12 @@ const got = require('got');
 var mysql = require('mysql');
 let config = require('./config.js');
 var cron = require('node-cron');
+const axios = require('axios');
 let connection = mysql.createConnection(config);
 let sql_delete = `DELETE FROM m_game_rate`;
 let sql_insert = "INSERT INTO m_game_rate (m_game_rate.id, m_game_rate.game, m_game_rate.type,m_game_rate.order) VALUES ?";
 let insert_data = new Array();
 const vgmUrl= 'https://www.gamemeca.com/ranking.php';
-
 
 io.on('connection', client => {
     client.on('event', data => { /* … */ });
@@ -23,13 +23,6 @@ server.listen(7443, (error) =>{
 
 let presult = io.of('/');
 presult.on("connection",(client) => {
-    // client.on('disconnect', () => {
-    //     client.broadcast.emit("roomJoin",{
-    //                         msg: "대화상대가 퇴장했습니다.",
-    //                         user_type: "system"
-    //                         });
-    // })
-
     client.on('login',() => {
         if(client.handshake.query.token !=null){
             client.join(client.handshake.query.token);
@@ -73,3 +66,15 @@ cron.schedule('0 0 1 * * *', () => {
         console.log(err);
     });
 });
+cron.schedule('0 30 1 * * *', () => {
+    axios.get('http://127.0.0.1:8000/mania_export_xml')
+        .then(response => {
+            console.log(response.data)
+        })
+        .catch(error => {
+            console.log(error);
+        });
+})
+
+
+
