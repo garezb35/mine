@@ -6,15 +6,15 @@
     'forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro']))
 
     {{-- Nav --}}
-    @include('layout.nav')
+    @include('layouts.nav')
     {{-- SideNav --}}
-    @include('layout.sidenav')
+    @include('layouts.sidenav')
     <main class="content">
         {{-- TopBar --}}
-        @include('layout.topbar')
+        @include('layouts.topbar')
         {{ $slot }}
         {{-- Footer --}}
-        @include('layout.footer')
+        @include('layouts.footer')
     </main>
 
     @elseif(in_array(request()->route()->getName(), ['register', 'register-example', 'login', 'login-example',
@@ -22,7 +22,7 @@
 
     {{ $slot }}
     {{-- Footer --}}
-    @include('layout.footer2')
+    @include('layouts.footer2')
 
 
     @elseif(in_array(request()->route()->getName(), ['404', '500', 'lock']))
