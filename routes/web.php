@@ -44,6 +44,8 @@ Route::get('/register', Register::class)->name('register');
 
 Route::get('/login', Login::class)->name('login');
 
+Route::post('/post_login', [\App\Http\Controllers\LoginController::class,'process_login'])->name('postLogin');
+
 Route::get('/forgot-password', ForgotPassword::class)->name('forgot-password');
 
 Route::get('/reset-password/{id}', ResetPassword::class)->name('reset-password')->middleware('signed');

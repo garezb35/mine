@@ -17694,7 +17694,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   background: #eaedf2;
 }
 
-/* Horizontal layout;
+/* Horizontal layouts;
  *
  */
 .noUi-pips-horizontal {
@@ -17727,7 +17727,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   height: 12px;
 }
 
-/* Vertical layout;
+/* Vertical layouts;
  *
  */
 .noUi-pips-vertical {
@@ -18134,7 +18134,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 .owl-carousel .owl-item {
   /**
 			This is introduced due to a bug in IE11 where lazy loading combined with autoheight plugin causes a wrong
-			calculation of the height of the owl-item that breaks page layout
+			calculation of the height of the owl-item that breaks page layouts
 		 */
 }
 

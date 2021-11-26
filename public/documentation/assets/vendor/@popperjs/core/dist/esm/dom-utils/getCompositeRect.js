@@ -5,7 +5,7 @@ import { isHTMLElement } from "./instanceOf.js";
 import getWindowScrollBarX from "./getWindowScrollBarX.js";
 import getDocumentElement from "./getDocumentElement.js";
 import isScrollParent from "./isScrollParent.js"; // Returns the composite rect of an element relative to its offsetParent.
-// Composite means it takes into account transforms as well as layout.
+// Composite means it takes into account transforms as well as layouts.
 
 export default function getCompositeRect(elementOrVirtualElement, offsetParent, isFixed) {
   if (isFixed === void 0) {

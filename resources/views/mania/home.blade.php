@@ -58,8 +58,12 @@
     <input type="hidden" name="new_except" value="">
     <div class="g_layer service_layer" id="service_layer">
         <div class="inner"> <a href="javascript:;" class="close" id="service_close">닫기</a>
-            <div class="title f-15"> 즐겨찾는 서비스 <span class="f-13">최대 8개를 선택할수 잇습니다.</span>
-                <div class="r_area"> <a href="javascript:;" class="btn_white2 save" id="service_save">저장</a> <a href="javascript:;" class="btn_white2 init" id="service_init">초기화</a> </div>
+            <div class="title f-15">
+                즐겨찾는 서비스 <span class="f-13">최대 8개를 선택할수 잇습니다.</span>
+                <div class="r_area">
+                    <a href="javascript:;" class="btn_white2 save" id="service_save">저장</a>
+                    <a href="javascript:;" class="btn_white2 init" id="service_init">초기화</a>
+                </div>
             </div>
             <ul class="service_list" id="service_list">
                 <li class="service_list_btn @if(!empty($fav[1])) on @endif">
@@ -137,7 +141,7 @@
                 <!--▲▲▲ 거래 중앙 롤링 배너 ▲▲▲ -->
                 <div class="service_wrap">
                     <div class="service_set">
-                        <div class="service_favorite">즐겨찾는 서비스</div>
+{{--                        <div class="service_favorite">즐겨찾는 서비스</div>--}}
                         <a href="javascript:;" id="service_btn"><i class="sp_icon setting">설정</i></a>
                         <ul>
                             @foreach($list as $v)

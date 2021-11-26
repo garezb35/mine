@@ -36,7 +36,7 @@ class ManiaController extends BaseController
 
     public function logout(Request $request){
         Auth::logout();
-        return redirect('/login');
+        return redirect('/index');
     }
 
     private function processPay($buy_id,$sell_id,$orderNo){

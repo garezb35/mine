@@ -61,23 +61,29 @@
                         <div class="rt_figure">
                             <img src="/mania/img/level/silver.png">
                         </div>
-                        <div class="user_name">{{$me['name']}}</div>
-                        <span class="rank _txt">{{$top_role['alias']}} &nbsp;&nbsp;<span class="f_blue1 f_bold f-16">{{number_format($me['point'])}}</span></span>
+                        <div class="user_name">{{$me['name']}}
+                            <span class="cert">
+                                        <span class="cert_state f_black1">
+                                            @if($me['mobile_verified'] == 1)
+                                                <img src="/mania/img/icons/icon_check.png">
+                                            @endif 휴대폰</span>
+                                <span class="cert_state f_black1">@if($me['bank_verified'] == 1)<img src="/mania/img/icons/icon_check.png">@endif &nbsp;계좌</span>
+                                <span class="cert_state f_black1">@if(!empty($me['email_verified_at']))<img src="/mania/img/icons/icon_check.png">@endif &nbsp;이메일</span>
+                            </span>
+                        </div>
+                        <span class="rank _txt">
+                            {{$top_role['alias']}} &nbsp;&nbsp;
+                            <span class="f_blue1 f_bold f-16">
+                                {{number_format($me['point'])}}
+                                <dl class="milage">
+                                    <dt class="f_black1">총 마일리지</dt>
+                                    <dd>{{number_format($me['mileage'])}}<span class="f_black1">원</span></dd>
+                                </dl>
+                            </span></span>
                     </dd>
-                    <dd class="cert">
-                        <span class="cert_state">
-                            @if($me['mobile_verified'] == 1)
-                            <img src="/mania/img/icons/icon_check.png">
-                            @endif&nbsp;
-                            휴대폰</span>
-                        <span class="cert_state">@if($me['bank_verified'] == 1)<img src="/mania/img/icons/icon_check.png">@endif &nbsp;&nbsp;&nbsp;계좌</span>
-                        <span class="cert_state">@if(!empty($me['email_verified_at']))<img src="/mania/img/icons/icon_check.png">@endif &nbsp;&nbsp;이메일</span>
-                    </dd>
+
                 </dl>
-                <dl class="milage">
-                    <dt>총 마일리지</dt>
-                    <dd>{{number_format($me['mileage'])}}원</dd>
-                </dl>
+
                 <div class="other_link">
                     <a href="/myroom/my_mileage/index_c" class="head_charge">충전</a>
                     <a href="/myroom/my_mileage/index_e" class="head_give">출금</a>
@@ -150,11 +156,11 @@
                             <div class="ings">
                                 <div>
                                     <span class="mr-15">판매등록</span>
-                                    <span><a href="/myroom/sell/sell_regist">{{number_format($top_selling_register)}}건</a></span>
+                                    <span><a href="/myroom/sell/sell_regist"><span class="f_blue1 f_bold">{{number_format($top_selling_register)}}</span>건</a></span>
                                 </div>
                                 <div>
                                     <span class="mr-15">흥정신청</span>
-                                    <span><a href="/myroom/sell/sell_check">{{number_format($top_bargain_request)}}건</a></span>
+                                    <span><a href="/myroom/sell/sell_check"><span class="f_blue1 f_bold">{{number_format($top_bargain_request)}}</span>건</a></span>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +171,7 @@
                             <dl class="ings">
                                 <div>
                                     <span class="mr-15">구매등록</span>
-                                    <span><a href="/myroom/buy/buy_regist">{{number_format($top_buying_register)}}건</a></span>
+                                    <span><a href="/myroom/buy/buy_regist"><span class="f_green1 f_bold">{{number_format($top_buying_register)}}</span>건</a></span>
                                 </div>
                             </dl>
                         </div>
@@ -192,6 +198,37 @@
                     @endforeach
                 </dl>
             </div>
+            @else
+                {!! Form::open(['action' =>'App\Http\Controllers\LoginController@process_login', 'method' => 'post', 'enctype' => 'multipart/form-data','id'=>'login_form']) !!}
+                <table class="ml-3 nobordertable">
+                    <colgroup>
+                        <col width="210px">
+                        <col width="110px">
+                    </colgroup>
+                    <tr>
+                        <td class="p-1">
+                            {!! Form::text('loginId', '', ["required"=>true,'class' => 'input-green mb-1 w-100','autocomplete'=>"off"]) !!}
+                            {!! Form::password('password', ["required"=>true,'class'=>'input-green w-100']) !!}
+                        </td>
+                        <td class="text-left p-1 pr-3">
+                            {!! Form::submit('로그인', ['class' => 'btn btn-jin-greenoutline w-100 h-55']) !!}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="pt-2 pb-2 pl-1" colspan="2">
+                            @if(!empty($errors->first('failed')))
+                                <div class="alert alert-danger mr-3 fade show alert-dismissible" role="alert">
+                                    {{$errors->first('failed')}}
+                                </div>
+                            @endif
+
+                            <a class="text-blue mr-2 f-12" href="{{ route('register') }}">회원가입</a>
+                            <a class="text-blue f-12" href="{{ route('forgot-password') }}" target="mainFrame">아이디,비밀번호 찾기</a>
+                        </td>
+                    </tr>
+                </table>
+                {!! Form::close() !!}
+            </form>
             @endif
         </div>
         <iframe scrolling="no" frameborder="0" width="100%" height="370" src="/box_chatting" id="chatFrame"></iframe>
