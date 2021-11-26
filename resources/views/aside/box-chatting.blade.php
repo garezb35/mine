@@ -18,7 +18,7 @@
             var is_freeze = 'off';
             var blackListArr = new Array();
             var loginYN = 'N';
-            var server_domain = '1.255.226.74';
+            var server_domain = '210.112.174.178';
             var userIdKey = '';
             @if(Auth::check())
                 loginYN = 'Y';

@@ -21,7 +21,7 @@
 
     <body>
     <script>
-        var server_domain = '1.255.226.74';
+        var server_domain = '210.112.174.178';
         var a_token = '';
         @if(Auth::check())
         a_token = '{{Auth::user()->api_token}}';
