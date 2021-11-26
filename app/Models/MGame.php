@@ -13,7 +13,7 @@ class MGame extends Model
     protected $guarded = [];
 
     public function twegames(){
-        return $this->hasMany(MGame::class,'parent','id')->where("depth",1)->limit(12);
+        return $this->hasMany(MGame::class,'parent','id')->where("depth",1)->orderBy('order','ASC');
     }
 
     public function firstOfproperty(){

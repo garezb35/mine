@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -20,9 +21,10 @@
 
     <body>
     <script>
-        var server_domain = '210.112.174.178';
+        var server_domain = '1.255.226.74';
+        var a_token = '';
         @if(Auth::check())
-        var a_token = '{{Auth::user()->api_token}}';
+        a_token = '{{Auth::user()->api_token}}';
         var _LOGINCHECK = '1';
          @else
         var a_token = '';
@@ -43,10 +45,174 @@
         <script type="text/javascript" src="/mania/_js/_common_initialize_new.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/packery/1.4.3/packery.pkgd.min.js"></script>
         <script type="text/javascript" src="/mania/photoswipe/js/jquery.photoswipe-global.js"></script>
+
     @yield('foot_attach')
 
         <script type="text/javascript">
             _initialize();
         </script>
     </body>
+    <div class="topbar-left">
+        <div class="quickmenu_cont" id="quickmenu_cont">
+            @if(auth()->check())
+            <div class="myinfo">
+                <dl class="status">
+                    <dd class="credir_rt">
+                        <div class="rt_figure">
+                            <img src="/mania/img/level/silver.png">
+                        </div>
+                        <div class="user_name">{{$me['name']}}</div>
+                        <span class="rank _txt">{{$top_role['alias']}} &nbsp;&nbsp;<span class="f_blue1 f_bold f-16">{{number_format($me['point'])}}</span></span>
+                    </dd>
+                    <dd class="cert">
+                        <span class="cert_state">
+                            @if($me['mobile_verified'] == 1)
+                            <img src="/mania/img/icons/icon_check.png">
+                            @endif&nbsp;
+                            휴대폰</span>
+                        <span class="cert_state">@if($me['bank_verified'] == 1)<img src="/mania/img/icons/icon_check.png">@endif &nbsp;&nbsp;&nbsp;계좌</span>
+                        <span class="cert_state">@if(!empty($me['email_verified_at']))<img src="/mania/img/icons/icon_check.png">@endif &nbsp;&nbsp;이메일</span>
+                    </dd>
+                </dl>
+                <dl class="milage">
+                    <dt>총 마일리지</dt>
+                    <dd>{{number_format($me['mileage'])}}원</dd>
+                </dl>
+                <div class="other_link">
+                    <a href="/myroom/my_mileage/index_c" class="head_charge">충전</a>
+                    <a href="/myroom/my_mileage/index_e" class="head_give">출금</a>
+                    <a href="/myroom/" class="head_myroom">마이룸</a>
+                </div>
+                <table class="table box-menus mar-t-5 mb-0">
+                    <colgroup>
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td class="text-center align-middle active pt-2 pb-1 border-right-ja">
+                                <a href="/myroom">
+                                    <div class="position-relative  text-center">
+                                        <div class="mb-1  text-center">
+                                            <i class="fa fa-home"></i>
+                                        </div>
+                                        마이홈
+                                    </div>
+                                </a>
+                            </td>
+                            <td class="text-center align-middle pt-2 pb-1 border-right-ja">
+                                <a href="/myroom/message/">
+                                    <div class="position-relative  text-center">
+                                        <div class="mb-1  text-center">
+                                            <i class="fa fa-envelope"></i>
+                                        </div>
+                                        쪽지
+                                        @if($msg_count > 0)
+                                        <div class="itemCntBox" id="mail-count" >{{number_format($msg_count)}}</div>
+                                        @else
+                                        <div class="itemCntBox" id="mail-count" style="display:none">0</div>
+                                        @endif
+
+                                    </div>
+                                </a>
+                            </td>
+                            <td class="text-center align-middle pt-2 pb-1 border-right-ja">
+                                <div class="position-relative  text-center">
+                                    <a href="#">
+                                        <div class="mb-1  text-center">
+                                            <i class="fa fa-gift" aria-hidden="true"></i>
+                                        </div>
+                                        아이템
+                                    </a>
+                                </div>
+                            </td>
+                            <td class="text-center align-middle pt-2 pb-1">
+                                <a href="/logout">
+                                    <div class="position-relative  text-center">
+                                        <div class="mb-1  text-center">
+                                            <i class="fa fa-power-off" aria-hidden="true"></i>
+                                        </div>
+                                        로그아웃
+                                    </div>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="trade_list">
+                <ul class="ing_count">
+                    <li class="sell">
+                        <span class="c_txt sells">판매목록</span>
+                        <div class="qbox">
+                            <div class="ings">
+                                <div>
+                                    <span class="mr-15">판매등록</span>
+                                    <span><a href="/myroom/sell/sell_regist">{{number_format($top_selling_register)}}건</a></span>
+                                </div>
+                                <div>
+                                    <span class="mr-15">흥정신청</span>
+                                    <span><a href="/myroom/sell/sell_check">{{number_format($top_bargain_request)}}건</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="buy">
+                        <span class="c_txt buys">구매목록</span>
+                        <div class="qbox">
+                            <dl class="ings">
+                                <div>
+                                    <span class="mr-15">구매등록</span>
+                                    <span><a href="/myroom/buy/buy_regist">{{number_format($top_buying_register)}}건</a></span>
+                                </div>
+                            </dl>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="favorite">
+                <div class="s_title">
+                    나만의 검색메뉴
+                    <a href="/myroom/customer/search" style="margin-left: 15px"><i class="fa fa-cog"></i></a>
+                </div>
+
+                <a class="showing_fav f_bold f_14" href="javascript:controlFavorite()"><i class="fa fa-plus"></i></a>
+                <dl class="my_game" style="display: none" id="my_game">
+                    @foreach($top_games as $t_g)
+                    <dd title="{{$t_g['game_text']}}">
+                        <span class="title-{{$t_g['type']}}"><img src="/mania/img/icons/{{$t_g['type']}}-i.png">-{{$t_g['type'] == 'sell' ? '팝니다':'삽니다'}}-</span>
+                        <strong>{{$t_g['game_text']}} &gt; {{$t_g['server_text']}}</strong>
+                        <div class="btn_area">
+                            <a href="/{{$t_g['type']}}/list_search?search_type={{$t_g['type']}}&amp;search_game={{$t_g['game']}}&amp;search_game_text={{$t_g['game_text']}}&amp;search_server={{$t_g['server']}}&amp;search_server_text={{$t_g['server_text']}}&amp;search_goods={{itemAlias($t_g['goods_text'])}}">검색</a>
+                            <a href="/{{$t_g['type']}}?game={{$t_g['game']}}&amp;server={{$t_g['server']}}">등록</a>
+                        </div>
+                    </dd>
+                    @endforeach
+                </dl>
+            </div>
+            @endif
+        </div>
+        <iframe scrolling="no" frameborder="0" width="100%" height="370" src="/box_chatting" id="chatFrame"></iframe>
+    </div>
 </html>
+<style>
+    .g_container{
+        min-height: 730px;
+    }
+</style>
+<script>
+    function controlFavorite() {
+        $(".showing_fav").find("i").removeClass('fa-plus')
+        $(".showing_fav").find("i").removeClass('fa-minus')
+        var x = document.getElementById("my_game");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $(".showing_fav").find("i").addClass('fa-minus')
+        } else {
+            x.style.display = "none";
+            $(".showing_fav").find("i").addClass('fa-plus')
+        }
+    }
+</script>

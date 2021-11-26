@@ -100,6 +100,7 @@ body{
     width:38px;
     height:33px;
     background-position:-176px -230px;
+
 }
 .quickmenu .service{
     display:inline-block;
@@ -300,7 +301,6 @@ body{
     margin-left:0;
 }
 .quickmenu_cont .trade_list{
-    margin-top:15px;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -311,9 +311,7 @@ body{
     display: block;
     width: 100% !important;
 }
-.quickmenu_cont .ing_count .buy{
-    margin-left:6px;
-}
+
 .quickmenu_cont .ing_count .c_txt{
     padding:4px 0 5px;
     font-weight:700;
@@ -330,8 +328,10 @@ body{
     border-bottom: 2px solid #13BA41;
 }
 .quickmenu_cont .ing_count .qbox{
-    margin-top:3px;
-    padding:7px 0px;
+    margin-top: 3px;
+    padding: 7px 0px;
+    display: inline-block;
+    margin-left: 10px;
 }
 /*.quickmenu_cont .ing_count .sell .qbox{*/
 /*    background-color:#F2FAFF;*/
@@ -348,10 +348,11 @@ body{
 .quickmenu_cont .ing_count .ings{
     margin-top:9px;
     /*padding-left:55px;*/
+    display: inline-block;
 }
 .quickmenu_cont .ing_count .ings > div{
     display: inline-block;
-    width: 49%;
+    width: 90px;
 }
 .quickmenu_cont .ing_count .ings dt{
     float:left;
@@ -368,6 +369,7 @@ body{
     margin-top:15px;
     border:1px solid #C4C4C4;
     border-left: none;
+    position: relative;
 }
 .quickmenu_cont .favorite .s_title{
     position:relative;
@@ -399,16 +401,16 @@ body{
     color:#FFF;
 }
 .quickmenu_cont .my_game dd{
-    position:relative;
-    overflow:hidden;
-    box-sizing:border-box;
-    height:50px;
-    margin:0 10px;
-    padding:26px 0px 0px 0px;
-    border-bottom:1px solid #D6DFE2;
-    background-color:#FFF;
-    white-space:nowrap;
-    text-overflow:ellipsis;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 50px;
+    margin: 0 0px;
+    padding: 26px 4px 0px 8px;
+    border-bottom: 1px solid #D6DFE2;
+    background-color: #FFF;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .quickmenu_cont .my_game dd:last-child{
     border-bottom:0;
@@ -1266,4 +1268,44 @@ body{
 .title-buy{
     color: #13BA41;
     font-weight: 600;
+}
+
+.topbar-left{
+    position: absolute;
+    top: 219px;
+    left: 128px;
+    width: 274px;
+    border: 1px solid;
+    padding-top: 13px;
+    background: #fff;
+    z-index:100
+}
+
+.top_full{
+    margin-top: 20px;
+}
+
+.showing_fav {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    border-radius: 50%;
+    border: 1px solid;
+    width: 19px;
+    height: 19px;
+    text-align: center;
+    line-height: 19px;
+    cursor: pointer;
+}
+
+.box-menus i.fa {
+    font-size: 19px;
+    color: #999999;
+}
+
+.box-menus td, .box-menus th {
+    padding: 0.55rem;
+    vertical-align: top;
+    border-top: 1px solid #e9ecef;
+    font-size: 12px;
 }

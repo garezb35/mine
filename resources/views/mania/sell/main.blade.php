@@ -592,7 +592,7 @@
                     };
                 </script>                        <div class="g_btn_wrap">
                     <button type="submit" href="javascript:;" class="sell_reg" id="ok_btn">판매등록</button>
-                    <a href="/index class="cancel_reg">등록 취소</a>
+                    <a href="/index" class="cancel_reg">등록 취소</a>
                 </div>
             </form>
             <div class="qntKorean" id="qntKorean"></div>

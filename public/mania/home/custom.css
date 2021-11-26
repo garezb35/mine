@@ -30,7 +30,7 @@
     padding: 3px 0 15px 60px;
 }
 #quickmenu_cont .cert {
-    margin-top:25px;
+    margin-top:2px;
     display: flex;
 }
 
@@ -84,7 +84,7 @@
     background-repeat: no-repeat;
 }
 .quickmenu_cont .other_link {
-    margin-top: 30px;
+    margin-top: 10px;
 }
 .quickmenu_cont .other_link a {
     background-color: initial;

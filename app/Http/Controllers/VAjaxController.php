@@ -7,6 +7,7 @@ use App\Models\MInbox;
 use App\Models\MItem;
 use App\Models\MMygame;
 use App\Models\MMyservice;
+use App\Models\MPayitem;
 use App\Models\MPrivateMessage;
 use App\Models\MRole;
 use App\Models\MRoleGift;
@@ -619,7 +620,7 @@ class VAjaxController extends BaseController
         whereNull('toId')->
         whereHas('bargain_requests')->
         whereDoesntHave('payitem')->get()->count();
-        $games = MMygame::orderBy('order','ASC')->get();
+        $games = MMygame::orderBy('order','ASC')->limit(3)->get();
         $game_list = '';
         foreach($games as $v){
             $m_type = '팝니다';
@@ -842,5 +843,33 @@ class VAjaxController extends BaseController
 
 
 </xsl:stylesheet>';
+    }
+
+    public function gamemoney_avg(Request $request){
+        $gamecode = $request->gamecode;
+        $servercode = $request->servercode;
+        $count = $request->count;
+        if(empty($servercode)){
+            $day_before = date('Y-m-d',strtotime('-1 day'));
+            $games = DB::select("SELECT
+                              (SUM(m_payitem.price),
+                              MONTH(m_payitem.updated_at) month ,
+                              DAY(m_payitem.updated_at) day ,
+                              m_item.server_code,
+                              m_item.game_code,
+                              m_payitem.buy_quantity,
+                              m_game.ruler
+                            FROM
+                              `m_payitem`
+                              INNER JOIN `m_item`
+                                ON `m_payitem`.`orderNo` = `m_item`.`orderNo`
+                              INNER JOIN `m_game`
+                                ON `m_item`.`server_code` = `m_game`.`id`
+                            WHERE YEAR(`m_payitem`.`updated_at`) = 2021
+                              AND `m_payitem`.`buy_quantity` > m_game.ruler
+                              AND  `m_item`.`user_goods` = 'money'
+                              AND  `m_payitem`.`updated_at` = '{$day_before}'
+                            GROUP BY `month`,`day`,`m_item`.`server_code` ");
+        }
     }
 }

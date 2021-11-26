@@ -1009,7 +1009,7 @@ table tr .left {
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
-    width: 131px;
+    width: 126px;
     height: 80px;
     border: 1px solid #d7d7d7;
     background: #f0f0f0 url(/mania/img/icons/imageno.png) 50% no-repeat;
@@ -1194,10 +1194,11 @@ table tr .left {
 
 .g_container {
     position: relative;
-    width: 1140px;
+    width: 1087px;
     min-height: 300px;
     margin: 0 auto;
-    padding-top: 30px;
+    padding-top: 20px;
+    margin-left: calc((100% - 1087px) / 2 + 10px);
 }
 
 .content_center {
@@ -1213,7 +1214,7 @@ table tr .left {
 
 .g_content {
     float: right;
-    width: 840px;
+    width: 815px;
 }
 
 .sp_icon,.g_search_list .icon_search,.quickmenu_cont .hotgame li,.g_layer .close {
@@ -2829,4 +2830,34 @@ table.noborder tr td,.noborder{
     padding: 2px;
     color: #fff;
     font-size: 12px;
+}
+
+.pt-2 {
+    padding-top: 0.5rem!important;
+}
+
+.pb-1 {
+    padding-bottom: 0.25rem!important;
+}
+.itemCntBox {
+    position: absolute;
+    top: -12px;
+    left: 39px;
+    background: red;
+    background-size: 25px;
+    color: #fff;
+    z-index: 99;
+    line-height: 19px;
+    text-align: center;
+    border-radius: 50%;
+    padding: 1px;
+    min-width: 22px;
+    min-height: 22px;
+}
+
+.box-chatting .list-chatting li {
+    color: #5e5e5e;
+    padding: 0 0 0 0;
+    margin: 5px 0 !important;
+    line-height: 24px;
 }

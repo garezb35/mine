@@ -91,7 +91,6 @@ class AdminController extends BaseAdminController
 
         $days_ago = date('Y-m-d', strtotime('-10 days'));
         $days_between = createDateRangeArray($days_ago,'now');
-
         $ordered_game = array();
         $xml_list = "";
         $xml  = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><games>";
@@ -133,9 +132,7 @@ class AdminController extends BaseAdminController
                 $numberUnit = numberReverseUnit($g['ruler']);
                 $xml_list .= "<server viewNumber='{$viewNumber}' code='{$child['id']}' name='{$child['game']}' standardUnit ='{$numberUnit}' Unit ='{$g['first_ofproperty']['game']}'>";
                 foreach($days_between as $day){
-
                     $price = !empty($ordered_game['m'.$g['id'].$child['id'].$day[0].$day[1]]) ? number_format($ordered_game['m'.$g['id'].$child['id'].$day[0].$day[1]]) : 0;
-
                     $xml_list .= "<price day='{$day[1]}'>{$price}</price>";
                 }
                 $xml_list .= "</server>";

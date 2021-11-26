@@ -51,6 +51,7 @@ class Register extends Component
             'birthday' =>$this->birthday,
             'password' => Hash::make($this->password),
             'remember_token' => Str::random(10),
+            'userIdKey' => Str::random(30),
         ]);
 
         auth()->login($user);

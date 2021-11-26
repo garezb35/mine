@@ -115,4 +115,11 @@ class VMainController extends BaseController
         }
         echo '<script>alert("성공적으로 구매하었습니다.");self.close();</script>';
     }
+
+    public function box_chatting(Request $request){
+        if($request->state == 'doubled_display'){
+            return redirect('/logout');
+        }
+        return view('aside.box-chatting');
+    }
 }

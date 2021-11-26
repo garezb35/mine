@@ -1,0 +1,375 @@
+/*
+ * @title		ê²Œìž„ë¨¸ë‹ˆ ì‹œì„¸
+ * @author		ê¹€ë³´ëžŒ, ì •ìš°ê´€
+ * @date		2012.05.01
+ * @update		ìˆ˜ì •ë‚ ì§œ(ìˆ˜ì •ìž)
+ * @description
+ */
+#g_POPUP {
+    padding: 20px 5px 0;
+}
+
+#lbl_gs_search {
+    height: 85px;
+    margin-top: 10px;
+    background: url(//img4.itemmania.com/new_images/gameinfo/img_potal_money_1.gif) no-repeat;
+}
+
+#lbl_gs_search #search_text {
+    padding: 20px 0 0 90px;
+    font-size: 12px;
+}
+
+#lbl_gs_search .g_sideway {
+    margin: 10px 0 0 32px;
+}
+
+#lbl_gs_search .g_sideway li {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 7px;
+}
+
+#lbl_gs_search .g_sideway .name_img {
+    margin-top: -10px;
+}
+
+#lbl_gs_search .g_sideway li img {
+    margin-left: 20px;
+}
+
+#lbl_gs_search .g_sideway li #btnView {
+    display: inline-block;
+    color: #FFF;
+    background-size: 100%;
+}
+
+/* ì°¨íŠ¸ ì˜ì—­ */
+#lbl_gs_search_rlt {
+    border: 1px solid #CCC;
+}
+
+#lbl_gs_search_rlt #lbl_graph_title {
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 15px 0;
+    border-bottom: 1px solid #CCC;
+    background-color: #F9F9FA;
+    color: #7F7F7F;
+}
+
+#lbl_gs_search_rlt #lbl_graph_title .g_left, #lbl_gs_search_rlt #lbl_graph_title .all_title {
+    margin-left: 25px;
+}
+
+#lbl_gs_search_rlt #lbl_graph_title .g_right {
+    margin-right: 30px;
+    font-size: 11px;
+}
+
+#lbl_gs_search_rlt #lbl_graph_title .g_right .f_blue1 {
+    margin-right: 0;
+    font-size: 13px;
+}
+
+#lbl_gs_search_rlt #lbl_graph_title .graph_info {
+    margin-top: 7px;
+}
+
+#lbl_gs_search_rlt #lbl_graph_title strong {
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #1D1D1D;
+}
+
+#lbl_gs_search_rlt #lbl_graph_title .info_wrapper {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+#lbl_gs_search_rlt #lbl_graph_title .info_wrapper span {
+    margin-right: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 16px;
+}
+
+#lbl_gs_search_rlt #lbl_graph_title .info_wrapper span.blue {
+    color: #2FA3D8;
+}
+
+#lbl_gs_search_rlt #lbl_graph_title .info_wrapper span.red {
+    color: #F03F52;
+}
+
+#lbl_gs_search_rlt #lbl_graph_title .info_wrapper span.green {
+    color: #1AB58B;
+}
+
+#lbl_gs_search_rlt #lbl_graph_title .info_wrapper span img {
+    margin-right: 5px;
+    vertical-align: bottom;
+}
+
+#lbl_gs_search_rlt #lbl_graph_box {
+    padding: 8px;
+    background-color: #F9F9FA;
+}
+
+#lbl_gs_search_rlt #lbl_graph {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    letter-spacing: 0;
+}
+
+#lbl_gs_search_rlt #lbl_graph #container {
+    width: 100%;
+    height: 250px;
+    text-align: center
+}
+
+#lbl_gs_search_rlt #graph_size_control {
+    height: 250px;
+}
+
+/* ì°¨íŠ¸ ì˜ì—­ */
+#exchanger_box {
+    padding: 20px 0 20px 37px;
+    border: 1px solid #CCD3DC;
+    border-top: 3px solid #BEBEBE;
+    background-color: #F8F8F8
+}
+
+#txtMoney {
+    width: 80px;
+    text-align: right
+}
+
+#txtExchange {
+    width: 110px
+}
+
+#money_list_box {
+    padding: 8px 13px;
+    background-color: #F6F6F6
+}
+
+#money_list_box li {
+    width: 380px;
+    padding: 5px;
+    border: 1px solid #F0F0F0;
+    background-color: #FFF;
+    text-align: center;
+}
+
+#money_list_box table {
+    width: 99%;
+    text-align: center
+}
+
+#money_list_box th {
+    height: 28px;
+    background-color: #EFEFEF;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: center;
+    color: #5B5B5B;
+}
+
+#money_list_box td {
+    height: 23px;
+    border-bottom: 1px solid #EFEFEF;
+    background-color: #FFF;
+    text-align: center
+}
+
+.l_last_row {
+    border-bottom: 2px solid #FFF
+}
+
+#tbl_gs_list li {
+    width: 253px
+}
+
+#tbl_gs_list table {
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+    border-top: 3px solid #BEBEBE;
+    border-right: 1px solid #E2E2E2;
+    border-bottom: 1px solid #ACACAC;
+}
+
+#tbl_gs_list .border_non {
+    border-right: 0
+}
+
+#tbl_gs_list th {
+    background-color: #F8F8F8
+}
+
+#byDay_list span {
+    font-size: 15px;
+    font-weight: bolder
+}
+
+.tb_list th, .tb_list td {
+    border-left: 0;
+}
+
+/**/
+#lbl_gs_search {
+    margin-top: 20px;
+    background-image: none;
+    height: 112px;
+    background-color: #f9f9fa;
+}
+
+.search_wrapper {
+    display: inline-block;
+    text-align: left;
+    padding-left: 20px;
+}
+
+#lbl_gs_search img {
+    vertical-align: top;
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+#lbl_gs_search #search_text {
+    padding: 20px 0 15px 0;
+}
+
+#lbl_gs_search .g_sideway {
+    margin: 0;
+}
+
+#lbl_gs_search .g_sideway li {
+    /*background-color: #fff;*/
+}
+
+.g_sideway li select {
+    width: 230px;
+    padding-left: 20px;
+    height: 40px;
+    font-size: 14px;
+    border-color: #d7d7d7;
+    appearance: none;
+    background: url(//img4.itemmania.com/new_images/gameinfo/renew/ico_scroll_down.gif) no-repeat right 20px center;
+}
+
+#lbl_gs_search .g_sideway li #btnView {
+    line-height: 40px;
+    width: 80px;
+}
+
+#lbl_gs_search_rlt {
+    border: 0;
+}
+
+#lbl_gs_search_rlt #lbl_graph_title {
+    border: 0;
+    padding: 0;
+    padding-top: 15px;
+}
+
+#lbl_gs_search_rlt #lbl_graph_title .graph_info {
+    background-color: #fff;
+    margin: 20px;
+    text-align: center;
+    line-height: 60px;
+    border-radius: 10px;
+}
+
+#lbl_gs_search_rlt #lbl_graph_title .graph_info .f_blue1 {
+    font-size: 16px;
+    color: #159efd;
+    font-weight: bold;
+}
+
+#exchanger_box {
+    padding: 20px 0 20px 20px;
+    border: 0;
+}
+
+#exchanger_box div {
+    display: inline-block;
+    position: relative;
+}
+
+#exchanger_box div:first-child {
+    width: 210px;
+    margin-right: 10px;
+}
+
+#exchanger_box div input {
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #159efd;
+    border-color: #d7d7d7;
+}
+
+#exchanger_box div span.input_in_text {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #636363;
+}
+
+#exchanger_box #exchange_btn {
+    display: inline-block;
+    width: 118px;
+    line-height: 40px;
+    color: #fff;
+    background-color: #159efd;
+    text-align: center;
+    font-weight: bold;
+    margin-right: 35px;
+}
+
+#exchanger_box #exchange_arrow {
+    display: inline-block;
+    margin-right: 35px;
+}
+
+#exchanger_box #dvStandard {
+    display: inline-block;
+    color: #636363;
+    font-size: 12px;
+    vertical-align: middle;
+    margin-left: 20px;
+}
+
+#money_list_box {
+    background-color: #fff;
+    padding: 0;
+}
+
+#money_list_box li {
+    width: 395px;
+    border: 0;
+    background-color: #f9f9fa;
+}
+
+#money_list_box table {
+    border: 0;
+}
+
+#money_list_box th {
+    background-color: #fff;
+    border: 0;
+}
+
+#money_list_box td {
+    background-color: #f9f9fa;
+    border: 0;
+}

@@ -59,9 +59,12 @@ Route::post('admin/login', [\App\Http\Controllers\AdminAuthController::class,'po
 Route::get('admin/logout', [\App\Http\Controllers\AdminAuthController::class,'logout'])->name('adminLogout');
 
 Route::group(['middleware' => ['web', 'admins']], function () {
-    Route::get('admin/tables', [\App\Http\Controllers\AdminController::class,'tableList'])->name('tables');
-    Route::get('admin/logout', [\App\Http\Controllers\AdminAuthController::class,'logout'])->name('adminLogout');
-    Route::get('/admin/profile', [\App\Http\Controllers\AdminController::class,'profile'])->name('profile.edit');
+    Route::prefix('')->group(function(){
+        Route::get('tables', [\App\Http\Controllers\AdminController::class,'tableList'])->name('tables');
+        Route::get('/logout', [\App\Http\Controllers\AdminAuthController::class,'logout'])->name('adminLogout');
+        Route::get('profile', [\App\Http\Controllers\AdminController::class,'profile'])->name('profile.edit');
+    });
+
     Route::post('/updateProfile', [\App\Http\Controllers\AdminController::class,'updateProfile'])->name('profile.update');
     Route::post('/passwordProfile', [\App\Http\Controllers\AdminController::class,'passwordProfile'])->name('profile.password');
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
@@ -236,13 +239,6 @@ Route::middleware('auth')->group(function () {
         Route::post('/contact_edit', [\App\Http\Controllers\VSellController::class, 'addContact']);
     });
 
-    Route::prefix('game_info')->group(function() {
-        Route::get('/money/index', [\App\Http\Controllers\VGameinfoController::class, 'money'])->name('gameinfo_money');
-        Route::get('/rank_game/index', [\App\Http\Controllers\VGameinfoController::class, 'rank_game'])->name('gameinfo_rank_game');
-        Route::get('/calendar/index', [\App\Http\Controllers\VGameinfoController::class, 'calendar'])->name('gameinfo_calendar');
-    });
-
-
 
     Route::get('/notice/list', [\App\Http\Controllers\VNoticeController::class, 'notice_list'])->name('notice_list');
     Route::post('buy_pay_wait_cancel', [\App\Http\Controllers\ManiaController::class, 'buy_pay_wait_cancel']);
@@ -260,6 +256,12 @@ Route::middleware('auth')->group(function () {
     Route::get('cash_receipt_confirm',[\App\Http\Controllers\ManiaController::class, 'cash_receipt_confirm'])->name('cash_receipt_confirm');
     Route::get('cash_receipt_confirm2',[\App\Http\Controllers\ManiaController::class, 'cash_receipt_confirm2'])->name('cash_receipt_confirm2');
     Route::get('search_update_form',[\App\Http\Controllers\ManiaController::class, 'search_update_form'])->name('search_update_form');
+});
+
+Route::prefix('game_info')->group(function() {
+    Route::get('/money/index', [\App\Http\Controllers\VGameinfoController::class, 'money'])->name('gameinfo_money');
+    Route::get('/rank_game/index', [\App\Http\Controllers\VGameinfoController::class, 'rank_game'])->name('gameinfo_rank_game');
+    Route::get('/calendar/index', [\App\Http\Controllers\VGameinfoController::class, 'calendar'])->name('gameinfo_calendar');
 });
 
 /**
@@ -328,5 +330,5 @@ Route::get('/news', [\App\Http\Controllers\VGuideController::class, 'news'])->na
 
 Route::get('/_xml/gamemoney_avg',[\App\Http\Controllers\VSellController::class, 'gamemoney_avg']);
 Route::get('/mania_export_xml',[\App\Http\Controllers\AdminController::class, 'exportXML']);
-
+Route::get('/box_chatting',[\App\Http\Controllers\VMainController::class, 'box_chatting']);
 
