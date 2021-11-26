@@ -948,6 +948,7 @@ function receiveProcess(data)
                     if(bPacket.msgList.length > 0)
                         for(var i in bPacket.msgList)
                         {
+                            if(i == 'inject') break;
                             var dataInfo = bPacket.msgList[i];
                             printChatMsg(dataInfo.level,dataInfo.sex,dataInfo.mark,dataInfo.id,dataInfo.nickname,dataInfo.msg,dataInfo.item,dataInfo.winFixCnt);
                         }
@@ -972,7 +973,7 @@ function receiveProcess(data)
         if(typeof bPacket.users != "undefined"){
             var ss = new Array();
             ss[0] = bPacket.users;
-            compileJson("#users","#connectList",ss,2,false);
+            // compileJson("#users","#connectList",ss,2,false);
             total_num = total_num+1;
             $("#connectUserCnt").html(number_format(total_num.toString()));
         }
@@ -1134,7 +1135,7 @@ function chatManager(type,nick)
     }
     else if(type == 'popupChat')
     {
-        windowOpen('/chat','chatPopup',330,575,'no');
+        windowOpen('/box_chatting','chatPopup',330,575,'no');
     }
     else if(type == 'help')
     {

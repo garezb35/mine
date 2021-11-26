@@ -258,17 +258,18 @@ body{
     color: #6D6D6D;
 }
 .quickmenu_cont .cert span{
-    width:77px;
-    height:20px;
-    margin-right:0;
-    font-size:12px;
-    line-height:18px;
+    width: 56px;
+    height: 31px;
+    margin-right: 0;
+    font-size: 12px;
+    line-height: 28px;
 }
 .quickmenu_cont .milage{
-    margin-top: 15px;
+    margin-top: 5px;
     padding-left: 91px;
     font-weight: 700;
     padding-right: 10px;
+    display: inline-flex;
 }
 .quickmenu_cont .milage dt{
     float:left;
@@ -281,8 +282,7 @@ body{
     text-align:right;
 }
 .quickmenu_cont .other_link{
-    margin-top:13px;
-    padding-bottom:15px;
+    padding-bottom:6px;
     border-bottom:1px solid #CCC;
     text-align:center;
 }
@@ -321,15 +321,13 @@ body{
 }
 .quickmenu_cont .ing_count .c_txt.sells{
     color:#1FAEFF;
-    border-bottom :2px solid #1FAEFF;
 }
 .quickmenu_cont .ing_count .c_txt.buys{
     color: #13BA41;
-    border-bottom: 2px solid #13BA41;
 }
 .quickmenu_cont .ing_count .qbox{
     margin-top: 3px;
-    padding: 7px 0px;
+    padding: 0px 0px;
     display: inline-block;
     margin-left: 10px;
 }
@@ -1273,12 +1271,12 @@ body{
 .topbar-left{
     position: absolute;
     top: 219px;
-    left: 128px;
-    width: 274px;
+    left: 120px;
+    width: 314px;
     border: 1px solid;
     padding-top: 13px;
     background: #fff;
-    z-index:100
+    z-index: 100;
 }
 
 .top_full{

@@ -27,12 +27,9 @@
     padding-top: 3px;
 }
 .quickmenu_cont .myinfo .status .credir_rt {
-    padding: 3px 0 15px 60px;
+    padding: 3px 0 0px 60px;
 }
-#quickmenu_cont .cert {
-    margin-top:2px;
-    display: flex;
-}
+
 
 .cert_state.off:before,
 .cert_state.on:before {
@@ -51,20 +48,8 @@
     background: url("../img/icons/icon_uncheck.png") no-repeat;
 }
 
-.quickmenu_cont .cert span {
-    position: relative;
-    border: none;
-    font-size: 13px;
-    font-weight: 500;
-    display: block;
-    width: calc(33% - 20px);
-    padding-left: 20px;
-    text-align: left;
-}
-.quickmenu_cont .milage {
-    font-weight: 500;
-    letter-spacing:initial;
-}
+
+
 #user_charge_proc {
     width: 33%;
     background-image: url("../img/button/btn-charge.png");
@@ -83,9 +68,7 @@
     background-size: 100%;
     background-repeat: no-repeat;
 }
-.quickmenu_cont .other_link {
-    margin-top: 10px;
-}
+
 .quickmenu_cont .other_link a {
     background-color: initial;
     margin-left: 8px;
@@ -108,12 +91,13 @@
 .bg_opacity,
 .service_wrap,
 .carousel_module > .banner_in > .banner_item .carousel_images {
-    height: 371px;
+    height: 330px;
 }
 .service_wrap,
 .bg_opacity {
     left: 0;
-    width: 220px;
+    width: 100%;
+    height: 66px;
 }
 .carousel_module .banner_indicate {
     right: 505px;
@@ -143,7 +127,7 @@
 }
 .service_set li div {
     line-height: 34px;
-    padding-left: 8px;
+    padding-left: 4px;
 }
 .service_set > ul {
     padding-left: 26px;
@@ -245,3 +229,12 @@
     left: initial;
 }
 /* End region
+
+
+ */
+
+.service_set ul a{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px;
+}

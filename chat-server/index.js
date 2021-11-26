@@ -160,8 +160,8 @@ public.on("connection",(client) => {
                             listMsg.deleteMsgByUserToken(msg.id);
                         }
                         listMsg.createMsg(user.id,user.item,user.level,"",data.body.msg,user.nickname,user.sex,user.winFixCnt,client.id,data.body.roomIdx,user.userType);
+
                         public.to(data.body.roomIdx).emit("receive",return_obj)
-                        console.log('send')
                         if((this.clientid !=null && this.clientid !="") && (this.adminroomid == data.body.roomIdx || this.adminroomid == null || this.adminroomid.trim() == "")){
                             this.clientid.emit("receive",return_obj)
                         }

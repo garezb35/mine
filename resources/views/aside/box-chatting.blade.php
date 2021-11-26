@@ -164,15 +164,15 @@
                 list-style: none;
             }
             .box-chatting .nav-tabs .nav-item.show .nav-link, .box-chatting .nav-tabs .nav-link.active {
-                border-top: #00b4b4 1px solid;
-                border-right: #00b4b4 1px solid;
-                border-left: #00b4b4 1px solid !important;
+                border-top: #1592fd 1px solid;
+                border-right: #1592fd 1px solid;
+                border-left: #1592fd 1px solid !important;
                 font-weight: 700;
                 background: white;
             }
             #msgBox .msg-guide {
-                background-color: #00b4b4;
-                border: 1px solid #00b4b4;
+                background-color: #1592fd;
+                border: 1px solid #1592fd;
                 min-height: 22px;
                 line-height: 22px;
                 color: #fff;

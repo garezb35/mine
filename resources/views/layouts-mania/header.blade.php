@@ -125,11 +125,6 @@
                 <li class="highlight"><a href="/buy">구매등록</a></li>
             </ul>
 
-{{--            --}}{{--<div class="right_icon">--}}
-{{--                <a href="http://trade.itemmania.com/myroom/goods_alarm/alarm_sell_list.html" id="alarm_noti" class="user_noti"> <span class="sp_icon goods_alarm"></span> <span class="new_alarm">N</span> </a>--}}
-{{--                <a href="http://trade.itemmania.com/myroom/message/" class="user_noti"> <span class="sp_icon bell"></span> <span class="icon_bubble">99+</span> </a>--}}
-{{--                <a href="javascript:;" class="all_menu" id="all_menu"> <span class="sp_icon list"></span> </a>--}}
-{{--            </div>--}}
         </div>
     </div>
 </div>

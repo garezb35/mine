@@ -113,7 +113,7 @@ function isScrollParent(element) {
   return /auto|scroll|overlay|hidden/.test(overflow + overflowY + overflowX);
 }
 
-// Composite means it takes into account transforms as well as layout.
+// Composite means it takes into account transforms as well as layouts.
 
 function getCompositeRect(elementOrVirtualElement, offsetParent, isFixed) {
   if (isFixed === void 0) {
