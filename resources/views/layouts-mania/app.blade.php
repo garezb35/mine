@@ -52,7 +52,7 @@
             _initialize();
         </script>
     </body>
-    <div class="topbar-left">
+    <div class="topbar-left" style="display: none">
         <div class="quickmenu_cont" id="quickmenu_cont">
             @if(auth()->check())
             <div class="myinfo">
@@ -252,4 +252,15 @@
             $(".showing_fav").find("i").addClass('fa-plus')
         }
     }
+    $(document).ready(function(){
+        console.log($(window).width())
+        if ($(window).width() < 1843){
+            $("#quickmenu_area").show();
+            $(".topbar-left").hide();
+        }
+        else{
+            $("#quickmenu_area").hide();
+            $(".topbar-left").show();
+        }
+    })
 </script>

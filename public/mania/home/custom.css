@@ -13,7 +13,7 @@
 .credit_mark.vip {
     background-image: url("../img/icons/icon_vip.png");
 }
-.quickmenu_cont .myinfo .status .rt_figure{.top_full, .top_area, .bg_opacity, .service_wrap, .carousel_module > .banner_in > .banner_item .carousel_images
+.quickmenu_cont .myinfo .status .rt_figure{
     top: 0;
 }
 .quickmenu_cont .user_name {
@@ -91,7 +91,7 @@
 .bg_opacity,
 .service_wrap,
 .carousel_module > .banner_in > .banner_item .carousel_images {
-    height: 330px;
+    height: 200px;
 }
 .service_wrap,
 .bg_opacity {

@@ -61,10 +61,11 @@ Route::post('admin/login', [\App\Http\Controllers\AdminAuthController::class,'po
 Route::get('admin/logout', [\App\Http\Controllers\AdminAuthController::class,'logout'])->name('adminLogout');
 
 Route::group(['middleware' => ['web', 'admins']], function () {
-    Route::prefix('')->group(function(){
+    Route::prefix('admin')->group(function(){
         Route::get('tables', [\App\Http\Controllers\AdminController::class,'tableList'])->name('tables');
         Route::get('/logout', [\App\Http\Controllers\AdminAuthController::class,'logout'])->name('adminLogout');
         Route::get('profile', [\App\Http\Controllers\AdminController::class,'profile'])->name('profile.edit');
+        Route::get('/members',[\App\Http\Controllers\AdminController::class,'members'])->name('members');
     });
 
     Route::post('/updateProfile', [\App\Http\Controllers\AdminController::class,'updateProfile'])->name('profile.update');

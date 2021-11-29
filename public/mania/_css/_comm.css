@@ -1199,13 +1199,13 @@ table tr .left {
     min-height: 300px;
     margin: 0 auto;
     padding-top: 20px;
-    margin-left: calc((100% - 1087px) / 2 + 40px);
+    margin-left: calc((100% - 1087px) / 2 + 60px);
 }
 
 .content_center {
     position: relative;
     width: 1080px;
-    margin-left: calc((100% - 1087px) / 2 + 40px);
+    margin-left: calc((100% - 1087px) / 2 + 60px);
 }
 
 .aside {
