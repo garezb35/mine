@@ -101,7 +101,6 @@ public.on("connection",(client) => {
                     }
 
                     if(data.body.roomIdx == "channel1"){
-
                         try{
                             (async function() {
                                 client.join(data.body.roomIdx)

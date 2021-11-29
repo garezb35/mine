@@ -2,24 +2,17 @@
 <div class="g_layer all_menu_layer" id="all_menu_layer">
     <div class="inner"> <a href="javascript:;" class="sp_icon close_r" id="menu_close">닫기</a> </div>
 </div>
-{{--<div class="quickmenu_area" id="quickmenu_area">--}}
-{{--    <div class="inner">--}}
-{{--        <ul class="quickmenu close" id="quickmenu">--}}
-{{--            <li><a href="javascript:;" data-type="user_info">--}}
-{{--                    <span class="user_info"></span>--}}
-{{--                </a>--}}
-{{--                <div><i>나의 거래정보</i></div>--}}
-{{--            </li>--}}
-{{--            <li><a href="javascript:;" data-type="pluszone"><span class="sp_icon pluszone"></span></a>--}}
-{{--                <div><i>플러스존</i></div>--}}
-{{--            </li>--}}
-{{--            <li><a href="javascript:;" class="top_btn" id="top_btn">TOP</a></li>--}}
-{{--        </ul>--}}
-{{--        <div class="quickmenu_dtl" id="quickmenu_dtl"> <a href="javascript:;" class="sp_icon close" id="quickmenu_close">닫기</a>--}}
-{{--            <div class="quickmenu_cont" id="quickmenu_cont"></div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
+<div class="quickmenu_area" id="quickmenu_area" style="display: none">
+    <div class="inner">
+        <ul class="quickmenu close" id="quickmenu">
+            <li><a href="javascript:;" data-type="pluszone"><img src="/mania/img/icons/fix_right.png" width="15px"/></a>
+            </li>
+        </ul>
+        <div class="quickmenu_dtl" id="quickmenu_dtl"> <a href="javascript:;" class="sp_icon close" id="quickmenu_close">닫기</a>
+            <div class="quickmenu_cont" id="quickmenu_cont"></div>
+        </div>
+    </div>
+</div>
 <!--▲▲▲ 거래 탑 배너 ▲▲▲ -->
 <div class="g_header ">
     <div class="top_bg">

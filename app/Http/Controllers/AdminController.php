@@ -146,4 +146,7 @@ class AdminController extends BaseAdminController
         file_put_contents(base_path().'\public\mania\_xml\avgPriceXml\gamechart.xml', $xml);
         echo 1;
     }
+    public function members(Request $request){
+        return view('admin.members');
+    }
 }

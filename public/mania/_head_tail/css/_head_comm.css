@@ -51,6 +51,7 @@ body{
     background-position:-465px -230px;
 }
 .quickmenu{
+    width: 43px;
     z-index:51;
     position:fixed;
     top:50%;
@@ -61,7 +62,7 @@ body{
     background-color: #919199;
 }
 .quickmenu.close, .quickmenu_area ~ .quickmenu{
-    right:0;
+    left:0;
 }
 .qickmenu_on ~ .quickmenu{
     right:230px;
