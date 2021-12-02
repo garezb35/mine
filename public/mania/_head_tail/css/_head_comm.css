@@ -27,7 +27,6 @@ body{
     z-index:50;
     position:fixed;
     top:0;
-    right:0;
 }
 
 .quickmenu_cont .cert_state:before{

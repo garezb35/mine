@@ -40,6 +40,7 @@ function _header() {
         var i;
         var e = document.getElementById("quickmenu_area");
         var b = document.getElementById("quickmenu");
+
         document.getElementById("quickmenu_close").addEventListener("click", function() {
             e.classList.remove("qickmenu_on");
             $(b).addClass("close");
@@ -53,6 +54,7 @@ function _header() {
                     e.classList.remove("qickmenu_on");
                     $(b).addClass("close");
                     $(b).children().removeClass("on");
+                    $("#topbar-left").css('display','none')
                     return
                 }
                 if(l === false) {
@@ -62,10 +64,10 @@ function _header() {
                 }
                 $(b).children().removeClass("on");
                 $(this).addClass("on");
-                var position = $(".topbar-left").position();
-                $(".topbar-left").css('display','block')
-                debugger;
-                $(".quickmenu_area").css("left",position.left)
+                $("#topbar-left").css('display','block')
+                var position = $("#topbar-left").position();
+
+                // $(".quickmenu_area").css("left",position.left-57)
                 i = k;
                 // debugger
                 // ajaxRequest({

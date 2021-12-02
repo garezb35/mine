@@ -5,8 +5,7 @@
 <div class="quickmenu_area" id="quickmenu_area" style="display: none">
     <div class="inner">
         <ul class="quickmenu close" id="quickmenu">
-            <li><a href="javascript:;" data-type="pluszone"><img src="/mania/img/icons/fix_right.png" width="15px"/></a>
-            </li>
+            <li ><a href="#tooltip"  data-type="ss"><img src="/mania/img/icons/fix_right.png" width="15px"/></a></li>
         </ul>
         <div class="quickmenu_dtl" id="quickmenu_dtl"> <a href="javascript:;" class="sp_icon close" id="quickmenu_close"></a>
 {{--            <div class="quickmenu_cont" id="quickmenu_cont"></div>--}}
