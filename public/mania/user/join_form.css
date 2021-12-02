@@ -1,0 +1,53 @@
+/*
+ * @title		일반 회원가입폼
+ * @author		이주원
+ * @date		2007.10. 8
+ * @update		2011.10.07 - 회원가입개선(김보람)
+ * @description
+ */
+
+.g_container table{width:100%;border-top:2px solid #000;font-size:14px;}
+.g_container table th{height:70px;padding-left:20px;background-color:#FFF;text-align:left;}
+.g_container .g_text, .g_container .g_password{width:340px;height:34px;outline:none;font-size:14px; }
+.g_container select{width:82px;height:34px;margin-right:3px;vertical-align:middle;}
+.g_container .mobile_area .g_text{width:70px;}
+.g_container .email_area .g_text{width:160px;}
+.g_container .email_area select{width:120px;margin-left:10px;}
+.g_container table .btn_blue3{width:80px;height:34px;margin-left:7px;font-size:12px;}
+.id_check, .g_container table .f_black3{margin-left:10px;font-size:12px;}
+.captcha{margin-top:5px;font-size:12px;}
+.captcha img{margin:8px 0;border:1px solid #9F9F9F;}
+.captcha .reset{text-decoration:underline;cursor:pointer;}
+.captcha .reset:before{display:inline-block;width:11px;height:12px;margin:0 2px 0 5px;content:"";background:url(//img2.itemmania.com/new_images/join/icon_re.gif) no-repeat;vertical-align:middle;}
+.captcha .g_text{width:202px;}
+.guide_add{position:relative;float:left;}
+.password_help{position:absolute;top:7px;right:7px;;}
+.muser_password{display:inline-block;margin-left:10px;font-size:12px;line-height:30px;}
+.g_password.blue{border-color:#5A95FD;background-color:#FBFCFF;}
+.g_password.red{border-color:#F2685E;background-color:#FFFAFA;}
+.bold_text{font-weight:bold;}
+.g_container .g_btn .btn_blue3{width:270px;padding:21px 0;background-color:#216ED7;}
+.myotp_area{position:relative;overflow:hidden;height:25px;padding:20px 0 20px 0;-webkit-transition:0.3s all;transition:0.3s all;}
+.checkbox_wrap{position:relative;}
+.checkbox_wrap > input[type="checkbox"]{display:none;}
+.checkbox_wrap > input[type="checkbox"] + label{display:inline-block;box-sizing:border-box;height:30px;padding-top:4px;padding-left:40px;background:url(//img2.itemmania.com/new_images/join/icon_join_s.gif) no-repeat;background-size:auto 100%;font-size:14px;font-weight:bold;cursor:pointer;color:#000;}
+.checkbox_wrap > input[type="checkbox"] + label span{font-weight:100;color:#999;}
+.checkbox_wrap > input[type="checkbox"]:checked + label{background:url(//img2.itemmania.com/new_images/join/icon_join_s_on.gif) no-repeat;background-size:auto 100%;}
+.myotp_info{position:relative;box-sizing:border-box;width:100%;height:100px;margin-top:20px;padding:17px 35px;border:2px solid #CAE9B2;background:#FDFFFE;}
+.myotp_info > img{float:left;}
+.myotp_info > .myotp_info_title{position:relative;padding-left:110px;font-weight:bold;}
+.myotp_info > .myotp_info_content{position:relative;padding-left:110px;font-size:11px;}
+.myotp_table_content{position:relative;margin-top:20px;border-top:none !important;}
+.myotp_table_content tr{border-bottom:1px solid #E1E1E1;}
+.myotp_table_content th{width:140px;padding-left:15px !important;background-color:#F9F9F9 !important;}
+.myotp_table_content td{padding-top:20px;padding-bottom:20px;padding-left:20px !important;font-size:12px;line-height:180%;}
+
+.myotp_table_content .checkbox_wrap_s{position:relative;margin-top:10px;line-height:1;}
+.myotp_table_content .checkbox_wrap_s input[type="radio"]{display:none;}
+.myotp_table_content .checkbox_wrap_s input[type="radio"] + label{display:inline-block;box-sizing:border-box;height:18px;padding-top:1px;padding-left:30px;background:url(//img2.itemmania.com/new_images/login/icon_radio.gif) no-repeat;background-size:auto 100%;font-size:14px;cursor:pointer;}
+.myotp_table_content .checkbox_wrap_s input[type="radio"]:checked + label{background:url(//img2.itemmania.com/new_images/login/icon_radio_on.gif) no-repeat;background-size:auto 100%;}
+
+.myotp_table_content .checkbox_wrap_s_report{position:relative;margin-top:10px;line-height:1;}
+.myotp_table_content .checkbox_wrap_s_report input[type="checkbox"]{display:none;}
+.myotp_table_content .checkbox_wrap_s_report input[type="checkbox"] + label{display:inline-block;box-sizing:border-box;height:18px;padding-top:1px;padding-left:30px;background:url(//img2.itemmania.com/new_images/join/icon_join_s.gif) no-repeat;background-size:auto 100%;font-size:14px;cursor:pointer;}
+.myotp_table_content .checkbox_wrap_s_report input[type="checkbox"]:checked + label{background:url(//img2.itemmania.com/new_images/join/icon_join_s_on.gif) no-repeat;background-size:auto 100%;}

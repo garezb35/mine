@@ -6,7 +6,7 @@
     <link type="text/css" rel="stylesheet" href="/mania/customer/trade/css/trade_common.css" />
     <link type="text/css" rel="stylesheet" href="/mania/customer/css/customer_common.css" />
     <script type="text/javascript" src="/mania/_banner/js/banner_module.js"></script>
-
+    <script type="text/javascript" src="/mania/_js/_jquery3.js"></script>
 @endsection
 
 @section('foot_attach')
@@ -22,7 +22,7 @@
             $("#trade_list").on("click", ".btn_red1", function() {
                 var orderNo = $(this).data("order");
                 $("#tradeNum").text(orderNo);
-                $("#tradeNum2").text(orderNo);
+                $("#tradeNum2").val(orderNo);
                 $("#Form_table").show();
             });
         });
@@ -158,20 +158,20 @@
 {{--                            <input type="text" name="server_text" class="g_search_input" style="width: 117px;">--}}
 {{--                            <div class="arrow_img"></div>--}}
 {{--                        </div>--}}
-                        <div id="dvGame" name="game"><input type="hidden" name="selected" value=""/></div>
-                        <div id="dvServer" name="server"><input type="hidden" name="selected" value=""/></div>
+                        <div id="dvGame" name="game"><input type="hidden" name="selected" value="{{$game_text}}"/></div>
+                        <div id="dvServer" name="gserver"><input type="hidden" name="selected" value="{{$server_text}}"/></div>
                         <select id="dvGoods" name="search_goods" class="g_hidden">
-                            <option value="all">물품전체</option>
-                            <option value="3">게임머니</option>
-                            <option value="1">아이템</option>
-                            <option value="2">계정</option>
-                            <option value="4">기타</option>
+                            <option @if ($search_goods == "all") selected @endif value="all">물품전체</option>
+                            <option @if ($search_goods == '3') selected @endif value="3">게임머니</option>
+                            <option @if ($search_goods == '1') selected @endif value="1">아이템</option>
+                            <option @if ($search_goods == '2') selected @endif value="2">계정</option>
+                            <option @if ($search_goods == '4') selected @endif value="4">기타</option>
                         </select>
                     </div>
                     <div class="">
                         <strong class="f-12">금액 : </strong>
-                        <input type="text" name="search_price_min" maxlength="13" class="g_text" style="width:140px; text-align: right;" value="" /> ~
-                        <input type="text" name="search_price_max" maxlength="13" class="g_text" style="width:140px; text-align: right;" value="" />
+                        <input type="text" name="search_price_min" maxlength="13" class="g_text" style="width:140px; text-align: right;" value="{{$search_price_min}}" /> ~
+                        <input type="text" name="search_price_max" maxlength="13" class="g_text" style="width:140px; text-align: right;" value="{{$search_price_max}}" />
                         <input type="submit" width="46" height="20" alt="검색" class="g_image btn_search" value="검색" />
                     </div>
                     <div class="g_finish"></div>

@@ -89,9 +89,9 @@
 {{--                            </td>--}}
                             <td>
                                 @if ($rec['is_read'] == 1)
-                                    <img src="/mania/img/icons/ico_message.gif" width="14" height="11" alt="확인" />
+                                    <img src="/mania/img/icons/ico_message.png" width="14" height="11" alt="확인" />
                                 @else
-                                    <img src="/mania/img/icons/ico_message_on.gif" width="14" height="11" alt="미확인" />
+                                    <img src="/mania/img/icons/ico_message_on.png" width="14" height="11" alt="미확인" />
                                 @endif
                             </td>
                             <td>
@@ -125,7 +125,7 @@
                             <td>{{$rec['order_no'] == null  ? '-' : $rec['order_no'] }}</td>
                             <td class="left"><a href="/customer/myqna/view?seq={{$rec['askid']}}">{{$rec['subject']}}</a></td>
                             <td> {{$rec['response'] == '' ? '답변 대기' : '답변 완료'}} </td>
-                            <td>{{$rec['create_at']}}</td>
+                            <td>{{date('Y-m-d H:i:s', strtotime($rec['created_at']))}}</td>
                         </tr>
                     @endforeach
 
@@ -154,9 +154,7 @@
 {{--            <div class="tb_bt_txt"> <img src="http://img4.itemmania.com/images/btn/btn_del1.gif" width="42" height="20" alt="삭제" class="g_button" onclick="$('signForm').check();" /> <span class="f_org1">- 2020년 7월 1일 이후 메시지만 보관되오니 이점 양지해주시기 바랍니다.</span> </div>--}}
             <!-- ▼ 페이징 //-->
             <div class="dvPaging">
-                <ul class="g_paging">
-                    <li class='start'><strong class="g_blue">1</strong></li>
-                </ul>
+                {{$askRecord->withQueryString()->links()}}
             </div>
             <!-- ▲ 페이징 //-->
         </div>

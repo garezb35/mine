@@ -89,9 +89,9 @@
 {{--                            </td>--}}
                             <td>
                                 @if ($rec['is_read'] == 1)
-                                    <img src="/mania/img/icons/ico_message.gif" width="14" height="11" alt="확인" />
+                                    <img src="/mania/img/icons/ico_message.png" width="14" height="11" alt="확인" />
                                 @else
-                                    <img src="/mania/img/icons/ico_message_on.gif" width="14" height="11" alt="미확인" />
+                                    <img src="/mania/img/icons/ico_message_on.png" width="14" height="11" alt="미확인" />
                                 @endif
                             </td>
                             <td>

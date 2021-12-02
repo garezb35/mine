@@ -127,6 +127,7 @@ function _init() {
         _form.protect.price($('#frmSearch').find('input[name="search_price_min"]'));
         _form.protect.price($('#frmSearch').find('input[name="search_price_max"]'));
     }
+    return;
 
     var frmCustomer = $('#form_member');
 
@@ -308,7 +309,7 @@ function fnCreateDom(strType, c_code) {
     /* ▲ 폼체크 */
 
     var goodsTable = $('#goods_table');
-    goodsTable.find('.m_tmp').remove();
+    // goodsTable.find('.m_tmp').remove();
 
     if (strThisCode.substring(0, 2) == "A1") {
         var iIndex = 3;

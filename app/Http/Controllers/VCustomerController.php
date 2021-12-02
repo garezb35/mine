@@ -44,12 +44,11 @@ class VCustomerController extends BaseController
                 $snzReason = $request->privates_txt;
             }
             MAsk::insert([
-                'type' => $request->type,
+                'type' => 'cancel',
                 'reason' => $snzReason,
                 'subject' => '거래 취소 요청합니다.',
                 'order_no' => $request->orderNo,
                 'phone' => $request->user_phone1.'-'.$request->user_phone2.'-'.$request->user_phone3,
-                'is_proc' => 0,
                 'response' => '',
                 'create_id' => $this->user->id
             ]);
@@ -66,12 +65,22 @@ class VCustomerController extends BaseController
         }
         $data['user'] = $this->user;
         $data['typeTxt'] = $param1;
+        $data['game_text'] = $request->game;
+        $data['server_text'] = $request->gserver;
+        $data['search_price_min'] = $request->search_price_min;
+        $data['search_price_max'] = $request->search_price_max;
+        $data['search_goods'] = $request->search_goods;
         // To get selling items
         $data['sellingRecord'] = MItem::with(['game','server','payitem'])
-            ->whereHas('payitem',function($query){
+            ->whereHas('payitem',function($query) {
                 $query->where('id','>',0);
+                if(!empty($request->search_price_min))
+                    $query->where('price','>=',$request->search_price_min);
+                if(!empty($request->search_price_max))
+                    $query->where('price','<=',$request->search_price_max);
             })
             ->where('accept_flag', 0)
+            ->where('status','!=', -1)
             ->where('status','!=', 0) // initial status > 거래대상이 없을때
             ->where('status','!=', 23) // 거래종료 > 2이면 받을때
             ->where('status','!=', 32) // 거래종료 > 3이면 줄때
@@ -86,8 +95,21 @@ class VCustomerController extends BaseController
                     $query2->where('type', $param2);
                     $query2->where('toId',$this->user->id);
                 });
-            })->orderByDesc("created_at")->paginate(15);
+            });
 
+        if(!empty($data['game_text'])) {
+            $data['sellingRecord'] = $data['sellingRecord']->where('game_code', $data['game_text']);
+            if(!empty($data['server_text']))
+                $data['sellingRecord'] = $data['sellingRecord']->where('server_code',$data['server_text']);
+        }
+        if(!empty($data['search_goods'])) {
+            $snzGoodType = getItemNameType($data['search_goods']);
+            if ($snzGoodType != "") {
+                $data['sellingRecord'] = $data['sellingRecord']->where('good_type', $snzGoodType);
+            }
+        }
+
+        $data['sellingRecord'] = $data['sellingRecord']->orderByDesc("created_at")->paginate(15);
         return view('mania.customer.report', $data);
     }
 
@@ -102,12 +124,11 @@ class VCustomerController extends BaseController
                 $snzReason = $request->privates_txt;
             }
             MAsk::insert([
-                'type' => $request->type,
+                'type' => 'complete',
                 'subject' => '거래 종료 요청합니다.',
                 'reason' => $snzReason,
                 'order_no' => $request->orderNo,
                 'phone' => $request->user_phone1.'-'.$request->user_phone2.'-'.$request->user_phone3,
-                'is_proc' => 0,
                 'response' => '',
                 'create_id' => $this->user->id
             ]);
@@ -124,10 +145,19 @@ class VCustomerController extends BaseController
         }
         $data['user'] = $this->user;
         $data['typeTxt'] = $param1;
+        $data['game_text'] = $request->game;
+        $data['server_text'] = $request->gserver;
+        $data['search_price_min'] = $request->search_price_min;
+        $data['search_price_max'] = $request->search_price_max;
+        $data['search_goods'] = $request->search_goods;
         // To get selling items
         $data['sellingRecord'] = MItem::with(['game','server','payitem'])
-            ->whereHas('payitem',function($query){
+            ->whereHas('payitem',function($query) {
                 $query->where('id','>',0);
+                if(!empty($request->search_price_min))
+                    $query->where('price','>=',$request->search_price_min);
+                if(!empty($request->search_price_max))
+                    $query->where('price','<=',$request->search_price_max);
             })
             ->where('accept_flag', 0)
             ->where('status','!=', 0) // initial status > 거래대상이 없을때
@@ -144,8 +174,21 @@ class VCustomerController extends BaseController
                     $query2->where('type', $param2);
                     $query2->where('toId',$this->user->id);
                 });
-            })->orderByDesc("created_at")->paginate(15);
+            });
 
+        if(!empty($data['game_text'])) {
+            $data['sellingRecord'] = $data['sellingRecord']->where('game_code', $data['game_text']);
+            if(!empty($data['server_text']))
+                $data['sellingRecord'] = $data['sellingRecord']->where('server_code',$data['server_text']);
+        }
+        if(!empty($data['search_goods'])) {
+            $snzGoodType = getItemNameType($data['search_goods']);
+            if ($snzGoodType != "") {
+                $data['sellingRecord'] = $data['sellingRecord']->where('good_type', $snzGoodType);
+            }
+        }
+
+        $data['sellingRecord'] = $data['sellingRecord']->orderByDesc("created_at")->paginate(15);
         return view('mania.customer.report_end', $data);
     }
 
@@ -257,7 +300,7 @@ class VCustomerController extends BaseController
     {
         $data['askRecord'] = MAsk::where('create_id', $this->user->id)
             ->orderByDesc('created_at')
-            ->get()->toArray();
+            ->paginate(15);
         return view('mania.customer.myqna.list', $data);
     }
     public function myqna_view(Request $request)

@@ -97,7 +97,7 @@
         <div class="g_finish"></div>
         <!-- ▼ 페이징 //-->
         <div class="dvPaging">
-            {{$message->links()}}
+            {{$message->withQueryString()->links()}}
         </div>
         <!-- ▲ 페이징 //-->
     </div>

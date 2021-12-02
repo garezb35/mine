@@ -126,4 +126,25 @@ function numberReverseUnit($param){
         $unit = '백억';
     return $unit;
 }
+
+function getItemNameType($value)
+{
+    $snzGoodType = "";
+    switch ($value)
+    {
+        case '1':
+            $snzGoodType = "아이템";
+            break;
+        case '2':
+            $snzGoodType = "캐릭터";
+            break;
+        case '3':
+            $snzGoodType = "게임머니";
+            break;
+        case '4':
+            $snzGoodType = "기타";
+            break;
+    }
+    return $snzGoodType;
+}
 ?>
