@@ -62,16 +62,21 @@ function _header() {
                 }
                 $(b).children().removeClass("on");
                 $(this).addClass("on");
+                var position = $(".topbar-left").position();
+                $(".topbar-left").css('display','block')
+                debugger;
+                $(".quickmenu_area").css("left",position.left)
                 i = k;
-                ajaxRequest({
-                    url: "/api/_include/quicklink" + i.split("_")[0],
-                    type: "POST",
-                    data:{api_token:a_token},
-                    async: false,
-                    success: function(m) {
-                        document.getElementById("quickmenu_cont").innerHTML = "" + m
-                    }
-                })
+                // debugger
+                // ajaxRequest({
+                //     url: "/api/_include/quicklink" + i.split("_")[0],
+                //     type: "POST",
+                //     data:{api_token:a_token},
+                //     async: false,
+                //     success: function(m) {
+                //         document.getElementById("quickmenu_cont").innerHTML = "" + m
+                //     }
+                // })
             }
         })
     }

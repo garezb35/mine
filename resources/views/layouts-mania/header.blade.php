@@ -8,8 +8,8 @@
             <li><a href="javascript:;" data-type="pluszone"><img src="/mania/img/icons/fix_right.png" width="15px"/></a>
             </li>
         </ul>
-        <div class="quickmenu_dtl" id="quickmenu_dtl"> <a href="javascript:;" class="sp_icon close" id="quickmenu_close">닫기</a>
-            <div class="quickmenu_cont" id="quickmenu_cont"></div>
+        <div class="quickmenu_dtl" id="quickmenu_dtl"> <a href="javascript:;" class="sp_icon close" id="quickmenu_close"></a>
+{{--            <div class="quickmenu_cont" id="quickmenu_cont"></div>--}}
         </div>
     </div>
 </div>

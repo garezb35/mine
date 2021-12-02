@@ -55,10 +55,8 @@ body{
     z-index:51;
     position:fixed;
     top:50%;
-    right:250px;
+    /*right:250px;*/
     margin-top:-76px;
-    border: 1px solid #A4A4A4;
-    border-right: 0;
     background-color: #919199;
 }
 .quickmenu.close, .quickmenu_area ~ .quickmenu{
@@ -186,21 +184,20 @@ body{
     width:250px;
     height:100%;
     margin-left:43px;
-    border-left:1px solid #A4A4A4;
     background-color:#FFF;
 }
 .qickmenu_on .quickmenu_dtl{
     display:block;
 }
-.quickmenu_area .quickmenu_dtl .close{
-    position:absolute;
-    top:20px;
-    right:20px;
-    display:block;
-    width:17px;
-    height:16px;
-    background-position:-503px -11px;
-}
+/*.quickmenu_area .quickmenu_dtl .close{*/
+/*    position:absolute;*/
+/*    top:20px;*/
+/*    right:20px;*/
+/*    display:block;*/
+/*    width:17px;*/
+/*    height:16px;*/
+/*    background-position:-503px -11px;*/
+/*}*/
 .quickmenu_dtl .quickmenu_cont{
     padding:40px 0px 0px 0px !important;
     color:#767676;
