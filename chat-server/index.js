@@ -193,15 +193,6 @@ cron.schedule('0 0 1 * * *', () => {
         if(insert_data.length > 0){
             try{
                 (async function() {
-                    let del = knex('m_game_rate')
-                        .del();
-                })();
-            }catch(e){
-
-            }
-            try{
-
-                (async function() {
                     let del =await knex('m_game_rate')
                         .where('id','>', 0)
                         .del();
