@@ -11,7 +11,7 @@
     <script type='text/javascript'>
         var t_SearchScope = {
             start: { year:'2016', month:'4' },
-            end: { year:'2021', month:'10' }
+            end: { year:'{{$DateY}}', month:'{{$DateM}}' }
         }
         var gsVersion = '2110141801';
         var _LOGINCHECK = '1';
@@ -65,13 +65,13 @@
         </div>
         <!-- ▲ 메뉴탭 //-->
         <!-- ▼ 년도 //-->
-        <form name="frmData" id="frmData" method="POST" action="calendar.html">
-            <input type="hidden" id="date_Y" name="date_Y" value="2021">
-            <input type="hidden" id="date_M" name="date_M" value="10">
+        <form name="frmData" id="frmData" method="POST" action="">
+            <input type="hidden" id="date_Y" name="date_Y" value="{{$DateY}}">
+            <input type="hidden" id="date_M" name="date_M" value="{{$DateM}}">
             <ul id="mile_year">
-                <li><img src="http://img3.itemmania.com/images/btn/btn_previous.gif" width="16" height="26" alt="이전" id="before" class="g_button g_icon"></li>
-                <li class="center">2021년</li>
-                <li><img src="http://img4.itemmania.com/images/btn/btn_next1.gif" width="16" height="26" alt="다음" id="after" class="g_button g_icon"></li>
+                <li><img src="/mania/img/icons/btn_previous.gif" width="16" height="26" alt="이전" id="before" class="g_button g_icon"></li>
+                <li class="center">{{$DateY}}년</li>
+                <li><img src="/mania/img/icons/btn_next1.gif" width="16" height="26" alt="다음" id="after" class="g_button g_icon"></li>
             </ul>
             <!-- ▲ 년도 //-->
             <!-- ▼ 월 //-->
@@ -85,8 +85,8 @@
                 <li name="7">7월</li>
                 <li name="8">8월</li>
                 <li name="9">9월</li>
-                <li class='selected' name="10">10월</li>
-                <li name="11">11월</li>
+                <li name="10">10월</li>
+                <li class='selected' name="11">11월</li>
                 <li name="12">12월</li>
             </ul>
             <div class="g_finish"></div>

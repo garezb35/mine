@@ -270,4 +270,24 @@ class VGuideController extends BaseController
     {
         return view('mania.guide.add.security_number_plus');
     }
+
+    public function user_reg_step1()
+    {
+        return view('mania.user.user_reg_step1');
+    }
+
+    public function user_reg_step2()
+    {
+        return view('mania.user.user_reg_step2');
+    }
+
+    public function user_reg_step3()
+    {
+        return view('mania.user.user_reg_step3');
+    }
+
+    public function user_reg_step4()
+    {
+        return view('mania.user.user_reg_step4');
+    }
 }

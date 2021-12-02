@@ -1,0 +1,8 @@
+.content{overflow:hidden;width:1080px;margin:0 auto;}
+.top_area{position:relative;margin-bottom:50px;padding-top:50px;font-size:14px;color:#636363;}
+.top_area h1{margin-bottom:20px;font-size:35px;letter-spacing:-0.12em;color:#434343;}
+.sp_join{position:absolute;top:50px;right:0;width:570px;height:40px;background:url(//img2.itemmania.com/new_images/join/step_join.png) no-repeat;}
+.step2{background-position-y:-57px;}
+.step3{background-position-y:-112px;}
+.step4{background-position-y:-166px;}
+.join_new_banner{position:absolute;right:0;bottom:0;}

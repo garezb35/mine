@@ -1264,9 +1264,71 @@ class VMyRoomController extends BaseController
     /**
      * * 마이룸 > 마일리지 > 내 마일리지 > 마일리지 달력보기
      */
-    public function my_mileage_calendar()
+    public function my_mileage_calendar(Request $request)
     {
-        return view('mania.myroom.mileage.my_mileage.calendar');
+        $nDateY = date('Y');
+        $nDateM = date('m');
+        if ($request->date_Y != "" && $request->date_M != "") {
+            $nDateY = $request->date_Y;
+            $nDateM = $request->date_M;
+        }
+
+        $arrDataIn = MMileage::select('type', DB::raw('SUM(money) as sum_money'), DB::raw('substr(Date(createdByDtm), 9, 2) as dayNum'))
+            ->whereDate('createdByDtm', '>=', sprintf('%s-%s-01', $nDateY, $nDateM))
+            ->whereDate('createdByDtm', '<=', sprintf('%s-%s-31', $nDateY, $nDateM))
+            ->where('type', 0)
+            ->groupBy('dayNum')
+            ->get()->toArray();
+
+        $arrDataOut = MMileage::select('type', DB::raw('SUM(money) as sum_money'), DB::raw('substr(Date(createdByDtm), 9, 2) as dayNum'))
+            ->whereDate('createdByDtm', '>=', sprintf('%s-%s-01', $nDateY, $nDateM))
+            ->whereDate('createdByDtm', '<=', sprintf('%s-%s-31', $nDateY, $nDateM))
+            ->where('type', 1)
+            ->groupBy('dayNum')
+            ->get()->toArray();
+
+        $snzDay = date_create(sprintf('%s-%s-01', $nDateY, $nDateM))
+            ->modify('first day of this month')
+            ->format('l');
+        $nDayIndex = 1;
+        switch ($snzDay)
+        {
+            case "Monday":
+                $nDayIndex = 1;
+                break;
+            case "Tuesday":
+                $nDayIndex = 2;
+                break;
+            case "Wednesday":
+                $nDayIndex = 3;
+                break;
+            case "Thursday":
+                $nDayIndex = 4;
+                break;
+            case "Friday":
+                $nDayIndex = 5;
+                break;
+            case "Saturday":
+                $nDayIndex = 6;
+                break;
+            case "Sunday":
+                $nDayIndex = 0;
+                break;
+        }
+
+        $data = array(
+            'DateY' => $nDateY,
+            'DateM' => $nDateM,
+            'MaxMonth' => date('m'),
+            'MileageIn' => $arrDataIn,
+            'MileageOut' => $arrDataOut,
+            'UseMoney' => 0,
+            'KeepMoney' => 0,
+            'CountDays' => cal_days_in_month(CAL_GREGORIAN, $nDateM, $nDateY),
+            'DayIndex' => $nDayIndex
+        );
+
+        return view('mania.myroom.mileage.my_mileage.calendar', $data);
     }
     /**
      * * 마이룸 > 마일리지 > 내 마일리지 > 마일리지 리스트

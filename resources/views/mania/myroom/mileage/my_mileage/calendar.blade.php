@@ -11,7 +11,7 @@
     <script type='text/javascript'>
         var t_SearchScope = {
             start: { year:'2016', month:'4' },
-            end: { year:'2021', month:'10' }
+            end: { year:'{{$DateY}}', month:'{{$MaxMonth}}' }
         }
         var gsVersion = '2110141801';
         var _LOGINCHECK = '1';
@@ -65,35 +65,27 @@
         </div>
         <!-- ▲ 메뉴탭 //-->
         <!-- ▼ 년도 //-->
-        <form name="frmData" id="frmData" method="POST" action="calendar>
-            <input type="hidden" id="date_Y" name="date_Y" value="2021">
-            <input type="hidden" id="date_M" name="date_M" value="10">
+        <form name="frmData" id="frmData" method="POST" action="">
+            @csrf
+            <input type="hidden" id="date_Y" name="date_Y" value="{{$DateY}}">
+            <input type="hidden" id="date_M" name="date_M" value="{{$DateM}}">
             <ul id="mile_year">
-                <li><img src="http://img3.itemmania.com/images/btn/btn_previous.gif" width="16" height="26" alt="이전" id="before" class="g_button g_icon"></li>
-                <li class="center">2021년</li>
-                <li><img src="http://img4.itemmania.com/images/btn/btn_next1.gif" width="16" height="26" alt="다음" id="after" class="g_button g_icon"></li>
+                <li><img src="/mania/img/icons/btn_previous.gif" width="16" height="26" alt="이전" id="before" class="g_button g_icon"></li>
+                <li class="center">{{$DateY}}년</li>
+                <li><img src="/mania/img/icons/btn_next1.gif" width="16" height="26" alt="다음" id="after" class="g_button g_icon"></li>
             </ul>
             <!-- ▲ 년도 //-->
             <!-- ▼ 월 //-->
             <ul id="mile_month" class="g_left g_sideway">
-                <li name="1">1월</li>
-                <li name="2">2월</li>
-                <li name="3">3월</li>
-                <li name="4">4월</li>
-                <li name="5">5월</li>
-                <li name="6">6월</li>
-                <li name="7">7월</li>
-                <li name="8">8월</li>
-                <li name="9">9월</li>
-                <li class='selected' name="10">10월</li>
-                <li name="11">11월</li>
-                <li name="12">12월</li>
+                @for ($i = 1; $i <= 12; $i++)
+                <li @if ($i == $DateM) class='selected' @endif name="{{$i}}">{{$i}}월</li>
+                @endfor
             </ul>
             <div class="g_finish"></div>
-            <ul id="month_mile" class="g_black2_b">
-                <li><span class="g_blue2_b">10월 적립된 마일리지 : </span> 4,286,320원</li>
-                <li><span class="g_blue2_b">10월 사용된 마일리지 : </span> 4,459,200원</li>
-            </ul>
+{{--            <ul id="month_mile" class="g_black2_b">--}}
+{{--                <li><span class="g_blue2_b">{{$DateM}}월 적립된 마일리지 : </span> {{number_format($KeepMoney)}}원</li>--}}
+{{--                <li><span class="g_blue2_b">{{$DateM}}월 사용된 마일리지 : </span> {{number_format($UseMoney)}}원</li>--}}
+{{--            </ul>--}}
         </form>
         <!-- ▲ 월 //-->
         <!-- ▼ 마일리지 달력 //-->
@@ -116,164 +108,42 @@
                 <th>금요일</th>
                 <th>토요일</th>
             </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>
-                    <div class="g_right">1</div>
-                    <div class="g_finish"></div>
-                    <div class='in'>724,950</div>
-                    <div class='out'>830,000</div>
-                </td>
-                <td class='saterday'>
-                    <div class="g_right">2</div>
-                    <div class="g_finish"></div>
-                    <div class='in'>716,590</div>
-                </td>
-            </tr>
-            <tr>
-                <td class='sunday'>
-                    <div class="g_right">3</div>
-                    <div class="g_finish"></div>
-                    <div class='in'>1,121,000</div>
-                    <div class='out'>1,519,000</div>
-                </td>
-                <td>
-                    <div class="g_right">4</div>
-                    <div class="g_finish"></div>
-                    <div class='out'>380,000</div>
-                </td>
-                <td>
-                    <div class="g_right">5</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td>
-                    <div class="g_right">6</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td>
-                    <div class="g_right">7</div>
-                    <div class="g_finish"></div>
-                    <div class='in'>497,800</div>
-                </td>
-                <td>
-                    <div class="g_right">8</div>
-                    <div class="g_finish"></div>
-                    <div class='in'>664,240</div>
-                    <div class='out'>1,170,000</div>
-                </td>
-                <td class='saterday'>
-                    <div class="g_right">9</div>
-                    <div class="g_finish"></div>
-                </td>
-            </tr>
-            <tr>
-                <td class='sunday'>
-                    <div class="g_right">10</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td>
-                    <div class="g_right">11</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td>
-                    <div class="g_right">12</div>
-                    <div class="g_finish"></div>
-                    <div class='in'>561,740</div>
-                </td>
-                <td>
-                    <div class="g_right">13</div>
-                    <div class="g_finish"></div>
-                    <div class='out'>560,200</div>
-                </td>
-                <td>
-                    <div class="g_right">14</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td>
-                    <div class="g_right">15</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td class='saterday'>
-                    <div class="g_right">16</div>
-                    <div class="g_finish"></div>
-                </td>
-            </tr>
-            <tr>
-                <td class='sunday'>
-                    <div class="g_right">17</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td>
-                    <div class="g_right">18</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td>
-                    <div class="g_right">19</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td>
-                    <div class="g_right">20</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td>
-                    <div class="g_right">21</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td>
-                    <div class="g_right">22</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td class='saterday'>
-                    <div class="g_right">23</div>
-                    <div class="g_finish"></div>
-                </td>
-            </tr>
-            <tr>
-                <td class='sunday'>
-                    <div class="g_right">24</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td>
-                    <div class="g_right">25</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td>
-                    <div class="g_right">26</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td>
-                    <div class="g_right">27</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td>
-                    <div class="g_right">28</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td>
-                    <div class="g_right">29</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td class='saterday'>
-                    <div class="g_right">30</div>
-                    <div class="g_finish"></div>
-                </td>
-            </tr>
-            <tr>
-                <td class='sunday'>
-                    <div class="g_right">31</div>
-                    <div class="g_finish"></div>
-                </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
+            @php
+            for ($i = 0; $i < 42; $i++)
+            {
+                $snzDayStyle = "";
+                if ($i % 7 == 0)
+                {
+                    if ($i - $DayIndex >= $CountDays)
+                        break;
+                    echo '<tr>';
+                    $snzDayStyle = 'sunday';
+                }
+                if ($i % 7 == 6)
+                    $snzDayStyle = 'saterday';
+                if ($i < $DayIndex || $i - $DayIndex >= $CountDays)
+                {
+                    echo '<td>&nbsp;</td>';
+                }
+                else
+                {
+                    $nDay = ($i - $DayIndex + 1);
+                    echo '<td class="'.$snzDayStyle.'">';
+                    echo '<div class="g_right">'.$nDay.'</div>';
+                    echo '<div class="g_finish"></div>';
+                    $index = array_search($nDay, array_column($MileageIn, 'dayNum'));
+                    if ($index !== false)
+                        echo '<div class="in">'.number_format($MileageIn[$index]['sum_money']).'</div>';
+                    $index = array_search($nDay, array_column($MileageOut, 'dayNum'));
+                    if ($index !== false)
+                        echo '<div class="out">'.number_format($MileageOut[$index]['sum_money']).'</div>';
+                    echo '</td>';
+                }
+                if ($i % 7 == 6)
+                    echo '</tr>';
+
+            }
+            @endphp
         </table>
         <!-- ▲ 마일리지 달력 //-->
         <div class="g_left g_black3_11">- 조회기간은 전년기준 5년까지 조회 가능합니다.</div>
