@@ -54,9 +54,7 @@ body{
     z-index:51;
     position:fixed;
     top:50%;
-    /*right:250px;*/
     margin-top:-76px;
-    background-color: #919199;
 }
 .quickmenu.close, .quickmenu_area ~ .quickmenu{
     left:0;
@@ -77,9 +75,9 @@ body{
     padding:10px 0;
     text-align:center;
 }
-.quickmenu .on{
-    background-color:#FFF;
-}
+/*.quickmenu .on{*/
+/*    background-color:#FFF;*/
+/*}*/
 .quickmenu .user_info{
     display:inline-block;
     width:28px;
@@ -144,25 +142,23 @@ body{
     display: block;
     height: 50px;
     padding: 0 5px;
-    border: 1px solid #E0E0E0;
-    background-color: #FFF;
     font-style: normal;
     line-height: 50px;
-    color: #767676;
     border-right: none;
+    font-size: 32px;
 }
-.qickmenu_on .fa-chevron-left:before{
-    content: "\f054";
-}
-.quickmenu li i:after{
-    position:absolute;
-    top:8px;
-    right:-8px;
-    content:"";
-    border-top:4px solid transparent;
-    border-bottom:4px solid transparent;
-    border-left:8px solid #FFF;
-}
+/*.qickmenu_on .fa-chevron-left:before{*/
+/*    content: "\f054";*/
+/*}*/
+/*.quickmenu li i:after{*/
+/*    position:absolute;*/
+/*    top:8px;*/
+/*    right:-8px;*/
+/*    content:"";*/
+/*    border-top:4px solid transparent;*/
+/*    border-bottom:4px solid transparent;*/
+/*    border-left:8px solid #FFF;*/
+/*}*/
 .quickmenu li .top_btn{
     padding:6px 0px;
     background-color:#0475EA;

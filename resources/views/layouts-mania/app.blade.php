@@ -286,6 +286,7 @@
         if ($(window).width() < 1843){
             $("#quickmenu_area").show();
             $("#topbar-left").css("display","none")
+
         }
         else{
             $("#quickmenu_area").hide();
