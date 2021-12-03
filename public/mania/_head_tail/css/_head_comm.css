@@ -57,7 +57,7 @@ body{
     margin-top:-76px;
 }
 .quickmenu.close, .quickmenu_area ~ .quickmenu{
-    left:0;
+    left:15px;
 }
 .qickmenu_on ~ .quickmenu{
     right:230px;
