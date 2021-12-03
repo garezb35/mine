@@ -53,7 +53,7 @@ body{
     width: 43px;
     z-index:51;
     position:fixed;
-    top:50%;
+    top:100%;
     margin-top:-76px;
 }
 .quickmenu.close, .quickmenu_area ~ .quickmenu{
@@ -1263,8 +1263,8 @@ body{
 
 .topbar-left{
     position: absolute;
-    top: 219px;
-    left: 120px;
+    top: 45px;
+    left: 11px;
     width: 314px;
     border: 1px solid;
     padding-top: 13px;
