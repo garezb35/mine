@@ -287,6 +287,8 @@
             $("#quickmenu_area").show();
             $("#topbar-left").css("display","none")
             $("#topbar-left").css("position","fixed")
+            $("#topbar-left").css("top","45px")
+            $("#topbar-left").css("left","15px")
 
         }
         else{
