@@ -49,4 +49,8 @@ class User extends Authenticatable
     public function roles(){
         return $this->hasOne(MRole::class, 'level','role');
     }
+
+    public function bank(){
+        return $this->hasOne(MUserbank::class, 'id','id');
+    }
 }

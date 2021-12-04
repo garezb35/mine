@@ -28,11 +28,11 @@
 
         <div class="box-chatting">
             <div class="btn-etc">
-            <span class="cnt">
-                <div class="sp-bl_pp"></div>
-                <span id="connectUserCnt" rel=""></span>명
-                <span id="loginUserCnt"></span>
-            </span>
+                <span class="cnt">
+                    <div class="sp-bl_pp"></div>
+                    <span id="connectUserCnt" rel=""></span>명
+                    <span id="loginUserCnt"></span>
+                </span>
                 <ul class="ul-1">
                     <li>
                         <a href="#" onclick="chatManager('popupChat');return false;" title="새창" class="sp-btn_chat1"></a>
@@ -54,21 +54,19 @@
                     </li>
                 </ul>
             </div>
-
-            {{--    <div class="table-type-1">--}}
-            {{--        <ul class="nav nav-tabs" id="myTab" role="tablist">--}}
-            {{--            <li class="nav-item">--}}
-            {{--                <a class="nav-link active" id="chatroomListBox-tab" data-toggle="tab" data-bs-toggle="tab" href="#chatTap" role="tab" aria-controls="home" aria-selected="true">채팅</a>--}}
-            {{--            </li>--}}
-            {{--            <li class="nav-item">--}}
-            {{--                <a class="nav-link" id="connect-tab" data-toggle="tab" data-bs-toggle="tab" href="#connectTap" role="tab" aria-controls="contact" aria-selected="false">접속자</a>--}}
-            {{--            </li>--}}
-            {{--            <li class="nav-item">--}}
-            {{--                <a class="nav-link" id="rule-tab" data-toggle="tab" data-bs-toggle="tab" href="#ruleTap" role="tab" aria-controls="contact" aria-selected="false">채팅규정</a>--}}
-            {{--            </li>--}}
-            {{--        </ul>--}}
-            {{--    </div>--}}
-
+            <div class="table-type-1">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="chatroomListBox-tab" data-toggle="tab" data-bs-toggle="tab" href="#chatTap" role="tab" aria-controls="home" aria-selected="true">채팅</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="connect-tab" data-toggle="tab" data-bs-toggle="tab" href="#connectTap" role="tab" aria-controls="contact" aria-selected="false">접속자</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="rule-tab" data-toggle="tab" data-bs-toggle="tab" href="#ruleTap" role="tab" aria-controls="contact" aria-selected="false">채팅규정</a>
+                    </li>
+                </ul>
+            </div>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="chatTap" role="tabpanel" aria-labelledby="home-tab">
                     <div id="chatListBox" style="position:relative;">
@@ -83,23 +81,17 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="connectTap" role="tabpanel" aria-labelledby="profile-tab">
-                    <div id="connectListBox">
+                    <div id="connectListBox" style="height: 340px">
                         <ul class="list-connect" id="connectList">
 
                         </ul>
 
                     </div>
                 </div>
-                <div class="tab-pane fade" id="roomTap" role="tabpanel" aria-labelledby="contact-tab">
-                    <div id="roomListBox" style="display: block;">
-                        <ul class="list-room" id="roomList" style="height: 420px;">
 
-                        </ul>
-                    </div>
-                </div>
 
                 <div class="tab-pane fade" id="ruleTap" role="tabpanel" aria-labelledby="contact-tab">
-                    <div id="ruleBox" style="height: 445px; ">
+                    <div id="ruleBox" style="height: 335px; ">
                         <div class="borderBox">
                             <div class="tit">벙어리 사유</div>
                             <ul>
@@ -122,33 +114,31 @@
                                 <li>- 부모 및 성적 관련 욕설</li>
                             </ul>
                         </div>
-                        <div class="borderBox">
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        {{--@include('chat.chat-list')--}}
-        {{--@include('Analyse/chat-list')--}}
+
         <style>
             .box-chatting .nav-link{
                 display: block;
                 padding: 0rem  0rem
             }
             .box-chatting .nav-item {
-                width: 90px;
+                width: 33%;
                 text-align: center;
                 border-right: 1px solid #cecece;
             }
             .box-chatting .nav-tabs .nav-link {
                 border-radius: 0px;
                 border-top: 1px solid #ddd;
-                border-bottom: 1px solid #00b4b4;
+                border-bottom: 1px solid #1592fd;
                 background: #fff;
                 padding-top: 8px;
                 padding-bottom: 8px;
                 font-size: 15px;
                 color: #919394;
+                text-align: center;
             }
             .box-chatting .nav-item.show .nav-link, .box-chatting .nav-link.active{
                 color: #495057;
@@ -302,6 +292,31 @@
                 padding: 0 5px;
                 margin: 3px 0;
             }
+            #ruleBox .borderBox {
+                background-color: #F5F5F5;
+                margin: 5px;
+                padding: 10px;
+            }
+            #ruleBox .borderBox .tit {
+                color: #C11A20;
+                font-weight: bold;
+            }
+            #ruleBox .borderBox ul {
+                margin-top: 5px;
+                margin-left: 5px;
+                font-size: 11px;
+                line-height: 18px;
+            }
+            .box-chatting .list-connect li {
+                color: #5e5e5e;
+                line-height: 24px;
+                border-bottom: 1px dotted #CECECE;
+                font-weight: bold;
+                padding: 5px;
+            }
+            .uname {
+                color: #1592fd;
+            }
         </style>
 
     </body>
@@ -331,4 +346,15 @@
 
         return formated_number;
     }
+    $(".nav-link").click(function(event ){
+        event.preventDefault();
+        $(".tab-pane").removeClass('show');
+        $(".tab-pane").removeClass('active');
+        $($(this).attr("href")).addClass("show");
+        $($(this).attr("href")).addClass("active");
+        $(".nav-link ").removeClass("active");
+        $(this).addClass("active");
+    })
+
+
 </script>

@@ -837,6 +837,7 @@ function receiveProcess(data)
     else if(hPacket.type == 'INITMSG')
     {
         // compileJson("#users","#connectList",bPacket.connectList,1,false);
+        $("#connectList").html(setChatList(bPacket.connectList));
         total_num = bPacket.connectList.length;
         $("#connectUserCnt").html(number_format(total_num.toString()));
         $('#msgBox').empty();
@@ -940,7 +941,7 @@ function receiveProcess(data)
                 break;
 
             case 'NOT_LOGIN':
-                // compileJson("#users","#connectList",bPacket.connectList,1,false);
+                $("#connectList").html(setChatList(bPacket.connectList));
                 if(typeof bPacket.connectList != "undefined"){
                     total_num = bPacket.connectList.length;
                     $("#connectUserCnt").html(number_format(total_num.toString()));
@@ -973,7 +974,7 @@ function receiveProcess(data)
         if(typeof bPacket.users != "undefined"){
             var ss = new Array();
             ss[0] = bPacket.users;
-            // compileJson("#users","#connectList",ss,2,false);
+            $("#connectList").prepend(setChatList(ss));
             total_num = total_num+1;
             $("#connectUserCnt").html(number_format(total_num.toString()));
         }
@@ -1688,4 +1689,78 @@ function fontZoom(num)
 
     $('#msgBox').css('font-size',zoomFontSize+'px');
     $('#msgBox p').css('line-height',zoomLineHeight+'px');
+}
+
+function setChatList(list){
+    var html = "";
+    if(list.length > 0){
+        list.forEach(element => {
+            if(element.id.includes('null-'))
+            {
+                html += '<li id="'+element.id+'">\
+                            <img src="/mania/img/icons/seller_chatting.png" width="30" height="30">\
+                    <a href="#" onclick="return false;" title="'+element.nickname+'" rel="'+element.id+'" class="uname">'+element.id.substring(0,10)+'...</a>\
+                    <span style="position:absolute;right:10px;font-weight:normal;font-size:11px;color:#a29c9b;">'+displayKTime(element.time)+'전</span>\
+                </li>';
+            }
+            else{
+                html += '<li id="'+element.id+'">\
+                    <img src="/mania/img/icons/seller_chatting.png" width="30" height="30">\
+                        <a href="#" onclick="return false;" title="'+element.nickname+'" rel="'+element.id+'" class="uname">'+element.nickname.substring(0,10)+'</a>\
+                    <span style="position:absolute;right:10px;font-weight:normal;font-size:11px;color:#a29c9b;">'+displayKTime(element.time)+'전</span>\
+                </li>';
+
+            }
+        })
+    }
+    return html;
+}
+function diff_minutes(dt2, dt1,type=true)
+{
+    var diff =(dt2 - dt1) / 1000;
+    var return_obj="";
+    var minute = Math.abs(Math.round(diff / 60));
+    var sec = Math.abs(Math.round(diff % 60));
+    if(minute < 1)
+    {
+        if(sec ==0)
+            return_obj = "방금";
+        else
+            return_obj = sec+"초";
+    }
+    if(type){
+        if(minute >= 1 && minute < 60)
+            return_obj = minute+"분";
+        if(minute >=60)
+            return_obj = Math.abs(Math.round(minute/60))+"시간";
+        return return_obj;
+    }
+    else{
+        if(minute < 5)
+            return true;
+        else return false;
+    }
+}
+function calcTime(offset) {
+    // create Date object for current location
+    var d = new Date();
+
+    // convert to msec
+    // subtract local time zone offset
+    // get UTC time in msec
+    var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+
+    // create new Date object for different city
+    // using supplied offset
+    var nd = new Date(utc + (3600000*offset));
+
+    // return time as a string
+    return nd;
+}
+
+function displayKTime(arg,arg1=1){
+    if(arg1 == 1)
+        return diff_minutes(calcTime("+9"),arg);
+    else
+        return diff_minutes(calcTime("+9"),new Date(arg));
 }

@@ -30,6 +30,9 @@
         var a_token = '';
         var _LOGINCHECK = '0';
         @endif
+        function basicPopup(url) {
+            popupWindow = window.open(url,'popUpWindow','height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+        }
     </script>
         <div id="g_SLEEP" class="g_sleep g_hidden">
             <div id="g_OVERLAY" class="g_overlay"></div>
@@ -230,7 +233,7 @@
             </form>
             @endif
         </div>
-        <iframe scrolling="no" frameborder="0" width="100%" height="370" src="/box_chatting" id="chatFrame"></iframe>
+        <iframe scrolling="no" frameborder="0" width="100%" height="400" src="/box_chatting" id="chatFrame"></iframe>
     </div>
 </html>
 

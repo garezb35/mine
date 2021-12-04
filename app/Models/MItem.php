@@ -54,4 +54,8 @@ class MItem extends Model
         return $this->hasOne(MPrivateMessage::class,'orderNo','orderNo');
     }
 
+    public function ask(){
+        return $this->hasOne(MAsk::class,'order_no','orderNo')->where('type','complete')->orWhere('type','cancel');
+    }
+
 }

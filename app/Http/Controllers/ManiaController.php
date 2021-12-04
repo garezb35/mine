@@ -60,8 +60,8 @@ class ManiaController extends BaseController
                 'status'=>1
             ]);
         }
-        User::where("id", $sell_id)->update(['mileage'=> DB::raw('mileage+'.$user_cash),'point'=>DB::raw('point+1')]);
-//        User::where("id", $buy_id)->update(['mileage'=> DB::raw('mileage-'.$payItem['price']),'point'=>DB::raw('point+1')]);
+        User::where("id", $sell_id)->update(['mileage'=> DB::raw('mileage+'.$user_cash),'point'=>DB::raw('point+1'),'completed_orders'=>DB::raw('completed_orders+1')]);
+        User::where("id", $buy_id)->update(['point'=>DB::raw('point+1'),'completed_orders1'=>DB::raw('completed_orders1+1')]);
         MAdminCash::where("id", 1)->update(['cash'=> DB::raw('cash+'.$admin_cash)]);
         MPayhistory::insert([
             'orderNo'=>$orderNo,

@@ -32,7 +32,25 @@ class AdminController extends BaseAdminController
         $request_num = MItem::whereHas('user')
             ->where('accept_flag',1)
             ->whereNotNUll('toId')
+            ->where(function($query){
+                $query->where('status',1);
+                $query->orWhere('status',2);
+                $query->orWhere('status',3);
+            })
             ->get()->count();
+        $request_orders = MItem::with(['payitem','user','other','game','server','ask.user'])
+            ->whereHas('user')
+            ->whereHas('ask')
+            ->where('accept_flag',1)
+            ->whereNotNUll('toId')
+            ->where(function($query){
+                $query->where('status',1);
+                $query->orWhere('status',2);
+                $query->orWhere('status',3);
+            })
+            ->limit(5)
+            ->orderby('updated_at','DESC')
+            ->get()->toArray();
         $items = User::
         select(DB::raw('COUNT(id) a_id'),DB::raw('YEAR(created_at) year, MONTH(created_at) month'))
             ->where('state','!=' ,2)->where('state','!=' ,3)
@@ -49,7 +67,8 @@ class AdminController extends BaseAdminController
                                                 'products_num'=>$products_num,
                                                 'request_num'=>$request_num,
                                                 'user_list'=>json_encode($user_list),
-                                                'mileage'=>$mileage
+                                                'mileage'=>$mileage,
+                                                'request_orders'=>$request_orders
 
         ]);
     }
@@ -77,7 +96,7 @@ class AdminController extends BaseAdminController
         for($i = 0; $i < 12 ; $i ++)
             $order_list[$i]= 0;
         $items = MPayitem::
-        select(DB::raw('SUM(price)/a_price'),DB::raw('YEAR(updated_at) year, MONTH(updated_at) month'))
+        select(DB::raw('SUM(price) a_price'),DB::raw('YEAR(updated_at) year, MONTH(updated_at) month'))
             ->where('status',2)
             ->whereYear('created_at',$year)
             ->groupby('year','month')->get();
@@ -147,6 +166,13 @@ class AdminController extends BaseAdminController
         echo 1;
     }
     public function members(Request $request){
-        return view('admin.members');
+        $member = User::with('bank')->where("is_admin",0)->paginate(15);
+        return view('admin.members',['members'=>$member]);
+    }
+    public function mileage_charge(Request $request){
+
+    }
+    public function mileage_used(Request $request){
+
     }
 }

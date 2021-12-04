@@ -92,17 +92,17 @@
                     <div class="collapse" id="navbar-examples">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="/">
+                                <a class="nav-link" href="{{route("members")}}">
                                         {{ __('회원목록') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/">
+                                <a class="nav-link" href="{{route("members")}}?state=6">
                                     {{ __('회원탈퇴신청관리') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/">
+                                <a class="nav-link" href="{{route("members")}}?state=3-2">
                                     {{ __('탈퇴회원관리') }}
                                 </a>
                             </li>
@@ -118,12 +118,12 @@
                     <div class="collapse" id="mileage-lists">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="/">
+                                <a class="nav-link" href="{{route("mileage_charge")}}">
                                     {{ __('마일리지충환전관리') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/">
+                                <a class="nav-link" href="{{route("mileage_used")}}">
                                     {{ __('마일리지사용내역') }}
                                 </a>
                             </li>

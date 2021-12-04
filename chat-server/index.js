@@ -3,20 +3,16 @@ const io = require('socket.io')(server);
 const cheerio = require('cheerio');
 const got = require('got');
 var mysql = require('mysql');
-let config = require('./config.js');
+const config = require('./config.js');
 var cron = require('node-cron');
 const axios = require('axios');
 const {User} = require('./class/user')
 const {Msg} = require('./class/msg')
 const { v4: uuidv4 } = require('uuid');
+
 const knex = require('knex')({
     client: 'mysql',
-    connection: {
-        host : '127.0.0.1',
-        user : 'root',
-        password : '',
-        database : 'mania_item'
-    },
+    connection: config,
 });
 // let connection = mysql.createConnection(config);
 let sql_delete = `DELETE FROM m_game_rate`;
@@ -196,7 +192,9 @@ cron.schedule('0 0 1 * * *', () => {
                     let del =await knex('m_game_rate')
                         .where('id','>', 0)
                         .del();
-                    let inserts = await knex('m_game_rate').insert(insert_data)
+                    if(del >=0){
+                        let inserts = await knex('m_game_rate').insert(insert_data)
+                    }
                 })();
             }catch(e){
                 console.log(e)
@@ -267,6 +265,4 @@ function createMessage(id, nickname,item,level,mark,msg,sex,winFixCnt,userType,r
         roomIdx
     }
 }
-
-
 
