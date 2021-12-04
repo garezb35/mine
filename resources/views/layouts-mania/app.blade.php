@@ -89,7 +89,7 @@
                 <div class="other_link">
                     <a href="/myroom/my_mileage/index_c" class="head_charge">충전</a>
                     <a href="/myroom/my_mileage/index_e" class="head_give">출금</a>
-                    <a href="/myroom/" class="head_myroom">마이룸</a>
+{{--                    <a href="/myroom/" class="head_myroom">마이룸</a>--}}
                 </div>
                 <table class="table box-menus mar-t-5 mb-0">
                     <colgroup>
@@ -106,7 +106,7 @@
                                         <div class="mb-1  text-center">
                                             <i class="fa fa-home"></i>
                                         </div>
-                                        마이홈
+                                        마이룸
                                     </div>
                                 </a>
                             </td>
