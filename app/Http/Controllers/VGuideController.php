@@ -290,4 +290,14 @@ class VGuideController extends BaseController
     {
         return view('mania.user.user_reg_step4');
     }
+
+    public function user_lose_id()
+    {
+        return view('mania.user.user_lose_id');
+    }
+
+    public function user_lose_pwd()
+    {
+        return view('mania.user.user_lose_pwd');
+    }
 }
