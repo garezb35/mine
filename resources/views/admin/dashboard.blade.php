@@ -66,7 +66,7 @@
                                 <h3 class="mb-0">구매 취소/종료신청</h3>
                             </div>
                             <div class="col text-right">
-                                <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                                <a href="#!" class="btn btn-sm btn-primary">모두 보기</a>
                             </div>
                         </div>
                     </div>
@@ -75,83 +75,60 @@
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col">Page name</th>
-                                    <th scope="col">Visitors</th>
-                                    <th scope="col">Unique users</th>
-                                    <th scope="col">Bounce rate</th>
+                                    <th scope="col">주문번호</th>
+                                    <th scope="col">요청자</th>
+                                    <th scope="col">판매자</th>
+                                    <th scope="col">구매자</th>
+                                    <th scope="col">가격</th>
+                                    <th scope="col">상태</th>
+                                    <th scope="col">구분</th>
+                                    <th scope="col">창조일</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">
-                                        /argon/
-                                    </th>
-                                    <td>
-                                        4,569
-                                    </td>
-                                    <td>
-                                        340
-                                    </td>
-                                    <td>
-                                        <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        /argon/index.html
-                                    </th>
-                                    <td>
-                                        3,985
-                                    </td>
-                                    <td>
-                                        319
-                                    </td>
-                                    <td>
-                                        <i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        /argon/charts.html
-                                    </th>
-                                    <td>
-                                        3,513
-                                    </td>
-                                    <td>
-                                        294
-                                    </td>
-                                    <td>
-                                        <i class="fas fa-arrow-down text-warning mr-3"></i> 36,49%
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        /argon/tables.html
-                                    </th>
-                                    <td>
-                                        2,050
-                                    </td>
-                                    <td>
-                                        147
-                                    </td>
-                                    <td>
-                                        <i class="fas fa-arrow-up text-success mr-3"></i> 50,87%
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        /argon/profile.html
-                                    </th>
-                                    <td>
-                                        1,795
-                                    </td>
-                                    <td>
-                                        190
-                                    </td>
-                                    <td>
-                                        <i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%
-                                    </td>
-                                </tr>
+                                @foreach($request_orders as $ro)
+                                    @php
+
+                                    if($ro['type'] == 'sell'){
+                                        $seller = $ro['user'];
+                                        $buyer = $ro['other'];
+                                    }
+                                    else{
+                                        $seller = $ro['other'];
+                                        $buyer = $ro['user'];
+                                    }
+                                    @endphp
+                                    <tr>
+                                        <th scope="row">
+                                            <a href="javascript:void(0)" onclick="window.open('{{Request::root()}}/admin/view_order?id={{$ro['orderNo']}}','popUpWindow','height=600,width=800,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes')">#{{$ro['orderNo']}}</a>
+                                        </th>
+                                        <td>
+                                            {{$ro['ask']['user']['nickname']}}
+                                        </td>
+                                        <td>
+                                            {{$seller['nickname']}}
+                                        </td>
+                                        <td>
+                                            {{$buyer['nickname']}}
+                                        </td>
+                                        <td>
+{{--                                            <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%--}}
+                                            {{number_format($ro['payitem']['price'])}}원
+                                        </td>
+                                        <td>
+                                                {{orderState($ro['status'])}}
+                                        </td>
+                                        <td>
+                                            {{$ro['ask']['type'] == 'cancel' ? '거래취소':'거래종료'}}
+                                        </td>
+                                        <td>{{date("Y-m-d H:i:s",strtotime($ro['created_at']))}}</td>
+                                        <td>
+                                            <a href="#!" class="btn btn-sm btn-primary">승인</a>
+                                            <a href="#!" class="btn btn-sm btn-danger">거절</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -165,7 +142,7 @@
                                 <h3 class="mb-0">마일리지 입금/출금 신청</h3>
                             </div>
                             <div class="col text-right">
-                                <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                                <a href="#!" class="btn btn-sm btn-primary">모두 보기</a>
                             </div>
                         </div>
                     </div>
@@ -219,4 +196,5 @@
 @push('js')
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
+    <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
 @endpush

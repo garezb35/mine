@@ -166,4 +166,19 @@ function createDateRangeArray($start, $end) {
 
     return $range;
 }
+
+
+function orderState($state){
+    $state_alias = "";
+    if ($state == '1'){
+        $state_alias = "판매중";
+    }
+    else if ($state == '2'){
+        $state_alias = "구매자 물품인수확인";
+    }
+    else if ($state == '3'){
+        $state_alias = "판매자 물품인계확인";
+    }
+    return $state_alias;
+}
 ?>

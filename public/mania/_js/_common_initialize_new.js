@@ -40,6 +40,7 @@ function _header() {
         var i;
         var e = document.getElementById("quickmenu_area");
         var b = document.getElementById("quickmenu");
+
         document.getElementById("quickmenu_close").addEventListener("click", function() {
             e.classList.remove("qickmenu_on");
             $(b).addClass("close");
@@ -53,6 +54,7 @@ function _header() {
                     e.classList.remove("qickmenu_on");
                     $(b).addClass("close");
                     $(b).children().removeClass("on");
+                    $("#topbar-left").css('display','none')
                     return
                 }
                 if(l === false) {
@@ -62,16 +64,21 @@ function _header() {
                 }
                 $(b).children().removeClass("on");
                 $(this).addClass("on");
+                $("#topbar-left").css('display','block')
+                var position = $("#topbar-left").position();
+
+                // $(".quickmenu_area").css("left",position.left-57)
                 i = k;
-                ajaxRequest({
-                    url: "/api/_include/quicklink" + i.split("_")[0],
-                    type: "POST",
-                    data:{api_token:a_token},
-                    async: false,
-                    success: function(m) {
-                        document.getElementById("quickmenu_cont").innerHTML = "" + m
-                    }
-                })
+                // debugger
+                // ajaxRequest({
+                //     url: "/api/_include/quicklink" + i.split("_")[0],
+                //     type: "POST",
+                //     data:{api_token:a_token},
+                //     async: false,
+                //     success: function(m) {
+                //         document.getElementById("quickmenu_cont").innerHTML = "" + m
+                //     }
+                // })
             }
         })
     }

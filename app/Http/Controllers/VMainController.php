@@ -118,7 +118,7 @@ class VMainController extends BaseController
 
     public function box_chatting(Request $request){
         if($request->state == 'doubled_display'){
-            return redirect('/logout');
+            return view('aside.box-block');
         }
         return view('aside.box-chatting');
     }

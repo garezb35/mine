@@ -30,6 +30,9 @@
         var a_token = '';
         var _LOGINCHECK = '0';
         @endif
+        function basicPopup(url) {
+            popupWindow = window.open(url,'popUpWindow','height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+        }
     </script>
         <div id="g_SLEEP" class="g_sleep g_hidden">
             <div id="g_OVERLAY" class="g_overlay"></div>
@@ -45,14 +48,13 @@
         <script type="text/javascript" src="/mania/_js/_common_initialize_new.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/packery/1.4.3/packery.pkgd.min.js"></script>
         <script type="text/javascript" src="/mania/photoswipe/js/jquery.photoswipe-global.js"></script>
-
     @yield('foot_attach')
 
         <script type="text/javascript">
             _initialize();
         </script>
     </body>
-    <div class="topbar-left" style="display: none">
+    <div class="topbar-left well well--tooltip" id="topbar-left">
         <div class="quickmenu_cont" id="quickmenu_cont">
             @if(auth()->check())
             <div class="myinfo">
@@ -87,7 +89,7 @@
                 <div class="other_link">
                     <a href="/myroom/my_mileage/index_c" class="head_charge">충전</a>
                     <a href="/myroom/my_mileage/index_e" class="head_give">출금</a>
-                    <a href="/myroom/" class="head_myroom">마이룸</a>
+{{--                    <a href="/myroom/" class="head_myroom">마이룸</a>--}}
                 </div>
                 <table class="table box-menus mar-t-5 mb-0">
                     <colgroup>
@@ -104,7 +106,7 @@
                                         <div class="mb-1  text-center">
                                             <i class="fa fa-home"></i>
                                         </div>
-                                        마이홈
+                                        마이룸
                                     </div>
                                 </a>
                             </td>
@@ -231,12 +233,43 @@
             </form>
             @endif
         </div>
-        <iframe scrolling="no" frameborder="0" width="100%" height="370" src="/box_chatting" id="chatFrame"></iframe>
+        <iframe scrolling="no" frameborder="0" width="100%" height="400" src="/box_chatting" id="chatFrame"></iframe>
     </div>
 </html>
+
 <style>
     .g_container{
         min-height: 730px;
+    }
+    .well--tooltip {
+        min-width: 300px;
+        max-width: 300px;
+        margin: 0;
+    }
+
+    @media (min-width: 500px) {
+        .well--tooltip {
+            max-width: 380px;
+        }
+    }
+
+    /* Tooltip Arrow */
+    .well--tooltip::before,
+    .well--tooltip::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -14px;
+        width: 0;
+        height: 0;
+        border-left: 14px solid transparent;
+        border-right: 14px solid transparent;
+        border-top: 14px solid #cccccc;
+    }
+    .well--tooltip::after {
+        border-top-color: #f5f5f5;
+        margin-top:  -1px;
     }
 </style>
 <script>
@@ -253,14 +286,17 @@
         }
     }
     $(document).ready(function(){
-        console.log($(window).width())
         if ($(window).width() < 1843){
             $("#quickmenu_area").show();
-            $(".topbar-left").hide();
+            $("#topbar-left").css("display","none")
+            $("#topbar-left").css("position","fixed")
+            $("#topbar-left").css("top","45px")
+            $("#topbar-left").css("left","15px")
+
         }
         else{
             $("#quickmenu_area").hide();
-            $(".topbar-left").show();
         }
     })
 </script>
+

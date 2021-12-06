@@ -4,9 +4,9 @@
 .quickmenu_area .quickmenu_dtl {
     width: 300px;
 }
-.quickmenu {
-    right: 300px;
-}
+/*.quickmenu {*/
+/*    right: 300px;*/
+/*}*/
 .quickmenu_dtl .quickmenu_cont {
     padding: 40px 20px 40px;
 }

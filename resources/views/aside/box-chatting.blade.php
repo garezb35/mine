@@ -7,6 +7,205 @@
         <link type="text/css" rel="stylesheet" href="/mania/_banner/css/banner_module.css">
     </head>
     <body>
+    <style>
+        .box-chatting .nav-link{
+            display: block;
+            padding: 0rem  0rem
+        }
+        .box-chatting .nav-item {
+            width: 33%;
+            text-align: center;
+            border-right: 1px solid #cecece;
+        }
+        .box-chatting .nav-tabs .nav-link {
+            border-radius: 0px;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #1592fd;
+            background: #fff;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            font-size: 15px;
+            color: #919394;
+            text-align: center;
+        }
+        .box-chatting .nav-item.show .nav-link, .box-chatting .nav-link.active{
+            color: #495057;
+            border-color: #ddd #ddd #fff;
+        }
+        .box-chatting .nav {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+        }
+        .box-chatting .nav-tabs .nav-item.show .nav-link, .box-chatting .nav-tabs .nav-link.active {
+            border-top: #1592fd 1px solid;
+            border-right: #1592fd 1px solid;
+            border-left: #1592fd 1px solid !important;
+            font-weight: 700;
+            background: white;
+        }
+        #msgBox .msg-guide {
+            background-color: #1592fd;
+            border: 1px solid #1592fd;
+            min-height: 22px;
+            line-height: 22px;
+            color: #fff;
+            padding: 0 5px;
+            margin: 3px 0;
+        }
+        #msgBox {
+            font-size: 12px;
+            word-wrap: break-word;
+            overflow-y: scroll;
+        }
+        .box-chatting .list-chatting {
+            overflow-x: hidden;
+            overflow-y: scroll;
+            padding: 0 5px 0 5px;
+        }
+        .box-chatting .input-chatting {
+            position: relative;
+            background: #e2e2e2;
+            margin-bottom: 0px;
+        }
+        .box-chatting .input-chatting .input-1 {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            border: none;
+            color: #949494;
+            padding: 0 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            outline: none !important;
+            border-top: 1px solid #e9ecef;
+        }
+        .box-chatting .input-chatting .input-2 {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            *top: 3px;
+            border: none;
+        }
+        .sp-btn_enter {
+            width: 22px;
+            height: 22px;
+            background: url(/assets/images/powerball/sp_chat.png) -608px -215px;
+        }
+
+        .box-chatting .btn-etc {
+            position: relative;
+            z-index: 10;
+            background: #efefef;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+        .box-chatting .btn-etc .cnt {
+            color: #4c4c4c;
+        }
+        .sp-bl_pp {
+            width: 25px;
+            height: 25px;
+            background: url(/assets/images/powerball/sp_chat.png) -608px -139px;
+            display: inline-block;
+        }
+        .sp-btn_chat1 {
+            width: 28px;
+            height: 25px;
+            background: url(/assets/images/powerball/sp_chat.png) -154px -490px;
+            display: block;
+        }
+        .sp-btn_chat2 {
+            width: 28px;
+            height: 25px;
+            background: url(/assets/images/powerball/sp_chat.png) -106px -490px;
+            display: block;
+        }
+        .sp-btn_chat3 {
+            width: 28px;
+            height: 25px;
+            background: url(/assets/images/powerball/sp_chat.png) -550px -443px;
+            display: block;
+        }
+        .sp-btn_chat4 {
+            width: 28px;
+            height: 25px;
+            background: url(/assets/images/powerball/sp_chat.png) -10px -490px;
+            display: block;
+        }
+        .sp-btn_chat5 {
+            width: 28px;
+            height: 25px;
+            background: url(/assets/images/powerball/sp_chat.png) -463px -430px;
+            display: block;
+        }
+        .box-chatting .btn-etc ul.ul-1 li {
+            float: left;
+            border-left: 1px solid #cecece;
+        }
+        .box-chatting .btn-etc ul.ul-1 {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .box-chatting .btn-etc .cnt * {
+            vertical-align: middle;
+        }
+        .box-chatting .btn-etc .cnt span {
+            font-weight: bold;
+        }
+        .fade {
+            opacity: 0;
+            transition: opacity .15s linear;
+        }
+        .tab-content>.tab-pane {
+            display: none;
+        }
+        .tab-content>.active {
+            display: block;
+        }
+        .fade.show {
+            opacity: 1;
+        }
+        #msgBox .msg-system {
+            background-color: #cb500e;
+            border: 1px solid #9d3e0b;
+            min-height: 22px;
+            line-height: 22px;
+            color: #fff;
+            padding: 0 5px;
+            margin: 3px 0;
+        }
+        #ruleBox .borderBox {
+            background-color: #F5F5F5;
+            margin: 5px;
+            padding: 10px;
+        }
+        #ruleBox .borderBox .tit {
+            color: #C11A20;
+            font-weight: bold;
+        }
+        #ruleBox .borderBox ul {
+            margin-top: 5px;
+            margin-left: 5px;
+            font-size: 11px;
+            line-height: 18px;
+        }
+        .box-chatting .list-connect li {
+            color: #5e5e5e;
+            line-height: 24px;
+            border-bottom: 1px dotted #CECECE;
+            font-weight: bold;
+            padding: 5px;
+        }
+        .uname {
+            color: #1592fd;
+        }
+    </style>
         <script>
             var lastMsgTime = new Date().getTime();
             var msgStopTime = 10;
@@ -28,11 +227,11 @@
 
         <div class="box-chatting">
             <div class="btn-etc">
-            <span class="cnt">
-                <div class="sp-bl_pp"></div>
-                <span id="connectUserCnt" rel=""></span>명
-                <span id="loginUserCnt"></span>
-            </span>
+                <span class="cnt">
+                    <div class="sp-bl_pp"></div>
+                    <span id="connectUserCnt" rel=""></span>명
+                    <span id="loginUserCnt"></span>
+                </span>
                 <ul class="ul-1">
                     <li>
                         <a href="#" onclick="chatManager('popupChat');return false;" title="새창" class="sp-btn_chat1"></a>
@@ -54,21 +253,19 @@
                     </li>
                 </ul>
             </div>
-
-            {{--    <div class="table-type-1">--}}
-            {{--        <ul class="nav nav-tabs" id="myTab" role="tablist">--}}
-            {{--            <li class="nav-item">--}}
-            {{--                <a class="nav-link active" id="chatroomListBox-tab" data-toggle="tab" data-bs-toggle="tab" href="#chatTap" role="tab" aria-controls="home" aria-selected="true">채팅</a>--}}
-            {{--            </li>--}}
-            {{--            <li class="nav-item">--}}
-            {{--                <a class="nav-link" id="connect-tab" data-toggle="tab" data-bs-toggle="tab" href="#connectTap" role="tab" aria-controls="contact" aria-selected="false">접속자</a>--}}
-            {{--            </li>--}}
-            {{--            <li class="nav-item">--}}
-            {{--                <a class="nav-link" id="rule-tab" data-toggle="tab" data-bs-toggle="tab" href="#ruleTap" role="tab" aria-controls="contact" aria-selected="false">채팅규정</a>--}}
-            {{--            </li>--}}
-            {{--        </ul>--}}
-            {{--    </div>--}}
-
+            <div class="table-type-1">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="chatroomListBox-tab" data-toggle="tab" data-bs-toggle="tab" href="#chatTap" role="tab" aria-controls="home" aria-selected="true">채팅</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="connect-tab" data-toggle="tab" data-bs-toggle="tab" href="#connectTap" role="tab" aria-controls="contact" aria-selected="false">접속자</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="rule-tab" data-toggle="tab" data-bs-toggle="tab" href="#ruleTap" role="tab" aria-controls="contact" aria-selected="false">채팅규정</a>
+                    </li>
+                </ul>
+            </div>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="chatTap" role="tabpanel" aria-labelledby="home-tab">
                     <div id="chatListBox" style="position:relative;">
@@ -83,23 +280,17 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="connectTap" role="tabpanel" aria-labelledby="profile-tab">
-                    <div id="connectListBox">
+                    <div id="connectListBox" style="height: 340px">
                         <ul class="list-connect" id="connectList">
 
                         </ul>
 
                     </div>
                 </div>
-                <div class="tab-pane fade" id="roomTap" role="tabpanel" aria-labelledby="contact-tab">
-                    <div id="roomListBox" style="display: block;">
-                        <ul class="list-room" id="roomList" style="height: 420px;">
 
-                        </ul>
-                    </div>
-                </div>
 
                 <div class="tab-pane fade" id="ruleTap" role="tabpanel" aria-labelledby="contact-tab">
-                    <div id="ruleBox" style="height: 445px; ">
+                    <div id="ruleBox" style="height: 335px; ">
                         <div class="borderBox">
                             <div class="tit">벙어리 사유</div>
                             <ul>
@@ -122,187 +313,12 @@
                                 <li>- 부모 및 성적 관련 욕설</li>
                             </ul>
                         </div>
-                        <div class="borderBox">
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        {{--@include('chat.chat-list')--}}
-        {{--@include('Analyse/chat-list')--}}
-        <style>
-            .box-chatting .nav-link{
-                display: block;
-                padding: 0rem  0rem
-            }
-            .box-chatting .nav-item {
-                width: 90px;
-                text-align: center;
-                border-right: 1px solid #cecece;
-            }
-            .box-chatting .nav-tabs .nav-link {
-                border-radius: 0px;
-                border-top: 1px solid #ddd;
-                border-bottom: 1px solid #00b4b4;
-                background: #fff;
-                padding-top: 8px;
-                padding-bottom: 8px;
-                font-size: 15px;
-                color: #919394;
-            }
-            .box-chatting .nav-item.show .nav-link, .box-chatting .nav-link.active{
-                color: #495057;
-                border-color: #ddd #ddd #fff;
-            }
-            .box-chatting .nav {
-                display: -ms-flexbox;
-                display: flex;
-                -ms-flex-wrap: wrap;
-                flex-wrap: wrap;
-                padding-left: 0;
-                margin-bottom: 0;
-                list-style: none;
-            }
-            .box-chatting .nav-tabs .nav-item.show .nav-link, .box-chatting .nav-tabs .nav-link.active {
-                border-top: #1592fd 1px solid;
-                border-right: #1592fd 1px solid;
-                border-left: #1592fd 1px solid !important;
-                font-weight: 700;
-                background: white;
-            }
-            #msgBox .msg-guide {
-                background-color: #1592fd;
-                border: 1px solid #1592fd;
-                min-height: 22px;
-                line-height: 22px;
-                color: #fff;
-                padding: 0 5px;
-                margin: 3px 0;
-            }
-            #msgBox {
-                font-size: 12px;
-                word-wrap: break-word;
-                overflow-y: scroll;
-            }
-            .box-chatting .list-chatting {
-                overflow-x: hidden;
-                overflow-y: scroll;
-                padding: 0 5px 0 5px;
-            }
-            .box-chatting .input-chatting {
-                position: relative;
-                background: #e2e2e2;
-                margin-bottom: 0px;
-            }
-            .box-chatting .input-chatting .input-1 {
-                width: 100%;
-                height: 40px;
-                line-height: 40px;
-                border: none;
-                color: #949494;
-                padding: 0 5px;
-                border-bottom-left-radius: 5px;
-                border-bottom-right-radius: 5px;
-                outline: none !important;
-                border-top: 1px solid #e9ecef;
-            }
-            .box-chatting .input-chatting .input-2 {
-                position: absolute;
-                top: 2px;
-                right: 2px;
-                *top: 3px;
-                border: none;
-            }
-            .sp-btn_enter {
-                width: 22px;
-                height: 22px;
-                background: url(/assets/images/powerball/sp_chat.png) -608px -215px;
-            }
 
-            .box-chatting .btn-etc {
-                position: relative;
-                z-index: 10;
-                background: #efefef;
-                border-top-left-radius: 6px;
-                border-top-right-radius: 6px;
-            }
-            .box-chatting .btn-etc .cnt {
-                color: #4c4c4c;
-            }
-            .sp-bl_pp {
-                width: 25px;
-                height: 25px;
-                background: url(/assets/images/powerball/sp_chat.png) -608px -139px;
-                display: inline-block;
-            }
-            .sp-btn_chat1 {
-                width: 28px;
-                height: 25px;
-                background: url(/assets/images/powerball/sp_chat.png) -154px -490px;
-                display: block;
-            }
-            .sp-btn_chat2 {
-                width: 28px;
-                height: 25px;
-                background: url(/assets/images/powerball/sp_chat.png) -106px -490px;
-                display: block;
-            }
-            .sp-btn_chat3 {
-                width: 28px;
-                height: 25px;
-                background: url(/assets/images/powerball/sp_chat.png) -550px -443px;
-                display: block;
-            }
-            .sp-btn_chat4 {
-                width: 28px;
-                height: 25px;
-                background: url(/assets/images/powerball/sp_chat.png) -10px -490px;
-                display: block;
-            }
-            .sp-btn_chat5 {
-                width: 28px;
-                height: 25px;
-                background: url(/assets/images/powerball/sp_chat.png) -463px -430px;
-                display: block;
-            }
-            .box-chatting .btn-etc ul.ul-1 li {
-                float: left;
-                border-left: 1px solid #cecece;
-            }
-            .box-chatting .btn-etc ul.ul-1 {
-                position: absolute;
-                top: 0;
-                right: 0;
-            }
-            .box-chatting .btn-etc .cnt * {
-                vertical-align: middle;
-            }
-            .box-chatting .btn-etc .cnt span {
-                font-weight: bold;
-            }
-            .fade {
-                opacity: 0;
-                transition: opacity .15s linear;
-            }
-            .tab-content>.tab-pane {
-                display: none;
-            }
-            .tab-content>.active {
-                display: block;
-            }
-            .fade.show {
-                opacity: 1;
-            }
-            #msgBox .msg-system {
-                background-color: #cb500e;
-                border: 1px solid #9d3e0b;
-                min-height: 22px;
-                line-height: 22px;
-                color: #fff;
-                padding: 0 5px;
-                margin: 3px 0;
-            }
-        </style>
+
 
     </body>
     <script type="text/javascript" src="/mania/_js/_jquery3.js"></script>
@@ -331,4 +347,15 @@
 
         return formated_number;
     }
+    $(".nav-link").click(function(event ){
+        event.preventDefault();
+        $(".tab-pane").removeClass('show');
+        $(".tab-pane").removeClass('active');
+        $($(this).attr("href")).addClass("show");
+        $($(this).attr("href")).addClass("active");
+        $(".nav-link ").removeClass("active");
+        $(this).addClass("active");
+    })
+
+
 </script>

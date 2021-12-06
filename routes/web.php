@@ -66,6 +66,8 @@ Route::group(['middleware' => ['web', 'admins']], function () {
         Route::get('/logout', [\App\Http\Controllers\AdminAuthController::class,'logout'])->name('adminLogout');
         Route::get('profile', [\App\Http\Controllers\AdminController::class,'profile'])->name('profile.edit');
         Route::get('/members',[\App\Http\Controllers\AdminController::class,'members'])->name('members');
+        Route::get('/mileage_charge',[\App\Http\Controllers\AdminController::class,'mileage_charge'])->name('mileage_charge');
+        Route::get('/mileage_used',[\App\Http\Controllers\AdminController::class,'mileage_used'])->name('mileage_used');
     });
 
     Route::post('/updateProfile', [\App\Http\Controllers\AdminController::class,'updateProfile'])->name('profile.update');
