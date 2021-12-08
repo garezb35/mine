@@ -134,7 +134,7 @@
             <div class="guide_subtitle">
                 <span class="f_red1 f_bold">둘. </span>가입 유형을 선택 해주시기 바랍니다.
             </div>
-            <img src="/mania/img/guide/screenshot/img_join_02.gif" width="820" height="464" alt="가입유형 선택">
+            <img src="/mania/img/guide/screenshot/img_join_02.png" width="820" height="" alt="가입유형 선택">
             <div class="guide_subtxt">
                 <span class="f_bold">- 일반회원 : </span> 만 19세 이상 내국인 회원 <br>
                 <span class="f_bold">- 주니어회원 : </span> 만 19세 미만 내국인 회원 <br>
@@ -147,11 +147,11 @@
                     실명확인이 되지 않으실 경우 '<a href="http://www.idcheck.co.kr">NICE평가정보(www.idcheck.co.kr)</a>'를 방문하시어 실명확인을 하신 후 다시 회원가입을 해주시기 바랍니다.
                 </div>
             </div>
-            <img src="/mania/img/guide/screenshot/img_join_03.gif" width="820" height="890" alt="약관동의/실명확인">
+            <img src="/mania/img/guide/screenshot/img_join_03.png" width="820" height="" alt="약관동의/실명확인">
             <div class="guide_subtitle">
                 <span class="f_red1 f_bold">넷.</span> 정보 입력
             </div>
-            <img src="/mania/img/guide/screenshot/img_join_04.gif" width="820" height="652" alt="회원정보 입력">
+            <img src="/mania/img/guide/screenshot/img_join_04.png" width="820" height="" alt="회원정보 입력">
             <div class="guide_subtxt">
                 - 아이디는 4~12자의 영문 또는 영문+숫자로 조합되어야 합니다.<br>
                 - 비밀번호는 10~16자의 영문+숫자 또는 특수문자가 조합되어야 합니다.<br>
@@ -161,7 +161,7 @@
             <div class="guide_subtitle">
                 <span class="f_red1 f_bold">다섯. </span>가입완료
             </div>
-            <img src="/mania/img/guide/screenshot/img_join_05.gif" width="820" height="612" alt="추가정보 입력">
+            <img src="/mania/img/guide/screenshot/img_join_05.png" width="820" height="" alt="추가정보 입력">
             <div class="guide_subtxt">
                 - 회원가입이 완료되었습니다.<br>
                 - 아이템매니아에서 제공하는 다양한 서비스를 이용하실 수 있습니다.

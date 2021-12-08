@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\MGameRate;
 use App\Models\MNotice;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 
 class VGuideController extends BaseController
@@ -276,18 +279,60 @@ class VGuideController extends BaseController
         return view('mania.user.user_reg_step1');
     }
 
-    public function user_reg_step2()
+    public function user_reg_step2(Request $request)
     {
-        return view('mania.user.user_reg_step2');
+        if ($request->user_type > 0 && $request->user_type < 4)
+        {
+            return view('mania.user.user_reg_step2', array("userType" => $request->user_type));
+        }
+        else {
+            redirect(route('user_reg_step1'));
+        }
     }
 
-    public function user_reg_step3()
+    public function user_reg_step3(Request $request)
     {
-        return view('mania.user.user_reg_step3');
+        if ($request->userType > 0 && $request->userType < 4 && $request->userName != "") {
+            $userInfo = array(
+                "userType" => $request->userType,
+                "userName" => $request->userName,
+                "userBirth" => $request->userBirth,
+                "phoneType" => $request->phoneType,
+                "phoneNum1" => $request->phoneNum1,
+                "phoneNum2" => $request->phoneNum2,
+                "phoneNum3" => $request->phoneNum3,
+            );
+            return view('mania.user.user_reg_step3', $userInfo);
+        }
+        else {
+            redirect(route('user_reg_step1'));
+        }
     }
 
-    public function user_reg_step4()
+    public function user_reg_step4(Request $request)
     {
+        $snzEmail = "";
+        if ($request->user_email_host != "direct") {
+            $snzEmail = $request->user_email."@".$request->user_email_host;
+        }
+        else {
+            $snzEmail = $request->user_email."@".$request->user_email_direct;
+        }
+
+        $userInfo = array(
+            "email" => $snzEmail,
+            "loginId" => $request->user_id,
+            "name" => $request->user_name,
+            "nickname" => $request->user_nickname,
+            "password" => Hash::make($request->user_password),
+            "birthday" => $request->birth,
+            "api_token" => Hash::make(Str::random(60)),
+            "number_type" => $request->user_mobile_type,
+            "number" => sprintf("%s.%s.%s)", $request->user_mobileA, $request->user_mobileB, $request->user_mobileC),
+            "user_type" => $request->user_type
+        );
+        User::create($userInfo);
+
         return view('mania.user.user_reg_step4');
     }
 

@@ -5,7 +5,7 @@
     <link type="text/css" rel="stylesheet" href="/mania/customer/css/customer_common.css" />
     <link type="text/css" rel="stylesheet" href="/mania/customer/myqna/css/list.css" />
     <link type="text/css" rel="stylesheet" href="/mania/_css/_table_list.css" />
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>
+    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
     <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 

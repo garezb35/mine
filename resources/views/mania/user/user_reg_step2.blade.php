@@ -72,6 +72,9 @@
                 margin-bottom: 60px;
                 border-top: solid 1px #a5a5a5;
             }
+            #verify-phone, #verify-pin {
+                cursor: pointer;
+            }
         </style>
 
         <div class="g_title_txt">
@@ -872,16 +875,26 @@
         <!-- ▼ 실명인증/아이핀인증 //-->
         <div class="d-flex user-verify-part" >
             <div class="w-50 align-center" style="border-right: solid 1px #d5d5d5;">
-                <img id="verify-phone" src="/mania/img/reg/phone_icon.png" width="153" height="153" />
+                <img id="verify-phone" src="/mania/img/reg/phone_icon.png" width="153" height="153" onclick="verifyPhone()" />
                 <div class="verify-type f-16 f-bold align-center" style="color: #0E8BFF">휴대폰</div>
                 <div class="verify-detail f-15 align-center">본인 명의의 휴대폰으로 인증번호를 받은 후<br>가입하실수 있습니다.</div>
             </div>
             <div class="w-50 align-center">
-                <img id="verify-pin" src="/mania/img/reg/pin_icon.png" width="153" height="153" />
+                <img id="verify-pin" src="/mania/img/reg/pin_icon.png" width="153" height="153" onclick="verifyPin()" />
                 <div class="verify-type f-16 f-bold align-center" style="color: #0E8BFF">아이핀 (I-PIN)</div>
                 <div class="verify-detail f-15 align-center">인터넷상 개인 식별번호로 본인임을<br>확인할 수 있는 개인정보보호 서비스</div>
             </div>
         </div>
+        <form id="form-next-step" method="post" action="{{route('user_reg_step3')}}">
+            @csrf
+            <input type="hidden" name="userName" value="" id="userName" />
+            <input type="hidden" name="userBirth" value="" id="userBirth" />
+            <input type="hidden" name="userType" value="{{$userType}}" />
+            <input type="hidden" name="phoneType" id="phoneType" value="" />
+            <input type="hidden" name="phoneNum1" id="phoneNum1" value="" />
+            <input type="hidden" name="phoneNum2" id="phoneNum2" value="" />
+            <input type="hidden" name="phoneNum3" id="phoneNum3" value="" />
+        </form>
 {{--        <div class="certify_box">--}}
 {{--            <div class="box green">--}}
 {{--                <img src="https://img4.itemmania.com/new_images/join/icon_phone.png" width="60" alt="휴대폰">--}}
@@ -916,4 +929,31 @@
 {{--        </div>--}}
         <div class="g_finish"></div>
     </div>
+
+    <script>
+        function verifyPhone() {
+            if (document.getElementById("agreement_all").checked) {
+                document.getElementById("userName").setAttribute('value', "홍길동");
+                document.getElementById("userBirth").setAttribute('value', "1991-05-15");
+                document.getElementById("phoneType").setAttribute('value', "1");
+                document.getElementById("phoneNum1").setAttribute('value', "011");
+                document.getElementById("phoneNum2").setAttribute('value', "1234");
+                document.getElementById("phoneNum3").setAttribute('value', "5678");
+
+                document.getElementById("form-next-step").submit();
+            }
+        }
+        function verifyPin() {
+            if (document.getElementById("agreement_all").checked) {
+                document.getElementById("userName").setAttribute('value', "상상");
+                document.getElementById("userBirth").setAttribute('value', "1980-11-28");
+                document.getElementById("phoneType").setAttribute('value', "2");
+                document.getElementById("phoneNum1").setAttribute('value', "011");
+                document.getElementById("phoneNum2").setAttribute('value', "1234");
+                document.getElementById("phoneNum3").setAttribute('value', "5678");
+
+                document.getElementById("form-next-step").submit();
+            }
+        }
+    </script>
 @endsection

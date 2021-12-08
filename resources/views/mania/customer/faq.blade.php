@@ -4,7 +4,7 @@
     <link type="text/css" rel="stylesheet" href="/mania/customer/faq/css/faq_category.css?201112" />
     <link type="text/css" rel="stylesheet" href="/mania/customer/faq/css/search.css?210524" />
     <link type="text/css" rel="stylesheet" href="/mania/customer/faq/css/index.css?210524" />
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>
+    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
     <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 

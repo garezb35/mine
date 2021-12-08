@@ -3,7 +3,7 @@
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/mania/customer/css/customer_common.css?210901" />
     <link type="text/css" rel="stylesheet" href="/mania/customer/myqna/css/view.css?210503" />
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>
+    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
     <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
@@ -105,7 +105,10 @@
                 </tr>
                 <tr>
                     <th>내용</th>
-                    <td colspan="3">{{$askDetail['subject']}}</td>
+                    <td colspan="3">
+                        @if ($askDetail['content'] == "") {{$askDetail['subject']}}
+                        @else {{$askDetail['content']}} @endif
+                    </td>
                 </tr>
             </table>
             <!-- ▲ 나의 1:1 상담내역 //-->

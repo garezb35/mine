@@ -53,7 +53,7 @@
     <link type="text/css" rel="stylesheet" href="/mania/_banner/css/banner_module.css?v=210422">
     <link type="text/css" rel="stylesheet" href="/mania/sell/css/application.css?v=201221">
     <link type="text/css" rel="stylesheet" href="/mania/myroom/buy/css/buy_pay_wait_view.css?v=210427">
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>
+    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
     <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 

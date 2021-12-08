@@ -162,7 +162,13 @@
                             <div class="user-grade-detail f-16">19세 이상 내국인</div>
                         </div>
                     </div>
-                    <div><a href="{{route('user_reg_step2')}}" class="btn-user-reg">가입하기</a></div>
+                    <div>
+                        <form action="{{route('user_reg_step2')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="user_type" value="1" />
+                            <input type="submit" class="btn-user-reg" value="가입하기" />
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="div-each" style="background: #3C9F23;">
@@ -177,7 +183,13 @@
                             <div class="user-grade-detail f-16">19세 미만 내국인</div>
                         </div>
                     </div>
-                    <div><a href="{{route('user_reg_step2')}}" class="btn-user-reg">가입하기</a></div>
+                    <div>
+                        <form action="{{route('user_reg_step2')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="user_type" value="3" />
+                            <input type="submit" class="btn-user-reg" value="가입하기" />
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="div-each" style="background: #2E9D97;">
@@ -192,7 +204,13 @@
                             <div class="user-grade-detail f-16">국내에 거주하는 외국인</div>
                         </div>
                     </div>
-                    <div><a href="{{route('user_reg_step2')}}" class="btn-user-reg">가입하기</a></div>
+                    <div>
+                        <form action="{{route('user_reg_step2')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="user_type" value="3" />
+                            <input type="submit" class="btn-user-reg" value="가입하기" />
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

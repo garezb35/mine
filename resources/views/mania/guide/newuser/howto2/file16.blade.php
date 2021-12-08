@@ -5,7 +5,7 @@
     <link type='text/css' rel='stylesheet' href='/mania/guide/css/common.css'>
     <link type='text/css' rel='stylesheet' href='/mania/guide/frshmn_guide/css/frshmn.css'>
     <link type="text/css" rel="stylesheet" href="/mania/dev/guide_arrow.css">
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>
+    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
     <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
@@ -135,7 +135,7 @@
             <!-- ▼ 메뉴탭 //-->
             <div class="g_tab">
                 <div class="selected"><a href="{{route('guide_howto')}}">거래방법 보기</a></div>
-                <div class=""><a href="{{route('guide_movie')}}">동영상 가이드</a></div>
+                <!--<div class=""><a href="{{route('guide_movie')}}">동영상 가이드</a></div>-->
                 <div class=""><a href="{{route('guide_safe')}}">안전 거래 시스템</a></div>
                 <div class=""><a href="{{route('guide_trade')}}">거래시 주의사항</a></div>
                 <div class=""><a href="{{route('guide_failed')}}">거래 사기 실시간 조회</a></div>

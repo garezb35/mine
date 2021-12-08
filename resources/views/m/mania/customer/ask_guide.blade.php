@@ -6,7 +6,7 @@
     <link type="text/css" rel="stylesheet" href="/mania/customer/css/report.css?210503" />
     <link type="text/css" rel="stylesheet" href="/mania/customer/css/_report_top.css?210503" />
     <link type="text/css" rel="stylesheet" href="/mania/customer/report/css/index.css?210503" />
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>
+    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
     <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 

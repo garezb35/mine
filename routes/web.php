@@ -331,16 +331,15 @@ Route::prefix('guide')->group(function() {
 
 Route::prefix('/portal/user')->group(function() {
     Route::get('/', [\App\Http\Controllers\VGuideController::class, 'user_reg_step1'])->name('user_reg_step1');
-    Route::get('/join_agreement', [\App\Http\Controllers\VGuideController::class, 'user_reg_step2'])->name('user_reg_step2');
-    Route::get('/profile', [\App\Http\Controllers\VGuideController::class, 'user_reg_step3'])->name('user_reg_step3');
-    Route::get('/complete', [\App\Http\Controllers\VGuideController::class, 'user_reg_step4'])->name('user_reg_step4');
+    Route::any('/join_agreement', [\App\Http\Controllers\VGuideController::class, 'user_reg_step2'])->name('user_reg_step2');
+    Route::any('/profile', [\App\Http\Controllers\VGuideController::class, 'user_reg_step3'])->name('user_reg_step3');
+    Route::any('/complete', [\App\Http\Controllers\VGuideController::class, 'user_reg_step4'])->name('user_reg_step4');
     Route::get('/lose/find_id', [\App\Http\Controllers\VGuideController::class, 'user_lose_id'])->name('user_lose_id');
     Route::get('/lose/find_pwd', [\App\Http\Controllers\VGuideController::class, 'user_lose_pwd'])->name('user_lose_pwd');
 });
 
 Route::get('/news/view', [\App\Http\Controllers\VGuideController::class, 'view'])->name('view');
 Route::get('/news', [\App\Http\Controllers\VGuideController::class, 'news'])->name('news');
-
 
 Route::get('/_xml/gamemoney_avg',[\App\Http\Controllers\VSellController::class, 'gamemoney_avg']);
 Route::get('/mania_export_xml',[\App\Http\Controllers\AdminController::class, 'exportXML']);

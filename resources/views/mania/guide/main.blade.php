@@ -2,7 +2,7 @@
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/mania/guide/css/index.css?v=210810">
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>
+    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
     <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
@@ -178,11 +178,11 @@
                         <img src="/assets/img/icons/mileage.png"><span class="title">마일리지</span>
                     </div>
                 </a>
-                <a href="">
-                    <div class="align-center" style="padding-top: 30px;">
-                        <img src="/assets/img/icons/security.png"><span class="title">보안서비스</span>
-                    </div>
-                </a>
+{{--                <a href="">--}}
+{{--                    <div class="align-center" style="padding-top: 30px;">--}}
+{{--                        <img src="/assets/img/icons/security.png"><span class="title">보안서비스</span>--}}
+{{--                    </div>--}}
+{{--                </a>--}}
                 <a href="{{route('guide_cancel')}}">
                     <div class="align-center" style="padding-top: 30px;">
                         <img src="/assets/img/icons/setting.png"><span class="title">거래정지/해제</span>
@@ -193,7 +193,7 @@
             <div class="g_smtitle f-15">주요서비스 한 눈에 보기</div>
             <dl class="main_service"> <dt>회원관련</dt>
                 <dd>
-                    <a href="#">회원가입</a>
+                    <a href="{{route('guide_join')}}">회원가입</a>
                     <a href="{{route('guide_myroom')}}">마이룸</a>
                     <a href="{{route('safe_grade_point')}}">신용등급/인증센터</a>
                 </dd>
@@ -207,13 +207,13 @@
                 <dd><a href="{{route('guide_charge')}}">마일리지 충전</a>
                     <a href="{{route('guide_withdraw')}}">마일리지 출금</a>
                 </dd>
-                <dt>보안관련</dt>
-                <dd>
-                    <a href="#">로그인 플러스</a>
-                    <a href="#">로그인 도용방지</a>
-                    <a href="#">SMS 알림</a>
-                    <a href="#">PC등록 인증</a>
-                </dd>
+{{--                <dt>보안관련</dt>--}}
+{{--                <dd>--}}
+{{--                    <a href="#">로그인 플러스</a>--}}
+{{--                    <a href="#">로그인 도용방지</a>--}}
+{{--                    <a href="#">SMS 알림</a>--}}
+{{--                    <a href="#">PC등록 인증</a>--}}
+{{--                </dd>--}}
                 <dt>편의관련</dt>
                 <dd>
                     <a href="{{route('talk_box')}}">1:1 대화함</a>
