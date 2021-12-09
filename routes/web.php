@@ -334,8 +334,8 @@ Route::prefix('/portal/user')->group(function() {
     Route::any('/join_agreement', [\App\Http\Controllers\VGuideController::class, 'user_reg_step2'])->name('user_reg_step2');
     Route::any('/profile', [\App\Http\Controllers\VGuideController::class, 'user_reg_step3'])->name('user_reg_step3');
     Route::any('/complete', [\App\Http\Controllers\VGuideController::class, 'user_reg_step4'])->name('user_reg_step4');
-    Route::get('/lose/find_id', [\App\Http\Controllers\VGuideController::class, 'user_lose_id'])->name('user_lose_id');
-    Route::get('/lose/find_pwd', [\App\Http\Controllers\VGuideController::class, 'user_lose_pwd'])->name('user_lose_pwd');
+    Route::any('/lose/find_id', [\App\Http\Controllers\VGuideController::class, 'user_lose_id'])->name('user_lose_id');
+    Route::any('/lose/find_pwd', [\App\Http\Controllers\VGuideController::class, 'user_lose_pwd'])->name('user_lose_pwd');
 });
 
 Route::get('/news/view', [\App\Http\Controllers\VGuideController::class, 'view'])->name('view');

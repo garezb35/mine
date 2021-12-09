@@ -286,7 +286,7 @@ class VGuideController extends BaseController
             return view('mania.user.user_reg_step2', array("userType" => $request->user_type));
         }
         else {
-            redirect(route('user_reg_step1'));
+            return redirect(route('user_reg_step1'));
         }
     }
 
@@ -305,7 +305,7 @@ class VGuideController extends BaseController
             return view('mania.user.user_reg_step3', $userInfo);
         }
         else {
-            redirect(route('user_reg_step1'));
+            return redirect(route('user_reg_step1'));
         }
     }
 
@@ -336,13 +336,55 @@ class VGuideController extends BaseController
         return view('mania.user.user_reg_step4');
     }
 
-    public function user_lose_id()
+    public function user_lose_id(Request $request)
     {
-        return view('mania.user.user_lose_id');
+        $userinfo = User::where('name', $request->user_name)
+            ->whereDate('birthday', $request->user_birth)
+            ->where('email', $request->user_email)
+            ->where('number', $request->user_phone)
+            ->first();
+        $userId = "";
+        if ($userinfo != null)
+            $userId = $userinfo->loginId;
+
+        $data = array(
+            'user_name' => $request->user_name,
+            'user_birth' => $request->user_birth,
+            'user_email' => $request->user_email,
+            'user_phone' => $request->user_phone,
+            "user_id" => $userId
+        );
+        return view('mania.user.user_lose_id', $data);
     }
 
-    public function user_lose_pwd()
+    public function user_lose_pwd(Request $request)
     {
-        return view('mania.user.user_lose_pwd');
+        $userinfo = User::where('name', $request->user_name)
+            ->whereDate('birthday', $request->user_birth)
+            ->where('email', $request->user_email)
+            ->where('loginId', $request->user_id)
+            ->first();
+        $isProcPass = false;
+        if ($userinfo != null)
+            $isProcPass = true;
+
+        $data = array(
+            'user_name' => $request->user_name,
+            'user_birth' => $request->user_birth,
+            'user_email' => $request->user_email,
+            'user_id' => $request->user_id,
+            "user_pass" => $isProcPass,
+            "user_pass1" => $request->user_pass1,
+            "user_pass2" => $request->user_pass2
+        );
+
+        if ($isProcPass && $request->user_pass1 != "" && $request->user_pass1 == $request->user_pass2) {
+            User::where('id', $userinfo['id'])
+                ->update(array('password' => Hash::make($request->user_pass1)));
+            return redirect(route("login"));
+        }
+        else {
+            return view('mania.user.user_lose_pwd', $data);
+        }
     }
 }

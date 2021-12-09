@@ -224,8 +224,9 @@
                                 </div>
                             @endif
 
-                            <a class="text-blue mr-2 f-12" href="{{ route('register') }}">회원가입</a>
-                            <a class="text-blue f-12" href="{{ route('forgot-password') }}" target="mainFrame">아이디,비밀번호 찾기</a>
+                            <a class="text-blue mr-2 f-12" href="{{ route('user_reg_step1') }}">회원가입</a>
+                            <a class="text-blue f-12" href="{{ route('user_lose_id') }}" target="mainFrame">아이디</a>
+                            <a class="text-blue f-12" href="{{ route('user_lose_pwd') }}" target="mainFrame">비밀번호 찾기</a>
                         </td>
                     </tr>
                 </table>
