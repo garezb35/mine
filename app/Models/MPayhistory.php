@@ -11,7 +11,10 @@ class MPayhistory extends Model
     protected $table = 'm_payhistory';
     protected $guarded = [];
     public function complete_orders(){
-        return $this->
-        hasOne(MItem::class,'orderNo','orderNo');
+        return $this->hasOne(MItem::class,'orderNo','orderNo');
+    }
+
+    public function user(){
+        return $this->hasOne(User::class,'id','userId');
     }
 }

@@ -89,7 +89,7 @@
                         <span class="nav-link-text">{{ __('회원관리') }}</span>
                     </a>
 
-                    <div class="collapse" id="navbar-examples">
+                    <div class="collapse {{ active_class( ["admin/members"], 'show') }}" id="navbar-examples">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route("members")}}">
@@ -97,12 +97,12 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route("members")}}?state=6">
+                                <a class="nav-link {{ active_class( ["admin/members?state=6"]) }}" href="{{route("members")}}?state=6">
                                     {{ __('회원탈퇴신청관리') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route("members")}}?state=3-2">
+                                <a class="nav-link {{ active_class( ["admin/members?state=3-2"]) }}" href="{{route("members")}}?state=3-2">
                                     {{ __('탈퇴회원관리') }}
                                 </a>
                             </li>
@@ -110,20 +110,20 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#mileage-lists" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="mileage-lists">
+                    <a class="nav-link {{ active_class( ["admin/mileage_charge","admin/mileage_used"]) }}" href="#mileage-lists" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="mileage-lists">
                         <i class="ni ni-tv-2" style="color: #f4645f;"></i>
                         <span class="nav-link-text">{{ __('마일리지 관리') }}</span>
                     </a>
 
-                    <div class="collapse" id="mileage-lists">
+                    <div class="collapse {{ active_class( ["admin/mileage_charge","admin/mileage_used"] ,'show') }}" id="mileage-lists">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route("mileage_charge")}}">
+                                <a class="nav-link {{ active_class( ["admin/mileage_charge"])}}" href="{{route("mileage_charge")}}">
                                     {{ __('마일리지충환전관리') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route("mileage_used")}}">
+                                <a class="nav-link {{ active_class( ["admin/mileage_used"])}}" href="{{route("mileage_used")}}">
                                     {{ __('마일리지사용내역') }}
                                 </a>
                             </li>
@@ -131,21 +131,21 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#orders-lists" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="mileage-lists">
+                    <a class="nav-link {{ active_class( ["admin/order_list"]) }}" href="#orders-lists" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="mileage-lists">
                         <i class="ni ni-tv-2" style="color: #f4645f;"></i>
                         <span class="nav-link-text">{{ __('물품관리') }}</span>
                     </a>
 
-                    <div class="collapse" id="orders-lists">
+                    <div class="collapse {{ active_class( ["admin/order_list"], 'show') }}" id="orders-lists">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="/">
+                                <a class="nav-link {{ active_class( ["admin/order_list"]) }}" href="{{route("order_list")}}">
                                     {{ __('등록물품') }}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/">
-                                    {{ __('주문취소/접수') }}
+                                    {{ __('주문 종료/취소 요청') }}
                                 </a>
                             </li>
                         </ul>

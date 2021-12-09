@@ -199,9 +199,9 @@ class VBuyController extends BaseController
         User::where('id',$buyer)->update([
            'mileage'=>DB::raw('mileage + '.$game['payitem']['price'])
         ]);
-        User::where('id',$seller)->update([
-            'mileage'=>DB::raw('mileage - '.$game['payitem']['price'])
-        ]);
+//        User::where('id',$seller)->update([
+//            'mileage'=>DB::raw('mileage - '.$game['payitem']['price'])
+//        ]);
 
         MPayhistory::insert([
              'price'=>$game['payitem']['price'],
@@ -210,14 +210,14 @@ class VBuyController extends BaseController
              'pay_type'=>21,
              'orderNo'=>$id
             ]);
-        MPayhistory::insert([
-            'price'=>$game['payitem']['price'],
-            'status'=>1,
-            'userId'=>$seller,
-            'pay_type'=>20,
-            'orderNo'=>$id,
-            'minus'=>1
-        ]);
+//        MPayhistory::insert([
+//            'price'=>$game['payitem']['price'],
+//            'status'=>1,
+//            'userId'=>$seller,
+//            'pay_type'=>20,
+//            'orderNo'=>$id,
+//            'minus'=>1
+//        ]);
         MOrderNotification::updateOrCreate([
             'userId'=>$this->user->id,
             'orderNo'=>$id

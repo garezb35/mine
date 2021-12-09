@@ -82,7 +82,8 @@ class ManiaController extends BaseController
             'orderNo'=>$orderNo,
             'pay_type'=>3,
             'price'=>$admin_cash,
-            'status'=>1
+            'status'=>1,
+            'minus'=>1
         ]);
         MInbox::insert([
             'orderId'=>$orderNo,
@@ -297,6 +298,7 @@ class ManiaController extends BaseController
                     'mania_code'=>$insertId->id,
                     'price'=>$charge_money,
                     'status'=>1,
+                    'minus'=>1,
                     'orderNo'=>$param_insert['orderNo']]);
 
             }
@@ -2250,22 +2252,21 @@ class ManiaController extends BaseController
                 MBargainRequest::where('orderNo',$item['id'])->delete();
 
                 User::where('id',$buy_id)->update(['mileage'=> DB::raw('mileage+'.$item['payitem']['price'])]);
-                User::where('id',$sell_id)->update(['mileage'=> DB::raw('mileage-'.$item['payitem']['price'])]);
-                MPayhistory::insert([
-                    'orderNo'=>$request->id,
-                    'pay_type'=>20,
-                    'price'=>$item['payitem']['price'],
-                    'status'=>1,
-                    'userId'=>$sell_id,
-                    'minus'=>1
-                ]);
+//                User::where('id',$sell_id)->update(['mileage'=> DB::raw('mileage-'.$item['payitem']['price'])]);
+////                MPayhistory::insert([
+//                    'orderNo'=>$request->id,
+//                    'pay_type'=>20,
+//                    'price'=>$item['payitem']['price'],
+//                    'status'=>1,
+//                    'userId'=>$sell_id,
+//                    'minus'=>1
+//                ]);
                 MPayhistory::insert([
                     'orderNo'=>$request->id,
                     'pay_type'=>21,
                     'price'=>$item['payitem']['price'],
                     'status'=>1,
-                    'userId'=>$buy_id,
-                    'minus'=>1
+                    'userId'=>$buy_id
                 ]);
             }
             MItem::where('orderNo',$request->id)->update(["status"=>-1]);

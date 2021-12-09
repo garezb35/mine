@@ -170,11 +170,10 @@ public.on("connection",(client) => {
 });
 
 
-
-
 cron.schedule('0 0 1 * * *', () => {
     got(vgmUrl).then(response => {
         const $ = cheerio.load(response.body);
+        insert_data = new Array();
         $('tr.ranking-table-rows').each((i, link) => {
             let type = "";
             if($(link).find(".ranking-static-img").hasClass("ranking-static-down"))
