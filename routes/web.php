@@ -68,6 +68,12 @@ Route::group(['middleware' => ['web', 'admins']], function () {
         Route::get('/members',[\App\Http\Controllers\AdminController::class,'members'])->name('members');
         Route::get('/mileage_charge',[\App\Http\Controllers\AdminController::class,'mileage_charge'])->name('mileage_charge');
         Route::get('/mileage_used',[\App\Http\Controllers\AdminController::class,'mileage_used'])->name('mileage_used');
+        Route::post('/member_control',[\App\Http\Controllers\AdminController::class,'member_control'])->name('member_control');
+        Route::post('/mileage_control',[\App\Http\Controllers\AdminController::class,'mileage_control'])->name('mileage_control');
+        Route::get('/member/edit',[\App\Http\Controllers\AdminController::class,'member_edit'])->name('member_edit');
+        Route::post('/member_update',[\App\Http\Controllers\AdminController::class,'member_update'])->name('member.update');
+        Route::post('/member_password',[\App\Http\Controllers\AdminController::class,'member_password'])->name('member.password');
+        Route::get('/order_list',[\App\Http\Controllers\AdminController::class,'order_list'])->name('order_list');
     });
 
     Route::post('/updateProfile', [\App\Http\Controllers\AdminController::class,'updateProfile'])->name('profile.update');

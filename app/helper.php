@@ -181,4 +181,52 @@ function orderState($state){
     }
     return $state_alias;
 }
+
+function getStateMileage($state){
+    $state_alias  = "";
+    if ($state == 0) {
+        $state_alias = "신청중";
+    }
+    else if ($state == 1) {
+        $state_alias = "대기중";
+    }
+    else if ($state == 2) {
+        $state_alias = "처리됨";
+    }
+    else {
+        $state_alias = "취소됨";
+    }
+    return $state_alias;
+}
+
+function getMileageType($type){
+    $type_alias = "";
+    if($type == "2m"){
+        $type_alias = "판매완료";
+    }
+    else if($type == "10m"){
+        $type_alias = "상품권샵 구매";
+    }
+
+    else if($type == "6m"){
+        $type_alias = "구매완료";
+    }
+    else if($type == "1m"){
+        $type_alias = "유료 등록 서비스구매";
+    }
+//    else if($type == "20m"){
+//        $type_alias = "판매취소";
+//    }
+    else if($type == "21m"){
+        $type_alias = "구매취소";
+    }
+    else if($type == "1"){
+        $type_alias = "마일리지충환전";
+    }
+    else if($type == "0"){
+        $type_alias = "마일리지충전";
+    }
+
+    return $type_alias;
+}
 ?>

@@ -14,7 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::middleware('auth:api')->group(function(){
+
+    Route::prefix('admin')->group(function(){
+        Route::post('servers',[\App\Http\Controllers\AdminController::class, 'getServers']);
+    });
+
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
