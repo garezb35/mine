@@ -336,11 +336,8 @@
         border-top-color: #f5f5f5;
         margin-top:  -1px;
     }
-    @if(request()->route()->getName() == "index")
-        .topbar-left {
-        left: 250px
-    }
-    @endif
+
+
 </style>
 <script>
     function controlFavorite() {
@@ -356,13 +353,21 @@
         }
     }
     $(document).ready(function(){
-        if ($(window).width() < 1843){
+        @if(request()->route()->getName() == "index")
+            var pos_left = $(".top_full").offset();
+            $("#topbar-left").css("left",pos_left.left - 325 + "px")
+            $("#topbar-left").css("top",199 + "px")
+        @else
+            var pos_left = $(".g_container").offset();
+            $("#topbar-left").css("left",pos_left.left - 325 + "px")
+            $("#topbar-left").css("top",199 + "px")
+        @endif
+        if ($(window).width() < 1694){
             $("#quickmenu_area").show();
             $("#topbar-left").css("display","none")
             $("#topbar-left").css("position","fixed")
             $("#topbar-left").css("top","45px")
             $("#topbar-left").css("left","15px")
-
         }
         else{
             $("#quickmenu_area").hide();
