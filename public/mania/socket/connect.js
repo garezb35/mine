@@ -4,6 +4,7 @@ window.addEventListener('load',function(){
     this.userInfo = {
         'token':document.querySelector('#CHAT_TOKEN').value,
         'whoAmI':document.querySelector('#CHAT_USER').value
+        'image':document.querySelector('#CHAT_IMAGE').value
     };
     this.chatWrapper = document.querySelector('#chat_wrapper');
     this.contentWrapper = document.getElementById('chat_content');
@@ -158,6 +159,7 @@ function sendChat(){
             'whoAmI':this.userInfo.whoAmI,
             'msg':val,
             'chat_de':'',
+            'image': this.userInfo.image
 
         };
 
