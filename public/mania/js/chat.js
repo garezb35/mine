@@ -1136,7 +1136,7 @@ function chatManager(type,nick)
     }
     else if(type == 'popupChat')
     {
-        windowOpen('/box_chatting','chatPopup',330,575,'no');
+        windowOpen('/box_chatting','chatPopup',330,400,'no');
     }
     else if(type == 'help')
     {
