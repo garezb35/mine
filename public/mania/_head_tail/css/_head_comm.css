@@ -1264,7 +1264,7 @@ body{
 .topbar-left{
     position: absolute;
     top: 184px;
-    left: 120px;
+    /*left: 120px;*/
     width: 314px;
     border: 1px solid;
     padding-top: 13px;
