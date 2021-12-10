@@ -1,11 +1,3 @@
-/*
- * @title		íŒë‹ˆë‹¤ ë¦¬ìŠ¤íŠ¸
- * @author		[F/E]ê¹€ë³´ëžŒ
- * @date		2018.11.13
- * @update		ìˆ˜ì •ë‚ ì§œ(ìˆ˜ì •ìž)
- * @description
- */
-
 .bn_list_top {
     margin-bottom: 10px;
 }
@@ -127,8 +119,6 @@
 }
 
 
-/* ê²€ìƒ‰ì˜ì—­ */
-
 .search_word {
     font-size: 0;
     text-align: right;
@@ -219,8 +209,6 @@
 }
 
 
-/* ì•„ì´í…œ ìƒì„¸ ê²€ìƒ‰ */
-
 .item_detail_search {
     float: left;
     overflow: hidden;
@@ -261,7 +249,6 @@
 }
 
 
-/* ë¦¬ìŠ¤íŠ¸ì˜ì—­ */
 
 .g_subtitle {
     font-size: 20px;
@@ -305,8 +292,6 @@
     content: "";
     vertical-align: middle;
 }
-
-
 
 .opt_list>li>.orderbox {
     display: inline-block;
@@ -870,7 +855,6 @@ i.icon_refresh {
     content: "ã€‰ã€‰ã€‰";
     font-weight: bold;
     letter-spacing: -5.5px;
-    /* ê°™ì€ë¬¸ìžë¥¼ ê²¹ì¹˜ê²Œ ë‘ì–´ boldíš¨ê³¼ */
     color: #159EFD;
 }
 
