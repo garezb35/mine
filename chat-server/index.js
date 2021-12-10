@@ -101,12 +101,13 @@ public.on("connection",(client) => {
                             (async function() {
                                 client.join(data.body.roomIdx)
                                 let user = await knex("users")
-                                    .select( 'users.*')
+                                    .select( 'users.*,m_role.icon as ricon')
+                                    .leftJoin('m_role', 'users.role', 'm_role.level')
                                     .where("users.userIdKey",token);
 
                                 if(typeof  user == 'undefined' || user.length ==0  || typeof user[0]["id"] == "undefined" || user[0]["id"] == null ) {
                                     let date  = new Date();
-                                    listUsers.addUser("null-"+uuidv4(), '', '', '', '', 0, client.id, data.body.roomIdx,date.getTime(),"","","channel1","/assets/images/mine/profile.png","",0,"muteOff","muteOff",0,client.handshake.address)
+                                    listUsers.addUser("null-"+uuidv4(), '', '', '', '', 0, client.id, data.body.roomIdx,date.getTime(),"","","channel1","general.png","",0,"muteOff","muteOff",0,client.handshake.address)
                                     return_obj = {header: {type: "ERROR"}, body: {type: "NOT_LOGIN",connectList:listUsers.getUsersByRoomIdx(data.body.roomIdx),msgList:listMsg.getMsgRoomIdx(data.body.roomIdx)}};
                                 }
                                 else {
@@ -114,7 +115,7 @@ public.on("connection",(client) => {
                                     let winning_history = "";
                                     let current_win = 0;
                                     var date = new Date();
-                                    listUsers.addUser(token, user[0]["name"], user[0]["role"], user[0]["nickname"], "", current_win, client.id, data.body.roomIdx,date.getTime(),"",item.join("#::#"),"channel1","/assets/images/mine/profile.png","",0,"muteOff","muteOff","",client.handshake.address)
+                                    listUsers.addUser(token, user[0]["name"], user[0]["role"], user[0]["nickname"], "", current_win, client.id, data.body.roomIdx,date.getTime(),"",item.join("#::#"),"channel1",user[0]["ricon"],"",0,"muteOff","muteOff","",client.handshake.address)
                                     return_obj = {header:{type:"INITMSG"},body:{roomIdx:data.body.roomIdx,freezeOnOff:"off",fixNoticeOnOff:"off",fixNoticeMsg:"",connectList:listUsers.getUsersByRoomIdx(data.body.roomIdx),msgList:listMsg.getMsgRoomIdx(data.body.roomIdx)}};
 
                                 }

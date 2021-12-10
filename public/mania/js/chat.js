@@ -847,7 +847,7 @@ function receiveProcess(data)
             {
                 if(i == 'inject') break;
                 var dataInfo = bPacket.msgList[i];
-                printChatMsg(dataInfo.level,dataInfo.sex,dataInfo.mark,dataInfo.id,dataInfo.nickname,dataInfo.msg,dataInfo.item,dataInfo.winFixCnt);
+                printChatMsg(dataInfo.level,dataInfo.sex,dataInfo.mark,dataInfo.id,dataInfo.nickname,dataInfo.msg,dataInfo.item,dataInfo.winFixCnt,dataInfo.image);
             }
 
         printSystemMsg('guide','<span>'+roomName(bPacket.roomIdx)+'</span>에 입장 하셨습니다.');
@@ -1293,7 +1293,7 @@ function clearRepeatChat()
 }
 
 
-function printChatMsg(level,sex,mark,useridKey,nickname,msg,item,winFixCnt)
+function printChatMsg(level,sex,mark,useridKey,nickname,msg,item,winFixCnt,image)
 {
     // black list
     if((','+blackListArr.join()+',').indexOf(','+useridKey+',') != -1)
@@ -1389,7 +1389,7 @@ function printChatMsg(level,sex,mark,useridKey,nickname,msg,item,winFixCnt)
             winFixCntView = '<span style="position:absolute;right:-3px;bottom:-9px;z-index:99;"><div class="sp-win'+winFixCnt+'" title="'+winFixCnt+'연승"></div></span>';
         }
 
-        $('#msgBox').append('<li'+addClass+'>'+markView+'<span style="position:relative;"><img src="/mania/img/icons/seller_chatting.png" width="30" height="30" orgLevel="'+sex+level+'"'+gasmaskClass+'/>'+itemView+winFixCntView+'</span> <strong><a href="#" onclick="return false;" title="'+nickname+'" rel="'+useridKey+'" class="uname">'+familyNickView+nickname+'</a></strong> '+msg+'</li>');
+        $('#msgBox').append('<li'+addClass+'>'+markView+'<span style="position:relative;"><img src="/mania/img/level/'+image+'" width="30" height="30" orgLevel="'+sex+level+'"'+gasmaskClass+'/>'+itemView+winFixCntView+'</span> <strong><a href="#" onclick="return false;" title="'+nickname+'" rel="'+useridKey+'" class="uname">'+familyNickView+nickname+'</a></strong> '+msg+'</li>');
     }
 
     addClass = null;
@@ -1698,7 +1698,7 @@ function setChatList(list){
             if(element.id.includes('null-'))
             {
                 html += '<li id="'+element.id+'">\
-                            <img src="/mania/img/icons/seller_chatting.png" width="30" height="30">\
+                            <img src="/mania/img/level/'+element.image+'" width="30" height="30">\
                     <a href="#" onclick="return false;" title="'+element.nickname+'" rel="'+element.id+'" class="uname">'+element.id.substring(0,10)+'...</a>\
                     <span style="position:absolute;right:10px;font-weight:normal;font-size:11px;color:#a29c9b;">'+displayKTime(element.time)+'전</span>\
                 </li>';
