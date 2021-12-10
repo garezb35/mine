@@ -158,6 +158,7 @@ function sendChat(){
             'whoAmI':this.userInfo.whoAmI,
             'msg':val,
             'chat_de':'',
+
         };
 
         var tradeData = {};
@@ -233,7 +234,7 @@ function makeChat(data){
             statement+='<li class=\"chat_list clear_fix\">';
             statement+= checkAnother;
             statement+= '<div class="user_identity_image list_content">';
-            statement+= '<img src=\'/mania/img/icons/buyer_chatting.png\' width=\'20\'  alt=\'구매자\'>';
+            statement+= '<img src=\'/mania/img/level/'+data.image+'\' width=\'20\'  alt=\'구매자\'>';
             statement+= '</div>';
             statement+= '<div class="list_content">';
             statement+= '<p class="identity">구매자</p>';
@@ -245,7 +246,7 @@ function makeChat(data){
             statement+='<li class=\"chat_list clear_fix\">';
             statement+= checkAnother;
             statement+= '<div class="user_identity_image list_content">';
-            statement+= '<img src=\'/mania/img/icons/seller_chatting.png\' width=\'20\'  alt=\'판매자\'>';
+            statement+= '<img src=\'/mania/img/level/'+data.image+'\' width=\'20\'  alt=\'판매자\'>';
             statement+= '</div>';
             statement+= '<div class="list_content">';
             statement+= '<p class="identity">판매자</p>';

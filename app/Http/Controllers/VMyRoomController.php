@@ -1094,6 +1094,7 @@ class VMyRoomController extends BaseController
                 return;
             }
             $game['cuser'] = $this->user;     // 구매자
+            $game['cuser']['rimage'] = $game['user']['roles']['icon'];
         }
         if($type == 'buy'){
             $game = MItem::
@@ -1108,6 +1109,7 @@ class VMyRoomController extends BaseController
             }
             $game['cuser'] = $this->user;// 구매자
             $game['user'] = $game['other']; // 구매자
+            $game['cuser']['rimage'] = $game['other']['roles']['icon'];
         }
         if($game['status'] == -1){
             echo '<script>alert("거래취소된 물품입니다.");window.history.back();</script>';
@@ -1447,7 +1449,7 @@ class VMyRoomController extends BaseController
     public function sell_ing_view(Request $request){
         $buyer = "";
         if($request->type == 'sell'){
-            $game = MItem::with('server','game','other','payitem','privateMessage')
+            $game = MItem::with(['server','game','other','payitem','privateMessage,user.roles'])
                 ->where('orderNo',$request->id)
                 ->where('userId',$this->user->id)
                 ->where('type', $request->type)
@@ -1464,11 +1466,12 @@ class VMyRoomController extends BaseController
             }
             $game['user']=  $game['other'];
             $game['cuser'] = $this->user;
+            $game['cuser']['rimage'] = $game['user']['roles']['icon'];
             $game['buy_character'] = $game['payitem']['character'];
             $game['sell_character'] = $game['user_character'];
         }
         else{
-            $game = MItem::with('server','game','user','payitem')
+            $game = MItem::with(['server','game','user','payitem','other.roles'])
                 ->where('orderNo',$request->id)
                 ->where('toId',$this->user->id)
                 ->where('type', $request->type)
@@ -1479,6 +1482,7 @@ class VMyRoomController extends BaseController
                 return;
             }
             $game['cuser'] = $this->user;
+            $game['cuser']['rimage'] = $game['other']['roles']['icon'];
             $game['sell_character'] = $game['payitem']['character'];
             $game['buy_character'] = $game['user_character'];
         }
