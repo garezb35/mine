@@ -70,10 +70,10 @@
                     <div class='d-flex w-100'>
                         <div style='width: calc(100% - 78px);'>
                             <div class="rt_figure d-flex">
-                                <img src="/mania/img/level/silver.png">
+                                <img src="/mania/img/level/{{$top_role['icon']}}">
                                 <div class="" style='padding-top: 12px;'>
                                     <div class='f-14'><span class='user_name f-14'>{{$me['name']}}</span> 고객님</div>
-                                    <div class='f-14 f-bold' style='color: #626262;'><span class='f-16' style='margin-left:10px;'>VIP회원</span> ({{number_format($me['point'])}}점)</div>
+                                    <div class='f-14 f-bold' style='color: #626262;'><span class='f-16' style='margin-left:10px;'>{{$top_role['alias']}}회원</span> ({{number_format($me['point'])}}점)</div>
                                 </div>
                             </div>
                         </div>
