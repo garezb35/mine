@@ -186,18 +186,17 @@
     overflow: hidden;
     height: 44px;
     line-height: 44px;
-    border: 1px solid #AECEE0;
+    border: 1px solid #E1E1E1;
     border-top: 0;
 }
 
 .search_box .search_row .search_tit {
     float: left;
-    width: 172px;
+    width: 108px;
     margin-left: 0px;
     padding-right: 10px;
     font-weight: bold;
     text-align: center;
-    border-right: 1px solid #AECEE0;
 }
 
 .search_box .search_row ul {
@@ -207,7 +206,6 @@
 
 .search_box .search_row ul:last-child {
     width: 450px;
-    margin-left: 25px;
 }
 
 .search_box .search_row li {
