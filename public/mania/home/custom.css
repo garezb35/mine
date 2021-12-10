@@ -69,12 +69,7 @@
     background-repeat: no-repeat;
 }
 
-.quickmenu_cont .other_link a {
-    background-color: initial;
-    margin-left: 8px;
-    height: 30px;
-    line-height: 30px;
-}
+
 .quickmenu_cont .ing_count li {
     width: 126px;
 }

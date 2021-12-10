@@ -279,6 +279,8 @@ body{
     border-bottom:1px solid #CCC;
     text-align:center;
 }
+
+
 .quickmenu_cont .other_link a{
     display:inline-block;
     width:65px;
@@ -290,6 +292,10 @@ body{
     line-height:23px;
     color:#FFF;
     margin-top: 2px;
+    background-color: initial;
+    margin-left: 8px;
+    height: 30px;
+    line-height: 30px;
 }
 .quickmenu_cont .other_link a:first-child{
     margin-left:0;
