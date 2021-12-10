@@ -356,11 +356,11 @@
         @if(request()->route()->getName() == "index")
             var pos_left = $(".top_full").offset();
             $("#topbar-left").css("left",pos_left.left - 325 + "px")
-            $("#topbar-left").css("top",199 + "px")
+            $("#topbar-left").css("top",184 + "px")
         @else
             var pos_left = $(".g_container").offset();
             $("#topbar-left").css("left",pos_left.left - 325 + "px")
-            $("#topbar-left").css("top",199 + "px")
+            $("#topbar-left").css("top",184 + "px")
         @endif
         if ($(window).width() < 1694){
             $("#quickmenu_area").show();
