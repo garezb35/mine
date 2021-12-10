@@ -111,12 +111,6 @@
         </div>
     </div>
     <style>
-        .content_center {
-            margin-left: 580px;
-        }
-        .topbar-left {
-            left:  250px;
-        }
         .g_logo_area {
             width: 1308px;
         }
@@ -134,7 +128,7 @@
             top: 12px;
             left: 10px;
         }
-       
+
         .initial_screen .tab>div {
             height: 40px;
             line-height: 40px;
