@@ -53,22 +53,83 @@
         <script type="text/javascript">
             _initialize();
         </script>
+        <style>
+            .pt-1 {
+                padding-top: 0.25rem!important;
+            }
+            .box-menus td {
+                padding-top: 0px;
+            }
+        </style>
     </body>
     <div class="topbar-left well well--tooltip" id="topbar-left">
         <div class="quickmenu_cont" id="quickmenu_cont">
             @if(auth()->check())
             <div class="myinfo">
-                <dl class="status">
+                <div style='padding: 0 10px;'>
+                    <div class='d-flex w-100'>
+                        <div style='width: calc(100% - 78px);'>
+                            <div class="rt_figure d-flex">
+                                <img src="/mania/img/level/silver.png">
+                                <div class="" style='padding-top: 12px;'>
+                                    <div class='f-14'><span class='user_name f-14'>{{$me['name']}}</span> 고객님</div>
+                                    <div class='f-14 f-bold' style='color: #626262;'><span class='f-16' style='margin-left:10px;'>VIP회원</span> ({{number_format($me['point'])}}점)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style='width: 78px;'>
+                            <div class="other_link no-border">
+                                <div><a href="/myroom/my_mileage/index_c" class="head_charge">충전</a></div>
+                                <div><a href="/myroom/my_mileage/index_e" class="head_give">출금</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='d-flex w-100'>
+                        <div style='width: calc(100% - 78px);'>
+                            <style>
+                                .tbl-myinfo,
+                                .tbl-myinfo tr,
+                                .tbl-myinfo td {
+                                    border:  none !important;
+                                }
+                                .tbl-myinfo tr td {
+                                    padding: 2px 0px;
+                                    padding-right: 12px;
+                                }
+                            </style>
+                            <table class='tbl-myinfo'>
+                                <tr>
+                                    <td>
+                                        <div class="f_black1 f-15 f-bold" style='margin-left: 4px;'>총 마일리지 </div>
+                                    </td>
+                                    <td>
+                                        <div class="f_black1 f-15 f-bold align-right"><span class='f-16' style='color: #159efd; margin-left: 5px;'>{{number_format($me['mileage'])}}</span> 원</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="f_black1 f-15 f-bold" style='margin-left: 4px;'>무료쿠폰 </div>
+                                    </td>
+                                    <td align='right'>
+                                        <div class="f_black1 f-15 f-bold align-right"><span class='f-16' style='color: #159efd; margin-left: 5px;'>10</span> 장</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style='width: 78px;'>
+                            <div><span class="cert_state f_black1">@if($me['mobile_verified'] == 1)<img src="/mania/img/icons/icon_check.png">@endif 휴대폰</span></div>
+                            <div><span class="cert_state f_black1">@if($me['bank_verified'] == 1)<img src="/mania/img/icons/icon_check.png">@endif &nbsp;계좌</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <dl class="status">
                     <dd class="credir_rt">
                         <div class="rt_figure">
                             <img src="/mania/img/level/silver.png">
                         </div>
                         <div class="user_name">{{$me['name']}}
                             <span class="cert">
-                                        <span class="cert_state f_black1">
-                                            @if($me['mobile_verified'] == 1)
-                                                <img src="/mania/img/icons/icon_check.png">
-                                            @endif 휴대폰</span>
+                                <span class="cert_state f_black1">@if($me['mobile_verified'] == 1)<img src="/mania/img/icons/icon_check.png">@endif 휴대폰</span>
                                 <span class="cert_state f_black1">@if($me['bank_verified'] == 1)<img src="/mania/img/icons/icon_check.png">@endif &nbsp;계좌</span>
                                 <span class="cert_state f_black1">@if(!empty($me['email_verified_at']))<img src="/mania/img/icons/icon_check.png">@endif &nbsp;이메일</span>
                             </span>
@@ -81,16 +142,16 @@
                                     <dt class="f_black1">총 마일리지</dt>
                                     <dd>{{number_format($me['mileage'])}}<span class="f_black1">원</span></dd>
                                 </dl>
-                            </span></span>
+                            </span>
+                        </span>
                     </dd>
-
-                </dl>
+                </dl> 
 
                 <div class="other_link">
                     <a href="/myroom/my_mileage/index_c" class="head_charge">충전</a>
                     <a href="/myroom/my_mileage/index_e" class="head_give">출금</a>
 {{--                    <a href="/myroom/" class="head_myroom">마이룸</a>--}}
-                </div>
+                </div>-->
                 <table class="table box-menus mar-t-5 mb-0">
                     <colgroup>
                         <col width="25%">
@@ -100,7 +161,7 @@
                     </colgroup>
                     <tbody>
                         <tr>
-                            <td class="text-center align-middle active pt-2 pb-1 border-right-ja">
+                            <td class="text-center align-middle active pt-1 pb-1 border-right-ja">
                                 <a href="/myroom">
                                     <div class="position-relative  text-center">
                                         <div class="mb-1  text-center">
@@ -110,7 +171,7 @@
                                     </div>
                                 </a>
                             </td>
-                            <td class="text-center align-middle pt-2 pb-1 border-right-ja">
+                            <td class="text-center align-middle pt-1 pb-1 border-right-ja">
                                 <a href="/myroom/message/">
                                     <div class="position-relative  text-center">
                                         <div class="mb-1  text-center">
@@ -126,7 +187,7 @@
                                     </div>
                                 </a>
                             </td>
-                            <td class="text-center align-middle pt-2 pb-1 border-right-ja">
+                            <td class="text-center align-middle pt-1 pb-1 border-right-ja">
                                 <div class="position-relative  text-center">
                                     <a href="#">
                                         <div class="mb-1  text-center">
@@ -136,7 +197,7 @@
                                     </a>
                                 </div>
                             </td>
-                            <td class="text-center align-middle pt-2 pb-1">
+                            <td class="text-center align-middle pt-1 pb-1">
                                 <a href="/logout">
                                     <div class="position-relative  text-center">
                                         <div class="mb-1  text-center">
@@ -239,6 +300,9 @@
 </html>
 
 <style>
+    .g_header .g_snav {
+        padding: 0;
+    }
     .g_container{
         min-height: 730px;
     }

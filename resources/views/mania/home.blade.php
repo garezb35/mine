@@ -110,7 +110,39 @@
             </ul>
         </div>
     </div>
-
+    <style>
+        .content_center {
+            margin-left: 580px;
+        }
+        .topbar-left {
+            left:  250px;
+        }
+        .g_logo_area {
+            width: 1308px;
+        }
+        .g_search_top {
+            margin-left: 222px;
+        }
+        .service_wrap, .bg_opacity {
+            height:  38px;
+        }
+        .service_set>ul {
+            padding: 0px 10px 0;
+            padding-left: 40px;
+        }
+        .service_set .setting {
+            top: 12px;
+            left: 10px;
+        }
+       
+        .initial_screen .tab>div {
+            height: 40px;
+            line-height: 40px;
+        }
+        .title, .box3 .title {
+            padding: 8px 20px 8px !important;
+        }
+    </style>
     <div class="content_center">
         <div class="top_full">
             <div class="top_area">
@@ -321,12 +353,12 @@
                 <div class="charge_wrap border-normal fixed-height" id="charge_list">
                     <ul class="charge_list">
                         <li>
-                            <a href="javascript:_window.open('mileage_charge', '/myroom/mileage/charge/tcash',700,900);">
-                                <span class="c_name">티캐시</span>
-                                <span class="sp_main tcash"></span>
+                            <a href="{{route('my_mileage_index_c')}}">
+                                <span class="c_name">계좌입금</span>
+                                <span class="sp_main account"></span>
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="javascript:_window.open('mileage_charge', '/myroom/mileage/charge/ktclip',700,900);">
                                 <span class="c_name">카드포인트 </span>
                                 <span class="sp_main ktclip"></span>
@@ -362,9 +394,9 @@
                         <li>
                             <a href="javascript:_window.open('mileage_charge', '/myroom/mileage/charge/onlydgcl',700,900);"><span
                                     class="c_name">스마트문상(게임문상)</span><span class="sp_main smart"></span></a>
-                        </li>
+                        </li> -->
                     </ul>
-                    <ul class="charge_list">
+                    <!-- <ul class="charge_list">
                         <li>
                             <a href="javascript:_window.open('mileage_charge', '/myroom/mileage/charge/cashgate',700,900);"><span
                                     class="c_name">캐시플러스</span><span class="sp_main cashgate"></span></a>
@@ -457,7 +489,7 @@
                             <a href="javascript:_window.open('mileage_charge', '/myroom/mileage/charge/kbank',700,900);"><span
                                     class="c_name">케이뱅크 페이</span><span class="sp_main kbank"></span></a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <i class="border_hz"></i>
                 </div>
             </div>

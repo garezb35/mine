@@ -22,8 +22,8 @@
             border-top: 1px solid #ddd;
             border-bottom: 1px solid #1592fd;
             background: #fff;
-            padding-top: 8px;
-            padding-bottom: 8px;
+            padding-top: 2px;
+            padding-bottom: 2px;
             font-size: 15px;
             color: #919394;
             text-align: center;
