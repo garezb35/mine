@@ -145,7 +145,7 @@
                             </span>
                         </span>
                     </dd>
-                </dl> 
+                </dl>
 
                 <div class="other_link">
                     <a href="/myroom/my_mileage/index_c" class="head_charge">충전</a>
@@ -295,7 +295,7 @@
             </form>
             @endif
         </div>
-        <iframe scrolling="no" frameborder="0" width="100%" height="400" src="/box_chatting" id="chatFrame"></iframe>
+        <iframe scrolling="no" frameborder="0" width="100%" height="450" src="/box_chatting" id="chatFrame"></iframe>
     </div>
 </html>
 
