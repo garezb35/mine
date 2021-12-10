@@ -4,8 +4,8 @@ class Msg {
         this.msgs = []
     }
 
-    createMsg(id,item,level,mark,msg,nickname,sex,winFixCnt,clientId = "",roomIdx="",userType){
-        this.msgs.push({id,item,level,mark,msg,nickname,sex,winFixCnt,clientId,roomIdx,userType})
+    createMsg(id,item,level,mark,msg,nickname,sex,winFixCnt,clientId = "",roomIdx="",userType,image=""){
+        this.msgs.push({id,item,level,mark,msg,nickname,sex,winFixCnt,clientId,roomIdx,userType,image})
         return this.msgs
     }
     getMsg(id){

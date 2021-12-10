@@ -101,7 +101,7 @@ public.on("connection",(client) => {
                             (async function() {
                                 client.join(data.body.roomIdx)
                                 let user = await knex("users")
-                                    .select( 'users.*,m_role.icon as ricon')
+                                    .select( 'users.*','m_role.icon as ricon')
                                     .leftJoin('m_role', 'users.role', 'm_role.level')
                                     .where("users.userIdKey",token);
 
@@ -150,12 +150,12 @@ public.on("connection",(client) => {
                     }
                     else{
 
-                        return_obj = {header:{type:"MSG"},body:createMessage(user.id,user.nickname,user.item,user.level,user.mark,data.body.msg,user.sex,user.winFixCnt,user.userType,data.body.roomIdx)};
+                        return_obj = {header:{type:"MSG"},body:createMessage(user.id,user.nickname,user.item,user.level,user.mark,data.body.msg,user.sex,user.winFixCnt,user.userType,data.body.roomIdx,user.image)};
                         if(listMsg.getMsgLengthFromRoomIdx(data.body.roomIdx) >= 30){
                             let msg = listMsg.getFirstMsgByRoomIdx(data.body.roomIdx);
                             listMsg.deleteMsgByUserToken(msg.id);
                         }
-                        listMsg.createMsg(user.id,user.item,user.level,"",data.body.msg,user.nickname,user.sex,user.winFixCnt,client.id,data.body.roomIdx,user.userType);
+                        listMsg.createMsg(user.id,user.item,user.level,"",data.body.msg,user.nickname,user.sex,user.winFixCnt,client.id,data.body.roomIdx,user.userType,user.image);
 
                         public.to(data.body.roomIdx).emit("receive",return_obj)
                         if((this.clientid !=null && this.clientid !="") && (this.adminroomid == data.body.roomIdx || this.adminroomid == null || this.adminroomid.trim() == "")){
@@ -251,7 +251,7 @@ function diffStrtotime(bytime){
     }
 }
 
-function createMessage(id, nickname,item,level,mark,msg,sex,winFixCnt,userType,roomIdx=""){
+function createMessage(id, nickname,item,level,mark,msg,sex,winFixCnt,userType,roomIdx="",image=""){
     return {
         id,
         nickname,
@@ -262,7 +262,8 @@ function createMessage(id, nickname,item,level,mark,msg,sex,winFixCnt,userType,r
         sex,
         winFixCnt,
         userType,
-        roomIdx
+        roomIdx,
+        image
     }
 }
 
