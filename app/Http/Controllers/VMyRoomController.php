@@ -1449,7 +1449,7 @@ class VMyRoomController extends BaseController
     public function sell_ing_view(Request $request){
         $buyer = "";
         if($request->type == 'sell'){
-            $game = MItem::with(['server','game','other','payitem','privateMessage,user.roles'])
+            $game = MItem::with(['server','game','other','payitem','user.roles'])
                 ->where('orderNo',$request->id)
                 ->where('userId',$this->user->id)
                 ->where('type', $request->type)
