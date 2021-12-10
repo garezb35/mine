@@ -1705,7 +1705,7 @@ function setChatList(list){
             }
             else{
                 html += '<li id="'+element.id+'">\
-                    <img src="/mania/img/icons/seller_chatting.png" width="30" height="30">\
+                    <img src="/mania/img/level/'+element.image+'" width="30" height="30">\
                         <a href="#" onclick="return false;" title="'+element.nickname+'" rel="'+element.id+'" class="uname">'+element.nickname.substring(0,10)+'</a>\
                     <span style="position:absolute;right:10px;font-weight:normal;font-size:11px;color:#a29c9b;">'+displayKTime(element.time)+'전</span>\
                 </li>';
