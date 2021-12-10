@@ -400,7 +400,10 @@ class VAjaxController extends BaseController
                 $temp_object->min_trade_money = number_format($value['user_price']);
             }
             if($value['user_goods_type'] == 'bargain'){
-                $temp_object->min_trade_money = number_format($value['user_price_limit']);
+                if(!empty($value['user_price_limit']))
+                    $temp_object->min_trade_money ='최소 '. number_format($value['user_price_limit']);
+                else
+                    $temp_object->min_trade_money = "";
             }
 
             if(!empty($value['user_price_limit'])){

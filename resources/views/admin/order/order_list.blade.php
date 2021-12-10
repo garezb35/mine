@@ -81,20 +81,61 @@
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col" class="sort" data-sort="name">
-                                        <input type="checkbox" class="oids" onclick="tickCheckBox('oids')"/> 아이디</th>
+                                    <th scope="col" class="sort" data-sort="name">아이디</th>
                                     <th scope="col" class="sort" data-sort="budget">주문번호</th>
                                     <th scope="col" class="sort" data-sort="budget">물품형태</th>
+                                    <th scope="col" class="sort" data-sort="budget">물품유형</th>
                                     <th scope="col" class="sort" data-sort="budget">카테고리</th>
                                     <th scope="col" class="sort" data-sort="budget">거래상태</th>
                                     <th scope="col" class="sort" data-sort="status">판매자</th>
                                     <th scope="col" class="sort" data-sort="status">구매자</th>
                                     <th scope="col" class="sort" data-sort="status">등록일</th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
                             @foreach($orders as $o_v)
-                                <tr>
+                                @php
+                                    $seller = $buyer = "";
+                                    if($o_v["type"] == 'sell'){
+                                        $seller = $o_v['user'];
+                                        $buyer = $o_v['other'];
+                                    }
+                                    else{
+                                        $seller = $o_v['other'];
+                                        $buyer = $o_v['user'];
+                                    }
+                                    $order_state = "";
+                                    if($o_v["state"] == 0){
+                                        if(sizeof($o_v['bargain_requests']) > 0){
+                                            $order_state = "흥정신청중";
+                                        }
+                                        else{
+                                            $order_state = "등록물품";
+                                        }
+                                    }
+                                    if($o_v['state'] == 1){
+                                        if($o_v['payitem']['status'] == 0){
+                                            $order_state = "입금대기중";
+                                        }
+                                        if($o_v['payitem']['status'] == 1){
+                                            $order_state = "거래중";
+                                        }
+                                    }
+                                    if($o_v['state'] == 2){
+                                        $order_state = "인수 완료";
+                                    }
+                                    if($o_v['state'] == 3){
+                                        $order_state = "인계 완료";
+                                    }
+                                    if($o_v['state'] == 23 || $o_v['state'] == 32){
+                                        $order_state = "거래 완료";
+                                    }
+                                    if($o_v['state'] == -1){
+                                        $order_state = "거래 취소";
+                                    }
+                                @endphp
+                                <tr id="tr_{{$o_v["id"]}}">
                                     <td>
                                         {{$o_v['id']}}
                                     </td>
@@ -105,12 +146,56 @@
                                         {{$o_v['type'] == "sell" ? '판매물품':'구매물품'}}
                                     </td>
                                     <td>
-                                        {{$o_v['game']['game']}} > {{$o_v['server']['game']}}
+                                        @switch($o_v['user_goods_type'])
+                                            @case("general")
+                                                일반
+                                            @break
+                                            @case("division")
+                                                분할
+                                            @break
+                                            @default
+                                                흥정
+                                            @break
+                                        @endswitch
+                                    </td>
+                                    <td>
+                                        {{$o_v['game']['game']}} > {{$o_v['server']['game']}} > {{$o_v["good_type"]}}
+                                    </td>
+                                    <td>
+                                        {{$order_state}}
+                                    </td>
+                                    <td>
+                                        @if(!empty($seller))
+                                        <a href="">{{$seller['name']}}</a>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(!empty($buyer))
+                                            <a href="">{{$buyer['name']}}</a>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        {{date("Y-m-d H:i:s",strtotime($o_v['created_at']))}}
+                                    </td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                <a class="dropdown-item order-item" href="javascript:void(0)" data-id="{{$o_v['id']}}" data-type="remove">삭제</a>
+                                                <a class="dropdown-item order-item" href="javascript:void(0)" data-id="{{$o_v['id']}}" data-type="cancel">거래취소</a>
+                                                <a class="dropdown-item order-item" href="javascript:void(0)" data-id="{{$o_v['id']}}" data-type="end">거래종료</a>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
+                    </div>
+                    <div class="card-footer py-4">
+                        {{$orders->withQueryString()->links()}}
                     </div>
                 </div>
             </div>
@@ -123,10 +208,6 @@
         let single_server = $('.js-example-basic-single-server_code');
         $('.js-example-basic-single').select2();
         $('.js-example-basic-single-server_code').select2();
-        // $('.js-example-basic-single').on('change.select2', function (e) {
-        //     console.log(e)
-        // });
-
         $(".js-example-basic-single").on("select2:select", function (e) {
             let game_id = e.params.data.id;
             $.ajax({
@@ -141,13 +222,43 @@
                                 data:data
                             }
                         )
-                    },
-                    error:function(e){
-                        console.log(e)
                     }
                 }
             );
         });
+        $(".order-item").click(function(){
+            let confirm_msg = "";
+            let confirm_type = $(this).data("type");
+            let confirm_id = $(this).data('id');
+            let cur_tr = $("#tr_"+confirm_id);
+            if(confirm_type == "remove")
+                confirm_msg = "삭제하시겠습니까?";
+            if(confirm_type == "cancel")
+                confirm_msg = "거래취소하시겠습니까?";
+            if(confirm_type == "end")
+                confirm_msg = "거래종료하시겠습니까?";
+            if(confirm(confirm_msg)){
+
+                $.ajax({
+                        url: '/api/admin/order_control',
+                        dataType: 'json',
+                        type: 'post',
+                        data: {id: confirm_id, type: confirm_type, api_token: a_token},
+                        success: function (data) {
+                            if(data.status == 1){
+                                alert('변경되었습니다.');
+                                if (confirm_type == 'remove') {
+                                    cur_tr.remove();
+                                }
+                            }
+                            else{
+                                alert(data.msg);
+                            }
+                        }
+                    }
+                );
+            }
+        })
     });
 </script>
 <style>

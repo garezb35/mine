@@ -453,7 +453,7 @@ class AdminController extends BaseAdminController
         $good_type = $request->good_type;
 
         $games = MGame::where("depth",0)->orderby('order','ASC')->get();
-        $order = MItem::with(['game','server','payitem','user','other'])
+        $order = MItem::with(['game','server','payitem','user','other','bargain_requests'])
             ->whereHas('game')
             ->whereHas('server');
         if(!empty($username)) {
@@ -507,6 +507,15 @@ class AdminController extends BaseAdminController
         }
 
         return response()->json($servers);
+    }
+
+    public function order_control(Request $request){
+        $id = $request->id;
+        $type = $request->type;
+        $item = MItem::with(['payitem'])->where('id',$id)->first();
+        if(empty($item)){
+            return response()->json(array("status"=>0,'msg'=>'자료가 비었습니다.'));
+        }
     }
 }
 
