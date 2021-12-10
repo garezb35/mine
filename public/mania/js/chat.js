@@ -862,7 +862,7 @@ function receiveProcess(data)
     }
     else if(hPacket.type == 'MSG')
     {
-        printChatMsg(bPacket.level,bPacket.sex,bPacket.mark,bPacket.id,bPacket.nickname,bPacket.msg,bPacket.item,bPacket.winFixCnt);
+        printChatMsg(bPacket.level,bPacket.sex,bPacket.mark,bPacket.id,bPacket.nickname,bPacket.msg,bPacket.item,bPacket.winFixCnt,bPacket.image);
     }
     else if(hPacket.type == 'WHISPER')
     {
