@@ -571,15 +571,15 @@ function receiveProcess(data)
         switch(bPacket.cmd)
         {
             case 'ERROR':
-                switch(bPacket.type)
-                {
-                    case 'DUPLICATE':
-                        printSystemMsg('guide','중복 로그인으로 인해 이전 접속을 종료합니다.');
-                        socket.disconnect();
-                        document.location.href = '/box_chatting?state=doubled_display&logout='+bPacket.logout;
-                        break;
-                }
-                break;
+                // switch(bPacket.type)
+                // {
+                //     case 'DUPLICATE':
+                //         printSystemMsg('guide','중복 로그인으로 인해 이전 접속을 종료합니다.');
+                //         socket.disconnect();
+                //         document.location.href = '/box_chatting?state=doubled_display&logout='+bPacket.logout;
+                //         break;
+                // }
+                // break;
 
             case 'CONNECTUSER':
                 if(roomIdx == 'channel1')
