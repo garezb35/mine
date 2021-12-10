@@ -951,7 +951,7 @@ function receiveProcess(data)
                         {
                             if(i == 'inject') break;
                             var dataInfo = bPacket.msgList[i];
-                            printChatMsg(dataInfo.level,dataInfo.sex,dataInfo.mark,dataInfo.id,dataInfo.nickname,dataInfo.msg,dataInfo.item,dataInfo.winFixCnt);
+                            printChatMsg(dataInfo.level,dataInfo.sex,dataInfo.mark,dataInfo.id,dataInfo.nickname,dataInfo.msg,dataInfo.item,dataInfo.winFixCnt,dataInfo.image);
                         }
                 }
                 printSystemMsg('guide','채팅에 참여하려면 로그인이 필요합니다.');

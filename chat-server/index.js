@@ -67,7 +67,6 @@ public.on("connection",(client) => {
         let duplicated = 0;
         switch (data.header.type){
             case "login":
-
                 if(data.body.cmd =="LOGIN"){
                     let token  = "";
                     if(data.body.userToken.trim() == "")
