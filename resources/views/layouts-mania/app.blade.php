@@ -271,6 +271,11 @@
         border-top-color: #f5f5f5;
         margin-top:  -1px;
     }
+    @if(request()->route()->getName() == "index")
+        .topbar-left {
+        left: 146px
+    }
+    @endif
 </style>
 <script>
     function controlFavorite() {
