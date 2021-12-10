@@ -338,7 +338,7 @@
     }
     @if(request()->route()->getName() == "index")
         .topbar-left {
-        left: 146px
+        left: 250px
     }
     @endif
 </style>
