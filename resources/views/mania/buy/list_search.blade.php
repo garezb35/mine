@@ -87,8 +87,6 @@
                                 <label><input type="radio" name="goods_type" value="bargain" class="g_btn_white2_radio" @if($goods_type == 'bargain') checked @endif>흥정</label>
                             </li>
                         </ul>
-                    </div>
-                    <div class="search_row">
                         <div class="search_tit">거래상태</div>
                         <ul id="state">
                             <li>
@@ -179,10 +177,7 @@
                                 <li>
                                     <label><input type="checkbox" name="out" class="g_checkbox" @if(!empty($out)) checked @endif>기타</label>
                                 </li>
-
                             </ul>
-                        </div>
-                        <div class="search_row">
                             <div class="search_tit">구매경로</div>
                             <ul id="etc">
                                 <li>
@@ -206,8 +201,6 @@
                                     <label><input type="radio" name="customer_num" value="2" class="g_checkbox" @if(empty($customer_num) || $customer_num == 2) checked @endif>x</label>
                                 </li>
                             </ul>
-                        </div>
-                        <div class="search_row">
                             <div class="search_tit">결제내역 유무</div>
                             <ul id="etc">
                                 <li>
