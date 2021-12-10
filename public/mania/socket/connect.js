@@ -3,7 +3,7 @@ window.addEventListener('load',function(){
 
     this.userInfo = {
         'token':document.querySelector('#CHAT_TOKEN').value,
-        'whoAmI':document.querySelector('#CHAT_USER').value
+        'whoAmI':document.querySelector('#CHAT_USER').value,
         'image':document.querySelector('#CHAT_IMAGE').value
     };
     this.chatWrapper = document.querySelector('#chat_wrapper');
