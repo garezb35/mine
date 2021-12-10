@@ -510,7 +510,7 @@ class VAjaxController extends BaseController
         $msg_list = array();
         $paging = $request->paging;
         $token = $request->token;
-        $msg = MPrivateMessage::with('u1')->where('orderNo',$token)->orderBy("created_at","DESC")->skip($paging * 20)->take(20)->get()->toArray();
+        $msg = MPrivateMessage::with('u1.roles')->where('orderNo',$token)->orderBy("created_at","DESC")->skip($paging * 20)->take(20)->get()->toArray();
         if(count($msg) > 0){
 //            $msg = array_reverse($msg);
             $msg_next = MPrivateMessage::where('orderNo',$token)->skip(($paging+1) * 20)->take(20)->get()->count();
@@ -522,6 +522,7 @@ class VAjaxController extends BaseController
                     "id"=>$v['u1']['loginId'],
                     "whoAmI"=>$v['type'],
                     "msg"=>$v['msg'],
+                    'image'=>$v['u1']['roles']['icon'],
                     "chat_de"=>date("Y-m-d H:i:s",strtotime($v['created_at']))
                 ));
             }
