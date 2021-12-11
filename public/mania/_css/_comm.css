@@ -2958,3 +2958,6 @@ element.style {
 #logo_img{
     width: 244px;
 }
+.mr-4 {
+    margin-right: 4px;
+}

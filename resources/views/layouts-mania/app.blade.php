@@ -211,18 +211,25 @@
                     </tbody>
                 </table>
             </div>
+            <style>
+                .quickmenu_cont .ing_count .ings > div {
+                    width: 88px;
+                }
+            </style>
             <div class="trade_list">
                 <ul class="ing_count">
                     <li class="sell">
-                        <span class="c_txt sells">판매목록</span>
-                        <div class="qbox">
+                        <span class="c_txt sells" >판매목록</span>
+                        <div class="qbox" style="margin-left: 2px;">
                             <div class="ings">
-                                <div>
-                                    <span class="mr-15">판매등록</span>
+                                <div style="width: 132px !important">
+                                    <span class="mr-4">등록</span>
+                                    <span><a href="/myroom/sell/sell_regist"><span class="f_blue1 f_bold">{{number_format($top_selling_register)}}</span>건</a></span>
+                                    <span class="mr-4" style="margin-left: 4px;">판매중</span>
                                     <span><a href="/myroom/sell/sell_regist"><span class="f_blue1 f_bold">{{number_format($top_selling_register)}}</span>건</a></span>
                                 </div>
                                 <div>
-                                    <span class="mr-15">흥정신청</span>
+                                    <span class="mr-4">흥정신청</span>
                                     <span><a href="/myroom/sell/sell_check"><span class="f_blue1 f_bold">{{number_format($top_bargain_request)}}</span>건</a></span>
                                 </div>
                             </div>
@@ -230,10 +237,12 @@
                     </li>
                     <li class="buy">
                         <span class="c_txt buys">구매목록</span>
-                        <div class="qbox">
+                        <div class="qbox" style="margin-left: 2px;">
                             <dl class="ings">
-                                <div>
-                                    <span class="mr-15">구매등록</span>
+                                <div style="width: 132px !important">
+                                    <span class="mr-4">등록</span>
+                                    <span><a href="/myroom/buy/buy_regist"><span class="f_green1 f_bold">{{number_format($top_buying_register)}}</span>건</a></span>
+                                    <span class="mr-4" style="margin-left: 4px;">구매중</span>
                                     <span><a href="/myroom/buy/buy_regist"><span class="f_green1 f_bold">{{number_format($top_buying_register)}}</span>건</a></span>
                                 </div>
                             </dl>
