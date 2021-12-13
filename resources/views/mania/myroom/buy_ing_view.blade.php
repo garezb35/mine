@@ -545,7 +545,7 @@ if(sizeof($split_number) == 3){
 @section('footer')
     <script>
         $(document).ready(function(){
-            $(".request_cancel").click(function(){
+            $("#request_cancel").click(function(){
                 $(".Form_table").css('display','block');
             });
         })
