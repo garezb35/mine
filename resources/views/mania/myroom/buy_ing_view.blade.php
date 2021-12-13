@@ -459,84 +459,82 @@ if(sizeof($split_number) == 3){
                 @endif
             </div>
             <div class="g_finish"></div>
-
-
         </div>
-
+        <div id="Form_table" style="display: none">
+            <form name="form_member" id="form_member" method="post" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="a_code" value="A1" />
+                <input type="hidden" name="b_code" value="01" />
+                <input type="hidden" name="c_code" value="01" />
+                <input type="hidden" name="trade_num" value="" />
+                <input type="hidden" name="game_code" value="" />
+                <input type="hidden" name="server_code" value="" />
+                <input type="hidden" name="gs_name" value="" />
+                <div class="s_subtitle">상담서 작성하기</div>
+                <table id="goods_table" class="g_gray_tb g_sky_table">
+                    <colgroup>
+                        <col width="130" />
+                        <col width="690" /> </colgroup>
+                    <tr>
+                        <th>접수분야</th>
+                        <td>
+                            종료요청
+                            <input type="hidden" name="type" value="1" >
+                            <input type="hidden" name="orderNo" value="" id="tradeNum2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>이름</th>
+                        <td>{{$cuser['name']}}</td>
+                    </tr>
+                    <tr>
+                        <th>연락처</th>
+                        <td class="h_auto">
+                            <div id="myinfo" class="g_left g_black3_11"> 집(직장) : N{{$cuser['home']}}&nbsp;&nbsp;휴대폰 :
+                                {{$cuser['number']}}
+                                <br /> 정확한 연락처로 신고해 주세요.
+                                <br /> 연락처가 틀릴 경우 상담이 원활히 이루어지지 않을 수 있습니다. </div>
+                            <div class="g_right"></div>
+                        </td>
+                    </tr>
+                    <tr id="TR_trade_num">
+                        <th>거래번호</th>
+                        <td>#<span id="tradeNum"></span></td>
+                    </tr>
+                    <tr class="m_tmp">
+                        <th>거래번호</th>
+                        <td class="h_auto">
+                            <input type="radio" name="privates" value="물품 인계 후 구매자 연락 안됨" class="g_radio">물품 인계 후 구매자 연락 안됨
+                            <br>
+                            <input type="radio" name="privates" value="물품 인계 후 구매자 물품인수확인 안됨" class="g_radio">물품 인계 후 구매자 물품인수확인 안됨
+                            <br>
+                            <input type="radio" name="privates" value="물품 인계 후 종료안됨" class="g_radio">물품 인계 후 종료안됨
+                            <br>
+                            <input type="radio" name="privates" value="기타 사유" class="g_radio">기타 사유 &nbsp; <input type="text" name="privates_txt" />
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>통화가능번호</th>
+                        <td>
+                            <input type="text" name="user_phone1" class="g_text" id="phone1" maxlength="3" /> -
+                            <input type="text" name="user_phone2" class="g_text" id="phone2" maxlength="4" /> -
+                            <input type="text" name="user_phone3" class="g_text" id="phone3" maxlength="4" /> <span class="g_black3_11">현재 통화 가능한 연락처를 남겨주세요.</span></td>
+                    </tr>
+                </table>
+                <!-- ▲ 보기 //-->
+                <!-- ▼ 버튼 //-->
+                <div class="g_btn">
+                    <button class="btn-blue-img btn-color-img" type="submit">확인</button>
+                    <button class="btn-gray-img btn-color-img" type="button">취소</button>
+                </div>
+                <!-- ▲ 버튼 //-->
+            </form>
+        </div>
         <div class="g_finish"></div>
     </div>
     <!-- ▲ 컨텐츠 영역 //-->
 @endsection
 
 
-<div id="Form_table" style="display: none">
-    <form name="form_member" id="form_member" method="post" enctype="multipart/form-data">
-        @csrf
-        <input type="hidden" name="a_code" value="A1" />
-        <input type="hidden" name="b_code" value="01" />
-        <input type="hidden" name="c_code" value="01" />
-        <input type="hidden" name="trade_num" value="" />
-        <input type="hidden" name="game_code" value="" />
-        <input type="hidden" name="server_code" value="" />
-        <input type="hidden" name="gs_name" value="" />
-        <div class="s_subtitle">상담서 작성하기</div>
-        <table id="goods_table" class="g_gray_tb g_sky_table">
-            <colgroup>
-                <col width="130" />
-                <col width="690" /> </colgroup>
-            <tr>
-                <th>접수분야</th>
-                <td>
-                    종료요청
-                    <input type="hidden" name="type" value="1" >
-                    <input type="hidden" name="orderNo" value="" id="tradeNum2">
-                </td>
-            </tr>
-            <tr>
-                <th>이름</th>
-                <td>{{$cuser['name']}}</td>
-            </tr>
-            <tr>
-                <th>연락처</th>
-                <td class="h_auto">
-                    <div id="myinfo" class="g_left g_black3_11"> 집(직장) : N{{$cuser['home']}}&nbsp;&nbsp;휴대폰 :
-                        {{$cuser['number']}}
-                        <br /> 정확한 연락처로 신고해 주세요.
-                        <br /> 연락처가 틀릴 경우 상담이 원활히 이루어지지 않을 수 있습니다. </div>
-                    <div class="g_right"></div>
-                </td>
-            </tr>
-            <tr id="TR_trade_num">
-                <th>거래번호</th>
-                <td>#<span id="tradeNum"></span></td>
-            </tr>
-            <tr class="m_tmp">
-                <th>거래번호</th>
-                <td class="h_auto">
-                    <input type="radio" name="privates" value="물품 인계 후 구매자 연락 안됨" class="g_radio">물품 인계 후 구매자 연락 안됨
-                    <br>
-                    <input type="radio" name="privates" value="물품 인계 후 구매자 물품인수확인 안됨" class="g_radio">물품 인계 후 구매자 물품인수확인 안됨
-                    <br>
-                    <input type="radio" name="privates" value="물품 인계 후 종료안됨" class="g_radio">물품 인계 후 종료안됨
-                    <br>
-                    <input type="radio" name="privates" value="기타 사유" class="g_radio">기타 사유 &nbsp; <input type="text" name="privates_txt" />
-                    <br>
-                </td>
-            </tr>
-            <tr>
-                <th>통화가능번호</th>
-                <td>
-                    <input type="text" name="user_phone1" class="g_text" id="phone1" maxlength="3" /> -
-                    <input type="text" name="user_phone2" class="g_text" id="phone2" maxlength="4" /> -
-                    <input type="text" name="user_phone3" class="g_text" id="phone3" maxlength="4" /> <span class="g_black3_11">현재 통화 가능한 연락처를 남겨주세요.</span></td>
-            </tr>
-        </table>
-        <!-- ▲ 보기 //-->
-        <!-- ▼ 버튼 //-->
-        <div class="g_btn">
-            <button class="btn-blue-img btn-color-img" type="submit">확인</button>
-            <button class="btn-gray-img btn-color-img" type="button">취소</button>
-        </div>
-        <!-- ▲ 버튼 //-->
-    </form>
-</div>
+
