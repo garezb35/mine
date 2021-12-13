@@ -116,7 +116,7 @@
             <ul id="trade_subtab" class="g_sideway">
                 <li> <a class="f-14 {{$typeTxt == 'sell' ? 'f_blue3 f_bold' : ''}}" href="{{route("customer_report")}}?type=sell">판매중 물품 </a> </li>
 {{--                <li> |</li>--}}
-{{--                <li> <a class="f-14 {{$typeTxt == 'buy' ? 'f_blue3 f_bold' : ''}}" href="{{route("customer_report")}}?type=buy">구매중 물품 </a> </li>--}}
+                <li> <a class="f-14 {{$typeTxt == 'buy' ? 'f_blue3 f_bold' : ''}}" href="{{route("customer_report")}}?type=buy">구매중 물품 </a> </li>
             </ul>
             <!-- ▲ 서브탭 //-->
             <div class="g_finish"></div>

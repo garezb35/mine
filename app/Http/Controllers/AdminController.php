@@ -517,5 +517,16 @@ class AdminController extends BaseAdminController
             return response()->json(array("status"=>0,'msg'=>'자료가 비었습니다.'));
         }
     }
+
+    public function orderContent(Request $request){
+        $id = $request->id;
+        $item = MItem::with(['user','other','game','server','payitem','privateMessage','bargains'])->where('orderNo',$id)->first();
+        if(empty($item)){
+            echo "<script>alert('존재하지 않는 자료입니다.');self.close();</script>";
+        }
+        return view('admin.order.order_content',[
+            'item'=>$item
+        ]);
+    }
 }
 

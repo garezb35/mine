@@ -67,7 +67,7 @@
                                 <select class="form-control js-example-basic-single-server_code" name="server_code" id="select-server_code">
                                     <option value="">전체</option>
                                     @foreach($servers as $s)
-                                    <option value="{{$s['id']}}" {{Request::get("server") == $s["id"] ? "selected": ""}}>{{$s['game']}}</option>
+                                    <option value="{{$s['id']}}" {{Request::get("server_code") == $s["id"] ? "selected": ""}}>{{$s['game']}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -140,7 +140,7 @@
                                         {{$o_v['id']}}
                                     </td>
                                     <td>
-                                        <a href="">#{{$o_v['orderNo']}}</a>
+                                        <a href="javascript:void(0)" onclick="openOrder('{{$o_v['orderNo']}}')">#{{$o_v['orderNo']}}</a>
                                     </td>
                                     <td>
                                         {{$o_v['type'] == "sell" ? '판매물품':'구매물품'}}
