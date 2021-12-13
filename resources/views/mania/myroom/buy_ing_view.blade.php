@@ -542,7 +542,7 @@ if(sizeof($split_number) == 3){
     <!-- ▲ 컨텐츠 영역 //-->
 @endsection
 
-@section('footer')
+@section('foot_attach')
     <script>
         $(document).ready(function(){
             $("#request_cancel").click(function(){
