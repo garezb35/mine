@@ -34,7 +34,7 @@ if(sizeof($split_number) == 3){
     <script>
         $(document).ready(function(){
             $("#request_cancel").click(function(){
-                $(".Form_table").css('display','block');
+                $("#Form_table").css('display','block');
             });
             $('#js-gallery')
                 .packery({
