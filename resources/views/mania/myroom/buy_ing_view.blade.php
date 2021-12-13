@@ -494,13 +494,13 @@ if(sizeof($split_number) == 3){
             </tr>
             <tr>
                 <th>이름</th>
-                <td>{{$user->name}}</td>
+                <td>{{$cuser['name']}}</td>
             </tr>
             <tr>
                 <th>연락처</th>
                 <td class="h_auto">
-                    <div id="myinfo" class="g_left g_black3_11"> 집(직장) : N{{$user['home']}}&nbsp;&nbsp;휴대폰 :
-                        {{$user->phone}}
+                    <div id="myinfo" class="g_left g_black3_11"> 집(직장) : N{{$cuser['home']}}&nbsp;&nbsp;휴대폰 :
+                        {{$cuser['number']}}
                         <br /> 정확한 연락처로 신고해 주세요.
                         <br /> 연락처가 틀릴 경우 상담이 원활히 이루어지지 않을 수 있습니다. </div>
                     <div class="g_right"></div>
