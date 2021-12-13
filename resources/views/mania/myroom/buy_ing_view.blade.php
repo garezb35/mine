@@ -461,7 +461,7 @@ if(sizeof($split_number) == 3){
             <div class="g_finish"></div>
         </div>
         <div id="Form_table" style="display: none">
-            <form name="form_member" id="form_member" method="post" enctype="multipart/form-data">
+            <form name="form_member" id="form_member" method="post" enctype="multipart/form-data" action="/customer/report">
                 @csrf
                 <input type="hidden" name="a_code" value="A1" />
                 <input type="hidden" name="b_code" value="01" />
@@ -480,7 +480,7 @@ if(sizeof($split_number) == 3){
                         <td>
                             종료요청
                             <input type="hidden" name="type" value="1" >
-                            <input type="hidden" name="orderNo" value="" id="tradeNum2">
+                            <input type="hidden" name="orderNo" value="{{$orderNo}}" id="tradeNum2">
                         </td>
                     </tr>
                     <tr>
@@ -499,18 +499,24 @@ if(sizeof($split_number) == 3){
                     </tr>
                     <tr id="TR_trade_num">
                         <th>거래번호</th>
-                        <td>#<span id="tradeNum"></span></td>
+                        <td>#{{$orderNo}}<span id="tradeNum"></span></td>
                     </tr>
                     <tr class="m_tmp">
-                        <th>거래번호</th>
+                        <th>취소이유</th>
                         <td class="h_auto">
-                            <input type="radio" name="privates" value="물품 인계 후 구매자 연락 안됨" class="g_radio">물품 인계 후 구매자 연락 안됨
+                            <input type="radio" name="privates" value="상대방과 연락이 안됩니다." class="g_radio">상대방과 연락이 안됩니다.
                             <br>
-                            <input type="radio" name="privates" value="물품 인계 후 구매자 물품인수확인 안됨" class="g_radio">물품 인계 후 구매자 물품인수확인 안됨
+                            <input type="radio" name="privates" value="이미 팔린 물품 입니다" class="g_radio">이미 팔린 물품 입니다
                             <br>
-                            <input type="radio" name="privates" value="물품 인계 후 종료안됨" class="g_radio">물품 인계 후 종료안됨
+                            <input type="radio" name="privates" value="잘못 등록 또는 신청한 물품 입니다" class="g_radio">잘못 등록 또는 신청한 물품 입니다
                             <br>
-                            <input type="radio" name="privates" value="기타 사유" class="g_radio">기타 사유 &nbsp; <input type="text" name="privates_txt" />
+                            <input type="radio" name="privates" value="상대방이 직거래를 유도 합니다" class="g_radio">상대방이 직거래를 유도 합니다
+                            <br>
+                            <input type="radio" name="privates" value="상대방이 타사이트 거래를 유도 합니다" class="g_radio">상대방이 타사이트 거래를 유도 합니다
+                            <br>
+                            <input type="radio" name="privates" value="상대방이 가격 흥정을 합니다" class="g_radio">상대방이 가격 흥정을 합니다
+                            <br>
+                            <input type="radio" name="privates" value="기타 사유" class="g_radio">기타 사유 &nbsp; <input type="text" name="privates_txt">
                             <br>
                         </td>
                     </tr>
@@ -534,6 +540,16 @@ if(sizeof($split_number) == 3){
         <div class="g_finish"></div>
     </div>
     <!-- ▲ 컨텐츠 영역 //-->
+@endsection
+
+@section('footer')
+    <script>
+        $(document).ready(function(){
+            $(".request_cancel").click(function(){
+                $(".Form_table").css('display','block');
+            });
+        })
+    </script>
 @endsection
 
 
