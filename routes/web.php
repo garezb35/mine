@@ -74,6 +74,7 @@ Route::group(['middleware' => ['web', 'admins']], function () {
         Route::post('/member_update',[\App\Http\Controllers\AdminController::class,'member_update'])->name('member.update');
         Route::post('/member_password',[\App\Http\Controllers\AdminController::class,'member_password'])->name('member.password');
         Route::get('/order_list',[\App\Http\Controllers\AdminController::class,'order_list'])->name('order_list');
+        Route::get('orderContent',[\App\Http\Controllers\AdminController::class,'orderContent'])->name('orderContent');
     });
 
     Route::post('/updateProfile', [\App\Http\Controllers\AdminController::class,'updateProfile'])->name('profile.update');
