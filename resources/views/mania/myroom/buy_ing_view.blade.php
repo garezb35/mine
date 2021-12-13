@@ -32,16 +32,22 @@ if(sizeof($split_number) == 3){
 @section('foot_attach')
     <script type="text/javascript" src="/mania/myroom/buy/js/buy_ing_view.js"></script>
     <script>
-        $('#js-gallery')
-            .packery({
-                itemSelector: '.slide',
-                gutter: 10
-            })
-            .photoSwipe('.slide', {bgOpacity: 0.8, shareEl: false}, {
-                close: function () {
-                    console.log('closed');
-                }
+        $(document).ready(function(){
+            $("#request_cancel").click(function(){
+                $(".Form_table").css('display','block');
             });
+            $('#js-gallery')
+                .packery({
+                    itemSelector: '.slide',
+                    gutter: 10
+                })
+                .photoSwipe('.slide', {bgOpacity: 0.8, shareEl: false}, {
+                    close: function () {
+                        console.log('closed');
+                    }
+                });
+        })
+
     </script>
 @endsection
 
@@ -540,16 +546,6 @@ if(sizeof($split_number) == 3){
         <div class="g_finish"></div>
     </div>
     <!-- ▲ 컨텐츠 영역 //-->
-@endsection
-
-@section('foot_attach')
-    <script>
-        $(document).ready(function(){
-            $("#request_cancel").click(function(){
-                $(".Form_table").css('display','block');
-            });
-        })
-    </script>
 @endsection
 
 
