@@ -474,7 +474,6 @@ if(sizeof($split_number) == 3){
                     <input type="hidden" name="game_code" value="" />
                     <input type="hidden" name="server_code" value="" />
                     <input type="hidden" name="gs_name" value="" />
-                    <div class="s_subtitle">상담서 작성하기</div>
                     <table id="goods_table" class="g_gray_tb g_sky_table">
                         <colgroup>
                             <col width="130" />
