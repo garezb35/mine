@@ -194,4 +194,3 @@ function bannerRolling(bannerSelector) {
 
 
 bannerRolling('#center_rolling_banner');
-bannerRolling('.gamemania');

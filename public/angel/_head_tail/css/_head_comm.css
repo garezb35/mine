@@ -382,13 +382,7 @@ body{
 .quickmenu_cont .bt_bn_area{
     margin-top:20px;
 }
-.quickmenu_cont .bt_bn_area .bn_gamemania{
-    display:inline-block;
-    width:102px;
-    height:144px;
-    background-position:-826px -2px;
-    text-indent:-9999px;
-}
+
 .quickmenu_cont .bt_bn_area .bn_freecoupon{
     display:inline-block;
     width:102px;

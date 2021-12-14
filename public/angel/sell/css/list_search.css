@@ -421,12 +421,12 @@
 
 .search_list>.power_product>.col_02>.view_detail_quick {
     position: absolute;
-    top: 24px;
+    top: 17px;
     right: 10px;
     display: none;
-    width: 73px;
-    height: 27px;
-    background-image: url(//img2.itemmania.com/new_images/sell/btn_quick.gif);
+    width: 102px;
+    height: 25px;
+    background-image: url(/angel/img/icons/speed.png);
     background-repeat: no-repeat;
     cursor: pointer;
 }
@@ -561,10 +561,11 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 55px;
-    height: 43px;
+    width: 47px;
+    height: 58px;
     content: "";
-    background: url(//img2.itemmania.com/new_images/sell/img_power_tab.png) no-repeat;
+    background: url(/angel/img/icons/premium.png) no-repeat;
+    background-size: unset;
 }
 
 .search_list_premium>li>.col_02 {
@@ -632,14 +633,7 @@ i.icon_nego {
     background-position-x: -139px;
 }
 
-.icon_bargain {
-    display: inline-block;
-    width: 29px;
-    height: 14px;
-    background: url(//img2.itemmania.com/images/icon/icon_bargain.gif) no-repeat;
-    vertical-align: middle;
-    text-indent: -9999px;
-}
+
 
 .load_more {
     height: 38px;
@@ -895,13 +889,6 @@ i.icon_refresh {
     cursor: pointer;
 }
 
-.item_regInfo .regInfo_btn.buyapp {
-    background-image: url(//img2.itemmania.com/new_images/btn/btn_buyapp.gif);
-}
-
-.item_regInfo .regInfo_btn.detail {
-    background-image: url(//img2.itemmania.com/new_images/btn/btn_detail.gif);
-}
 
 .sise_indicator {
     margin-top: 12px;

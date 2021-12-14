@@ -616,6 +616,7 @@ table tr .left {
     background: url(/angel/img/icons/646-6463425_sign-warning-icon-flat-warning-icon-png-transparent.png) no-repeat 0 2px;
     font-weight: bold;
     background-size: auto 24px;
+    line-height: 24px;
 }
 
 .g_title_notice {
@@ -2779,4 +2780,169 @@ element.style {
 .g_screenshot2>.tmp_file>span {
     display: inline-block;
     vertical-align: middle;
+}
+
+.btn:hover,
+.btn:focus
+{
+    text-decoration: none;
+}
+.btn:focus,
+.btn.focus
+{
+    outline: 0;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08);
+}
+.btn.disabled,
+.btn:disabled
+{
+    opacity: .65;
+    box-shadow: none;
+}
+.btn:not(:disabled):not(.disabled)
+{
+    cursor: pointer;
+}
+.btn:not(:disabled):not(.disabled):active,
+.btn:not(:disabled):not(.disabled).active
+{
+    box-shadow: none;
+}
+.btn:not(:disabled):not(.disabled):active:focus,
+.btn:not(:disabled):not(.disabled).active:focus
+{
+    box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08), none;
+}
+
+a.btn.disabled,
+fieldset:disabled a.btn
+{
+    pointer-events: none;
+}
+
+.btn-primary
+{
+    color: #fff;
+    border-color: #5e72e4;
+    background-color: #5e72e4;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+}
+.btn-primary:hover
+{
+    color: #fff;
+    border-color: #5e72e4;
+    background-color: #5e72e4;
+}
+.btn-primary:focus,
+.btn-primary.focus
+{
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08), 0 0 0 0 rgba(94, 114, 228, .5);
+}
+.btn-primary.disabled,
+.btn-primary:disabled
+{
+    color: #fff;
+    border-color: #5e72e4;
+    background-color: #5e72e4;
+}
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle
+{
+    color: #fff;
+    border-color: #5e72e4;
+    background-color: #324cdd;
+}
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus
+{
+    box-shadow: none, 0 0 0 0 rgba(94, 114, 228, .5);
+}
+
+.btn-secondary
+{
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+.btn-secondary:hover
+{
+    color: #fff;
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.btn-secondary:focus,
+.btn-secondary.focus
+{
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08), 0 0 0 0 rgba(247, 250, 252, .5);
+}
+.btn-secondary.disabled,
+.btn-secondary:disabled
+{
+    color: #212529;
+    border-color: #f7fafc;
+    background-color: #f7fafc;
+}
+.btn-secondary:not(:disabled):not(.disabled):active,
+.btn-secondary:not(:disabled):not(.disabled).active,
+.show > .btn-secondary.dropdown-toggle
+{
+    color: #212529;
+    border-color: #f7fafc;
+    background-color: #d2e3ee;
+}
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
+.btn-secondary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-secondary.dropdown-toggle:focus
+{
+    box-shadow: none, 0 0 0 0 rgba(247, 250, 252, .5);
+}
+
+.btn-success
+{
+    color: #fff;
+    border-color: #2dce89;
+    background-color: #2dce89;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+}
+.btn-success:hover
+{
+    color: #fff;
+    border-color: #2dce89;
+    background-color: #2dce89;
+}
+.btn-success:focus,
+.btn-success.focus
+{
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08), 0 0 0 0 rgba(45, 206, 137, .5);
+}
+.btn-success.disabled,
+.btn-success:disabled
+{
+    color: #fff;
+    border-color: #2dce89;
+    background-color: #2dce89;
+}
+.btn-success:not(:disabled):not(.disabled):active,
+.btn-success:not(:disabled):not(.disabled).active,
+.show > .btn-success.dropdown-toggle
+{
+    color: #fff;
+    border-color: #2dce89;
+    background-color: #24a46d;
+}
+.btn-success:not(:disabled):not(.disabled):active:focus,
+.btn-success:not(:disabled):not(.disabled).active:focus,
+.show > .btn-success.dropdown-toggle:focus
+{
+    box-shadow: none, 0 0 0 0 rgba(45, 206, 137, .5);
+}
+
+.btn-group-sm>.btn, .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
 }

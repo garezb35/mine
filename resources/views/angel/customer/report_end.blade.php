@@ -20,7 +20,6 @@
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
     <div class="g_container" id="g_CONTENT">
         <style>
             .aside .notice {
@@ -198,15 +197,11 @@
                                 -
                             @endif
                         </td>
-                        <!-- ☜ $imgBtn 뒤에 공백 한칸 꼭 필요 //-->
                     </tr>
                 @endforeach
             </table>
-            <!-- ▲ 리스트 //-->
             <div class="dvPaging"></div>
             <div class="g_finish"></div>
-            <!-- ▼ 상담서 //-->
-            <!-- ▼ 거래 취소/종료요청 //-->
             <div id="Form_table" style="display: none">
                 <form name="form_member" id="form_member" method="post" enctype="multipart/form-data">
                     @csrf
@@ -269,20 +264,15 @@
                                 <input type="text" name="user_phone3" class="g_text" id="phone3" maxlength="4" /> <span class="g_black3_11">현재 통화 가능한 연락처를 남겨주세요.</span></td>
                         </tr>
                     </table>
-                    <!-- ▲ 보기 //-->
-                    <!-- ▼ 버튼 //-->
                     <div class="g_btn">
                         <button class="btn-blue-img btn-color-img" type="submit">확인</button>
                         <button class="btn-gray-img btn-color-img" type="button">취소</button>
                     </div>
-                    <!-- ▲ 버튼 //-->
                 </form>
             </div>
-            <!-- ▲ 거래 취소/종료요청 //-->
         </div>
         <div class="g_finish"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
 
     <script>
         $(document).ready(function() {

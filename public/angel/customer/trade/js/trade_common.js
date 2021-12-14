@@ -301,12 +301,11 @@ function fnCreateDom(strType, c_code) {
 
                 $('#form_member').attr('action', '../report_ok.html');
                 return true;
-//					$('#form_member').submit();
 
             }
         });
     }
-    /* ▲ 폼체크 */
+
 
     var goodsTable = $('#goods_table');
     // goodsTable.find('.m_tmp').remove();
@@ -749,7 +748,7 @@ $.fn.extend({
         var TR2 = $('<TR />');
         var TH = $('<TH />').attr('rowspan', 2).text('첨부파일');
         var TD = $('<TD />').attr('colspan', 4);
-        var TD2 = $('<TD />').attr('colspan', 4).addClass('screenshot_sub').text('* 첨부파일 용량이 초과될 경우 itemmania@itemmania.com로 이메일 발송 후 고객감동센터(1544-8278)로 문의바랍니다.');
+        var TD2 = $('<TD />').attr('colspan', 4).addClass('screenshot_sub').text('* 첨부파일 용량이 초과될 경우 고객센터로 문의바랍니다.');
         var DIV = $('<DIV />').addClass('screenshot_wrap').attr('id', 'screenshot');
         var DIV2 = $('<DIV />').addClass('screen_guide').text('용량 300KB이하 jpg만 가능(최대 3개)');
         var SCREEN = $('<input />', {
@@ -769,7 +768,7 @@ $.fn.extend({
     }
 });
 
-/* ▼ check CUSTOM */
+
 function fnCheck_Subject() {
     if ($(this).val().isEmpty() || $(this).val() == '※ 제목을 입력해 주세요.') {
         alert('제목을 입력해 주세요.');
@@ -878,10 +877,8 @@ function fnCheck_HackingCheck() {
     return true;
 }
 
-/* ▲ check CUSTOM */
 
-/* ▼ 접수하기버튼 처리 */
-function fnImgBtn(code, strType)		// 신고서 작성 중 접수하기 버튼 숨김
+function fnImgBtn(code, strType)
 {
     if (strType == "h") {
         $('#trade_list div.btn_red1').hide();
@@ -897,9 +894,6 @@ function fnImgBtn(code, strType)		// 신고서 작성 중 접수하기 버튼 �
     }
 }
 
-/* ▲ 접수하기버튼 처리 */
-
-/* ▼ 비동기요청 */
 function initXhr(seq, table, code, type, reflag, t_type) {
     var procPage = "";
     var paramsValue = "";
@@ -909,9 +903,6 @@ function initXhr(seq, table, code, type, reflag, t_type) {
     fnAjax(procPage, 'text', 'POST', paramsValue, {complete: insertRs});
 }
 
-/* ▲ 비동기요청 */
-
-/* ▼ 요청에 대한 결과 처리 */
 function insertRs(request) {
     var rsText = request;
 
@@ -952,7 +943,6 @@ function insertRs(request) {
         else {
             if (rsData[2] == "A10101" && user_id == seller_id) {	// 판매자 취소요청(즉시취소)
                 var a_code = rsData[2].substring(0, 2);
-//				fnImgBtn(a_code);
                 fnDirect();
             } else if ((rsData[2] == "A10101" && user_id == buyer_id) || (rsData[2] == "A10102" && user_id == seller_id)) {
                 $("#tradeNum").text('');
@@ -993,23 +983,14 @@ function insertRs(request) {
         trade_id3.text(gsName[1]);
         trade_id6.text(splitRs[8]);
         trade_id7.text(Number(splitRs[6]).currency());
-
-//		if (mCategory == "A202") {
-//			move_self_A2(mCategory);
-//		} else {
         if (rsData[4] != "" && rsData[4] != "undefined") {
             move_self_A2(rsData[1], rsData[4]);		// 거래종료건 > 판매종료내역, 이전 판매종료내역 구분값 전달
         } else {
             move_self_A2(rsData[1]);
         }
-//		}
-
     }
 }
 
-/* ▲ 요청에 대한 결과 처리 */
-
-/* ▼ 답변준비중, 답변완료 시 재문의 팝업관련 */
 function fnReLayerShow(layer, hA_code, hCount, trade_id, getTable, return_c, code) {
     var hiddenFrm = $('#hiddenForm');
 
@@ -1034,9 +1015,6 @@ function fnReLayerHide() {
     initXhr(hiddenFrm.find('input[name="iTrade_id"]').val(), hiddenFrm.find('input[name="iGetTable"]').val(), hiddenFrm.find('input[name="iReturn_c"]').val(), hiddenFrm.find('input[name="iCode"]').val());
 }
 
-/* ▲ 답변준비중, 답변완료 시 재문의 팝업관련 */
-
-/* ▼ 거래 취소 요청시 판매자 즉시 취소 팝업관련 */
 function fnDirect() {
     var signFrm = $('#signForm');
     var trade_id = signFrm.find('input[name="trade_num"]').val();
@@ -1052,10 +1030,6 @@ function fnDirect() {
     $("#SELECT_CANCEL").select("");
     g_nodeSleep.enable($("#trade_cancel"));
 }
-
-/* ▲ 거래 취소 요청시 판매자 즉시 취소 팝업관련 */
-
-/* ▼ 거래 취소 사유선택 관련 */
 function cancel_select(regData) {
     var cancelDetail = document.getElementById('cancelDetail');
 
@@ -1067,9 +1041,6 @@ function cancel_select(regData) {
     }
 }
 
-/* ▲ 거래 취소 사유선택 관련 */
-
-/* ▼ 거래 즉시 취소/종료 */
 function TraceCancel(process, tid, c_code) {
     var select_cancel = $('#SELECT_CANCEL')[0];
     var frm = $('#frmIngView');
@@ -1085,10 +1056,6 @@ function TraceCancel(process, tid, c_code) {
             alert("취소사유를 선택해 주세요.");
             return false;
         }
-        //	if(select_cancel.getValue() == "4" && $("#CANCEL_DETAIL_CONTENT").val() == "") {
-        //		alert("사유내용을 기재해 주세요.");
-        //		return false;
-        //	}
 
         var reReg = "N";
 
@@ -1109,24 +1076,18 @@ function TraceCancel(process, tid, c_code) {
     $("input[name='process']").val(process);
 
     if (confirm('거래를 ' + strType + '하겠습니까?')) {
-//		alert($("input[name='id']").val());
-//		alert($("input[name='process']").val());
-//		alert($("input[name='trade_type']").val());
         frm.attr("action", "/myroom/sell/sell_ing_ok?mode=pass");
         frm.submit();
     }
     return false;
 }
 
-/* ▲ 거래 즉시 취소/종료 */
 
-/* ▼ 거래취소 */
 var element_trade_id;
 
 function fnTrade_Ajax(trade_id, pMode) {
     element_trade_id = trade_id;
 
-//	var paramsValue = _http.encodeURI("trade_id="+trade_id+"&pMode="+pMode);
     var paramsValue = "trade_id=" + trade_id + "&pMode=" + pMode;
 
     if (pMode == 'cancel') {
@@ -1134,7 +1095,6 @@ function fnTrade_Ajax(trade_id, pMode) {
     }
     else if (pMode == 'complete') {
         fnAjax('/_include/_ACS_check_AJAX', 'text', 'POST', paramsValue, {complete: fnTrade_Complete_Ajax_Complete});
-//		new _xhr('/_include/_ACS_check_AJAX.html',{type:'POST',params:paramsValue},null,{complete:fnTrade_Complete_Ajax_Complete});
     }
     else {
         alert('관리자에게 문의 하세요.');
@@ -1173,8 +1133,6 @@ function fnTrade_Cancel_Ajax_Complete(request) {
                     frm.find('input[name="user_phone1"]').val(frm1.find('[name="user_phone1"]').val());
                     frm.find('input[name="user_phone2"]').val(frm1.find('[name="user_phone2"]').val());
                     frm.find('input[name="user_phone3"]').val(frm1.find('[name="user_phone3"]').val());
-
-//					frm.off('submit');
                     frm.attr('action', "buy_acs_cancel_ok.php").submit();
                 }
             }
@@ -1218,25 +1176,14 @@ function fnTrade_Cancel_Ajax_Complete(request) {
             else if (returnData == "BOARD") {
                 g_nodeSleep.disable($('#dvPopup'));
                 move_self_A1("01");
-//				if(confirm('접수 하시겠습니까?'))
-//				{
-//					var frm = $('#signForm');
-//
-//					frm.find('input[name="c_code"]').val("01");
-//					frm.submit();
-//				}
             }
             else if (returnData == "FRIST") {
-                /* ▼ 팝업 레이어 설정 및 뷰 */
                 g_nodeSleep.disable();
                 g_nodeSleep.enable($("#cancelPopup5"));
-                /* ▲ 팝업 레이어 설정 및 뷰 */
             }
             else if (returnData == "SECOND") {
-                /* ▼ 팝업 레이어 설정 및 뷰 */
                 g_nodeSleep.disable();
                 g_nodeSleep.enable($("#cancelPopup10"));
-                /* ▲ 팝업 레이어 설정 및 뷰 */
             }
             else if (returnData == "THIRD") {
                 /* ▼ 팝업 레이어 설정 및 뷰 */
@@ -1251,9 +1198,6 @@ function fnTrade_Cancel_Ajax_Complete(request) {
     }
 }
 
-/* ▲ 거래취소 */
-
-/* ▼ 거래종료 */
 function fnTrade_Complete_Ajax_Complete(request) {
     returnData = request;
 
@@ -1275,34 +1219,24 @@ function fnTrade_Complete_Ajax_Complete(request) {
             }
         }
         else if (returnData == "CONFIRM") {
-            /* ▼ 팝업 레이어 설정 및 뷰 */
             g_nodeSleep.disable();
             g_nodeSleep.enable($('#failPopup'));
-            /* ▲ 팝업 레이어 설정 및 뷰 */
         }
         else if (returnData == "STOP") {
-            /* ▼ 팝업 레이어 설정 및 뷰 */
             g_nodeSleep.disable();
             g_nodeSleep.enable($('#failPopup'));
-            /* ▲ 팝업 레이어 설정 및 뷰 */
         }
         else if (returnData == "FRIST") {
-            /* ▼ 팝업 레이어 설정 및 뷰 */
             g_nodeSleep.disable();
             g_nodeSleep.enable($('#endPopup5'));
-            /* ▲ 팝업 레이어 설정 및 뷰 */
         }
         else if (returnData == "SECOND") {
-            /* ▼ 팝업 레이어 설정 및 뷰 */
             g_nodeSleep.disable();
             g_nodeSleep.enable($('#endPopup10'));
-            /* ▲ 팝업 레이어 설정 및 뷰 */
         }
         else if (returnData == "THIRD") {
-            /* ▼ 팝업 레이어 설정 및 뷰 */
             g_nodeSleep.disable();
             g_nodeSleep.enable($('#endPopup10more'));
-            /* ▲ 팝업 레이어 설정 및 뷰 */
         }
         else if (returnData == "BOARD") {
             if (confirm('거래 종료 요청을 하겠습니까?')) {
@@ -1318,15 +1252,10 @@ function fnTrade_Complete_Ajax_Complete(request) {
     }
 }
 
-/* ▲ 거래종료 */
-
-/* ▼ Base64 encode_decode */
 var Base64 = {
 
-    // private property
     _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
 
-    // public method for encoding
     encode: function(input) {
         var output = "";
         var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
@@ -1360,7 +1289,6 @@ var Base64 = {
         return output;
     },
 
-    // public method for decoding
     decode: function(input) {
         var output = "";
         var chr1, chr2, chr3;
@@ -1397,7 +1325,6 @@ var Base64 = {
 
     },
 
-    // private method for UTF-8 encoding
     _utf8_encode: function(string) {
         string = string.replace(/\r\n/g, "\n");
         var utftext = "";
@@ -1424,7 +1351,6 @@ var Base64 = {
         return utftext;
     },
 
-    // private method for UTF-8 decoding
     _utf8_decode: function(utftext) {
         var string = "";
         var i = 0;
@@ -1456,4 +1382,4 @@ var Base64 = {
     }
 
 }
-/* ▲ Base64 encode_decode */
+

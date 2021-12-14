@@ -92,29 +92,4 @@ function moreBtnAction(code, name){
     form.submit();
 }
 
-function selectGoodsAction(code){
 
-    ajaxRequest({
-        url: 'ajax_trade_check.php',
-        type: 'post',
-        dataType: 'json',
-        data: {
-            'trade_id': code
-        },
-        async: false,
-        success: function (res) {
-            switch (res.result) {
-                case 'SUCCESS':
-                    location.href = 'http://trade.itemmania.com/sell/view.html?id='+code;
-                    break;
-                case 'FAIL':
-                    alert(res.msg);
-                    break;
-            }
-        },
-        error: function (e) {
-            alert('서버와의 접속이 원활하지 않습니다.\n잠시후 다시 시도해주세요.' + e.message);
-            return;
-        }
-    });
-}

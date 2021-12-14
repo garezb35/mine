@@ -1,14 +1,14 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/angel/customer/css/menu.css?190220" />
-    <link type="text/css" rel="stylesheet" href="/angel/customer/css/_report_top.css?210503" />
-    <link type="text/css" rel="stylesheet" href="/angel/customer/trade/css/trade_common.css?210901" />
-    <link type="text/css" rel="stylesheet" href="/angel/customer/css/customer_common.css?210901" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/menu.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/_report_top.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/trade/css/trade_common.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/customer_common.css" />
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/angel/_js/_screenshot.js?v=190220"></script>
+    <script type="text/javascript" src="/angel/_js/_screenshot.js"></script>
     <script type="text/javascript">
         function __init() {
             strThisCode = 'A101';
@@ -109,10 +109,7 @@
 
             <ul id="trade_subtab" class="g_sideway">
                 <li> <a class="f-14 {{$typeTxt == 'sell' ? 'f_blue3 f_bold' : ''}}" href="{{route("customer_report")}}?type=sell">판매중 물품 </a> </li>
-{{--                <li> |</li>--}}
-{{--                <li> <a class="f-14 {{$typeTxt == 'buy' ? 'f_blue3 f_bold' : ''}}" href="{{route("customer_report")}}?type=buy">구매중 물품 </a> </li>--}}
             </ul>
-            <!-- ▲ 서브탭 //-->
             <div class="g_finish"></div>
             <div class="g_big_box1">
                 <form id="frmSearch" action="" method="post">

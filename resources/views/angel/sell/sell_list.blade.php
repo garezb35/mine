@@ -169,7 +169,8 @@
                             <div class="regInfo_subcontent_in"> <span class="cert_state cert_staten" id="cell_auth">휴대폰</span> <span class="cert_state cert_staten" id="email_auth">이메일</span> <span class="cert_state cert_staten" id="account_auth">출금계좌</span> </div>
                         </li>
                     </ul>
-                    <div class="g_btn_wrap"> <a href="#" class="regInfo_btn buyapp" id="appBtn">구매신청</a> <a href="#" class="regInfo_btn detail" id="detailBtn">상세보기</a> </div>
+                    <div class="g_btn_wrap"> <a href="#" class="btn-default-medium btn-suc-rect" id="appBtn">구매신청</a>
+                        <a href="#" class="btn-default-medium btn-cancel-rect" id="detailBtn">상세보기</a> </div>
                 </div>
             </div>
         </div>

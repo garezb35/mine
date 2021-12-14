@@ -88,50 +88,7 @@ function _header() {
             type: "style"
         })
     }
-    if($("#direct_icon").length > 0) {
-        if($("#g_FAVORITE").length > 0) {
-            $("#g_FAVORITE").css("cursor", "pointer");
-            $("#g_FAVORITE").click(function() {
-                var l = "http://www.itemmania.com/counter/survey.php?imcounter=dot_bookmark_com&returnUrl=" + encodeURIComponent("http://www.itemmania.com");
-                var k = "";
-                try {
-                    if(window.sidebar && window.sidebar.addPanel) {
-                        window.sidebar.addPanel(k, l, "")
-                    } else {
-                        if(window.external) {
-                            window.external.AddFavorite(l, k)
-                        } else {
-                            alert("Ctrl+D키를 누르시면 즐겨찾기에 추가하실 수 있습니다.")
-                        }
-                    }
-                } catch(m) {
-                    alert("Ctrl+D키를 누르시면 즐겨찾기에 추가하실 수 있습니다.")
-                }
-            })
-        }
-        if($("#g_STARTPAGE").length > 0) {
-            $("#g_STARTPAGE").click(function() {
-                if(document.all) {
-                    document.body.style.behavior = "url(#default#homepage)";
-                    document.body.setHomePage("http://www.itemmania.com/counter/survey.php?imcounter=dot_start_com&returnUrl=" + encodeURIComponent("http://www.itemmania.com"))
-                } else {
-                    if(window.sidebar) {
-                        if(window.netscape) {
-                            try {
-                                netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect")
-                            } catch(l) {
-                                alert("지원하지 않는 브라우저입니다.")
-                            }
-                        }
-                        var k = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
-                        k.setCharPref("browser.satrip.homepage", url)
-                    } else {
-                        alert("지원하지 않는 브라우저입니다.")
-                    }
-                }
-            })
-        }
-    }
+
     if(document.getElementById("top_btn") !== null) {
         document.getElementById("top_btn").addEventListener("click", function() {
             var k = (document.documentElement || document.body);

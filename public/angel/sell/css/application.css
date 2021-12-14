@@ -147,18 +147,8 @@
     text-decoration: underline
 }
 
-.compensation .event_area {
-    margin-top: 30px;
-    padding: 10px 10px 10px 100px;
-    border: 1px solid #91AFD5;
-    background: url(//img3.itemmania.com/new_images/event/e190807_buy200_reward/ico_event.gif) no-repeat 10px 10px;
-    line-height: 18px;
-}
 
-.compensation .event_area dt {
-    color: #EE3044;
-    font-weight: bold;
-}
+
 
 .table_goods_subject {
     position: relative;

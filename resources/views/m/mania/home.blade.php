@@ -54,7 +54,6 @@
             border: none !important;
         }
     </style>
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
     <input type="hidden" name="new_except" value="">
     <div class="g_layer service_layer" id="service_layer">
         <div class="inner"> <a href="javascript:;" class="close" id="service_close">닫기</a>

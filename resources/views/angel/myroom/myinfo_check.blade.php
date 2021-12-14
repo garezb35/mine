@@ -41,11 +41,6 @@ $user_contactC = !empty($splited_mobile[2]) ? $splited_mobile[2] : "";
             <div class="g_title_blue noborder">
                 개인정보 <span>수정</span>
             </div>
-            {{--        <div class="g_tab">--}}
-            {{--            <div class="selected">기본정보수정</div>--}}
-            {{--            <div><a href="/myroom/myinfo/myinfo_passwd_modify>비밀번호수정</a></div>--}}
-
-            {{--        </div>--}}
             <form id="frmInfo" name="frmInfo" method="post" action="/myroom/myinfo/myinfo_modify_ok">
                 @csrf
                 <input type="hidden" name="user_Mobile_auth" value="{{$mobile_verified ==1 ? 'Y': 'N'}}">
@@ -65,7 +60,6 @@ $user_contactC = !empty($splited_mobile[2]) ? $splited_mobile[2] : "";
                         <th>이름</th>
                         <td>
                             {{$name}}<a href="#" onclick="_window.open('name_change', '/certify/name_change/name_change', 410, 430);">
-                                <img src="https://img4.itemmania.com/images/btn/btn_change_name.gif" width="61" height="20" alt="이름변경" class="margin_15">
                             </a>
                         </td>
                     </tr>
@@ -92,7 +86,7 @@ $user_contactC = !empty($splited_mobile[2]) ? $splited_mobile[2] : "";
                             <div class="g_left margin_5">-
                                 <input type="text" name="user_mobileB" id="user_mobileB" maxlength="4" class="g_text" value="{{$user_mobileB}}"> -
                                 <input type="text" name="user_mobileC" id="user_mobileC" maxlength="4" class="g_text" value="{{$user_mobileC}}">
-                                <img src="https://img2.itemmania.com/images/btn/btn_certifi.gif" width="57" height="20" alt="인증받기" class="g_button" id="cellphone_auth_pop">
+                                <a href="javascript:;" class="btn btn-sm btn-secondary" id="cellphone_auth_pop">인증받기</a>
                             </div>
                         </td>
                     </tr>
@@ -118,7 +112,7 @@ $user_contactC = !empty($splited_mobile[2]) ? $splited_mobile[2] : "";
                             <div class="email_block">
                                 <input type="text" name="user_email" id="user_email " class="g_text" value="{{explode("@",$email)[0] ?? ""}}">  @
                                 <input type="text" name="user_email2" id="user_email2" class="g_text" value="{{explode("@",$email)[1] ?? ""}}">
-                                <img src="https://img2.itemmania.com/images/btn/btn_certifi.gif" width="57" height="20" alt="인증받기" class="g_button email_auth_btn" id="email_auth_btn">
+                                <a href="javascript:;" class="email_auth_btn btn btn-sm btn-secondary" id="email_auth_btn">인증받기</a>
                             </div>
                         </td>
                     </tr>
@@ -141,9 +135,7 @@ $user_contactC = !empty($splited_mobile[2]) ? $splited_mobile[2] : "";
                         <th rowspan="2">주소</th>
                         <td class="myinfo_address">
                             <input type="text" name="user_zipcode" id="user_zipcode" class="g_text" readonly="" value="{{$ZIP}}">
-                            <a href="javascript:" id="find_address">
-                                <img src="https://img4.itemmania.com/images/btn/btn_post_no.gif" width="80" height="20" alt="우편번호 찾기">
-                            </a>
+                            <a href="javascript:" id="find_address" class="btn btn-secondary btn-sm">우편번호 찾기</a>
                         </td>
                     </tr>
                     <tr>

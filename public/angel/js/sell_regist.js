@@ -34,9 +34,7 @@ function tradeProcess(flag, tid) {
     frm.submit();
 }
 
-/* â–² ë¬¼í’ˆ ì²˜ë¦¬ */
 
-/* â–¼ ìž¬ë“±ë¡ */
 function reInsert(tid) {
     if (confirm("ìž¬ë“±ë¡ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?")) {
         var frm = $("#reInsertFrm");
@@ -46,4 +44,4 @@ function reInsert(tid) {
     }
 }
 
-/* â–² ìž¬ë“±ë¡ */
+

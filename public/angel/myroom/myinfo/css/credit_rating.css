@@ -28,14 +28,7 @@
     float: right;
 }
 
-.plus_icon {
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    margin: 0 2px;
-    background: url(//img4.itemmania.com/new_images/myroom/icon_plus.gif) no-repeat;
-    vertical-align: middle;
-}
+
 
 .credit_up {
     overflow: hidden;
@@ -152,22 +145,7 @@ text-align: center;
 font-weight: bold;
 }
 
-.my_benefit .credit_btn {
-position: absolute;
-display: block;
-top: 300px;
-left: 25px;
-width: 137px;
-height: 36px;
-background: url(//img4.itemmania.com/new_images/myroom/btn_begin.jpg) no-repeat;
-text-indent: -9999px;
-}
 
-.ssada_benefit {
-position: relative;
-height: 502px;
-background: url(//img4.itemmania.com/new_images/myroom/img_credit_ssada.jpg?211006) no-repeat;
-}
 
 .ssada_benefit .btn_ssada {
 display: block;
@@ -232,10 +210,7 @@ border-color: #9F9F9F;
 background-color: #9F9F9F;
 }
 
-.silver .credit_btn {
-left: 182px;
-background-image: url(//img4.itemmania.com/new_images/myroom/btn_silver.jpg);
-}
+
 
 .gold .over {
 top: 69px;
@@ -248,10 +223,7 @@ border-color: #FBA929;
 background-color: #FBA929;
 }
 
-.gold .credit_btn {
-left: 341px;
-background-image: url(//img4.itemmania.com/new_images/myroom/btn_gold.jpg);
-}
+
 
 .platinum .over {
 top: 54px;
@@ -264,10 +236,7 @@ border-color: #EC3868;
 background-color: #EC3868;
 }
 
-.platinum .credit_btn {
-left: 499px;
-background-image: url(//img4.itemmania.com/new_images/myroom/btn_platinum.jpg);
-}
+
 
 .vip .over {
 top: 39px;
@@ -276,23 +245,8 @@ height: 252px;
 border-color: #785BDB;
 }
 
-.vip .over:before, .vip .on > div {
-background-color: #785BDB;
-}
 
-.vip .credit_btn {
-left: 657px;
-background-image: url(//img4.itemmania.com/new_images/myroom/btn_vip.jpg);
-}
 
-.add_info {
-box-sizing: border-box;
-height: 200px;
-padding: 30px 0 0 46px;
-background: url(//img4.itemmania.com/new_images/myroom/img_credit_bg.jpg) no-repeat;
-font-size: 12px;
-color: #636363;
-}
 
 .add_info > ul {
 overflow: hidden;

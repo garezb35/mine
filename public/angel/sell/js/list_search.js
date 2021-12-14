@@ -31,7 +31,7 @@ function elementFromListData(tradeItem) {
         listHtml += '   		    <span class="unit">[' + tradeItem.ea_range + ']</span><br />';
     }
     if (tradeItem.trade_category === '3') {
-        listHtml += '               <span class="icon_bargain">í¥ì •</span>';
+        listHtml += '               <span class="icon_bargain"></span>';
     }
     if(tradeItem.trade_kind == "6"){
         listHtml += '   		    <span class="unit">' + tradeItem.character_subject + '</span><br />';

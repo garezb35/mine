@@ -199,17 +199,6 @@
     text-indent: -9999px;
 }
 
-.carousel_module .prev {
-    left: 20px;
-    background: url(//img2.itemmania.com/new_images/icon/icon_left.png)
-}
-
-.carousel_module .next {
-    right: 20px;
-    background: url(//img2.itemmania.com/new_images/icon/icon_right.png)
-}
-
-
 
 #character_top_section #character_top_section_content .character_banner_carousel .banner_indicate>span {
     background-color: #c7c7c7;

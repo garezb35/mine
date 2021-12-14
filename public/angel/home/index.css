@@ -448,47 +448,15 @@
     margin-bottom: 20px;
 }
 
-.sec_bottom .gamemania {
-    width: 350px;
-}
 
 .sec_bottom .service {
     width: 330px;
     margin-left: 10px;
 }
 
-.sec_bottom .gamenews {
-    width: 380px;
-    margin-left: 10px;
-}
 
-.gamemania {
-    position: relative;
-}
 
-.gamemania .indicate {
-    position: absolute;
-    left: 15px;
-    bottom: 15px;
-    font-size: 0;
-}
 
-.gamemania .indicate span {
-    display: inline-block;
-    width: 9px;
-    height: 9px;
-    margin-left: 5px;
-    border-radius: 8px;
-    background-color: #FFF;
-}
-
-.gamemania .indicate span:first-child {
-    margin-left: 0;
-}
-
-.gamemania .indicate .on {
-    background-color: #B10716;
-}
 
 .news_list {
     padding-top: 20px;
@@ -682,16 +650,14 @@
     top: 10px;
     left: 10px;
     display: inline-block;
-    width: 15px;
-    height: 15px;
-    border: 1px solid #D1D1D1;
-    background-color: #FFF;
+    width: 14px;
+    height: 14px;
+    background: url(/angel/img/icons/icon_nocheck.png) no-repeat;
     cursor: pointer
 }
 
 .service_list .on .tmp_checkbox {
-    border: 0;
-    background: url(//img1.itemmania.com/new_images/common/sp_icon_20210312.png) -477px -10px no-repeat;
+    background: url(/angel/img/icons/icon_check.png) no-repeat;
 }
 
 .service_list label {
@@ -708,135 +674,9 @@
     margin: 28px auto 7px;
 }
 
-.service_list label .mileage {
-    background-position: -2px -412px;
-}
-
-.service_list label .counsel {
-    background-position: -40px -412px;
-}
-
-.service_list label .sell {
-    background-position: -78px -412px;
-}
-
-.service_list label .buy {
-    background-position: -116px -412px;
-}
-
-.service_list label .payment {
-    background-position: -154px -412px;
-}
-
-.service_list label .calc {
-    background-position: -192px -412px;
-}
-
-.service_list label .charge {
-    background-position: -230px -412px;
-}
-
-.service_list label .pointmall {
-    background-position: -268px -412px;
-}
-
-.service_list label .credit_rating {
-    background-position: -306px -412px;
-}
-
-.service_list label .guide {
-    background-position: -344px -412px;
-}
-
-.service_list label .coupon {
-    background-position: -382px -412px;
-}
-
-.service_list label .faq {
-    background-position: -420px -412px;
-}
-
-.service_list label .message {
-    background-position: -458px -412px;
-}
-
-.service_list label .chat {
-    background-position: -496px -412px;
-}
-
-.service_list .on .mileage {
-    background-position: -2px -446px;
-}
-
-.service_list .on .counsel {
-    background-position: -40px -446px;
-}
-
-.service_list .on .sell {
-    background-position: -78px -446px;
-}
-
-.service_list .on .buy {
-    background-position: -116px -446px;
-}
-
-.service_list .on .payment {
-    background-position: -154px -446px;
-}
-
-.service_list .on .calc {
-    background-position: -192px -446px;
-}
-
-.service_list .on .charge {
-    background-position: -230px -446px;
-}
-
-.service_list .on .pointmall {
-    background-position: -268px -446px;
-}
-
-.service_list .on .credit_rating {
-    background-position: -306px -446px;
-}
-
-.service_list .on .guide {
-    background-position: -344px -446px;
-}
-
-.service_list .on .coupon {
-    background-position: -382px -446px;
-}
-
-.service_list .on .faq {
-    background-position: -420px -446px;
-}
-
-.service_list .on .message {
-    background-position: -458px -446px;
-}
-
-.service_list .on .chat {
-    background-position: -496px -446px;
-}
 
 
-/* ê²Œìž„ë³„ í‰ê· ê°€ ì‹œì„¸ì°¨íŠ¸ */
 
-#gameChart .mania-blue {
-    color: #159EFD;
-}
-
-#gameChart .mania-red {
-    color: #FF2400;
-}
-
-#gameChart .mania-blue-btn {
-    padding: 3px 10px 5px 10px;
-    background: #A9BCCE;
-    color: white;
-    text-decoration: none;
-}
 
 #gameChart {
     position: relative;

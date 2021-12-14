@@ -319,8 +319,8 @@
                         </li>
                     </ul>
                     <div class="g_btn_wrap">
-                        <a href="#" class="regInfo_btn buyapp" id="appBtn">구매신청</a>
-                        <a href="#" class="regInfo_btn detail" id="detailBtn">상세보기</a>
+                        <a href="#" class="btn-default-medium btn-suc-rect" id="appBtn">구매신청</a>
+                        <a href="#" class="btn-default-medium btn-cancel-rect" id="detailBtn">상세보기</a>
                     </div>
                 </div>
             </div>

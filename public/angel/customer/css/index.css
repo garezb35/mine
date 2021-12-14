@@ -54,7 +54,10 @@
 
 .g_content .search .search_bar .g_selectbox .arrow_img {
     height: 15px;
-    background: url(//img3.itemmania.com/images/icon/icon_down4.gif) no-repeat
+    background: url(/angel/img/icons/dropdown-icon-png-22.png) no-repeat;
+    cursor: pointer;
+    background-size: 15px;
+    margin: 7px 3px 0 5px;
 }
 
 .cus_content {

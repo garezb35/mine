@@ -294,15 +294,7 @@
 .slt_item_info_txt{
     padding-left:5px;
 }
-.slt_item_info .btn_add{
-    display:inline-block;
-    width:42px;
-    height:23px;
-    margin-left:4px;
-    background:url(//img2.itemmania.com/new_images/sell/btn_add.gif) no-repeat;
-    vertical-align:middle;
-    text-indent:-9999px;
-}
+
 .dv_power{
     overflow:hidden;
     padding-bottom:10px;
@@ -529,16 +521,7 @@
     font-size:17px;
     font-weight:bold;
 }
-.new{
-    display:inline-block;
-    width:15px;
-    height:15px;
-    margin-right:2px;
-    margin-top:-2px;
-    background: url(//img4.itemmania.com/new_images/sell/btn_s_new.gif) no-repeat;
-    vertical-align:middle;
-    text-indent:-9999px;
-}
+
 .compensation .box7{
     position:relative;
     padding:20px;
@@ -611,14 +594,7 @@
     text-align: center;
     font-size: 18px;
 }
-.g_btn_wrap .sell_re_reg{
-    display:inline-block;
-    width:137px;
-    height:46px;
-    background:url(//img3.itemmania.com/new_images/btn/btn_sell_re.gif) no-repeat;
-    vertical-align:middle;
-    text-indent:-9999px;
-}
+
 .g_btn_wrap .cancel_reg{
     display:inline-block;
     width:137px;
@@ -637,7 +613,6 @@
     text-align:center;
     color:#ED1C24;
 }
-/* â–¼ í”„ë¦¬ë¯¸ì—„ ë ˆì´ì–´ */
 .premium_info .inner{
     width:460px;
 }
@@ -682,7 +657,7 @@
     padding:2px 4px;
     line-height:normal;
 }
-/* â–² í”„ë¦¬ë¯¸ì—„ ë ˆì´ì–´ */
+
 .reg_info .inner{
     width:670px;
 }
@@ -800,7 +775,7 @@
     background:#F00;
     color:white;
 }
-/* ë¬¼í’ˆë“±ë¡ ì•Œë¦¬ë¯¸ */
+
 #alarm_line{
     display: none;
 }
@@ -934,9 +909,7 @@
     background-image: none !important;
 }
 
-/*.g_subtitle, .g_subtitle_blue{*/
-/*    padding: 15px 0 8px !important;*/
-/*}*/
+
 
 .euro-service:before{
     clear: both;

@@ -24,11 +24,9 @@ if($type == 'quickicon')
     <div id="g_OVERLAY" class="g_overlay"></div>
 </div>
 <div id="g_BODY">
-    <div id="popup_title_bar"><img src="http://img3.itemmania.com/images/myroom/title/title_free_cp.gif" alt="무료이용권 잔여수량" width="162" height="19"></div>
+    <div id="popup_title_bar">무료이용권 잔여수량</div>
     <div id="g_POPUP">
-        <div class="g_subtitle_blue g_black1_b">무료이용권 잔여수량</div>
-        <div class="g_black3">{{$type_alias}} 무료 이용권 잔여수량</div>
-        <table class="g_blue_table">
+        <table class="table-striped table-green1">
             <colgroup>
                 <col width="135">
                 <col>

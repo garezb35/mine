@@ -225,7 +225,7 @@
                         <span class="c_txt sells" >판매목록</span>
                         <div class="qbox" style="margin-left: 2px;">
                             <div class="ings">
-                                <div style="width: 132px !important">
+                                <div style="width: 136px !important">
                                     <span class="mr-4">등록</span>
                                     <span><a href="/myroom/sell/sell_regist"><span class="f_blue1 f_bold">{{number_format($top_selling_register)}}</span>건</a></span>
                                     <span class="mr-4" style="margin-left: 4px;">판매중</span>
