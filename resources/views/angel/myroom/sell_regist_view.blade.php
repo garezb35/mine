@@ -19,7 +19,7 @@
         $category .= $good_type;
     }
 @endphp
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css?210503" />

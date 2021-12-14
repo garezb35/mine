@@ -1,4 +1,4 @@
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 
 @section('head_attach')
     <link type='text/css' rel='stylesheet' href='/angel/guide/css/common.css'>
@@ -67,13 +67,7 @@
                 border-bottom: 1px solid #F1F1F1;
                 line-height: 30px;
             }
-            .aside .img_wrap > .img_mania_call {
-                display: inline-block;
-                width: 35px;
-                height: 35px;
-                background-position: -789px -545px;
-                margin: 0 10px 0 15px;
-            }
+
             .aside .img_wrap > .content {
                 font-size: 12px;
                 font-weight: bold;
@@ -139,7 +133,8 @@
             </div>
             <div class="g_finish"></div>
             <!-- ▲ 메뉴탭 //-->
-            <div class="top_menu"> <a href="?file=01"><span class="g_black2 f_blue3 f_bold">거래보호 장치</span></a> | <a href="?file=02"><span class="g_black2 ">결제인증</span></a> | <a href="?file=03"><span class="g_black2 ">본인인증</span></a> | <a href="?file=04"><span class="g_black2 ">신용등급 표시제</span></a> | <a href="?file=05"><span class="g_black2 ">개인정보보호</span></a> | <a href="?file=06"><span class="g_black2 ">보안시스템</span></a> </div>
+            <div class="top_menu"> <a href="?file=01">
+                    <span class="g_black2 f_blue3 f_bold">거래보호 장치</span></a> | <a href="?file=02"><span class="g_black2 ">결제인증</span></a> | <a href="?file=03"><span class="g_black2 ">본인인증</span></a> | <a href="?file=04"><span class="g_black2 ">신용등급 표시제</span></a> | <a href="?file=05"><span class="g_black2 ">개인정보보호</span></a> | <a href="?file=06"><span class="g_black2 ">보안시스템</span></a> </div>
             <div class="g_finish"></div>
             <div class="g_subtitle_blue">거래보호장치</div>
             <img src="/angel/img/guide/screenshot/img_safe01.jpg" width="820" height="575" alt="" class="top_align">

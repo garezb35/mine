@@ -1,4 +1,4 @@
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/complete/css/report.css?190220">
@@ -42,7 +42,8 @@
                         <option value="2017">2017</option>
                         <option value="2016">2016</option>
                     </select>
-                    <input type="image" src="http://img3.itemmania.com/images/btn/btn_find1.gif" width="50" height="20" alt="검색" class="g_image"> </div>
+                    <button class="g_image" style="background: none"><i class="fa fa-search"></i></button>
+                </div>
             </form>
             <!-- ▲ 검색 //-->
             <div class="g_finish"></div>

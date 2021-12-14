@@ -16,7 +16,7 @@
     }
 
 @endphp
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/buy/css/index.css">
@@ -496,7 +496,7 @@
                                         </ul>
                                     </div>
                                     <div class="btn">
-                                        <a href="/guide/add/security_number class="btn_blue4">안심번호 이용안내 ></a>
+
                                     </div>
                                 </div>
                             </div>

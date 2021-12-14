@@ -10,7 +10,7 @@ $category = '> > 기타';
         $category .= $good_type;
     }
 @endphp
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/buy/css/common_view.css">

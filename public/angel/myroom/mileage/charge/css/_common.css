@@ -1,204 +1,659 @@
-/*
- * @title		마일리지 충전팝업 공통 CSS
- * @author		김보람
- * @date		2011.07.08
- * @update		수정날짜(수정자)
- * @description
- */
+#g_BODY #g_POPUP {
+    position: relative;
+    overflow: hidden;
+    width: 640px;
+    padding-bottom: 20px;
+}
 
-#g_BODY #g_POPUP{position:relative;overflow:hidden;width:640px;padding-bottom:20px;}
-/* ▼ 마일리지 충전 팝업 공지 */
-#charge_notice{overflow:hidden;position:absolute;width:620px;height:40px;top:5px;line-height:40px;color:#FFF;font-size:12px;font-weight:bold;z-index:10}
-#charge_notice p{overflow:hidden;position:absolute;float:right;left:290px;width:330px;height:40px;line-height:40px;text-align:right;cursor:pointer;white-space:nowrap;text-overflow:ellipsis;z-index:11;cursor:pointer;background:#1A375B}
-#notice_layer_wrap{position:absolute;width:466px;top:35px;left:178px;z-index:101}
-#notice_layer_wrap .arrow{position:relative;display:none;width:7px;height:6px;left:400px;background:url(//img3.itemmania.com/images/icon/icon_arrow_01.gif) no-repeat;z-index:101}
-#notice_layer_wrap .view,#notice_layer_wrap .hide{overflow:auto;position:relative;display:none;top:-2px;*top:-3px;_width:466px;padding:15px 20px;background-color:#FFF;border:2px solid #1A375B;z-index:100}
-/*#notice_layer_wrap #notice_layer_overlay{position:absolute;top:0;width:100%;height:100%;z-index:103;filter:alpha(opacity=1);-moz-opacity:0.01;opacity:0.01;-khtml-opacity:0.01;background:#000}*/
-/* ▲ 마일리지 충전 팝업 공지 */
-/* ▼ 테이블 */
-.charge_tb{width:100%;_width:93%;margin-bottom:5px;border-top:1px solid #DDD;border-left:1px solid #DDD}
-.charge_tb th{background-color:#F8F8F8}
-.charge_tb .right_line{border-right:0 solid}
-.charge_tb th,.charge_tb td{height:30px;padding:5px 0;border-bottom:1px solid #DDD;border-right:1px solid #DDD;text-align:center}
-#money_tb{border-top:3px solid #BEBEBE;border-left:0 solid #DDD}
-#time_tb1,#time_tb2{float:left;width:47%;_width:45%;border-top:3px solid #BEBEBE}
-#time_tb2{margin-left:20px}
-#internet_tb th,#internet_tb td{padding:2px 0}
-table td .g_text{width:55px}
-#coupon_tb th img{margin-right:5px}
-/* ▲ 테이블 */
-/* ▼ 내 마일리지 */
-.m_price{height:17px;padding:0 0 0 10px;font-family:arial;font-size:20px;line-height:17px;font-weight:bold;color:#D40F00;vertical-align:middle}
-.my_mileage{width:625px;padding:3px 0 5px;text-align:right}
-.my_mileage img{*margin-top:2px}
-.my_mileage .m_price{height:20px;line-height:20px;font-weight:bold}
-/* ▲ 내 마일리지 */
-/* ▼ 메뉴 */
-.charge_menu{float:left;margin-left:17px;_margin-left:8px;border-width:1px 1px 0 1px;border-style:solid;border-color:#D6D6D6}
-.charge_menu li{width:125px;padding:5px 0;*padding-bottom:3px;background-color:#F4F4F4;border-bottom:1px solid #D6D6D6;color:#636363;text-indent:5px;font-size:11px;cursor:pointer;letter-spacing:-1px}
-.charge_menu li .icon_new{display:inline-block;width:10px;height:9px;margin-top:-1px;background:url(//img4.itemmania.com/images/icon/ico_new.gif) no-repeat;vertical-align:middle}
-.icon_event{display:inline-block;width:10px;height:9px;margin-top:-3px;background:url(//img4.itemmania.com/images/icon/icon_event_s.gif) no-repeat;vertical-align:middle}
-.charge_menu .focus{background-color:#BCDFF8;color:#636363;font-weight:bold}
-.charge_menu .selected{background-color:#1280D2;color:#FFF;font-weight:bold}
-.charge_menu .all_gift{background-color:#DBD5EC}
-.charge_menu .selected2{background-color:#9286C2;color:#FFF;font-weight:bold}
-.charge_menu #all_gift_li #all_gift{position:absolute;left:163px;_width:140px;margin-top:-23px;_margin-top:-8px;padding:5px 0;border:1px solid #D6D6D6;background-color:#FFF;line-height:22px;color:#636363;font-weight:normal;cursor:default}
-.charge_menu #all_gift_li #all_gift .sub_selected{font-weight:bold}
-.charge_menu #all_gift_li #all_gift #all_gift_close{position:absolute;left:90%;cursor:pointer}
-.charge_menu #all_gift_li #all_gift p{margin:0 10px;cursor:pointer}
-/* ▲ 메뉴 */
-/* ▼ 내용 1개 높이 27px */
-#charge_main{position:relative;width:451px;_width:479px;padding:14px;border:1px solid #D6D6D6;border-left:0 solid}
-/* ▼ 안내문구 */
-#charge_main .m_box{width:436px;_width:448px;margin-bottom:10px;padding:7px;border:1px solid #CDCDCD;background-color:#F5F5F5;color:#606060;font-size:11px;letter-spacing:-1px}
-#charge_main .m_box2{margin-top:10px;padding:10px;border:1px solid #C4C4C4;font-size:11px;color:#767676;font-weight:bold}
-/* ▲ 안내문구 */
-/* ▼ 충전수단 타이틀 */
-#charge_main #mile_title{height:22px;margin:0 0 10px;padding: 0 0 0 20px;border-bottom:1px solid #CECECE;background: url(//img2.itemmania.com/images/icon/icon_check.gif) 0 6px no-repeat;}
-/* ▲ 충전수단 타이틀 */
-/* ▼ 충전수단 설명 */
-#charge_main .mile_text{font-size:11px;color:#5E5E5E;line-height:13px}
-/* ▲ 충전수단 설명 */
-/* ▼ 상세 설명 */
-#charge_main .mile_detail{float:left;width:447px;margin-top:5px;border:2px solid #d2E3F0}
-#charge_main .mile_detail .detail_img{float:left;width:105px;height:100%;margin:10px 0 0 10px;_margin-left:5px;padding-bottom:10px;text-align:center}
-#charge_main .mile_detail .detail_img #mybank_img{margin:20px 0;}
-#charge_main .mile_detail .detail_txt{float:right;width:310px;_width:320px;height:100%;margin-top:10px;padding:0 15px 5px 0}
-#charge_main .mile_detail .detail_txt .g_list li{margin-bottom:5px;padding-left:13px;background:url(../../../../img/icons/icon_dot.gif) no-repeat 0 6px;font-size:11px;color:#5E5E5E}
-#charge_main .mile_detail .detail_txt .g_list .text_blue{color:#2162C6}
-#charge_main .mile_detail .detail_txt .g_list .text_red{color:#ED1C24}
-#charge_main .mile_detail .detail_txt .g_list li .g_left{clear:both;width:240px}
-#charge_main #tmoney_check{margin-top:10px}
-#charge_main #tmoney_check img{vertical-align:middle}
-/* ▲ 상세 설명 */
-/* ▼ 충전금액 선택 */
-#mile_subtitle,.mile_subtitle{margin-top:10px;padding: 0 0 0 15px;background: url(//img4.itemmania.com/images/icon/icon_orange.gif) no-repeat 0 6px;font-weight:bold;}
-#charge_main .m_chargelist{float:left;width:392px;_width:446px;padding:2px 28px 7px 28px;border:1px solid #E6E5E5;background-color:#F5F5F5}
-#charge_main .m_chargelist li{float:left;width:130px;margin-top:5px}
-#charge_main #m_chargelist li,#charge_main #charge_list li{width:130px}
-#charge_main .m_chargelist .custom{width:auto;padding-top:2px}
-#charge_main .m_chargelist .custom .g_text{width: 97px;text-align:right;vertical-align:middle;}
-#charge_main #mile_info{margin-top:10px;padding:10px;background-color:#F8F8F8}
-.ars_type{height:25px;line-height:25px}
-#tel_type_lgu{margin-left:20px}
-/* ▲ 충전금액 선택 */
-/* ▼ 실제 충전금액 */
-#charge_main .real_price{margin-top:5px;text-align:right}
-#charge_main .real_price img{*margin-top:2px}
-#charge_main .real_price .m_price{font-size:17px}
-#charge_main .real_price2{float:right;width:100%;margin-top:10px;color:#444;font-size:13px;font-weight:bold}
-#charge_main .real_price2 li{margin-left:10px;text-align:right;line-height:25px}
-#charge_main .real_price2 label{display:inline-block;width:200px;text-align:right}
-#charge_main .real_price2 .m_price{padding-right:5px;font-size:17px;vertical-align:baseline;line-height:25px}
-/* ▲ 실제 충전금액 */
-/* ▼ 버튼 */
-.m_button{clear:both;padding-top:20px;text-align:center}
-#inimsg{display:none;width:100%;height:30px;padding-top:15px;text-align:center;font-weight:bold;color:darkred}
-/* ▲ 버튼 */
-/* ▲ 내용 */
-/* ▼ 자세히보기 */
-.sp_mi { background-image: url(//img1.itemmania.com/new_images/common/sp_mileage_20210215.png); }
-.guide_box{display:none;width:604px;border:3px solid #264872}
-.guide_box .guide_title{height:20px;padding:10px 20px;background-color:#264872;font-weight:bold;color:#FFF}
-.guide_box .guide_main{padding:17px;background-color:#FFF}
-.guide_box .guide_main .info_area{width:550px; height:130px; margin:0 auto; background-color: #E9EFF6;}
-.guide_box .guide_main .info_area ul { width:530px; height:90px; margin:0 auto; padding:20px 0; font-size:0;}
-.guide_box .guide_main .info_area ul li{position:relative; display:inline-block; text-align: center;}
-.guide_box .guide_main .info_area ul li .info_title { display:inline-block; width:100%; margin-top:14px; color:#2E496B; font-size:12px; text-align: center; vertical-align: top; }
+#charge_notice {
+    overflow: hidden;
+    position: absolute;
+    width: 620px;
+    height: 40px;
+    top: 5px;
+    line-height: 40px;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 10
+}
 
-.guide_box .guide_main .info_area .box_5_wrap li{ width:20%;}
-.guide_box .guide_main .info_area .box_4_wrap li{ width:25%;}
-.guide_box .guide_main .info_area .box_3_wrap li{ width:33%;}
-.guide_box .guide_main .info_area .info_icon {display: inline-block; width:60px; height:50px; }
-.guide_box .guide_main .info_area .arrow {display:block; position:absolute; width:10px; height:20px; top:16px; right: -4px; background-position: -622px -2px;}
-.guide_box .guide_main .info_area .info_icon.icon_select {background-position:-2px -2px;}
-.guide_box .guide_main .info_area .info_icon.icon_input {background-position:-64px -2px;}
-.guide_box .guide_main .info_area .info_icon.icon_app {background-position:-126px -2px;}
-.guide_box .guide_main .info_area .info_icon.icon_payment {background-position:-188px -2px;}
-.guide_box .guide_main .info_area .info_icon.icon_charge {background-position:-250px -2px;}
-.guide_box .guide_main .info_area .info_icon.icon_app_auth {background-position:-312px -2px;}
-.guide_box .guide_main .info_area .info_icon.icon_check_point {background-position:-374px -2px;}
-.guide_box .guide_main .info_area .info_icon.icon_input_point {background-position:-436px -2px;}
-.guide_box .guide_main .info_area .info_icon.icon_qr {background-position:-498px -2px;}
-.guide_box .guide_main .info_area .info_icon.icon_app_acces {background-position:-560px -2px;}
-.guide_box .guide_main .info_area .info_icon.icon_qr_scan {background-position:-2px -54px;}
-.guide_box .guide_main .info_area .info_icon.icon_select_crypto {background-position:-64px -54px;}
-.guide_box .guide_main .info_area .info_icon.icon_transmit_crypto {background-position:-126px -54px;}
-.guide_box .guide_main .info_area .info_icon.icon_buy_mmile {background-position:-188px -54px;}
-.guide_box .guide_main .info_area .info_icon.icon_input_pin {background-position:-250px -54px;}
-.guide_box .guide_main .info_area .info_icon.icon_select_card {background-position:-312px -54px;}
-.guide_box .guide_main .info_area .info_icon.icon_input_card {background-position:-374px -54px;}
-.guide_box .guide_main .info_area .info_icon.icon_pay_auth {background-position:-436px -54px;}
-.guide_box .guide_main .info_area .info_icon.icon_ars {background-position:-498px -54px;}
-.guide_box .guide_main .info_area .info_icon.icon_ars_guide {background-position:-560px -54px;}
-.guide_box .guide_main .info_area .info_icon.icon_select_id {background-position:-2px -106px;}
-.guide_box .guide_main .info_area .info_icon.icon_event_coupon {background-position:-64px -106px;}
-.guide_box .guide_main .info_area .info_icon.icon_scratch {background-position:-126px -106px;}
-.guide_box .guide_main .info_area .info_icon.icon_input_gift {background-position:-188px -106px;}
-.guide_box .guide_main .info_area .info_icon.icon_pay_push {background-position:-250px -106px;}
-.guide_box .guide_main .info_area .info_icon.icon_pay_inquiry {background-position:-312px -106px;}
-.guide_box .guide_main .info_area .info_icon.icon_pop {background-position:-374px -106px;}
-.guide_box .guide_main .info_area .info_icon.icon_kbank {background-position:-436px -106px;;}
-.guide_box .guide_main .info_area .info_icon.icon_check_sms {background-position:-498px -106px;}
-.guide_box .guide_main .info_area .info_icon.icon_pay_tmoney {background-position:-560px -106px;}
-.guide_box .guide_main .info_area .info_icon.icon_select_pay_card {background-position:-2px -158px;}
-.guide_box .guide_main .info_area .info_icon.icon_store {background-position:-64px -158px;}
-.guide_box .guide_main .info_area .info_icon.icon_input_cashplus {background-position:-126px -158px;}
-.guide_box .guide_main .info_area .info_icon.icon_buy_mania {background-position:-188px -158px;}
+#charge_notice p {
+    overflow: hidden;
+    position: absolute;
+    float: right;
+    left: 290px;
+    width: 330px;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    z-index: 11;
+    cursor: pointer;
+    background: #1A375B
+}
 
-.guide_box .guide_main .info_img{text-align:center}
-.guide_box .guide_main .info_text{clear:both;margin-top:5px;font-size:11px;color:#255CB4}
-.guide_box .guide_main .g_list{margin-top:20px;font-size:11px;color:#898989}
-.text_orange{color:#F2912F}
-.guide_box .guide_main .mile_tab{height:64px;background:url(//img2.itemmania.com/images/myroom/new_charge/pop_tab_bg01.gif) 0 0 repeat-x}
-.guide_box .guide_main .mile_tab li{float:left}
-.guide_box .guide_main .mile_tab .sub_tab{clear:both;width:530px;padding:4px 20px;background-color:#F8F8F8;color:#476D9C}
-.guide_box .guide_main .mile_tab .sub_tab a{margin:0 10px;color:#476D9C}
-.guide_box .guide_main .guide_sub{font-weight:bold}
-.text_blue2{color:#476D9C}
-.guide_box .guide_main .guide_sub,.guide_box .guide_main .text_blue2,.guide_box .guide_main .g_red{margin-top:15px}
-#dvPopup #money_tb #juminnumber td div{height:25px;line-height:25px}
-#dvPopup #money_tb #juminnumber td div .g_text{text-align:center}
-#dvPopup #money_tb #juminnumber td #info_phone_div .g_text{width:60px}
-#dvPopup #money_tb #juminnumber td div #info_jumin{margin-left:20px}
-#dvPopup #money_tb #receipt_username{text-align:left}
-#dvPopup #money_tb #receipt_useremail{width:180px;text-align:left}
-#dvPopup #money_tb span{font-weight:bold}
-/* ▲ 자세히보기 */
-/* ▼ 충전완료페이지 */
-#charge_main .top_blue_box{padding:10px 0;margin-bottom:20px;border:1px solid #CDCDCD;background-color:#ECF4FD;color:#427DC0;text-align:center;font-weight:bold}
-#charge_main .complete_info{float:left;width:100%;margin-top:20px;padding:10px 3px;background-color:#F8F8F8;font-size:11px;color:#878787}
-#charge_main .complete_info img{float:left}
-#charge_main .complete_info .text_blue3{color:#417DC6}
-#charge_main .complete_info .g_list{float:left;margin-top:5px;background-color:#F8F8F8}
-#complete_tb td,#dvPopup table td{padding-left:10px;text-align:left}
-#complete_tb th img{margin-right:5px}
-/* ▲ 충전완료페이지 */
-/* ▲ 현금영수증레이어 팝업 */
-#dvPopup{z-index:1;position:absolute;left:180px;top:140px;width:470px}
-#dvPopup .alert{margin-top:10px;padding:10px;border:2px solid #E9E9E9;background-color:#FBFBFB}
-.lookfor_id{height:15px;margin-top:10px}
-.lookfor_id li{float:right;width:115px;height:20px;margin-left:10px}
-/* ▼ 메시지 충전 */
-#inifnc,.g_btn{margin-bottom:10px}
-#cell_desc{padding:5px;letter-spacing:-1px}
-#charge_main .blue_font_b{padding-left:0;font-weight:bold;color:#417DC6;font-size:12px}
-#charge_main .blue_font{color:#417DC6;font-size:11px}
-#charge_main .red_font_b{color:#ED0000;font-weight:bold}
-#charge_main #phone_certify #certify_txt{margin:20px 0 10px;background-color:#ECFDF7;color:#119E30}
-#charge_main table{_width:434px}
-#charge_main #phone_certify #certify_table tr td{padding-left:10px;text-align:left}
-#charge_main #phone_certify #certify_table tr td #time{width:70px;height:18px;border:1px solid #DDD;text-align:center}
-/* ▲ 메시지 충전 */
-/* ▼ 휴대폰 ARS충전 */
-#charge_main #complete_tb .cell_ul li{display:inline}
-#charge_main #complete_tb .cell_ul li label{padding-right:15px}
-/* ▲ 휴대폰 ARS충전 */
-/* ▼ 레이어 */
-.layer_bn{position:absolute;top:93px;left:164px}
-.m_close{height:24px;background-color:#000;color:#FFF;font-weight:bold;font-size:11px}
-.m_close .g_right{margin:5px 10px 0 0}
-/* ▲ 레이어 */
-/* ▼ 페이지 info */
-.info_charge {margin-top:10px;padding:10px;font-weight: bold;border: 1px solid lightgray;font-size: 11px;letter-spacing: 0px}
-/* ▲ 페이지 info */
+#notice_layer_wrap {
+    position: absolute;
+    width: 466px;
+    top: 35px;
+    left: 178px;
+    z-index: 101
+}
+
+
+
+#notice_layer_wrap .view,
+#notice_layer_wrap .hide {
+    overflow: auto;
+    position: relative;
+    display: none;
+    top: -2px;
+    *top: -3px;
+    _width: 466px;
+    padding: 15px 20px;
+    background-color: #FFF;
+    border: 2px solid #1A375B;
+    z-index: 100
+}
+
+.charge_tb {
+    width: 100%;
+    _width: 93%;
+    margin-bottom: 5px;
+    border-top: 1px solid #DDD;
+    border-left: 1px solid #DDD
+}
+
+.charge_tb th {
+    background-color: #F8F8F8
+}
+
+.charge_tb .right_line {
+    border-right: 0 solid
+}
+
+.charge_tb th,
+.charge_tb td {
+    height: 30px;
+    padding: 5px 0;
+    border-bottom: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+    text-align: center
+}
+
+#money_tb {
+    border-top: 3px solid #BEBEBE;
+    border-left: 0 solid #DDD
+}
+
+#time_tb1,
+#time_tb2 {
+    float: left;
+    width: 47%;
+    _width: 45%;
+    border-top: 3px solid #BEBEBE
+}
+
+#time_tb2 {
+    margin-left: 20px
+}
+
+#internet_tb th,
+#internet_tb td {
+    padding: 2px 0
+}
+
+table td .g_text {
+    width: 55px
+}
+
+#coupon_tb th img {
+    margin-right: 5px
+}
+
+.m_price {
+    height: 17px;
+    padding: 0 0 0 10px;
+    font-family: arial;
+    font-size: 20px;
+    line-height: 17px;
+    font-weight: bold;
+    color: #D40F00;
+    vertical-align: middle
+}
+
+.my_mileage {
+    width: 625px;
+    padding: 3px 0 5px;
+    text-align: right
+}
+
+.my_mileage img {
+    *margin-top: 2px
+}
+
+.my_mileage .m_price {
+    height: 20px;
+    line-height: 20px;
+    font-weight: bold
+}
+
+#charge_main {
+    position: relative;
+    width: 451px;
+    _width: 479px;
+    padding: 14px;
+    border: 1px solid #D6D6D6;
+    border-left: 0 solid
+}
+
+#charge_main .m_box {
+    width: 436px;
+    _width: 448px;
+    margin-bottom: 10px;
+    padding: 7px;
+    border: 1px solid #CDCDCD;
+    background-color: #F5F5F5;
+    color: #606060;
+    font-size: 11px;
+    letter-spacing: -1px
+}
+
+#charge_main .m_box2 {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #C4C4C4;
+    font-size: 11px;
+    color: #767676;
+    font-weight: bold
+}
+
+
+
+#charge_main .mile_text {
+    font-size: 11px;
+    color: #5E5E5E;
+    line-height: 13px
+}
+
+#charge_main .mile_detail {
+    float: left;
+    width: 447px;
+    margin-top: 5px;
+    border: 2px solid #d2E3F0
+}
+
+#charge_main .mile_detail .detail_img {
+    float: left;
+    width: 105px;
+    height: 100%;
+    margin: 10px 0 0 10px;
+    _margin-left: 5px;
+    padding-bottom: 10px;
+    text-align: center
+}
+
+#charge_main .mile_detail .detail_img #mybank_img {
+    margin: 20px 0;
+}
+
+#charge_main .mile_detail .detail_txt {
+    float: right;
+    width: 310px;
+    _width: 320px;
+    height: 100%;
+    margin-top: 10px;
+    padding: 0 15px 5px 0
+}
+
+
+
+#charge_main .mile_detail .detail_txt .g_list .text_blue {
+    color: #2162C6
+}
+
+#charge_main .mile_detail .detail_txt .g_list .text_red {
+    color: #ED1C24
+}
+
+#charge_main .mile_detail .detail_txt .g_list li .g_left {
+    clear: both;
+    width: 240px
+}
+
+#charge_main #tmoney_check {
+    margin-top: 10px
+}
+
+#charge_main #tmoney_check img {
+    vertical-align: middle
+}
+
+
+
+#charge_main .m_chargelist {
+    float: left;
+    width: 392px;
+    _width: 446px;
+    padding: 2px 28px 7px 28px;
+    border: 1px solid #E6E5E5;
+    background-color: #F5F5F5
+}
+
+#charge_main .m_chargelist li {
+    float: left;
+    width: 130px;
+    margin-top: 5px
+}
+
+#charge_main #m_chargelist li,
+#charge_main #charge_list li {
+    width: 130px
+}
+
+#charge_main .m_chargelist .custom {
+    width: auto;
+    padding-top: 2px
+}
+
+#charge_main .m_chargelist .custom .g_text {
+    width: 97px;
+    text-align: right;
+    vertical-align: middle;
+}
+
+#charge_main #mile_info {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #F8F8F8
+}
+
+.ars_type {
+    height: 25px;
+    line-height: 25px
+}
+
+#tel_type_lgu {
+    margin-left: 20px
+}
+
+#charge_main .real_price {
+    margin-top: 5px;
+    text-align: right
+}
+
+#charge_main .real_price img {
+    *margin-top: 2px
+}
+
+#charge_main .real_price .m_price {
+    font-size: 17px
+}
+
+#charge_main .real_price2 {
+    float: right;
+    width: 100%;
+    margin-top: 10px;
+    color: #444;
+    font-size: 13px;
+    font-weight: bold
+}
+
+#charge_main .real_price2 li {
+    margin-left: 10px;
+    text-align: right;
+    line-height: 25px
+}
+
+#charge_main .real_price2 label {
+    display: inline-block;
+    width: 200px;
+    text-align: right
+}
+
+#charge_main .real_price2 .m_price {
+    padding-right: 5px;
+    font-size: 17px;
+    vertical-align: baseline;
+    line-height: 25px
+}
+
+.m_button {
+    clear: both;
+    padding-top: 20px;
+    text-align: center
+}
+
+#inimsg {
+    display: none;
+    width: 100%;
+    height: 30px;
+    padding-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: darkred
+}
+
+
+
+.guide_box {
+    display: none;
+    width: 604px;
+    border: 3px solid #264872
+}
+
+.guide_box .guide_title {
+    height: 20px;
+    padding: 10px 20px;
+    background-color: #264872;
+    font-weight: bold;
+    color: #FFF
+}
+
+.guide_box .guide_main {
+    padding: 17px;
+    background-color: #FFF
+}
+
+.guide_box .guide_main .info_area {
+    width: 550px;
+    height: 130px;
+    margin: 0 auto;
+    background-color: #E9EFF6;
+}
+
+.guide_box .guide_main .info_area ul {
+    width: 530px;
+    height: 90px;
+    margin: 0 auto;
+    padding: 20px 0;
+    font-size: 0;
+}
+
+.guide_box .guide_main .info_area ul li {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.guide_box .guide_main .info_area ul li .info_title {
+    display: inline-block;
+    width: 100%;
+    margin-top: 14px;
+    color: #2E496B;
+    font-size: 12px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.guide_box .guide_main .info_area .box_5_wrap li {
+    width: 20%;
+}
+
+.guide_box .guide_main .info_area .box_4_wrap li {
+    width: 25%;
+}
+
+.guide_box .guide_main .info_area .box_3_wrap li {
+    width: 33%;
+}
+
+.guide_box .guide_main .info_area .info_icon {
+    display: inline-block;
+    width: 60px;
+    height: 50px;
+}
+
+.guide_box .guide_main .info_area .arrow {
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    top: 16px;
+    right: -4px;
+    background-position: -622px -2px;
+}
+
+
+
+.guide_box .guide_main .info_img {
+    text-align: center
+}
+
+.guide_box .guide_main .info_text {
+    clear: both;
+    margin-top: 5px;
+    font-size: 11px;
+    color: #255CB4
+}
+
+.guide_box .guide_main .g_list {
+    margin-top: 20px;
+    font-size: 11px;
+    color: #898989
+}
+
+.text_orange {
+    color: #F2912F
+}
+
+
+
+.guide_box .guide_main .mile_tab li {
+    float: left
+}
+
+.guide_box .guide_main .mile_tab .sub_tab {
+    clear: both;
+    width: 530px;
+    padding: 4px 20px;
+    background-color: #F8F8F8;
+    color: #476D9C
+}
+
+.guide_box .guide_main .mile_tab .sub_tab a {
+    margin: 0 10px;
+    color: #476D9C
+}
+
+.guide_box .guide_main .guide_sub {
+    font-weight: bold
+}
+
+.text_blue2 {
+    color: #476D9C
+}
+
+.guide_box .guide_main .guide_sub,
+.guide_box .guide_main .text_blue2,
+.guide_box .guide_main .g_red {
+    margin-top: 15px
+}
+
+#dvPopup #money_tb #juminnumber td div {
+    height: 25px;
+    line-height: 25px
+}
+
+#dvPopup #money_tb #juminnumber td div .g_text {
+    text-align: center
+}
+
+#dvPopup #money_tb #juminnumber td #info_phone_div .g_text {
+    width: 60px
+}
+
+#dvPopup #money_tb #juminnumber td div #info_jumin {
+    margin-left: 20px
+}
+
+#dvPopup #money_tb #receipt_username {
+    text-align: left
+}
+
+#dvPopup #money_tb #receipt_useremail {
+    width: 180px;
+    text-align: left
+}
+
+#dvPopup #money_tb span {
+    font-weight: bold
+}
+
+#charge_main .top_blue_box {
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border: 1px solid #CDCDCD;
+    background-color: #ECF4FD;
+    color: #427DC0;
+    text-align: center;
+    font-weight: bold
+}
+
+#charge_main .complete_info {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 3px;
+    background-color: #F8F8F8;
+    font-size: 11px;
+    color: #878787
+}
+
+#charge_main .complete_info img {
+    float: left
+}
+
+#charge_main .complete_info .text_blue3 {
+    color: #417DC6
+}
+
+#charge_main .complete_info .g_list {
+    float: left;
+    margin-top: 5px;
+    background-color: #F8F8F8
+}
+
+#complete_tb td,
+#dvPopup table td {
+    padding-left: 10px;
+    text-align: left
+}
+
+#complete_tb th img {
+    margin-right: 5px
+}
+
+#dvPopup {
+    z-index: 1;
+    position: absolute;
+    left: 180px;
+    top: 140px;
+    width: 470px
+}
+
+#dvPopup .alert {
+    margin-top: 10px;
+    padding: 10px;
+    border: 2px solid #E9E9E9;
+    background-color: #FBFBFB
+}
+
+.lookfor_id {
+    height: 15px;
+    margin-top: 10px
+}
+
+.lookfor_id li {
+    float: right;
+    width: 115px;
+    height: 20px;
+    margin-left: 10px
+}
+
+#inifnc,
+.g_btn {
+    margin-bottom: 10px
+}
+
+#cell_desc {
+    padding: 5px;
+    letter-spacing: -1px
+}
+
+#charge_main .blue_font_b {
+    padding-left: 0;
+    font-weight: bold;
+    color: #417DC6;
+    font-size: 12px
+}
+
+#charge_main .blue_font {
+    color: #417DC6;
+    font-size: 11px
+}
+
+#charge_main .red_font_b {
+    color: #ED0000;
+    font-weight: bold
+}
+
+#charge_main #phone_certify #certify_txt {
+    margin: 20px 0 10px;
+    background-color: #ECFDF7;
+    color: #119E30
+}
+
+#charge_main table {
+    _width: 434px
+}
+
+#charge_main #phone_certify #certify_table tr td {
+    padding-left: 10px;
+    text-align: left
+}
+
+#charge_main #phone_certify #certify_table tr td #time {
+    width: 70px;
+    height: 18px;
+    border: 1px solid #DDD;
+    text-align: center
+}
+
+#charge_main #complete_tb .cell_ul li {
+    display: inline
+}
+
+#charge_main #complete_tb .cell_ul li label {
+    padding-right: 15px
+}
+
+.layer_bn {
+    position: absolute;
+    top: 93px;
+    left: 164px
+}
+
+.m_close {
+    height: 24px;
+    background-color: #000;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 11px
+}
+
+.m_close .g_right {
+    margin: 5px 10px 0 0
+}
+
+.info_charge {
+    margin-top: 10px;
+    padding: 10px;
+    font-weight: bold;
+    border: 1px solid lightgray;
+    font-size: 11px;
+    letter-spacing: 0px
+}

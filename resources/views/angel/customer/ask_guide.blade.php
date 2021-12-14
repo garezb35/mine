@@ -1,4 +1,4 @@
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/customer/css/customer_common.css" />
@@ -154,7 +154,7 @@
                                         </div>
                                     </div>
                                     <div class="g_finish"></div>
-                                    <div class="screenshot_sub">* 첨부파일 용량이 초과될 경우 itemmania@itemmania.com로 이메일 발송 후 고객감동센터(1544-8278)로 문의바랍니다.</div>
+                                    <div class="screenshot_sub">* 첨부파일 용량이 초과될 경우  고객센터로 문의바랍니다.</div>
                                 </td>
                             </tr>
                             <tr>

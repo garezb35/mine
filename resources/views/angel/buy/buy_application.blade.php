@@ -52,7 +52,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
     $submit_condition = 0;
 }
 @endphp
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 
 @section('head_attach')
     <link type='text/css' rel='stylesheet' href='/angel/buy/css/application.css'>
@@ -210,7 +210,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                     </tbody>
                 </table>
         @endif
-            <!-- ▲ 물품정보 //-->
+
             <div class="g_subtitle"> 구매자정보
             </div>
             <table class="table-greenwith">
@@ -264,13 +264,13 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                 </tr>
                 </tbody>
             </table>
-            <!-- ▼ 개인정보 //-->
+
             <style>
                 .SafetyNumber_plus {
                     display: none;
                 }
             </style>
-            <!-- ▼ 연락처 중복 //-->
+
             <input type="hidden" name="user_contactA" id="user_contactA" value="{{$home_a}}">
             <input type="hidden" name="user_contactB" id="user_contactB" value="{{$home_b}}">
             <input type="hidden" name="user_contactC" id="user_contactC" value="{{$home_c}}">
@@ -317,7 +317,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                                         <br> 3) 부여 받은 안심번호는 거래가 종료되는 시점에 자동 회수되며, 회수된 이후에는 연락이 불가능합니다.
                                         <br> 4) 안심번호 사용 후 48시간을 초과하거나 거래종료 후 문제발생 시 실제 전화번호가 노출됩니다. </ul>
                                 </div>
-                                <div class="btn"> <a href="/guide/add/security_number class="btn_green2">안심번호 이용안내 ></a> </div>
+
                             </div>
                         </div>
                     </td>
@@ -367,18 +367,17 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                     }
                 };
             </script>
-            <!-- ▲ 개인정보 //-->
+
             <ul class="box6 notice_box">
                 <li>고의적인 취소 또는 직거래 유도를 할 경우 사이트 이용 제한을 받게 됩니다.</li>
                 <li>거래 교환 창 스크린샷과 완료 스크린샷을 보유하시기 바랍니다.</li>
             </ul>
-            <!-- ▼ 판매신청 //-->
+
             <div class="g_btn">
                 <a  class="btn-default btn-suc" onclick="fnFormChecker();">판매 신청</a>
             </div>
         </form>
-        <!-- ▲ 판매신청 //-->
-        <!-- ▼ 상세설명 //-->
+
         <div class="g_subtitle"> 상세설명 <a href="javascript:;" class="wideview" id="wideview">열기▼</a> </div>
         <div class="detail_info" id="detail_info">
             <div class="detail_text">{{$user_text}}</div>
@@ -386,7 +385,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
 
         <div class="g_finish"></div>
     </div>
-    <!-- ▼ 확인 팝업 //-->
+
     <div id="dvGoodsInfo" class="g_popup green dvGoodsInfo">
         <div class="layer_title"> <img src="http://img4.itemmania.com/images/buy/titlep_info_gg.gif" width="102" height="19" alt="물품신청정보"> <img class="btn_close" src="http://img4.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();"> </div>
         <div class="layer_content">
@@ -426,9 +425,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
             </div>
         </div>
     </div>
-    <!-- ▲ 확인 팝업 //-->
-    <!-- ▼ 전자계약서 //-->
-    <!-- ▲ 전자계약서 //-->
+
     <form id="creditForm" name="creditForm" method="post">
         <input type="hidden" id="infoId" value="a68e5ed758fe86e630c7f30c1dbb221b">
         <input type="hidden" name="id" id="encryptId">

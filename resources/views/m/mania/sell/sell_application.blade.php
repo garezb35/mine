@@ -46,7 +46,7 @@
         $home_c = $home_array[2];
     }
 @endphp
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/sell/css/application.css?v=201221">
     <link type="text/css" rel="stylesheet" href="/angel/myroom/buy/css/buy_pay_wait_view.css?v=210427">

@@ -1,7 +1,7 @@
 @php
 $issues_list = json_decode($user['issue_count']);
 @endphp
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/myinfo/css/credit_rating.css">

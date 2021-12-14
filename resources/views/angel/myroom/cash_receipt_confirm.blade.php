@@ -16,7 +16,7 @@
         <div id="g_OVERLAY" class="g_overlay"></div>
     </div>
     <div id="g_BODY">
-        <div id="popup_title_bar"><img src="http://img3.itemmania.com/images/myroom/title/title_cash_number.gif" alt="현금영수증 승인번호 확인" width="195" height="19"></div>
+        <div id="popup_title_bar">현금영수증 승인번호 확인</div>
         <div id="g_POPUP">
             <table class="g_blue_table">
                 <colgroup>

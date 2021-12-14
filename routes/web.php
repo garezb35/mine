@@ -189,15 +189,13 @@ Route::middleware('auth')->group(function () {
         });
 
         Route::prefix('my_mileage')->group(function(){
-            Route::prefix('')->group(function (){
-                Route::get('/index_c', [\App\Http\Controllers\VMyRoomController::class, 'my_mileage_index_c'])->name('my_mileage_index_c');
-                Route::get('/index_e', [\App\Http\Controllers\VMyRoomController::class, 'my_mileage_index_e'])->name('my_mileage_index_e');
-                Route::any('/calendar', [\App\Http\Controllers\VMyRoomController::class, 'my_mileage_calendar'])->name('my_mileage_calendar');
-                Route::any('/detail_list', [\App\Http\Controllers\VMyRoomController::class, 'my_mileage_detail_list'])->name('my_mileage_detail_list');
-                Route::get('/popup/mile_detail', [\App\Http\Controllers\VMyRoomController::class, 'popup_mile_detail'])->name('popup_mile_detail');
-                Route::get('/charge', [\App\Http\Controllers\VMyRoomController::class, 'mileage_payment_charge'])->name('mileage_payment_charge');
-                Route::get('/exchange', [\App\Http\Controllers\VMyRoomController::class, 'mileage_payment_exchange'])->name('mileage_payment_exchange');
-            });
+            Route::get('/index_c', [\App\Http\Controllers\VMyRoomController::class, 'my_mileage_index_c'])->name('my_mileage_index_c');
+            Route::get('/index_e', [\App\Http\Controllers\VMyRoomController::class, 'my_mileage_index_e'])->name('my_mileage_index_e');
+            Route::any('/calendar', [\App\Http\Controllers\VMyRoomController::class, 'my_mileage_calendar'])->name('my_mileage_calendar');
+            Route::any('/detail_list', [\App\Http\Controllers\VMyRoomController::class, 'my_mileage_detail_list'])->name('my_mileage_detail_list');
+            Route::get('/popup/mile_detail', [\App\Http\Controllers\VMyRoomController::class, 'popup_mile_detail'])->name('popup_mile_detail');
+            Route::get('/charge', [\App\Http\Controllers\VMyRoomController::class, 'mileage_payment_charge'])->name('mileage_payment_charge');
+            Route::get('/exchange', [\App\Http\Controllers\VMyRoomController::class, 'mileage_payment_exchange'])->name('mileage_payment_exchange');
 
             Route::prefix('guide')->group(function (){
                 Route::get('/charge', [\App\Http\Controllers\VMyRoomController::class, 'mileage_guide_charge'])->name('mileage_guide_charge');

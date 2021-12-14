@@ -4,7 +4,7 @@ $acc[2] = 'Google';
 $acc[3] = 'Facebook';
 $acc[9] = '기타';
 @endphp
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 @section('head_attach')
 
     <link type="text/css" rel="stylesheet" href="/angel/character/css/index.css?v=210204" />

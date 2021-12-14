@@ -1,4 +1,4 @@
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/portal/giftcard/css/sub_index.css">

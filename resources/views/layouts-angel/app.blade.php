@@ -40,9 +40,9 @@
             <div id="g_OVERLAY" class="g_overlay"></div>
         </div>
         <div class="g_body" id="g_BODY">
-            @include('layouts-mania.header')
+            @include('layouts-angel.header')
             @yield('content')
-            @include('layouts-mania.footer')
+            @include('layouts-angel.footer')
         </div>
         <script type="text/javascript" src="/angel/_js/jquery.js"></script>
         <script type="text/javascript" src="/angel/_js/_comm.js"></script>

@@ -1,4 +1,4 @@
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 
 @section('head_attach')
     <link type='text/css' rel='stylesheet' href='/angel/guide/css/common.css'>
@@ -66,13 +66,7 @@
                 border-bottom: 1px solid #F1F1F1;
                 line-height: 30px;
             }
-            .aside .img_wrap > .img_mania_call {
-                display: inline-block;
-                width: 35px;
-                height: 35px;
-                background-position: -789px -545px;
-                margin: 0 10px 0 15px;
-            }
+
             .aside .img_wrap > .content {
                 font-size: 12px;
                 font-weight: bold;

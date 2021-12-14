@@ -1877,8 +1877,8 @@ class ManiaController extends BaseController
     </table>
 </div>
 <div class="g_btn_wrap">
-    <a href="javascript:;" id="reg_submit" class="btn_blue3 sign_btn">서명하기</a>
-    <a href="javascript:;" id="cancel_submit"><img src="http://img4.itemmania.com/new_images/btn/pop_btn_cancel.gif" width="63" height="35" alt="취소"></a>
+    <a href="javascript:;" id="reg_submit" class="btn-default btn-suc">서명하기</a>
+    <a href="javascript:;" id="cancel_submit" class="btn-default btn-cancel">취소</a>
 </div>';
         }
         echo $r;

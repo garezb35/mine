@@ -16,7 +16,7 @@
     }
 
 @endphp
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/buy/css/index.css">
@@ -495,9 +495,7 @@
                                             2) 상대거래자가 안심번호 서비스를 사용하지 않는 상태에서 발신한 경우 실제 번호가 표시됩니다.<br> 3) 부여 받은 안심번호는 거래가 종료되는 시점에 자동 회수되며, 회수된 이후에는 연락이 불가능합니다.<br> 4) 안심번호 사용 후 48시간을 초과하거나 거래종료 후 문제발생 시 실제 전화번호가 노출됩니다.
                                         </ul>
                                     </div>
-                                    <div class="btn">
-                                        <a href="/guide/add/security_number.html" class="btn_blue4">안심번호 이용안내 ></a>
-                                    </div>
+
                                 </div>
                             </div>
                         </td>

@@ -1,13 +1,4 @@
-/*
- * @title			초보자 가이드
- * @author			김현진
- * @date			2012.05.29
- * @update
- * @description
- */
-
 $(function() {
-    /* 거래방법 보기 */
     $('div.top_menu span').click(function() {
         if($(this).attr('id') == 'sell_btn') {
             $('#guide_sell').show();
@@ -45,5 +36,4 @@ $(function() {
             }
         }
     });
-    /* 거래방법 보기 */
 });

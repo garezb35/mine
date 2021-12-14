@@ -1,4 +1,4 @@
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/customer/css/menu.css" />
@@ -89,10 +89,7 @@
         </style>
         @include('angel.customer.aside', ['group'=>'report', 'part'=>'close'])
         <div class="g_content">
-            <!-- ▼ 타이틀 //-->
             <div class="g_title_blue no-border"> 1:1 상담하기 </div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 상담분류선택 //-->
             <div class="s_subtitle">상담 분류 선택</div>
             <table class="g_sky_table category_tb" id="category_tb">
                 <colgroup>
@@ -115,22 +112,16 @@
                     </td>
                 </tr>
             </table>
-            <!-- ▲ 상담분류선택 //-->
             <div class="g_finish"></div>
-
-            <!-- ▼ 탭 //-->
             <div class="g_tab onetab">
                 <div class="selected f-16"> 거래중 내역 </div>
             </div>
             <div class="g_tab_line"></div>
-            <!-- ▲ 탭 //-->
-            <!-- ▼ 서브탭 //-->
             <ul id="trade_subtab" class="g_sideway">
                 <li> <a class="f-14 {{$typeTxt == 'sell' ? 'f_blue3 f_bold' : ''}}" href="{{route("customer_report")}}?type=sell">판매중 물품 </a> </li>
                 <li> |</li>
                 <li> <a class="f-14 {{$typeTxt == 'buy' ? 'f_blue3 f_bold' : ''}}" href="{{route("customer_report")}}?type=buy">구매중 물품 </a> </li>
             </ul>
-            <!-- ▲ 서브탭 //-->
             <div class="g_finish"></div>
             <div class="g_big_box1">
                 <form id="frmSearch" action="" method="post">
@@ -212,15 +203,13 @@
                             -
                         @endif
                     </td>
-                    <!-- ☜ $imgBtn 뒤에 공백 한칸 꼭 필요 //-->
+
                 </tr>
                 @endforeach
             </table>
-            <!-- ▲ 리스트 //-->
+
             <div class="dvPaging"></div>
             <div class="g_finish"></div>
-            <!-- ▼ 상담서 //-->
-            <!-- ▼ 거래 취소/종료요청 //-->
             <div id="Form_table" style="display: none">
                 <form name="form_member" id="form_member" method="post" enctype="multipart/form-data">
                     @csrf
@@ -286,21 +275,18 @@
                             <td>
                                 <input type="text" name="user_phone1" class="g_text" id="phone1" maxlength="3" /> -
                                 <input type="text" name="user_phone2" class="g_text" id="phone2" maxlength="4" /> -
-                                <input type="text" name="user_phone3" class="g_text" id="phone3" maxlength="4" /> <span class="g_black3_11">현재 통화 가능한 연락처를 남겨주세요.</span></td>
+                                <input type="text" name="user_phone3" class="g_text" id="phone3" maxlength="4" />
+                                <span class="g_black3_11">현재 통화 가능한 연락처를 남겨주세요.</span>
+                            </td>
                         </tr>
                     </table>
-                    <!-- ▲ 보기 //-->
-                    <!-- ▼ 버튼 //-->
                     <div class="g_btn">
                         <button class="btn-blue-img btn-color-img" type="submit">확인</button>
                         <button class="btn-gray-img btn-color-img" type="button">취소</button>
                     </div>
-                    <!-- ▲ 버튼 //-->
                 </form>
             </div>
-            <!-- ▲ 거래 취소/종료요청 //-->
         </div>
         <div class="g_finish"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
 @endsection

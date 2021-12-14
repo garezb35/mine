@@ -323,20 +323,6 @@
     background-color: #FFF;
 }
 
-.g_content>.content_trade .arrow_wrap {
-    display: inline-block;
-    width: 20px;
-    height: 90px;
-    vertical-align: top;
-}
-
-.g_content>.content_trade .arrow_wrap>.arr2 {
-    display: block;
-    width: 20px;
-    height: 90px;
-    background: url(//img4.itemmania.com/new_images/myroom/icon_next_m.png) no-repeat 0 50%;
-    text-indent: -9999px;
-}
 
 .g_content>.content_trade .product>.product_title2>a {
     margin-left: 5px;

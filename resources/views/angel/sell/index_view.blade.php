@@ -22,7 +22,7 @@
     $user_quantity = $user_quantity ?? '';
     $c = str_replace(" ","",$user_quantity.($gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit:''));
 @endphp
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/sell/css/index_view.css?v=190220">
 @endsection

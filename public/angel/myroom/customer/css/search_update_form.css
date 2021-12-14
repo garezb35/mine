@@ -51,16 +51,7 @@
     margin-left: 0;
 }
 
-.custom_search_wrapper .favorite {
-    position: absolute;
-    top: 7px;
-    right: 45px;
-    display: block;
-    width: 23px;
-    height: 22px;
-    background: url(//img1.itemmania.com/new_images/sell/icon_star.png) no-repeat;
-    text-indent: -9999px;
-}
+
 
 .custom_search_wrapper .custom_gameserver {
     left: 85px;

@@ -11,7 +11,7 @@ $user_contactA = !empty($splited_mobile[0]) ? $splited_mobile[0] : "";
 $user_contactB = !empty($splited_mobile[1]) ? $splited_mobile[1] : "";
 $user_contactC = !empty($splited_mobile[2]) ? $splited_mobile[2] : "";
 @endphp
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/myinfo/css/check.css" />

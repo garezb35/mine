@@ -1,4 +1,4 @@
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/customer/css/index.css?210503" />
@@ -138,7 +138,7 @@
                 <input type="hidden" name="second_code">
                 <div class="search">
                     <div class="search_bar_wrap">
-                        <input type="image" class="g_image g_right" src="http://img2.itemmania.com/new_images/portal/center/btn_search_black.png" width="24" height="24" alt="검색">
+                        <button style="background: none" type="submit"  class="g_image g_right"><i class="fa fa-search"></i></button>
                         <div class="search_bar d-flex">
                             <div class="search_img_wrap"> 이용안내에서 궁금한 점을 빠르게 <br>찾아보세요 </div>
                             <div class="search_input_wrap">

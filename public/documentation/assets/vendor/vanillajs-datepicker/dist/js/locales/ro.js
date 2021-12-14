@@ -1,7 +1,4 @@
-/**
- * Romanian translation for bootstrap-datepicker
- * Cristian Vasile <cristi.mie@gmail.com>
- */
+
 (function () {
   Datepicker.locales.ro = {
     days: ["Duminică", "Luni", "Marţi", "Miercuri", "Joi", "Vineri", "Sâmbătă"],

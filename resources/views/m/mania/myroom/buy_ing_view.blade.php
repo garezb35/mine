@@ -18,7 +18,7 @@ if(sizeof($split_number) == 3){
     $user_phone3 = $split_number[2];
 }
 @endphp
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 
 @section('head_attach')
 

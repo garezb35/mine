@@ -16,7 +16,7 @@
     if($user_goods_type == 'division')
         $price = $user_division_price;
 @endphp
-@extends('layouts-mania.app')
+@extends('layouts-angel.app')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css?210503" />
