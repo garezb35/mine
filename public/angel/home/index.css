@@ -701,7 +701,7 @@
     line-height: 37px;
     border-right: 1px solid #DEE3EB;
     cursor: pointer;
-    background: url(/angel/img/icons/vertical-dia.png);
+    background: url(/angel/img/icons/vertical-dia.jpg);
 }
 
 #gameChart .gameChart_title_list div:last-child {
@@ -709,7 +709,7 @@
 }
 
 #gameChart .gameChart_title_list .game_on {
-    background: url(/angel/img/icons/vertical-on) !important;
+    background: url(/angel/img/icons/vertical-on.jpg) !important;
     color: white;
 }
 
