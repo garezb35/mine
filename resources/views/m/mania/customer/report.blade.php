@@ -1,18 +1,18 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/customer/css/menu.css" />
-    <link type="text/css" rel="stylesheet" href="/mania/customer/css/_report_top.css" />
-    <link type="text/css" rel="stylesheet" href="/mania/customer/trade/css/trade_common.css" />
-    <link type="text/css" rel="stylesheet" href="/mania/customer/css/customer_common.css" />
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/menu.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/_report_top.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/trade/css/trade_common.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/customer_common.css" />
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js"></script>
 
 @endsection
 
 @section('foot_attach')
 
-    <script type="text/javascript" src="/mania/_js/_screenshot.js"></script>
-    <script type="text/javascript" src="/mania/customer/trade/js/trade_common.js"></script>
+    <script type="text/javascript" src="/angel/_js/_screenshot.js"></script>
+    <script type="text/javascript" src="/angel/customer/trade/js/trade_common.js"></script>
     <script type="text/javascript">
         function __init() {
             strThisCode = 'A101';
@@ -89,7 +89,7 @@
                 width: calc(100% - 130px);
             }
         </style>
-        @include('mania.customer.aside', ['group'=>'report', 'part'=>'close'])
+        @include('angel.customer.aside', ['group'=>'report', 'part'=>'close'])
         <div class="g_content">
             <!-- ▼ 타이틀 //-->
             <div class="g_title_blue no-border"> 1:1 상담하기 </div>
@@ -146,18 +146,6 @@
                     <input type="hidden" name="retry" value="" />
                     <input type="hidden" name="reflag" value="" />
                     <div class="" style="height: 35px;">
-{{--                        <div id="dvGame" class="g_selectbox" style="width: 150px;">--}}
-{{--                            <input type="hidden" name="selected" value="">--}}
-{{--                            <input type="hidden" name="game">--}}
-{{--                            <input type="text" name="game_text" class="g_search_input" style="width: 117px;">--}}
-{{--                            <div class="arrow_img"></div>--}}
-{{--                        </div>--}}
-{{--                        <div id="dvServer" class="g_selectbox" style="width: 150px;">--}}
-{{--                            <input type="hidden" name="selected" value="">--}}
-{{--                            <input type="hidden" name="server" value="">--}}
-{{--                            <input type="text" name="server_text" class="g_search_input" style="width: 117px;">--}}
-{{--                            <div class="arrow_img"></div>--}}
-{{--                        </div>--}}
                         <div id="dvGame" name="game"><input type="hidden" name="selected" value=""/></div>
                         <div id="dvServer" name="server"><input type="hidden" name="selected" value=""/></div>
                         <select id="dvGoods" name="search_goods" class="g_hidden">

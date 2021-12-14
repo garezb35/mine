@@ -349,6 +349,6 @@ Route::get('/news/view', [\App\Http\Controllers\VGuideController::class, 'view']
 Route::get('/news', [\App\Http\Controllers\VGuideController::class, 'news'])->name('news');
 
 Route::get('/_xml/gamemoney_avg',[\App\Http\Controllers\VSellController::class, 'gamemoney_avg']);
-Route::get('/mania_export_xml',[\App\Http\Controllers\AdminController::class, 'exportXML']);
+Route::get('/angel_export_xml',[\App\Http\Controllers\AdminController::class, 'exportXML']);
 Route::get('/box_chatting',[\App\Http\Controllers\VMainController::class, 'box_chatting']);
 

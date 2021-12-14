@@ -1,34 +1,19 @@
 
 <div class="g_layer all_menu_layer" id="all_menu_layer">
-    <div class="inner"> <a href="javascript:;" class="sp_icon close_r" id="menu_close">닫기</a> </div>
+    <div class="inner"> <a href="javascript:;" class="close_r" id="menu_close">닫기</a> </div>
 </div>
 <div class="quickmenu_area" id="quickmenu_area" style="display: none">
     <div class="inner">
         <ul class="quickmenu close" id="quickmenu">
             <li ><a href="#tooltip"  data-type="ss"><i class="fa fa-commenting"></i></a></li>
         </ul>
-        <div class="quickmenu_dtl" id="quickmenu_dtl"> <a href="javascript:;" class="sp_icon close" id="quickmenu_close"></a>
-{{--            <div class="quickmenu_cont" id="quickmenu_cont"></div>--}}
+        <div class="quickmenu_dtl" id="quickmenu_dtl"> <a href="javascript:;" class="close" id="quickmenu_close"></a>
+
         </div>
     </div>
 </div>
-<!--▲▲▲ 거래 탑 배너 ▲▲▲ -->
 <div class="g_header ">
     <div class="top_bg">
-{{--        <div class="top-ads-part">--}}
-{{--            <div class="top-ads-content">--}}
-{{--                <table class="w-init m-auto no-border p-0" cellpadding="0" cellspacing="0" style="padding-top :40px">--}}
-{{--                    <tr>--}}
-{{--                        <td class="p-0 no-border">--}}
-{{--                            <p class="ads-title p-0">봄맞이 이벤트</p>--}}
-{{--                        </td>--}}
-{{--                        <td class="p-0 no-border">--}}
-{{--                            <p class="f-16 c-white ads-content">모바일캐시비 충전하면 2천원추가충전</br>꽝없는 적립금 지급은 Bonus!</p>--}}
-{{--                        </td>--}}
-{{--                    </tr>--}}
-{{--                </table>--}}
-{{--            </div>--}}
-{{--        </div>--}}
         <div class="border-bottom">
             <div class="g_snav">
                 <ul class="snav_left"></ul>
@@ -101,7 +86,6 @@
                 </div>
             </form>
         </div>
-        <!--▲▲▲ 공통 로고 배너 ▲▲▲ -->
     </div>
     <div class="nav_wrap">
         <div class="content_center">
@@ -109,7 +93,6 @@
                 <li><a href="/character">캐릭터 거래</a></li>
                 <li><a href="/myroom">마이룸</a></li>
                 <li><a href="{{route("giftcard")}}">상품권샵</a></li>
-{{--                <li><a href="#">이벤트/쿠폰</a></li>--}}
                 <li><a href="{{route("guide")}}">이용안내</a></li>
             </ul>
             <ul class="nav nav_highlight">

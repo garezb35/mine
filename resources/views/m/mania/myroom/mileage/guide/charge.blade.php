@@ -1,15 +1,15 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/mileage/guide/css/charge.css?v=210602">
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/mileage/guide/css/charge.css?v=210602">
+    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
     <script type='text/javascript'>
-        var gsVersion = '2110141801';
-        var _LOGINCHECK = '1';
+
+
     </script>
 @endsection
 
@@ -17,7 +17,7 @@
 
 <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
 <div class="g_container" id="g_CONTENT">
-    @include('mania.myroom.aside', ['group'=>'mileage', 'part'=>'charging'])
+    @include('angel.myroom.aside', ['group'=>'mileage', 'part'=>'charging'])
     <div class="g_content">
         <div class="g_title_blue"> 마일리지 충전
             <ul class="g_path">
@@ -45,12 +45,12 @@
             <li onclick="_window.open('mileage_charge', '/myroom/mileage/charge/gpgw.html', 701, 900);">GP쿠폰<span class="img_charge23">GP쿠폰</span></li>
             <li onclick="_window.open('mileage_charge', '/myroom/mileage/charge/onlyhpmn.html', 701, 900);">해피머니상품권<span class="img_charge04">해피머니상품권</span></li>
             <li onclick="_window.open('mileage_charge', '/myroom/mileage/charge/tmoney.html', 701, 900);">모바일티머니<span class="img_charge09">모바일티머니</span></li>
-            <li onclick="_window.open('mileage_charge', '/myroom/mileage/charge/maniacoupon.html', 701, 900);">매니아 선불쿠폰<span class="img_charge19">매니아 선불쿠폰</span></li>
+            <li onclick="_window.open('mileage_charge', '/myroom/mileage/charge/angelcoupon.html', 701, 900);">매니아 선불쿠폰<span class="img_charge19">매니아 선불쿠폰</span></li>
             <li onclick="_window.open('mileage_charge', '/myroom/mileage/charge/coupon.html', 701, 900);">이벤트쿠폰<span class="img_charge24">이벤트쿠폰</span></li>
             <li onclick="_window.open('mileage_charge', '/myroom/mileage/charge/onlydgcl.html', 701, 900);">스마트문상(게임문상)<span class="img_charge05">스마트문상(게임문상)</span></li>
             <li onclick="_window.open('mileage_charge', '/myroom/mileage/charge/cashbee.html', 701, 900);">모바일캐시비<span class="img_charge10">모바일캐시비</span></li>
             <li onclick="_window.open('mileage_charge', '/myroom/mileage/charge/cashgate.html', 701, 900);">캐시플러스<span class="img_charge15">캐시플러스</span></li>
-            <li onclick="window.open('/portal/maniaplay/free/index.html');">무료충전소<span class="img_charge25">무료충전소</span></li>
+            <li onclick="window.open('/portal/angelplay/free/index.html');">무료충전소<span class="img_charge25">무료충전소</span></li>
             <li onclick="_window.open('mileage_charge', '/myroom/mileage/charge/mileage.html', 701, 900);">마일리지 상품권<span class="img_charge26">마일리지 상품권</span></li>
             <li onclick="_window.open('mileage_charge', '/myroom/mileage/charge/index.html', 701, 900);">전용계좌<span class="img_charge21">전용계좌</span></li>
             <li onclick="_window.open('mileage_charge', '/myroom/mileage/charge/mmileage.html', 701, 900);">M마일리지 이용권<span class="img_charge30">M마일리지 이용권</span></li>
@@ -81,13 +81,13 @@
                 <li class="line"></li>
                 <!--			<li class="title"><img src="-->
                 <!--/images/myroom/mileage/info06.gif" width="73" height="15" alt="편의점충전"></li>-->
-                <!--			<li>가맹 편의점에서 아이템매니아 캐쉬를 구입 후 영수증에 기재된 일련번호를 입력하면 즉시 마일리지로 충전할 수 있습니다.</li>-->
+                <!--			<li>가맹 편의점에서 아이템천사 캐쉬를 구입 후 영수증에 기재된 일련번호를 입력하면 즉시 마일리지로 충전할 수 있습니다.</li>-->
                 <!--			<li class="line"></li>-->
                 <li class="title"> <img src="http://img3.itemmania.com/images/myroom/mileage/info07.gif" width="84" height="15" alt="선불카드충전"> </li>
                 <li>편의점 또는 문구점에서 판매되는 틴캐시, 에그머니, GP쿠폰 등으로 마일리지를 충전하실 수 있습니다.</li>
                 <li class="line"></li>
                 <li class="title"> <img src="http://img4.itemmania.com/images/myroom/mileage/info08.gif" width="101" height="15" alt="매니아전용충전"> </li>
-                <li>M마일리지 이용권, 마일리지상품권 등 아이템매니아와 제휴가 맺어진 상품권으로 마일리지를 충전하실 수 있습니다.</li>
+                <li>M마일리지 이용권, 마일리지상품권 등 아이템천사와 제휴가 맺어진 상품권으로 마일리지를 충전하실 수 있습니다.</li>
             </ul>
         </div>
     </div>

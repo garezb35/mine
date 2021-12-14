@@ -1,18 +1,18 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/_banner/css/_banner.css?v=210107101945">
-    <link type="text/css" rel="stylesheet" href="/mania/home/index.css">
-    <link type="text/css" rel="stylesheet" href="/mania/home/custom.css">
+    <link type="text/css" rel="stylesheet" href="/angel/_banner/css/_banner.css?v=210107101945">
+    <link type="text/css" rel="stylesheet" href="/angel/home/index.css">
+    <link type="text/css" rel="stylesheet" href="/angel/home/custom.css">
 
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
 
-    <script type="text/javascript" src="/mania/_js/_xml2json.js"></script>
-    <script type="text/javascript" src="/mania/_js_chart/_avgGameChart.js"></script>
-    <script type="text/javascript" src="/mania/js/home.js"></script>
+    <script type="text/javascript" src="/angel/_js/_xml2json.js"></script>
+    <script type="text/javascript" src="/angel/_js_chart/_avgGameChart.js"></script>
+    <script type="text/javascript" src="/angel/js/home.js"></script>
     <script>
         $(document).ready(function() {
             $(".tab-title").click(function() {
@@ -152,205 +152,6 @@
         </div>
     </div>
     <div class="content_center">
-        {{--
-        <div class="power_wrap">
-            <div class="power_title"> <span class="power">파워물품 ZONE</span> <a href="/power/auction_ing" class="more2">파워등록권 경매신청 ></a> </div>
-            <ul class="list" id="power_list">
-                <li class="color1 ">
-                    <a href="/sell/view?id=2021100812271890"> <em class="label"></em> <span class="game">디아블로2:레저렉션</span> <span class="sise">1개당 1,000원</span> <span class="server">기타</span> </a>
-                </li>
-                <li class="color2 ">
-                    <a href="/sell/view?id=2021100812270343"> <em class="label"></em> <span class="game">디아블로2:레저렉션</span> <span class="sise">1개당 1,000원</span> <span class="server">노말</span> </a>
-                </li>
-                <li class="color3 ">
-                    <a href="/sell/view?id=2021100812433102"> <em class="label"></em> <span class="game">로스트아크</span> <span class="sise">1,000당 1,390원</span> <span class="server">루페온</span> </a>
-                </li>
-                <li class="color4 ">
-                    <a href="/sell/view?id=2021100812433402"> <em class="label"></em> <span class="game">로스트아크</span> <span class="sise">1,000당 1,390원</span> <span class="server">카제로스</span> </a>
-                </li>
-                <li class="color5 ">
-                    <a href="/sell/view?id=2021100812433688"> <em class="label"></em> <span class="game">로스트아크</span> <span class="sise">1,000당 1,390원</span> <span class="server">아브렐슈드</span> </a>
-                </li>
-                <li class="color6 ">
-                    <a href="/sell/view?id=2021100812434002"> <em class="label"></em> <span class="game">로스트아크</span> <span class="sise">1,000당 1,290원</span> <span class="server">실리안</span> </a>
-                </li>
-                <li class="color1 ">
-                    <a href="/sell/view?id=2021100812470636"> <em class="label"></em> <span class="game">로스트아크</span> <span class="sise">1,000당 1,390원</span> <span class="server">아만</span> </a>
-                </li>
-                <li class="color2 ">
-                    <a href="/sell/view?id=2021100812470919"> <em class="label"></em> <span class="game">로스트아크</span> <span class="sise">1,000당 1,290원</span> <span class="server">카마인</span> </a>
-                </li>
-                <li class="color3 ">
-                    <a href="/sell/view?id=2021100812471191"> <em class="label"></em> <span class="game">로스트아크</span> <span class="sise">1,000당 1,390원</span> <span class="server">카단</span> </a>
-                </li>
-                <li class="color4 ">
-                    <a href="/sell/view?id=2021100812471505"> <em class="label"></em> <span class="game">로스트아크</span> <span class="sise">1,000당 1,390원</span> <span class="server">니나브</span> </a>
-                </li>
-                <li class="color5 ">
-                    <a href="/sell/view?id=2021100812418279"> <em class="label"></em> <span class="game">월드오브워크래프트:클래식</span> <span class="sise">100당 630원</span> <span class="server">로크홀라[호드]-불성</span> </a>
-                </li>
-                <li class="color6 ">
-                    <a href="/sell/view?id=2021100812418660"> <em class="label"></em> <span class="game">월드오브워크래프트:클래식</span> <span class="sise">100당 730원</span> <span class="server">로크홀라[얼라]-불성</span> </a>
-                </li>
-                <li class="color1  g_hidden">
-                    <a href="/sell/view?id=2021100812425626"> <em class="label"></em> <span class="game">메이플스토리</span> <span class="sise">1억당 2,990원</span> <span class="server">루나</span> </a>
-                </li>
-                <li class="color2  g_hidden">
-                    <a href="/sell/view?id=2021100812423294"> <em class="label"></em> <span class="game">메이플스토리</span> <span class="sise">1억당 3,170원</span> <span class="server">스카니아</span> </a>
-                </li>
-                <li class="color3  g_hidden">
-                    <a href="/sell/view?id=2021100812425314"> <em class="label"></em> <span class="game">메이플스토리</span> <span class="sise">1억당 2,990원</span> <span class="server">엘리시움</span> </a>
-                </li>
-                <li class="color4  g_hidden">
-                    <a href="/sell/view?id=2021100812421667"> <em class="label"></em> <span class="game">바람의나라</span> <span class="sise">100만당 1,010원</span> <span class="server">연</span> </a>
-                </li>
-                <li class="color5  g_hidden">
-                    <a href="/sell/view?id=2021100810597610"> <em class="label"></em> <span class="game">메이플스토리</span> <span class="sise">1억당 3,150원</span> <span class="server">오로라</span> </a>
-                </li>
-                <li class="color6  g_hidden">
-                    <a href="/sell/view?id=2021100807242017"> <em class="label"></em> <span class="game">서든어택</span> <span class="sise">1,000당 2,280원</span> <span class="server">기타</span> </a>
-                </li>
-                <li class="color1  g_hidden">
-                    <a href="/sell/view?id=2021100810969304"> <em class="label"></em> <span class="game">마비노기</span> <span class="sise">100만당 1,050원</span> <span class="server">류트</span> </a>
-                </li>
-                <li class="color2  g_hidden">
-                    <a href="/sell/view?id=2021100812425001"> <em class="label"></em> <span class="game">메이플스토리</span> <span class="sise">1억당 3,490원</span> <span class="server">RED</span> </a>
-                </li>
-                <li class="color3  g_hidden">
-                    <a href="/sell/view?id=2021100812424297"> <em class="label"></em> <span class="game">메이플스토리</span> <span class="sise">1억당 3,390원</span> <span class="server">유니온</span> </a>
-                </li>
-                <li class="color4  g_hidden">
-                    <a href="/sell/view?id=2021100812424615"> <em class="label"></em> <span class="game">메이플스토리</span> <span class="sise">1억당 3,390원</span> <span class="server">이노시스</span> </a>
-                </li>
-                <li class="color5  g_hidden">
-                    <a href="/sell/view?id=2021100812423914"> <em class="label"></em> <span class="game">메이플스토리</span> <span class="sise">1억당 2,720원</span> <span class="server">크로아</span> </a>
-                </li>
-                <li class="color6  g_hidden">
-                    <a href="/sell/view?id=2021100812423608"> <em class="label"></em> <span class="game">메이플스토리</span> <span class="sise">1억당 3,240원</span> <span class="server">제니스</span> </a>
-                </li>
-                <li class="color1  g_hidden">
-                    <a href="/sell/view?id=2021100812422960"> <em class="label"></em> <span class="game">메이플스토리</span> <span class="sise">1억당 2,890원</span> <span class="server">베라</span> </a>
-                </li>
-                <li class="color2  g_hidden">
-                    <a href="/sell/view?id=2021100811336012"> <em class="label"></em> <span class="game">아이온</span> <span class="sise">100만당 1,090원</span> <span class="server">클래식-유스티엘(마족)</span> </a>
-                </li>
-                <li class="color3  g_hidden">
-                    <a href="/sell/view?id=2021100812436634"> <em class="label"></em> <span class="game">마비노기영웅전</span> <span class="sise">100만당 1,120원</span> <span class="server">프리미어</span> </a>
-                </li>
-                <li class="color4  g_hidden">
-                    <a href="/sell/view?id=2021100812427464"> <em class="label"></em> <span class="game">패스오브엑자일</span> <span class="sise">10당 1,500원</span> <span class="server">스탠다드</span> </a>
-                </li>
-                <li class="color5  g_hidden">
-                    <a href="/sell/view?id=2021100809243731"> <em class="label"></em> <span class="game">아이온</span> <span class="sise">100만당 1,110원</span> <span class="server">클래식-유스티엘(천족)</span> </a>
-                </li>
-                <li class="color6  g_hidden">
-                    <a href="/sell/view?id=2021100810265532"> <em class="label"></em> <span class="game">디아블로2:레저렉션</span> <span class="sise">1개당 5,000원</span> <span class="server">하드코어</span> </a>
-                </li>
-                <li class="color1  g_hidden">
-                    <a href="/sell/view?id=2021100812448544"> <em class="label"></em> <span class="game">아이온</span> <span class="sise">1,000만당 1,380원</span> <span class="server">클래식-루미엘(마족)</span> </a>
-                </li>
-                <li class="color2  g_hidden">
-                    <a href="/sell/view?id=2021100812427820"> <em class="label"></em> <span class="game">패스오브엑자일</span> <span class="sise">10당 2,000원</span> <span class="server">4개월리그</span> </a>
-                </li>
-                <li class="color3  g_hidden">
-                    <a href="/sell/view?id=2021100812419694"> <em class="label"></em> <span class="game">월드오브워크래프트:클래식</span> <span class="sise">100당 760원</span> <span class="server">얼음피[호드]-불성</span> </a>
-                </li>
-                <li class="color4  g_hidden">
-                    <a href="/sell/view?id=2021100812420708"> <em class="label"></em> <span class="game">월드오브워크래프트:클래식</span> <span class="sise">100당 710원</span> <span class="server">얼음피[얼라]-불성</span> </a>
-                </li>
-                <li class="color5  g_hidden">
-                    <a href="/sell/view?id=2021100812421049"> <em class="label"></em> <span class="game">월드오브워크래프트:클래식</span> <span class="sise">100당 630원</span> <span class="server">라그나로스[얼라]-불성</span> </a>
-                </li>
-                <li class="color6  g_hidden">
-                    <a href="/sell/view?id=2021100812429495"> <em class="label"></em> <span class="game">월드오브워크래프트</span> <span class="sise">1만당 650원</span> <span class="server">아즈샤라[호드]전쟁</span> </a>
-                </li>
-                <li class="color1  g_hidden">
-                    <a href="/sell/view?id=2021100808529255"> <em class="label"></em> <span class="game">아이온</span> <span class="sise">1,000만당 1,730원</span> <span class="server">클래식-이스라펠(천족)</span> </a>
-                </li>
-                <li class="color2  g_hidden">
-                    <a href="/sell/view?id=2021100811678507"> <em class="label"></em> <span class="game">마비노기</span> <span class="sise">100만당 1,050원</span> <span class="server">만돌린</span> </a>
-                </li>
-                <li class="color3  g_hidden">
-                    <a href="/sell/view?id=2021100812453911"> <em class="label"></em> <span class="game">마비노기</span> <span class="sise">100만당 1,060원</span> <span class="server">하프</span> </a>
-                </li>
-                <li class="color4  g_hidden">
-                    <a href="/sell/view?id=2021100812169076"> <em class="label"></em> <span class="game">던전앤파이터</span> <span class="sise">100만당 1,020원</span> <span class="server">카인</span> </a>
-                </li>
-                <li class="color5  g_hidden">
-                    <a href="/sell/view?id=2021100812208272"> <em class="label"></em> <span class="game">던전앤파이터</span> <span class="sise">100만당 1,020원</span> <span class="server">디레지에</span> </a>
-                </li>
-                <li class="color6  g_hidden">
-                    <a href="/sell/view?id=2021100812246200"> <em class="label"></em> <span class="game">던전앤파이터</span> <span class="sise">100만당 1,020원</span> <span class="server">시로코</span> </a>
-                </li>
-                <li class="color1  g_hidden">
-                    <a href="/sell/view?id=2021100812284848"> <em class="label"></em> <span class="game">던전앤파이터</span> <span class="sise">100만당 1,020원</span> <span class="server">프레이</span> </a>
-                </li>
-                <li class="color2  g_hidden">
-                    <a href="/sell/view?id=2021100812320155"> <em class="label"></em> <span class="game">던전앤파이터</span> <span class="sise">100만당 1,020원</span> <span class="server">카시야스</span> </a>
-                </li>
-                <li class="color3  g_hidden">
-                    <a href="/sell/view?id=2021100812357583"> <em class="label"></em> <span class="game">던전앤파이터</span> <span class="sise">100만당 1,020원</span> <span class="server">힐더</span> </a>
-                </li>
-                <li class="color4  g_hidden">
-                    <a href="/sell/view?id=2021100812393900"> <em class="label"></em> <span class="game">던전앤파이터</span> <span class="sise">100만당 1,020원</span> <span class="server">안톤</span> </a>
-                </li>
-                <li class="color5  g_hidden">
-                    <a href="/sell/view?id=2021100812431600"> <em class="label"></em> <span class="game">던전앤파이터</span> <span class="sise">100만당 1,020원</span> <span class="server">바칼</span> </a>
-                </li>
-                <li class="color6  g_hidden">
-                    <a href="/sell/view?id=2021100812466454"> <em class="label"></em> <span class="game">던전앤파이터</span> <span class="sise">100만당 1,020원</span> <span class="server">통합서버</span> </a>
-                </li>
-                <li class="color1  g_hidden">
-                    <a href="/sell/view?id=2021100811321359"> <em class="label"></em> <span class="game">아이온</span> <span class="sise">1,000만당 1,230원</span> <span class="server">클래식-루미엘(천족)</span> </a>
-                </li>
-                <li class="color2  g_hidden">
-                    <a href="/sell/view?id=2021100809881194"> <em class="label"></em> <span class="game">아이온</span> <span class="sise">1,000만당 1,490원</span> <span class="server">클래식-이스라펠(마족)</span> </a>
-                </li>
-                <li class="color3  g_hidden">
-                    <a href="/sell/view?id=2021100809888239"> <em class="label"></em> <span class="game">아이온</span> <span class="sise">1,000만당 1,720원</span> <span class="server">클래식-네자칸(천족)</span> </a>
-                </li>
-                <li class="color4  g_hidden">
-                    <a href="/sell/view?id=2021100809892371"> <em class="label"></em> <span class="game">아이온</span> <span class="sise">1,000만당 1,740원</span> <span class="server">클래식-네자칸(마족)</span> </a>
-                </li>
-                <li class="color5  g_hidden">
-                    <a href="/sell/view?id=2021100809898227"> <em class="label"></em> <span class="game">아이온</span> <span class="sise">1,000만당 1,710원</span> <span class="server">클래식-지켈(천족)</span> </a>
-                </li>
-                <li class="color6  g_hidden">
-                    <a href="/sell/view?id=2021100809907488"> <em class="label"></em> <span class="game">아이온</span> <span class="sise">1,000만당 1,560원</span> <span class="server">클래식-지켈(마족)</span> </a>
-                </li>
-                <li class="color1  g_hidden">
-                    <a href="/sell/view?id=2021100809910830"> <em class="label"></em> <span class="game">아이온</span> <span class="sise">1,000만당 1,520원</span> <span class="server">클래식-바이젤(천족)</span> </a>
-                </li>
-                <li class="color2  g_hidden">
-                    <a href="/sell/view?id=2021100808512438"> <em class="label"></em> <span class="game">아이온</span> <span class="sise">1,000만당 1,580원</span> <span class="server">클래식-바이젤(마족)</span> </a>
-                </li>
-                <li class="color3  g_hidden">
-                    <a href="/sell/view?id=2021100800128065"> <em class="label"></em> <span class="game">아이온</span> <span class="sise">1,000만당 1,500원</span> <span class="server">클래식-트리니엘(마족)</span> </a>
-                </li>
-                <li class="color4  g_hidden">
-                    <a href="/sell/view?id=2021100811095576"> <em class="label"></em> <span class="game">아이온</span> <span class="sise">1,000만당 1,520원</span> <span class="server">클래식-트리니엘(천족)</span> </a>
-                </li>
-                <li class="color5  g_hidden">
-                    <a href="/sell/view?id=2021100802537244"> <em class="label"></em> <span class="game">아이온</span> <span class="sise">1,000만당 1,310원</span> <span class="server">클래식-카이시넬(천족)</span> </a>
-                </li>
-                <li class="color6  g_hidden">
-                    <a href="/sell/view?id=2021100811313908"> <em class="label"></em> <span class="game">아이온</span> <span class="sise">1,000만당 1,500원</span> <span class="server">클래식-카이시넬(마족)</span> </a>
-                </li>
-            </ul>
-            <div id="power_indicate" class="indicate"> <span class="on"></span><span></span><span></span><span></span><span></span> </div>
-        </div>
-        <div class="g_finish"></div>
-        <!--▼▼▼ 거래 메인 랜덤 up 980x80 ▼▼▼ -->
-        <div class="banner_module">
-            <div class="banner_content_wrapper">
-                <div class="banner_content">
-                    <a href="http://www.itemmania.com/portal/free_coupon/index" target=""> <img id="TF0001" class="banner_content_images" src="http://img1.itemmania.com/new_images/banner_manager/20210312/20210312164330_r283Z.jpg" alt="게임쿠폰" title="게임쿠폰"> </a>
-                </div>
-            </div>
-        </div>
-        <p class="spacer_bottom_10"></p> -->
-        <!--▲▲▲ 거래 메인 랜덤 up 980x80 ▲▲▲ -->
-        --}}
         <div class="sec_left realtime_status">
             <div class="initial_screen">
                 <div class="tab searchbar_tab">
@@ -458,9 +259,6 @@
 
         <div class="sec_left no-border">
             <div class="title">게임별 시세정보
-{{--                <a href="javascript:_window.open('game_money', '{{route("gameinfo_money")}}', 800, 900);">--}}
-{{--                    <i class="sp_icon plus_icon">더보기</i>--}}
-{{--                </a>--}}
             </div>
             <div id="gameChart" class="border-normal"></div>
         </div>
@@ -588,7 +386,7 @@
                                     class="c_name">GP쿠폰</span><span class="sp_main gpcoupon"></span></a>
                         </li>
                         <li>
-                            <a href="javascript:_window.open('mileage_charge', '/myroom/mileage/charge/maniacoupon',700,900);"><span
+                            <a href="javascript:_window.open('mileage_charge', '/myroom/mileage/charge/angelcoupon',700,900);"><span
                                     class="c_name">매니아 선불</span><span class="sp_main maniacoupon"></span></a>
                         </li>
                     </ul>

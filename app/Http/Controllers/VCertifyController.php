@@ -19,6 +19,6 @@ class VCertifyController extends BaseController
      */
     public function user_certify(Request $request)
     {
-        return view('mania.certify.payment.user_certify');
+        return view('angel.certify.payment.user_certify');
     }
 }

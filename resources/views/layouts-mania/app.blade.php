@@ -2,19 +2,21 @@
 <!DOCTYPE html>
 <html lang="ko">
     <head>
-        <title>taxify</title>
+        <title>아이템천사</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="keywords" content="">
         <meta name="description" content="">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link type="text/css" rel="stylesheet" href="/mania/photoswipe/css/photoswipe.css">
-        <link type="text/css" rel="stylesheet" href="/mania/photoswipe/css/default-skin/default-skin.css">
-        <link type="text/css" rel="stylesheet" href="/mania/_css/_comm.css">
-        <link type="text/css" rel="stylesheet" href="/mania/_head_tail/css/_head_comm.css">
-        <link type="text/css" rel="stylesheet" href="/mania/_banner/css/banner_module.css">
-        <link type="text/css" rel="stylesheet" href="/mania/dev/global.css">
-        <link type="text/css" rel="stylesheet" href="/mania/dev/change.css">
+        <link type="text/css" rel="stylesheet" href="/angel/photoswipe/css/photoswipe.css">
+        <link type="text/css" rel="stylesheet" href="/angel/photoswipe/css/default-skin/default-skin.css">
+        <link type="text/css" rel="stylesheet" href="/angel/_css/_comm.css">
+        <link type="text/css" rel="stylesheet" href="/angel/_head_tail/css/_head_comm.css">
+        <link type="text/css" rel="stylesheet" href="/angel/_banner/css/banner_module.css">
+        <link type="text/css" rel="stylesheet" href="/angel/dev/global.css">
+        <link type="text/css" rel="stylesheet" href="/angel/dev/change.css">
+        <link type="text/css" rel="stylesheet" href="/angel/_banner/css/_banner.css">
+        <script type="text/javascript" src="/angel/_banner/js/banner_module.js"></script>
         @yield('head_attach')
 
     </head>
@@ -25,10 +27,10 @@
         var a_token = '';
         @if(Auth::check())
         a_token = '{{Auth::user()->api_token}}';
-        var _LOGINCHECK = '1';
+
          @else
         var a_token = '';
-        var _LOGINCHECK = '0';
+
         @endif
         function basicPopup(url) {
             popupWindow = window.open(url,'popUpWindow','height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
@@ -42,12 +44,13 @@
             @yield('content')
             @include('layouts-mania.footer')
         </div>
-        <script type="text/javascript" src="/mania/_js/_jquery3.js"></script>
-        <script type="text/javascript" src="/mania/_js/_comm.js"></script>
-        <script type="text/javascript" src="/mania/_js/_gs_control_200924.js"></script>
-        <script type="text/javascript" src="/mania/_js/_common_initialize_new.js"></script>
+        <script type="text/javascript" src="/angel/_js/jquery.js"></script>
+        <script type="text/javascript" src="/angel/_js/_comm.js"></script>
+        <script type="text/javascript" src="/angel/_js/angelic-global.js"></script>
+        <script type="text/javascript" src="/angel/_js/_common_initialize_new.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/packery/1.4.3/packery.pkgd.min.js"></script>
-        <script type="text/javascript" src="/mania/photoswipe/js/jquery.photoswipe-global.js"></script>
+        <script type="text/javascript" src="/angel/photoswipe/js/jquery.photoswipe-global.js"></script>
+
     @yield('foot_attach')
 
         <script type="text/javascript">
@@ -70,7 +73,7 @@
                     <div class='d-flex w-100'>
                         <div style='width: calc(100% - 78px);'>
                             <div class="rt_figure d-flex">
-                                <img src="/mania/img/level/{{$top_role['icon']}}">
+                                <img src="/angel/img/level/{{$top_role['icon']}}">
                                 <div class="" style='padding-top: 12px;'>
                                     <div class='f-14'><span class='user_name f-14'>{{$me['name']}}</span> 고객님</div>
                                     <div class='f-14 f-bold' style='color: #626262;'><span class='f-16' style='margin-left:10px;'>{{$top_role['alias']}}회원</span> ({{number_format($me['point'])}}점)</div>
@@ -117,21 +120,21 @@
                             </table>
                         </div>
                         <div style='width: 78px;'>
-                            <div><span class="cert_state f_black1">@if($me['mobile_verified'] == 1)<img src="/mania/img/icons/icon_check.png">@endif 휴대폰</span></div>
-                            <div><span class="cert_state f_black1">@if($me['bank_verified'] == 1)<img src="/mania/img/icons/icon_check.png">@endif &nbsp;계좌</span></div>
+                            <div><span class="cert_state f_black1">@if($me['mobile_verified'] == 1)<img src="/angel/img/icons/icon_check.png">@endif 휴대폰</span></div>
+                            <div><span class="cert_state f_black1">@if($me['bank_verified'] == 1)<img src="/angel/img/icons/icon_check.png">@endif &nbsp;계좌</span></div>
                         </div>
                     </div>
                 </div>
                 <!-- <dl class="status">
                     <dd class="credir_rt">
                         <div class="rt_figure">
-                            <img src="/mania/img/level/silver.png">
+                            <img src="/angel/img/level/silver.png">
                         </div>
                         <div class="user_name">{{$me['name']}}
                             <span class="cert">
-                                <span class="cert_state f_black1">@if($me['mobile_verified'] == 1)<img src="/mania/img/icons/icon_check.png">@endif 휴대폰</span>
-                                <span class="cert_state f_black1">@if($me['bank_verified'] == 1)<img src="/mania/img/icons/icon_check.png">@endif &nbsp;계좌</span>
-                                <span class="cert_state f_black1">@if(!empty($me['email_verified_at']))<img src="/mania/img/icons/icon_check.png">@endif &nbsp;이메일</span>
+                                <span class="cert_state f_black1">@if($me['mobile_verified'] == 1)<img src="/angel/img/icons/icon_check.png">@endif 휴대폰</span>
+                                <span class="cert_state f_black1">@if($me['bank_verified'] == 1)<img src="/angel/img/icons/icon_check.png">@endif &nbsp;계좌</span>
+                                <span class="cert_state f_black1">@if(!empty($me['email_verified_at']))<img src="/angel/img/icons/icon_check.png">@endif &nbsp;이메일</span>
                             </span>
                         </div>
                         <span class="rank _txt">
@@ -260,7 +263,7 @@
                 <dl class="my_game" style="display: none" id="my_game">
                     @foreach($top_games as $t_g)
                     <dd title="{{$t_g['game_text']}}">
-                        <span class="title-{{$t_g['type']}}"><img src="/mania/img/icons/{{$t_g['type']}}-i.png">-{{$t_g['type'] == 'sell' ? '팝니다':'삽니다'}}-</span>
+                        <span class="title-{{$t_g['type']}}"><img src="/angel/img/icons/{{$t_g['type']}}-i.png">-{{$t_g['type'] == 'sell' ? '팝니다':'삽니다'}}-</span>
                         <strong>{{$t_g['game_text']}} &gt; {{$t_g['server_text']}}</strong>
                         <div class="btn_area">
                             <a href="/{{$t_g['type']}}/list_search?search_type={{$t_g['type']}}&amp;search_game={{$t_g['game']}}&amp;search_game_text={{$t_g['game_text']}}&amp;search_server={{$t_g['server']}}&amp;search_server_text={{$t_g['server_text']}}&amp;search_goods={{itemAlias($t_g['goods_text'])}}">검색</a>

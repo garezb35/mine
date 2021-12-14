@@ -47,7 +47,7 @@ class VBuyController extends BaseController
             if($value['type'] == 3)
                 $quickicon = $value['time'];
         }
-        return view('mania.buy.main',[
+        return view('angel.buy.main',[
             'popular'=>$popular,
             'user'=>$this->user,
             'title'=>$title,
@@ -72,7 +72,7 @@ class VBuyController extends BaseController
             return;
         }
 
-        return view('mania.buy.index_view',$item);
+        return view('angel.buy.index_view',$item);
     }
 
     public function list_search(Request $request)
@@ -88,7 +88,7 @@ class VBuyController extends BaseController
         $params['speed'] = !empty($params['speed']) ? $params['speed'] : '';
         $roles = MRole::orderBy('level',"ASC")->get()->toArray();
         $params['roles'] = $roles;
-        return view('mania.buy.list_search',$params);
+        return view('angel.buy.list_search',$params);
     }
 
     public function buy_application(Request $request)
@@ -166,7 +166,7 @@ class VBuyController extends BaseController
             }
         }
         $game['cuser'] =User::with('roles')->where('id',$this->user->id)->first();
-        return view('mania.buy.buy_application',$game);
+        return view('angel.buy.buy_application',$game);
     }
 
     public function trade_cancel(Request $request){
@@ -410,6 +410,6 @@ class VBuyController extends BaseController
         $params = $request->all();
         $params['overlap'] = !empty($params['overlap']) ? $params['overlap'] : '';
         $params['goods_type'] = !empty($params['goods_type']) && $params['goods_type'] !=1  ? $params['goods_type'] : 'all';
-        return view('mania.buy.buy_list',$params);
+        return view('angel.buy.buy_list',$params);
     }
 }

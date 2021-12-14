@@ -14,12 +14,12 @@ $user_contactC = !empty($splited_mobile[2]) ? $splited_mobile[2] : "";
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/myinfo/css/check.css" />
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/myinfo/css/myinfo_modify.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/myinfo/css/check.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/myinfo/css/myinfo_modify.css" />
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/myroom/myinfo/js/myinfo_modify.js"></script>
+    <script type="text/javascript" src="/angel/myroom/myinfo/js/myinfo_modify.js"></script>
 @endsection
 @section('content')
     <div class="g_container" id="g_CONTENT">

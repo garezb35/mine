@@ -155,7 +155,7 @@ class VMyRoomController extends BaseController
         where('updated_at',">=",date("Y-m-d H:i:s",strtotime('-1 week')))->
         orderBy('updated_at',"DESC")->
         limit(5)->get()->toArray();
-        return view('mania.myroom.main',[
+        return view('angel.myroom.main',[
             'user'=>$this->user,
             'coupon'=>$user_coupon,
             'role'=>$role,
@@ -185,17 +185,17 @@ class VMyRoomController extends BaseController
         $message = $message->orderBy('created_at',"DESC")->paginate(15);
         $order_message_count = MInbox::where('userId',$this->user->id)->where('type','거래')->get()->count();
         $manager_message_count = MInbox::where('userId',$this->user->id)->where('type','관리자')->get()->count();
-        return view('mania.myroom.message',['message'=>$message,'order_message_count'=>$order_message_count,'manager_message_count'=>$manager_message_count]);
+        return view('angel.myroom.message',['message'=>$message,'order_message_count'=>$order_message_count,'manager_message_count'=>$manager_message_count]);
     }
 
     public function alarm_sell_list()
     {
-        return view('mania.myroom.alarm_sell_list');
+        return view('angel.myroom.alarm_sell_list');
     }
 
     public function alarm_add()
     {
-        return view('mania.myroom.alarm_add');
+        return view('angel.myroom.alarm_add');
     }
 
     public function complete_sell(Request $request)
@@ -243,7 +243,7 @@ class VMyRoomController extends BaseController
         }
         $game = $game->paginate(15);
         $data['games'] = $game;
-        return view('mania.myroom.complete_sell',$data);
+        return view('angel.myroom.complete_sell',$data);
     }
 
     public function complete_cancel_sell(Request $request)
@@ -259,7 +259,7 @@ class VMyRoomController extends BaseController
         $game = $game->where('updated_at','>=',date("Y-m-d H:i:s",strtotime('-24 hours')))->
             where('updated_at',"<=",date("Y-m-d H:i:s"));
         $game = $game->orderBy('updated_at',"DESC")->paginate(15);
-        return view('mania.myroom.complete_cancel_sell',['games'=>$game,'type'=>$type]);
+        return view('angel.myroom.complete_cancel_sell',['games'=>$game,'type'=>$type]);
     }
 
     public function complete_cancel_buy(Request $request)
@@ -275,7 +275,7 @@ class VMyRoomController extends BaseController
         $game = $game->where('updated_at','>=',date("Y-m-d H:i:s",strtotime('-24 hours')))->
         where('updated_at',"<=",date("Y-m-d H:i:s"));
         $game = $game->orderBy('updated_at',"DESC")->paginate(15);
-        return view('mania.myroom.complete_cancel_buy',['games'=>$game,'type'=>$type]);
+        return view('angel.myroom.complete_cancel_buy',['games'=>$game,'type'=>$type]);
     }
 
     public function complete_buy(Request $request)
@@ -323,7 +323,7 @@ class VMyRoomController extends BaseController
         }
         $game = $game->paginate(15);
         $data['games'] = $game;
-        return view('mania.myroom.complete_buy',$data);
+        return view('angel.myroom.complete_buy',$data);
     }
 
     public function complete_report(Request $request)
@@ -470,7 +470,7 @@ class VMyRoomController extends BaseController
         }
         $buy_list['down']['order'] = $temp2;
         $buy_list['down']['count'] = $temp4;
-        return view('mania.myroom.complete_report',['sell_list'=>$sell_list,'buy_list'=>$buy_list]);
+        return view('angel.myroom.complete_report',['sell_list'=>$sell_list,'buy_list'=>$buy_list]);
     }
 
     public function sell_pay_wait_view(Request $request){
@@ -517,7 +517,7 @@ class VMyRoomController extends BaseController
             $game['seller']['character'] = $game['payitem']['character'];
         }
 
-        return view('mania.myroom.sell_pay_wait_view', $game);
+        return view('angel.myroom.sell_pay_wait_view', $game);
     }
 
     public function sell_regist()
@@ -582,7 +582,7 @@ class VMyRoomController extends BaseController
         whereDoesntHave('bargains')->
         orderBy('created_at',"DESC")->paginate(15);
 
-        return view('mania.myroom.sell_regist',[
+        return view('angel.myroom.sell_regist',[
             'selling_register'=>$selling_register,
             'bargain_request'=>$bargain_request,
             'pay_pending'=>$pay_pending,
@@ -663,7 +663,7 @@ class VMyRoomController extends BaseController
             $query->where('status',"!=",-1);
         })->paginate(15);
 
-        return view('mania.myroom.sell_ing',[
+        return view('angel.myroom.sell_ing',[
             'selling_register'=>$selling_register,
             'bargain_request'=>$bargain_request,
             'pay_pending'=>$pay_pending,
@@ -734,7 +734,7 @@ class VMyRoomController extends BaseController
         whereHas('bargain_requests')->
         whereDoesntHave('payitem')->paginate(15);
 
-        return view('mania.myroom.sell_check',[
+        return view('angel.myroom.sell_check',[
             'selling_register'=>$selling_register,
             'bargain_request'=>$bargain_request,
             'pay_pending'=>$pay_pending,
@@ -769,7 +769,7 @@ class VMyRoomController extends BaseController
         {
             return Redirect::to('myroom/sell/sell_check_view?id='.$game['orderNo']);
         }
-        return view('mania.myroom.sell_regist_view',$game);
+        return view('angel.myroom.sell_regist_view',$game);
     }
 
     public function sell_re_reg(Request $request)
@@ -797,7 +797,7 @@ class VMyRoomController extends BaseController
         $game['highlight'] = $highlight;
         $game['premium'] = $premium;
         $game['quickicon'] = $quickicon;
-        return view('mania.myroom.sell_re_reg',$game);
+        return view('angel.myroom.sell_re_reg',$game);
     }
 
     public function buy_regist()
@@ -862,7 +862,7 @@ class VMyRoomController extends BaseController
             $query->where('status','!=,-1');
         })->paginate(15);
 
-        return view('mania.myroom.buy_regist',[
+        return view('angel.myroom.buy_regist',[
             'buying_register'=>$buying_register,
             'bargain_request'=>$bargain_request,
             'pay_pending'=>$pay_pending,
@@ -888,7 +888,7 @@ class VMyRoomController extends BaseController
             return;
         }
         $game['cuser'] = $this->user;
-        return view('mania.myroom.buy_regist_view',$game);
+        return view('angel.myroom.buy_regist_view',$game);
     }
 
     public function buy_re_reg(Request $request)
@@ -916,7 +916,7 @@ class VMyRoomController extends BaseController
         $game['highlight'] = $highlight;
         $game['premium'] = $premium;
         $game['quickicon'] = $quickicon;
-        return view('mania.myroom.buy_re_reg',$game);
+        return view('angel.myroom.buy_re_reg',$game);
     }
     public function buy_check()
     {
@@ -983,7 +983,7 @@ class VMyRoomController extends BaseController
         })->
         whereDoesntHave('payitem')->paginate(15);
 
-        return view('mania.myroom.buy_check',[
+        return view('angel.myroom.buy_check',[
             'buying_register'=>$buying_register,
             'bargain_request'=>$bargain_request,
             'pay_pending'=>$pay_pending,
@@ -1066,7 +1066,7 @@ class VMyRoomController extends BaseController
             $query->where('status',"!=",-1);
         })->paginate(15);
 
-        return view('mania.myroom.buy_ing',[
+        return view('angel.myroom.buy_ing',[
             'buying_register'=>$buying_register,
             'bargain_request'=>$bargain_request,
             'pay_pending'=>$pay_pending,
@@ -1115,7 +1115,7 @@ class VMyRoomController extends BaseController
             echo '<script>alert("거래취소된 물품입니다.");window.history.back();</script>';
             return;
         }
-        return view('mania.myroom.buy_ing_view',$game);
+        return view('angel.myroom.buy_ing_view',$game);
     }
 
     public function buy_pay_wait()
@@ -1191,7 +1191,7 @@ class VMyRoomController extends BaseController
         })->
         where('status',0)->paginate(15);
 
-        return view('mania.myroom.buy_pay_wait',[
+        return view('angel.myroom.buy_pay_wait',[
             'buying_register'=>$buying_register,
             'bargain_request'=>$bargain_request,
             'pay_pending'=>$pay_pending,
@@ -1238,7 +1238,7 @@ class VMyRoomController extends BaseController
             echo '<script>alert("거래취소된 물품입니다.");window.history.back();</script>';
             return;
         }
-        return view('mania.myroom.buy_pay_wait_view', $game);
+        return view('angel.myroom.buy_pay_wait_view', $game);
     }
 
     /***************** Resion 마일리지 ****************/
@@ -1247,21 +1247,21 @@ class VMyRoomController extends BaseController
      */
     public function my_mileage_index_c()
     {
-        return view('mania.myroom.mileage.my_mileage.index', ['userDetail'=>$this->user, 'type'=>'charge']);
+        return view('angel.myroom.mileage.my_mileage.index', ['userDetail'=>$this->user, 'type'=>'charge']);
     }
     /**
      * 마이룸 > 마일리지 > 내 마일리지 > 마이리지 환전탭
      */
     public function my_mileage_index_e()
     {
-        return view('mania.myroom.mileage.my_mileage.index', ['userDetail'=>$this->user, 'type'=>'exchange']);
+        return view('angel.myroom.mileage.my_mileage.index', ['userDetail'=>$this->user, 'type'=>'exchange']);
     }
     /**
      * 마이룸 > 마일리지 > 내 마일리지 > 아일리지 상세 팝업
      */
     public function popup_mile_detail()
     {
-        return view('mania.myroom.mileage.my_mileage.popup.mile_detail');
+        return view('angel.myroom.mileage.my_mileage.popup.mile_detail');
     }
     /**
      * * 마이룸 > 마일리지 > 내 마일리지 > 마일리지 달력보기
@@ -1330,7 +1330,7 @@ class VMyRoomController extends BaseController
             'DayIndex' => $nDayIndex
         );
 
-        return view('mania.myroom.mileage.my_mileage.calendar', $data);
+        return view('angel.myroom.mileage.my_mileage.calendar', $data);
     }
     /**
      * * 마이룸 > 마일리지 > 내 마일리지 > 마일리지 리스트
@@ -1354,18 +1354,16 @@ class VMyRoomController extends BaseController
         $payRecord = array();
         if ($formData['search_type'] == 0) {
             $payRecord = MMileage::whereDate("createdByDtm", '>=', $formData['date_start'])
-                ->whereDate("createdByDtm", '<=', $formData['date_end'])
-                ->get()->toArray();
+                ->whereDate("createdByDtm", '<=', $formData['date_end'])->paginate(15);
         }
         else {
             $payRecord = MMileage::whereDate("createdByDtm", '>=', $formData['date_start'])
                 ->whereDate("createdByDtm", '<=', $formData['date_end'])
-                ->where("type", ($formData['search_type'] - 1))
-                ->get()->toArray();
+                ->where("type", ($formData['search_type'] - 1))->paginate(15);
         }
         $formData["payRecord"] = $payRecord;
 
-        return view('mania.myroom.mileage.my_mileage.detail_list', $formData);
+        return view('angel.myroom.mileage.my_mileage.detail_list', $formData);
     }
     /**
      * 마이룸 > 마일리지 > 마일리지 충전
@@ -1376,7 +1374,7 @@ class VMyRoomController extends BaseController
         $pageData['userDetail'] = $this->user;
         $pageData['bankDetail'] = $bankInfo;
         $pageData['snzProc'] = "충전";
-        return view('mania.myroom.mileage.charge.index_account_iframe', $pageData);
+        return view('angel.myroom.mileage.charge.index_account_iframe', $pageData);
     }
     /**
      * 마일리지 충전 처리
@@ -1404,7 +1402,7 @@ class VMyRoomController extends BaseController
         $pageData['userDetail'] = $this->user;
         $pageData['bankDetail'] = $bankInfo;
         $pageData['snzProc'] = "출금";
-        return view('mania.myroom.mileage.charge.index_account_iframe', $pageData);
+        return view('angel.myroom.mileage.charge.index_account_iframe', $pageData);
     }
     /**
      * 마일리지 충전 처리
@@ -1430,12 +1428,10 @@ class VMyRoomController extends BaseController
         echo "fail";
     }
 
-    /**
-     * 마이룸 > 마일리지 > 마일리지  > 마일리지 출금내역 보기
-     */
+
     public function payment_list()
     {
-        return view('mania.myroom.mileage.payment.payment_list');
+        return view('angel.myroom.mileage.payment.payment_list');
     }
 
     /**
@@ -1443,7 +1439,7 @@ class VMyRoomController extends BaseController
      */
     public function culturecash()
     {
-        return view('mania.myroom.mileage.payment.change.culturecash');
+        return view('angel.myroom.mileage.payment.change.culturecash');
     }
 
     public function sell_ing_view(Request $request){
@@ -1487,7 +1483,7 @@ class VMyRoomController extends BaseController
             $game['buy_character'] = $game['user_character'];
         }
 
-        return view('mania.myroom.sell_ing_view',$game);
+        return view('angel.myroom.sell_ing_view',$game);
     }
 
     public function buy_check_view(Request $request){
@@ -1511,7 +1507,7 @@ class VMyRoomController extends BaseController
             return;
         }
         $game['seller'] = $this->user;
-        return view('mania.buy.buy_check_view',$game);
+        return view('angel.buy.buy_check_view',$game);
     }
 
     public function sell_check_view(Request $request){
@@ -1552,7 +1548,7 @@ class VMyRoomController extends BaseController
             return;
         }
         $game['seller'] = $this->user;
-        return view('mania.sell.sell_check_view',$game);
+        return view('angel.sell.sell_check_view',$game);
     }
 
     public function search(Request $request){
@@ -1560,7 +1556,7 @@ class VMyRoomController extends BaseController
         $data['user'] = $this->user;
         $list = MMygame::orderBy('order','ASC')->paginate(15);
         $data['list'] = $list;
-        return view('mania.myroom.search',$data);
+        return view('angel.myroom.search',$data);
         return;
     }
 
@@ -1580,7 +1576,7 @@ class VMyRoomController extends BaseController
                 $time += $value['time'];
             }
         }
-        return view('mania.free.free_remainder_list',['time'=>$time]);
+        return view('angel.free.free_remainder_list',['time'=>$time]);
     }
 
     public function sell_pay_wait(Request $request){
@@ -1655,7 +1651,7 @@ class VMyRoomController extends BaseController
         where('status',0)->
         paginate(15);
 
-        return view('mania.myroom.sell_pay_wait',[
+        return view('angel.myroom.sell_pay_wait',[
             'selling_register'=>$selling_register,
             'bargain_request'=>$bargain_request,
             'pay_pending'=>$pay_pending,
@@ -1666,7 +1662,7 @@ class VMyRoomController extends BaseController
 
     public function myinfo_check(Request $request){
         $this->user->bank_information = MUserbank::where('id',$this->user->id)->first();
-        return view('mania.myroom.myinfo_check',$this->user);
+        return view('angel.myroom.myinfo_check',$this->user);
     }
 
     public function cash_receipt_list(Request $request){
@@ -1682,7 +1678,7 @@ class VMyRoomController extends BaseController
         where('userId',$this->user->id)->
         orderBy(array('status'=>"DESC",'updated_at'=>"DESC",))
             ->paginate(15);
-        return view('mania.myroom.cash_receipt_list',['cash'=>$cash]);
+        return view('angel.myroom.cash_receipt_list',['cash'=>$cash]);
     }
 
     public function customer(Request $request){
@@ -1691,11 +1687,11 @@ class VMyRoomController extends BaseController
         foreach($list as $v){
             $params[$v['id']] = 1;
         }
-        return view('mania.myroom.customer',['list'=>$params]);
+        return view('angel.myroom.customer',['list'=>$params]);
     }
 
     public function customer_private(Request $request){
-        return view('mania.myroom.customer_private');
+        return view('angel.myroom.customer_private');
     }
 
     public function search_add(Request $request){
@@ -1750,7 +1746,7 @@ class VMyRoomController extends BaseController
     }
 
     public function user_leave_form(Request $request){
-        return view('mania.myroom.user_leave_form', ['user' => $this->user]);
+        return view('angel.myroom.user_leave_form', ['user' => $this->user]);
     }
 
     public function save_all(Request $request){
@@ -1865,6 +1861,6 @@ class VMyRoomController extends BaseController
         }
 
 
-        return view('mania.myroom.credit_rating',['user'=>$user,'gift'=>$gift,'roles'=>$roles,'sell_list'=>$sell_list,'buy_list'=>$buy_list,'buy_all'=>$buy_all,'sell_all'=>$sell_all]);
+        return view('angel.myroom.credit_rating',['user'=>$user,'gift'=>$gift,'roles'=>$roles,'sell_list'=>$sell_list,'buy_list'=>$buy_list,'buy_all'=>$buy_all,'sell_all'=>$sell_all]);
     }
 }

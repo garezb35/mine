@@ -1,14 +1,14 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/portal/giftcard/css/sub_index.css">
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/portal/giftcard/css/sub_index.css">
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js"></script>
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/portal/banner/js/banner.js"></script>
-    <script type="text/javascript" src="/mania/_js/_window_new.js"></script>
-    <script type="text/javascript" src="/mania/portal/giftcard/js/common.js"></script>
+    <script type="text/javascript" src="/angel/portal/banner/js/banner.js"></script>
+    <script type="text/javascript" src="/angel/_js/_window_new.js"></script>
+    <script type="text/javascript" src="/angel/portal/giftcard/js/common.js"></script>
 @endsection
 @section('content')
 
@@ -17,7 +17,7 @@
         </div>
         <script type="text/javascript">
             function serviceCert() {
-                if (confirm('I-Pin(아이핀)을 이용하여 아이템매니아에 가입하신 회원\n님들께서는 마일리지 충전 및 물품 거래 시 정상적인 이용\n을 위하여 최초 1회 이름 및 주민등록 번호로 본인 확인 절\n차를 거쳐야만 모든 기능을 사용하실 수 있습니다.\n인증을 하시겠습니까?')) {
+                if (confirm('I-Pin(아이핀)을 이용하여 아이템천사에 가입하신 회원\n님들께서는 마일리지 충전 및 물품 거래 시 정상적인 이용\n을 위하여 최초 1회 이름 및 주민등록 번호로 본인 확인 절\n차를 거쳐야만 모든 기능을 사용하실 수 있습니다.\n인증을 하시겠습니까?')) {
                     location.href = '/portal/user/ipin_name_index.html';
                 } else {
                     location.href = '/';
@@ -37,7 +37,7 @@
                 <div class="img_area">
                     @if($hot == 1)
                     <div class="ribbon">
-                        <img src="/mania/img/mall/hot.gif" width="47" height="47" alt="">
+                        <img src="/angel/img/mall/hot.gif" width="47" height="47" alt="">
                     </div>
                     @endif
                     <img src="{{$thumnail}}" width="330" height="350" alt="">

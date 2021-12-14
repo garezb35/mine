@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <title>아이템매니아</title>
+    <title>아이템천사</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="아이템매니아,아이템거래,아이템,매니아,아이템매니아주소,아이템매니아바로가기,아이템메니아,아이탬매니아,아이탬메니아,리니지,메이플스토리,던파,아이온,바람의나라,리니지2,R2,로한오리진,블레이드앤소울,뮤오리진">
-    <meta name="description" content="아이템거래 No.1 아이템매니아 - 빠르고 안전한 아이템거래.">
+    <meta name="keywords" content="아이템천사,아이템거래,아이템,천사,아이템천사주소,아이템천사바로가기">
+    <meta name="description" content="아이템거래 No.1 아이템천사 - 빠르고 안전한 아이템거래.">
     <meta name="referrer" content="no-referrer-when-downgrade" />
-    <link rel="shortcut icon" href="https://img1.itemmania.com/images/icon/favicon.ico">
-    <link type="text/css" rel="stylesheet" href="/mania/_css/_comm.css">
-    <link type="text/css" rel="stylesheet" href="/mania/_head_tail/css/_head_popup.css">
-    <link type="text/css" rel="stylesheet" href="/mania/css/user_certify.css?190604" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="/angel/_css/_comm.css">
+    <link type="text/css" rel="stylesheet" href="/angel/_head_tail/css/_head_popup.css">
+    <link type="text/css" rel="stylesheet" href="/angel/css/user_certify.css?190604" />
 </head>
 <body>
 <div id="g_SLEEP" class="g_sleep g_hidden">
@@ -46,10 +46,10 @@
         </form>
     </div>
 </div>
-<script type="text/javascript" src="/mania/_js/_jquery3.js"></script>
-<script type="text/javascript" src="/mania/_js/_comm.js"></script>
-<script type="text/javascript" src="/mania/_js/_gs_control_200924.js"></script>
-<script type="text/javascript" src="/mania/js/user_certify.js?190604"></script>
+<script type="text/javascript" src="/angel/_js/jquery.js"></script>
+<script type="text/javascript" src="/angel/_js/_comm.js"></script>
+<script type="text/javascript" src="/angel/_js/angelic-global.js"></script>
+<script type="text/javascript" src="/angel/js/user_certify.js?190604"></script>
 <script>
 
     _initialize();

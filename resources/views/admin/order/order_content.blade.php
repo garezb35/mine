@@ -1,3 +1,15 @@
+@php
+    $category = '> > 기타';
+    if(!empty($item['game']['game'])){
+        $category = $item['game']['game']." > ";
+    }
+    if(!empty($item['server']['game'])){
+        $category .= $item['server']['game']." > ";
+    }
+
+$category .= $item['good_type'];
+
+@endphp
 <html>
     <head>
         <meta charset="UTF-8">
@@ -15,19 +27,45 @@
     </head>
     <body>
         <div class="main-content">
-            <div class="container-fluid mt--7">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-xl-8 mb-5 mb-xl-0">
-                        <div class="card bg-gradient-default shadow">
+                        <div class="card shadow">
                             <div class="card-header bg-transparent">
-                                <div class="row align-items-center">거래완료
-                                    <div class="col">
-                                        <h6 class="text-uppercase text-light ls-1 mb-1"></h6>
-                                        <h2 class="text-white mb-0">판매수치</h2>
-                                    </div>
+                                <div class="row align-items-center">거래내용
                                 </div>
                             </div>
                             <div class="card-body">
+
+                                    <table class="table-striped table-green1 table table-bordered">
+                                        <colgroup>
+                                            <col width="160" />
+                                            <col width="250" />
+                                            <col width="160" />
+                                            <col />
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th>카테고리</th>
+                                            <td colspan="3">{{$category}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>물품제목</th>
+                                            <td colspan="3">
+                                                {{$item['user_text']}}
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>거래번호</th>
+                                            <td>#{{$item['orderNo']}}</td>
+                                            <th>등록일시</th>
+                                            <td>{{date("Y-m-d H:i:s",strtotime($item['created_at']))}}</td>
+                                        </tr>
+                                        @if(!empty($item['payitem']))
+                                        </tbody>
+                                    </table>
+
                             </div>
                         </div>
                     </div>

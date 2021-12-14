@@ -1,20 +1,20 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/mileage/my_mileage/css/calendar.css?190220">
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/mileage/my_mileage/css/calendar.css?190220">
+    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/myroom/mileage/my_mileage/js/calendar.js?190220"></script>
+    <script type="text/javascript" src="/angel/myroom/mileage/my_mileage/js/calendar.js?190220"></script>
     <script type='text/javascript'>
         var t_SearchScope = {
             start: { year:'2016', month:'4' },
             end: { year:'{{$DateY}}', month:'{{$DateM}}' }
         }
-        var gsVersion = '2110141801';
-        var _LOGINCHECK = '1';
+
+
     </script>
 @endsection
 
@@ -69,9 +69,9 @@
             <input type="hidden" id="date_Y" name="date_Y" value="{{$DateY}}">
             <input type="hidden" id="date_M" name="date_M" value="{{$DateM}}">
             <ul id="mile_year">
-                <li><img src="/mania/img/icons/btn_previous.gif" width="16" height="26" alt="이전" id="before" class="g_button g_icon"></li>
+                <li><img src="/angel/img/icons/btn_previous.gif" width="16" height="26" alt="이전" id="before" class="g_button g_icon"></li>
                 <li class="center">{{$DateY}}년</li>
-                <li><img src="/mania/img/icons/btn_next1.gif" width="16" height="26" alt="다음" id="after" class="g_button g_icon"></li>
+                <li><img src="/angel/img/icons/btn_next1.gif" width="16" height="26" alt="다음" id="after" class="g_button g_icon"></li>
             </ul>
             <!-- ▲ 년도 //-->
             <!-- ▼ 월 //-->

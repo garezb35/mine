@@ -1,10 +1,8 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/css/common_myroom.css?210503" />
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/buy/css/common_list.css?210512" />
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css?210503" />
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/buy/css/common_list.css?210512" />
 @endsection
 
 @section('foot_attach')
@@ -44,9 +42,7 @@
         <div class="dvPaging">
             {{$games->links()}}
         </div>
-        <!-- ▲ 입금대기물품 //-->
         <div class="g_finish"></div>
-        <!-- ▼ 구매진행안내 //-->
         <div class="trade_progress">
             <div class="g_subtitle">구매진행 안내</div>
             <div class="trade_progress_content">

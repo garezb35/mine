@@ -2,7 +2,7 @@
     <div class="nav_subject">
         <a href="/myroom/">
             마이룸<br>
-            <img src="/mania/img/myroom/myroom.png" >
+            <img src="/angel/img/myroom/myroom.png" >
         </a>
     </div>
     <div class="nav">

@@ -39,7 +39,7 @@ class VSellController extends BaseController
             if($value['type'] == 3)
                 $quickicon = $value['time'];
         }
-        return view('mania.sell.main',[
+        return view('angel.sell.main',[
             'popular'=>$popular,
             'user'=>$this->user,
             'title'=>$title,
@@ -63,7 +63,7 @@ class VSellController extends BaseController
             echo '<script>alert("거래취소된 물품입니다.");window.history.back();</script>';
             return;
         }
-        return view('mania.sell.index_view',$item);
+        return view('angel.sell.index_view',$item);
     }
 
     public function sell_view(Request $request)
@@ -150,7 +150,7 @@ class VSellController extends BaseController
         }
 
         $game['cuser'] = $this->user;
-        return view('mania.sell.sell_view',$game);
+        return view('angel.sell.sell_view',$game);
     }
 
     public function sell_application(Request $request)
@@ -192,7 +192,7 @@ class VSellController extends BaseController
             return redirect('/sell/view?id='.$id.'&type=sell');
         }
         $game['cuser'] = $this->user;
-        return view('mania.sell.sell_application',$game);
+        return view('angel.sell.sell_application',$game);
     }
 
     /**
@@ -202,7 +202,7 @@ class VSellController extends BaseController
     {
         $fixed = MTitle::where('userId',$this->user->id)->first();
         $title = empty($fixed) ? '' : $fixed['title'];
-        return view('mania.sell.fixed_trade_subject',['title'=>$title]);
+        return view('angel.sell.fixed_trade_subject',['title'=>$title]);
     }
 
     public function addFixed(Request $request){
@@ -230,7 +230,7 @@ class VSellController extends BaseController
         $params['speed'] = !empty($params['speed']) ? $params['speed'] : '';
         $roles = MRole::orderBy('level',"ASC")->get()->toArray();
         $params['roles'] = $roles;
-        return view('mania.sell.list_search',$params);
+        return view('angel.sell.list_search',$params);
     }
 
     /**
@@ -238,7 +238,7 @@ class VSellController extends BaseController
      */
     public function user_contact_edit()
     {
-        return view('mania.sell.user_contact_edit',$this->user);
+        return view('angel.sell.user_contact_edit',$this->user);
     }
 
     public function addContact(Request $request){
@@ -257,14 +257,14 @@ class VSellController extends BaseController
 
     public function ajax_template()
     {
-        return view('mania.sell.index_template');
+        return view('angel.sell.index_template');
     }
 
     public function sell_list(Request $request){
         $params = $request->all();
         $params['overlap'] = !empty($params['overlap']) ? $params['overlap'] : '';
         $params['goods_type'] = !empty($params['goods_type']) && $params['goods_type'] !=1  ? $params['goods_type'] : 'all';
-        return view('mania.sell.sell_list',$params);
+        return view('angel.sell.sell_list',$params);
     }
 
     public function gamemoney_avg(){

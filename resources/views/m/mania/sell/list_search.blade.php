@@ -1,18 +1,18 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/_css/_comm.css?v=210317">
-    <link type="text/css" rel="stylesheet" href="/mania/_head_tail/css/_head_comm.css?v=211007">
-    <link type="text/css" rel="stylesheet" href="/mania/_banner/css/banner_module.css?v=210422">
-    <link type="text/css" rel="stylesheet" href="/mania/_banner/css/_banner.css?v=210107" />
-    <link type="text/css" rel="stylesheet" href="/mania/sell/css/list_search.css?v=21050316" />
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/_css/_comm.css?v=210317">
+    <link type="text/css" rel="stylesheet" href="/angel/_head_tail/css/_head_comm.css?v=211007">
+    <link type="text/css" rel="stylesheet" href="/angel/_banner/css/banner_module.css?v=210422">
+    <link type="text/css" rel="stylesheet" href="/angel/_banner/css/_banner.css?v=210107" />
+    <link type="text/css" rel="stylesheet" href="/angel/sell/css/list_search.css?v=21050316" />
+    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/sell/js/list.js?21050316"></script>
-    <script type="text/javascript" src="/mania/sell/js/list_search.js?v=201221"></script>
+    <script type="text/javascript" src="/angel/sell/js/list.js?21050316"></script>
+    <script type="text/javascript" src="/angel/sell/js/list_search.js?v=201221"></script>
 @endsection
 
 @section('content')
@@ -256,7 +256,7 @@
             </div>
             <div class="g_right list_info" id="list_info">
                 리프레시
-                <i class="list_sprite icon_refresh"></i>
+                <i class="fa fa-refresh icon_refresh"></i>
                 <div class="info_layer">
                     <div class="il_title">물품정보안내란?</div>
                     <div class="list_sprite il_close"></div>

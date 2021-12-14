@@ -1,24 +1,24 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type='text/css' rel='stylesheet' href='/mania/myroom/mileage/payment/css/payment_phone.css?v=190220'>
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type='text/css' rel='stylesheet' href='/angel/myroom/mileage/payment/css/payment_phone.css?v=190220'>
+    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
-    <script type='text/javascript' src='/mania/myroom/mileage/payment/js/payment_phone.js?v=190220'></script>
-    <script type='text/javascript' src='/mania/myroom/mileage/payment/js/mile_gift.js?v=210323'></script>
+    <script type='text/javascript' src='/angel/myroom/mileage/payment/js/payment_phone.js?v=190220'></script>
+    <script type='text/javascript' src='/angel/myroom/mileage/payment/js/mile_gift.js?v=210323'></script>
     <script type='text/javascript'>
-        var gsVersion = '2110141801';
-        var _LOGINCHECK = '1';
+
+
     </script>
 @endsection
 
 @section('content')
 <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
 <div class="g_container" id="g_CONTENT">
-    @include('mania.myroom.aside', ['group'=>'mileage', 'part'=>'payment'])
+    @include('angel.myroom.aside', ['group'=>'mileage', 'part'=>'payment'])
     <div class="g_content">
         <!-- ▼ 타이틀 //-->
         <div class="g_title_blue"> 마일리지 출금
@@ -120,7 +120,7 @@
         <div class="g_finish"></div>
         <div class="tb_bt_txt f_bold"> [TCash 적립 안내]
             <br> ㆍ<span class="f_red1">T마일리지</span> : 사용, 출금, 보내기 가능 / <span class="f_red1">아이템마일리지</span> : 사용, 전환 출금, 보내기 가능
-            <br> ㆍ아이템매니아 출금 계좌 인증 시 T마일리지로 적립
+            <br> ㆍ아이템천사 출금 계좌 인증 시 T마일리지로 적립
             <br> * Tcash 앱을 통하여 출금 시 별도의 수수료가 부과될 수 있습니다. </div>
         <div class="g_btn">
             <input type="image" src="https://img3.itemmania.com/images/btn/btn_phone_with.gif" width="115" height="37" alt="휴대폰번호 출금" class="g_image" id="btn_payment"> </div>
@@ -230,7 +230,7 @@
         </style>
         <div class="g_smtitle">마일리지 활용하기</div>
         <div class="g_big_box1 mile_giftcard">
-            <div class="g_left"> 아이템매니아 마일리지를 통해 다양한 상품권 또는 선불카드 구매가 가능합니다.
+            <div class="g_left"> 아이템천사 마일리지를 통해 다양한 상품권 또는 선불카드 구매가 가능합니다.
                 <br> (단, 자동이체 및 이벤트를 통해 적립된 마일리지는 사용이 불가능합니다.) </div>
             <div class="g_right"> <a class="btn_blue3" href="http://giftcard.itemmania.com/portal/giftcard/">상품권몰 바로가기</a> </div>
             <div class="g_finish"></div>

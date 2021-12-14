@@ -1,0 +1,52 @@
+
+
+div.gray_box {
+    border: 5px solid #F4F4F4;
+    padding: 0 70px 21px;
+    width: 460px;
+    margin: 0 auto
+}
+
+div.gray_box table tr th {
+    border-left: none
+}
+
+div.gray_box table tr td {
+    text-align: left;
+    padding-left: 10px;
+    height: 34px
+}
+
+div.gray_box table tr td input.g_radio {
+    margin-left: 20px
+}
+
+div.gray_box table tr td input.first_radio {
+    margin-left: 0
+}
+
+div.gray_box table tr td input.g_text {
+    width: 180px
+}
+
+div.gray_box table tr td div#dvGame,
+div.gray_box table tr td div#dvServer {
+    width: 186px;
+    border-color: #CCC;
+}
+
+div.gray_box table tr td input.g_search_input {
+    width: 150px
+}
+
+div.gray_box table tr td input.subject {
+    width: 270px
+}
+
+div.gray_box table tr td textarea {
+    resize: none;
+    width: 272px;
+    height: 50px;
+    padding: 3px 0 0 3px;
+    margin: 5px 0
+}

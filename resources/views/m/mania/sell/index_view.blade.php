@@ -24,9 +24,9 @@
 @endphp
 @extends('layouts-mania.app')
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/sell/css/index_view.css?v=190220">
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/sell/css/index_view.css?v=190220">
+    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
@@ -38,12 +38,12 @@
     <div class="g_container" id="g_CONTENT">
         <div class="aside">
             <div class="title_blue">
-                <img src="/mania/img/icons/exclamation-mark-png-exclamation-mark-icon-11563006763v9utxg8tnp 1.png" />
+                <img src="/angel/img/icons/exclamation-mark-png-exclamation-mark-icon-11563006763v9utxg8tnp 1.png" />
                 판매등록 알아보기
             </div>
             <div class="menu_know">
                 <p class="heads">판매물품 등록 방법</p>
-                <img src="/mania/img/new_images/sell_left_know.png" width="210"  alt="팝니다 쉽게 등록하기">
+                <img src="/angel/img/new_images/sell_left_know.png" width="210"  alt="팝니다 쉽게 등록하기">
                 <p class="m-t-40 font-weight-bold p-left-15">판매등록 알아두기</p>
                 <ul class="g_list p-left-15">
                     <li>* 물품등록 본인은 물품의 문제 발생시 민/형사사상의

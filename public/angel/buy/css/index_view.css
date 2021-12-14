@@ -1,0 +1,81 @@
+.aside .title_blue {
+    padding: 10px 0;
+    font-size: 16px;
+    text-align: center;
+    color: #DA9898;
+}
+.aside {
+    border: 1px solid #A3A3A3;
+
+}
+.aside .menu_know {
+
+    text-align: center;
+}
+
+.aside .menu_know p {
+    font-size: 16px;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background: #DA9898;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.aside .menu_know img {
+    margin-bottom: 12px;
+}
+
+.aside .menu_know .g_list {
+    margin-top: 3px;
+    padding: 8px 7px;
+    background-color: #FFF;
+    color: #767676;
+    line-height: 15px;
+    font-size: 11px;
+}
+
+.aside .menu_know .g_list li {
+    margi-bottom: 8px;
+}
+
+.g_content .box6 {
+    margin-top: 20px;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.reg_icon {
+    display: inline-block;
+    width: 48px;
+    height: 39px;
+    background: url(/angel/img/icons/thumb-up.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.box6 .complete_txt {
+    margin: 14px 0 24px;
+    color: #13A33F;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.g_green_table td {
+    line-height: 20px;
+}
+
+.add_reg {
+    display: inline-block;
+    width: 156px;
+    height: 23px;
+    margin-left: 15px;
+    line-height: 23px;
+    text-align: center;
+}
+
+.btn_list {
+    display: none
+}

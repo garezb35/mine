@@ -1,19 +1,17 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type='text/css' rel='stylesheet' href='/mania/guide/css/common.css'>
-    <link type='text/css' rel='stylesheet' href='/mania/guide/frshmn_guide/css/frshmn.css'>
-    <link type="text/css" rel="stylesheet" href="/mania/dev/guide_arrow.css">
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type='text/css' rel='stylesheet' href='/angel/guide/css/common.css'>
+    <link type='text/css' rel='stylesheet' href='/angel/guide/frshmn_guide/css/frshmn.css'>
+    <link type="text/css" rel="stylesheet" href="/angel/dev/guide_arrow.css">
 @endsection
 
 @section('foot_attach')
 
-    <script type='text/javascript' src='/mania/guide/frshmn_guide/js/common.js'></script>
+    <script type='text/javascript' src='/angel/guide/frshmn_guide/js/common.js'></script>
     <script type='text/javascript'>
-        var gsVersion = '2111181739';
-        var _LOGINCHECK = '1';
+
+
     </script>
 @endsection
 
@@ -125,7 +123,7 @@
                 color: #FF4E00;
             }
         </style>
-        @include('mania.guide.aside', ['group'=>'new_guide', 'part'=>''])
+        @include('angel.guide.aside', ['group'=>'new_guide', 'part'=>''])
         <div class="g_content">
             <a name="top"></a>
             <!-- ▼ 타이틀 //-->
@@ -185,23 +183,23 @@
             <div class="guide_subtitle">
                 <span class="f_red1 f_bold">하나. </span> 메인 상단의 "구매등록" 메뉴를 클릭합니다.
             </div>
-            <img src="/mania/img/guide/screenshot/img_buyreg_01.png" width="820" alt="">
+            <img src="/angel/img/guide/screenshot/img_buyreg_01.png" width="820" alt="">
             <div class="g_finish"></div>
             <div class="guide_subtitle">
                 <span class="f_red1 f_bold">둘. </span>구매를 원하는 물품의 정보를 순서대로 입력하신 후 하단의 <b>[구매등록]</b> 버튼을 클릭 합니다.<br>
                 삽니다 등록 페이지의 <b>삽니다 등록 알아두기</b>를 먼저 꼼꼼히 읽어보세요.
             </div>
-            <img src="/mania/img/guide/screenshot/img_buyreg_02.png" width="820" alt="">
+            <img src="/angel/img/guide/screenshot/img_buyreg_02.png" width="820" alt="">
             <div class="g_finish"></div>
             <div class="guide_subtitle">
                 <span class="f_red1 f_bold">셋. </span>구매 물품정보를 다시 확인 합니다.
             </div>
-            <img src="/mania/img/guide/screenshot/img_buyreg_03.png" width="820"  alt="">
+            <img src="/angel/img/guide/screenshot/img_buyreg_03.png" width="820"  alt="">
             <br> <span class="guide_subtxt">* 등록한 물품은 </span><span class="f_bold">마이룸 > 판매관련 > 판매등록물품</span>에서 확인가능합니다.
             <div class="g_finish"></div>
             <div class="divi_line"></div>
             <a href="#top">
-                <img class="g_right" src="/mania/img/icons/btn_up2.gif" width="61" height="20" alt="맨위로">
+                <img class="g_right" src="/angel/img/icons/Scroll-to-top.png" width="61" height="60">
             </a>
             <div class="g_finish"></div>
             <div class="g_btn">

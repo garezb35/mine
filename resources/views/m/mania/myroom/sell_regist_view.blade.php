@@ -22,24 +22,18 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/css/common_myroom.css?210503" />
-    <link type='text/css' rel='stylesheet' href='/mania/myroom/sell/css/common_view.css?v=210114'>
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css?210503" />
+    <link type='text/css' rel='stylesheet' href='/angel/myroom/sell/css/common_view.css?v=210114'>
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
     <div class="g_container" id="g_CONTENT">
         @include('aside.myroom',['group'=>'sell'])
         <div class="g_content">
             <a name="top"></a>
-            <!-- ▼ 타이틀 //-->
             <div class="g_title_noborder"> 판매등록 <span>물품</span>
             </div>
             <div class="g_gray_border"></div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 물품정보 //-->
             <div class="g_subtitle first">물품정보</div>
             @if($user_goods_type == 'general' || $user_goods_type == 'bargain')
                 <table class="table-striped table-green1">
@@ -167,7 +161,7 @@
             <div class="detail_info mt-0">
                 <div class="detail_text">
                     <div id="js-gallery" class="mb-5">
-                        @foreach (\File::glob(public_path('assets/images/mania/'.$id).'/*') as $file)
+                        @foreach (\File::glob(public_path('assets/images/angel/'.$id).'/*') as $file)
                             <a href="/{{ str_replace(public_path()."\\", '', $file) }}" class="slide">
                                 <img src="/{{ str_replace(public_path()."\\", '', $file) }}" class="g_top">
                             </a>
@@ -245,8 +239,8 @@
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/myroom/sell/js/sell_regist.js"></script>
-    <script type='text/javascript' src='/mania/js/sell_regist_view.js'></script>
+    <script type="text/javascript" src="/angel/myroom/sell/js/sell_regist.js"></script>
+    <script type='text/javascript' src='/angel/js/sell_regist_view.js'></script>
     <script>
         $('#js-gallery')
             .packery({

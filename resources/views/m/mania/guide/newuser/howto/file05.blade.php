@@ -1,18 +1,16 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type='text/css' rel='stylesheet' href='/mania/guide/css/common.css'>
-    <link type='text/css' rel='stylesheet' href='/mania/guide/frshmn_guide/css/frshmn.css'>
-    <link type="text/css" rel="stylesheet" href="/mania/dev/guide_arrow.css">
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type='text/css' rel='stylesheet' href='/angel/guide/css/common.css'>
+    <link type='text/css' rel='stylesheet' href='/angel/guide/frshmn_guide/css/frshmn.css'>
+    <link type="text/css" rel="stylesheet" href="/angel/dev/guide_arrow.css">
 @endsection
 
 @section('foot_attach')
-    <script type='text/javascript' src='/mania/guide/frshmn_guide/js/common.js'></script>
+    <script type='text/javascript' src='/angel/guide/frshmn_guide/js/common.js'></script>
     <script type='text/javascript'>
-        var gsVersion = '2111181739';
-        var _LOGINCHECK = '1';
+
+
     </script>
 @endsection
 
@@ -128,7 +126,7 @@
                 color: #FF4E00;
             }
         </style>
-        @include('mania.guide.aside', ['group'=>'new_guide', 'part'=>''])
+        @include('angel.guide.aside', ['group'=>'new_guide', 'part'=>''])
         <div class="g_content">
             <a name="top"></a>
             <!-- ▼ 타이틀 //-->
@@ -185,7 +183,7 @@
             <div class="guide_subtitle">
                 <span class="f_red1 f_bold">하나. </span>구매자와 연락을 하시면서 게임상에서 물품을 구매자에게 전달합니다.
             </div>
-            <img src="/mania/img/guide/screenshot/img_hand_01.png" width="820" height="227" alt="">
+            <img src="/angel/img/guide/screenshot/img_hand_01.png" width="820" height="227" alt="">
             <dl class="notice">
                 <dt>[주의사항]</dt>
                 <dd>
@@ -201,17 +199,17 @@
             <div class="guide_subtitle">
                 <span class="f_red1 f_bold">둘. </span>구매자에게 거래물품을 건네주신 후 <b>[물품인계확인]</b> 버튼을 클릭합니다.
             </div>
-            <img src="/mania/img/guide/screenshot/img_hand_02.gif" width="820" height="510" alt="">
+            <img src="/angel/img/guide/screenshot/img_hand_02.gif" width="820" height="510" alt="">
             <div class="g_finish"></div>
             <div class="guide_subtitle">
                 <span class="f_red1 f_bold">셋. </span>현금영수증 정보를 확인 후 [물품인계확인] 버튼을 클릭하세요.
                 <br>현금영수증 발급을 원하지 않으시면 [미발급] 을 선택해주시기 바랍니다.
             </div>
-            <img src="/mania/img/guide/screenshot/img_hand_03.gif" width="820" height="800" alt="">
+            <img src="/angel/img/guide/screenshot/img_hand_03.gif" width="820" height="800" alt="">
             <div class="g_finish"></div>
             <div class="divi_line"></div>
             <a href="#top">
-                <img class="g_right" src="/mania/img/icons/btn_up2.gif" width="61" height="20" alt="맨위로">
+                <img class="g_right" src="/angel/img/icons/Scroll-to-top.png" width="61" height="60">
             </a>
             <div class="g_finish"></div>
             <div class="g_btn">

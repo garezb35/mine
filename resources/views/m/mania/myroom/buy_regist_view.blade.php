@@ -19,15 +19,15 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/css/common_myroom.css?210503" />
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/buy/css/common_view.css?210114" />
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css?210503" />
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/buy/css/common_view.css?210114" />
+    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/myroom/buy/js/buy_regist.js?v=190426"></script>
-    <script type="text/javascript" src="/mania/myroom/buy/js/buy_regist_view.js?v=210512"></script>
+    <script type="text/javascript" src="/angel/myroom/buy/js/buy_regist.js?v=190426"></script>
+    <script type="text/javascript" src="/angel/myroom/buy/js/buy_regist_view.js?v=210512"></script>
     <script type="text/javascript">
         function __init() {
             e_use.premium=7;

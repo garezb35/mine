@@ -7,16 +7,16 @@ $acc[9] = '기타';
 @extends('layouts-mania.app')
 @section('head_attach')
 
-    <link type="text/css" rel="stylesheet" href="/mania/character/css/index.css?v=210204" />
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/character/css/index.css?v=210204" />
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/character/js/carousel.js"></script>
-    <script type="text/javascript" src="/mania/character/js/index.js"></script>
+    <script type="text/javascript" src="/angel/character/js/carousel.js"></script>
+    <script type="text/javascript" src="/angel/character/js/index.js"></script>
     <script type='text/javascript'>
-        var gsVersion = '2110141801';
-        var _LOGINCHECK = '1';
+
+
     </script>
 @endsection
 
@@ -75,7 +75,7 @@ $acc[9] = '기타';
                 @endif
                 <div class="games_goods_wrapper">
                     <div class="section_title_wrapper">
-                        <h2 class="section_title c-blue-title">{{$v['game']}} <span class="goods_more_btn" data-code="{{$v['id']}}" data-gamename="{{$v['game']}}">더보기 <img src="http://img4.itemmania.com/new_images/icon/icon_more.png" alt="" /></span></h2></div>
+                        <h2 class="section_title c-blue-title">{{$v['game']}} <span class="goods_more_btn" data-code="{{$v['id']}}" data-gamename="{{$v['game']}}">더보기</span></h2></div>
                     <div class="games_goods_carousel">
                         <div class="carousel_module">
                             <div class="banner_in center_banner">

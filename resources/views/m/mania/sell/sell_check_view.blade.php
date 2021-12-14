@@ -13,14 +13,12 @@ $category = '> > 기타';
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/buy/css/common_view.css">
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js"></script>
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/buy/css/common_view.css">
 @endsection
 
 @section('foot_attach')
 
-    <script type="text/javascript" src="/mania/sell/js/sell_check_view.js"></script>
+    <script type="text/javascript" src="/angel/sell/js/sell_check_view.js"></script>
 
 @endsection
 
@@ -36,12 +34,9 @@ $category = '> > 기타';
             <input type="hidden" name="type" id="encryptType">
         </form>
         <div class="g_content">
-            <!-- ▼ 타이틀 //-->
             <div class="g_title_blue noborder">
                 흥정신청된 <span>물품</span>
             </div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 물품정보 //-->
             <div class="g_subtitle first">물품정보</div>
             <table class="table-green1 table-striped" id="">
                 <colgroup>
@@ -134,8 +129,6 @@ $category = '> > 기타';
                     </div>
                 </div>
             </div>
-            <!-- ▲ 판매진행안내 //-->        <!-- ▲ 거래진행상황 //-->
-            <!-- ▼ 흥정거래 정보 //-->
             <div class="g_subtitle">흥정거래 정보</div>
             <table class="g_green_table2">
                 <colgroup>
@@ -156,7 +149,6 @@ $category = '> > 기타';
                         <td>{{date("Y-m-d H:i:s",strtotime($value['created_at']))}}</td>
                         <td>{{number_format($value['price'])}}원</td>
                         <td>{{!empty($value['user']['roles']) ? $value['user']['roles']['alias']: ''}}회원
-                            <img src="http://img4.itemmania.com/images/btn/btn_detail2.gif" width="40" height="17" alt="자세히" class="g_button" onclick="fnCreditViewCheck('a68e5ed758fe86e630c7f30c1dbb221b')">
                         </td>
                         <td>
                             @if($value['status'] == 1)
@@ -220,7 +212,6 @@ $category = '> > 기타';
                 </div>
             </form>
         </div>
-        <!-- ▲ 재흥정 레이어 //-->
         <div class="g_finish"></div>
     </div>
 @endsection

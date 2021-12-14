@@ -1,10 +1,10 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link type="text/css" rel="stylesheet" href="/mania/photoswipe/css/default-skin/default-skin.css">
-        <link type="text/css" rel="stylesheet" href="/mania/_css/_comm.css">
-        <link type="text/css" rel="stylesheet" href="/mania/_head_tail/css/_head_popup.css">
-        <link type="text/css" rel="stylesheet" href="/mania/_banner/css/banner_module.css">
+        <link type="text/css" rel="stylesheet" href="/angel/photoswipe/css/default-skin/default-skin.css">
+        <link type="text/css" rel="stylesheet" href="/angel/_css/_comm.css">
+        <link type="text/css" rel="stylesheet" href="/angel/_head_tail/css/_head_popup.css">
+        <link type="text/css" rel="stylesheet" href="/angel/_banner/css/banner_module.css">
     </head>
     <body>
     <style>
@@ -321,11 +321,11 @@
 
 
     </body>
-    <script type="text/javascript" src="/mania/_js/_jquery3.js"></script>
-    <script type="text/javascript" src="/mania/_js/_comm.js"></script>
-    <script type="text/javascript" src="/mania/_js/_gs_control_200924.js"></script>
-    <script type="text/javascript" src="/mania/socket/socket.io.js"></script>
-    <script type="text/javascript" src="/mania/js/chat.js"></script>
+    <script type="text/javascript" src="/angel/_js/jquery.js"></script>
+    <script type="text/javascript" src="/angel/_js/_comm.js"></script>
+    <script type="text/javascript" src="/angel/_js/angelic-global.js"></script>
+    <script type="text/javascript" src="/angel/socket/socket.io.js"></script>
+    <script type="text/javascript" src="/angel/js/chat.js"></script>
 </html>
 <script>
     function number_format(user_input){

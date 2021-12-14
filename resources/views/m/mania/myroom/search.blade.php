@@ -1,13 +1,13 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/customer/css/search.css" />
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/customer/css/search.css" />
+    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript"  src="/mania/myroom/customer/js/search.js" ></script>
+    <script type="text/javascript"  src="/angel/myroom/customer/js/search.js" ></script>
     <script type="text/javascript">
         function redirect(){
             location.reload()
@@ -121,8 +121,8 @@
                     @foreach($list as $v)
                     <tr>
                         <td class="first">
-                            <img src="/mania/img/button/btn-up.png" width="8"  alt="위로" class="move">
-                            <img src="/mania/img/button/btn-down.png" width="8"  alt="아래로" class="move">
+                            <img src="/angel/img/button/btn-up.png" width="8"  alt="위로" class="move">
+                            <img src="/angel/img/button/btn-down.png" width="8"  alt="아래로" class="move">
                             <input type="hidden" name="id[]" value="{{$v['id']}}">
                         </td>
                         <td class="category">{{$v['type'] == 'sell' ? '팝니다' : '삽니다'}} > {{$v['game_text']}} > {{$v['server_text']}} > {{$v['goods_text']}}</td>

@@ -20,6 +20,6 @@ class VEventController extends BaseController
     public function index()
     {
         // echo "test";
-        return view('mania.event.main');
+        return view('angel.event.main');
     }
 }

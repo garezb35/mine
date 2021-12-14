@@ -1,0 +1,64 @@
+.g_big_box1 {
+    overflow: hidden;
+    margin: 0 0 30px -9px;
+}
+
+.g_big_box1 li {
+    position: relative;
+    float: left;
+    width: 154px;
+    height: 31px;
+    margin: 0 0 5px 9px;
+    border: 1px solid #CCD3DC;
+    background-color: #FFF;
+    font-size: 11px;
+    line-height: 33px;
+    text-indent: 8px;
+    letter-spacing: -1px;
+    cursor: pointer;
+    color: #6E6E6E;
+}
+
+.g_big_box1 li:hover {
+    font-weight: bold;
+    color: #407FD4
+}
+
+
+.g_big_box1 .none {
+    cursor: auto
+}
+
+.mile_info {
+    margin-top: 20px;
+    padding-bottom: 15px;
+    border: 2px solid #E3E3E3
+}
+
+.mile_info .top_info {
+    position: absolute;
+    margin: -2px 0 0 -2px;
+    _margin-left: -1px
+}
+
+.mile_info ul {
+    width: 695px;
+    margin: 19px 0 0 40px;
+    color: #767676
+}
+
+.mile_info ul li {
+    margin-left: 10px
+}
+
+.mile_info ul .title {
+    margin: 0 0 5px
+}
+
+.mile_info ul .line {
+    height: 10px;
+    margin-top: 10px;
+    margin-left: 0;
+    border-top: 1px dotted #DBDBDB
+}
+

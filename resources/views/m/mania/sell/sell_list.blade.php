@@ -1,21 +1,17 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/_banner/css/_banner.css" />
-    <link type="text/css" rel="stylesheet" href="/mania/sell/css/list_search.css" />
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js"></script>
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/_banner/css/_banner.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/sell/css/list_search.css" />
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/sell/js/list.js"></script>
+    <script type="text/javascript" src="/angel/sell/js/list.js"></script>
 @endsection
 
 @section('content')
     <div class="g_container" id="g_CONTENT">
-        <!--▼▼▼ 리스트 게임 코드 배너 ▼▼▼ -->
         <div class="spacer_bottom_20"></div>
-        <!--▲▲▲ 리스트 게임 코드 배너 ▲▲▲ -->
         <a name="search_top"></a>
         <div class="g_title_blue noborder">
             <div class="g_left">
@@ -25,7 +21,6 @@
                 </ul>
             </div>
         </div>
-        <!-- ▼ 메뉴탭 //-->
         <div class="g_tab">
             <div  value="money" @if(!empty($search_goods) && $search_goods =='money') class="selected" @endif>게임머니</div>
             <div  value="item" @if(!empty($search_goods) && $search_goods =='item') class="selected" @endif>아이템</div>
@@ -43,8 +38,6 @@
             </div>
         </div>
         <div class="g_finish"></div>
-        <!-- ▲ 메뉴탭 //-->
-        <!-- ▼ 팝니다 등록 검색 //-->
         <div id="detail_search" class="detail_search">
             <form id="frm_search" name="frm_search" method="POST">
                 @csrf
@@ -68,7 +61,6 @@
                 <input type="hidden" name="overlap" id="overlap" value="{{$overlap}}">
                 <input type="hidden" name="goods_type" value="{{$goods_type}}"> </form>
         </div>
-        <!-- ▲ 팝니다 등록 검색 //-->
         <div class="g_subtitle">
             <div class="g_left">프리미엄</div>
         </div>
@@ -99,7 +91,7 @@
             </div>
             <div class="g_right list_info" id="list_info">
                 리프레시
-                <i class="list_sprite icon_refresh"></i>
+                <i class="fa fa-refresh icon_refresh"></i>
                 <div class="info_layer">
                     <div class="il_title">물품정보안내란?</div>
                     <div class="list_sprite il_close"></div>
@@ -178,7 +170,6 @@
         </div>
 
         <p class="spacer_bottom_20"></p>
-        <!--▲▲▲ 리스트 하단 배너 ▲▲▲ -->
         <div class="g_finish"></div>
     </div>
 @endsection

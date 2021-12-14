@@ -309,7 +309,7 @@ class ManiaController extends BaseController
                     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
                     $extension = $file->getClientOriginalExtension();
                     $bankbook = $filename .'_'.time().'.' . $extension;
-                    $file->move(public_path('assets/images/mania/'.$insertId->id),$bankbook);
+                    $file->move(public_path('assets/images/angel/'.$insertId->id),$bankbook);
                 }
             }
             if(!empty($gift)){
@@ -2078,7 +2078,7 @@ class ManiaController extends BaseController
     }
 
     public function user_certify(Request $request){
-        return view('mania.certify');
+        return view('angel.certify');
     }
 
     public function application_ok_buy(Request $request){
@@ -2562,7 +2562,7 @@ class ManiaController extends BaseController
         return redirect('/myroom/sell/sell_regist');
     }
     public function user_certify_myinfo(Request $request){
-        return view('mania.myroom.certify');
+        return view('angel.myroom.certify');
     }
     public function cash_receipt_confirm(Request $request){
         $id = $request->id;
@@ -2571,7 +2571,7 @@ class ManiaController extends BaseController
             echo '<script>alert("잘못된 접근입니다.");self.close();</script>';
             return;
         }
-        return view('mania.myroom.cash_receipt_confirm',$cash);
+        return view('angel.myroom.cash_receipt_confirm',$cash);
     }
 
     public function cash_receipt_confirm2(Request $request){
@@ -2581,7 +2581,7 @@ class ManiaController extends BaseController
             echo '<script>alert("잘못된 접근입니다.");self.close();</script>';
             return;
         }
-        return view('mania.myroom.cash_receipt_confirm2',$cash);
+        return view('angel.myroom.cash_receipt_confirm2',$cash);
     }
 
     public function search_update_form(Request $request){
@@ -2590,6 +2590,6 @@ class ManiaController extends BaseController
             echo '<script>alert("잘못된 접근입니다.");self.close();</script>';
             return;
         }
-        return view('mania.myroom.search_update_form',$item);
+        return view('angel.myroom.search_update_form',$item);
     }
 }

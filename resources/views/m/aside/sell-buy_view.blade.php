@@ -1,7 +1,7 @@
 @if($group == 'sell')
 <div class="aside">
     <div class="title_blue">
-        <img src="/mania/img/icons/exclamation-mark-png-exclamation-mark-icon-11563006763v9utxg8tnp 1.png" />
+        <img src="/angel/img/icons/exclamation-mark-png-exclamation-mark-icon-11563006763v9utxg8tnp 1.png" />
         안전거래수칙
     </div>
     <div class="menu_know">
@@ -29,7 +29,7 @@
 @if($group == 'sell-application')
     <div class="aside">
         <div class="title_blue">
-            <img src="/mania/img/icons/exclamation-mark-png-exclamation-mark-icon-11563006763v9utxg8tnp 1.png" />
+            <img src="/angel/img/icons/exclamation-mark-png-exclamation-mark-icon-11563006763v9utxg8tnp 1.png" />
             안전거래수칙
         </div>
         <div class="menu_know">
@@ -73,4 +73,4 @@
 @endif
 
 
-<link type="text/css" rel="stylesheet" href="/mania/aside/sell-buy.css" />
+<link type="text/css" rel="stylesheet" href="/angel/aside/sell-buy.css" />

@@ -30,7 +30,7 @@ class VCustomerController extends BaseController
             $data['faqRecord'] = MFaq::limit(6)->get()->toArray();
         }
 
-        return view('mania.customer.index', $data);
+        return view('angel.customer.index', $data);
     }
 
     /**
@@ -110,7 +110,7 @@ class VCustomerController extends BaseController
         }
 
         $data['sellingRecord'] = $data['sellingRecord']->orderByDesc("created_at")->paginate(15);
-        return view('mania.customer.report', $data);
+        return view('angel.customer.report', $data);
     }
 
     /**
@@ -189,7 +189,7 @@ class VCustomerController extends BaseController
         }
 
         $data['sellingRecord'] = $data['sellingRecord']->orderByDesc("created_at")->paginate(15);
-        return view('mania.customer.report_end', $data);
+        return view('angel.customer.report_end', $data);
     }
 
     public function ask_guide(Request $request)
@@ -239,12 +239,12 @@ class VCustomerController extends BaseController
         $data['faqType'] = $faqType;
         $data['faqRecord'] = MFaq::where('group', '=', $faqType)->get()->toArray();
 
-        return view('mania.customer.ask_guide', $data);
+        return view('angel.customer.ask_guide', $data);
     }
 
     public function report_complete()
     {
-        return view('mania.customer.report_complete');
+        return view('angel.customer.report_complete');
     }
 
     /**
@@ -282,7 +282,7 @@ class VCustomerController extends BaseController
             return redirect(route('customer_report_complete'));
         }
 
-        return view('mania.customer.newgame');
+        return view('angel.customer.newgame');
     }
 
     /**
@@ -290,7 +290,7 @@ class VCustomerController extends BaseController
      */
     public function safety()
     {
-        return view('mania.customer.safety');
+        return view('angel.customer.safety');
     }
 
     /**
@@ -301,7 +301,7 @@ class VCustomerController extends BaseController
         $data['askRecord'] = MAsk::where('create_id', $this->user->id)
             ->orderByDesc('created_at')
             ->paginate(15);
-        return view('mania.customer.myqna.list', $data);
+        return view('angel.customer.myqna.list', $data);
     }
     public function myqna_view(Request $request)
     {
@@ -312,7 +312,7 @@ class VCustomerController extends BaseController
             $data['askDetail'] = MAsk::where('askid', $request->seq)
                 ->first()->toArray();
 
-            return view('mania.customer.myqna.view', $data);
+            return view('angel.customer.myqna.view', $data);
         }
         else {
             redirect(route('myqna_list'));

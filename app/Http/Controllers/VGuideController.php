@@ -24,7 +24,7 @@ class VGuideController extends BaseController
      */
     public function index()
     {
-        return view('mania.guide.main');
+        return view('angel.guide.main');
     }
 
     public function view(Request $request){
@@ -38,7 +38,7 @@ class VGuideController extends BaseController
         $notice_list = MNotice::orderBy('view',"DESC")->limit(10)->get();
         $notice['notice_list'] = $notice_list;
         $notice['game_list'] = MGameRate::limit(10)->get();
-        return view('mania.guide.news',$notice);
+        return view('angel.guide.news',$notice);
     }
 
     public function news(Request $request){
@@ -48,7 +48,7 @@ class VGuideController extends BaseController
         $data['notice_list'] = $notice_list;
         $data['notices'] = $notices;
         $data['game_list'] = MGameRate::limit(10)->get();
-        return view('mania.guide.news_lst',$data);
+        return view('angel.guide.news_lst',$data);
     }
 
     public function howto(Request $request)
@@ -56,17 +56,17 @@ class VGuideController extends BaseController
         switch ($request->file)
         {
             case '02':
-                return view('mania.guide.newuser.howto.file02');
+                return view('angel.guide.newuser.howto.file02');
             case '03':
-                return view('mania.guide.newuser.howto.file03');
+                return view('angel.guide.newuser.howto.file03');
             case '04':
-                return view('mania.guide.newuser.howto.file04');
+                return view('angel.guide.newuser.howto.file04');
             case '05':
-                return view('mania.guide.newuser.howto.file05');
+                return view('angel.guide.newuser.howto.file05');
             case '06':
-                return view('mania.guide.newuser.howto.file06');
+                return view('angel.guide.newuser.howto.file06');
             default:
-                return view('mania.guide.newuser.howto');
+                return view('angel.guide.newuser.howto');
         }
     }
 
@@ -75,93 +75,93 @@ class VGuideController extends BaseController
         switch ($request->file)
         {
             case '12':
-                return view('mania.guide.newuser.howto2.file12');
+                return view('angel.guide.newuser.howto2.file12');
             case '13':
-                return view('mania.guide.newuser.howto2.file13');
+                return view('angel.guide.newuser.howto2.file13');
             case '14':
-                return view('mania.guide.newuser.howto2.file14');
+                return view('angel.guide.newuser.howto2.file14');
             case '15':
-                return view('mania.guide.newuser.howto2.file15');
+                return view('angel.guide.newuser.howto2.file15');
             case '16':
-                return view('mania.guide.newuser.howto2.file16');
+                return view('angel.guide.newuser.howto2.file16');
             case '17':
-                return view('mania.guide.newuser.howto2.file17');
+                return view('angel.guide.newuser.howto2.file17');
             default:
-                return view('mania.guide.newuser.howto2');
+                return view('angel.guide.newuser.howto2');
         }
     }
 
     public function movie()
     {
-        return view('mania.guide.newuser.movie');
+        return view('angel.guide.newuser.movie');
     }
 
     public function safe(Request $request)
     {
         switch ($request->file) {
             case '02':
-                return view('mania.guide.newuser.safe.file02');
+                return view('angel.guide.newuser.safe.file02');
             case '03':
-                return view('mania.guide.newuser.safe.file03');
+                return view('angel.guide.newuser.safe.file03');
             case '04':
-                return view('mania.guide.newuser.safe.file04');
+                return view('angel.guide.newuser.safe.file04');
             case '05':
-                return view('mania.guide.newuser.safe.file05');
+                return view('angel.guide.newuser.safe.file05');
             case '06':
-                return view('mania.guide.newuser.safe.file06');
+                return view('angel.guide.newuser.safe.file06');
             default:
-                return view('mania.guide.newuser.safe');
+                return view('angel.guide.newuser.safe');
         }
     }
 
     public function trade()
     {
-        return view('mania.guide.newuser.trade');
+        return view('angel.guide.newuser.trade');
     }
 
     public function failed()
     {
-        return view('mania.guide.newuser.failed');
+        return view('angel.guide.newuser.failed');
     }
 
     public function join()
     {
-        return view('mania.guide.join');
+        return view('angel.guide.join');
     }
 
     public function charge()
     {
-        return view('mania.guide.charge');
+        return view('angel.guide.charge');
     }
 
     public function cancel()
     {
-        return view('mania.guide.cancel');
+        return view('angel.guide.cancel');
     }
 
     public function myroom()
     {
-        return view('mania.guide.myroom');
+        return view('angel.guide.myroom');
     }
 
     public function safe_grade_point()
     {
-        return view('mania.guide.grade_point');
+        return view('angel.guide.grade_point');
     }
 
     public function safe_grade_certify()
     {
-        return view('mania.guide.grade_certify');
+        return view('angel.guide.grade_certify');
     }
 
     public function cancel_cancel()
     {
-        return view('mania.guide.cancel.cancel');
+        return view('angel.guide.cancel.cancel');
     }
 
     public function cancel_bad()
     {
-        return view('mania.guide.cancel.bad');
+        return view('angel.guide.cancel.bad');
     }
 
     public function safe_char_trade(Request $request)
@@ -170,120 +170,120 @@ class VGuideController extends BaseController
             case '02':
                 break;
             default:
-                return view('mania.guide.char_trade.char_trade');
+                return view('angel.guide.char_trade.char_trade');
         }
     }
 
     public function safe_deposit_check()
     {
-        return view('mania.guide.char_trade.deposit_check');
+        return view('angel.guide.char_trade.deposit_check');
     }
 
     public function safe_buyer_info()
     {
-        return view('mania.guide.char_trade.buyer_info');
+        return view('angel.guide.char_trade.buyer_info');
     }
 
     public function safe_char_transfer()
     {
-        return view('mania.guide.char_trade.char_transfer');
+        return view('angel.guide.char_trade.char_transfer');
     }
 
     public function safe_sell_end()
     {
-        return view('mania.guide.char_trade.sell_end');
+        return view('angel.guide.char_trade.sell_end');
     }
 
     public function safe_buy_reg()
     {
-        return view('mania.guide.char_trade.buy_reg');
+        return view('angel.guide.char_trade.buy_reg');
     }
 
     public function safe_seller_info()
     {
-        return view('mania.guide.char_trade.seller_info');
+        return view('angel.guide.char_trade.seller_info');
     }
 
     public function safe_take_over()
     {
-        return view('mania.guide.char_trade.take_over');
+        return view('angel.guide.char_trade.take_over');
     }
 
     public function safe_buy_end()
     {
-        return view('mania.guide.char_trade.buy_end');
+        return view('angel.guide.char_trade.buy_end');
     }
 
     public function bar_sell_reg()
     {
-        return view('mania.guide.bar_trade.sell_reg');
+        return view('angel.guide.bar_trade.sell_reg');
     }
 
     public function bar_buyer_req()
     {
-        return view('mania.guide.bar_trade.buyer_req');
+        return view('angel.guide.bar_trade.buyer_req');
     }
 
     public function bar_seller_app()
     {
-        return view('mania.guide.bar_trade.seller_app');
+        return view('angel.guide.bar_trade.seller_app');
     }
 
     public function bar_buyer_pay()
     {
-        return view('mania.guide.bar_trade.buyer_pay');
+        return view('angel.guide.bar_trade.buyer_pay');
     }
 
     public function bar_re_bargain()
     {
-        return view('mania.guide.bar_trade.re_bargain');
+        return view('angel.guide.bar_trade.re_bargain');
     }
 
     public function guide_withdraw()
     {
-        return view('mania.guide.withdraw');
+        return view('angel.guide.withdraw');
     }
 
     public function guide_charge()
     {
-        return view('mania.guide.gcharge');
+        return view('angel.guide.gcharge');
     }
 
     public function talk_box()
     {
-        return view('mania.guide.convnce.talk_box');
+        return view('angel.guide.convnce.talk_box');
     }
 
     public function hide_func()
     {
-        return view('mania.guide.convnce.hide_func');
+        return view('angel.guide.convnce.hide_func');
     }
 
     public function howto_search()
     {
-        return view('mania.guide.convnce.howto_search');
+        return view('angel.guide.convnce.howto_search');
     }
 
     public function security_number()
     {
-        return view('mania.guide.add.security_number');
+        return view('angel.guide.add.security_number');
     }
 
     public function security_number_plus()
     {
-        return view('mania.guide.add.security_number_plus');
+        return view('angel.guide.add.security_number_plus');
     }
 
     public function user_reg_step1()
     {
-        return view('mania.user.user_reg_step1');
+        return view('angel.user.user_reg_step1');
     }
 
     public function user_reg_step2(Request $request)
     {
         if ($request->user_type > 0 && $request->user_type < 4)
         {
-            return view('mania.user.user_reg_step2', array("userType" => $request->user_type));
+            return view('angel.user.user_reg_step2', array("userType" => $request->user_type));
         }
         else {
             return redirect(route('user_reg_step1'));
@@ -302,7 +302,7 @@ class VGuideController extends BaseController
                 "phoneNum2" => $request->phoneNum2,
                 "phoneNum3" => $request->phoneNum3,
             );
-            return view('mania.user.user_reg_step3', $userInfo);
+            return view('angel.user.user_reg_step3', $userInfo);
         }
         else {
             return redirect(route('user_reg_step1'));
@@ -333,7 +333,7 @@ class VGuideController extends BaseController
         );
         User::create($userInfo);
 
-        return view('mania.user.user_reg_step4');
+        return view('angel.user.user_reg_step4');
     }
 
     public function user_lose_id(Request $request)
@@ -354,7 +354,7 @@ class VGuideController extends BaseController
             'user_phone' => $request->user_phone,
             "user_id" => $userId
         );
-        return view('mania.user.user_lose_id', $data);
+        return view('angel.user.user_lose_id', $data);
     }
 
     public function user_lose_pwd(Request $request)
@@ -384,7 +384,7 @@ class VGuideController extends BaseController
             return redirect(route("login"));
         }
         else {
-            return view('mania.user.user_lose_pwd', $data);
+            return view('angel.user.user_lose_pwd', $data);
         }
     }
 }

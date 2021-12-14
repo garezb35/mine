@@ -19,14 +19,12 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/sell/css/index.css">
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/sell/css/index.css">
 @endsection
 
 @section('foot_attach')
 
-    <script type="text/javascript" src="/mania/js/index210803.js"></script>
+    <script type="text/javascript" src="/angel/js/index210803.js"></script>
     <script type='text/javascript'>
 
         var rgCtrRegGameUnit = new Array();
@@ -50,12 +48,12 @@
         <!--▲▲▲ 판매등록 레이어 ▲▲▲ -->
         <div class="aside">
             <div class="title_blue">
-                <img src="/mania/img/icons/exclamation-mark-png-exclamation-mark-icon-11563006763v9utxg8tnp 1.png" />
+                <img src="/angel/img/icons/exclamation-mark-png-exclamation-mark-icon-11563006763v9utxg8tnp 1.png" />
                 판매등록 알아보기
             </div>
             <div class="menu_know">
                 <p class="heads">판매물품 등록 방법</p>
-                <img src="/mania/img/new_images/sell_left_know.png" width="210"  alt="팝니다 쉽게 등록하기">
+                <img src="/angel/img/new_images/sell_left_know.png" width="210"  alt="팝니다 쉽게 등록하기">
                 <p class="m-t-40 font-weight-bold p-left-15">판매등록 알아두기</p>
                 <ul class="g_list p-left-15">
                     <li>* 물품등록 본인은 물품의 문제 발생시 민/형사사상의
@@ -315,7 +313,7 @@
                         <dl>
                             <div>
                                 <div class="text-center m-t-5 m-b-5">
-                                    <img src="/mania/img/charge_service/01.png" />
+                                    <img src="/angel/img/charge_service/01.png" />
                                 </div>
                                 <p class="text-center">프리미엄등록</p>
                                 <dt class="border-bottom-2 border-yellow"></dt>
@@ -336,7 +334,7 @@
                         <dl>
                             <div>
                                 <div class="text-center m-t-5 m-b-5">
-                                    <img src="/mania/img/charge_service/02.png" />
+                                    <img src="/angel/img/charge_service/02.png" />
                                 </div>
                                 <p class="text-center">물품강조</p>
                                 <dt class="border-bottom-2 border-blue"></dt>
@@ -378,7 +376,7 @@
                         <dl>
                             <div>
                                 <div class="text-center m-t-5 m-b-5">
-                                    <img src="/mania/img/charge_service/04.png" />
+                                    <img src="/angel/img/charge_service/04.png" />
                                 </div>
                                 <p class="text-center">스피드 거래</p>
                                 <dt class="border-bottom-2 border-gray"></dt>
@@ -399,7 +397,7 @@
                         <dl>
                             <div>
                                 <div class="text-center m-t-5 m-b-5">
-                                    <img src="/mania/img/charge_service/03.png" />
+                                    <img src="/angel/img/charge_service/03.png" />
                                 </div>
                                 <p class="text-center">자동재등록</p>
                                 <dt class="border-bottom-2 border-green"></dt>
@@ -542,25 +540,25 @@
                             <ul class="excellent">
                                 <li class="cert_state">
                                     @if($user->mobile_verified == 1)
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif
                                         휴대폰
                                 </li>
 
                                 <li class="cert_state">
                                     @if(!empty($user->email_verified_at))
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif
                                     이메일</li>
                                 <li class="cert_state">
                                     @if($user->bank_verified ==1 )
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif
                                     출금계좌</li>
                             </ul>

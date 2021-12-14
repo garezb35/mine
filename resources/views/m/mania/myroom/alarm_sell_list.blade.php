@@ -1,16 +1,16 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/css/common_myroom.css?210503" />
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/buy/css/common_list.css?210512" />
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/goods_alarm/css/goods_alarm.css?210503" />
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css?210503" />
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/buy/css/common_list.css?210512" />
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/goods_alarm/css/goods_alarm.css?210503" />
+    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/myroom/goods_alarm/js/index.js?190220"></script>
-    <script type="text/javascript" src="/mania/myroom/goods_alarm/js/alarm_add.js?210503"></script>
+    <script type="text/javascript" src="/angel/myroom/goods_alarm/js/index.js?190220"></script>
+    <script type="text/javascript" src="/angel/myroom/goods_alarm/js/alarm_add.js?210503"></script>
 @endsection
 
 @section('content')
@@ -88,7 +88,7 @@
         <div class="g_notice">알아두기</div>
         <ul class="g_notice_box1 g_list">
             <li>캐릭터알림 서비스가 가능한 게임은 상황에 따라 수시로 변경될 수 있습니다.</li>
-            <li>앱push는 아이템매니아 모바일 앱 설치 및 로그인이 되어 있어야 push가능합니다.(push 알림 무제한)</li>
+            <li>앱push는 아이템천사 모바일 앱 설치 및 로그인이 되어 있어야 push가능합니다.(push 알림 무제한)</li>
             <li>SMS 알림 설정 시 하루 10회 까지만 알림되오니 이점 참고해주세요.</li>
             <li>알림 키워드 등록은 총 3개까지 가능하며, 그 중 한 개라도 매칭되면 알림이 됩니다.</li>
             <li>알림 키워드는 한글만 등록 가능하며, 한글로 2자 ~ 5자 사이로 입력해야 합니다.</li>
@@ -216,7 +216,7 @@
                                 <label>
                                     <input type="radio" name="user_alarm_type" class="g_radio" value="2">문자메시지 SMS(무료)</label>
                             </div>
-                            <p class="character_noti">- 모바일앱 PUSH로 알림을 받으시려면 아이템매니아앱 설치 및 로그인이 되어 있어야 합니다.</p>
+                            <p class="character_noti">- 모바일앱 PUSH로 알림을 받으시려면 아이템천사앱 설치 및 로그인이 되어 있어야 합니다.</p>
                             <p class="character_noti">- 앱PUSH 알림은 모바일앱 > 환경설정 > 마케팅정보PUSH알림에서 수신동의 상태일때만 발송됩니다.</p>
                         </td>
                     </tr>

@@ -21,14 +21,12 @@ $category = '> > 기타';
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/buy/css/buy_pay_wait_view.css">
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/buy/css/common_view.css">
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js"></script>
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/buy/css/buy_pay_wait_view.css">
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/buy/css/common_view.css">
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/myroom/buy/js/buy_check_view.js"></script>
+    <script type="text/javascript" src="/angel/myroom/buy/js/buy_check_view.js"></script>
     <script>
         $('#js-gallery')
             .packery({
@@ -49,9 +47,6 @@ $category = '> > 기타';
         <input type="hidden" id="screenshot_info" value="TiUzQg==">
         <div class="g_content">
             <a name="top"></a>
-            <!-- ▼ 타이틀 //-->
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 물품정보 //-->
             <div class="g_subtitle first">물품정보</div>
             <table class="table-striped table-green1">
                 <colgroup>
@@ -85,8 +80,6 @@ $category = '> > 기타';
                 </tr>
                 </tbody>
             </table>
-            <!-- ▲ 물품정보 //-->
-            <!-- ▼ 판매자정보 //-->
             <div class="g_subtitle">판매자 정보</div>
             <table class="table-greenwith">
                 <colgroup>
@@ -96,7 +89,7 @@ $category = '> > 기타';
                 <tr>
                     <th class="p-left-10">
                         <div>
-                            <img src="/mania/img/level/{{$seller['roles']['icon']}}" width="37"/>
+                            <img src="/angel/img/level/{{$seller['roles']['icon']}}" width="37"/>
                             <span class="f_green4 f_bold">{{$seller['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($seller['point'])}}점)
                         </div>
                     </th>
@@ -106,27 +99,27 @@ $category = '> > 기타';
                                 <span class="w80 cert_state">인증상태</span>
                                 <span class="con w80 btn_state">
                                         @if($seller['mobile_verified'] == 1)
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif휴대폰</span>
                                 <span class="on w80 btn_state">
                                         @if($seller['bank_verified'] == 1)
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif계좌</span>
                                 <span class="on w80 btn_state">
                                         @if($seller['pin'] == 1)
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif아이핀</span>
                                 <span class="w80 btn_state">
                                         @if(!empty($seller['email_verified_at']))
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif이메일</span>
                             </dd>
                         </dl>
@@ -168,10 +161,7 @@ $category = '> > 기타';
                         </div>
                     </div>
                 </div>
-                <!-- ▲ 판매진행안내 //-->
             </div>
-            <!-- ▲ 거래진행상황 //-->
-            <!-- ▼ 흥정거래 정보 //-->
             <form id="frmCheckView" name="frmCheckView" method="POST">
                 @csrf
                 <input type="hidden" name="id" value="{{$orderNo}}">
@@ -213,13 +203,11 @@ $category = '> > 기타';
                 @endforeach
                 </tbody>
             </table>
-            <!-- ▲ 흥정거래 정보 //-->
-            <!-- ▼ 상세설명 //-->
             <div class="g_subtitle">상세설명</div>
             <div class="detail_info">
                 <div class="detail_text">
                     <div id="js-gallery" class="mb-5">
-                        @foreach (\File::glob(public_path('assets/images/mania/'.$id).'/*') as $file)
+                        @foreach (\File::glob(public_path('assets/images/angel/'.$id).'/*') as $file)
                             <a href="/{{ str_replace(public_path()."\\", '', $file) }}" class="slide">
                                 <img src="/{{ str_replace(public_path()."\\", '', $file) }}" class="g_top">
                             </a>

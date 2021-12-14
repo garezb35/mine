@@ -1,19 +1,19 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/complete/css/report.css?190220">
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/complete/css/report.css?190220">
+    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/myroom/complete/js/_search.js?190220"></script>
+    <script type="text/javascript" src="/angel/myroom/complete/js/_search.js?190220"></script>
 @endsection
 
 @section('content')
     <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
     <div class="g_container" id="g_CONTENT">
-        @include('mania.myroom.aside', ['group'=>'complete_sell', 'part'=>''])
+        @include('angel.myroom.aside', ['group'=>'complete_sell', 'part'=>''])
         <div class="g_content">
             <!-- ▼ 타이틀 //-->
             <div class="g_title_blue"> 종료 <span>내역</span>

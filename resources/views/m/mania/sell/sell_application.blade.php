@@ -48,17 +48,12 @@
 @endphp
 @extends('layouts-mania.app')
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/_css/_comm.css?v=210317">
-    <link type="text/css" rel="stylesheet" href="/mania/_head_tail/css/_head_comm.css?v=211007">
-    <link type="text/css" rel="stylesheet" href="/mania/_banner/css/banner_module.css?v=210422">
-    <link type="text/css" rel="stylesheet" href="/mania/sell/css/application.css?v=201221">
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/buy/css/buy_pay_wait_view.css?v=210427">
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/sell/css/application.css?v=201221">
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/buy/css/buy_pay_wait_view.css?v=210427">
 @endsection
 
 @section('foot_attach')
-    <script type='text/javascript' src='/mania/sell/js/application.js'></script>
+    <script type='text/javascript' src='/angel/sell/js/application.js'></script>
     <script type='text/javascript'>
         g_trade_info.curr_mileage = Number({{$cuser['mileage']}});
         g_trade_info.sale	= '{{$user_goods_type}}';
@@ -400,7 +395,7 @@
             </ul>
             <div class="g_finish"></div>
             <dl class="box8 notice_box"> <dt class="f_bold f15">
-                    &nbsp;&nbsp;&nbsp;<img src="/mania/img/icons/add.png" />
+                    &nbsp;&nbsp;&nbsp;<img src="/angel/img/icons/add.png" />
                     판매자로부터 받은 물품을 다시 돌려달라는 사기에 주의 하세요</dt>
                 <dd>판매자로부터 물품 받은 후 게임머니(아이템)에 문제가 있으니 다른 것으로 바꿔 주겠다며 물품을 요구하는 경우가 있습니다.</dd>
                 <dd>절대 물품을 돌려주지 마시고 판매자 또는 고객센터로 문의 주시기 바랍니다.</dd>

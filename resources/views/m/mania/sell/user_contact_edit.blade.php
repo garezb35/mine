@@ -25,15 +25,15 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
 
-    <link type="text/css" rel="stylesheet" href="/mania/_css/_comm.css">
-    <link type="text/css" rel="stylesheet" href="/mania/_head_tail/css/_head_popup.css">
-    <link type="text/css" rel="stylesheet" href="/mania/_css/_table_list.css">
-    <link type="text/css" rel="stylesheet" href="/mania/_head_tail/css/contact_edit.css">
+    <link type="text/css" rel="stylesheet" href="/angel/_css/_comm.css">
+    <link type="text/css" rel="stylesheet" href="/angel/_head_tail/css/_head_popup.css">
+    <link type="text/css" rel="stylesheet" href="/angel/_css/_table_list.css">
+    <link type="text/css" rel="stylesheet" href="/angel/_head_tail/css/contact_edit.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-    <script type="text/javascript" src="/assets/js/mania/_comm.js"></script>
-    <script type="text/javascript" src="/assets/js/mania/_gs_control.js"></script>
-    <script type="text/javascript" src="/assets/js/mania/banner_module.js"></script>
+    <script type="text/javascript" src="/assets/js/angel/_comm.js"></script>
+    <script type="text/javascript" src="/assets/js/angel/_gs_control.js"></script>
+    <script type="text/javascript" src="/assets/js/angel/banner_module.js"></script>
 
 </head>
 
@@ -116,9 +116,9 @@
         </form>
     </div>
 </div>
-<script type="text/javascript" src="/assets/js/mania/modal/_form_check.js"></script>
-<script type="text/javascript" src="/assets/js/mania/modal/contact_edit.js"></script>
-<script type="text/javascript" src="/assets/js/mania/_window.js?v=190220"></script>
+<script type="text/javascript" src="/assets/js/angel/modal/_form_check.js"></script>
+<script type="text/javascript" src="/assets/js/angel/modal/contact_edit.js"></script>
+<script type="text/javascript" src="/assets/js/angel/_window.js?v=190220"></script>
 <script type="text/javascript">
     _window.resize(496, 350);
 </script>

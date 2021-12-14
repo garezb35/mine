@@ -1,13 +1,13 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/message/css/index.css?190220">
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/message/css/index.css?190220">
+    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/myroom/message/js/index.js"></script>
+    <script type="text/javascript" src="/angel/myroom/message/js/index.js"></script>
     <script>
         function checkGbox(){
            if($(".all_gbox").prop('checked'))
@@ -37,9 +37,9 @@
         <ul class="tab_sib">
             <li class="g_left">
                 @if(Request::get('type') != 'storage')
-                 <img src="/mania/img/icons/inbox.png" width="27" height="16" style="vertical-align: bottom">
+                 <img src="/angel/img/icons/inbox.png" width="27" height="16" style="vertical-align: bottom">
                 <a href='./?type=거래&state=1' class="f_bold f-14">거래 메시지 <span>{{$order_message_count}}개</span></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <img src="/mania/img/icons/inbox.png" width="27" height="16" style="vertical-align: bottom">
+                <img src="/angel/img/icons/inbox.png" width="27" height="16" style="vertical-align: bottom">
                 <a href='./?type=관리자&state=1' class="f_bold f-14">관리자 메시지 <span>{{$manager_message_count}}개</span></a>
                 @endif
             </li>
@@ -78,9 +78,9 @@
                         <input type="hidden" name="message_state[]" value="1"> </td>
                     <td>
                         @if($v['readed'] == 0)
-                            <img src="/mania/img/icons/seller.png" alt="읽지않음" width="32">
+                            <img src="/angel/img/icons/seller.png" alt="읽지않음" width="32">
                         @else
-                            <img src="/mania/img/icons/order_icon.png" alt="읽음" width="32">
+                            <img src="/angel/img/icons/order_icon.png" alt="읽음" width="32">
                         @endif
                     </td>
                     <td>{{$v['type']}}</td>

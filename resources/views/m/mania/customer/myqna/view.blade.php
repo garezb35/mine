@@ -1,17 +1,15 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/customer/css/customer_common.css?210901" />
-    <link type="text/css" rel="stylesheet" href="/mania/customer/myqna/css/view.css?210503" />
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/customer_common.css?210901" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/myqna/css/view.css?210503" />
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/customer/myqna/js/view.js?190220"></script>
+    <script type="text/javascript" src="/angel/customer/myqna/js/view.js?190220"></script>
     <script type='text/javascript'>
-        var gsVersion = '2110141801';
-        var _LOGINCHECK = '1';
+
+
     </script>
 @endsection
 
@@ -53,7 +51,7 @@
                 border: 1px solid #E1E1E1
             }
         </style>
-        @include('mania.customer.aside', ['group'=>'myqna', 'part'=>''])
+        @include('angel.customer.aside', ['group'=>'myqna', 'part'=>''])
         <div class="g_content">
             <!-- ▼ 타이틀 //-->
             <div class="g_title_blue no-border">1:1 상담하기</div>

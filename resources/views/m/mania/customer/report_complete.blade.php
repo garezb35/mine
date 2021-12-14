@@ -1,9 +1,7 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/customer/css/report_complete.css" />
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/report_complete.css" />
 @endsection
 
 @section('foot_attach')
@@ -11,7 +9,6 @@
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
     <div class="g_container" id="g_CONTENT">
         <style>
             .aside .notice {
@@ -48,28 +45,9 @@
                 border: 1px solid #E1E1E1
             }
         </style>
-        @include('mania.customer.aside', ['group'=>'report', 'part'=>''])
+        @include('angel.customer.aside', ['group'=>'report', 'part'=>''])
         <div class="g_content">
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue">
-                <div class="g_left"><img src="https://img3.itemmania.com/images/customer/title/title_1vs1.gif" width="109" height="19" alt="1:1 상담하기" /></div>
-                <ul class="g_path">
-                    <li>홈</li>
-                    <li>고객센터</li>
-                    <li class="select">1:1 상담하기</li>
-                </ul>
-            </div>
-            <div class="g_gray_border"></div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 1:1 상담하기 //-->
-            <div id="report_top">
-                <ul class="g_left">
-                    <li class="bg_icon">TAXIFY 고객센터 상담 시간은 24시간(연중무휴) 입니다.
-                        <br />고객님께서 궁금하신 점이 있으시다면, 언제든지 문의 바랍니다.</li>
-                </ul> <img src="https://img4.itemmania.com/images/customer/img2_1vs1.gif" width="226" height="99" alt="1:1 상담하기" class="g_right" /> </div>
-            <!-- ▲ 1:1 상담하기 //-->
             <div class="g_finish"></div>
-            <!-- ▼ 접수완료 //-->
             <div id="report_complete">
                 <ul id="complete_info">
                     <li class="blue_text">고객님의 상담이 정상적으로 접수되었습니다.</li>
@@ -85,9 +63,7 @@
                     <a href="{{route('index')}}" class="button_cancel">TAXIFY 메인으로</a>
                 </div>
             </div>
-            <!-- ▲ 접수완료 //-->
         </div>
         <div class="g_finish"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
 @endsection

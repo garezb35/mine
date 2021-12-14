@@ -36,13 +36,11 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type='text/css' rel='stylesheet' href='/mania/sell/css/view.css'>
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js"></script>
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js"></script>
+    <link type='text/css' rel='stylesheet' href='/angel/sell/css/view.css'>
 @endsection
 
 @section('foot_attach')
-    <script type='text/javascript' src='/mania/sell/js/view.js'></script>
+    <script type='text/javascript' src='/angel/sell/js/view.js'></script>
     <script type='text/javascript'>
         g_trade_info.sale = '{{$user_goods_type}}';
         g_trade_info.trade_money = {{$price}};
@@ -203,7 +201,7 @@
                     <tr>
                         <th class="p-left-10">
                             <div>
-                                <img src="/mania/img/level/{{$user['roles']['icon']}}" width="37"/>
+                                <img src="/angel/img/level/{{$user['roles']['icon']}}" width="37"/>
                                 <span class="f_green4 f_bold">{{$user['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($user['point'])}}점)
                             </div>
                         </th>
@@ -213,27 +211,27 @@
                                     <span class="w80 cert_state">인증상태</span>
                                     <span class="con w80 btn_state">
                                         @if($user['mobile_verified'] == 1)
-                                            <img src="/mania/img/icons/icon_check.png" width="14">
+                                            <img src="/angel/img/icons/icon_check.png" width="14">
                                         @else
-                                            <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                            <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                         @endif휴대폰</span>
                                     <span class="on w80 btn_state">
                                         @if($user['bank_verified'] == 1)
-                                            <img src="/mania/img/icons/icon_check.png" width="14">
+                                            <img src="/angel/img/icons/icon_check.png" width="14">
                                         @else
-                                            <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                            <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                         @endif계좌</span>
                                     <span class="on w80 btn_state">
                                         @if($user['pin'] == 1)
-                                            <img src="/mania/img/icons/icon_check.png" width="14">
+                                            <img src="/angel/img/icons/icon_check.png" width="14">
                                         @else
-                                            <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                            <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                         @endif아이핀</span>
                                     <span class="w80 btn_state">
                                         @if(!empty($user['email_verified_at']))
-                                            <img src="/mania/img/icons/icon_check.png" width="14">
+                                            <img src="/angel/img/icons/icon_check.png" width="14">
                                         @else
-                                            <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                            <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                         @endif이메일</span>
 
                                 </dd>
@@ -260,7 +258,7 @@
                             <div class="detail_info bg-white" id="detail_info">
                                 <div class="detail_text">
                                     <div id="js-gallery" class="mb-5">
-                                        @foreach (\File::glob(public_path('assets/images/mania/'.$id).'/*') as $file)
+                                        @foreach (\File::glob(public_path('assets/images/angel/'.$id).'/*') as $file)
                                             <a href="/{{ str_replace(public_path()."\\", '', $file) }}" class="slide">
                                                 <img src="/{{ str_replace(public_path()."\\", '', $file) }}" class="g_top">
                                             </a>
@@ -391,22 +389,7 @@
                 </form>
             </div>
         @endif
-        <!-- ▼ 거래 사기 실시간 조회 결과 //-->
-        <div id="fraud_result" class="g_popup fraud_result">
-            <div class="layer_title"> 거래 사기 실시간 조회 결과
-                <a href="javascript:g_nodeSleep.disable($('#fraud_result'))" class="btn_close"></a>
-            </div>
-            <div class="layer_content">
-                <div class="result"> </div>
-                <div class="info_txt"> 피해사례 게시물 내용에 대해 아이템매니아는 보증하지 않으며,
-                    <br> 게시물의 법적 책임은 더치트 피해사례 등록자에게 있습니다. </div>
-            </div>
-        </div>
-        <!-- ▲ 거래 사기 실시간 조회 결과 //-->
-        <form id="creditForm" name="creditForm" method="post">
-            <input type="hidden" id="infoId" value="d8b16a8a27778da8792dc32e5d5aaeb7">
-            <input type="hidden" name="id" id="encryptId">
-            <input type="hidden" name="type" id="encryptType"> </form>
+
         <div class="g_finish"></div>
     </div>
     <!-- ▲ 컨텐츠 영역 //-->

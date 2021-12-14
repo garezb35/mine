@@ -816,7 +816,7 @@ function changeTemplateAddCheck() {
             }
 
             if (gameCode === '650') {
-                document.getElementById('sub_text').innerHTML = ' [반드시 배틀태그를 입력해주세요. 예) 매니아#1544]';
+                document.getElementById('sub_text').innerHTML = ' [반드시 배틀태그를 입력해주세요.]';
             } else {
                 document.getElementById('sub_text').innerHTML = '';
             }

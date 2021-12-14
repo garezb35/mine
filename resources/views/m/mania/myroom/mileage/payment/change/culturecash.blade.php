@@ -1,24 +1,24 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/mileage/change/css/change.css?700101">
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/mileage/change/culturecash/css/index.css?200203">
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/mileage/change/css/change.css?700101">
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/mileage/change/culturecash/css/index.css?200203">
+    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/myroom/mileage/change/culturecash/js/index.js?v=200203"></script>
+    <script type="text/javascript" src="/angel/myroom/mileage/change/culturecash/js/index.js?v=200203"></script>
     <script type='text/javascript'>
-        var gsVersion = '2110141801';
-        var _LOGINCHECK = '1';
+
+
     </script>
 @endsection
 
 @section('content')
 <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
 <div class="g_container" id="g_CONTENT">
-    @include('mania.myroom.aside', ['group'=>'mileage', 'part'=>'change'])
+    @include('angel.myroom.aside', ['group'=>'mileage', 'part'=>'change'])
     <div class="g_content">
         <div class="g_title_blue"> 마일리지 전환
             <ul class="g_path">

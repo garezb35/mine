@@ -1,10 +1,10 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/css/common_myroom.css?210503" />
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/sell/css/common_list.css?210114" />
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css?210503" />
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/sell/css/common_list.css?210114" />
+    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
@@ -74,7 +74,7 @@
         <!-- ▲ 판매진행안내 //-->
     </div>
     <ul id="attention_info" class="g_black5_11 g_hidden">
-        <li class="g_blue1_11b">아이템매니아가 알려드리는 꼭 지켜야할 안전수칙 !!</li>
+        <li class="g_blue1_11b">아이템천사가 알려드리는 꼭 지켜야할 안전수칙 !!</li>
         <li>1. 구매자의 <span class="g_org1_11b">연락처를 꼭 확인</span>합니다.
             <br>&nbsp;&nbsp;&nbsp;다른 연락처로 전화가 올 경우 거래취소 또는 고객감동센터로 문의합니다.</li>
         <li>2. 판매자 <span class="g_org1_11b">캐릭터명에 입력했던 캐릭터</span>로 거래 합니다.</li>

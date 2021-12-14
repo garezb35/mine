@@ -51,15 +51,6 @@
                             <div class="h5 font-weight-300">
                                 <i class="ni location_pin mr-2"></i>{{auth()->guard('admin')->user()->address}}
                             </div>
-{{--                            <div class="h5 mt-4">--}}
-{{--                                <i class="ni business_briefcase-24 mr-2"></i>{{ __('Solution Manager - Creative Tim Officer') }}--}}
-{{--                            </div>--}}
-{{--                            <div>--}}
-{{--                                <i class="ni education_hat mr-2"></i>{{ __('University of Computer Science') }}--}}
-{{--                            </div>--}}
-{{--                            <hr class="my-4" />--}}
-{{--                            <p>{{ __('Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.') }}</p>--}}
-{{--                            <a href="#">{{ __('Show more') }}</a>--}}
                         </div>
                     </div>
                 </div>

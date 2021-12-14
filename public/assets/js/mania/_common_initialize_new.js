@@ -97,8 +97,8 @@ function _header() {
 		if($("#g_FAVORITE").length > 0) {
 			$("#g_FAVORITE").css("cursor", "pointer");
 			$("#g_FAVORITE").click(function() {
-				var l = "http://www.itemmania.com/counter/survey.php?imcounter=dot_bookmark_com&returnUrl=" + encodeURIComponent("http://www.itemmania.com");
-				var k = "NO.1 아이템매니아";
+				var l = "";
+				var k = "아이템천사";
 				try {
 					if(window.sidebar && window.sidebar.addPanel) {
 						window.sidebar.addPanel(k, l, "")
@@ -118,7 +118,6 @@ function _header() {
 			$("#g_STARTPAGE").click(function() {
 				if(document.all) {
 					document.body.style.behavior = "url(#default#homepage)";
-					document.body.setHomePage("http://www.itemmania.com/counter/survey.php?imcounter=dot_start_com&returnUrl=" + encodeURIComponent("http://www.itemmania.com"))
 				} else {
 					if(window.sidebar) {
 						if(window.netscape) {
@@ -144,27 +143,6 @@ function _header() {
 		})
 	}
 	if(document.getElementById("alarm_noti") !== null) {
-		// var f = document.getElementById("alarm_noti");
-		// ajaxRequest({
-		// 	url: "/myroom/goods_alarm/_ajax_process.php",
-		// 	type: "post",
-		// 	dataType: "json",
-		// 	data: {
-		// 		mode: "new"
-		// 	},
-		// 	async: false,
-		// 	success: function(k) {
-		// 		if(k.DAT == "Y") {
-		// 			f.querySelector(".new_alarm").classList.add("on")
-		// 		} else {
-		// 			f.querySelector(".new_alarm").classList.remove("on")
-		// 		}
-		// 	},
-		// 	error: function(k) {
-		// 		alert("서버와의 접속이 원활하지 않습니다.\n잠시후 다시 시도해주세요." + k.message);
-		// 		return
-		// 	}
-		// })
 	}
 	if(document.getElementById("dialog_close") !== null) {
 		var a = document.getElementById("dialog_close");
@@ -177,7 +155,7 @@ function _header() {
 	if(document.getElementById("dialog_move") !== null) {
 		document.getElementById("dialog_move").addEventListener("click", function() {
 			dialogAction(function() {
-				location.href = "/myroom/goods_alarm/alarm_sell_list.html"
+				location.href = "/myroom/goods_alarm/alarm_sell_list"
 			})
 		})
 	}
@@ -204,7 +182,7 @@ function searchbarSubmit() {
 
 function dialogAction(a) {
 	ajaxRequest({
-		url: "/myroom/goods_alarm/_ajax_process.php",
+		url: "/myroom/goods_alarm/_ajax_process",
 		type: "post",
 		dataType: "json",
 		data: {

@@ -1,13 +1,13 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/user_leave/css/user_leave_form.css">
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js"></script>
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/user_leave/css/user_leave_form.css">
+    <script type="text/javascript" src="/angel/advertise/advertise_code_head.js"></script>
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js"></script>
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/myroom/user_leave/js/user_leave_form.js"></script>
+    <script type="text/javascript" src="/angel/myroom/user_leave/js/user_leave_form.js"></script>
 @endsection
 @section('content')
     <style>

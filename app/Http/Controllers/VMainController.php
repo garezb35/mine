@@ -49,12 +49,12 @@ class VMainController extends BaseController
         foreach($list as $v){
             $params[$v['id']] = 1;
         }
-        return view('mania.home',['sells'=>$sells,'buys'=>$buys,'notices'=>$notices,'game_list'=>$game_list,'fav'=>$params,'list'=>$list]);
+        return view('angel.home',['sells'=>$sells,'buys'=>$buys,'notices'=>$notices,'game_list'=>$game_list,'fav'=>$params,'list'=>$list]);
     }
     public function giftcard()
     {
         $gift_selected = $gift = MMall::get();
-        return view('mania.portal.giftcard',['gift'=>$gift,'gift_selected'=>$gift_selected]);
+        return view('angel.portal.giftcard',['gift'=>$gift,'gift_selected'=>$gift_selected]);
     }
     public function viewGift($param){
         if($param == 'giftcard_buy_list'){
@@ -65,7 +65,7 @@ class VMainController extends BaseController
             else{
                 $list = MMallBuy::where('userId',$this->user->id)->orderBy('created_at','DESC')->paginate(15);
             }
-            return view('mania.portal.giftcard_buy_list',['gift'=>$gift,'list'=>$list]);
+            return view('angel.portal.giftcard_buy_list',['gift'=>$gift,'list'=>$list]);
         }
         $item = MMall::where('alias',$param)->where('status',1)->first();
         if(empty($item)){
@@ -75,12 +75,12 @@ class VMainController extends BaseController
 
         if(\Request::get('pMode') == 'O'){
             $item['user'] = $this->user;
-            return view('mania.portal.viewGift_popup',$item);
+            return view('angel.portal.viewGift_popup',$item);
         }
 
         $gift = MMall::get();
         $item['gift'] = $gift;
-        return view('mania.portal.viewGift',$item);
+        return view('angel.portal.viewGift',$item);
     }
 
     public function viewGift_Post(Request $request){

@@ -1,0 +1,225 @@
+#g_CONTENT {
+    position: relative
+}
+
+.top_menu {
+    position: relative;
+    box-sizing: border-box;
+    height: 58px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #333;
+    font-family: 'Malgun Gothic', '맑은고딕', 'dotum', '돋움'
+}
+
+.top_menu li {
+    position: relative;
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+    text-align: center;
+    cursor: pointer
+}
+
+.top_menu li:hover .sub_menu {
+    display: block
+}
+
+.top_menu li i {
+    display: inline-block;
+    height: 34px;
+    padding-bottom: 9px;
+    text-indent: -9999px
+}
+
+ul .num span{
+    color: #159efd;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+
+
+.ct_cont {
+    overflow: hidden;
+    float: left;
+    width: 690px;
+    font-family: 'Malgun Gothic', '맑은고딕', 'dotum', '돋움'
+}
+
+.ct_cont .list {
+    position: relative;
+    padding: 20px 0 20px 170px;
+    border-bottom: 1px solid #F0F0F0
+}
+
+.ct_cont .empty {
+    padding-left: 0;
+    text-align: center;
+    font-size: 16px
+}
+
+.list a img {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 150px;
+    height: 85px;
+}
+
+.list_in p {
+    color: #323232
+}
+
+.list_in .title {
+    margin-bottom: 17px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: normal
+}
+
+.list_in a:hover .title {
+    color: #407FD4
+}
+
+.list_in .desc {
+    overflow: hidden;
+    height: 34px
+}
+
+.list_in .date {
+    display: block;
+    margin-top: 2px;
+    color: #888
+}
+
+.g_paging li {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+    background: none;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 24px
+}
+
+.g_paging .first, .g_paging .prev, .g_paging .next, .g_paging .continue, .g_paging .last {
+    width: auto;
+    height: auto;
+    line-height: normal
+}
+
+.g_paging li strong {
+    display: block;
+    background-color: #00A6AF;
+    color: #FFF;
+    text-align: center;
+    line-height: 24px
+}
+
+.right_ct {
+    float: left;
+    width: 260px;
+    min-height: 390px;
+    margin-left: 30px
+}
+
+.right_ct .bn {
+    margin: 20px 0
+}
+
+.right_ct .rg_tlt {
+    position: relative;
+    padding: 35px 0 10px;
+    border-top: 2px solid #141414;
+    color: #000;
+    font-weight: bold;
+    font-size: 15px
+}
+
+.right_ct .rg_tlt2 {
+    padding-top: 18px;
+    margin-top: 38px
+}
+
+.rg_tlt .more {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    width: 66px;
+    height: 27px;
+
+}
+
+.rg_tlt2 .more {
+    top: 14px
+}
+
+.fv_list {
+    padding-top: 14px;
+    border-top: 1px solid #E5E5E5;
+    color: #323232
+}
+
+.fv_list li {
+    margin-bottom: 15px;
+    line-height: 12px;
+    font-size: 13px
+}
+
+.fv_list2 {
+    padding-top: 14px;
+    color: #323232
+}
+
+.fv_list2 li {
+    padding-left: 32px;
+    border-bottom: 1px solid #E5E5E5;
+    line-height: 31px
+}
+
+
+
+.detail .title {
+    margin: 23px 0 7px;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: normal
+}
+
+.g_path {
+    float: left
+}
+
+.g_path li {
+    color: #323232
+}
+
+.g_path .select {
+    font-weight: normal
+}
+
+.detail .date {
+    color: #888
+}
+
+.temp_bottom {
+    height: 104px;
+    margin-top: 30px
+}
+
+.cont_bottom {
+    position: absolute;
+    bottom: 0;
+    margin-top: 30px
+}
+
+.cont_bottom .lft_bn, .cont_bottom .rgt_bn {
+    float: left
+}
+
+.cont_bottom .rgt_bn {
+    margin-left: 10px
+}

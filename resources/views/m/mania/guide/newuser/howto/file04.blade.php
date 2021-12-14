@@ -2,19 +2,17 @@
 
 @section('head_attach')
 
-    <link type='text/css' rel='stylesheet' href='/mania/guide/css/common.css'>
-    <link type='text/css' rel='stylesheet' href='/mania/guide/frshmn_guide/css/frshmn.css'>
-    <link type="text/css" rel="stylesheet" href="/mania/dev/guide_arrow.css">
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type='text/css' rel='stylesheet' href='/angel/guide/css/common.css'>
+    <link type='text/css' rel='stylesheet' href='/angel/guide/frshmn_guide/css/frshmn.css'>
+    <link type="text/css" rel="stylesheet" href="/angel/dev/guide_arrow.css">
 @endsection
 
 @section('foot_attach')
 
-    <script type='text/javascript' src='/mania/guide/frshmn_guide/js/common.js'></script>
+    <script type='text/javascript' src='/angel/guide/frshmn_guide/js/common.js'></script>
     <script type='text/javascript'>
-        var gsVersion = '2111181739';
-        var _LOGINCHECK = '1';
+
+
     </script>
 @endsection
 
@@ -130,7 +128,7 @@
                 color: #FF4E00;
             }
         </style>
-        @include('mania.guide.aside', ['group'=>'new_guide', 'part'=>''])
+        @include('angel.guide.aside', ['group'=>'new_guide', 'part'=>''])
         <div class="g_content">
             <a name="top"></a>
             <!-- ▼ 타이틀 //-->
@@ -187,16 +185,16 @@
             <div class="guide_subtitle">
                 <span class="f_red1 f_bold">하나. </span>구매자의 입금이 확인되면 마이룸 > 판매관련 > 판매중인물품에서 확인가능합니다.
             </div>
-            <img src="/mania/img/guide/screenshot/img_search_01.png" width="820" height="448" alt="">
+            <img src="/angel/img/guide/screenshot/img_search_01.png" width="820" height="448" alt="">
             <div class="g_finish"></div>
             <div class="guide_subtitle">
                 <span class="f_red1 f_bold">둘. </span>구매자와 연락이 되셨다면, 구매자로부터 구매자 캐릭터명을 반드시 확인하시기 바랍니다.
             </div>
-            <img src="/mania/img/guide/screenshot/img_search_02.png" width="820" height="638" alt="">
+            <img src="/angel/img/guide/screenshot/img_search_02.png" width="820" height="638" alt="">
             <div class="g_finish"></div>
             <div class="divi_line"></div>
             <a href="#top">
-                <img class="g_right" src="/mania/img/icons/btn_up2.gif" width="61" height="20" alt="맨위로">
+                <img class="g_right" src="/angel/img/icons/Scroll-to-top.png" width="61" height="60">
             </a>
             <div class="g_finish"></div>
             <div class="g_btn">

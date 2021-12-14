@@ -30,6 +30,6 @@ class VChrController extends BaseController
         }
 
         $chr['sub_game'] = $sub_games;
-        return view('mania.chr.main',$chr);
+        return view('angel.chr.main',$chr);
     }
 }

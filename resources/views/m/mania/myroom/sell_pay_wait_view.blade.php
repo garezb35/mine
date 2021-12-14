@@ -11,10 +11,10 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/css/common_myroom.css?210503" />
-    <link type='text/css' rel='stylesheet' href='/mania/myroom/sell/css/common_view.css?v=210114'>
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css?210503" />
+    <link type='text/css' rel='stylesheet' href='/angel/myroom/sell/css/common_view.css?v=210114'>
+    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
@@ -142,7 +142,7 @@
         <div class="detail_info">
             <div class="detail_text">
                 <div id="js-gallery" class="mb-5">
-                    @foreach (\File::glob(public_path('assets/images/mania/'.$id).'/*') as $file)
+                    @foreach (\File::glob(public_path('assets/images/angel/'.$id).'/*') as $file)
                         <a href="/{{ str_replace(public_path()."\\", '', $file) }}" class="slide">
                             <img src="/{{ str_replace(public_path()."\\", '', $file) }}" class="g_top">
                         </a>

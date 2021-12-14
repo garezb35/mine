@@ -65,7 +65,3 @@
     <dl class="my_game">
         <dd class="empty">등록된 검색메뉴가 없습니다.</dd>        </dl>
 </div>
-{{--<div class="bt_bn_area">--}}
-{{--    <a href="http://www.gamemania.co.kr/"><span class="SpGroup bn_gamemania">게임매니아</span></a>--}}
-{{--    <a href="http://www.itemmania.com/portal/free_coupon/?game_genre=99" class="mgl"><span class="SpGroup bn_freecoupon">게임쿠폰</span></a>--}}
-{{--</div>--}}

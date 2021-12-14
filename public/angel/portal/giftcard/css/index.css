@@ -1,0 +1,164 @@
+.g_remocon_l {
+    right: 1000px;
+}
+
+.top_area {
+    overflow: hidden;
+    margin-bottom: 20px
+}
+
+.g_container .giftcard_list {
+    overflow: hidden;
+}
+
+.giftcard_list {
+    width: 820px;
+    padding-bottom: 25px;
+}
+
+.giftcard_list ul {
+    clear: left;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.giftcard_list ul:first-child {
+    border-top: 1px solid #E0E0E0;
+}
+
+.giftcard_list li {
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    width: 204px;
+    height: 190px;
+    padding: 35px 21px 35px 21px;
+    border-bottom: 1px solid #E0E0E0;
+    border-left: 1px solid #E0E0E0;
+    background-color: #F5F7F8;
+}
+
+.giftcard_list li:last-child {
+    border-right: 1px solid #E0E0E0;
+}
+
+.giftcard_list .active:hover {
+    border: 1px solid #159EFD;
+}
+
+.use_guide {
+    float: left;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 30px 0 20px 13px;
+    background-color: #F5F7F8;
+}
+
+.use_guide li {
+    float: left;
+    width: 12%;
+    font-size: 12px;
+    text-align: center;
+    color: #767676
+}
+
+.use_guide .other_wd {
+    width: 15%;
+}
+
+.use_guide li .SpGiftGroup {
+    display: inline-block;
+    width: 70px;
+    height: 54px;
+    margin-bottom: 20px;
+}
+
+.use_guide li .gift_guide1 {
+    background-position: -3px -283px;
+}
+
+.use_guide li .gift_guide2 {
+    background-position: -74px -283px;
+}
+
+.use_guide li .gift_guide3 {
+    background-position: -146px -283px;
+}
+
+.use_guide li .gift_guide4 {
+    background-position: -219px -283px;
+}
+
+.use_guide li .gift_guide5 {
+    background-position: -290px -283px;
+}
+
+.use_guide li .gift_guide6 {
+    background-position: -3px -338px;
+}
+
+.use_guide .arrow {
+    width: 35px;
+    height: 7px;
+    margin-top: 18px;
+    background-position: -2px -395px;
+}
+
+.use_guide li span {
+    display: block;
+    height: 70px;
+    text-align: center
+}
+
+.notice_box {
+    margin-top: 20px;
+    padding: 25px 0 25px 30px;
+    background-color: #F5F7F8;
+}
+
+.notice_box>dt {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.notice_box>dd {
+    position: relative;
+    padding-left: 15px;
+    font-size: 12px;
+    line-height: 20px;
+    color: #767676;
+}
+
+.notice_box.dash>dd::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "-";
+}
+
+.g_container .giftcard_list .ribbon {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.side_banner_fix {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    margin-left: 560px;
+}
+
+.side_banner {
+    position: absolute;
+    left: calc(100% + 20px);
+    bottom: 0;
+}
+.param_ribon{
+    background: #159efd;
+    font-size: 17px;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px;
+}

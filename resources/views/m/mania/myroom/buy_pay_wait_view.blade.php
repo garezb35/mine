@@ -22,15 +22,15 @@ else
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/css/common_myroom.css" />
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/buy/css/buy_pay_wait_view.css" />
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/buy/css/common_list.css" />
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js"></script>
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/buy/css/buy_pay_wait_view.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/buy/css/common_list.css" />
+    <script type="text/javascript" src="/angel/advertise/advertise_code_head.js"></script>
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js"></script>
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/myroom/buy/js/buy_pay_wait_sell.js"></script>
+    <script type="text/javascript" src="/angel/myroom/buy/js/buy_pay_wait_sell.js"></script>
     <script>
         $('#js-gallery')
             .packery({
@@ -115,7 +115,7 @@ else
                 <tr>
                     <th class="p-left-10">
                         <div>
-                            <img src="/mania/img/level/{{$seller['roles']['icon']}}" width="37"/>
+                            <img src="/angel/img/level/{{$seller['roles']['icon']}}" width="37"/>
                             <span class="f_green4 f_bold">{{$seller['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($seller['point'])}}점)
                         </div>
                     </th>
@@ -125,27 +125,27 @@ else
                                 <span class="w80 cert_state">인증상태</span>
                                 <span class="con w80 btn_state">
                                         @if($seller['mobile_verified'] == 1)
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif휴대폰</span>
                                 <span class="on w80 btn_state">
                                         @if($seller['bank_verified'] == 1)
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif계좌</span>
                                 <span class="on w80 btn_state">
                                         @if($seller['pin'] == 1)
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif아이핀</span>
                                 <span class="w80 btn_state">
                                         @if(!empty($seller['email_verified_at']))
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif이메일</span>
                                 </dd>
                             </dl>
@@ -259,7 +259,7 @@ else
                         <th>상세설명</th>
                         <td style="max-height: 150px;overflow-y: scroll">
                             <div id="js-gallery" class="mb-5">
-                                @foreach (\File::glob(public_path('assets/images/mania/'.$id).'/*') as $file)
+                                @foreach (\File::glob(public_path('assets/images/angel/'.$id).'/*') as $file)
                                     <a href="/{{ str_replace(public_path()."\\", '', $file) }}" class="slide">
                                         <img src="/{{ str_replace(public_path()."\\", '', $file) }}" class="g_top">
                                     </a>

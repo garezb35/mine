@@ -1,15 +1,13 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/css/common_myroom.css?210503" />
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/buy/css/common_list.css?210512" />
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/goods_alarm/css/goods_alarm.css?210503" />
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css?210503" />
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/buy/css/common_list.css?210512" />
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/goods_alarm/css/goods_alarm.css?210503" />
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/myroom/goods_alarm/js/alarm_add.js?210503"></script>
+    <script type="text/javascript" src="/angel/myroom/goods_alarm/js/alarm_add.js?210503"></script>
 @endsection
 
 @section('content')
@@ -149,7 +147,7 @@
                             <label>
                                 <input type="radio" name="user_alarm_type" class="g_radio" value="2">문자메시지 SMS (무료)</label>
                         </div>
-                        <p class="character_noti">- 모바일앱 PUSH로 알림을 받으시려면 아이템매니아앱 설치 및 로그인이 되어 있어야 합니다.</p>
+                        <p class="character_noti">- 모바일앱 PUSH로 알림을 받으시려면 아이템천사앱 설치 및 로그인이 되어 있어야 합니다.</p>
                         <p class="character_noti">- 앱PUSH 알림은 모바일앱 > 환경설정 > 마케팅정보PUSH알림에서 수신동의 상태일때만 발송됩니다.</p>
                     </td>
                 </tr>

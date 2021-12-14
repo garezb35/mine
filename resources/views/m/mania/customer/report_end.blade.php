@@ -1,17 +1,14 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/customer/css/menu.css?190220" />
-    <link type="text/css" rel="stylesheet" href="/mania/customer/css/_report_top.css?210503" />
-    <link type="text/css" rel="stylesheet" href="/mania/customer/trade/css/trade_common.css?210901" />
-    <link type="text/css" rel="stylesheet" href="/mania/customer/css/customer_common.css?210901" />
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
-    <script type="text/javascript" src="/mania/_js/_jquery3.js?v=190220"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/menu.css?190220" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/_report_top.css?210503" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/trade/css/trade_common.css?210901" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/customer_common.css?210901" />
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_screenshot.js?v=190220"></script>
-    {{--    <script type="text/javascript" src="/mania/customer/trade/js/trade_common.js?211005"></script>--}}
+    <script type="text/javascript" src="/angel/_js/_screenshot.js?v=190220"></script>
     <script type="text/javascript">
         function __init() {
             strThisCode = 'A101';
@@ -21,7 +18,6 @@
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
     <div class="g_container" id="g_CONTENT">
         <style>
             .aside .notice {
@@ -74,7 +70,7 @@
                 width: calc(100% - 130px);
             }
         </style>
-        @include('mania.customer.aside', ['group'=>'report', 'part'=>'close'])
+        @include('angel.customer.aside', ['group'=>'report', 'part'=>'close'])
         <div class="g_content">
             <!-- ▼ 타이틀 //-->
             <div class="g_title_blue no-border"> 1:1 상담하기 </div>
@@ -110,8 +106,7 @@
                 <div class="selected f-16"> 거래중 내역 </div>
             </div>
             <div class="g_tab_line"></div>
-            <!-- ▲ 탭 //-->
-            <!-- ▼ 서브탭 //-->
+
             <ul id="trade_subtab" class="g_sideway">
                 <li> <a class="f-14 {{$typeTxt == 'sell' ? 'f_blue3 f_bold' : ''}}" href="{{route("customer_report")}}?type=sell">판매중 물품 </a> </li>
 {{--                <li> |</li>--}}

@@ -1,0 +1,307 @@
+
+.g_title {
+    margin-bottom: 0;
+}
+
+
+.ribbon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0;
+}
+
+.gray_box {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #E0E0E0;
+}
+
+.gray_box .img_area {
+    position: relative;
+    float: left;
+    margin-right: 40px;
+    border-right: 1px solid #E0E0E0;
+}
+
+.gray_box .gift_txt {
+    float: left;
+    padding-top: 30px;
+}
+
+.gray_box .gift_txt_title {
+    padding-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #444;
+}
+
+.gray_box .gift_txt_cont {
+    margin-bottom: 40px;
+    padding-top: 20px;
+    font-size: 16px;
+    line-height: 170%
+}
+
+.gift_btn {
+    padding-top: 30px;
+    border-top: 1px solid #E0E0E0
+}
+
+.gray_box .btn_gray {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 190px;
+    height: 60px;
+    background-color: #9F9F9F;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 60px;
+    color: #FFF;
+}
+
+.gray_box .btn_blue {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 190px;
+    height: 60px;
+    margin-left: 30px;
+    background-color: #159EFD;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 60px;
+    color: #FFF;
+}
+
+.gray_box .btn_gray2 {
+    position: absolute;
+    top: 30px;
+    right: 36px;
+    width: 120px;
+    height: 30px;
+    color: #636363;
+    line-height: 28px;
+}
+
+/* 구매방법 */
+.g_big_box1 {
+    display: table;
+    table-layout: fixed;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 30px 24px;
+    border: 1px solid #E0E0E0;
+    background-color: #F5F7F8;
+    font-size: 12px;
+    color: #6E6E6E;
+}
+
+.g_big_box1 > ul {
+    display: table-row;
+}
+
+.g_big_box1 li {
+    display: table-cell;
+    text-align: center;
+}
+
+.g_big_box1 li > img {
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.g_big_box1 .img_low {
+    margin: 0 auto 20px;
+}
+
+.g_big_box1 .img_low2 {
+    margin: 0 auto 25px;
+}
+
+.g_big_box2 {
+    display: block;
+}
+
+.g_big_box2 .title {
+    margin: 32px 0;
+    font-weight: bold;
+}
+
+.g_big_box2 .title:first-child {
+    margin-top: 0;
+}
+
+.g_big_box2 > ul {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.g_big_box2 > ul > li {
+    display: table-cell;
+}
+
+.g_big_box1 .arrow {
+    width: 40px;
+    vertical-align: middle;
+}
+
+/* FAQ */
+.line_blue {
+    border-bottom: 2px solid #3F79C5
+}
+
+.faq_q {
+    padding: 16px 0 16px 30px;
+    border-bottom: 1px solid #E3E3E3;
+    background: url(//img4.itemmania.com/new_images/portal/gift/ico_q.png) no-repeat 10px 50%;
+    cursor: pointer;
+}
+
+.faq_q.on {
+    background-image: url(//img4.itemmania.com/new_images/portal/gift/ico_q.png);
+}
+
+.faq_a {
+    display: none;
+    padding: 20px 38px;
+    border-bottom: 1px solid #E4E4E4;
+    background: #F9F9F9 url(//img4.itemmania.com/new_images/portal/gift/ico_a.png) no-repeat 15px 25px;
+    line-height: 170%;
+}
+
+.faq_a ul {
+    padding-left: 10px;
+    list-style: disc;
+}
+
+.faq_a ul li {
+    padding-bottom: 15px
+}
+
+.default_block {
+    display: block;
+}
+
+/* 구매방법 아이콘 */
+.sp_gi {
+    background-image: url(//img1.itemmania.com/new_images/portal/gift/sp_giftcard_20210419.png);
+}
+
+.g_big_box1 li span {
+    display: block;
+    width: 70px;
+    height: 54px;
+    margin: 0 auto 10px;
+}
+
+.g_big_box1 .icon_giftcard {
+    background-position: -2px -2px;
+}
+
+.g_big_box1 .icon_select_gift {
+    background-position: -74px -2px;
+}
+
+.g_big_box1 .icon_check_pin {
+    background-position: -146px -2px;
+}
+
+.g_big_box1 .icon_buy_complete {
+    background-position: -218px -2px;
+}
+
+.g_big_box1 .icon_download_app {
+    background-position: -290px -2px;
+}
+
+.g_big_box1 .icon_join {
+    background-position: -2px -58px;
+}
+
+.g_big_box1 .icon_select_mgift {
+    background-position: -74px -58px;
+}
+
+.g_big_box1 .icon_complete {
+    background-position: -140px -58px;
+}
+
+.g_big_box1 .icon_input_pin {
+    background-position: -218px -58px;
+}
+
+.g_big_box1 .icon_check_sms {
+    background-position: -290px -58px;
+}
+
+.g_big_box1 .icon_check_link {
+    background-position: -2px -114px;
+}
+
+.g_big_box1 .icon_click {
+    background-position: -74px -114px;
+}
+
+.g_big_box1 .icon_click_ok {
+    background-position: -146px -114px;
+}
+
+.g_big_box1 .icon_online {
+    background-position: -218px -114px;
+}
+
+.g_big_box1 .icon_login {
+    background-position: -290px -114px;
+}
+
+.g_big_box1 .icon_select_card {
+    background-position: -2px -170px;
+}
+
+.g_big_box1 .icon_afreeca {
+    background-position: -74px -170px;
+}
+
+.g_big_box1 .icon_star {
+    background-position: -146px -170px;
+}
+
+.g_big_box1 .icon_input_star {
+    background-position: -218px -170px;
+}
+
+.g_big_box1 .icon_select_star {
+    background-position: -290px -170px;
+}
+
+.g_big_box1 .icon_input_code {
+    background-position: -2px -226px;
+}
+
+.g_big_box1 .icon_m_star {
+    background-position: -74px -226px;
+}
+
+.g_big_box1 .icon_m_input_star {
+    background-position: -146px -226px;
+}
+
+.g_big_box1 .icon_m_select_star {
+    background-position: -218px -226px;
+}
+
+.g_big_box1 .icon_input_coupon {
+    background-position: -290px -226px;
+}
+
+/* 팔라고 */
+.palago {
+    padding-top: 30px;
+}
+
+.starballoon {
+    padding-top: 30px;
+}

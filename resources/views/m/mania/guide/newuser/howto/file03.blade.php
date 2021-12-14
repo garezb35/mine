@@ -2,19 +2,17 @@
 
 @section('head_attach')
 
-    <link type='text/css' rel='stylesheet' href='/mania/guide/css/common.css'>
-    <link type='text/css' rel='stylesheet' href='/mania/guide/frshmn_guide/css/frshmn.css'>
-    <link type="text/css" rel="stylesheet" href="/mania/dev/guide_arrow.css">
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type='text/css' rel='stylesheet' href='/angel/guide/css/common.css'>
+    <link type='text/css' rel='stylesheet' href='/angel/guide/frshmn_guide/css/frshmn.css'>
+    <link type="text/css" rel="stylesheet" href="/angel/dev/guide_arrow.css">
 @endsection
 
 @section('foot_attach')
 
-    <script type='text/javascript' src='/mania/guide/frshmn_guide/js/common.js'></script>
+    <script type='text/javascript' src='/angel/guide/frshmn_guide/js/common.js'></script>
     <script type='text/javascript'>
-        var gsVersion = '2111181739';
-        var _LOGINCHECK = '1';
+
+
     </script>
 @endsection
 
@@ -130,7 +128,7 @@
                 color: #FF4E00;
             }
         </style>
-        @include('mania.guide.aside', ['group'=>'new_guide', 'part'=>''])
+        @include('angel.guide.aside', ['group'=>'new_guide', 'part'=>''])
         <div class="g_content">
             <a name="top"></a>
             <!-- ▼ 타이틀 //-->
@@ -188,7 +186,7 @@
                 구매자가 판매물품의 결제를 마치시면 판매자에게 입금확인 SMS알림 메시지를 전송해 드립니다.
                 <br>(단, SMS수신동의를 체크해제 하신 경우 전송되지 않습니다.)
             </div>
-            <img src="/mania/img/guide/screenshot/img_acc_01.gif" width="820" height="108" alt="">
+            <img src="/angel/img/guide/screenshot/img_acc_01.gif" width="820" height="108" alt="">
             <div class="g_finish"></div>
             <div class="g_btn">
                 <a class="btn-arrow-left" href="{{route('guide_howto')}}" style="padding: 14px 50px; background: #07819C; color: white; font-size: 16px;">판매할 물품등록</a>

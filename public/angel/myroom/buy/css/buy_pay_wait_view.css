@@ -1,0 +1,338 @@
+/* â–¼ ê¸ˆì•¡ì •ë³´ */
+
+.price_info {
+    border-top-width: 1px;
+}
+
+.price_info th {
+    height: 55px;
+    padding: 0 20px;
+    font-size: 15px;
+    text-align: left;
+}
+
+.price_info td {
+    padding-right: 20px;
+    vertical-align: top;
+}
+
+.price_info .bd_cell {
+    border-left: 1px solid #D5E2F2;
+    border-right: 1px solid #D5E2F2;
+}
+
+.price_info th span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.price_info th span:first-child {
+    width: 80px;
+}
+
+.price_info .price_font {
+    width: 143px;
+    display: inline-block;
+    text-align: right;
+    font-size: 25px;
+}
+
+.price_info .f_red1 {
+    color: #ED1C24;
+}
+
+.price_info .won {
+    margin: 3px 0 0 -2px;
+}
+
+.price_info .sale_price {
+    position: relative;
+}
+
+.price_info .sale_price .price_font {
+    width: 102px;
+}
+
+
+.my_coupo5n {
+: 3 px 0 0 5 pxcolor: #636363;
+    font-weight: bold;
+}
+
+.my_coupon .event_dic {
+    margin: 5px 90px 0 0;
+}
+
+.my_coupon .btn_white1,
+.my_coupon .btn_gray3 {
+    float: right;
+    position: relative;
+    display: inline-block;
+    height: 23px;
+    line-height: 20px;
+    padding: 0 18px 0 12px;
+    font-size: 11px;
+    vertical-align: middle;
+    font-weight: normal;
+}
+
+.my_coupon .btn_white1:after {
+    content: '\203A';
+    position: absolute;
+    top: -3px;
+    margin-left: 1px;
+    color: #159EFD;
+    font-size: 26px;
+}
+
+.my_coupon .btn_gray3:after {
+    content: '\203A';
+    position: absolute;
+    top: -3px;
+    margin-left: 1px;
+    color: #FFF;
+    font-size: 26px;
+}
+
+
+.my_mileage {
+    margin-left: 3px;
+    line-height: 23px;
+}
+
+.my_mileage dt {
+    float: left;
+    width: 100px;
+    font-weight: bold;
+    color: #636363;
+}
+
+.my_mileage .longdt {
+    width: 150px;
+}
+
+.my_mileage dd {
+    text-align: right;
+    letter-spacing: 0;
+}
+
+.my_mileage dd .g_text {
+    width: 120px;
+    text-align: right;
+}
+
+
+.payment_table {
+    border-top: 0;
+    margin-top: 0;
+}
+
+.payment .g_list {
+    margin-bottom: 20px;
+}
+
+.payment .g_list dt {
+    font-weight: bold;
+}
+
+.tcash_charge:before {
+    top: 6px;
+}
+
+.btn_tcash_charge {
+    display: inline-block;
+    padding: 3px 20px;
+    border: 3px solid #193B73;
+    background-color: #002060;
+    color: #FFF;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sub_samsungpay p {
+    margin-top: 5px;
+}
+
+.sub_creditcard p {
+    margin-top: 5px;
+}
+
+
+/* â–¼ ì¶”ê°€ ê²°ì œ ê¸ˆì•¡ */
+
+.add_charge {
+    overflow: hidden;
+    margin-top: 10px;
+    color: #5B5B5B;
+}
+
+.add_charge li {
+    float: left;
+    padding-top: 10px
+}
+
+.add_charge .price_font2 {
+    box-sizing: border-box;
+    min-width: 160px;
+    height: 30px;
+    margin: 0 3px 0 25px;
+    padding: 0 10px;
+    border: 1px solid #CCD1D8;
+    background-color: #E7EAED;
+    text-align: right;
+    font: bold 25px Arial;
+    color: #ED1C24
+}
+
+.notice_box {
+    margin-top: 15px;
+    padding: 20px;
+    font-size: 12px;
+    letter-spacing: -1px;
+    line-height: 180%;
+}
+
+.notice_box dt {
+    margin-bottom: 5px;
+}
+
+.notice_box dd {
+    margin-left: 14px;
+    color: #000;
+}
+
+
+/* â–² ì¶”ê°€ ê²°ì œ ê¸ˆì•¡ */
+
+
+/* â–¼ íœ´ëŒ€í° ê²°ì œì‹œ í†µì‹ ì‚¬ í•œë„ */
+
+.cell_limit_table {
+    margin-top: -10px;
+    margin-bottom: 20px
+}
+
+.cell_limit_table tr td {
+    border: 1px solid #E2E2E2;
+    background-color: #F7F7F7
+}
+
+
+/* â–² íœ´ëŒ€í° ê²°ì œì‹œ í†µì‹ ì‚¬ í•œë„ */
+
+#cardPopup {
+    display: block;
+    z-index: 10;
+    position: absolute;
+    border: 0
+}
+
+
+/* â–² ê²°ì œì •ë³´ */
+
+
+/* â–¼ ë§ˆì¼ë¦¬ì§€ ì¶©ì „ë°©ë²• */
+
+.mile_charge {
+    float: left;
+    width: 605px;
+    margin-top: 7px;
+    border-width: 1px 0 0 1px;
+    border-style: solid;
+    border-color: #D5DBE3
+}
+
+.mile_charge li {
+    float: left;
+    width: 120px;
+    height: 25px;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #D5DBE3;
+    font-size: 11px;
+    line-height: 25px;
+    text-indent: 10px;
+    letter-spacing: -1px;
+    cursor: pointer;
+    color: #6E6E6E
+}
+
+.mile_charge li:hover {
+    font-weight: bold;
+    color: #407FD4
+}
+
+.mile_charge .none {
+    cursor: auto
+}
+
+
+/* â–² ë§ˆì¼ë¦¬ì§€ ì¶©ì „ë°©ë²• */
+
+.g_layer .last_txt {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.g_layer .g_subtitle.first {
+    padding-top: 0;
+}
+
+.g_layer .g_list {
+    margin-top: 10px;
+}
+
+.g_layer .cell_ul li {
+    display: inline;
+}
+
+.g_layer .cell_ul label {
+    padding-right: 15px;
+}
+
+.g_popup .last_txt {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.attention {
+    height: 20px;
+    margin-top: 10px;
+    background: #fff;
+    color: #909090;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 100;
+    bottom: -10px;
+    left: 230px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.attention_box {
+    padding: 15px 20px;
+    border: 1px solid #959090;
+    background-color: #f7eeee;
+    color: #000;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+.attention_box li {
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.attention_box .f_blue3 {
+    font-size: 12px;
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+.attention_box li .deco {
+    text-decoration: underline;
+    color: #FF2400;
+}

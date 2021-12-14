@@ -196,12 +196,12 @@ gameChart = {
                 gameChart_priceUpdown = '<span class="priceArrow arrowSame">-</span>';
                 if (fSs.getAvgPrice(d._code).prevPrice !== "") {
                     if (fSs.getAvgPrice(d._code).avgPrice > fSs.getAvgPrice(d._code).prevPrice) {
-                        gameChart_priceUpdown = '<span class="priceArrow mania-blue">▲</span>'
+                        gameChart_priceUpdown = '<span class="priceArrow angel-blue">▲</span>'
                     } else {
                         if (fSs.getAvgPrice(d._code).avgPrice == fSs.getAvgPrice(d._code).prevPrice) {
                             gameChart_priceUpdown = '<span class="priceArrow arrowSame">-</span>'
                         } else {
-                            gameChart_priceUpdown = '<span class="priceArrow mania-red">▼</span>'
+                            gameChart_priceUpdown = '<span class="priceArrow angel-red">▼</span>'
                         }
                     }
                 }
@@ -238,7 +238,7 @@ gameChart = {
         if (a === "일") {
             a = ""
         }
-        gameChart_DOM_create = '<span><span class="mania-blue">' + gameChartFilterDataGame._name + " |</span> " + gameChartDataServer._name + "</span> (기준 " + c.currency() + a + " " + gameChartDataServer._Unit + ')<a class="mania-blue-btn gameChart_drawGraph_title_Btn" href="http://trade.itemmania.com/sell/list_search.html?search_type=sell&search_game=' + gameChartFilterDataGame._code + "&search_game_text=" + gameChartFilterDataGame._name + "&search_server=" + gameChartDataServer._code + "&search_server_text=" + gameChartDataServer._name + '">거래하러가기</a>';
+        gameChart_DOM_create = '<span><span class="angel-blue">' + gameChartFilterDataGame._name + " |</span> " + gameChartDataServer._name + "</span> (기준 " + c.currency() + a + " " + gameChartDataServer._Unit + ')<a class="angel-blue-btn gameChart_drawGraph_title_Btn" href="http://trade.itemmania.com/sell/list_search.html?search_type=sell&search_game=' + gameChartFilterDataGame._code + "&search_game_text=" + gameChartFilterDataGame._name + "&search_server=" + gameChartDataServer._code + "&search_server_text=" + gameChartDataServer._name + '">거래하러가기</a>';
         findE(".gameChart_drawGraph_title").innerHTML = gameChart_DOM_create;
         gmaeChart_DOM_create = "<div>" + fSs.comma(fSs.getAvgPrice(b).avgPrice * 2) + "</div><div>" + fSs.comma(fSs.getAvgPrice(b).avgPrice) + "</div><div>0</div>";
         findE(".gameChart_drawGraph_basePrice").innerHTML = gmaeChart_DOM_create;

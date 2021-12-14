@@ -49,7 +49,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="g_copyright d-flex fmxw-1200 pt-4 pb-5 m-auto w-100">
         <div class="footer_logo me-3">
             <img src="/assets/img/foot_logo.png" width="104" height="31" alt="IMI">
@@ -57,7 +57,7 @@
         <div class="comp_info fs-8" style="color:#B0B0B0">
             (주)아이엠아이 대표이사:박수종 전주시 덕진구 가리내로 56 아이엠아이빌딩 통신판매업신고번호:제 2002-전주덕진-0015호<br>
             사업자등록번호:402-81-50705 고객센터:1544-8278 Fax:0505-247-8278 Copyright ⓒ IMI. All rights reserved.<br>
-            아이템매니아는 통신판매중개자이며 통신판매의 당사자가 아닙니다. 따라서 아이템매니아는 상품 거래정보 및 거래에 대하여 책임을 지지 않습니다.
+            아이템천사는 통신판매중개자이며 통신판매의 당사자가 아닙니다. 따라서 아이템천사는 상품 거래정보 및 거래에 대하여 책임을 지지 않습니다.
         </div>
         <div class="inicis_com ms-3">
             <a href="javascript:window.open('https://mark.inicis.com/mark/escrow_popup.php?mid=IESitemman','mark','scrollbars=no,resizable=no,width=565,height=683')"><img src="//image.inicis.com/mkt/certmark/escrow/escrow_74x74_color.png" width="54" height="54" alt="클릭하시면 이니시스 결제시스템의 유효성을 확인하실 수 있습니다."></a>

@@ -1,14 +1,12 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/_banner/css/_banner.css" />
-    <link type="text/css" rel="stylesheet" href="/mania/buy/css/list_search.css" />
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js"></script>
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/_banner/css/_banner.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/buy/css/list_search.css" />
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/buy/js/list.js"></script>
+    <script type="text/javascript" src="/angel/buy/js/list.js"></script>
 @endsection
 
 @section('content')
@@ -90,7 +88,7 @@
             </div>
             <div class="g_right list_info" id="list_info">
                 리프레시
-                <i class="list_sprite icon_refresh"></i>
+                <i class="fa fa-refresh icon_refresh"></i>
                 <div class="info_layer">
                     <div class="il_title">물품정보안내란?</div>
                     <div class="list_sprite il_close"></div>

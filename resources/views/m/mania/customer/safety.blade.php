@@ -1,16 +1,16 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/customer/css/menu.css?190220" />
-    <link type="text/css" rel="stylesheet" href="/mania/customer/css/_report_top.css?210503" />
-    <link type="text/css" rel="stylesheet" href="/mania/customer/trade/css/trade_common.css?210901" />
-    <link type="text/css" rel="stylesheet" href="/mania/customer/css/customer_common.css?210901" />
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/menu.css?190220" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/_report_top.css?210503" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/trade/css/trade_common.css?210901" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/customer_common.css?210901" />
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/_js/_screenshot.js?v=190220"></script>
-    <script type="text/javascript" src="/mania/customer/trade/js/trade_common.js?211005"></script>
+    <script type="text/javascript" src="/angel/_js/_screenshot.js?v=190220"></script>
+    <script type="text/javascript" src="/angel/customer/trade/js/trade_common.js?211005"></script>
     <script type="text/javascript">
         function __init() {
             strThisCode = 'A101';
@@ -67,14 +67,14 @@
                 color: white;
             }
         </style>
-        @include('mania.customer.aside', ['group'=>'safety', 'part'=>''])
+        @include('angel.customer.aside', ['group'=>'safety', 'part'=>''])
         <div class="g_content">
             <!-- ▼ 타이틀 //-->
             <div class="g_title_blue no-border"> 안전거래 </div>
             <div class="f-22 f-bold" style="margin-top: 20px; margin-bottom: 14px;">안전한 거래를 위하여 꼭 지켜주세요!!</div>
-            <img src="/mania/img/bkg/safety1.png" width="812" height="496" />
+            <img src="/angel/img/bkg/safety1.png" width="812" height="496" />
             <div style="height: 20px;"></div>
-            <img src="/mania/img/bkg/safety2.png" width="812" height="579" />
+            <img src="/angel/img/bkg/safety2.png" width="812" height="579" />
             <div style="height: 60px;"></div>
         </div>
     </div>

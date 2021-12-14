@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="ko">
     <head>
-        <title>taxify</title>
+        <title>아이템천사</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link type="text/css" rel="stylesheet" href="/mania/_css/_comm.css?v=210317">
-        <link type="text/css" rel="stylesheet" href="/mania/_head_tail/css/_head_popup.css?v=210531">
-        <link type="text/css" rel="stylesheet" href="/mania/myroom/mileage/charge/css/_common.css?v=210602" />
-        <script type="text/javascript" src="/mania/_js/_jquery3.js?190220"></script>
-        <script type="text/javascript" src="/mania/_js/_comm.js?v=211005"></script>
-        <script type="text/javascript" src="/mania/_js/_gs_control.js?v=200803"></script>
-        <link type="text/css" rel="stylesheet" href="/mania/_banner/css/banner_module.css?v=210422">
-        <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+        <link type="text/css" rel="stylesheet" href="/angel/_css/_comm.css?v=210317">
+        <link type="text/css" rel="stylesheet" href="/angel/_head_tail/css/_head_popup.css?v=210531">
+        <link type="text/css" rel="stylesheet" href="/angel/myroom/mileage/charge/css/_common.css?v=210602" />
+        <script type="text/javascript" src="/angel/_js/jquery.js?190220"></script>
+        <script type="text/javascript" src="/angel/_js/_comm.js?v=211005"></script>
+        <script type="text/javascript" src="/angel/_js/_gs_control.js?v=200803"></script>
+        <link type="text/css" rel="stylesheet" href="/angel/_banner/css/banner_module.css?v=210422">
+        <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
         <script>
             var a_token = '{{Auth::user()->api_token}}';
         </script>
-        <link type="text/css" rel="stylesheet" href="/mania/dev/global.css">
+        <link type="text/css" rel="stylesheet" href="/angel/dev/global.css">
     </head>
     <body>
         <style>
@@ -122,9 +122,9 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="/mania/_js/_window.js?v=190220"></script>
-        <script type="text/javascript" src="/mania/_js/_form_check.js?v=190220"></script>
-        <script type="text/javascript" src="/mania/myroom/mileage/charge/js/common.js?v=191226"></script>
+        <script type="text/javascript" src="/angel/_js/_window.js?v=190220"></script>
+        <script type="text/javascript" src="/angel/_js/_form_check.js?v=190220"></script>
+        <script type="text/javascript" src="/angel/myroom/mileage/charge/js/common.js?v=191226"></script>
         <script type='text/javascript'>
             function _init() {
                 init_orderid();

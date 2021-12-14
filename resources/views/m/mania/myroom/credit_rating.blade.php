@@ -4,13 +4,13 @@ $issues_list = json_decode($user['issue_count']);
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/myinfo/css/credit_rating.css">
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js"></script>
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/myinfo/css/credit_rating.css">
+    <script type="text/javascript" src="/angel/advertise/advertise_code_head.js"></script>
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js"></script>
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/myroom/myinfo/js/credit_rating.js"></script>
+    <script type="text/javascript" src="/angel/myroom/myinfo/js/credit_rating.js"></script>
 @endsection
 @section('content')
     <div class="g_container" id="g_CONTENT">
@@ -26,7 +26,7 @@ $issues_list = json_decode($user['issue_count']);
                 </colgroup>
                 <tr style="height: 106px">
                     <td>
-                        <img src="/mania/img/level/{{$user['roles']['icon']}}" />
+                        <img src="/angel/img/level/{{$user['roles']['icon']}}" />
                         <div class="credit_name">
                             <div class="f_bold"><span class="f_blue1">{{$user['name']}}</span>님의 신용등급은
                                 <span class="f_blue1">{{$user['roles']['alias']}}</span>입니다.
@@ -48,7 +48,7 @@ $issues_list = json_decode($user['issue_count']);
                         @foreach($roles as $key => $v)
                         <li @if($user['roles']['id'] == $v['id']) style="border: 3px solid #0085FF" @endif>
                             <div >
-                                <img src="/mania/img/level/{{$v['icon']}}" class="mt-20"/>
+                                <img src="/angel/img/level/{{$v['icon']}}" class="mt-20"/>
                                 <div class="f_bold f-17" style="color: #{{$v['color']}}">{{$v['alias']}}</div>
                                 <div>거래 {{number_format($v['point'])}}건</div>
                                 @if(!empty($v['rolegift']) && sizeof($v['rolegift']) > 0)
@@ -80,17 +80,17 @@ $issues_list = json_decode($user['issue_count']);
                     <td class="sec_td" style="height: 59px;">
                         <span class="f_bold f-15">인증상태</span>&nbsp;&nbsp;&nbsp;
                         <span class="cert_states" onmouseover="$('#hppAuth').show();" onmouseout="$('#hppAuth').hide();" onclick="_window.open('mobile_certify', '/certify/ini_modi_authcenter/user_certify.html?cellNum=01047973690', 430, 700);">
-                          @if($user['mobile_verified'] == 1)<img src="/mania/img/icons/icon_check.png">@endif 휴대폰
+                          @if($user['mobile_verified'] == 1)<img src="/angel/img/icons/icon_check.png">@endif 휴대폰
                        </span>
                         <span class="cert_states" onmouseover="$('#acAuth').show();" onmouseout="$('#acAuth').hide();">
-                         @if($user['bank_verified'] == 1)<img src="/mania/img/icons/icon_check.png">@endif 계좌
+                         @if($user['bank_verified'] == 1)<img src="/angel/img/icons/icon_check.png">@endif 계좌
                        </span>
                         <span class="cert_states" onmouseover="$('#ipinAuth').show();" onmouseout="$('#ipinAuth').hide();">
                           아이핀
                        </span>
                         <input type="hidden" id="user_email" value="{{$user['email']}}">
                          <span class="cert_states" onmouseover="$('#emailAuth').show();" onmouseout="$('#emailAuth').hide();" onclick="fnemail();">
-                          @if(!empty($user['email_verified_at']))<img src="/mania/img/icons/icon_check.png">@endif 휴대폰이메일
+                          @if(!empty($user['email_verified_at']))<img src="/angel/img/icons/icon_check.png">@endif 휴대폰이메일
                        </span>
 
 

@@ -4,26 +4,7 @@ window.addEventListener('load', function() {
 });
 
 var defaultImages = {
-    'PF0003': {
-        'height': 118,
-        'img': 'http://img3.itemmania.com/new_images/banner/main/201231_attend_530x118.jpg',
-        'link': 'http://www.itemmania.com/counter/survey.php?imcounter=banner_combn_pmlow_newattend&returnUrl=http://www.itemmania.com/event/event_ing/e190417_attend'
-    },
-    'TF0003': {
-        'height': 55,
-        'img': 'http://img3.itemmania.com/new_images/banner/main/200622_lotto_380x55.jpg',
-        'link': 'http://trade.itemmania.com/counter/survey.php?imcounter=banner_tradebn_tmlow_lotto&returnUrl=http://www.itemmania.com/event/event_ing/e190408_lotto/'
-    },
-    'TR0001': {
-        'height': 180,
-        'img': 'http://img2.itemmania.com/new_images/banner/main/201231_attend_2560x180.jpg',
-        'link': 'http://www.itemmania.com/counter/survey.php?imcounter=banner_tradebn_tmcrol_newattend&returnUrl=http://www.itemmania.com/event/event_ing/e190417_attend'
-    },
-    'TR0002': {
-        'height': 270,
-        'img': 'http://img2.itemmania.com/new_images/banner/210106_mobile_405x270.jpg',
-        'link': 'http://www.itemmania.com/event/event_ing/e161012_mobile/'
-    }
+
 };
 
 var checkLogo = function() {

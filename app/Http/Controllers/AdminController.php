@@ -166,7 +166,7 @@ class AdminController extends BaseAdminController
         }
         $xml .= $xml_list;
         $xml .= "</games>";
-        file_put_contents(base_path().'\public\mania\_xml\avgPriceXml\gamechart.xml', $xml);
+        file_put_contents(base_path().'\public\angel\_xml\avgPriceXml\gamechart.xml', $xml);
         echo 1;
     }
     public function members(Request $request){

@@ -28,14 +28,14 @@ if(!empty($cuser['home'])){
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/myroom/css/common_myroom.css" />
-    <link type="text/css" rel="stylesheet" href="/mania/buy/css/index.css">
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js"></script>
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/buy/css/index.css">
+    <script type="text/javascript" src="/angel/advertise/advertise_code_head.js"></script>
+    <script type="text/javascript" src="/angel/_banner/js/banner_module.js"></script>
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/myroom/buy/js/buy_re_reg.js"></script>
+    <script type="text/javascript" src="/angel/myroom/buy/js/buy_re_reg.js"></script>
     <script type="text/javascript">
         var useMileage = '{{$cuser['mileage']}}';
         e_select.goods = "{{$user_goods}}";
@@ -239,7 +239,7 @@ if(!empty($cuser['home'])){
                         <dl>
                             <div>
                                 <div class="text-center m-t-5 m-b-5">
-                                    <img src="/mania/img/charge_service/01.png" />
+                                    <img src="/angel/img/charge_service/01.png" />
                                 </div>
                                 <p class="text-center">프리미엄등록</p>
                                 <dt class="border-bottom-2 border-yellow"></dt>
@@ -260,7 +260,7 @@ if(!empty($cuser['home'])){
                         <dl>
                             <div>
                                 <div class="text-center m-t-5 m-b-5">
-                                    <img src="/mania/img/charge_service/02.png" />
+                                    <img src="/angel/img/charge_service/02.png" />
                                 </div>
                                 <p class="text-center">물품강조</p>
                                 <dt class="border-bottom-2 border-blue"></dt>
@@ -302,7 +302,7 @@ if(!empty($cuser['home'])){
                         <dl>
                             <div>
                                 <div class="text-center m-t-5 m-b-5">
-                                    <img src="/mania/img/charge_service/04.png" />
+                                    <img src="/angel/img/charge_service/04.png" />
                                 </div>
                                 <p class="text-center">스피드 거래</p>
                                 <dt class="border-bottom-2 border-gray"></dt>
@@ -323,7 +323,7 @@ if(!empty($cuser['home'])){
                         <dl>
                             <div>
                                 <div class="text-center m-t-5 m-b-5">
-                                    <img src="/mania/img/charge_service/03.png" />
+                                    <img src="/angel/img/charge_service/03.png" />
                                 </div>
                                 <p class="text-center">자동재등록</p>
                                 <dt class="border-bottom-2 border-green"></dt>
@@ -467,25 +467,25 @@ if(!empty($cuser['home'])){
                             <ul class="excellent">
                                 <li class="cert_state">
                                     @if($cuser['mobile_verified'] == 1)
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif
                                     휴대폰
                                 </li>
 
                                 <li class="cert_state">
                                     @if(!empty($cuser['email_verified_at']))
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif
                                     이메일</li>
                                 <li class="cert_state">
                                     @if($cuser['bank_verified'] ==1 )
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif
                                     출금계좌</li>
                             </ul>

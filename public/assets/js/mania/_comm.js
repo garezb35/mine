@@ -517,10 +517,7 @@ var _DISABLE = function() {
 };
 var ROOT_DOMAIN = "http://" + location.host;
 var SSL_DOMAIN = "https://" + location.host;
-var IMG_DOMAIN1 = "//img1.itemmania.com";
-var IMG_DOMAIN2 = "//img2.itemmania.com";
-var IMG_DOMAIN3 = "//img3.itemmania.com";
-var IMG_DOMAIN4 = "//img4.itemmania.com";
+
 var getBrowserData = function() {
     var a = window.navigator || navigator;
     var e = {};

@@ -55,13 +55,11 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type='text/css' rel='stylesheet' href='/mania/buy/css/application.css'>
-    <script type="text/javascript" src="/mania/advertise/advertise_code_head.js"></script>
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js"></script>
+    <link type='text/css' rel='stylesheet' href='/angel/buy/css/application.css'>
 @endsection
 
 @section('foot_attach')
-    <script type='text/javascript' src='/mania/buy/js/application.js'></script>
+    <script type='text/javascript' src='/angel/buy/js/application.js'></script>
 @endsection
 
 @section('content')
@@ -224,7 +222,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                 <tr>
                     <th class="p-left-10">
                         <div>
-                            <img src="/mania/img/level/{{$cuser['roles']['icon']}}" width="37"/>
+                            <img src="/angel/img/level/{{$cuser['roles']['icon']}}" width="37"/>
                             <span class="f_green4 f_bold">{{$cuser['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($cuser['point'])}}점)
                         </div>
                     </th>
@@ -234,27 +232,27 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                                 <span class="w80 cert_state">인증상태</span>
                                 <span class="con w80 btn_state">
                                         @if($cuser['mobile_verified'] == 1)
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif휴대폰</span>
                                 <span class="on w80 btn_state">
                                         @if($cuser['bank_verified'] == 1)
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif계좌</span>
                                 <span class="on w80 btn_state">
                                         @if($cuser['pin'] == 1)
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif아이핀</span>
                                 <span class="w80 btn_state">
                                         @if(!empty($cuser['email_verified_at']))
-                                        <img src="/mania/img/icons/icon_check.png" width="14">
+                                        <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
-                                        <img src="/mania/img/icons/icon_nocheck.png" width="14">
+                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif이메일</span>
 
                             </dd>

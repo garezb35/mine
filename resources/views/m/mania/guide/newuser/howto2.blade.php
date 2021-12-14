@@ -1,18 +1,16 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type='text/css' rel='stylesheet' href='/mania/guide/css/common.css'>
-    <link type='text/css' rel='stylesheet' href='/mania/guide/frshmn_guide/css/frshmn.css'>
-    <link type="text/css" rel="stylesheet" href="/mania/dev/guide_arrow.css">
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type='text/css' rel='stylesheet' href='/angel/guide/css/common.css'>
+    <link type='text/css' rel='stylesheet' href='/angel/guide/frshmn_guide/css/frshmn.css'>
+    <link type="text/css" rel="stylesheet" href="/angel/dev/guide_arrow.css">
 @endsection
 
 @section('foot_attach')
-    <script type='text/javascript' src='/mania/guide/frshmn_guide/js/common.js'></script>
+    <script type='text/javascript' src='/angel/guide/frshmn_guide/js/common.js'></script>
     <script type='text/javascript'>
-        var gsVersion = '2111181739';
-        var _LOGINCHECK = '1';
+
+
     </script>
 @endsection
 
@@ -124,7 +122,7 @@
                 color: #FF4E00;
             }
         </style>
-        @include('mania.guide.aside', ['group'=>'new_guide', 'part'=>''])
+        @include('angel.guide.aside', ['group'=>'new_guide', 'part'=>''])
         <div class="g_content">
             <a name="top"></a>
             <!-- ▼ 타이틀 //-->
@@ -184,28 +182,28 @@
             <div class="guide_subtitle">
                 <span class="f_red1 f_bold">하나. </span> 상단 검색바에서 게임/서버명을 선택합니다.
             </div>
-            <img src="/mania/img/guide/screenshot/img_buysch_01.png" width="820" height="460" alt="">
+            <img src="/angel/img/guide/screenshot/img_buysch_01.png" width="820" height="460" alt="">
             <div class="g_finish"></div>
             <div class="guide_subtitle">
                 <span class="f_red1 f_bold">둘. </span>검색된 물품 목록에서 물품제목과 금액 등을 확인하신 후 구매 의사가 있는 물품을 클릭합니다.
             </div>
-            <img src="/mania/img/guide/screenshot/img_buysch_02.png" width="820" height="422" alt="">
+            <img src="/angel/img/guide/screenshot/img_buysch_02.png" width="820" height="422" alt="">
             <div class="g_finish"></div>
             <div class="guide_subtitle">
                 <span class="f_red1 f_bold">셋. </span>물품정보와 판매자의 신용도, 상세내용을 다시 한번 꼼꼼히 확인하신 후 [구매신청] 버튼을 클릭합니다.
             </div>
-            <img src="/mania/img/guide/screenshot/img_buysch_03.png" width="820" height="673" alt="">
+            <img src="/angel/img/guide/screenshot/img_buysch_03.png" width="820" height="673" alt="">
             <br> <span class="guide_subtxt">* 등록한 물품은 </span><span class="f_bold">마이룸 > 판매관련 > 판매등록물품</span>에서 확인가능합니다.
             <div class="g_finish"></div>
             <div class="guide_subtitle">
                 <span class="f_red1 f_bold">넷. </span>구매정보확인 페이지에서 개인정보 확인 및 결제정보(결제방식)를 선택하여 [구매신청] 버튼을 클릭합니다.
             </div>
-            <img src="/mania/img/guide/screenshot/img_buysch_04.png" width="820" height="1057" alt="">
+            <img src="/angel/img/guide/screenshot/img_buysch_04.png" width="820" height="1057" alt="">
             <br> <span class="guide_subtxt">* 등록한 물품은 </span><span class="f_bold">마이룸 > 판매관련 > 판매등록물품</span>에서 확인가능합니다.
             <div class="g_finish"></div>
             <div class="divi_line"></div>
             <a href="#top">
-                <img class="g_right" src="/mania/img/icons/btn_up2.gif" width="61" height="20" alt="맨위로">
+                <img class="g_right" src="/angel/img/icons/Scroll-to-top.png" width="61" height="60">
             </a>
             <div class="g_finish"></div>
             <div class="g_btn">

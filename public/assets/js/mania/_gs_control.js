@@ -1952,7 +1952,7 @@ $.extend(_gamelist, {
     loadXML: function() {
         ajaxRequest({
             scope: this,
-            url: "/mania/_xml/gamelist.xml",
+            url: "/angel/_xml/gamelist.xml",
             dataType: "xml",
             cache: 6,
             success: this.OnLoadXML,
@@ -1971,7 +1971,7 @@ $.extend(_gamelist, {
             this.xml = new Object(a);
             ajaxRequest({
                 scope: this,
-                url: "/mania/_xslt/gamelist" + this.template + ".xsl",
+                url: "/angel/_xslt/gamelist" + this.template + ".xsl",
                 dataType: "xml",
                 cache: true,
                 success: this.OnLoadXSLT,
@@ -2412,7 +2412,7 @@ $.extend(_serverlist, {
         } else {
             ajaxRequest({
                 scope: this,
-                url: "/mania/_xslt/serverlist" + this.template + ".xsl",
+                url: "/angel/_xslt/serverlist" + this.template + ".xsl",
                 dataType: "xml",
                 cache: true,
                 success: this.OnLoadXSLT,

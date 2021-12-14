@@ -57,9 +57,9 @@ Route::middleware('auth:api')->group(function(){
     Route::post('/mileage/exchange/proc', [\App\Http\Controllers\VMyRoomController::class, 'mileage_payment_exchange_proc'])->name('mileage_payment_exchange_proc');
     Route::post('/_include/quicklinkuser',[\App\Http\Controllers\VAjaxController::class, 'quicklinkuser_home']);
     Route::post('/_xslt/gamelist.xsl', [\App\Http\Controllers\VAjaxController::class, 'gamelist']);
-    Route::get('/mania/_xml/gamelist.xml', [\App\Http\Controllers\VAjaxController::class, 'gamelist_xml']);
+    Route::get('/angel/_xml/gamelist.xml', [\App\Http\Controllers\VAjaxController::class, 'gamelist_xml']);
     Route::get('/_xml/serverlist', [\App\Http\Controllers\VAjaxController::class, 'serverlist']);
-    Route::get('/mania/_xslt/serverlist.xsl',[\App\Http\Controllers\VAjaxController::class, 'serverlist_xsl']);
+    Route::get('/angel/_xslt/serverlist.xsl',[\App\Http\Controllers\VAjaxController::class, 'serverlist_xsl']);
 
 
     Route::prefix('admin')->group(function () {

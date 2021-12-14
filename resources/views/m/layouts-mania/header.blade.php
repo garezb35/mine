@@ -10,12 +10,9 @@
                 </a>
                 <div><i>나의 거래정보</i></div>
             </li>
-{{--            <li><a href="javascript:;" data-type="pluszone"><span class="sp_icon pluszone"></span></a>--}}
-{{--                <div><i>플러스존</i></div>--}}
-{{--            </li>--}}
-{{--            <li><a href="javascript:;" class="top_btn" id="top_btn">TOP</a></li>--}}
         </ul>
-        <div class="quickmenu_dtl" id="quickmenu_dtl"> <a href="javascript:;" class="sp_icon close" id="quickmenu_close">닫기</a>
+        <div class="quickmenu_dtl" id="quickmenu_dtl">
+            <a href="javascript:;" class="sp_icon close" id="quickmenu_close">닫기</a>
             <div class="quickmenu_cont" id="quickmenu_cont"></div>
         </div>
     </div>
@@ -109,7 +106,6 @@
                 </div>
             </form>
         </div>
-        <!--▲▲▲ 공통 로고 배너 ▲▲▲ -->
     </div>
     <div class="nav_wrap">
         <div class="content_center">
@@ -117,7 +113,6 @@
                 <li><a href="/character">캐릭터 거래</a></li>
                 <li><a href="/myroom">마이룸</a></li>
                 <li><a href="{{route("giftcard")}}">상품권샵</a></li>
-{{--                <li><a href="#">이벤트/쿠폰</a></li>--}}
                 <li><a href="{{route("guide")}}">이용안내</a></li>
             </ul>
             <ul class="nav nav_highlight">
@@ -125,11 +120,6 @@
                 <li class="highlight"><a href="/buy">구매등록</a></li>
             </ul>
 
-{{--            --}}{{--<div class="right_icon">--}}
-{{--                <a href="http://trade.itemmania.com/myroom/goods_alarm/alarm_sell_list.html" id="alarm_noti" class="user_noti"> <span class="sp_icon goods_alarm"></span> <span class="new_alarm">N</span> </a>--}}
-{{--                <a href="http://trade.itemmania.com/myroom/message/" class="user_noti"> <span class="sp_icon bell"></span> <span class="icon_bubble">99+</span> </a>--}}
-{{--                <a href="javascript:;" class="all_menu" id="all_menu"> <span class="sp_icon list"></span> </a>--}}
-{{--            </div>--}}
         </div>
     </div>
 </div>

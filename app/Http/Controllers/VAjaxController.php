@@ -27,7 +27,7 @@ class VAjaxController extends BaseController
      */
     public function quicklinkuser()
     {
-        return view('mania.ajax.quicklinkuser');
+        return view('angel.ajax.quicklinkuser');
     }
 
     public function ajax_list_search(Request $request){
@@ -551,11 +551,11 @@ class VAjaxController extends BaseController
         $point = number_format($this->user->point);
         $m = $a = $e = "";
         if($this->user->mobile_verified ==1)
-            $m = "<img src='/mania/img/icons/icon_check.png'>";
+            $m = "<img src='/angel/img/icons/icon_check.png'>";
         if($this->user->bank_verified ==1)
-            $a = "<img src='/mania/img/icons/icon_check.png'>";
+            $a = "<img src='/angel/img/icons/icon_check.png'>";
         if(!empty($this->user->email_verified_at))
-            $e = "<img src='/mania/img/icons/icon_check.png'>";
+            $e = "<img src='/angel/img/icons/icon_check.png'>";
         $mileage = number_format($this->user->mileage);
         $buying_register = MItem::
         where('userId',$this->user->id)->
@@ -632,7 +632,7 @@ class VAjaxController extends BaseController
             if($v['type'] == 'buy')
                 $m_type = '삽니다';
             $game_list .= "<dd title=\"{$v['game_text']}{$v['serer_text']}\">
-                <span class='title-{$v['type']}'><img src='/mania/img/icons/{$v['type']}-i.png' />-{$m_type}-</span>
+                <span class='title-{$v['type']}'><img src='/angel/img/icons/{$v['type']}-i.png' />-{$m_type}-</span>
                 <strong>{$v['game_text']} > {$v['server_text']}</strong>{$v['serer_text']}
                 <div class=\"btn_area\">
                     <a href=\"/sell/list_search?search_type={$v['type']}&search_game={$v['game']}&search_game_text={$v['game_text']}&search_server={$v['server']}&search_server_text={$v['server_text']}&search_goods={$item_alias}\">검색</a>
@@ -645,7 +645,7 @@ class VAjaxController extends BaseController
         <dl class=\"status\">
             <dd class=\"credir_rt\">
                 <div class=\"rt_figure\">
-                    <img src='/mania/img/level/{$role['icon']}' />
+                    <img src='/angel/img/level/{$role['icon']}' />
                 </div>
                 <div class=\"user_name\">{$this->user->name}</div>
                 <span class=\"rank _txt\">{$role['alias']}회원 &nbsp;&nbsp;<span class='f_blue1 f_bold f-16'>{$point}</span></span>

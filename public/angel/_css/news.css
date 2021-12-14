@@ -1,0 +1,84 @@
+.ct_cont {
+    overflow: hidden;
+    float: left;
+    width: 690px;
+}
+.detail .title {
+    margin: 23px 0 7px;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: normal;
+}
+em {
+    font-style: normal;
+}
+.right_ct .bn {
+    margin: 20px  0;
+}
+
+.right_ct .rg_tlt {
+    position: relative;
+    padding: 35px 0 10px;
+    border-top: 2px
+    solid #141414;
+    color: #000;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.fv_list {
+    padding-top: 14px;
+    border-top: 1px
+    solid #E5E5E5;
+    color: #323232;
+}
+
+.fv_list2 li {
+    padding-left: 32px;
+    border-bottom: 1px solid #E5E5E5;
+    line-height: 31px;
+}
+
+
+
+.fv_list li {
+    padding-left: 22px;
+    margin-bottom: 15px;
+    line-height: 12px;
+    font-size: 13px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.ct_cont .list {
+    position: relative;
+    padding: 20px 0 20px 170px;
+    border-bottom: 1px solid #F0F0F0;
+}
+.list img {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 150px;
+    height: 85px;
+}
+
+.list_in .title {
+    margin-bottom: 17px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: normal;
+}
+
+.list_in .date {
+    display: block;
+    margin-top: 2px;
+    color: #888;
+}

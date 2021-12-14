@@ -1,15 +1,13 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/guide/css/index.css?v=210810">
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/guide/css/index.css?v=210810">
 @endsection
 
 @section('foot_attach')
     <script type='text/javascript'>
-        var gsVersion = '2110141801';
-        var _LOGINCHECK = '1';
+
+
     </script>
 @endsection
 
@@ -141,7 +139,7 @@
                 color: #195e6c;
             }
         </style>
-        @include('mania.guide.aside', ['group'=>'guide', 'part'=>''])
+        @include('angel.guide.aside', ['group'=>'guide', 'part'=>''])
         <div class="g_content">
             <div class="g_title">이용안내</div>
             <div class="notice-part d-flex">

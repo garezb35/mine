@@ -1,19 +1,17 @@
 @extends('layouts-mania.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/mania/customer/css/menu.css" />
-    <link type="text/css" rel="stylesheet" href="/mania/customer/css/customer_common.css" />
-    <link type="text/css" rel="stylesheet" href="/mania/customer/myqna/css/list.css" />
-    <link type="text/css" rel="stylesheet" href="/mania/_css/_table_list.css" />
-    <!--<script type="text/javascript" src="/mania/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/mania/_banner/js/banner_module.js?v=210209"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/menu.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/customer_common.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/myqna/css/list.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/_css/_table_list.css" />
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/mania/customer/myqna/js/list.js"></script>
+    <script type="text/javascript" src="/angel/customer/myqna/js/list.js"></script>
     <script type='text/javascript'>
-        var gsVersion = '2110141801';
-        var _LOGINCHECK = '1';
+
+
     </script>
 @endsection
 
@@ -55,7 +53,7 @@
                 border: 1px solid #E1E1E1
             }
         </style>
-        @include('mania.customer.aside', ['group'=>'myqna', 'part'=>''])
+        @include('angel.customer.aside', ['group'=>'myqna', 'part'=>''])
         <div class="g_content">
             <!-- ▼ 타이틀 //-->
             <div class="g_title_blue no-border">나의 질문과 답변</div>
@@ -89,9 +87,9 @@
 {{--                            </td>--}}
                             <td>
                                 @if ($rec['is_read'] == 1)
-                                    <img src="/mania/img/icons/ico_message.png" width="14" height="11" alt="확인" />
+                                    <img src="/angel/img/icons/ico_message.png" width="14" height="11" alt="확인" />
                                 @else
-                                    <img src="/mania/img/icons/ico_message_on.png" width="14" height="11" alt="미확인" />
+                                    <img src="/angel/img/icons/ico_message_on.png" width="14" height="11" alt="미확인" />
                                 @endif
                             </td>
                             <td>
@@ -129,39 +127,18 @@
                         </tr>
                     @endforeach
 
-{{--                    <tr>--}}
-{{--                        <td class="first_td">--}}
-{{--                            <input type="checkbox" name="blankCheck" class="g_checkbox" disabled="disabled" /> </td>--}}
-{{--                        <td><img src="http://img3.itemmania.com/images/icon/ico_message_on.gif" width="14" height="11" alt="미확인" /></td>--}}
-{{--                        <td>종료요청</td>--}}
-{{--                        <td>2021013113448891</td>--}}
-{{--                        <td class="left"><a href="/customer/myqna/view.html?seq=13531925&original_type=1">거래 종료 요청</a></td>--}}
-{{--                        <td> 답변 완료 </td>--}}
-{{--                        <td>2021-01-31 23:15</td>--}}
-{{--                    </tr>--}}
-{{--                    <tr>--}}
-{{--                        <td class="first_td">--}}
-{{--                            <input type="checkbox" name="blankCheck" class="g_checkbox" disabled="disabled" /> </td>--}}
-{{--                        <td><img src="http://img3.itemmania.com/images/icon/ico_message_on.gif" width="14" height="11" alt="미확인" /></td>--}}
-{{--                        <td>종료요청</td>--}}
-{{--                        <td>2021013111553078</td>--}}
-{{--                        <td class="left"><a href="/customer/myqna/view.html?seq=13531645&original_type=1">거래 종료 요청</a></td>--}}
-{{--                        <td> 답변 완료 </td>--}}
-{{--                        <td>2021-01-31 20:04</td>--}}
-{{--                    </tr>--}}
                 </table>
             </form>
-{{--            <div class="tb_bt_txt"> <img src="http://img4.itemmania.com/images/btn/btn_del1.gif" width="42" height="20" alt="삭제" class="g_button" onclick="$('signForm').check();" /> <span class="f_org1">- 2020년 7월 1일 이후 메시지만 보관되오니 이점 양지해주시기 바랍니다.</span> </div>--}}
-            <!-- ▼ 페이징 //-->
+
             <div class="dvPaging">
                 <ul class="g_paging">
                     <li class='start'><strong class="g_blue">1</strong></li>
                 </ul>
             </div>
-            <!-- ▲ 페이징 //-->
+
         </div>
         <div class="g_finish"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection
 

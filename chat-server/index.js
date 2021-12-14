@@ -204,7 +204,7 @@ cron.schedule('0 0 1 * * *', () => {
     });
 });
 cron.schedule('0 30 1 * * *', () => {
-    axios.get('http://210.112.174.178/mania_export_xml')
+    axios.get('http://210.112.174.178/angel_export_xml')
         .then(response => {
             console.log(response.data)
         })
