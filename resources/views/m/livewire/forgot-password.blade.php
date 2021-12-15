@@ -1,6 +1,6 @@
 <main>
 
-    <!-- Section -->
+
     <section class="vh-lg-100 mt-4 mt-lg-0 bg-soft d-flex align-items-center">
         <div class="container">
             <div class="row justify-content-center form-bg-image">
@@ -10,15 +10,15 @@
                         <h1 class="h3">Forgot your password?</h1>
                         <p class="mb-4">Don't fret! Just type in your email and we will send you a code to reset your password!</p>
                         <form wire:submit.prevent="recoverPassword" action="#" method="POST">
-                            <!-- Form -->
+
                             <div class="mb-4">
                                 <label for="email">Your Email</label>
                                 <div class="input-group">
                                     <input wire:model='email' type="email" class="form-control" id="email" placeholder="john@company.com" required autofocus>
-                                </div>  
+                                </div>
                                 @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
                             </div>
-                            <!-- End of Form -->
+
                             @if($mailSentAlert)
                                 <div class="alert alert-success" role="alert">
                                     An email containing the password reset link has been sent.

@@ -1,21 +1,21 @@
 
-.g_subtitle_blue {
+.highlight_contextual {
     clear: both;
     margin-top: 0;
     text-align: left;
 }
 
-.g_blue_table {
+.table-primary {
     width: 400px;
     margin: 10px 0;
 }
 
-.g_blue_table tr th,.g_blue_table tr td {
+.table-primary tr th,.table-primary tr td {
     border-right: 1px solid #E2E2E2;
     border-left: 0;
 }
 
-.g_blue_table tr .last {
+.table-primary tr .last {
     border-right: 0;
 }
 

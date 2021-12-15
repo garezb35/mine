@@ -55,7 +55,7 @@ body {
 .c-light-red {
     color: #ff1c0b !important;
 }
-.c-blue-title {
+.text-nodemon {
     color: dodgerblue !important;
 }
 
@@ -141,7 +141,7 @@ body {
     background: #001897;
     cursor: pointer;
 }
-#popup_title_bar {
+#model_titlebar {
     background-color: #0081b9 !important;
 }
 .button_ok {
@@ -177,6 +177,6 @@ body {
     background: url(../img/icons/btn-arrow-left.png) no-repeat;
     left: 34px;
 }
-.g_title_blue {
+.contextual--title {
     margin-left: 0px !important;
 }

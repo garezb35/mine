@@ -5,10 +5,10 @@ ul li .first{ margin-bottom:5px }
 #guide_sell .next_arrow img, #guide_buy .next_arrow img{margin:26px 0 0 0;}
 .gray_box, .gray_box2{border:1px solid #D7D7D7;}
 .gray_box2{ padding:10px }
-.gray_box2 .f_bold{ margin-top:10px }
+.gray_box2 .font-weight-bold{ margin-top:10px }
 .gray_box2 .g_list{margin-left:15px;color:#767676;}
 .inner_box{ margin:15px }
-.inner_box .f_bold{ margin-bottom:5px }
+.inner_box .font-weight-bold{ margin-bottom:5px }
 .inner_box .small_box{ padding-left:12px }
 .way_txt{ margin-bottom:5px; letter-spacing:-1px }
 .way{margin:10px 0 20px;color:#767676;font-size:12px;}

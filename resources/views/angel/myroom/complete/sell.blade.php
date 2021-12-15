@@ -10,32 +10,32 @@
 
 @section('content')
     <style>
-        .g_tab>* {
+        .react_nav_tab>* {
             background-color: #e3f0f3;
             border-bottom: 2px solid #0081b9;
         }
-        .g_tab>.selected {
+        .react_nav_tab>.selected {
             border: 2px solid #0081b9;
             border-bottom: 0;
         }
-        .g_tab>*>a {
+        .react_nav_tab>*>a {
             font-size: 14px;
         }
-        .g_blue_table tr th {
+        .table-primary tr th {
             background-color: #e3f0f3;
         }
-        .g_blue_table,
-        .g_blue_table tr th,
-        .g_blue_table tr td {
+        .table-primary,
+        .table-primary tr th,
+        .table-primary tr td {
             border: solid 1px #89c1ce;
         }
     </style>
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         @include('angel.myroom.aside', ['group'=>'complete_sell', 'part'=>''])
-        <div class="g_content">
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue no-border"> 종료 <span>내역</span>
+        <div class="pagecontainer">
+
+            <div class="contextual--title no-border"> 종료 <span>내역</span>
                 <ul class="g_path">
                     <li>홈</li>
                     <li>마이룸</li>
@@ -43,21 +43,21 @@
                     <li class="select">판매 종료 내역</li>
                 </ul>
             </div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 메뉴탭 //-->
-            <div class="g_tab">
+
+
+            <div class="react_nav_tab">
                 <div class='selected'><a href="{{route("complete_sell")}}">판매종료내역</a></div>
                 <div><a href="{{route("complete_buy")}}">구매종료내역</a></div>
                 <div><a href="{{route("complete_report")}}">전체이용내역</a></div>
             </div>
-            <div class="search_box">
+            <div class="navtabs__react">
                 <a href="sell>
                     <input type="radio" name="list_type" value="2" checked onclick="location.href='sell.html'"> 최근종료내역</a>
                 <a href="before_sell_end class="pdl">
                     <input type="radio" name="list_type" value="1" onclick="location.href='before_sell_end.html'"> 이전종료내역</a>
                 <form id="frmSearch" action="" method="post">
-                    <ul class="g_right g_sideway">
-                        <li class="type_area"> <a href="?type=sell&continue=YTo4OntzOjQ6ImdhbWUiO3M6MDoiIjtzOjk6ImdhbWVfdGV4dCI7czowOiIiO3M6Njoic2VydmVyIjtzOjA6IiI7czoxMToic2VydmVyX3RleHQiO3M6MDoiIjtzOjEyOiJzZWFyY2hfZ29vZHMiO3M6MDoiIjtzOjE2OiJzZWFyY2hfcHJpY2VfbWluIjtzOjA6IiI7czoxNjoic2VhcmNoX3ByaWNlX21heCI7czowOiIiO3M6NzoidXNldHlwZSI7czo5OiJzZWxsZXJfaWQiO30="><span class="f_blue3 f_bold">팝니다 판매한 내역</span></a> | <a href="?type=buy&continue=YTo4OntzOjQ6ImdhbWUiO3M6MDoiIjtzOjk6ImdhbWVfdGV4dCI7czowOiIiO3M6Njoic2VydmVyIjtzOjA6IiI7czoxMToic2VydmVyX3RleHQiO3M6MDoiIjtzOjEyOiJzZWFyY2hfZ29vZHMiO3M6MDoiIjtzOjE2OiJzZWFyY2hfcHJpY2VfbWluIjtzOjA6IiI7czoxNjoic2VhcmNoX3ByaWNlX21heCI7czowOiIiO3M6NzoidXNldHlwZSI7czo5OiJzZWxsZXJfaWQiO30="><span class="">삽니다 판매한 내역</span></a> </li>
+                    <ul class="float__right g_sideway">
+                        <li class="type_area"> <a href="?type=sell&continue=YTo4OntzOjQ6ImdhbWUiO3M6MDoiIjtzOjk6ImdhbWVfdGV4dCI7czowOiIiO3M6Njoic2VydmVyIjtzOjA6IiI7czoxMToic2VydmVyX3RleHQiO3M6MDoiIjtzOjEyOiJzZWFyY2hfZ29vZHMiO3M6MDoiIjtzOjE2OiJzZWFyY2hfcHJpY2VfbWluIjtzOjA6IiI7czoxNjoic2VhcmNoX3ByaWNlX21heCI7czowOiIiO3M6NzoidXNldHlwZSI7czo5OiJzZWxsZXJfaWQiO30="><span class="f_blue3 font-weight-bold">팝니다 판매한 내역</span></a> | <a href="?type=buy&continue=YTo4OntzOjQ6ImdhbWUiO3M6MDoiIjtzOjk6ImdhbWVfdGV4dCI7czowOiIiO3M6Njoic2VydmVyIjtzOjA6IiI7czoxMToic2VydmVyX3RleHQiO3M6MDoiIjtzOjEyOiJzZWFyY2hfZ29vZHMiO3M6MDoiIjtzOjE2OiJzZWFyY2hfcHJpY2VfbWluIjtzOjA6IiI7czoxNjoic2VhcmNoX3ByaWNlX21heCI7czowOiIiO3M6NzoidXNldHlwZSI7czo5OiJzZWxsZXJfaWQiO30="><span class="">삽니다 판매한 내역</span></a> </li>
                         <li>
                             <select id="dbMonth" name="search_month">
                                 <option value="2021">2021년</option>
@@ -73,8 +73,8 @@
                     </ul>
                 </form>
             </div>
-            <!-- ▲ 메뉴탭 //-->
-            <div class="tab_sib g_left f-13">- 최근 1주간 종료된 내역입니다. 이전에 종료된 내역은 '이전종료내역'에서 확인하세요.&nbsp;&nbsp;</div>
+
+            <div class="tab_sib float-left f-13">- 최근 1주간 종료된 내역입니다. 이전에 종료된 내역은 '이전종료내역'에서 확인하세요.&nbsp;&nbsp;</div>
             <div class="btn_blue4 excel_btn"><a href="complete_excel.html?type=sell&continue=YTo4OntzOjQ6ImdhbWUiO3M6MDoiIjtzOjk6ImdhbWVfdGV4dCI7czowOiIiO3M6Njoic2VydmVyIjtzOjA6IiI7czoxMToic2VydmVyX3RleHQiO3M6MDoiIjtzOjEyOiJzZWFyY2hfZ29vZHMiO3M6MDoiIjtzOjE2OiJzZWFyY2hfcHJpY2VfbWluIjtzOjA6IiI7czoxNjoic2VhcmNoX3ByaWNlX21heCI7czowOiIiO3M6NzoidXNldHlwZSI7czo5OiJzZWxsZXJfaWQiO30=">엑셀받기</a></div>
-            <div class="g_finish"></div>
+            <div class="empty-high"></div>
             <table

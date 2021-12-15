@@ -8,26 +8,23 @@
 
 @section('foot_attach')
     <script type='text/javascript' src='/angel/guide/frshmn_guide/js/common.js'></script>
-    <script type='text/javascript'>
-
-
-    </script>
+    <script type='text/javascript'></script>
 @endsection
 
 @section('content')
     <style>
-        .g_title_blue {
+        .contextual--title {
             margin-left: 20px;
         }
-        .g_tab>* {
+        .react_nav_tab>* {
             background-color: #e3f0f3;
             border-bottom: 2px solid #0081b9;
         }
-        .g_tab>.selected {
+        .react_nav_tab>.selected {
             border: 2px solid #0081b9;
             border-bottom: 0;
         }
-        .g_tab>*>a {
+        .react_nav_tab>*>a {
             font-size: 14px;
         }
         .tb_list th {
@@ -36,18 +33,18 @@
         .tb_list td {
             font-size: 13px;
         }
-        .g_blue_table tr th {
+        .table-primary tr th {
             background-color: #e3f0f3;
         }
-        .g_blue_table,
-        .g_blue_table tr th,
-        .g_blue_table tr td {
+        .table-primary,
+        .table-primary tr th,
+        .table-primary tr td {
             border: solid 1px #89c1ce;
         }
     </style>
 
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .img_wrap {
                 width: 214px;
@@ -117,51 +114,28 @@
             }
         </style>
         @include('angel.guide.aside', ['group'=>'new_guide', 'part'=>''])
-        <div class="g_content">
+        <div class="pagecontainer">
             <a name="top"></a>
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue">거래취소/신고</div>
+            <div class="contextual--title">거래취소/신고</div>
             <div class="g_gray_border"></div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 메뉴탭 //-->
-            <div class="g_tab">
+            <div class="react_nav_tab">
                 <div class="selected"><a href="{{route('guide_cancel_cancel')}}">거래취소</a></div>
-{{--                <div><a href="trade_acc.html">거래문제 발생</a></div>--}}
                 <div class="last"><a href="{{route('guide_cancel_bad')}}">비거래 물품 신고</a></div>
             </div>
-            <div class="g_finish"></div>
-            <!-- ▲ 메뉴탭 //-->
-{{--            <div class="g_notice_box1">--}}
-{{--                거래 진행중인 물품 중 직접 취소가 되지 않는 물품은 관리자에게 접수하셔야 취소가 가능합니다.<br>--}}
-{{--                구매자의 입금을 기다리는 물품은 판매자가 취소할 수 없습니다. 입금된 물품은 구매자가 임의로 취소할 수 없습니다.--}}
-{{--            </div>--}}
-{{--            <div class="g_subtitle_blue">구매자의 구매중인 물품 거래취소</div>--}}
-{{--            구매취소는 마이룸&gt;구매관련&gt;구매중인 물품의 [거래취소] 버튼이나, 고객센터 &gt; 1:1 상담하기 &gt; 거래취소요청으로 가능합니다.--}}
-{{--            <div class="guide_subtitle">--}}
-{{--                <span class="f_red1 f_bold">하나. </span>고객센터&gt;1:1상담하기&gt; 거래취소/종료요청에서&nbsp;‘취소요청’ 선택하신 후 구매중인 물품에서 취소할 물품의 [접수]&nbsp;버튼을 클릭 합니다.--}}
-{{--            </div>--}}
-{{--            <img src="/angel/img/guide/screenshot/img_cancel2_01.png" width="820" height="" alt="">--}}
-{{--            <div class="guide_subtitle">--}}
-{{--                <span class="f_red1 f_bold">둘. </span><span class="f_bold">상담서 작성하기</span>--}}
-{{--                <div class="guide_subtxt">거래취소 물품의 상담정보를 입력 하신 후 <span class="f_bold">[확인] </span>버튼을 누르시면 취소접수가 완료됩니다.</div>--}}
-{{--            </div>--}}
-{{--            <img src="/angel/img/guide/screenshot/img_cancel2_02.png" width="820" height="" alt="">--}}
-{{--            <div class="guide_subtxt">* 거래취소는 상대 거래자의 동의를 얻기 위한  시간이 소요됩니다.</div>--}}
-            <div class="g_subtitle_blue">판매자의 판매중인 물품 거래취소</div>
+            <div class="empty-high"></div>
+            <div class="highlight_contextual">판매자의 판매중인 물품 거래취소</div>
             판매자의 거래취소는 마이룸 &gt; 판매관련 &gt; 판매중인 물품의 [거래취소] 버튼이나, 고객센터 &gt; 1:1 상담하기 &gt; 거래취소 요청을 통해 거래취소를
             할 수 있습니다. (판매자의 거래취소는 신청 즉시 거래가 취소됩니다.)
             <div class="guide_subtitle">
-                <span class="f_red1 f_bold">하나. </span>고객센터 &gt; 1:1상담하기 &gt; [거래취소/종료] 에서&nbsp;‘취소요청’ 선택 후  판매중인 물품에서 취소하실 물품의&nbsp;[접수하기] 를 클릭 합니다.
+                <span class="f_red1 font-weight-bold">하나. </span>고객센터 &gt; 1:1상담하기 &gt; [거래취소/종료] 에서&nbsp;‘취소요청’ 선택 후  판매중인 물품에서 취소하실 물품의&nbsp;[접수하기] 를 클릭 합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_cancel2_03.png" width="820" height="" alt="">
             <div class="guide_subtitle">
-                <span class="f_red1 f_bold">둘. </span>취소 요청 창에서 취소사유를 선택하신 후 <span class="f_bold">[취소요청] </span>버튼을 클릭하면 거래는 즉시 취소됩니다.
+                <span class="f_red1 font-weight-bold">둘. </span>취소 요청 창에서 취소사유를 선택하신 후 <span class="font-weight-bold">[취소요청] </span>버튼을 클릭하면 거래는 즉시 취소됩니다.
             </div>
-{{--            <img src="/angel/img/guide/screenshot/img_cancel2_04.gif" width="820" height="420" alt="">--}}
             <div class="divi_line"></div>
-            <a href="#top"><img class="g_right" src="http://img2.itemmania.com/images/btn/Scroll-to-top.png" width="61" height="20" alt="맨위로"></a>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

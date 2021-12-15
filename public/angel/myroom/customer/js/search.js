@@ -4,7 +4,7 @@ function _init() {
         var gameServerEl = document.getElementById('custom_gameserver');
         regGameServer = new GameServerList(document.getElementById('custom_gameserver_list'), {
             containerWrapper: gameServerEl,
-            toggleContainer: gameServerEl.getElementsByClassName('initial_screen')[0],
+            toggleContainer: gameServerEl.getElementsByClassName('_34Cr45d_reacts')[0],
             formElement: '#frm_search',
             game: {
                 autoComplete: '#searchRegGameServer',

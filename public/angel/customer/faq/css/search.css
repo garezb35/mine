@@ -11,16 +11,16 @@
 .search .search_img_wrap{text-align:center; font-size: 22px; font-weight: bold;  color: #fff; height:50px; margin-top:5px;}
 .search .search_bar {width: 625px; height: 20px; margin:0 auto 8px; padding: 15px 20px 15px 20px; background-color: #FFF;}
 .search .search_bar select{ width:106px; background-color:#FFF; border:none }
-.search .search_bar .g_text{ width:300px; border:0; background-color:#FFF; }
-.search_list{ text-align: center; clear:both; color:#fff; }
-.search_list li{ display:inline; word-spacing: 15px;}
+.search .search_bar .angel__text{ width:300px; border:0; background-color:#FFF; }
+.item_filtered__average{ text-align: center; clear:both; color:#fff; }
+.item_filtered__average li{ display:inline; word-spacing: 15px;}
 .gray_table{ width:760px; border-top:1px solid #E3E3E3; border-bottom:1px solid #E3E3E3 }
 .gray_table th{ padding:5px 0; background-color:#F8F8F8; border-bottom:1px solid #E3E3E3; border-left:1px solid #E3E3E3; text-align:center }
 .gray_table .first{ border-left:0 }
 .gray_table td{ padding:10px 0 5px 12px; border-left:1px solid #E3E3E3; vertical-align:top; line-height:160% }
 .gray_table .first{ border-left:0 }
 
-.g_right {padding: 11px 20px 0;}
+.float__right {padding: 11px 20px 0;}
 .s_text {width: 550px;border: 0;background-color: #FFF;}
 .s_text:focus{outline: none;}
-.subject .g_left {padding-right: 10px;}
+.subject .float-left {padding-right: 10px;}

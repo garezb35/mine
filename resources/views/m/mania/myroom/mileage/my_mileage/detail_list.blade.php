@@ -2,7 +2,7 @@
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/mileage/my_mileage/css/detail_list.css?190220">
-    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+
     <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 @endsection
@@ -31,18 +31,18 @@
 
 @section('content')
     <style>
-        .g_title_blue {
+        .contextual--title {
             margin-left: 20px;
         }
-        .g_tab>* {
+        .react_nav_tab>* {
             background-color: #e3f0f3;
             border-bottom: 2px solid #0081b9;
         }
-        .g_tab>.selected {
+        .react_nav_tab>.selected {
             border: 2px solid #0081b9;
             border-bottom: 0;
         }
-        .g_tab>*>a {
+        .react_nav_tab>*>a {
             font-size: 14px;
         }
         .tb_list th {
@@ -51,12 +51,12 @@
         .tb_list td {
             font-size: 13px;
         }
-        .g_blue_table tr th {
+        .table-primary tr th {
             background-color: #e3f0f3;
         }
-        .g_blue_table,
-        .g_blue_table tr th,
-        .g_blue_table tr td {
+        .table-primary,
+        .table-primary tr th,
+        .table-primary tr td {
             border: solid 1px #89c1ce;
         }
         .datepicker {
@@ -73,22 +73,22 @@
             border-radius: 2px;
         }
     </style>
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         @include('aside.myroom',['group'=>'mileage'])
-        <div class="g_content">
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue no-border"> 내 마일리지 </div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 메뉴탭 //-->
-            <div class="g_tab">
+        <div class="pagecontainer">
+
+            <div class="contextual--title no-border"> 내 마일리지 </div>
+
+
+            <div class="react_nav_tab">
                 <div class=""><a href="{{route('my_mileage_index_c')}}">마일리지 충전</a></div>
                 <div class=""><a href="{{route('my_mileage_index_e')}}">마일리지 출금</a></div>
                 <div class=""><a href="{{route('my_mileage_calendar')}}">마일리지 달력보기</a></div>
                 <div class="selected"><a href="{{route('my_mileage_detail_list')}}">상세내역보기</a></div>
             </div>
-            <!-- ▲ 메뉴탭 //-->
-            <!-- ▼ 조회기간 //-->
+
+
             <form id="frmPeriod" name="frmPeriod" action="" method="post">
                 @csrf
                 <table class="g_sky_table" id="search_table">
@@ -99,17 +99,17 @@
                     <tr>
                         <th rowspan="2">조회기간</th>
                         <td id="search_date">
-                            <div class="g_left">
-                                <!-- ▼ 시작 날짜 //-->
+                            <div class="float-left">
+
                                 <input type="text" name="date_start" class="datepicker" value="{{$date_start}}"> ~
                                 <input type="text" name="date_end" class="datepicker" value="{{$date_end}}">
                             </div>
-                            <div class="g_right"></div>
+                            <div class="float__right"></div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="g_left">
+                            <div class="float-left">
                                 <input type="radio" name="search_select" id="search_select1" value="0" class="g_radio"
                                        {{ $search_type == 0 ? 'checked' : '' }} onclick="document.frmPeriod.submit();">
                                 <label for="search_select1">전체</label>
@@ -120,16 +120,16 @@
                                        {{ $search_type == 2 ? 'checked' : '' }} onclick="document.frmPeriod.submit();">
                                 <label for="search_select3">감소된 마일리지</label>
                             </div>
-                            <div class="g_right">
+                            <div class="float__right">
                                 <input type="submit" id="btn_search" width="64" height="18" value="조회하기" alt="조회하기">
                             </div>
                         </td>
                     </tr>
                 </table>
             </form>
-            <!-- ▲ 조회기간 //-->
-            <!-- ▼ 상세내역 //-->
-            <table class="g_blue_table tb_list">
+
+
+            <table class="table-primary tb_list">
                 <colgroup>
                     <col width="148">
                     <col width="64">
@@ -187,19 +187,19 @@
                     </tr>
                 @endforeach
             </table>
-            <!-- ▲ 상세내역 //-->
+
             <div class="tb_bt_txt f_black2">
-                <div class="g_left">- 조회기간은 전년기준 5년까지 조회 가능합니다.</div>
-                <div class="g_right">(단위:원)</div>
+                <div class="float-left">- 조회기간은 전년기준 5년까지 조회 가능합니다.</div>
+                <div class="float__right">(단위:원)</div>
             </div>
-            <div class="g_finish"></div>
-            <!-- ▼ 페이징 //-->
-            <div class="dvPaging">
+            <div class="empty-high"></div>
+
+            <div class="pagination__bootstrap">
                 <ul class="g_paging"> </ul>
             </div>
-            <!-- ▲ 페이징 //-->
+
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

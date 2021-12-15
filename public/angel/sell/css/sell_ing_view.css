@@ -1,25 +1,25 @@
 
-.g_popup {
+.modal_dialog {
     width: 668px
 }
 
-.g_popup .layer_content {
+.modal_dialog .modal--content {
     text-align: center
 }
 
-.g_popup #goods_img {
+.modal_dialog #goods_img {
     margin-left: 66px
 }
 
-.g_popup #goods_info {
+.modal_dialog #goods_info {
     margin: 22px auto 0
 }
 
-.g_popup #goods_info li {
+.modal_dialog #goods_info li {
     height: 20px
 }
 
-.g_popup .blue_box {
+.modal_dialog .blue_box {
     width: 509px;
     height: 55px;
     margin: 10px auto 0;
@@ -29,21 +29,21 @@
     text-align: center
 }
 
-.g_popup .blue_box div {
+.modal_dialog .blue_box div {
     text-align: center
 }
 
-.g_popup .blue_box .g_sideway {
+.modal_dialog .blue_box .g_sideway {
     margin: 10px 20px;
     padding-top: 10px;
     border-top: 1px dotted #D4D4D4
 }
 
-.g_popup .blue_box .g_sideway .g_radio {
+.modal_dialog .blue_box .g_sideway .g_radio {
     margin-left: 25px
 }
 
-.g_popup .blue_box .g_sideway .first {
+.modal_dialog .blue_box .g_sideway .first {
     margin-left: 0
 }
 
@@ -61,31 +61,31 @@
     font-weight: bold
 }
 
-#dvTradeSellCheck .g_gray_table {
+#dvTradeSellCheck .table_angel_secondary {
     margin-top: 20px;
     border: 1px solid #E2E2E2;
     border-top: 2px solid #E2E2E2
 }
 
-#dvTradeSellCheck .g_gray_table th {
+#dvTradeSellCheck .table_angel_secondary th {
     background-color: #FBFBFB;
     border-right: 1px solid #E2E2E2
 }
 
-#dvTradeSellCheck .g_gray_table #juminnumber td div {
+#dvTradeSellCheck .table_angel_secondary #juminnumber td div {
     height: 25px;
     line-height: 25px
 }
 
-#dvTradeSellCheck .g_gray_table #juminnumber td div .g_text {
+#dvTradeSellCheck .table_angel_secondary #juminnumber td div .angel__text {
     text-align: center
 }
 
-#dvTradeSellCheck .g_gray_table #juminnumber td #info_phone_div .g_text {
+#dvTradeSellCheck .table_angel_secondary #juminnumber td #info_phone_div .angel__text {
     width: 60px
 }
 
-#dvTradeSellCheck .g_gray_table #juminnumber td div #info_jumin {
+#dvTradeSellCheck .table_angel_secondary #juminnumber td div #info_jumin {
     margin-left: 20px
 }
 
@@ -105,13 +105,13 @@
     color: #DE1C24
 }
 
-#trade_cancel .g_gray_table {
+#trade_cancel .table_angel_secondary {
     margin: 10px 0;
     border-left: 1px solid #E2E2E2;
     border-right: 1px solid #E2E2E2
 }
 
-#trade_cancel .g_gray_table th {
+#trade_cancel .table_angel_secondary th {
     background-color: #F7F7F7
 }
 
@@ -130,21 +130,21 @@
     border: 1px solid #E1E1E1
 }
 
-#trade_reserve .g_blue_table {
+#trade_reserve .table-primary {
     margin-top: 10px
 }
 
-#trade_reserve .g_blue_table th {
+#trade_reserve .table-primary th {
     padding-left: 15px;
     text-align: left
 }
 
-#trade_reserve .g_blue_table td {
+#trade_reserve .table-primary td {
     padding-top: 10px;
     padding-bottom: 10px
 }
 
-#trade_reserve .g_blue_table img {
+#trade_reserve .table-primary img {
     margin-top: 10px
 }
 
@@ -166,7 +166,7 @@
     color: #767676
 }
 
-.dfGameNotice .g_right {
+.dfGameNotice .float__right {
     display: inline;
     margin: 10px 20px 0 0
 }

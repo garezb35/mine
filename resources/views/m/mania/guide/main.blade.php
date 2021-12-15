@@ -12,8 +12,8 @@
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .img_wrap {
                 width: 214px;
@@ -133,7 +133,7 @@
             }
         </style>
         @include('angel.guide.aside', ['group'=>'guide', 'part'=>''])
-        <div class="g_content">
+        <div class="pagecontainer">
             <div class="g_title">이용안내</div>
             <div class="notice-part d-flex">
                 <div style="width: 60%;">
@@ -181,8 +181,8 @@
                     </div>
                 </a>
             </div>
-            <!-- 주요 서비스 //-->
-            <div class="g_smtitle f-15">주요서비스 한 눈에 보기</div>
+
+            <div class="sms_alias f-15">주요서비스 한 눈에 보기</div>
             <dl class="main_service"> <dt>회원관련</dt>
                 <dd> <a href="/guide/join/join.html">회원가입</a> <a href="/guide/myroom/myroom.html">마이룸</a> <a href="/guide/safe_grade/safe_grade.html">신용등급/인증센터</a> </dd> <dt>거래관련</dt>
                 <dd> <a href="/guide/cancel/cancel.html">거래취소/신고</a> <a href="/guide/brokerage/brokerage.html">수수료</a> <a href="/guide/direct/index.html">즉시구매</a> <a href="/guide/char_trade/index.html?file=02">캐릭터 거래</a> <a href="/guide/div_trade/index.html">분할거래</a> <a href="/guide/bar_trade/sell_reg.html">흥정거래</a> </dd> <dt>결제관련</dt>
@@ -194,9 +194,9 @@
                 <dd> <a href="/guide/add/coupon.html">할인쿠폰</a> <a href="/guide/add/security_number.html">안심번호</a> <a href="/guide/add/security_number_plus.html">안심번호 플러스</a> </dd> <dt>모바일관련</dt>
                 <dd> <a href="/guide/mobile/web.html">모바일웹</a> <a href="/guide/mobile/app.html">모바일앱</a> <a href="/guide/mobile/sise_app.html">시세앱</a> <a href="/guide/mobile/push.html">앱 PUSH 알림</a> </dd>
             </dl>
-            <!-- 주요 서비스 //-->
+
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

@@ -18,18 +18,18 @@
 
 @section('content')
     <style>
-        .g_title_blue {
+        .contextual--title {
             margin-left: 20px;
         }
-        .g_tab>* {
+        .react_nav_tab>* {
             background-color: #e3f0f3;
             border-bottom: 2px solid #0081b9;
         }
-        .g_tab>.selected {
+        .react_nav_tab>.selected {
             border: 2px solid #0081b9;
             border-bottom: 0;
         }
-        .g_tab>*>a {
+        .react_nav_tab>*>a {
             font-size: 14px;
         }
         .tb_list th {
@@ -38,12 +38,12 @@
         .tb_list td {
             font-size: 13px;
         }
-        .g_blue_table tr th {
+        .table-primary tr th {
             background-color: #e3f0f3;
         }
-        .g_blue_table,
-        .g_blue_table tr th,
-        .g_blue_table tr td {
+        .table-primary,
+        .table-primary tr th,
+        .table-primary tr td {
             border: solid 1px #89c1ce;
         }
     </style>
@@ -52,8 +52,8 @@
 
     </style>
 
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .img_wrap {
                 width: 214px;
@@ -122,27 +122,27 @@
             }
         </style>
         @include('angel.guide.aside', ['group'=>'new_guide', 'part'=>''])
-        <div class="g_content">
+        <div class="pagecontainer">
             <a name="top"></a>
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue no-border"> 초보자 가이드 </div>
+
+            <div class="contextual--title no-border"> 초보자 가이드 </div>
             <div class="g_gray_border"></div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 메뉴탭 //-->
-            <div class="g_tab">
+
+
+            <div class="react_nav_tab">
                 <div class="selected"><a href="{{route('guide_howto')}}">거래방법 보기</a></div>
-                <!--<div class=""><a href="{{route('guide_movie')}}">동영상 가이드</a></div>-->
+
                 <div class=""><a href="{{route('guide_safe')}}">안전 거래 시스템</a></div>
                 <div class=""><a href="{{route('guide_trade')}}">거래시 주의사항</a></div>
                 <div class=""><a href="{{route('guide_failed')}}">거래 사기 실시간 조회</a></div>
             </div>
-            <div class="g_finish"></div>
-            <!-- ▲ 메뉴탭 //-->
+            <div class="empty-high"></div>
+
             <div class="top_menu">
-                <a href="{{route('guide_howto')}}"><span class="f_blue3 f_bold">판매자 가이드</span></a> |
+                <a href="{{route('guide_howto')}}"><span class="f_blue3 font-weight-bold">판매자 가이드</span></a> |
                 <a href="{{route('guide_howto2')}}"><span class="g_black2">구매자 가이드</span></a>
             </div>
-            <div class="g_finish"></div>
+            <div class="empty-high"></div>
             <ul id="guide_sell">
                 <li>
                     <a href="{{route('guide_howto')}}" class="blue_arrow_right">
@@ -173,20 +173,20 @@
                     </a>
                 </li>
             </ul>
-            <div class="g_finish"></div>
-            <div class="g_subtitle_blue">판매물품입금확인</div>
+            <div class="empty-high"></div>
+            <div class="highlight_contextual">판매물품입금확인</div>
             <div class="guide_subtitle">
                 구매자가 판매물품의 결제를 마치시면 판매자에게 입금확인 SMS알림 메시지를 전송해 드립니다.
                 <br>(단, SMS수신동의를 체크해제 하신 경우 전송되지 않습니다.)
             </div>
             <img src="/angel/img/guide/screenshot/img_acc_01.gif" width="820" height="108" alt="">
-            <div class="g_finish"></div>
-            <div class="g_btn">
+            <div class="empty-high"></div>
+            <div class="btn-groups_angel">
                 <a class="btn-arrow-left" href="{{route('guide_howto')}}" style="padding: 14px 50px; background: #07819C; color: white; font-size: 16px;">판매할 물품등록</a>
                 <a class="btn-arrow-right" href="{{route('guide_howto')}}?file=04" style="padding: 14px 50px; background: #07819C; color: white; font-size: 16px;">구매자 정보확인</a>
             </div>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

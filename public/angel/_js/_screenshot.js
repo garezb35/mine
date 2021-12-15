@@ -11,7 +11,7 @@
             var newObj = $('<div />').addClass('g_screenshot').css({
                 'width': _setting.width + 75
             });
-            var filename = $('<input />', {'type': 'text'}).addClass('g_text g_left').attr('readonly', 'readonly').css({
+            var filename = $('<input />', {'type': 'text'}).addClass('angel__text float-left').attr('readonly', 'readonly').css({
                 'display': 'inline-block',
                 'width': _setting.width + 'px',
                 'height': '20px',

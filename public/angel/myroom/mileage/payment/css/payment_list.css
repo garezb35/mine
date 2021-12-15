@@ -6,7 +6,7 @@
     background-color: #F0F0F0;
 }
 
-.g_big_box1 .g_left .g_selectbox {
+.g_big_box1 .float-left .g_selectbox {
     float: left;
     width: 80px;
     height: 21px;

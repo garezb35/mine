@@ -42,12 +42,12 @@ $category = '> > 기타';
 @endsection
 
 @section('content')
-    <div class="g_container" id="g_CONTENT">
+    <div class="container_fulids" id="module-teaser-fullscreen">
         @include('aside.myroom',['group'=>'buy'])
         <input type="hidden" id="screenshot_info" value="TiUzQg==">
-        <div class="g_content">
+        <div class="pagecontainer">
             <a name="top"></a>
-            <div class="g_subtitle first">물품정보</div>
+            <div class="highlight_contextual_nodemon first">물품정보</div>
             <table class="table-striped table-green1">
                 <colgroup>
                     <col width="130">
@@ -80,7 +80,7 @@ $category = '> > 기타';
                 </tr>
                 </tbody>
             </table>
-            <div class="g_subtitle">판매자 정보</div>
+            <div class="highlight_contextual_nodemon">판매자 정보</div>
             <table class="table-greenwith">
                 <colgroup>
                     <col width="310px" />
@@ -90,7 +90,7 @@ $category = '> > 기타';
                     <th class="p-left-10">
                         <div>
                             <img src="/angel/img/level/{{$seller['roles']['icon']}}" width="37"/>
-                            <span class="f_green4 f_bold">{{$seller['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($seller['point'])}}점)
+                            <span class="f_green4 font-weight-bold">{{$seller['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($seller['point'])}}점)
                         </div>
                     </th>
                     <td>
@@ -123,7 +123,7 @@ $category = '> > 기타';
                                     @endif이메일</span>
                             </dd>
                         </dl>
-                        <div class="g_right">
+                        <div class="float__right">
                             <a href="javascript:fnCreditViewCheck()"></a>
                         </div>
                     </td>
@@ -131,9 +131,9 @@ $category = '> > 기타';
             </table>
 
             <div class="trade_progress_content">
-                <!-- ▼ 판매진행안내 //-->
+
                 <div class="trade_progress buy">
-                    <div class="g_subtitle">
+                    <div class="highlight_contextual_nodemon">
                         거래 진행 상황
                     </div>
                     <div class="trade_progress_txt">
@@ -142,21 +142,21 @@ $category = '> > 기타';
                     <div class="trade_progress_content">
                         <div class="guide_wrap">
                             <div class="guide_set guide_set2 @if($bargains[0]['status'] == 0 || $bargains[0]['status'] == 3){{'active'}}@endif">
-                                <span class="SpGroup check_apply"></span>
+                                <span class="has-sprite check_apply"></span>
                                 <span class="state">흥정신청</span>
                                 <p>판매자의 흥정수락을<br>기다리고 있습니다.<br>판매자가 흥정을 거부할 경우,<br>재흥정이 불가합니다.</p>
                             </div>
                             <div class="guide_set guide_set2 @if($bargains[0]['status'] == 1){{'active'}}@endif">
-                                <span class="SpGroup check_re_apply"></span>
+                                <span class="has-sprite check_re_apply"></span>
                                 <span class="state">재흥정신청</span>
                                 <p>판매자가 재 흥정 신청을 했습니다.<br>30분안에 재흥정에 대한<br>수락여부를 결정해주세요.</p>
-                                <i class="SpGroup arr_mini"></i>
+                                <i class="has-sprite arr_mini"></i>
                             </div>
                             <div class="guide_set guide_set2 @if($bargains[0]['status'] == 10){{'active'}}@endif">
-                                <span class="SpGroup check_ok"></span>
+                                <span class="has-sprite check_ok"></span>
                                 <span class="state">흥정수락</span>
                                 <p>흥정이 성사되었습니다.<br>입금해야할 물품에서 결제 후<br>거래를 진행해주세요.</p>
-                                <i class="SpGroup arr_mini"></i>
+                                <i class="has-sprite arr_mini"></i>
                             </div>
                         </div>
                     </div>
@@ -167,7 +167,7 @@ $category = '> > 기타';
                 <input type="hidden" name="id" value="{{$orderNo}}">
                 <input type="hidden" name="process">
             </form>
-            <div class="g_subtitle">흥정거래 정보</div>
+            <div class="highlight_contextual_nodemon">흥정거래 정보</div>
             <table class="g_green_table2">
                 <tbody>
                 <tr>
@@ -203,7 +203,7 @@ $category = '> > 기타';
                 @endforeach
                 </tbody>
             </table>
-            <div class="g_subtitle">상세설명</div>
+            <div class="highlight_contextual_nodemon">상세설명</div>
             <div class="detail_info">
                 <div class="detail_text">
                     <div id="js-gallery" class="mb-5">
@@ -217,6 +217,6 @@ $category = '> > 기타';
                 </div>
             </div>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
 @endsection

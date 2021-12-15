@@ -295,7 +295,7 @@
                         <h2 class="h5 mb-4">Select profile photo</h2>
                         <div class="d-flex align-items-center">
                             <div class="me-3">
-                                <!-- Avatar -->
+
                                 <img class="rounded avatar-xl" src="../assets/img/team/profile-picture-1.jpg"
                                     alt="change avatar">
                             </div>
@@ -324,7 +324,7 @@
                         <h2 class="h5 mb-4">Select cover photo</h2>
                         <div class="d-flex align-items-center">
                             <div class="me-3">
-                                <!-- Avatar -->
+
                                 <img class="rounded avatar-xl" src="../assets/img/profile-cover.jpg" alt="change cover">
                             </div>
                             <div class="file-field">

@@ -42,17 +42,17 @@
 @endsection
 
 @section('content')
-    <div class="g_container" id="g_CONTENT">
+    <div class="container_fulids" id="module-teaser-fullscreen">
         @include("aside.myroom",['group'=>'sell'])
         <input type="hidden" id="screenshot_info" value="TiUzQg==">
-        <div class="g_content">
+        <div class="pagecontainer">
             <a name="top"></a>
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue noborder">
+
+            <div class="contextual--title noborder">
                 판매중인 <span>물품</span>
             </div>
             <div class="g_gray_border"></div>
-            <!-- ▲ 타이틀 //-->
+
             <form id="frmIngView" name="frmIngView" method="post">
                 @csrf
                 <input type="hidden" id="id" name="id" value="{{$orderNo}}">
@@ -60,8 +60,8 @@
                 <input type="hidden" id="trade_type" name="trade_type" value="c2VsbA==">
                 <input type="hidden" id="answer" name="answer">
             </form>
-            <!-- ▼ 물품정보 //-->
-            <div class="g_subtitle first">물품정보</div>
+
+            <div class="highlight_contextual_nodemon first">물품정보</div>
             <table class="table-striped table-green1">
                 <colgroup>
                     <col width="160">
@@ -103,9 +103,9 @@
                 </tr>
                 </tbody>
             </table>
-            <!-- ▲ 물품정보 //-->
-            <!-- ▼ 구매자 정보 //-->
-            <div class="g_subtitle">구매자 정보</div>
+
+
+            <div class="highlight_contextual_nodemon">구매자 정보</div>
             <table class="table-striped table-green1">
                 <colgroup>
                     <col width="160">
@@ -165,8 +165,8 @@
                 </tr>
                 </tbody>
             </table>
-            <!-- ▼ 내 개인정보 //-->
-            <div class="g_subtitle">내 거래정보</div>
+
+            <div class="highlight_contextual_nodemon">내 거래정보</div>
             <table class="table-striped table-green1">
                 <colgroup>
                     <col width="160">
@@ -185,9 +185,9 @@
                 </tr>
                 </tbody>
             </table>
-            <!-- ▲ 내 개인정보 //-->
-            <!-- ▲ 내 개인정보 //-->
-            <!-- ▼ 1:1 채팅 //-->
+
+
+
             <link rel="stylesheet" href="/angel/myroom/chat/css/chat.css">
 {{--            <script type="text/javascript" src="../chat/js/socket.io.js"></script>--}}
 {{--            <script type="text/javascript" src="../chat/js/connect.js"></script>--}}
@@ -197,8 +197,8 @@
                 </colgroup>
                 <tbody>
                 <td class="vt p-left-0">
-                    <!-- ▼ 상세설명 //-->
-                    <div class="g_subtitle gray mt-0 p-left-10">상세설명</div>
+
+                    <div class="highlight_contextual_nodemon gray mt-0 p-left-10">상세설명</div>
                     <div class="detail_info">
                         <div class="detail_text">
                             <div id="js-gallery" class="mb-5">
@@ -238,49 +238,49 @@
                 </tbody>
             </table>
 
-            <!-- ▲ 1:1 채팅 //-->
-            <!-- ▼ 거래진행상황 //-->
-            <!-- ▼ 판매진행안내 //-->
+
+
+
             <div class="trade_progress">
-                <div class="g_subtitle">
+                <div class="highlight_contextual_nodemon">
                     거래 진행 상황
-                    <div class="g_right">
+                    <div class="float__right">
                         <img id="msg_box" src="http://img3.itemmania.com/images/btn/btn_1vs1_talk.gif" width="71" height="20" alt="1:1 대화함" class="g_button" onclick="_window.open('talk','/myroom/include/live.html?info=YQgPJ51PTFZv0crookaS|s4y4Vlxlu5t|gOnPKwN3APvgSA66Le0dDIuMlfbJV3lt44n8pv8txg|hi2Ja8wWvmRYn6YsvuMShaFqgKHL26jwPPTcCWfg1PLd/ksyGcZ2PmlWhK2QO9LX3Z1HH50FDOLy3Y/8GjaEToYYduZv54v6IkpA7Thc6qgNBP5Ar/ZIaSzNlNBXUw|8nbpR7yZkZcc0rf3MTZHpHWz3tftrQoMOsQvN00UW8tlp5oxK1eRdJjykuTJH6wXvzDNUp6W|JIUSr0sD2/owvdjjobmVgCbSzBhIh7lY0m2VKU|7RlhlA2efjoR1ZM5bWZcugLpfxJug3BumyNqvgevJv5HFmezOZvK7Iy3KjkM4vyMdAVuKCXDm/clvTDx3fHrzpW5l46mOowcY3bezFd|g34T35Ln1CKb0ULBsRmtcOiThsqeabYee9lDGOW6hH2zQrrrcq/2xCVNan|Cl2FgLvF76nFS6diqS74NPLfRxNnaZbQHsK6Ut3|X0/gEUweBg031GZmexmv/qTzIdVTxexYUSIkIuzBjRsxJhpVd/dnvQk0IDz0bdWJ68gCGcPhA/OalN5taX4DW5FTvNFfo4LVoqjP3Fi2jT|7EFotFdGk9tKORabgUVg4ik8AchwB4HTwk6UFBDapBQvzOHkIgJW3pv6J/niq3AJMt7Z4vFCWXQZkgESudTT2/bBobd/E3uP0KX01WusmLX7AmvCmXxesy|HglWV/DsBrB1D/Y0nEXsjKu4JTCJuF7S5g0LMYBZl5E6ppL|zQGyn40rkxIpqSb9M7khx2iUswrIRn2UwwEd3FeRdCxI3pHZDEUsP8H1yQ/MoA==',625,550);" style="display: none;">
                     </div>
                 </div>
                 <div class="trade_progress_content">
                     <div class="guide_wrap">
                         <div class="guide_set">
-                            <span class="SpGroup pay_wait_icon"></span>
+                            <span class="has-sprite pay_wait_icon"></span>
                             <span class="state">입금대기</span>
                             <p>구매자가 구매신청 후<br>입금을 준비하고 있습니다.<br>입금완료 후, 판매중 상태가<br>되면 거래를 시작해주세요.</p>
-                            <i class="SpGroup arr_mini"></i>
+                            <i class="has-sprite arr_mini"></i>
                         </div>
                         <div class="guide_set  @if(($status == 1) || (!str_contains($status, '3')  && $status != 10 && $status !=32 && $status !=23 )) {{'active'}}@endif">
-                            <span class="SpGroup sell_ing_icon"></span>
+                            <span class="has-sprite sell_ing_icon"></span>
                             <span class="state">판매중</span>
                             <p>현재 구매자와 거래중입니다.<br>구매자와 반드시 전화통화로<br>거래할 캐릭터명을 확인 후<br>물품을 건네시기 바랍니다.
                             </p>
-                            <i class="SpGroup arr_mini"></i>
+                            <i class="has-sprite arr_mini"></i>
                         </div>
                         <div class="guide_set @if($status == 3) {{'active'}} @endif">
-                            <span class="SpGroup trade_icon"></span>
+                            <span class="has-sprite trade_icon"></span>
                             <span class="state">인계완료</span>
                             <p>거래종료 예정입니다.<br>구매자가 인수할때까지<br>기다려주세요.</p>
-                            <i class="SpGroup arr_mini"></i>
+                            <i class="has-sprite arr_mini"></i>
                         </div>
                         <div class="guide_set @if($status == 23 || $status == 32) {{'active'}} @endif">
-                            <span class="SpGroup sell_complete_icon"></span>
+                            <span class="has-sprite sell_complete_icon"></span>
                             <span class="state">판매완료</span>
                             <p>거래가 정상적으로<br>종료되었습니다.<br>문제 발생 시<br>고객센터로 문의해주세요.</p>
-                            <i class="SpGroup arr_mini"></i>
+                            <i class="has-sprite arr_mini"></i>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- ▲ 판매진행안내 //-->        <!-- ▲ 거래진행상황 //-->
-            <!-- ▲ 거래필수정보 //-->
-            <!-- ▼ 거래진행상황 //-->
+
+
+
             <!--
                <div style="">
                    <img src="/images/banner/etc/20150108_790_139_bitcoin.jpg" width="760" height="139" alt="비트코인 상품권 입점기념 EVENT" title="비트코인 상품권 입점기념 EVENT" usemap="#20150108_790_139_bitcoin">
@@ -288,10 +288,10 @@
                        <area shape="rect" coords="521,82,697,118" href="http://giftcard.itemmania.com/portal/giftcard/bitcoin/" alt="상품권 발급받으러 가기" title="상품권 발급받으러 가기" />
                    </map>
                </div>
-               <div class="g_finish"></div>
-               -->        <!-- ▲ 거래진행상황 //-->
-            <div class="g_finish"></div>
-            <!-- ▼ 물품인계시 주의사항 //-->
+               <div class="empty-high"></div>
+               -->
+            <div class="empty-high"></div>
+
             <dl id="transfer_info" class="notice_box">
                 <dt>물품을 넘겨주기전에 꼭 읽어보세요!</dt>
                 <dd>1. 구매자의 연락처가 다를경우 거래를 중지하시고 고객센터를 통해 문의해 주시기 바랍니다.</dd>
@@ -300,8 +300,8 @@
                 <dd>4. 반드시 물품을 정상적으로 인계하신 후 물품인계확인을 하시기 바랍니다.</dd>
                 <dd>5. 거래취소 SMS 수신 후 1시간 이내 인계확인이 되지 않을 경우 거래가 자동취소 될 수 있으니 유의하시기 바랍니다.</dd>
             </dl>
-            <!-- ▲ 물품인계시 주의사항 //-->
-            <div class="g_btn">
+
+            <div class="btn-groups_angel">
                 @if(!str_contains($status, 3))
                     <a  class="first btn-default btn-suc" id="trade_btn" onclick="popLayer_2('dvTradeSellCheck');">물품인계확인</a>
                 @endif
@@ -316,21 +316,21 @@
             <input type="hidden" name="id" id="encryptId">
             <input type="hidden" name="type" id="encryptType">
         </form>
-        <!-- ▼ 팝업 레이어 //-->
-        <!-- ▼ 물품 인계 확인 //-->
-        <div class="g_popup" id="dvTradeSellCheck">
-            <div class="layer_title">
+
+
+        <div class="modal_dialog" id="dvTradeSellCheck">
+            <div class="modal__title">
                 물품 인계 확인
-                <img class="btn_close" src="http://img2.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();">
+                <img class="modal__close" src="http://img2.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();">
             </div>
             <form name="moneyreceipt" id="moneyreceipt">
                 @csrf
                 <input type="hidden" id="process" name="process">
                 <input type="hidden" id="answer" name="answer">
-                <div class="layer_content">
+                <div class="modal--content">
                     <div style="height: 86px;border: 1px solid #BBBBBB;">
-                        <div id="goods_img" class="g_left"><img src="/angel/img/icons/cash-receipt.png" width="106" height="85" alt=""></div>
-                        <ul id="goods_info" class="g_left g_black2">
+                        <div id="goods_img" class="float-left"><img src="/angel/img/icons/cash-receipt.png" width="106" height="85" alt=""></div>
+                        <ul id="goods_info" class="float-left g_black2">
                             <li><span class="bold_txt">구매자에게 물품을 건네주셨습니까?</span></li>
                             <li><span class="bold_txt g_blue1_b">물품 인계 확인</span>은 구매자에게 물품을 건네주신 후 하시기 바랍니다.</li>
                         </ul>
@@ -338,11 +338,11 @@
                     <div class="gray-div">
                         현금영수증
                     </div>
-                    <div class="g_finish"></div>
-                    <!-- ▼ 물품인계 버튼 //-->
+                    <div class="empty-high"></div>
 
-                    <!-- ▲ 물품인계 버튼 //-->
-                    <!-- ▼ 현금영수증 발급 폼 //-->
+
+
+
                     <table class="table-green1 mt-5">
                         <colgroup>
                             <col width="164">
@@ -364,7 +364,7 @@
                         <tr>
                             <th>신청자 성명</th>
                             <td>
-                                <input type="text" name="moneyreceipt_name" class="g_text" value="{{$cuser['name']}}">
+                                <input type="text" name="moneyreceipt_name" class="angel__text" value="{{$cuser['name']}}">
                             </td>
                         </tr>
                         <tr id="juminnumber">
@@ -373,16 +373,16 @@
 
                                 <div id="info_phone_div" class="sub_div">
                                     휴대폰번호&nbsp;&nbsp;&nbsp;
-                                    <input type="text" name="user_phone1" id="user_phone1" class="g_text w50" maxlength="3" value="{{$user_phone1}}"> -
-                                    <input type="text" name="user_phone2" id="user_phone2" class="g_text w50" maxlength="4" value="{{$user_phone2}}"> -
-                                    <input type="text" name="user_phone3" id="user_phone3" class="g_text w50" maxlength="4" value="{{$user_phone3}}">
+                                    <input type="text" name="user_phone1" id="user_phone1" class="angel__text w50" maxlength="3" value="{{$user_phone1}}"> -
+                                    <input type="text" name="user_phone2" id="user_phone2" class="angel__text w50" maxlength="4" value="{{$user_phone2}}"> -
+                                    <input type="text" name="user_phone3" id="user_phone3" class="angel__text w50" maxlength="4" value="{{$user_phone3}}">
                                 </div>
                             </td>
                         </tr>
                         <tr style="border-bottom:1px solid #E2E2E2">
                             <th>신청자 이메일</th>
                             <td>
-                                <input type="text" class="g_text" name="moneyreceipt_email" size="23" style="width:200px;" value="{{$cuser['email']}}">
+                                <input type="text" class="angel__text" name="moneyreceipt_email" size="23" style="width:200px;" value="{{$cuser['email']}}">
                             </td>
                         </tr>
                         </tbody>
@@ -392,8 +392,8 @@
                         <div class="attention position-absolute"
                              style="bottom: -6px;background: #fff; font-size: 14px;left: 217px;padding-left: 10px;padding-right: 10px;">현금영수증 발급 안내 & 조회</div>
                     </div>
-                    <!-- ▲ 현금영수증 발급 폼 //-->
-                    <!-- ▼ 현금영수증 발급 안내문 //-->
+
+
                     <ul class="box6 g_list">
                         <li class="list_non">* 현금영수증 미발급 시 승인번호만 발급됩니다. (마이룸 &gt; 현금영수증 발급에서 확인 가능)</li>
                         <li class="list_non">* 현금영수증 발급 안내 사항</li>
@@ -403,31 +403,31 @@
                         <li>발급된 현금영수증은 '마이룸&gt;현금영수증' 메뉴 및 국세청 현금영수증 홈페이지에서 확인하실 수 있습니다.<br><span class="g_red1_b">(2일 후 반영됨)</span>
                         </li>
                     </ul>
-                    <!-- ▲ 현금영수증 발급 안내문 //-->
-                    <div class="g_finish"></div>
-                    <div class="g_btn">
+
+                    <div class="empty-high"></div>
+                    <div class="btn-groups_angel">
                         <a  class="first btn-default btn-suc" onclick="TradeComplete('Y29tcGxldGU=','{{$orderNo}}','check','N');">물품인계 확인</a>
                         <a  class="btn-default btn-cancel"  onclick="g_nodeSleep.disable();">취소</a>
                     </div>
                 </div>
             </form>
         </div>
-        <!-- ▲ 물품 인계 확인 //-->
-        <!-- ▼ 거래 취소시 //-->
-        <div id="trade_cancel" class="g_popup">
+
+
+        <div id="trade_cancel" class="modal_dialog">
             <form id="frmIngViewCancel" name="frmIngViewCancel" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="2021111401457996">
                 <input type="hidden" name="process">
                 <input type="hidden" name="trade_type" value="c2VsbA==">
                 <input type="hidden" name="trade_rereg">
-                <div class="layer_title">
+                <div class="modal__title">
                     <img src="http://img3.itemmania.com/images/myroom/title/titles_deal_cancel.gif" width="72" height="19" alt="거래 취소">
-                    <img class="btn_close" src="http://img4.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();">
+                    <img class="modal__close" src="http://img4.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();">
                 </div>
-                <div class="layer_content">
+                <div class="modal--content">
                     <div class="gray_box">판매자의 거래 취소는 즉시 취소가 됩니다.</div>
-                    <div class="g_finish"></div>
-                    <table class="g_blue_table table-striped">
+                    <div class="empty-high"></div>
+                    <table class="table-primary table-striped">
                         <colgroup>
                             <col width="160">
                             <col width="350">
@@ -440,7 +440,7 @@
                         <tr>
                             <th>취소사유</th>
                             <td>
-                                <select id="SELECT_CANCEL" name="cancel_contents" class="g_hidden" onchange="cancel_select(arguments[0])">
+                                <select id="SELECT_CANCEL" name="cancel_contents" class="d-none" onchange="cancel_select(arguments[0])">
                                     <option value="">선택해 주세요</option>
                                     <option value="1">상대방 연락 안됨</option>
                                     <option value="2">이미 팔린 물품</option>
@@ -455,7 +455,7 @@
                         <tr id="cancelDetail" style="display:none;">
                             <th>사유내용</th>
                             <td>
-                                <textarea name="CANCEL_DETAIL_CONTENT" id="CANCEL_DETAIL_CONTENT" cols="42" rows="5" class="g_textarea"></textarea>
+                                <textarea name="CANCEL_DETAIL_CONTENT" id="CANCEL_DETAIL_CONTENT" cols="42" rows="5" class="angel__textarea"></textarea>
                             </td>
                         </tr>
                         </tbody>
@@ -463,22 +463,22 @@
                     <ul class="g_list">
                         <li>흥정거래 프리미엄 등록 물품은 거래 취소 시 등록된 물품이 삭제 처리됩니다.</li>
                     </ul>
-                    <div class="g_btn">
+                    <div class="btn-groups_angel">
                         <a  href="javascript:void(0)" alt="거래취소" class="btn-default btn-suc" onclick="TraceCancel('order_cancel','{{$orderNo}}');">거래취소</a>
                         <a  href="javascript:void(0)" class="btn-default btn-cancel" onclick="g_nodeSleep.disable();">닫기</a>
                     </div>
                 </div>
             </form>
         </div>
-        <!-- ▲ 거래 취소시 //-->
-        <div id="trade_reserve" class="g_popup">
-            <div class="layer_title">
+
+        <div id="trade_reserve" class="modal_dialog">
+            <div class="modal__title">
                 <img src="http://img3.itemmania.com/images/myroom/title/pop_title_selling.gif" width="108" height="20" alt="판매금액 적립">
-                <img class="btn_close" src="http://img4.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();">
+                <img class="modal__close" src="http://img4.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();">
             </div>
-            <div class="layer_content">
+            <div class="modal--content">
                 <div>거래 종료 후 판매 금액의 적립 방법을 선택해 주시기 바랍니다.</div>
-                <table class="g_blue_table">
+                <table class="table-primary">
                     <colgroup>
                         <col width="210">
                         <col width="420">
@@ -511,14 +511,14 @@
                     2. 통신실패 및 서버에러 발생 시<br>
                     3. 휴대폰번호 출금한도 월 2,000만원 초과 시
                 </div>
-                <div class="g_btn">
+                <div class="btn-groups_angel">
                     <img src="http://img3.itemmania.com/images/btn/btn_popup_enter.gif" width="63" height="34" alt="확인" class="first" id="btn_reserve" onclick="popLayer_2('dvTradeSellCheck');">
                     <img src="http://img2.itemmania.com/images/btn/btn_popup_cancel.gif" width="63" height="34" alt="취소" onclick="g_nodeSleep.disable();">
                 </div>
             </div>
         </div>
 
-        <!-- ▲ 팝업 레이어 //-->
-        <div class="g_finish"></div>
+
+        <div class="empty-high"></div>
     </div>
 @endsection

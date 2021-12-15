@@ -178,21 +178,21 @@
 }
 
 
-.g_content {
+.pagecontainer {
     width: 820px
 }
 
 
-.g_content>.content_coupon {
+.pagecontainer>.content_coupon {
     margin-top: -15px;
 }
 
-.g_content>.content_area {
+.pagecontainer>.content_area {
     position: relative;
     width: 100%;
 }
 
-.g_content>.content_area>.g_subtitle {
+.pagecontainer>.content_area>.highlight_contextual_nodemon {
     display: block;
     width: 100%;
     height: auto;
@@ -200,15 +200,15 @@
     font-size: 15px;
 }
 
-.g_content>.content_coupon {
+.pagecontainer>.content_coupon {
     font-size: 0;
 }
 
-.g_content>.content_coupon>.g_subtitle {
+.pagecontainer>.content_coupon>.highlight_contextual_nodemon {
     margin-top: 1px;
 }
 
-.g_content>.content_coupon>div {
+.pagecontainer>.content_coupon>div {
     display: inline-block;
     width: 98px;
     height: 100px;
@@ -217,16 +217,16 @@
     font-size: 12px;
 }
 
-.g_content>.content_coupon :last-child {
+.pagecontainer>.content_coupon :last-child {
     margin-right: 0;
 }
 
-.g_content>.content_coupon>.coupon_shop {
+.pagecontainer>.content_coupon>.coupon_shop {
     width: 170px;
     vertical-align: top;
 }
 
-.g_content>.content_coupon>.coupon_area_content>.coupon_title {
+.pagecontainer>.content_coupon>.coupon_area_content>.coupon_title {
     display: block;
     margin-top: 22px;
     font-size: 14px;
@@ -234,7 +234,7 @@
     text-align: center;
 }
 
-.g_content>.content_coupon>.coupon_area_content>.coupon_result {
+.pagecontainer>.content_coupon>.coupon_area_content>.coupon_result {
     display: block;
     margin-top: 15px;
     font-size: 25px;
@@ -244,66 +244,66 @@
     cursor: pointer;
 }
 
-.g_content>.content_coupon>.coupon_area_content>.coupon_sp {
+.pagecontainer>.content_coupon>.coupon_area_content>.coupon_sp {
     overflow: hidden;
     width: 170px;
 }
 
-.bs_content {
+.body_rt34DF {
     width: 820px;
     height: 90px;
     border: none;
 }
 
-.g_content>.content_trade>.sell_content2 {
+.pagecontainer>.content_trade>.sell_content2 {
     margin-bottom: 10px;
     background: linear-gradient(to right, #159EFD, #12CFA9);
     font-size: 0;
 }
 
-.g_content>.content_trade>.buy_content2 {
+.pagecontainer>.content_trade>.buy_content2 {
     background: linear-gradient(to right, #47C826, #DACD00);
     font-size: 0;
 }
 
-.g_content>.content_trade>.sell_content2>.sell_content_left,
-.g_content>.content_trade>.sell_content2>.sell_content_right {
+.pagecontainer>.content_trade>.sell_content2>.sell_content_left,
+.pagecontainer>.content_trade>.sell_content2>.sell_content_right {
     display: inline-block;
     vertical-align: top;
     font-size: 0;
     height: 90px;
 }
 
-.g_content>.content_trade>.buy_content2>.buy_content_left,
-.g_content>.content_trade>.buy_content2>.buy_content_right {
+.pagecontainer>.content_trade>.buy_content2>.buy_content_left,
+.pagecontainer>.content_trade>.buy_content2>.buy_content_right {
     display: inline-block;
     vertical-align: top;
     font-size: 0;
     height: 90px;
 }
 
-.g_content>.content_trade>.sell_content2>.sell_content_right,
-.g_content>.content_trade>.buy_content2>.buy_content_right {
+.pagecontainer>.content_trade>.sell_content2>.sell_content_right,
+.pagecontainer>.content_trade>.buy_content2>.buy_content_right {
     margin-left: 4px;
 }
 
-.g_content>.content_trade>.sell_content2>.sell_content_left>div {
+.pagecontainer>.content_trade>.sell_content2>.sell_content_left>div {
     display: inline-block;
 }
 
-.g_content>.content_trade>.buy_content2>.buy_content_left>div {
+.pagecontainer>.content_trade>.buy_content2>.buy_content_left>div {
     display: inline-block;
 }
 
-.g_content>.content_trade>.sell_content2 .product_title,
-.g_content>.content_trade>.buy_content2 .product_title {
+.pagecontainer>.content_trade>.sell_content2 .product_title,
+.pagecontainer>.content_trade>.buy_content2 .product_title {
     margin: 0 23px 12px 0;
     font-size: 14px;
     font-weight: bold;
     color: #FFF;
 }
 
-.g_content>.content_trade .product {
+.pagecontainer>.content_trade .product {
     display: inline-block;
     width: 162px;
     height: 90px;
@@ -311,11 +311,11 @@
     vertical-align: top;
 }
 
-.g_content>.content_trade .product>div {
+.pagecontainer>.content_trade .product>div {
     vertical-align: top;
 }
 
-.g_content>.content_trade .product_line {
+.pagecontainer>.content_trade .product_line {
     display: inline-block;
     margin: 15px 0 0 0;
     width: 1px;
@@ -324,22 +324,22 @@
 }
 
 
-.g_content>.content_trade .product>.product_title2>a {
+.pagecontainer>.content_trade .product>.product_title2>a {
     margin-left: 5px;
 }
 
 
-.g_content>.content_trade .product_wrap {
+.pagecontainer>.content_trade .product_wrap {
     position: relative;
     vertical-align: top;
 }
 
-.g_content>.content_trade .product_wrap>div>div {
+.pagecontainer>.content_trade .product_wrap>div>div {
     display: inline-block;
     vertical-align: middle;
 }
 
-.g_content>.content_trade .trade_result {
+.pagecontainer>.content_trade .trade_result {
     width: 90px;
     color: #FFF;
     font-size: 20px;
@@ -347,21 +347,21 @@
     font-weight: bold;
 }
 
-.g_content>.content_trade .trade_result>a {
+.pagecontainer>.content_trade .trade_result>a {
     overflow: hidden;
     display: block;
     width: 70px;
     text-align: center;
 }
 
-.g_content>.content_trade .trade_result2 {
+.pagecontainer>.content_trade .trade_result2 {
     color: #FFF;
     font-size: 25px;
     font-family: Tahoma;
     font-weight: bold;
 }
 
-.g_content>.content_trade .trade_result2>a {
+.pagecontainer>.content_trade .trade_result2>a {
     overflow: hidden;
     display: block;
     width: 162px;
@@ -369,13 +369,13 @@
     text-align: center;
 }
 
-.g_content>.content_trade .complete_wrap>a {
+.pagecontainer>.content_trade .complete_wrap>a {
     display: block;
     text-align: center;
 }
 
 
-.g_content>.content_trade .icon_wrap>.sell_icon {
+.pagecontainer>.content_trade .icon_wrap>.sell_icon {
     display: block;
     width: 60px;
     height: 35px;
@@ -384,7 +384,7 @@
     text-indent: -9999px;
 }
 
-.g_content>.content_trade .icon_wrap>.buy_icon {
+.pagecontainer>.content_trade .icon_wrap>.buy_icon {
     display: block;
     width: 60px;
     height: 35px;
@@ -393,120 +393,120 @@
     text-indent: -9999px;
 }
 
-.g_content>.content_trade .product_wrap>.sell_product>.product_title,
-.g_content>.content_trade .product_wrap>.buy_product>.product_title,
-.g_content>.content_trade .product_wrap>.bargain_product>.product_title {
+.pagecontainer>.content_trade .product_wrap>.sell_product>.product_title,
+.pagecontainer>.content_trade .product_wrap>.buy_product>.product_title,
+.pagecontainer>.content_trade .product_wrap>.bargain_product>.product_title {
     margin: 0 23px 0 0
 }
 
-.g_content>.content_trade .product_wrap>.sell_product,
-.g_content>.content_trade .product_wrap>.buy_product {
+.pagecontainer>.content_trade .product_wrap>.sell_product,
+.pagecontainer>.content_trade .product_wrap>.buy_product {
     margin: 15px 0 10px 0;
 }
 
-.g_content>.content_trade>.sell_content2 .product_title2,
-.g_content>.content_trade>.buy_content2 .product_title2 {
+.pagecontainer>.content_trade>.sell_content2 .product_title2,
+.pagecontainer>.content_trade>.buy_content2 .product_title2 {
     margin-top: 17px;
     margin-right: 0;
     text-align: center;
 }
 
 
-.g_content>.content_area>.content_table_wrap {
+.pagecontainer>.content_area>.content_table_wrap {
     position: relative;
     width: 100%;
 }
 
-.g_content>.content_area>.content_table_wrap>table {
+.pagecontainer>.content_area>.content_table_wrap>table {
     border: none;
     border-collapse: separate;
     border-spacing: 0 5px;
     font-size: 12px;
 }
 
-.g_content>.content_area>.content_table_wrap>table>thead>tr>th {
+.pagecontainer>.content_area>.content_table_wrap>table>thead>tr>th {
     background: none;
     border-top: 2px solid #000;
 }
 
-.g_content>.content_area>.content_table_wrap>table>tbody>tr>td {
+.pagecontainer>.content_area>.content_table_wrap>table>tbody>tr>td {
     padding-left: 0;
     text-align: center;
     border: none;
 }
 
-.g_content>.content_area>.content_table_wrap>table>tbody>tr>.tbl_subject {
+.pagecontainer>.content_area>.content_table_wrap>table>tbody>tr>.tbl_subject {
     padding-left: 36px;
     text-align: left;
 }
 
 
-.g_content>.content_area>.content_table_wrap>table>tbody>tr>.td_blue::before {
+.pagecontainer>.content_area>.content_table_wrap>table>tbody>tr>.td_blue::before {
     content: 'â—';
 }
 
-.g_content>.content_area>.content_table_wrap>table>tbody>tr>.td_blue {
+.pagecontainer>.content_area>.content_table_wrap>table>tbody>tr>.td_blue {
     color: #159EFD
 }
 
-.g_content>.content_area>.content_table_wrap>table>tbody>tr>.td_green {
+.pagecontainer>.content_area>.content_table_wrap>table>tbody>tr>.td_green {
     color: #39A742
 }
 
-.g_content>.content_area>.content_table_wrap>table>tbody>tr>.td_green::before {
+.pagecontainer>.content_area>.content_table_wrap>table>tbody>tr>.td_green::before {
     content: 'â—';
 }
 
-.g_content>.content_area>.content_table_wrap>table>tbody>.tbl_sell_area {
+.pagecontainer>.content_area>.content_table_wrap>table>tbody>.tbl_sell_area {
     background: #F1F7FF;
 }
 
-.g_content>.content_area>.content_table_wrap>table>tbody>.tbl_buy_area {
+.pagecontainer>.content_area>.content_table_wrap>table>tbody>.tbl_buy_area {
     background: #F4FBF4;
 }
 
 
 
-.g_content>.content_area>.content_table_wrap>table>tbody>.tbl_sell_area>td>.tbl_success_txt {
+.pagecontainer>.content_area>.content_table_wrap>table>tbody>.tbl_sell_area>td>.tbl_success_txt {
     color: #159EFD;
     font-weight: bold;
 }
 
-.g_content>.content_area>.content_table_wrap>table>tbody>.tbl_buy_area>td>.tbl_success_txt {
+.pagecontainer>.content_area>.content_table_wrap>table>tbody>.tbl_buy_area>td>.tbl_success_txt {
     color: #39A742;
     font-weight: bold;
 }
 
 
-.g_content>.content_area_bottom_left {
+.pagecontainer>.content_area_bottom_left {
     width: 490px;
     float: left;
     z-index: 1;
 }
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap {
     position: relative;
     width: 100%;
     height: 200px;
 }
 
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap .box_inline {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap .box_inline {
     display: inline-block;
     font-size: 0;
     vertical-align: top;
 }
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap .box_inline .box_font {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap .box_inline .box_font {
     font-size: 14px;
 }
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap .box_inline>div {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap .box_inline>div {
     display: inline-block;
     font-size: 0;
 }
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap>.box_up {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap>.box_up {
     width: 500px;
     height: 80px;
     background: #F9F9FA;
@@ -514,32 +514,32 @@
     font-size: 0;
 }
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap>.box_down {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap>.box_down {
     width: 500px;
     height: 80px;
     background: #F9F9FA;
     font-size: 0;
 }
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap>.box_up> :first-child,
-.g_content>.content_area_bottom_left>.my_security_state_wrap>.box_down> :first-child {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap>.box_up> :first-child,
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap>.box_down> :first-child {
     width: 215px;
 }
 
 
-.g_content>.content_area_bottom_left .security_icon,
-.g_content>.content_area_bottom_left .security_center_go {
+.pagecontainer>.content_area_bottom_left .security_icon,
+.pagecontainer>.content_area_bottom_left .security_center_go {
     display: inline-block;
 }
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap>.box_up>.box_inline>.security_wrap,
-.g_content>.content_area_bottom_left>.my_security_state_wrap>.box_down>.box_inline>.certify_wrap {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap>.box_up>.box_inline>.security_wrap,
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap>.box_down>.box_inline>.certify_wrap {
     margin: 0 19px 0 30px;
     width: 37px;
     line-height: 80px;
 }
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap>.box_up>.box_inline>.security_wrap>.security_icon {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap>.box_up>.box_inline>.security_wrap>.security_icon {
     display: inline-block;
     width: 37px;
     height: 40px;
@@ -547,7 +547,7 @@
     vertical-align: middle;
 }
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap>.box_up>.box_inline>.security_center_go {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap>.box_up>.box_inline>.security_center_go {
     height: 80px;
     line-height: 80px;
     font-size: 15px;
@@ -555,24 +555,24 @@
     vertical-align: top;
 }
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap>.box_up>.box_inline2 {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap>.box_up>.box_inline2 {
     width: 245px;
 }
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap>.box_up>.box_inline2>div {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap>.box_up>.box_inline2>div {
     display: block;
     font-weight: bold;
 }
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap>.box_up>.box_inline2> :first-child {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap>.box_up>.box_inline2> :first-child {
     margin-top: 13px;
 }
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap>.box_up>.box_inline2>div>.service_state {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap>.box_up>.box_inline2>div>.service_state {
     float: right;
 }
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap>.box_up>.security_center_go {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap>.box_up>.security_center_go {
     top: 147px;
     text-align: center;
     height: 28px;
@@ -582,7 +582,7 @@
     letter-spacing: -1px;
 }
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap>.box_down>.box_inline>.certify_wrap>.certify_icon {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap>.box_down>.box_inline>.certify_wrap>.certify_icon {
     display: inline-block;
     width: 37px;
     height: 40px;
@@ -590,7 +590,7 @@
     vertical-align: middle;
 }
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap>.box_down>.box_inline>.basic_title {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap>.box_down>.box_inline>.basic_title {
     height: 80px;
     line-height: 80px;
     font-size: 15px;
@@ -598,21 +598,21 @@
     vertical-align: top;
 }
 
-.g_content>.content_area_bottom_left>.my_security_state_wrap>.box_down>.box_inline2>div {
+.pagecontainer>.content_area_bottom_left>.my_security_state_wrap>.box_down>.box_inline2>div {
     display: inline-block;
     width: 46px;
     height: 80px;
     margin-right: 5px;
 }
 
-.g_content>.content_area_bottom_right {
+.pagecontainer>.content_area_bottom_right {
     width: 310px;
     height: auto;
     float: left;
     margin-left: 20px;
 }
 
-.g_content>.content_area_bottom_right>.content_box_wrap {
+.pagecontainer>.content_area_bottom_right>.content_box_wrap {
     position: relative;
     width: 100%;
     height: 170px;
@@ -622,21 +622,21 @@
 
 
 
-.g_content>.content_area_bottom_right>.content_box_wrap>.my_service_wrap {
+.pagecontainer>.content_area_bottom_right>.content_box_wrap>.my_service_wrap {
     display: inline-block;
     width: 103px;
     height: 170px;
     margin: 0 auto;
 }
 
-.g_content>.content_area_bottom_right>.content_box_wrap>.my_service_wrap>.content_icon {
+.pagecontainer>.content_area_bottom_right>.content_box_wrap>.my_service_wrap>.content_icon {
     width: 103px;
     height: 40px;
     margin: 24px 0 10px 0;
     text-align: center;
 }
 
-.g_content>.content_area_bottom_right>.content_box_wrap>.my_service_wrap>.content_icon>span {
+.pagecontainer>.content_area_bottom_right>.content_box_wrap>.my_service_wrap>.content_icon>span {
     display: inline-block;
     width: 45px;
     height: 40px;
@@ -683,7 +683,7 @@
 
 .g_content>.content_area_bottom_right>.content_box_wrap>.my_search_text {}
 
-.g_content>.content_area_bottom_right>.content_box_wrap>.my_setting_text {}
+.g_content>.content_area_bottom_right>.content_box_wrap>.my_settinangel__text {}
 
 .myroomBannerdown {
     position: relative;

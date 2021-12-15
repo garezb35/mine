@@ -1,18 +1,18 @@
-.g_blue_table {
+.table-primary {
     margin: 10px 0 5px
 }
 
-.g_blue_table tr th {
+.table-primary tr th {
     padding-left: 10px;
     text-align: left
 }
 
-.g_blue_table tr td {
+.table-primary tr td {
     padding-right: 15px;
     text-align: right
 }
 
-.g_btn .first {
+.btn-groups_angel .first {
     margin-right: 15px
 }
 

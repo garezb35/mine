@@ -61,16 +61,16 @@
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <input type="hidden" id="screenshot_info" value="TiUzQg==">
         @include('aside.sell-buy_view',['group'=>'sell'])
-        <div class="g_content">
+        <div class="pagecontainer">
             <div class="g_title_noborder"> 팝니다
             </div>
             <a name="top"></a>
             <form name="frmSell" id="frmSell">
-                <div class="g_subtitle">물품정보 </div>
+                <div class="highlight_contextual_nodemon">물품정보 </div>
                 @if($user_goods_type == 'general')
                 <table class="table-striped table-green1">
                     <colgroup>
@@ -129,7 +129,7 @@
                         <th>물품제목</th>
                         <td colspan="3">
                         {{$user_title}}
-                            <!-- 퀵 아이콘 -->
+
                         </td>
                     </tr>
                     <tr>
@@ -173,7 +173,7 @@
                         <th>물품제목</th>
                         <td colspan="3">
                             {{$user_title}}
-                            <!-- 퀵 아이콘 -->
+
                         </td>
                     </tr>
                     <tr>
@@ -190,7 +190,7 @@
                 </table>
                 @endif
             </form>
-            <div class="g_subtitle"> 판매자정보
+            <div class="highlight_contextual_nodemon"> 판매자정보
             </div>
             <table class="table-greenwith">
                 <colgroup>
@@ -202,7 +202,7 @@
                         <th class="p-left-10">
                             <div>
                                 <img src="/angel/img/level/{{$user['roles']['icon']}}" width="37"/>
-                                <span class="f_green4 f_bold">{{$user['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($user['point'])}}점)
+                                <span class="f_green4 font-weight-bold">{{$user['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($user['point'])}}점)
                             </div>
                         </th>
                         <td>
@@ -236,7 +236,7 @@
 
                                 </dd>
                             </dl>
-                            <div class="g_right">
+                            <div class="float__right">
                                 <a href="javascript:fnCreditViewCheck()"></a>
                             </div>
                         </td>
@@ -251,8 +251,8 @@
                 <tbody>
                     <tr>
                         <td class="vt p-left-0">
-                            <!-- ▼ 상세설명 //-->
-                            <div class="g_subtitle gray mt-0" style="padding-left: 6px"> 상세설명
+
+                            <div class="highlight_contextual_nodemon gray mt-0" style="padding-left: 6px"> 상세설명
                                 <a href="javascript:;" class="wideview"  id="wideview" style="margin-right: 6px">열기▼</a>
                             </div>
                             <div class="detail_info bg-white" id="detail_info">
@@ -267,33 +267,33 @@
                                     {{$user_text}}
                                 </div>
                             </div>
-                            <div class="g_finish"></div>
+                            <div class="empty-high"></div>
                         </td>
                         <td class="vt p-right-0">
-                            <div class="g_subtitle mt-0">거래 사기 실시간 조회 서비스</div>
+                            <div class="highlight_contextual_nodemon mt-0">거래 사기 실시간 조회 서비스</div>
                             <div class="trade_fraud" id="trade_fraud">
                                 <div class="text-center mb-5"> - 물품등록의 거래사기 피해사례를 확인하세요 <a href="javascript:;" data-type="user" class="srh_btn">조회</a>
                                     <input type="hidden" id="FraudTrade_id" value="2021101408177351"> </div>
                                 <div class="direct text-center">
-                                    <input type="text" name="srh_txt" id="srh_txt" class="g_text text-left" placeholder="휴대폰번호/계좌번호"> <a href="javascript:;" data-type="direct" class="srh_btn">조회</a> </div>
+                                    <input type="text" name="srh_txt" id="srh_txt" class="angel__text text-left" placeholder="휴대폰번호/계좌번호"> <a href="javascript:;" data-type="direct" class="srh_btn">조회</a> </div>
                             </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
 
-            <div class="g_btn_wrap">
+            <div class="b_input_group">
                 @if($user_goods_type == 'general' || $user_goods_type == 'division')
                     <a href="/sell/application?id={{$orderNo}}" class="btn-default btn-suc">구매신청</a>
                 @endif
                 @if($user_goods_type == 'bargain')
                     <a href="/sell/application?id={{$orderNo}}&amp;" class="btn-default btn-suc">즉시 구매</a>
-                    <a href="javascript:void(0);" class="btn-default btn-cancel" onclick="g_nodeSleep.enable($('#dvPopup'));">흥정신청</a>
+                    <a href="javascript:void(0);" class="btn-default btn-cancel" onclick="g_nodeSleep.enable($('#dialog_fade'));">흥정신청</a>
                 @endif
             </div>
         </div>
         @if($user_goods_type == 'bargain')
-            <div id="dvPopup" class="g_popup dvPopup">
+            <div id="dialog_fade" class="modal_dialog dialog_fade">
                 <form id="frmbaRequest" name="frmbaRequest" action="/sell/application_ba_ok" method="post">
                     @csrf
                     <input type="hidden" name="id" value="{{$orderNo}}">
@@ -309,13 +309,13 @@
                     <input type="hidden" name="user_mobileC" id="user_mobileC" value="{{$mobile_c}}">
                     <input type="hidden" name="user_without" id="user_without" value="1">
                     <input type="hidden" name="trade_kind" id="trade_kind" value="1">
-                    <div class="layer_title">
+                    <div class="modal__title">
                         <div class="title">흥정신청</div>
-                        <img class="btn_close" src="http://img1.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable($('#dvPopup'));">
+                        <img class="modal__close" src="http://img1.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable($('#dialog_fade'));">
                     </div>
-                    <div class="layer_content">
-                        <!-- ▼ 주문상품정보 //-->
-                        <div class="g_subtitle first">주문상품정보</div>
+                    <div class="modal--content">
+
+                        <div class="highlight_contextual_nodemon first">주문상품정보</div>
                         <table class="table-green1">
                             <colgroup>
                                 <col width="150">
@@ -337,16 +337,16 @@
                                 <tr>
                                     <th>흥정신청금액</th>
                                     <td>
-                                        <input type="text" name="ba_money" maxlength="10" class="g_text" style="text-align:right;"> 원
+                                        <input type="text" name="ba_money" maxlength="10" class="angel__text" style="text-align:right;"> 원
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                        <!-- ▲ 주문상품정보 //-->
-                        <!-- ▼ 개인정보 //-->
-                        <div class="g_subtitle">
-                            <div class="g_left">개인정보</div>
-{{--                            <div class="g_right">--}}
+
+
+                        <div class="highlight_contextual_nodemon">
+                            <div class="float-left">개인정보</div>
+{{--                            <div class="float__right">--}}
 {{--                                <a href="#" onclick="_window.open('private_edit','/user/contact_edit',420,300);"><img src="http://img4.itemmania.com/images/btn/btn_call_edit.gif" width="84" height="20" alt="연락처 수정"></a>--}}
 {{--                            </div>--}}
                         </div>
@@ -359,29 +359,29 @@
                                 <tr>
                                     <th>구매자 캐릭터명</th>
                                     <td class="character_area">
-                                        <div class="g_left">
-                                            <input type="text" name="user_character" class="g_text" maxlength="30" id="user_character"> 물품을 전달 받으실 본인의 캐릭터명
+                                        <div class="float-left">
+                                            <input type="text" name="user_character" class="angel__text" maxlength="30" id="user_character"> 물품을 전달 받으실 본인의 캐릭터명
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>연락처</th>
                                     <td>
-                                        <div class="g_left">
+                                        <div class="float-left">
                                             <span id="spnUserPhone">{{$cuser['home']}}</span> / <span id="spnUserCell">{{$cuser['number']}}</span>
                                         </div>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                        <!-- ▲ 개인정보 //-->
+
                         <ul class="box6 g_list mt-10">
                             <li>흥정하기 기능은 마일리지 결제만 가능합니다.</li>
                             <li>판매자가 해당 금액에 흥정을 수락하면 1시간 이내에 결제하셔야 합니다..</li>
                             <li>흥정요청 후 1시간 동안 판매자의 응답이 없을 경우 해당 흥정신청은 자동 취소됩니다.</li>
                             <li>판매자가 흥정신청을 거부하면 재신청이 불가하오니 신중히 신청해주시기 바랍니다.</li>
                         </ul>
-                        <div class="g_btn">
+                        <div class="btn-groups_angel">
                             <a href="javascript:void(0)" class="btn-default btn-suc" onclick="$('#frmbaRequest').submit();">흥정신청</a>
                             <a href="javascript:void(0)" class="btn-default btn-cancel" onclick="g_nodeSleep.disable();">취소</a>
                         </div>
@@ -394,9 +394,9 @@
             <input type="hidden" id="infoId" value="d8b16a8a27778da8792dc32e5d5aaeb7">
             <input type="hidden" name="id" id="encryptId">
             <input type="hidden" name="type" id="encryptType"> </form>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 
 @endsection
 

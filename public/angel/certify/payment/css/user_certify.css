@@ -91,7 +91,7 @@
     padding: 10px 15px 7px;
 }
 
-.g_btn {
+.btn-groups_angel {
     margin-top: 20px
 }
 
@@ -214,11 +214,11 @@
     margin-bottom: 20px
 }
 
-.g_btn {
+.btn-groups_angel {
     text-align: center;
 }
 
-.g_btn .btn_gray3 {
+.btn-groups_angel .btn_gray3 {
     display: inline-block;
     width: 90px;
     height: 30px;
@@ -237,4 +237,12 @@
     border-width: 2px;
     padding: 15px;
     text-align: center;
+}
+
+
+.do-certify{
+    background: #DA9D00;
+    padding: 6px;
+    border-radius: 6px;
+    color: #fff;
 }

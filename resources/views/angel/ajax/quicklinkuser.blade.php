@@ -17,9 +17,9 @@
         <dt>총 마일리지</dt>
         <dd>12,000원</dd>
         <dt>할인쿠폰</dt>
-        <dd class="f_blue1">0장</dd>
+        <dd class="text-blue_modern">0장</dd>
         <dt>쇼핑포인트</dt>
-        <dd class="f_blue1">1,292P</dd>
+        <dd class="text-blue_modern">1,292P</dd>
     </dl>
     <div class="other_link d-flex">
         <a id="user_charge_proc" href="#" onclick="_window.open('mileage_charge_dlwkd1640', '#', 685, 800);">충전</a>

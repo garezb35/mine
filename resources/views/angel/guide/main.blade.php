@@ -12,8 +12,8 @@
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .img_wrap {
                 width: 214px;
@@ -132,7 +132,7 @@
             }
         </style>
         @include('angel.guide.aside', ['group'=>'guide', 'part'=>''])
-        <div class="g_content">
+        <div class="pagecontainer">
             <div class="g_title">이용안내</div>
             <div class="notice-part d-flex">
                 <div style="width: 60%;">
@@ -179,8 +179,8 @@
                     </div>
                 </a>
             </div>
-            <!-- 주요 서비스 //-->
-            <div class="g_smtitle f-15">주요서비스 한 눈에 보기</div>
+
+            <div class="sms_alias f-15">주요서비스 한 눈에 보기</div>
             <dl class="main_service"> <dt>회원관련</dt>
                 <dd>
                     <a href="{{route('guide_join')}}">회원가입</a>
@@ -217,9 +217,9 @@
                     <a href="{{route('security_number_plus')}}">안심번호 플러스</a>
                 </dd>
             </dl>
-            <!-- 주요 서비스 //-->
+
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

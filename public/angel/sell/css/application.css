@@ -20,7 +20,7 @@
     margin-right: 3px;
 }
 
-.private_area .guide_txt {
+.user__contact .guide_txt {
     position: absolute;
     top: 10px;
     right: 5px;
@@ -29,7 +29,7 @@
     text-decoration: underline;
 }
 
-.private_area .btn_white1.after {
+.user__contact .btn-light-modern.after {
     position: absolute;
     top: 8px;
     right: 0;
@@ -39,7 +39,7 @@
     font-size: 11px;
 }
 
-.private_area .btn_white1.after:after {
+.user__contact .btn-light-modern.after:after {
     content: '\203A';
     position: absolute;
     top: -3px;
@@ -48,14 +48,14 @@
     font-size: 26px;
 }
 
-.private_area .character_noti {
+.user__contact .character_noti {
     clear: both;
     margin-top: 5px;
     color: #FF2400;
     font-size: 12px;
 }
 
-.private_area .character_noti em {
+.user__contact .character_noti em {
     text-decoration: underline;
 }
 
@@ -63,7 +63,7 @@
     width: 690px;
 }
 
-.dvGoodsInfo .g_blue_table2 {
+.dvGoodsInfo .table-primary2 {
     margin-top: 10px;
 }
 
@@ -109,7 +109,7 @@
     right: 20px;
 }
 
-.compensation .box7 .g_msgbox {
+.compensation .box7 .mailbox__list {
     top: 42px;
     right: 20px;
 }

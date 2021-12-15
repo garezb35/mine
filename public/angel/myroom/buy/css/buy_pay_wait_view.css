@@ -63,7 +63,7 @@
     margin: 5px 90px 0 0;
 }
 
-.my_coupon .btn_white1,
+.my_coupon .btn-light-modern,
 .my_coupon .btn_gray3 {
     float: right;
     position: relative;
@@ -76,7 +76,7 @@
     font-weight: normal;
 }
 
-.my_coupon .btn_white1:after {
+.my_coupon .btn-light-modern:after {
     content: '\203A';
     position: absolute;
     top: -3px;
@@ -116,7 +116,7 @@
     letter-spacing: 0;
 }
 
-.my_mileage dd .g_text {
+.my_mileage dd .angel__text {
     width: 120px;
     text-align: right;
 }
@@ -269,29 +269,29 @@
 
 /* â–² ë§ˆì¼ë¦¬ì§€ ì¶©ì „ë°©ë²• */
 
-.g_layer .last_txt {
+.react___gatsby .last_txt {
     margin-top: 10px;
     text-align: center;
     font-weight: bold;
 }
 
-.g_layer .g_subtitle.first {
+.react___gatsby .highlight_contextual_nodemon.first {
     padding-top: 0;
 }
 
-.g_layer .g_list {
+.react___gatsby .g_list {
     margin-top: 10px;
 }
 
-.g_layer .cell_ul li {
+.react___gatsby .cell_ul li {
     display: inline;
 }
 
-.g_layer .cell_ul label {
+.react___gatsby .cell_ul label {
     padding-right: 15px;
 }
 
-.g_popup .last_txt {
+.modal_dialog .last_txt {
     margin-top: 10px;
     text-align: center;
     font-weight: bold;

@@ -1,13 +1,13 @@
 function _header() {
-    var h = document.getElementById("g_searchbar_form");
+    var h = document.getElementById("search-overlay-container");
     if(h !== null) {
-        var c = h.querySelector('[name="search_game"]');
-        var g = h.querySelector('[name="search_server"]');
-        var d = h.getElementsByClassName("g_search_frame")[0];
+        var c = h.querySelector('[name="filtered_game_id"]');
+        var g = h.querySelector('[name="filtered_child_id"]');
+        var d = h.getElementsByClassName("gameWindowPopup")[0];
         new GameServerList(h.querySelector('[data-gslist="true"]'), {
             formElement: h,
             containerWrapper: d,
-            toggleContainer: d.getElementsByClassName("initial_screen")[0],
+            toggleContainer: d.getElementsByClassName("_34Cr45d_reacts")[0],
             game: {
                 gameCode: c.value
             },
@@ -21,9 +21,9 @@ function _header() {
                         return
                     }
                     if(this.goodsCode !== undefined) {
-                        h.querySelector('[name="search_goods"]').value = this.goodsCode
+                        h.querySelector('[name="filtered_items"]').value = this.goodsCode
                     } else {
-                        h.querySelector('[name="search_goods"]').value = ""
+                        h.querySelector('[name="filtered_items"]').value = ""
                     }
                     var l = (g.value === "0") ? "list" : "list_search";
                     var k = h.querySelector('[name="search_type"]:checked').value;
@@ -35,13 +35,13 @@ function _header() {
             }
         })
     }
-    var j = document.getElementById("quickmenu_dtl");
+    var j = document.getElementById("sidebar-btn");
     if(j !== null) {
         var i;
-        var e = document.getElementById("quickmenu_area");
-        var b = document.getElementById("quickmenu");
+        var e = document.getElementById("toolbar-btn");
+        var b = document.getElementById("drawer-content-menu");
 
-        document.getElementById("quickmenu_close").addEventListener("click", function() {
+        document.getElementById("sidebar-cls").addEventListener("click", function() {
             e.classList.remove("qickmenu_on");
             $(b).addClass("close");
             $(b).children().removeClass("on")
@@ -76,14 +76,14 @@ function _header() {
                 url: "/html/sitemap",
                 dataType: "html",
                 success: function(k) {
-                    $("#all_menu_layer").find(".inner").append(k);
+                    $("#outterWrapper").find(".inner").append(k);
                     $("#all_menu").off("click")
                 }
             })
         });
-        LayerControl({
+        KeepAlivesRaw({
             el: document.getElementById("all_menu"),
-            layer: document.getElementById("all_menu_layer"),
+            layer: document.getElementById("outterWrapper"),
             close_btn: document.getElementById("menu_close"),
             type: "style"
         })
@@ -138,9 +138,9 @@ function _header() {
 
 function searchbarSubmit() {
 
-    var f = document.getElementById("g_searchbar_form");
-    var h = f.querySelector('[name="search_game"]');
-    var c = f.querySelector('[name="search_server"]');
+    var f = document.getElementById("search-overlay-container");
+    var h = f.querySelector('[name="filtered_game_id"]');
+    var c = f.querySelector('[name="filtered_child_id"]');
     var a = h.value;
     var g = c.value;
     var b = f.querySelector('[name="search_type"]:checked').value;

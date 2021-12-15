@@ -54,7 +54,7 @@ function _init() {
     var regGameServerEl = document.getElementById('reg_gameserver');
     regGameServer = new GameServerList(document.getElementById('reg_gameserver_list'), {
         containerWrapper: regGameServerEl,
-        toggleContainer: regGameServerEl.getElementsByClassName('initial_screen')[0],
+        toggleContainer: regGameServerEl.getElementsByClassName('_34Cr45d_reacts')[0],
         formElement: '#frmSell',
         game: {
             autoComplete: '#searchRegGameServer',
@@ -67,8 +67,8 @@ function _init() {
 
                 $('.favorite').removeClass('on');
 
-                if ($('.item_detail_opts').hasClass('g_hidden') == true) {
-                    $('.item_detail_opts').removeClass('g_hidden');
+                if ($('.item_detail_opts').hasClass('d-none') == true) {
+                    $('.item_detail_opts').removeClass('d-none');
                     $('#user_title').prop('readonly', false);
                 }
 
@@ -99,18 +99,18 @@ function _init() {
                 }
 
                 if (this.getValue().code === 'money') {
-                    $('#division').removeClass('g_hidden');
-                    if (bargain.hasClass('g_hidden') === false) {
-                        bargain.addClass('g_hidden');
+                    $('#division').removeClass('d-none');
+                    if (bargain.hasClass('d-none') === false) {
+                        bargain.addClass('d-none');
                     }
                 } else {
-                    bargain.removeClass('g_hidden');
+                    bargain.removeClass('d-none');
                     if (this.getValue().code === 'character') {
-                        if ($('#division').hasClass('g_hidden') === false) {
-                            $('#division').addClass('g_hidden');
+                        if ($('#division').hasClass('d-none') === false) {
+                            $('#division').addClass('d-none');
                         }
                     } else {
-                        $('#division').removeClass('g_hidden');
+                        $('#division').removeClass('d-none');
                     }
                 }
                 if (e_select.goods !== this.getValue().code) {
@@ -184,7 +184,7 @@ function _init() {
     });
     /* ▲ 상세설명 문구선택 */
 
-    document.getElementById('d_template').addEventListener('click', function(e) {
+    document.getElementById('sr-template').addEventListener('click', function(e) {
         if (e.target.name === 'gamemoney_unit') {
             var unit = e.target.value;
             if (e.target.value === '1') {
@@ -213,17 +213,17 @@ function _init() {
     });
     document.getElementById('user_icon_use').addEventListener('change', function() {
         chargePremiumService();
-        chargeServiceApply.call(this, 'f_bold');
+        chargeServiceApply.call(this, 'font-weight-bold');
     });
 
     document.getElementById('user_bluepen_use').addEventListener('change', function() {
         chargePremiumService();
-        chargeServiceApply.call(this, 'f_blue1');
+        chargeServiceApply.call(this, 'text-blue_modern');
     });
     document.getElementById('user_quickicon_use').addEventListener('change', function() {
         chargePremiumService();
         chargeServiceCalc();
-        //chargeServiceApply.call(this, 'f_blue1');
+        //chargeServiceApply.call(this, 'text-blue_modern');
     });
 
     document.getElementById('pop_user_premium_time').addEventListener('change', function() {
@@ -232,10 +232,10 @@ function _init() {
         chargeServiceCalc();
     });
 
-    document.getElementById('premium_btn').addEventListener('click', premiumSet);
+    document.getElementById('actionPremium').addEventListener('click', premiumSet);
 
     if (document.getElementById('compen_guide') !== null) {
-        LayerControl({
+        KeepAlivesRaw({
             el: document.getElementById('compen_guide'),
             layer: document.getElementById('compen_layer'),
             mask: false,
@@ -270,14 +270,14 @@ function _init() {
         document.getElementById('credit_benefit').addEventListener('click', getCreditBenefit);
     }
 
-    LayerControl({
-        layer: document.getElementById('dvPopup'),
-        close_btn: document.getElementById('dvPopup').querySelector('.close_w'),
+    KeepAlivesRaw({
+        layer: document.getElementById('dialog_fade'),
+        close_btn: document.getElementById('dialog_fade').querySelector('.fade__out'),
         type: 'style'
     });
 
     if (document.getElementById('lastList') !== null) {
-        LayerControl({
+        KeepAlivesRaw({
             layer: document.getElementById('lastList'),
             close_btn: document.getElementById('lastList').querySelector('.close'),
             mask: false,
@@ -382,7 +382,7 @@ function changeTemplate() {
     var gameCode = regGameServer.gameList.getValue().code;
     var serverCode = regGameServer.serverList.getValue().code;
     var integrationServer = '';
-    var last_alias  = $(".goods").find(".sel_on").text();
+    var last_alias  = $(".goods").find(".filter__selected").text();
     if (document.getElementById('integration_server') !== null) {
         integrationServer = document.getElementById('integration_server').value;
     }
@@ -392,8 +392,8 @@ function changeTemplate() {
 
     setDefaultText();
     fnPower();
-    $(".gs_list1").addClass('g_hidden')
-    $(".initial_screen").removeClass('g_hidden')
+    $(".gs_list1").addClass('d-none')
+    $("._34Cr45d_reacts").removeClass('d-none')
     ajaxRequest({
         url: '/api/sell/include/index_template',
         type: 'POST',
@@ -438,7 +438,7 @@ function changeTemplate() {
             // });
 
             history.pushState({back: true}, '', location.href);
-            $('#d_template').html(res);
+            $('#sr-template').html(res);
             changeTemplateAddCheck();
             if (typeof (reRegSet) === 'function') {
                 reRegSet();
@@ -492,7 +492,7 @@ function changeTemplateAddCheck() {
         formCheck.add({name: 'user_goods_type', msg: '판매유형을 선택해주세요.'});
 
         if (userGoodsType.value === 'division') {
-            LayerControl({
+            KeepAlivesRaw({
                 el: document.getElementById('discount_guide'),
                 layer: document.getElementById('discount_layer'),
                 mask: false,
@@ -766,7 +766,7 @@ function changeTemplateAddCheck() {
 
         if (userGoods.value === 'character') {
             if (document.getElementById('compensation') !== null) {
-                document.getElementById('compensation').classList.add('g_hidden');
+                document.getElementById('compensation').classList.add('d-none');
             }
             document.getElementById('account_type').addEventListener('change', function(ev) {
                 if (this.value === '1') {
@@ -813,7 +813,7 @@ function changeTemplateAddCheck() {
 
         } else {
             if (document.getElementById('compensation') !== null) {
-                document.getElementById('compensation').classList.remove('g_hidden');
+                document.getElementById('compensation').classList.remove('d-none');
             }
 
             if (gameCode === '650') {
@@ -828,7 +828,7 @@ function changeTemplateAddCheck() {
             var userCharacter = document.getElementById('user_character');
             if (gameCode == '204') {
                 if (dfServerCode === null && document.getElementById('integration_server') === null) {
-                    var strHtml = '<div id="dfServerCode" class="df_server_code"><input type="hidden" name="df_server_code"><input type="text" class="g_text" name="df_server_code_text" id="df_server_code_text" placeholder="서버검색" autocomplete="off"><div class="gs_list_area" id="dfServerList"></div></div> 물품을 전달하실 서버 |';
+                    var strHtml = '<div id="dfServerCode" class="df_server_code"><input type="hidden" name="df_server_code"><input type="text" class="angel__text" name="df_server_code_text" id="df_server_code_text" placeholder="서버검색" autocomplete="off"><div class="gs_list_area" id="dfServerList"></div></div> 물품을 전달하실 서버 |';
                     document.getElementById('dfServer').innerHTML = strHtml;
                 }
 
@@ -844,7 +844,7 @@ function changeTemplateAddCheck() {
                     });
                 }
 
-                dfServer.classList.remove('g_hidden');
+                dfServer.classList.remove('d-none');
                 userCharacter.setAttribute('maxlength', 27);
 
                 formCheck.add({
@@ -861,7 +861,7 @@ function changeTemplateAddCheck() {
 
                 formCheck.add({name: 'user_character', msg: '물품을 전달 하실 캐릭터명을 입력해주세요.'});
             } else {
-                dfServer.classList.add('g_hidden');
+                dfServer.classList.add('d-none');
                 userCharacter.setAttribute('maxlength', 30);
             }
             /* ▲ 던전앤파이터 통합서버 처리 */
@@ -932,8 +932,8 @@ function changeTemplateAddCheck() {
 }
 
 function premiumSet() {
-    var dvPremium = document.getElementById('dvPremium');
-    LayerControl.close({layer: dvPremium});
+    var premiumPart = document.getElementById('premiumPart');
+    KeepAlivesRaw.close({layer: premiumPart});
     createLayerContent(false);
 }
 
@@ -943,15 +943,15 @@ function createLayerContent(b) {
     }
 
     var frm = document.forms.frmSell;
-    var dvPopup = document.getElementById('dvPopup');
+    var dialog_fade = document.getElementById('dialog_fade');
     var strLayerURL = '/api/sell/include/reg_info';
 
     if (b !== false) {
-        var dvPremium = document.getElementById('dvPremium');
+        var premiumPart = document.getElementById('premiumPart');
         var userMile = document.getElementById('txtCurrentMileage').innerHTML.numeric();
         if (userMile > 100) {
             if ($('#user_premium_time').val().isEmpty() === true) {
-                LayerControl.open({layer: dvPremium});
+                KeepAlivesRaw.open({layer: premiumPart});
                 return;
             }
         }
@@ -1017,13 +1017,13 @@ function createLayerContent(b) {
         type: 'POST',
         data: rgData,
         success: function(res) {
-            $('#dvPopup').find('.cont').html(res);
-            LayerControl.open({layer: dvPopup});
+            $('#dialog_fade').find('.cont').html(res);
+            KeepAlivesRaw.open({layer: dialog_fade});
 
             /** [ITM-10872] 캐릭터 거래 신규 서비스 삽니다 추가 by 20200720 KBR */
             if (rgData.user_goods === 'character' && frm.account_type.value !== '1') {
-                document.getElementById('dvPopup').classList.add('reg_info_character');
-                document.getElementById('dvPopup').getElementsByClassName('title')[0].innerHTML = '전자계약서';
+                document.getElementById('dialog_fade').classList.add('reg_info_character');
+                document.getElementById('dialog_fade').getElementsByClassName('title')[0].innerHTML = '전자계약서';
                 document.getElementById('reg_submit').addEventListener('click', function() {
                     if ($("#user_without").val() == '6') {
                         if (!confirm('고객님은 현재 회원탈퇴 신청 진행중입니다.\n판매 등록 진행 시 신청하신 회원탈퇴 접수가 철회됩니다.\n계속 진행 하시겠습니까?')) {
@@ -1050,8 +1050,8 @@ function createLayerContent(b) {
 
                 });
             } else {
-                document.getElementById('dvPopup').classList.remove('reg_info_character');
-                document.getElementById('dvPopup').getElementsByClassName('title')[0].innerHTML = '물품등록정보';
+                document.getElementById('dialog_fade').classList.remove('reg_info_character');
+                document.getElementById('dialog_fade').getElementsByClassName('title')[0].innerHTML = '물품등록정보';
                 document.getElementById('reg_submit').addEventListener('click', function() {
                     if ($("#user_without").val() == '6') {
                         if (!confirm('고객님은 현재 회원탈퇴 신청 진행중입니다.\n판매 등록 진행 시 신청하신 회원탈퇴 접수가 철회됩니다.\n계속 진행 하시겠습니까?')) {
@@ -1064,7 +1064,7 @@ function createLayerContent(b) {
                 });
             }
             document.getElementById('cancel_submit').addEventListener('click', function() {
-                LayerControl.close({layer: dvPopup});
+                KeepAlivesRaw.close({layer: dialog_fade});
             });
         },error:function(xhr){
             console.log(xhr)
@@ -1451,7 +1451,7 @@ function chargeServiceApply(strClass) {
 
 function chargePremiumService() {
     if (bPremiumLayer == false) {
-        // LayerControl.open({
+        // KeepAlivesRaw.open({
         //     layer: document.getElementById('premium_layer'),
         //     close_btn: document.getElementById('premium_layer').querySelector('.close'),
         //     mask: false,
@@ -1459,7 +1459,7 @@ function chargePremiumService() {
         // });
 
         document.getElementById('premium_close').addEventListener('click', function() {
-            LayerControl.close({layer: document.getElementById('premium_layer')});
+            KeepAlivesRaw.close({layer: document.getElementById('premium_layer')});
         });
 
         bPremiumLayer = true;
@@ -1483,7 +1483,7 @@ function fnPower() {
     var game_code = $('#game_code').val();
     var server_code = $('#server_code').val();
 
-    $("#dv_power").html("");
+    $("#angel_registration").html("");
     var paramsValue = "game_code=" + game_code + "&server_code=" + server_code+"&api_token="+a_token;
     fnAjax('/api/power/_AJAX_power_check', 'html', 'post', paramsValue, {
         complete: function(request) {
@@ -1491,21 +1491,21 @@ function fnPower() {
             var returnData = request.split("|");
             if (returnData[0] == true) {
 
-                power_date = '<span class="f_blue1">선택시 서비스 이용 가능합니다.</span>';
-                power_date_use = '<span class="f_blue1">' + returnData[1] + ' ~ ' + returnData[2] + ' 까지 등록 가능합니다.</span>';
+                power_date = '<span class="text-blue_modern">선택시 서비스 이용 가능합니다.</span>';
+                power_date_use = '<span class="text-blue_modern">' + returnData[1] + ' ~ ' + returnData[2] + ' 까지 등록 가능합니다.</span>';
 
-                var createDIV = '<div class="g_left"><label class="f_bold"><input type="checkbox" name="power_regist" value="y" > 파워 등록 사용 </label></div>';
-                var createtxt2 = '<div class="g_left" id="power_use"></div>';
+                var createDIV = '<div class="float-left"><label class="font-weight-bold"><input type="checkbox" name="power_regist" value="y" > 파워 등록 사용 </label></div>';
+                var createtxt2 = '<div class="float-left" id="power_use"></div>';
 
-                $('#dv_power').removeClass('g_hidden').append(createDIV, createtxt2);
+                $('#angel_registration').removeClass('d-none').append(createDIV, createtxt2);
                 $("#power_use").html(power_date);
 
             } else {
-                $("#dv_power").html("").addClass('g_hidden');
+                $("#angel_registration").html("").addClass('d-none');
             }
         },
         error: function() {
-            $("#dv_power").addClass('g_hidden');
+            $("#angel_registration").addClass('d-none');
         }
     });
 }
@@ -1872,8 +1872,8 @@ var itemDetailSetting = {
 
             var strGoods = rgGoods.join(' ');
 
-            $('#item_can').removeClass('g_hidden');
-            $('#item_suc, #item_detail_wrap, #add_detail_wrap').addClass('g_hidden');
+            $('#item_can').removeClass('d-none');
+            $('#item_suc, #item_detail_wrap, #add_detail_wrap').addClass('d-none');
             $('#item_info_txt').text(strGoods);
             $('#user_title').val('(' + strGoods + ') 팝니다.');
 
@@ -1901,8 +1901,8 @@ var itemDetailSetting = {
         });
 
         document.getElementById('can_btn').addEventListener('click', function() {
-            $('#item_suc, #item_detail_wrap, #add_detail_wrap').removeClass('g_hidden');
-            $('#item_can').addClass('g_hidden');
+            $('#item_suc, #item_detail_wrap, #add_detail_wrap').removeClass('d-none');
+            $('#item_can').addClass('d-none');
             $('#item_info_txt').text('');
             $('#iteminfo_use_complete').val('N');
             itemDetailSetting.detailItemInfoReset();
@@ -1990,9 +1990,9 @@ var itemDetailSetting = {
         $('#attr_enchant').append(rgEnchnt.join(''));
 
         if (this.detailItemInfo.manage.attr_enchant_visible === 'Y') {
-            $('#add_detail_wrap').removeClass('g_hidden');
+            $('#add_detail_wrap').removeClass('d-none');
         } else {
-            $('#add_detail_wrap').addClass('g_hidden');
+            $('#add_detail_wrap').addClass('d-none');
         }
     },
     changeItem: function(el, data) {
@@ -2010,15 +2010,15 @@ var itemDetailSetting = {
     detailItemInfoReset: function(use) {
         $('#item_detail_srh').find('option[value=""]').prop('selected', true);
         $('#category').trigger('change');
-        $('#item_suc').removeClass('g_hidden');
-        $('#item_can').addClass('g_hidden');
+        $('#item_suc').removeClass('d-none');
+        $('#item_can').addClass('d-none');
         if (use === false) {
-            $('#item_detail_srh').addClass('g_hidden');
-            $('#item_guide_txt, .item_detail_opts').removeClass('g_hidden');
+            $('#item_detail_srh').addClass('d-none');
+            $('#item_guide_txt, .item_detail_opts').removeClass('d-none');
             $('#user_title, #user_text').prop('readonly', false).val(e_goods_text[e_select.goods] + ' 팝니다.');
         } else {
-            $('#item_detail_srh').removeClass('g_hidden');
-            $('#item_guide_txt, .item_detail_opts').addClass('g_hidden');
+            $('#item_detail_srh').removeClass('d-none');
+            $('#item_guide_txt, .item_detail_opts').addClass('d-none');
             $('#user_title, #user_text').prop('readonly', 'readonly').val(e_goods_text[e_select.goods] + ' 팝니다.');
         }
     },
@@ -2118,7 +2118,7 @@ function getTagList(data){
                         $('.tag_list').append('<span class="tag" data-text="'+tagList[i]+'">#'+tagList[i]+'</span>');
                     }
 
-                    $('.tag_list').append('<button id="tag_more" class="btn_white1" type="button">더보기</button>');
+                    $('.tag_list').append('<button id="tag_more" class="btn-light-modern" type="button">더보기</button>');
 
                     $('#tag_more').click(function(){
                         $(this).remove();

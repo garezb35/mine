@@ -18,18 +18,18 @@
 
 @section('content')
     <style>
-        .g_title_blue {
+        .contextual--title {
             margin-left: 20px;
         }
-        .g_tab>* {
+        .react_nav_tab>* {
             background-color: #e3f0f3;
             border-bottom: 2px solid #0081b9;
         }
-        .g_tab>.selected {
+        .react_nav_tab>.selected {
             border: 2px solid #0081b9;
             border-bottom: 0;
         }
-        .g_tab>*>a {
+        .react_nav_tab>*>a {
             font-size: 14px;
         }
         .tb_list th {
@@ -38,18 +38,18 @@
         .tb_list td {
             font-size: 13px;
         }
-        .g_blue_table tr th {
+        .table-primary tr th {
             background-color: #e3f0f3;
         }
-        .g_blue_table,
-        .g_blue_table tr th,
-        .g_blue_table tr td {
+        .table-primary,
+        .table-primary tr th,
+        .table-primary tr td {
             border: solid 1px #89c1ce;
         }
     </style>
 
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .img_wrap {
                 width: 214px;
@@ -119,50 +119,50 @@
             }
         </style>
         @include('angel.guide.aside', ['group'=>'new_guide', 'part'=>''])
-        <div class="g_content">
+        <div class="pagecontainer">
             <a name="top"></a>
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue no-border"> 초보자 가이드 </div>
+
+            <div class="contextual--title no-border"> 초보자 가이드 </div>
             <div class="g_gray_border"></div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 메뉴탭 //-->
-            <div class="g_tab">
+
+
+            <div class="react_nav_tab">
                 <div class=""><a href="{{route('guide_howto')}}">거래방법 보기</a></div>
-                <!--<div class=""><a href="{{route('guide_movie')}}">동영상 가이드</a></div>-->
+
                 <div class="selected"><a href="{{route('guide_safe')}}">안전 거래 시스템</a></div>
                 <div class=""><a href="{{route('guide_trade')}}">거래시 주의사항</a></div>
                 <div class=""><a href="{{route('guide_failed')}}">거래 사기 실시간 조회</a></div>
             </div>
-            <div class="g_finish"></div>
-            <!-- ▲ 메뉴탭 //-->
+            <div class="empty-high"></div>
+
             <div class="top_menu">
                 <a href="?file=01"><span class="g_black2 ">거래보호 장치</span></a> |
                 <a href="?file=02"><span class="g_black2 ">결제인증</span></a> |
                 <a href="?file=03"><span class="g_black2 ">본인인증</span></a> |
                 <a href="?file=04"><span class="g_black2 ">신용등급 표시제</span></a> |
                 <a href="?file=05"><span class="g_black2 ">개인정보보호</span></a> |
-                <a href="?file=06"><span class="g_black2 f_blue3 f_bold">보안시스템</span></a>
+                <a href="?file=06"><span class="g_black2 f_blue3 font-weight-bold">보안시스템</span></a>
             </div>
-            <div class="g_finish"></div>
-            <div class="g_subtitle_blue">보안시스템</div>
+            <div class="empty-high"></div>
+            <div class="highlight_contextual">보안시스템</div>
             <div class="gray_box">
                 <div class="inner_box">
-                    <div class="f_bold">아이템천사 보안시스템</div><br>
-                    <div class="f_bold">1. ISMS 인증을 통해 지속적인 정보보호 관리체계 적합성 유지</div>
+                    <div class="font-weight-bold">아이템천사 보안시스템</div><br>
+                    <div class="font-weight-bold">1. ISMS 인증을 통해 지속적인 정보보호 관리체계 적합성 유지</div>
                     기업의 주요 정보자산의 안전성 확보를 위한 기술적, 물리적, 관리적 조치가 안전하게 관리되고 있는지 국가로부터 인증받아 정보보호 시스템의 안전성 유지<br><br>
-                    <div class="f_bold">2. 침입 탐지 및 차단 시스템을 통한 실시간 공격 행위에 대한 차단</div>
+                    <div class="font-weight-bold">2. 침입 탐지 및 차단 시스템을 통한 실시간 공격 행위에 대한 차단</div>
                     해킹에 사용되는 널리 알려진 공격 행위 및 제로데이 공격에 대한 차단 시스템 구축<br><br>
-                    <div class="f_bold">3. 개인 정보 유출 차단 시스템을 통한 개인정보 보호</div>
+                    <div class="font-weight-bold">3. 개인 정보 유출 차단 시스템을 통한 개인정보 보호</div>
                     중요 개인 정보의 내, 외부 유출을 차단하기 위한 유출 차단 시스템 구축<br><br>
-                    <div class="f_bold">4. DDoS 차단 시스템 사용을 통한 서비스 장애 예방</div>
+                    <div class="font-weight-bold">4. DDoS 차단 시스템 사용을 통한 서비스 장애 예방</div>
                     DDoS로 인한 서비스의 중단을 예방하기 위해, 서비스 지속성을 위한 DDoS 차단 시스템 사용<br><br>
-                    <div class="f_bold">5. Blacklist 차단을 통한 Attacker의 행위 사전 차단</div>
+                    <div class="font-weight-bold">5. Blacklist 차단을 통한 Attacker의 행위 사전 차단</div>
                     해킹 공격이 발생되는 IP를 미리 인지하여 해당 IP를 차단함으로써 안전성 유지<br><br>
-                    <div class="f_bold">6. 정기적인 시스템 취약점 점검을 통한 시스템 점검</div>
+                    <div class="font-weight-bold">6. 정기적인 시스템 취약점 점검을 통한 시스템 점검</div>
                     시스템의 정기적인 취약점 점검을 통해 지속적인 보안 강화 및 안전성 유지<br><br>
-                    <div class="f_bold">7. Firewall 및 VPN을 통한 서비스 레벨별 접근 차단</div>
+                    <div class="font-weight-bold">7. Firewall 및 VPN을 통한 서비스 레벨별 접근 차단</div>
                     중요 시스템에 대해 인지된 접근만을 허용, 그 외의 접근은 차단하여 안전성 유지<br><br>
-                    <div class="f_bold">8. Anti Virus를 통한 알려진 공격에 대한 차단 시스템 구축</div>
+                    <div class="font-weight-bold">8. Anti Virus를 통한 알려진 공격에 대한 차단 시스템 구축</div>
                     실시간 및 정기검사를 통해 시스템의 내, 외부 보안 강화<br><br>
                 </div>
                 <div class="divi_line"></div>
@@ -172,7 +172,7 @@
                 </div>
             </div>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

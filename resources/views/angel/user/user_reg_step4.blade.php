@@ -8,7 +8,7 @@
 
 @section('content')
     <style>
-        .g_container {
+        .container_fulids {
             padding-top: 30px;
         }
         .g_title_txt {
@@ -72,8 +72,8 @@
         }
     </style>
 
-    <div class="g_container" id="g_CONTENT">
-        <div class="g_remocon_l">
+    <div class="container_fulids" id="module-teaser-fullscreen">
+        <div class="recommend_e34rf">
         </div>
         <div class="g_title_txt">
             <span>회원가입</span> 서비스
@@ -127,13 +127,13 @@
         <div class="f-16 reg-complete-txt" >회원가입이 완료되였습니다.</div>
         <div class="reg-complete-content align-center">
             <img src="/angel/img/icons/reg_complete.png" width="122" height="122" />
-            <div class="f-30 align-center color-gray-normal" style="padding: 20px 0 10px;">taxify <b class="c-black">회원가입이 완료</b>되였습니다.</div>
-            <div class="f-15 align-center color-gray-normal" style="padding: 10px 0; margin-bottom: 26px;">회원님은 taxify의 모든 기능을 사용하실수 있습니다. 회원접속 후 사용가능합니다.</div>
+            <div class="f-30 align-center color-gray-normal" style="padding: 20px 0 10px;"> <b class="c-black">회원가입이 완료</b>되였습니다.</div>
+            <div class="f-15 align-center color-gray-normal" style="padding: 10px 0; margin-bottom: 26px;">회원님은 아이템천사의 모든 기능을 사용하실수 있습니다. 회원접속 후 사용가능합니다.</div>
             <a href="{{route('login')}}" class="c-white f-14" id="btn-login-page">로그인페이지로 이동</a>
         </div>
         <div style="height: 20px;"></div>
         <div style="height: 1px; border-bottom: solid 1px #646464;"></div>
         <div style="height: 70px;"></div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
 @endsection

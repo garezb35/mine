@@ -9,34 +9,34 @@
 @endsection
 
 @section('content')
-<!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-<div class="g_container" id="g_CONTENT">
+
+<div class="container_fulids" id="module-teaser-fullscreen">
     @include('aside.myroom',['group'=>'end'])
-    <div class="g_content">
-        <!-- ▼ 타이틀 //-->
-        <div class="g_title_blue noborder"> 종료 <span>내역</span>
+    <div class="pagecontainer">
+
+        <div class="contextual--title noborder"> 종료 <span>내역</span>
         </div>
-        <!-- ▲ 타이틀 //-->
-        <!-- ▼ 메뉴탭 //-->
-        <div class="g_tab g_tab_myroom">
+
+
+        <div class="react_nav_tab navs__pops">
             <div><a href="/myroom/complete/sell">판매종료내역</a></div>
             <div><a href="/myroom/complete/buy">구매종료내역</a></div>
             <div class='selected'><a href="/myroom/complete/report">전체이용내역</a></div>
         </div>
-        <!-- ▲ 메뉴탭 //-->
-        <!-- ▼ 검색 //-->
+
+
         <form method="GET">
-            <div class="g_right">
-                <select name="selectYear" class="g_hidden">
+            <div class="float__right">
+                <select name="selectYear" class="d-none">
                     @for($i = date("Y") ; $i >=date("Y")-4 ; $i--)
                         <option value="{{$i}}" @if((Request::get('selectYear') == $i) || (empty(Request::get('selectYear')) && $i == date("Y"))) selected @endif>{{$i}}년</option>
                     @endfor
                 </select>
-                <input type="image" src="http://img3.itemmania.com/images/btn/btn_find1.gif" width="50" height="20" alt="검색" class="g_image"> </div>
+                <input type="image" src="http://img3.itemmania.com/images/btn/btn_find1.gif" width="50" height="20" alt="검색" class="v_middle_img"> </div>
         </form>
-        <!-- ▲ 검색 //-->
-        <div class="g_finish"></div>
-        <table class="g_green_table1 tb_list">
+
+        <div class="empty-high"></div>
+        <table class="table-modern-primary tb_list">
             <colgroup>
                 <col width="64">
                 <col width="106">
@@ -67,7 +67,7 @@
                 </tr>
             @endfor
 
-            <tr class="f_blue3 f_bold">
+            <tr class="f_blue3 font-weight-bold">
                 <td>상반기</td>
                 <td>{{!empty($sell_list['up']['count'])  ? number_format($sell_list['up']['count']) : 0}}</td>
                 <td>{{!empty($sell_list['up']['order'])  ? number_format($sell_list['up']['order']) : 0}}</td>
@@ -87,7 +87,7 @@
                     <td>{{!empty($sell_list[$i.'m']['premium'])  ? number_format($sell_list[$i.'m']['premium']) : 0}}</td>
                 </tr>
             @endfor
-            <tr class="f_bold">
+            <tr class="font-weight-bold">
                 <td>총합계</td>
                 <td>{{!empty($sell_list['down']['count'])  ? number_format($sell_list['down']['count']) : 0}}</td>
                 <td>{{!empty($sell_list['down']['order'])  ? number_format($sell_list['down']['order']) : 0}}</td>
@@ -97,9 +97,9 @@
                 <td>{{!empty($sell_list['down']['premium'])  ? number_format($sell_list['down']['premium']) : 0}}</td>
             </tr>
         </table>
-        <!-- ▲ 기능 //-->
+
     </div>
-    <div class="g_finish"></div>
+    <div class="empty-high"></div>
 </div>
-<!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

@@ -25,24 +25,24 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
 
-    <link type="text/css" rel="stylesheet" href="/angel/_css/_comm.css">
-    <link type="text/css" rel="stylesheet" href="/angel/_head_tail/css/_head_popup.css">
+    <link type="text/css" rel="stylesheet" href="/angel/_css/webpack.css">
+    <link type="text/css" rel="stylesheet" href="/angel/global_h/css/_head_popup.css">
     <link type="text/css" rel="stylesheet" href="/angel/_css/_table_list.css">
-    <link type="text/css" rel="stylesheet" href="/angel/_head_tail/css/contact_edit.css">
+    <link type="text/css" rel="stylesheet" href="/angel/global_h/css/contact_edit.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-    <script type="text/javascript" src="/assets/js/angel/_comm.js"></script>
+    <script type="text/javascript" src="/assets/js/angel/webpack.js"></script>
     <script type="text/javascript" src="/assets/js/angel/_gs_control.js"></script>
     <script type="text/javascript" src="/assets/js/angel/banner_module.js"></script>
 
 </head>
 
 <body>
-<div id="g_SLEEP" class="g_sleep g_hidden ">
-    <div id="g_OVERLAY" class="g_overlay"></div>
+<div id="global_root" class="mainEntity d-none ">
+    <div id="thirdys" class="fluid-div"></div>
 </div>
-<div id="g_BODY">
-    <div id="popup_title_bar"><img src="https://img2.itemmania.com/images/user/titlep_hp_edit.gif" width="89" height="19" alt="연락처 수정" /></div>
+<div id="angel">
+    <div id="model_titlebar"><img src="https://img2.itemmania.com/images/user/titlep_hp_edit.gif" width="89" height="19" alt="연락처 수정" /></div>
     <div id="g_POPUP">
         <form id="certifyForm" action="/user/contact_edit_ok" method="post">
             @csrf
@@ -61,7 +61,7 @@
             <input type="hidden" name="security_type" value="none">
             <input type="hidden" name="security_code">
             <input type="hidden" name="security_number">
-            <table class="g_blue_table">
+            <table class="table-primary">
                 <colgroup>
                     <col width="120" />
                     <col width="" />
@@ -70,7 +70,7 @@
                 <tr>
                     <th>자택/직장</th>
                     <td>
-                        <select id="slctContact" name="user_contactA" class="g_hidden" onchange="setContactMode(arguments[0])">
+                        <select id="slctContact" name="user_contactA" class="d-none" onchange="setContactMode(arguments[0])">
                             <option value="02">02</option>
                             <option value="031">031</option>
                             <option value="032">032</option>
@@ -91,13 +91,13 @@
                             <option value="070">070</option>
                             <option value="N" selected>연락처없음</option>
                         </select> -
-                        <input type="text" name="user_contactB" id="user_contactB" maxlength="4" class="g_text" value="{{$mobile_b}}" /> -
-                        <input type="text" name="user_contactC" id="user_contactC" maxlength="4" class="g_text" value="{{$mobile_c}}" /> </td>
+                        <input type="text" name="user_contactB" id="user_contactB" maxlength="4" class="angel__text" value="{{$mobile_b}}" /> -
+                        <input type="text" name="user_contactC" id="user_contactC" maxlength="4" class="angel__text" value="{{$mobile_c}}" /> </td>
                 </tr>
                 <tr>
                     <th>휴대폰</th>
                     <td>
-                        <select id="user_mobileA" name="user_mobileA" class="g_hidden">
+                        <select id="user_mobileA" name="user_mobileA" class="d-none">
                             <option value="010">010</option>
                             <option value="011">011</option>
                             <option value="016">016</option>
@@ -105,11 +105,11 @@
                             <option value="018">018</option>
                             <option value="019">019</option>
                         </select> -
-                        <input type="text" name="user_mobileB" id="user_mobileB" maxlength="4" class="g_text" value="{{$home_b}}" /> -
-                        <input type="text" name="user_mobileC" id="user_mobileC" maxlength="4" class="g_text" value="{{$home_c}}" /> </td>
+                        <input type="text" name="user_mobileB" id="user_mobileB" maxlength="4" class="angel__text" value="{{$home_b}}" /> -
+                        <input type="text" name="user_mobileC" id="user_mobileC" maxlength="4" class="angel__text" value="{{$home_c}}" /> </td>
                 </tr>
             </table> <span class="g_red1">※</span> <span class="g_red1_11">013으로 시작되는 번호는 연락처 등록이 불가 합니다.</span>
-            <div class="g_btn">
+            <div class="btn-groups_angel">
                 <a class="btn-default btn-suc"  href="javascript:void(0);">확인</a>
                 <a href="#" onclick="self.close();" class="btn-default btn-cancel">취소</a>
             </div>
@@ -123,7 +123,7 @@
     _window.resize(496, 350);
 </script>
 <script>
-    _initialize();
+    loadGlobalItems()
 </script>
 </body>
 

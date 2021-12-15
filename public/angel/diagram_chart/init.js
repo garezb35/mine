@@ -238,7 +238,7 @@ gameChart = {
         if(a === "ì¼") {
             a = ""
         }
-        gameChart_DOM_create = '<span><span class="angel-blue">' + gameChartFilterDataGame._name + " |</span> " + gameChartDataServer._name + "</span> (" + c.currency() + a + " " + gameChartDataServer._Unit + ')<a class="angel-blue-btn gameChart_drawGraph_title_Btn" href="/sell/list_search?search_type=sell&search_game=' + gameChartFilterDataGame._code + "&search_game_text=" + gameChartFilterDataGame._name + "&search_server=" + gameChartDataServer._code + "&search_server_text=" + gameChartDataServer._name + '">거래하러가기</a>';
+        gameChart_DOM_create = '<span><span class="angel-blue">' + gameChartFilterDataGame._name + " |</span> " + gameChartDataServer._name + "</span> (" + c.currency() + a + " " + gameChartDataServer._Unit + ')<a class="angel-blue-btn gameChart_drawGraph_title_Btn" href="/sell/list_search?search_type=sell&filtered_game_id=' + gameChartFilterDataGame._code + "&filtered_game_alias=" + gameChartFilterDataGame._name + "&filtered_child_id=" + gameChartDataServer._code + "&filtered_child_alias=" + gameChartDataServer._name + '">거래하러가기</a>';
         findE(".gameChart_drawGraph_title").innerHTML = gameChart_DOM_create;
         gmaeChart_DOM_create = "<div>" + fSs.comma(fSs.getAvgPrice(b).avgPrice * 2) + "</div><div>" + fSs.comma(fSs.getAvgPrice(b).avgPrice) + "</div><div>0</div>";
         findE(".gameChart_drawGraph_basePrice").innerHTML = gmaeChart_DOM_create;``

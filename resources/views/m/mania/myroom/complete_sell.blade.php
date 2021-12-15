@@ -3,7 +3,7 @@
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css?210503" />
     <link type="text/css" rel="stylesheet" href="/angel/myroom/complete/css/common.css?700101" />
-    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+
     <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
@@ -12,31 +12,31 @@
 @endsection
 
 @section('content')
-<!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-<div class="g_container" id="g_CONTENT">
+
+<div class="container_fulids" id="module-teaser-fullscreen">
     @include('aside.myroom',['group'=>'end'])
-    <div class="g_content">
-        <!-- ▼ 타이틀 //-->
-        <div class="g_title_blue noborder"> 종료 <span>내역</span>
+    <div class="pagecontainer">
+
+        <div class="contextual--title noborder"> 종료 <span>내역</span>
         </div>
-        <!-- ▲ 타이틀 //-->
-        <!-- ▼ 메뉴탭 //-->
-        <div class="g_tab g_tab_myroom">
+
+
+        <div class="react_nav_tab navs__pops">
             <div class='selected'><a href="/myroom/complete/sell">판매종료내역</a></div>
             <div><a href="/myroom/complete/buy">구매종료내역</a></div>
             <div><a href="/myroom/complete/report">전체이용내역</a></div>
         </div>
-        <div class="search_box">
+        <div class="navtabs__react">
             <a href="/myroom/complete/sell?type={{Request::get('type')}}&search_month={{Request::get('search_month')}}">
                 <input type="radio" name="list_type" value="2" @if(Request::get('search_type') != 'previous') checked @endif onclick="location.href='/myroom/complete/sell'"> 최근종료내역</a>
             <a href="javascript:void(0)" onclick="location.href='/myroom/complete/sell?search_type=previous&type={{Request::get('type')}}'" class="pdl">
                 <input type="radio" name="list_type" value="1" @if(Request::get('search_type') == 'previous') checked @endif onclick="location.href='/myroom/complete/sell?search_type=previous'"> 이전종료내역</a>
             <form id="frmSearch" action="" method="get">
                 @csrf
-                <ul class="g_right g_sideway">
+                <ul class="float__right g_sideway">
                     <li class="type_area">
-                        <a href="?type=sell&search_type={{Request::get('search_type')}}&search_month={{Request::get('search_month')}}"><span @if(Request::get('type') != 'buy') class="f_blue3 f_bold" @endif>팝니다 판매한 내역</span></a> |
-                        <a href="?type=buy&search_type={{Request::get('search_type')}}&search_month={{Request::get('search_month')}}"><span @if(Request::get('type') == 'buy') class="f_blue3 f_bold" @endif>삽니다 판매한 내역</span></a> </li>
+                        <a href="?type=sell&search_type={{Request::get('search_type')}}&search_month={{Request::get('search_month')}}"><span @if(Request::get('type') != 'buy') class="f_blue3 font-weight-bold" @endif>팝니다 판매한 내역</span></a> |
+                        <a href="?type=buy&search_type={{Request::get('search_type')}}&search_month={{Request::get('search_month')}}"><span @if(Request::get('type') == 'buy') class="f_blue3 font-weight-bold" @endif>삽니다 판매한 내역</span></a> </li>
                     <li>
                         <select id="dbMonth" name="search_month">
                             @for($i = date("Y") ; $i >=date("Y")-4 ; $i--)
@@ -50,10 +50,10 @@
                 </ul>
             </form>
         </div>
-        <!-- ▲ 메뉴탭 //-->
-        <div class="tab_sib g_left">- 최근 1주간 종료된 내역입니다. 이전에 종료된 내역은 '이전종료내역'에서 확인하세요.&nbsp;&nbsp;</div>
-        <div class="g_finish"></div>
-        <table class="g_green_table1 tb_list">
+
+        <div class="tab_sib float-left">- 최근 1주간 종료된 내역입니다. 이전에 종료된 내역은 '이전종료내역'에서 확인하세요.&nbsp;&nbsp;</div>
+        <div class="empty-high"></div>
+        <table class="table-modern-primary tb_list">
             <colgroup>
                 <col width="139">
                 <col width="71">
@@ -98,13 +98,13 @@
             @endforeach
 
         </table>
-        <!-- ▼ 페이징 //-->
-        <div class="dvPaging">
+
+        <div class="pagination__bootstrap">
             {{$games->withQueryString()->links()}}
         </div>
-        <!-- ▲ 페이징 //-->
+
     </div>
-    <div class="g_finish"></div>
+    <div class="empty-high"></div>
 </div>
-<!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

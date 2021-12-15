@@ -17,21 +17,21 @@
 @endsection
 
 @section('content')
-<!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-<div class="g_container" id="g_CONTENT">
+
+<div class="container_fulids" id="module-teaser-fullscreen">
     <style>
-        .g_title_blue {
+        .contextual--title {
             margin-left: 20px;
         }
-        .g_tab>* {
+        .react_nav_tab>* {
             background-color: #e3f0f3;
             border-bottom: 2px solid #0081b9;
         }
-        .g_tab>.selected {
+        .react_nav_tab>.selected {
             border: 2px solid #0081b9;
             border-bottom: 0;
         }
-        .g_tab>*>a {
+        .react_nav_tab>*>a {
             font-size: 14px;
         }
         .tb_list th {
@@ -40,19 +40,19 @@
         .tb_list td {
             font-size: 13px;
         }
-        .g_blue_table tr th {
+        .table-primary tr th {
             background-color: #e3f0f3;
         }
-        .g_blue_table,
-        .g_blue_table tr th,
-        .g_blue_table tr td {
+        .table-primary,
+        .table-primary tr th,
+        .table-primary tr td {
             border: solid 1px #89c1ce;
         }
     </style>
     @include('aside.myroom',['group'=>'mileage'])
-    <div class="g_content">
-        <div class="g_title_blue no-border"> 내 마일리지</div>
-        <div class="g_tab f-14">
+    <div class="pagecontainer">
+        <div class="contextual--title no-border"> 내 마일리지</div>
+        <div class="react_nav_tab f-14">
             <div class=""><a href="{{route('my_mileage_index_c')}}">마일리지 충전</a></div>
             <div class=""><a href="{{route('my_mileage_index_e')}}">마일리지 출금</a></div>
             <div class="selected"><a href="{{route('my_mileage_calendar')}}">마일리지 달력보기</a></div>
@@ -67,12 +67,12 @@
                 <li class="center">{{$DateY}}년</li>
                 <li><img src="/angel/img/icons/btn_next1.gif" width="16" height="26" alt="다음" id="after" class="g_button g_icon"></li>
             </ul>
-            <ul id="mile_month" class="g_left g_sideway">
+            <ul id="mile_month" class="float-left g_sideway">
                 @for ($i = 1; $i <= 12; $i++)
                 <li @if ($i == $DateM) class='selected' @endif name="{{$i}}">{{$i}}월</li>
                 @endfor
             </ul>
-            <div class="g_finish"></div>
+            <div class="empty-high"></div>
         </form>
         <table id="mile_calendar">
             <colgroup>
@@ -114,8 +114,8 @@
                 {
                     $nDay = ($i - $DayIndex + 1);
                     echo '<td class="'.$snzDayStyle.'">';
-                    echo '<div class="g_right">'.$nDay.'</div>';
-                    echo '<div class="g_finish"></div>';
+                    echo '<div class="float__right">'.$nDay.'</div>';
+                    echo '<div class="empty-high"></div>';
                     $index = array_search($nDay, array_column($MileageIn, 'dayNum'));
                     if ($index !== false)
                         echo '<div class="in">'.number_format($MileageIn[$index]['sum_money']).'</div>';
@@ -130,9 +130,9 @@
             }
             @endphp
         </table>
-        <div class="g_left g_black3_11">- 조회기간은 전년기준 5년까지 조회 가능합니다.</div>
-        <div class="g_right g_black3_11">(단위:원)</div>
-        <div class="g_finish"></div>
+        <div class="float-left g_black3_11">- 조회기간은 전년기준 5년까지 조회 가능합니다.</div>
+        <div class="float__right g_black3_11">(단위:원)</div>
+        <div class="empty-high"></div>
         <div class="g_notice">알아두기</div>
         <ul class="g_notice_box1 g_list">
             <li>사용 전용 마일리지(유효기간 有)는 이벤트나 기타 사유로 인해 지급된 마일리지로 사용 가능한 유효기간이 존재합니다.</li>
@@ -140,6 +140,6 @@
             <li>출금 전용 마일리지는 아이템 구매와 같은 서비스 이용이 불가하며 출금 서비스만 이용 가능합니다.</li>
         </ul>
     </div>
-    <div class="g_finish"></div>
+    <div class="empty-high"></div>
 </div>
 @endsection

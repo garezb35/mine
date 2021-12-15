@@ -23,7 +23,7 @@ $category = '> > 기타';
 @endsection
 
 @section('content')
-    <div class="g_container" id="g_CONTENT">
+    <div class="container_fulids" id="module-teaser-fullscreen">
         @include('aside.myroom',['group'=>'sell'])
         <form id="frmCheckView" method="post">
             <input type="hidden" name="id">
@@ -33,11 +33,11 @@ $category = '> > 기타';
             <input type="hidden" name="id" id="encryptId">
             <input type="hidden" name="type" id="encryptType">
         </form>
-        <div class="g_content">
-            <div class="g_title_blue noborder">
+        <div class="pagecontainer">
+            <div class="contextual--title noborder">
                 흥정신청된 <span>물품</span>
             </div>
-            <div class="g_subtitle first">물품정보</div>
+            <div class="highlight_contextual_nodemon first">물품정보</div>
             <table class="table-green1 table-striped" id="">
                 <colgroup>
                     <col width="130">
@@ -81,9 +81,9 @@ $category = '> > 기타';
                 </tr>
                 </tbody>
             </table>
-            <!-- ▲ 물품정보 //-->
-            <!-- ▼ 내 개인정보 //-->
-            <div class="g_subtitle">내 거래정보</div>
+
+
+            <div class="highlight_contextual_nodemon">내 거래정보</div>
             <table class="table-green1 table-striped">
                 <colgroup>
                     <col width="160">
@@ -96,40 +96,40 @@ $category = '> > 기타';
                 </tr>
                 <tr>
                     <th>연락처</th>
-                    <td>{{$seller['home']}} / {{$seller['number']}} <span class="f_blue3 f_bold">(SMS수신)</span></td>
+                    <td>{{$seller['home']}} / {{$seller['number']}} <span class="f_blue3 font-weight-bold">(SMS수신)</span></td>
                 </tr>
                 </tbody>
             </table>
-            <!-- ▲ 내 개인정보 //-->
-            <!-- ▼ 거래진행상황 //-->
-            <!-- ▼ 판매진행안내 //-->
+
+
+
             <div class="trade_progress">
-                <div class="g_subtitle">
+                <div class="highlight_contextual_nodemon">
                     거래 진행 상황
                 </div>
                 <div class="trade_progress_content">
                     <div class="guide_wrap">
                         <div class="guide_set guide_set2 @if($mode == 0 || $mode == 2) active @endif">
-                            <span class="SpGroup check_apply"></span>
+                            <span class="has-sprite check_apply"></span>
                             <span class="state">흥정신청</span>
                             <p>거래 정보 확인 후<br>흥정거래를<br>진행해주세요.</p>
                         </div>
                         <div class="guide_set guide_set2 @if($mode == 1) active @endif">
-                            <span class="SpGroup check_re_apply"></span>
+                            <span class="has-sprite check_re_apply"></span>
                             <span class="state">재흥정신청</span>
                             <p>흥정신청자(구매자)의<br>재흥정 수락을<br>기다리고 있습니다.</p>
-                            <i class="SpGroup arr_mini"></i>
+                            <i class="has-sprite arr_mini"></i>
                         </div>
                         <div class="guide_set guide_set2 @if($mode == 3) active @endif">
-                            <span class="SpGroup check_ok"></span>
+                            <span class="has-sprite check_ok"></span>
                             <span class="state">흥정수락</span>
                             <p>구매자의 입금을 기다리고<br>있습니다. (최대1시간)<br>미 입금시, 해당 거래자와<br>재흥정이 불가합니다.</p>
-                            <i class="SpGroup arr_mini"></i>
+                            <i class="has-sprite arr_mini"></i>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="g_subtitle">흥정거래 정보</div>
+            <div class="highlight_contextual_nodemon">흥정거래 정보</div>
             <table class="g_green_table2">
                 <colgroup>
                     <col width="130">
@@ -169,26 +169,26 @@ $category = '> > 기타';
                             @if($value['status'] == 0)
                                     <a href="javascript:void(0)" alt="흥정수락" class="btn-default btn-default-sm btn-green" onclick="if(confirm('흥정신청을 수락하시겠습니까?')) TradeCheck('1', '{{$value['id']}}');">흥정수락</a>
                                     <a href="javascript:void(0)" alt="흥정거부" class="btn-default btn-default-sm btn-green" onclick="if(confirm('흥정신청을 거절하시겠습니까?')) TradeCheck('0', '{{$value['id']}}');">흥정거부</a>
-                                    <a href="javascript:void(0)" alt="재흥정" class="btn-default btn-default-sm btn-secondary" onclick="popLayer('dvPopup',{id:'{{$value['id']}}', ba_money:{{$value['price']}}});">재흥정</a>
+                                    <a href="javascript:void(0)" alt="재흥정" class="btn-default btn-default-sm btn-secondary" onclick="popLayer('dialog_fade',{id:'{{$value['id']}}', ba_money:{{$value['price']}}});">재흥정</a>
                             @endif
                         </td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
-            <!-- ▲ 흥정거래 정보 //-->
+
         </div>
-        <!-- ▼ 재흥정 레이어 //-->
-        <div id="dvPopup" class="g_popup">
-            <div class="layer_title">
+
+        <div id="dialog_fade" class="modal_dialog">
+            <div class="modal__title">
                 재흥정
-                <a href="javascript:g_nodeSleep.disable();" class="btn_close">닫기</a>
+                <a href="javascript:g_nodeSleep.disable();" class="modal__close">닫기</a>
             </div>
             <form id="frmReBa" name="frmReBa" method="post">
                 @csrf
                 <input type="hidden" name="process" value="">
-                <div class="layer_content">
-                    <table class="g_blue_table table_category">
+                <div class="modal--content">
+                    <table class="table-primary table_category">
                         <colgroup>
                             <col width="160">
                             <col width="210">
@@ -197,7 +197,7 @@ $category = '> > 기타';
                         <tbody>
                         <tr>
                             <th>재흥정</th>
-                            <td><input type="text" name="re_ba_money" maxlength="10" class="g_text"> 원</td>
+                            <td><input type="text" name="re_ba_money" maxlength="10" class="angel__text"> 원</td>
                             <td>- 금액을 정확히 적어주세요.<br>- 흥정금액보다 높은 가격만 제시 가능</td>
                         </tr>
                         </tbody>
@@ -205,13 +205,13 @@ $category = '> > 기타';
                     <div class="tb_bt_txt f_blue3">
                         - 구매자에게 재흥정 금액을 제시합니다. 구매자가 재흥정을 수락 할 경우 거래는 입금 대기중이 됩니다.
                     </div>
-                    <div class="g_btn">
+                    <div class="btn-groups_angel">
                         <a onclick="TradeReCheck('{{$orderNo}}');" class="btn-default btn-suc">확인</a>
                         <a alt="취소" onclick="g_nodeSleep.disable();" class="btn-default btn-cancel">취소</a>
                     </div>
                 </div>
             </form>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
 @endsection

@@ -1,4 +1,4 @@
-.g_content {
+.pagecontainer {
     line-height: 1.5;
 }
 
@@ -19,7 +19,7 @@
     font-size: 12px;
 }
 
-.guide_subtxt>.f_bold {
+.guide_subtxt>.font-weight-bold {
     margin-top: 5px;
 }
 
@@ -121,7 +121,7 @@
     border: 1px solid #CCD3DC;
 }
 
-.top_desc img.g_left {
+.top_desc img.float-left {
     border-right: 1px solid #CCD3DC
 }
 
@@ -133,7 +133,7 @@
     border: none;
 }
 
-.top_desc .g_notice_box1 .f_org1 {
+.top_desc .g_notice_box1 .text-orange {
     margin: 20px 0 5px 20px
 }
 

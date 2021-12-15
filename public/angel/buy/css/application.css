@@ -130,7 +130,7 @@
     height: 140px;
 }
 
-.private_area .guide_txt {
+.user__contact .guide_txt {
     position: absolute;
     top: 10px;
     right: 5px;
@@ -139,7 +139,7 @@
     text-decoration: underline;
 }
 
-.private_area .btn_white1.after {
+.user__contact .btn-light-modern.after {
     position: absolute;
     top: 8px;
     right: 0;
@@ -149,7 +149,7 @@
     font-size: 11px;
 }
 
-.private_area .btn_white1.after:after {
+.user__contact .btn-light-modern.after:after {
     content: "\203A";
     position: absolute;
     top: -3px;
@@ -158,14 +158,14 @@
     font-size: 26px;
 }
 
-.private_area .character_noti {
+.user__contact .character_noti {
     clear: both;
     margin-top: 5px;
     color: #FF2400;
     font-size: 12px;
 }
 
-.private_area .character_noti em {
+.user__contact .character_noti em {
     text-decoration: underline;
 }
 
@@ -209,7 +209,7 @@
     max-width: 1000px;
 }
 
-.elt_contract .g_btn_wrap .btn_blue3 {
+.elt_contract .b_input_group .btn_blue3 {
     width: 100px;
     height: 35px;
     line-height: 33px;

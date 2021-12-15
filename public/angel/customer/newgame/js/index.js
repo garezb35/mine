@@ -56,21 +56,21 @@ function _init() {
         click: function() {
             if ($(this).val() == 'g') {
                 $('#game_th').text('게임명');
-                $('#game_td').html('<input type="text" class="g_text" name="game_name" value="게임명을 입력해 주세요." />');
+                $('#game_td').html('<input type="text" class="angel__text" name="game_name" value="게임명을 입력해 주세요." />');
                 $('#server_th').text('서버명');
-                $('#server_td').html('<input type="text" class="g_text" name="server_name" disabled="disabled" />');
+                $('#server_td').html('<input type="text" class="angel__text" name="server_name" disabled="disabled" />');
                 $('input[name=server_name]').css("background", "#E0E0E0");
                 $('#addr_tr').remove();
-                $('table[class="g_blue_table"]').append('<tr id="addr_tr"><th>URL(주소)</th><td>http:// <input type="text" class="g_text" name="game_url" value="주소를 입력해 주세요." /></td></tr>');
+                $('table[class="table-primary"]').append('<tr id="addr_tr"><th>URL(주소)</th><td>http:// <input type="text" class="angel__text" name="game_url" value="주소를 입력해 주세요." /></td></tr>');
                 fnReset();
             }
             if ($(this).val() == 's') {
                 $('#game_th').text('게임명');
                 $('#game_td').html('<div id="dvGame" name="game"></div>');
                 $('#server_th').text('서버명');
-                $('#server_td').html('<input type="text" class="g_text" name="server_name" value="서버명을 입력해 주세요." />');
+                $('#server_td').html('<input type="text" class="angel__text" name="server_name" value="서버명을 입력해 주세요." />');
                 $('#addr_tr').remove();
-                $('table[class="g_blue_table"]').append('<tr id="addr_tr"><th>URL(주소)</th><td>http:// <input type="text" class="g_text" name="game_url" disabled="disabled" /></td></tr>');
+                $('table[class="table-primary"]').append('<tr id="addr_tr"><th>URL(주소)</th><td>http:// <input type="text" class="angel__text" name="game_url" disabled="disabled" /></td></tr>');
                 $('input[name=game_url]').css("background", "#E0E0E0");
                 var objGamelist = $.extend($('#dvGame'), _gamelist);
                 objGamelist.initialize();
@@ -78,7 +78,7 @@ function _init() {
             }
             if ($(this).val() == 'e') {
                 $('#game_th').text('제목');
-                $('#game_td').html('<input type="text" class="g_text subject" name="gs_subject" />');
+                $('#game_td').html('<input type="text" class="angel__text subject" name="gs_subject" />');
                 $('#server_th').text('내용');
                 $('#server_td').html('<textarea name="gs_content"></textarea>');
                 $('#addr_tr').remove();
@@ -89,7 +89,7 @@ function _init() {
 }
 
 function fnReset() {
-    $('table').find('input[class="g_text"]').bind({
+    $('table').find('input[class="angel__text"]').bind({
         blur: function() {
             if ($(this).attr('value') == '') {
                 if ($(this).attr('name') == 'game_name') {

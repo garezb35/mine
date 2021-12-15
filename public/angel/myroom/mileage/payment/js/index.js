@@ -160,7 +160,7 @@ function _init()
     });
 
     if(document.getElementById('guide_txt') !== null) {
-        LayerControl({
+        KeepAlivesRaw({
             el: document.getElementById('guide_txt'),
             layer: document.getElementById('guide_info'),
             close_btn : document.getElementById('guide_info').querySelector('.close'),

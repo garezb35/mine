@@ -28,18 +28,18 @@
             padding: 0;
         }
 
-        .g_title_blue {
+        .contextual--title {
             margin-left: 20px;
         }
-        .g_tab>* {
+        .react_nav_tab>* {
             background-color: #e3f0f3;
             border-bottom: 2px solid #0081b9;
         }
-        .g_tab>.selected {
+        .react_nav_tab>.selected {
             border: 2px solid #0081b9;
             border-bottom: 0;
         }
-        .g_tab>*>a {
+        .react_nav_tab>*>a {
             font-size: 14px;
         }
         .tb_list th {
@@ -48,18 +48,18 @@
         .tb_list td {
             font-size: 13px;
         }
-        .g_blue_table tr th {
+        .table-primary tr th {
             background-color: #e3f0f3;
         }
-        .g_blue_table,
-        .g_blue_table tr th,
-        .g_blue_table tr td {
+        .table-primary,
+        .table-primary tr th,
+        .table-primary tr td {
             border: solid 1px #89c1ce;
         }
     </style>
 
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .img_wrap {
                 width: 214px;
@@ -129,12 +129,12 @@
             }
         </style>
         @include('angel.guide.aside', ['group'=>'new_guide', 'part'=>''])
-        <div class="g_content">
+        <div class="pagecontainer">
             <a name="top"></a>
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue no-border">흥정거래</div>
+
+            <div class="contextual--title no-border">흥정거래</div>
             <div class="g_gray_border"></div>
-            <!-- ▲ 타이틀 //-->
+
             <div class="g_notice_box1">
                 흥정판매란 구매자의 흥정이 가능할 수 있도록 물품을 등록하여 판매하는 방식이며, 여러 구매자의 흥정신청 가격 중<br>
                 판매자가 원하는 가격에 흥정을 수락하여 거래하는 서비스입니다.
@@ -150,19 +150,19 @@
                 <li class="next_arrow"><img src="/angel/img/guide/screenshot/character/icon_guiade_end.gif" width="18" height="18" alt=""></li>
                 <li><a href="{{route('bar_re_bargain')}}"><img class="btn" src="/angel/img/guide/screenshot/character/bar05.gif" width="134" height="43" alt="재흥정"></a></li>
             </ul>
-            <div class="g_finish"></div>
-            <div class="g_subtitle_blue">구매자의 흥정신청</div>
+            <div class="empty-high"></div>
+            <div class="highlight_contextual">구매자의 흥정신청</div>
             <div class="guide_subtitle">
-                <span class="f_red1 f_bold">하나. </span>상단의 검색기능을 사용하여 팝니다에 등록된 분할 물품 중 <b>흥정 아이콘이 적용된 물품을 선택</b>합니다.
+                <span class="f_red1 font-weight-bold">하나. </span>상단의 검색기능을 사용하여 팝니다에 등록된 분할 물품 중 <b>흥정 아이콘이 적용된 물품을 선택</b>합니다.
             </div>
             <img class="" src="/angel/img/guide/screenshot/img_bar_req01.png" width="820" height="" alt="">
             <div class="guide_subtitle">
-                <span class="f_red1 f_bold">둘. </span>
+                <span class="f_red1 font-weight-bold">둘. </span>
                 주문물품 정보 및 판매자의 신용정보 등 을 확인 후 <b>[흥정신청]</b> 버튼을 클릭합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_bar_req02.png" width="820" height="" alt="">
             <div class="guide_subtitle">
-                <span class="f_red1 f_bold">셋. </span>
+                <span class="f_red1 font-weight-bold">셋. </span>
                 흥정금액 및 구매자 캐릭명을 입력하신 후 <b>[흥정신청]</b> 버튼을 클릭하시면 흥정신청이 완료 됩니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_bar_req03.png" width="820" height="" alt="">
@@ -171,7 +171,7 @@
                 <br>* 즉시구매는 판매자가 설정한 즉시판매금액으로 가격으로 신청되며, 거래진행 방식은 일반거래와 동일합니다.
             </div>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

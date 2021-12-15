@@ -61,15 +61,15 @@ function _init() {
     splitButton.init();
 
     $(window).on('resize', function () {
-        if (!$('#split_btn_layer').hasClass('g_hidden')) {
-            $('#split_btn_layer').addClass('g_hidden');
+        if (!$('#split_btn_layer').hasClass('d-none')) {
+            $('#split_btn_layer').addClass('d-none');
         }
     });
 
     $.extend(g_nodeSleep, {
         OnOpen : function() {
-            if (!$('#split_btn_layer').hasClass('g_hidden')) {
-                $('#split_btn_layer').addClass('g_hidden');
+            if (!$('#split_btn_layer').hasClass('d-none')) {
+                $('#split_btn_layer').addClass('d-none');
             }
         },
         OnClose : function() {
@@ -294,7 +294,7 @@ $.extend(splitButton, {
         // });
 
         btnOptions.click(function() {
-            btnLayer.toggleClass('g_hidden');
+            btnLayer.toggleClass('d-none');
 
             var rgBound	= btnAll.getBound();
 
@@ -307,7 +307,7 @@ $.extend(splitButton, {
 
         btnLayer.bind({
             mouseleave : function() {
-                btnLayer.toggleClass('g_hidden');
+                btnLayer.toggleClass('d-none');
             }
         });
     },

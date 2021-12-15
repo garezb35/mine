@@ -8,7 +8,7 @@
 
 @section('content')
     <style>
-        .g_container {
+        .container_fulids {
             padding-top: 30px;
         }
         .g_title_txt {
@@ -59,8 +59,8 @@
         }
     </style>
 
-    <div class="g_container" id="g_CONTENT">
-        <div class="g_remocon_l">
+    <div class="container_fulids" id="module-teaser-fullscreen">
+        <div class="recommend_e34rf">
         </div>
         <div class="g_title_txt">
             <span>회원가입</span> 서비스
@@ -113,9 +113,8 @@
         </div>
 
         <form id="certifyForm" method="post">
-            <input type="hidden" name="certify_info" value="YToyOntzOjk6ImZvcm1fbmFtZSI7czo3OiJmcm1JbmZvIjtzOjEwOiJzdWJtaXRfdXJsIjtzOjU1OiJodHRwczovL3d3dy5pdGVtbWFuaWEuY29tL3BvcnRhbC91c2VyL2pvaW5fZm9ybV9vay5odG1sIjt9">
-            <input type="hidden" name="user_name" value="윤경한">
-            <input type="hidden" name="user_birth" value="19770828">
+            <input type="hidden" name="user_name" value="">
+            <input type="hidden" name="user_birth" value="">
             <input type="hidden" name="user_gender" value="1">
             <input type="hidden" name="user_nation" value="1">
             <input type="hidden" name="user_mobile_type">
@@ -132,8 +131,6 @@
             <input type="hidden" name="captcha_check" id="captcha_check" value="">
             <input type="hidden" name="user_email_check" id="user_email_check">
             <input type="hidden" name="ipin_no" value="">
-            <input type="hidden" name="di" value="MC0GCCqGSIb3DQIJAyEAJNDBWPSxYXLvzYjvD+LFcDqvvA0hCOYuJ5Mlikc2jdQ=">
-            <input type="hidden" name="ci" value="d0UQCMoMEDxsC9nyKfU456OSptEFI+XA/YRyaYNAx1WsmQx8K132BtjZpc8BW4s4n6GhkayLfuSjaDFuIoKd5A==">
             <input type="hidden" name="ci_v" value="3">
             <input type="hidden" name="birth" value="{{$userBirth}}">
             <input type="hidden" name="user_type" value="{{$userType}}">
@@ -143,7 +140,6 @@
             <input type="hidden" name="protector_certify_type" value="">
             <input type="hidden" name="foreign_agree" value="">
             <input type="hidden" name="user_service_use_agree" value="1">
-            <input type="hidden" name="user_auth_agree" value="d28374de639f17297d21d0c463aa8e62">
             <table id="tbl_user_profile">
                 <colgroup>
                     <col width="206">
@@ -157,32 +153,15 @@
                     <th>아이디</th>
                     <td>
                         <div class="guide_add2">
-                            <input type="text" name="user_id" class="g_text" id="user_id" maxlength="12" required>
-{{--                            <span class="id_check" id="idCheck">아이디를 입력하세요.</span>--}}
+                            <input type="text" name="user_id" class="angel__text" id="user_id" maxlength="12" required>
                         </div>
-{{--                        <div class="g_hidden captcha" id="captcha_area" style="display: none !important;">--}}
-{{--                            <input type="hidden" name="captcha_data" id="captcha_data" value="e19e49a513a7b4e6f29d4725d261ee12213a765edb773f645524d2cfe0be0922073ff0f59639f89c2911ee2e264e6b474a8f0c62d3c03ec22ed71e857e848514">--}}
-{{--                            <ul class="g_left">--}}
-{{--                                <li>--}}
-{{--                                    <span class="f_black3">* 아래 보이는 숫자를 공백 없이 입력해주세요.</span>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <img id="captcha_image" src="/images/captcha/captcha_images_num.php?t=1637922685" width="200">--}}
-{{--                                    <span class="reset" onclick="captchaResets()">새로고침</span>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <input type="text" id="captcha_text" name="captcha_text" class="g_text">--}}
-{{--                                    <input type="button" value="중복확인" id="idCheckBtn" class="btn_blue3">--}}
-{{--                                </li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
                     </td>
                 </tr>
                 <tr>
                     <th>닉네임</th>
                     <td>
                         <div class="guide_add">
-                            <input type="text" name="user_nickname" class="g_text" id="user_nickname" maxlength="16" required>
+                            <input type="text" name="user_nickname" class="angel__text" id="user_nickname" maxlength="16" required>
                         </div>
                     </td>
                 </tr>
@@ -190,7 +169,7 @@
                     <th>비밀번호</th>
                     <td>
                         <div class="guide_add">
-                            <input type="password" name="user_password" class="g_password" id="user_password" maxlength="16" required>
+                            <input type="password" name="user_password" class="credient_input" id="user_password" maxlength="16" required>
                             <div class="password_help" id="password_help"></div>
                         </div>
                         <div class="muser_password" id="muser_password"></div>
@@ -200,7 +179,7 @@
                     <th>비밀번호 확인</th>
                     <td>
                         <div class="guide_add">
-                            <input type="password" name="user_password_validate" class="g_password" id="user_password_validate" maxlength="16" required>
+                            <input type="password" name="user_password_validate" class="credient_input" id="user_password_validate" maxlength="16" required>
                             <div class="password_help" id="password_help2"></div>
                         </div>
                     </td>
@@ -226,17 +205,17 @@
                             <option @if ($phoneNum1 == '019') selected @endif value="019">019</option>
                         </select>
                         -
-                        <input type="text" name="user_mobileB" id="user_mobileB" maxlength="4" class="g_text" value="{{$phoneNum2}}" readonly="">
+                        <input type="text" name="user_mobileB" id="user_mobileB" maxlength="4" class="angel__text" value="{{$phoneNum2}}" readonly="">
                         -
-                        <input type="text" name="user_mobileC" id="user_mobileC" maxlength="4" class="g_text" value="{{$phoneNum3}}" readonly="">
-                        <span class="f_black3">※ SMS 수신거부는 가입 후 마이룸에서 가능합니다.</span>
+                        <input type="text" name="user_mobileC" id="user_mobileC" maxlength="4" class="angel__text" value="{{$phoneNum3}}" readonly="">
+                        <span class="text-customgray">※ SMS 수신거부는 가입 후 마이룸에서 가능합니다.</span>
                     </td>
                 </tr>
                 <tr>
                     <th>이메일</th>
                     <td class="email_area">
-                        <input type="text" name="user_email" maxlength="30" class="g_text" required> @
-                        <input type="text" name="user_email_direct" value="" maxlength="30" class="g_text">
+                        <input type="text" name="user_email" maxlength="30" class="angel__text" required> @
+                        <input type="text" name="user_email_direct" value="" maxlength="30" class="angel__text">
                         <select id="slctEmail_host" name="user_email_host">
                             <option value="direct">직접입력</option>
                             <option value="naver.com">naver.com</option>
@@ -259,11 +238,11 @@
 
                 </tbody></table>
 
-            <div class="g_btn">
+            <div class="btn-groups_angel">
                 <input type="submit" value="회원가입" class="btn_blue3 big_btn">
             </div>
         </form>
 
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
 @endsection

@@ -26,7 +26,7 @@
     .g_list li, .g_list dd {
         padding: 0 5px;
     }
-    .aside .nav > .on_active ~ .nav_sub {
+    .aside .nav > .activated ~ .nav_sub {
         padding: 0;
         margin-top: 0px;
     }
@@ -34,7 +34,7 @@
         line-height: 30px;
         padding-left: 0px;
     }
-    .aside .nav > .nav_sub .on_active {
+    .aside .nav > .nav_sub .activated {
         color: #3ab7d3;
     }
 </style>
@@ -49,18 +49,18 @@
         </a>
     </div>
     <div class="nav">
-        <div class="nav_title {{$group == "faq" ? "on_active" : ""}}"><a href="{{route("main_customer")}}">FAQ</a></div>
-        <div class="nav_title {{$group == "report" ? "on_active" : ""}}"><a href="{{route('customer_report')}}">1:1 이용문의</a></div>
+        <div class="nav_title {{$group == "faq" ? "activated" : ""}}"><a href="{{route("main_customer")}}">FAQ</a></div>
+        <div class="nav_title {{$group == "report" ? "activated" : ""}}"><a href="{{route('customer_report')}}">1:1 이용문의</a></div>
         <ul class="nav_sub g_list">
             <li class="">
-                <a class="{{$part == "close" ? "on_active" : ""}}" href="{{route('customer_report')}}">거래취소 / 종료</a>
+                <a class="{{$part == "close" ? "activated" : ""}}" href="{{route('customer_report')}}">거래취소 / 종료</a>
             </li>
             <li class="">
-                <a class="{{$part == "guide" ? "on_active" : ""}}" href="{{route('customer_ask_guide')}}">이용관련</a>
+                <a class="{{$part == "guide" ? "activated" : ""}}" href="{{route('customer_ask_guide')}}">이용관련</a>
             </li>
         </ul>
-        <div class="nav_title {{$group == "myqna" ? "on_active" : ""}}"><a href="{{route('myqna_list')}}">나의 질문과 답변</a></div>
-        <div class="nav_title {{$group == "newgame" ? "on_active" : ""}}"><a href="{{route('customer_newgame')}}">신규게임/서버 추가</a></div>
-        <div class="nav_title {{$group == "safety" ? "on_active" : ""}}"><a href="{{route('customer_safety')}}">안전거래</a></div>
+        <div class="nav_title {{$group == "myqna" ? "activated" : ""}}"><a href="{{route('myqna_list')}}">나의 질문과 답변</a></div>
+        <div class="nav_title {{$group == "newgame" ? "activated" : ""}}"><a href="{{route('customer_newgame')}}">신규게임/서버 추가</a></div>
+        <div class="nav_title {{$group == "safety" ? "activated" : ""}}"><a href="{{route('customer_safety')}}">안전거래</a></div>
     </div>
 </div>

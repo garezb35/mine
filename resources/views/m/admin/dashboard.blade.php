@@ -32,9 +32,9 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <!-- Chart -->
+
                         <div class="chart">
-                            <!-- Chart wrapper -->
+
                             <canvas id="chart-sales" class="chart-canvas"></canvas>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <!-- Chart -->
+
                         <div class="chart">
                             <canvas id="chart-orders" class="chart-canvas"></canvas>
                         </div>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <!-- Projects table -->
+
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
@@ -172,7 +172,7 @@
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <!-- Projects table -->
+
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>

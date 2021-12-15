@@ -10,7 +10,7 @@
         }
     });
 
-    $('#service_save').click(function() {
+    $('#submit_menus').click(function() {
         var checkList = $(service).find(':checked');
         if (checkList.length < 8) {
             alert('8개 메뉴를 선택하셔야 저장이 가능합니다.');
@@ -44,7 +44,7 @@
         });
     });
 
-    $('#service_init').click(function() {
+    $('#reset_menus').click(function() {
         $(serviceList).removeClass('on');
         $(serviceList).find(':checked').prop('checked', false);
     });

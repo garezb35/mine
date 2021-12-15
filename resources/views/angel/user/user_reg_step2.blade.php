@@ -12,8 +12,8 @@
 @endsection
 
 @section('content')
-    <div class="g_container" id="g_CONTENT">
-        <div class="g_remocon_l">
+    <div class="container_fulids" id="module-teaser-fullscreen">
+        <div class="recommend_e34rf">
         </div>
         <script type="text/javascript">
             var USER_TYPE = "general";
@@ -579,7 +579,7 @@
 3. 회사는 원활하고 편리한 ‘서비스’를 위한 시스템을 운영 및 관리하며, ‘이용자’ 사이에 성립된 거래 및 ‘이용자’가 제공하고 등록한 정보에 대해서는 해당 ‘이용자’가 그에 대한 직접적인 책임을 부담하여야 합니다. 이와 관련해서 ‘회사’는 어떠한 책임도 지지 않습니다.
 
 제 13 조 (아이템거래 서비스 이용제한)
-<table class="g_blue_table tb_list">
+<table class="table-primary tb_list">
 <colgroup>
     <col width="143">
     <col width="360">
@@ -747,7 +747,7 @@
 1. 수집 및 활용 관련 정보
 개인정보가 제공되는 비즈니스 파트너 사와 제공 정보, 제공된 정보의 이용목적은 아래와 같습니다. 회원님들 중 이 개인정보의 제3자 마케팅 활용동의서에 동의하신 회원님들의 정보만이 제공되며, 제공된 정보는 명시된 이용목적을 벗어나 이용되지 않고, 개인정보의 유출 등 사고가 일어나지 않도록 더욱 철저한 보안이 이루어지도록 노력하고 있습니다.
 
-<table class="g_blue_table tb_list">
+<table class="table-primary tb_list">
 <colgroup>
 <col width="200">
 <col width="250">
@@ -861,7 +861,7 @@
 (주)아이엠아이는 회원님의 소중한 정보를 보호하기 신속하게 처리되도록 최선에 노력을 다하겠습니다.
 </pre>
         </div>
-        <!-- ▲ 약관동의 체크 //-->
+
 
         <div class="agree_check_s">
             <input type="checkbox" name="user_service_use_agree" id="user_service_use_agree" value="1">
@@ -872,7 +872,7 @@
             </label>
         </div>
 
-        <!-- ▼ 실명인증/아이핀인증 //-->
+
         <div class="d-flex user-verify-part" >
             <div class="w-50 align-center" style="border-right: solid 1px #d5d5d5;">
                 <img id="verify-phone" src="/angel/img/reg/phone_icon.png" width="153" height="153" onclick="verifyPhone()" />
@@ -895,39 +895,7 @@
             <input type="hidden" name="phoneNum2" id="phoneNum2" value="" />
             <input type="hidden" name="phoneNum3" id="phoneNum3" value="" />
         </form>
-{{--        <div class="certify_box">--}}
-{{--            <div class="box green">--}}
-{{--                <img src="https://img4.itemmania.com/new_images/join/icon_phone.png" width="60" alt="휴대폰">--}}
-{{--                <div class="box_desc">--}}
-{{--                    <p>휴대폰 인증</p>--}}
-{{--                    생년월일 기반의 본인인증 서비스로<br>--}}
-{{--                    가입자의 휴대폰 정보로 인증 받는 서비스--}}
-{{--                </div>--}}
-{{--                <input type="submit" value="휴대폰 인증" class="btn_green2" name="phone_cert">--}}
-{{--            </div>--}}
-{{--            <div class="box blue">--}}
-{{--                <img src="https://img4.itemmania.com/new_images/join/icon_ipin.png" width="86" alt="아이핀">--}}
-{{--                <div class="box_desc">--}}
-{{--                    <p>아이핀 인증</p>--}}
-{{--                    인터넷상 개인 식별번호로 본인임을<br>--}}
-{{--                    확인할 수 있는 개인정보보호 서비스--}}
-{{--                </div>--}}
-{{--                <input type="submit" value="아이핀 인증" class="btn_blue3" name="ipin_cert">--}}
-{{--            </div>--}}
-{{--            <form id="reqCBAForm" name="reqCBAForm" method="post" action="/certify/ipin_auth/v3/module/ipin_request.php" target="Parent_window">--}}
-{{--                <input type="hidden" name="wis" value="MemberJoin">--}}
-{{--                <input type="hidden" name="join_type" value="general">--}}
-{{--                <input type="hidden" name="user_agreement">--}}
-{{--                <input type="hidden" name="user_service">--}}
-{{--                <input type="hidden" name="foreign_agree">--}}
-
-{{--                <!--			<form id="reqCBAForm" name="reqCBAForm" method="post" action="ipin_request_seed.html" target="frmTarget">-->--}}
-{{--                <!--				<input type="hidden" name="join_type" value="--><!--">-->--}}
-{{--                <!--				<input type="hidden" name="user_agreement">-->--}}
-{{--            </form>--}}
-{{--            <iframe src="about:blank" name="Parent_window" class="g_hidden"></iframe>--}}
-{{--        </div>--}}
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
 
     <script>

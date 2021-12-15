@@ -2,7 +2,7 @@
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/customer/css/search.css" />
-    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+
     <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
@@ -15,17 +15,17 @@
     </script>
 @endsection
 @section('content')
-    <div class="g_container" id="g_CONTENT">
+    <div class="container_fulids" id="module-teaser-fullscreen">
         @include('aside.myroom',['group'=>'settings'])
-        <div class="g_content">
-            <!-- ▼ 사용자 환결설정 탭 -->
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue noborder">
+        <div class="pagecontainer">
+
+
+            <div class="contextual--title noborder">
                 환경설정
             </div>
             @include('tab.g_tab_customer',['group'=>'search'])
-            <!-- ▼ 설정하기 //-->
-            <div class="g_smtitle">설정하기</div>
+
+            <div class="sms_alias">설정하기</div>
             <div class="box">
                 <form id="frm_search" method="post" action="/myroom/customer/search_add">
                     @csrf
@@ -35,26 +35,26 @@
                     <input type="hidden" name="server_text" value="">
                     <input type="hidden" name="goods" value="">
                     <input type="hidden" name="goods_text" value="">
-                    <div class="g_search_wrapper custom_search_wrapper">
-                        <div class="g_trade_type">
-                            <label class="radiocontainer f_blue1">
+                    <div class="top_game_searchbar custom_search_wrapper">
+                        <div class="gameTypePopup">
+                            <label class="radiocontainer text-blue_modern">
                                 팝니다
                                 <input type="radio" name="type" value="sell" checked="">
                                 <span class="checkmark"></span>
                             </label>
-                            <label class="radiocontainer f_green1" style="margin-left: 30px">
+                            <label class="radiocontainer text-green_modern" style="margin-left: 30px">
                                 삽니다
                                 <input type="radio" name="type" value="buy">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
                         <div class="search_area">
-                            <input type="text" class="g_text search_gs_name" id="searchRegGameServer" placeholder="게임명 또는 서버명을 입력해주세요." autocomplete="off" data-gameserver="true">
-                            <a href="javascript:;" class="delete_btn"></a>
+                            <input type="text" class="angel__text search_gs_name" id="searchRegGameServer" placeholder="게임명 또는 서버명을 입력해주세요." autocomplete="off" data-gameserver="true">
+                            <a href="javascript:;" class="topsearchbar__close"></a>
                         </div>
-                        <input type="submit" class="g_search_list" value="추가">
-                        <div class="g_search_frame custom_gameserver g_hidden" id="custom_gameserver">
-                            <div class="initial_screen">
+                        <input type="submit" class="search__submit" value="추가">
+                        <div class="gameWindowPopup custom_gameserver d-none" id="custom_gameserver">
+                            <div class="_34Cr45d_reacts">
                                 <div class="tab searchbar_tab">
                                     <div class="active">
                                         <a href="javascript:;" data-target="tab_lastsearch">최근검색게임</a>
@@ -65,17 +65,17 @@
                                 </div>
                                 <div class="tab_content">
                                     <div class="tab_child show" data-content="tab_lastsearch">
-                                        <ul class="last_search">
+                                        <ul class="recent_viewd_games">
                                             <li class="empty">최근 검색 게임이 없습니다.</li>
                                         </ul>
                                     </div>
                                     <div class="tab_child" data-content="tab_mygame">
-                                        <ul class="g_my_search"></ul>
+                                        <ul class="mysearch_filters"></ul>
                                     </div>
                                 </div>
-                                <div class="popular_game" data-popular="true">
-                                    <div class="popular_game_title">거래가능게임</div>
-                                    <ul class="popular_list">
+                                <div class="tradecan_top" data-popular="true">
+                                    <div class="tradecan_h89eC">거래가능게임</div>
+                                    <ul class="top__gamelist">
                                         @if(!empty($popular))
                                             @foreach($popular as $key=>$v)
                                                 <li data-pgame="{{$v['game_code']}}">
@@ -86,16 +86,16 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="gs_list g_hidden game_empty" data-gslist="true" id="custom_gameserver_list">
-                                <div class="game g_hidden">
+                            <div class="angel__menugames d-none game_empty" data-gslist="true" id="custom_gameserver_list">
+                                <div class="game d-none">
                                     <ul>
                                         <li class="search_ing">검색 결과가 없습니다.</li>
                                     </ul>
                                 </div>
-                                <div class="server g_hidden">
+                                <div class="server d-none">
                                     <ul></ul>
                                 </div>
-                                <div class="goods g_hidden">
+                                <div class="goods d-none">
                                     <ul></ul>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@
             </div>
             <form method="post" id="frm_list" action="search_order">
                 @csrf
-                <table class="g_blue_table tb_list" id="search_tb">
+                <table class="table-primary tb_list" id="search_tb">
                     <colgroup>
                         <col width="90">
                         <col width="450">
@@ -141,13 +141,13 @@
                     </tbody>
                 </table>
                 {{$list->links()}}
-                <!-- ▼ 기본페이지 해제 버튼 //-->
-                <!-- ▲ 기본페이지 해제 버튼 //-->
-                <div class="g_btn">
+
+
+                <div class="btn-groups_angel">
                     <input type="submit" value="확인" class="btn-default-medium btn-submit-rect">
                 </div>
             </form>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
 @endsection

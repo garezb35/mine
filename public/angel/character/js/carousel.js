@@ -140,12 +140,10 @@ var Carousel = function(bannerSelector,options){
     // // 자동롤링, 배너가 한개면 안함
     if (bannerArrLength > 1) {
         setInterval(function() {
-            // 마우스오버시 자동롤링 안함
             if (crOnMouseOver) return;
             bannerChange('next');
         }, initOptions.delay);
 
-        // 마우스오버, 아웃 체크
         $bannerArea.addEventListener('mouseover',function() {
             clearTimeout(timer);
             crOnMouseOver = true;

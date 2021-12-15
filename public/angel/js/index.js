@@ -21,7 +21,7 @@ function _init(){
     //         var strSecuResult = "ë¯¸ì„¤ì •";
     //         var strLoginAlarm = "ë¯¸ì„¤ì •";
     //         var strLoginResult = "ë¯¸ì„¤ì •";
-    //         var strUseService = "<span class='f_blue1'>ì„¤ì •ì™„ë£Œ</span>";
+    //         var strUseService = "<span class='text-blue_modern'>ì„¤ì •ì™„ë£Œ</span>";
     //         if (reqData[0] == true) { strSecuResult = strUseService; }
     //         if (reqData[3] == true) { strLoginResult = strUseService; }
     //         if (reqData[4] == true) { strLoginAlarm = strUseService; }

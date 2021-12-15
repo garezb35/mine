@@ -10,25 +10,25 @@ if($type == 'quickicon')
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link type="text/css" rel="stylesheet" href="/angel/_css/_comm.css?v=210317">
-    <link type="text/css" rel="stylesheet" href="/angel/_head_tail/css/_head_popup.css">
+    <link type="text/css" rel="stylesheet" href="/angel/_css/webpack.css?v=210317">
+    <link type="text/css" rel="stylesheet" href="/angel/global_h/css/_head_popup.css">
     <link type="text/css" rel="stylesheet" href="/angel/_css/_table_list.css">
     <link type="text/css" rel="stylesheet" href="/angel/css/free_remainder_list.css?v=190220">
     <script type="text/javascript" src="/angel/_js/jquery.js"></script>
-    <script type="text/javascript" src="/angel/_js/_comm.js"></script>
+    <script type="text/javascript" src="/angel/_js/webpack.js"></script>
     <script type="text/javascript" src="/angel/_js/angelic-global.js"></script>
-    <script type="text/javascript" src="/angel/_js/_common_initialize_new.js"></script>
+    <script type="text/javascript" src="/angel/_js/loader.js"></script>
 </head>
 <body>
-<div id="g_SLEEP" class="g_sleep g_hidden ">
-    <div id="g_OVERLAY" class="g_overlay"></div>
+<div id="global_root" class="mainEntity d-none ">
+    <div id="thirdys" class="fluid-div"></div>
 </div>
-<div id="g_BODY">
-    <div id="popup_title_bar"><img src="http://img3.itemmania.com/images/myroom/title/title_free_cp.gif" alt="무료이용권 잔여수량" width="162" height="19"></div>
+<div id="angel">
+    <div id="model_titlebar"><img src="http://img3.itemmania.com/images/myroom/title/title_free_cp.gif" alt="무료이용권 잔여수량" width="162" height="19"></div>
     <div id="g_POPUP">
-        <div class="g_subtitle_blue g_black1_b">무료이용권 잔여수량</div>
+        <div class="highlight_contextual g_black1_b">무료이용권 잔여수량</div>
         <div class="g_black3">{{$type_alias}} 무료 이용권 잔여수량</div>
-        <table class="g_blue_table">
+        <table class="table-primary">
             <colgroup>
                 <col width="135">
                 <col>
@@ -45,13 +45,13 @@ if($type == 'quickicon')
             </tbody>
         </table>
 
-        <div class="g_btn">
+        <div class="btn-groups_angel">
             <a class="btn-suc btn-default"  onclick="window.close();">확인</a>
         </div>
     </div>
 </div>
 <script type="text/javascript" src="/angel/_js/_window_new.js"></script>
 <script type="text/javascript">_window.resize(440,400)</script>
-<script>_initialize();</script>
+<script>loadGlobalItems()</script>
 </body>
 </html>

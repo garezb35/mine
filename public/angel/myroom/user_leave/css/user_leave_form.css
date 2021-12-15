@@ -56,11 +56,11 @@
     text-align: center
 }
 
-.tb_cell2 .g_image {
+.tb_cell2 .v_middle_img {
     margin-top: 17px
 }
 
-.g_blue_table .g_text {
+.table-primary .angel__text {
     width: 157px
 }
 
@@ -163,18 +163,18 @@
     padding: 0 0 0 20px
 }
 
-.g_big_box1 .g_blue_table {
+.g_big_box1 .table-primary {
     margin-top: 15px
 }
 
-.g_big_box1 .g_blue_table td {
+.g_big_box1 .table-primary td {
     padding-left: 0;
     background-color: #FFF;
     text-align: center;
     color: #767676
 }
 
-.g_big_box1 .g_blue_table .border {
+.g_big_box1 .table-primary .border {
     border-right: 1px solid #E2E2E2
 }
 

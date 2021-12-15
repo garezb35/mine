@@ -28,7 +28,7 @@
                     <div class="mb-3">
                         <h2 class="h5">Sizes</h2>
                     </div>
-                    <!--Buttons-->
+
                     <button class="btn btn-sm btn-primary" type="button">Small</button>
                     <button class="btn btn-primary" type="button">Regular</button>
                     <button class="btn btn-lg btn-primary" type="button">Large Button</button>
@@ -73,7 +73,7 @@
                     <div class="mb-3 mt-5">
                         <h2 class="h5">Link Buttons</h2>
                     </div>
-                    <!--Buttons-->
+
                     <a href="#" class="text-default fw-bold me-3">Primary</a>
                     <a href="#" class="text-primary d-inline-flex align-items-center me-3">
                         <svg class="icon icon-xxs me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M2 9.5A3.5 3.5 0 005.5 13H9v2.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 15.586V13h2.5a4.5 4.5 0 10-.616-8.958 4.002 4.002 0 10-7.753 1.977A3.5 3.5 0 002 9.5zm9 3.5H9V8a1 1 0 012 0v5z" clip-rule="evenodd" /></svg>
@@ -83,8 +83,8 @@
                         Icon Right
                         <svg class="icon icon-xxs ms-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M2 9.5A3.5 3.5 0 005.5 13H9v2.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 15.586V13h2.5a4.5 4.5 0 10-.616-8.958 4.002 4.002 0 10-7.753 1.977A3.5 3.5 0 002 9.5zm9 3.5H9V8a1 1 0 012 0v5z" clip-rule="evenodd" /></svg>
                     </a>
-                    <!--End of Buttons-->
-                    <!-- Tooltips -->
+
+
                     <div class="mb-3 mt-5">
                         <h2 class="h5">Tooltips</h2>
                     </div>
@@ -100,7 +100,7 @@
                     <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">
                         Tooltip on left
                     </button>
-                    <!-- Tooltips -->
+
                     <div class="mb-3 mt-5">
                         <h2 class="h5">Popovers</h2>
                     </div>
@@ -116,14 +116,14 @@
                     <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-content="Left popover">
                         Popover on left
                     </button>
-                    <!-- Button colors -->
+
                     <div class="mb-3 mt-5">
                         <h2 class="h5">Choose your color</h2>
                     </div>
                     <div class="mb-3 mt-5">
                         <small class="text-uppercase fw-bold">Main</small>
                     </div>
-                    <!--Buttons-->
+
                     <button class="btn btn-primary" type="button">Primary</button>
                     <button class="btn btn-secondary" type="button">Secondary</button>
                     <button class="btn btn-tertiary" type="button">Tertiary</button>
@@ -135,11 +135,11 @@
                     <button class="btn btn-gray-200" type="button">Gray</button>
                     <button class="btn btn-gray-50" type="button">Light</button>
                     <button class="btn btn-white" type="button">White</button>
-                    <!--End Of Buttons-->
+
                     <div class="mb-3 mt-5">
                         <small class="text-uppercase fw-bold">Outline</small>
                     </div>
-                    <!--Buttons-->
+
                     <button class="btn btn-outline-primary" type="button">Primary</button>
                     <button class="btn btn-outline-secondary" type="button">Secondary</button>
                     <button class="btn btn-outline-tertiary" type="button">Tertiary</button>
@@ -148,11 +148,11 @@
                     <button class="btn btn-outline-danger" type="button">Danger</button>
                     <button class="btn btn-outline-gray-800" type="button">Dark</button>
                     <button class="btn btn-outline-gray-500" type="button">Gray</button>
-                    <!--End Of Buttons-->
+
                     <div class="mb-3 mt-5">
                         <small class="text-uppercase fw-bold">Round Outline</small>
                     </div>
-                    <!--Buttons-->
+
                     <button class="btn btn-pill btn-outline-primary" type="button">Primary</button>
                     <button class="btn btn-pill btn-outline-secondary" type="button">Secondary</button>
                     <button class="btn btn-pill btn-outline-tertiary" type="button">Tertiary</button>
@@ -161,12 +161,12 @@
                     <button class="btn btn-pill btn-outline-danger" type="button">Danger</button>
                     <button class="btn btn-pill btn-outline-gray-800" type="button">Dark</button>
                     <button class="btn btn-pill btn-outline-gray-500" type="button">Gray</button>
-                    <!--End Of Buttons-->
-                    <!-- Button links -->
+
+
                     <div class="mb-3 mt-5">
                         <small class="text-uppercase fw-bold">Links</small>
                     </div>
-                    <!--Buttons-->
+
                     <a href="#" class="text-default me-3">Default</a>
                     <a href="#" class="text-primary me-3">Primary</a>
                     <a href="#" class="text-secondary me-3">Secondary</a>
@@ -176,11 +176,11 @@
                     <a href="#" class="text-danger me-3">Danger</a>
                     <a href="#" class="text-dark me-3">Dark</a>
                     <a href="#" class="text-gray">Gray</a>
-                    <!--End Of Buttons-->
-                
+
+
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
-                        <!-- Button Social -->
+
                         <div class="mb-4 mt-5">
                             <h2 class="h5 fw-bold">Social Buttons</h2>
                         </div>
@@ -215,7 +215,7 @@
                         </button>
                     </div>
                     <div class="col-12 col-lg-6">
-                        <!-- Square -->
+
                         <div class="mb-4 mt-5">
                             <h2 class="h5">Only Icon</h2>
                         </div>

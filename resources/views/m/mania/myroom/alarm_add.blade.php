@@ -11,23 +11,23 @@
 @endsection
 
 @section('content')
-<!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-<div class="g_container" id="g_CONTENT">
+
+<div class="container_fulids" id="module-teaser-fullscreen">
     @include('aside.myroom',['group'=>'alert'])
-    <div class="g_content">
-        <div class="g_title_blue"> 물품등록 알리미
+    <div class="pagecontainer">
+        <div class="contextual--title"> 물품등록 알리미
             <ul class="g_path">
                 <li>홈</li>
                 <li>마이룸</li>
                 <li class="select">물품등록 알리미</li>
             </ul>
         </div>
-        <div class="SpGroup top_box">
+        <div class="has-sprite top_box">
             <p class="top_title"><span class="ft_orange">물품등록</span>알리미란?</p>
             <p>회원이 원하는 물품 조건(키워드,캐릭터 종류 등)에 맞는 물품이 등록되면,</p>
             <p>이를 회원에게(캐릭터거래에 한해) 알림 해주는 편리한 무료서비스입니다.</p>
         </div>
-        <div class="g_tab">
+        <div class="react_nav_tab">
             <div class=""><a href="/myroom/goods_alarm/alarm_sell_list.html">등록 알림 내역</a></div>
             <div class="selected"><a href="/myroom/goods_alarm/alarm_add.html">알림 설정 등록</a></div>
         </div>
@@ -37,7 +37,7 @@
             <input type="hidden" name="game_code_text" id="game_code_text">
             <input type="hidden" name="server_code" id="server_code" value="">
             <input type="hidden" name="server_code_text" id="server_code_text">
-            <table id="table_wrapper" class="g_blue_table">
+            <table id="table_wrapper" class="table-primary">
                 <colgroup>
                     <col width="160">
                     <col>
@@ -158,7 +158,7 @@
             </div>
         </form>
     </div>
-    <div class="g_finish"></div>
+    <div class="empty-high"></div>
 </div>
-<!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

@@ -216,13 +216,13 @@
     };
     var c = function(l) {
         var k = l.className.split(" ");
-        var m = "g_hidden";
+        var m = "d-none";
         if(k.indexOf(m) === -1) {
             l.className += " " + m
         }
     };
     var h = function(k) {
-        k.className = k.className.replace(/ g_hidden/g, "")
+        k.className = k.className.replace(/ d-none/g, "")
     };
     var g = function(k, o) {
         var v = {};
@@ -300,7 +300,7 @@
             l.goodsList = q
         } else {
             if(l.serverList) {
-                l.serverList.listWrap.classList.add("server_t")
+                l.serverList.listWrap.classList.add("filter__content")
             }
         }
         if(u.gameCode !== "") {
@@ -367,12 +367,12 @@
             }
             if(k.containerWrapper) {
                 k.containerWrapper.mode = "open";
-                k.containerWrapper.classList.remove("g_hidden");
+                k.containerWrapper.classList.remove("d-none");
                 if(k.gameList.autoComplete !== false) {
                     k.focusSetTimeout = setTimeout(function() {
                         k.gameList.getData()
                     });
-                    if(k.toggleContainer && k.container.className.indexOf("g_hidden") === -1 && k.gameList.autoCompleteEl.value.isEmpty() === true) {
+                    if(k.toggleContainer && k.container.className.indexOf("d-none") === -1 && k.gameList.autoCompleteEl.value.isEmpty() === true) {
                         k.container.mode = "close";
                         c(k.container);
                         if(k.toggleContainer) {
@@ -408,7 +408,7 @@
             }
             if(k.containerWrapper) {
                 k.containerWrapper.mode = "close";
-                k.containerWrapper.classList.add("g_hidden")
+                k.containerWrapper.classList.add("d-none")
             } else {
                 p.mode = "close";
                 c(p.listWrap)
@@ -503,7 +503,7 @@
             }
             if(k === "" && p === "") {
                 if(l.selected) {
-                    l.selected.classList.remove("sel_on");
+                    l.selected.classList.remove("filter__selected");
                     delete l.selected
                 }
                 if(l.selectedData) {
@@ -588,7 +588,7 @@
         l.gameList = this;
         k.suggest = new i();
         k.listWrap = document.createElement("div");
-        k.listWrap.className = "game g_hidden";
+        k.listWrap.className = "game d-none";
         k.list = document.createElement("ul");
         l.appendChild(k.listWrap);
         k.listWrap.appendChild(k.list);
@@ -604,7 +604,7 @@
             }
             var o = document.createElement("a");
             o.href = "javascript:;";
-            o.classList.add("delete_btn");
+            o.classList.add("topsearchbar__close");
             o.addEventListener("click", function() {
                 k.autoCompleteEl.value = "";
                 k.searchText = "";
@@ -651,8 +651,8 @@
         searchCount: 50,
         notGames: [45, 216, 512],
         hidden_use: {
-            code: '[name="search_game"]',
-            text: '[name="search_game_text"]'
+            code: '[name="filtered_game_id"]',
+            text: '[name="filtered_game_alias"]'
         },
         getData: function(l) {
             var k = this;
@@ -761,12 +761,12 @@
                 }
             }
             n.list.appendChild(w);
-            if(n.listWrap.className.indexOf("g_hidden") !== -1 && n.view !== false) {
+            if(n.listWrap.className.indexOf("d-none") !== -1 && n.view !== false) {
                 h(n.listWrap)
             }
             if(o) {
                 if(n.gameserver.changeAction === true) {
-                    if(n.gameserver.container.className.indexOf("g_hidden") !== -1 && n.view !== false) {
+                    if(n.gameserver.container.className.indexOf("d-none") !== -1 && n.view !== false) {
                         n.gameserver.container.mode = "open";
                         h(n.gameserver.container);
                         if(n.gameserver.toggleContainer) {
@@ -788,14 +788,14 @@
                 if(String(l.C) === String(k.getValue().code)) {
                     return
                 }
-                k.selected.classList.remove("sel_on")
+                k.selected.classList.remove("filter__selected")
             }
             if(String(o).toLowerCase().indexOf("element") !== -1) {
                 k.selected = o;
-                o.classList.add("sel_on")
+                o.classList.add("filter__selected")
             }
             k.gameserver.searchState = false;
-            k.gameserver.container.classList.add("gs_selection");
+            k.gameserver.container.classList.add("game_filters");
             k.selectedData = l;
             if(k.autoComplete !== false) {
                 k.gameserver.blurAction = false;
@@ -897,7 +897,7 @@
                     p.gameserver.position = "game";
                     delete p.gameserver.gameList.selectedIndex
                 } else {
-                    if(p.gameserver.goodsList && p.gameserver.goodsList.listWrap.classList.contains("g_hidden") === false && p.gameserver.serverList.selected) {
+                    if(p.gameserver.goodsList && p.gameserver.goodsList.listWrap.classList.contains("d-none") === false && p.gameserver.serverList.selected) {
                         p.gameserver.position = "goods";
                         delete p.gameserver.goodsList.selectedIndex
                     } else {
@@ -1062,7 +1062,7 @@
                 if(k.gameserver.goodsList) {
                     c(k.gameserver.goodsList.listWrap)
                 }
-                if(k.gameserver.toggleContainer && k.gameserver.container.className.indexOf("g_hidden") === -1) {
+                if(k.gameserver.toggleContainer && k.gameserver.container.className.indexOf("d-none") === -1) {
                     k.gameserver.container.mode = "close";
                     c(k.gameserver.container);
                     if(k.gameserver.toggleContainer) {
@@ -1076,9 +1076,9 @@
                 delete k.selectedIndex;
                 if(k.gameserver.searchState === false) {
                     k.gameserver.searchState = true;
-                    k.gameserver.container.classList.remove("gs_selection")
+                    k.gameserver.container.classList.remove("game_filters")
                 }
-                if(k.gameserver.toggleContainer && k.gameserver.container.className.indexOf("g_hidden") !== -1) {
+                if(k.gameserver.toggleContainer && k.gameserver.container.className.indexOf("d-none") !== -1) {
                     k.gameserver.container.mode = "open";
                     h(k.gameserver.container);
                     if(k.gameserver.toggleContainer) {
@@ -1166,7 +1166,7 @@
         k.serverList = this;
         this.suggest = new i();
         this.listWrap = document.createElement("div");
-        this.listWrap.className = "server g_hidden";
+        this.listWrap.className = "server d-none";
         this.list = document.createElement("ul");
         k.appendChild(this.listWrap);
         this.listWrap.appendChild(this.list);
@@ -1194,7 +1194,7 @@
             this.setKeyEvent()
         }
         if(this.selected) {
-            this.selected.classList.add("sel_on")
+            this.selected.classList.add("filter__selected")
         }
     };
     b.prototype = {
@@ -1209,8 +1209,8 @@
         searchCount: 50,
         exceptCode: [],
         hidden_use: {
-            code: '[name="search_server"]',
-            text: '[name="search_server_text"]'
+            code: '[name="filtered_child_id"]',
+            text: '[name="filtered_child_alias"]'
         },
         getData: function(q) {
             var n = this;
@@ -1319,7 +1319,7 @@
                 }
             }
             o.list.appendChild(z);
-            if(o.listWrap.className.indexOf("g_hidden") !== -1 && o.view !== false) {
+            if(o.listWrap.className.indexOf("d-none") !== -1 && o.view !== false) {
                 h(o.listWrap)
             }
             if(o.gameserver && o.gameserver.goodsList && o.gameserver.searchState === false) {
@@ -1352,7 +1352,7 @@
                     k.gameserver.serverList.setValue(o.C, o.N);
                     if(s && k.gameserver && k.gameserver.goodsList) {
                         if(k.gameserver.goodsList.selected) {
-                            k.gameserver.goodsList.selected.classList.remove("sel_on");
+                            k.gameserver.goodsList.selected.classList.remove("filter__selected");
                             k.gameserver.goodsList.setValue("", "")
                         }
                     }
@@ -1364,9 +1364,9 @@
                 return
             }
             if(k.selected) {
-                k.selected.classList.remove("sel_on")
+                k.selected.classList.remove("filter__selected")
             }
-            q.classList.add("sel_on");
+            q.classList.add("filter__selected");
             k.selected = q;
             k.selectedData = o;
             if(k.autoComplete !== false) {
@@ -1410,7 +1410,7 @@
             }
             if(s && k.gameserver && k.gameserver.goodsList) {
                 if(k.gameserver.goodsList.selected) {
-                    k.gameserver.goodsList.selected.classList.remove("sel_on");
+                    k.gameserver.goodsList.selected.classList.remove("filter__selected");
                     k.gameserver.goodsList.setValue("", "")
                 }
             }
@@ -1472,7 +1472,7 @@
         k.goodsList = this;
         a(k).data("goodsList", this);
         this.listWrap = document.createElement("div");
-        this.listWrap.className = "goods g_hidden";
+        this.listWrap.className = "goods d-none";
         this.list = document.createElement("ul");
         k.appendChild(this.listWrap);
         this.listWrap.appendChild(this.list);
@@ -1511,7 +1511,7 @@
             V: true
         }],
         hidden_use: {
-            code: '[name="search_goods"]',
+            code: '[name="filtered_items"]',
             text: ""
         },
         exceptCode: [],
@@ -1574,9 +1574,9 @@
                 return
             }
             if(this.selected) {
-                this.selected.classList.remove("sel_on")
+                this.selected.classList.remove("filter__selected")
             }
-            n.classList.add("sel_on");
+            n.classList.add("filter__selected");
             this.selected = n;
             this.selectedData = a.data(n);
             if(this.gameserver && this.gameserver.gameList && this.gameserver.gameList.autoComplete !== false) {

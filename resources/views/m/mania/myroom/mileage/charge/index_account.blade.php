@@ -2,8 +2,6 @@
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/mileage/my_mileage/css/index.css?700101" />
-    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
-    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
@@ -22,13 +20,13 @@
             border: none;
         }
     </style>
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         @include('angel.myroom.aside', ['group'=>'mileage', 'part'=>'my_mileage'])
-        <div class="g_content">
+        <div class="pagecontainer">
             <iframe class="charge-iframe" src="{{route("mileage_payment_charge_iframe")}}" />
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

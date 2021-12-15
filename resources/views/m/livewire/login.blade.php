@@ -1,6 +1,6 @@
 
 <main>
-    <!-- Section -->
+
     <section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
         <div class="container">
             <p class="text-center">
@@ -23,7 +23,7 @@
                         </div>
                         <form action="{{route('adminLoginPost')}}" class="mt-4" method="post">
                             @csrf
-                            <!-- Form -->
+
                                 @if(\Session::get('error'))
                                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                         {{ \Session::get('error') }}
@@ -53,9 +53,9 @@
                                     @endif
                                 </div>
                             </div>
-                            <!-- End of Form -->
+
                             <div class="form-group">
-                                <!-- Form -->
+
                                 <div class="form-group mb-4">
                                     <label for="password">비밀번호</label>
                                     <div class="input-group">
@@ -76,7 +76,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <!-- End of Form -->
+
                                 <div class="d-flex justify-content-between align-items-top mb-4">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="remember">

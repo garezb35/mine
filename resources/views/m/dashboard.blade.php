@@ -10,11 +10,11 @@
                 Add User
             </a>
             <a class="dropdown-item d-flex align-items-center" href="#">
-                <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path></svg>                            
+                <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path></svg>
                 Add Widget
             </a>
             <a class="dropdown-item d-flex align-items-center" href="#">
-                <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z"></path><path d="M9 13h2v5a1 1 0 11-2 0v-5z"></path></svg>                            
+                <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z"></path><path d="M9 13h2v5a1 1 0 11-2 0v-5z"></path></svg>
                 Upload Files
             </a>
             <a class="dropdown-item d-flex align-items-center" href="#">
@@ -36,9 +36,9 @@
                 <div class="d-block mb-3 mb-sm-0">
                     <div class="fs-5 fw-normal mb-2">Sales Value</div>
                     <h2 class="fs-3 fw-extrabold">$10,567</h2>
-                    <div class="small mt-2"> 
-                        <span class="fw-normal me-2">Yesterday</span>                              
-                        <span class="fas fa-angle-up text-success"></span>                                   
+                    <div class="small mt-2">
+                        <span class="fw-normal me-2">Yesterday</span>
+                        <span class="fas fa-angle-up text-success"></span>
                         <span class="text-success fw-bold">10.57%</span>
                     </div>
                 </div>
@@ -71,11 +71,11 @@
                             <h3 class="fw-extrabold mb-2">345k</h3>
                         </div>
                         <small class="d-flex align-items-center text-gray-500">
-                            Feb 1 - Apr 1,  
+                            Feb 1 - Apr 1,
                             <svg class="icon icon-xxs text-gray-500 ms-2 me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clip-rule="evenodd"></path></svg>
                             USA
-                        </small> 
-                        <div class="small d-flex mt-1">                               
+                        </small>
+                        <div class="small d-flex mt-1">
                             <div>Since last month <svg class="icon icon-xs text-success" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg><span class="text-success fw-bolder">22%</span></div>
                         </div>
                     </div>
@@ -102,11 +102,11 @@
                             <h3 class="fw-extrabold mb-2">$43,594</h3>
                         </div>
                         <small class="d-flex align-items-center text-gray-500">
-                            Feb 1 - Apr 1,  
+                            Feb 1 - Apr 1,
                             <svg class="icon icon-xxs text-gray-500 ms-2 me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clip-rule="evenodd"></path></svg>
                             GER
-                        </small> 
-                        <div class="small d-flex mt-1">                               
+                        </small>
+                        <div class="small d-flex mt-1">
                             <div>Since last month <svg class="icon icon-xs text-danger" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg><span class="text-danger fw-bolder">2%</span></div>
                         </div>
                     </div>
@@ -134,8 +134,8 @@
                         </div>
                         <small class="text-gray-500">
                             Feb 1 - Apr 1
-                        </small> 
-                        <div class="small d-flex mt-1">                               
+                        </small>
+                        <div class="small d-flex mt-1">
                             <div>Since last month <svg class="icon icon-xs text-success" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg><span class="text-success fw-bolder">4%</span></div>
                         </div>
                     </div>
@@ -271,7 +271,7 @@
                             <li class="list-group-item px-0">
                                 <div class="row align-items-center">
                                 <div class="col-auto">
-                                    <!-- Avatar -->
+
                                     <a href="#" class="avatar">
                                         <img class="rounded" alt="Image placeholder" src="/assets/img/team/profile-picture-1.jpg">
                                     </a>
@@ -296,7 +296,7 @@
                             <li class="list-group-item px-0">
                                 <div class="row align-items-center">
                                     <div class="col-auto">
-                                        <!-- Avatar -->
+
                                         <a href="#" class="avatar">
                                             <img class="rounded" alt="Image placeholder" src="/assets/img/team/profile-picture-2.jpg">
                                         </a>
@@ -321,7 +321,7 @@
                             <li class="list-group-item px-0">
                                 <div class="row align-items-center">
                                     <div class="col-auto">
-                                        <!-- Avatar -->
+
                                         <a href="#" class="avatar">
                                             <img class="rounded" alt="Image placeholder" src="/assets/img/team/profile-picture-3.jpg">
                                         </a>
@@ -346,7 +346,7 @@
                             <li class="list-group-item px-0">
                                 <div class="row align-items-center">
                                     <div class="col-auto">
-                                        <!-- Avatar -->
+
                                         <a href="#" class="avatar">
                                             <img class="rounded" alt="Image placeholder" src="/assets/img/team/profile-picture-4.jpg">
                                         </a>
@@ -379,7 +379,7 @@
                          <a href="#" class="btn btn-sm btn-primary">See tasks</a>
                      </div>
                     <div class="card-body">
-                        <!-- Project 1 -->
+
                         <div class="row mb-4">
                             <div class="col-auto">
                                 <svg class="icon icon-sm text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path></svg>
@@ -396,7 +396,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Project 2 -->
+
                         <div class="row align-items-center mb-4">
                             <div class="col-auto">
                                 <svg class="icon icon-sm text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path></svg>
@@ -413,7 +413,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Project 3 -->
+
                         <div class="row align-items-center mb-4">
                             <div class="col-auto">
                                 <svg class="icon icon-sm text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path></svg>
@@ -430,7 +430,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Project 4 -->
+
                         <div class="row align-items-center mb-3">
                             <div class="col-auto">
                                 <svg class="icon icon-sm text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path></svg>
@@ -459,8 +459,8 @@
                     <div class="d-block">
                         <div class="h6 fw-normal text-gray mb-2">Total orders</div>
                         <h2 class="h3 fw-extrabold">452</h2>
-                        <div class="small mt-2">                               
-                            <span class="fas fa-angle-up text-success"></span>                                   
+                        <div class="small mt-2">
+                            <span class="fas fa-angle-up text-success"></span>
                             <span class="text-success fw-bold">18.2%</span>
                         </div>
                     </div>

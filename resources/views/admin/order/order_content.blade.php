@@ -19,10 +19,10 @@ $category .= $item['good_type'];
         <title>{{ config('app.name', '관리자') }}</title>
         <link href="{{ asset('argon') }}/img/brand/favicon.png" rel="icon" type="image/png">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-        <!-- Icons -->
+
         <link href="{{ asset('argon') }}/vendor/nucleo/css/nucleo.css" rel="stylesheet">
         <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-        <!-- Argon CSS -->
+
         <link type="text/css" href="{{ asset('argon') }}/css/argon.css" rel="stylesheet">
     </head>
     <body>

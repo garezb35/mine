@@ -6,7 +6,7 @@
     margin-left: 5px
 }
 
-.cell_num .g_text {
+.cell_num .angel__text {
     width: 49px
 }
 
@@ -29,11 +29,11 @@
     margin-left: 12px
 }
 
-.myinfo_address .g_text {
+.myinfo_address .angel__text {
     width: 58px
 }
 
-.myinfo_address_detail .g_text {
+.myinfo_address_detail .angel__text {
     width: 270px;
     margin-right: 2px;
     height: 40px;
@@ -81,7 +81,7 @@
     cursor: pointer;
 }
 
-.sms_info .f_org1 {
+.sms_info .text-orange {
     margin: 15px 0;
     font-size: 11px;
 }
@@ -105,7 +105,7 @@
     margin: 2px 13px 0 0;
 }
 
-.email_info .g_text {
+.email_info .angel__text {
     width: 130px;
     text-align: center;
 }

@@ -88,7 +88,7 @@ function Payment() {
                     target: "pay",
                     action: "/certify/payment/user_certify.html"
                 }).submit();
-                $('#g_SLEEP').show();
+                $('#global_root').show();
             } else {
                 frm.attr({
                     target: "_self",

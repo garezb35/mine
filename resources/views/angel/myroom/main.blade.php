@@ -77,15 +77,15 @@
             margin-top: 12px;
         }
     </style>
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         @include("aside.myroom",['group'=>''])
-        <div class="g_content">
+        <div class="pagecontainer">
             <div class="content_area content_coupon">
                 <div class="myroom_status_part">
                     <div class="user-info-part">
                         <img class="position-abs" style="top: 24px; left: 15px;" src="/angel/img/level/{{$role['icon']}}" />
-                        <div class="position-abs f-18 c-blue-title align-center f-bold" style="top: 28px; left: 82px; width: 98px;">{{$role['alias']}} 회원</div>
+                        <div class="position-abs f-18 text-nodemon align-center f-bold" style="top: 28px; left: 82px; width: 98px;">{{$role['alias']}} 회원</div>
                         <div class="position-abs f-20 align-right" style="top: 24px; left: 251px; width: 34px;">{{number_format($user['point'])}}</div>
                         <div class="position-abs f-16 align-center" style="top: 64px; left: 90px; width: 85px;">
                             <a class="" href="/myroom/myinfo/credit_rating">혜택보기</a>
@@ -97,7 +97,7 @@
                     <div class="user-money-info position-abs f-17" style="width:330px; left:350px;">
 {{--                        <div class="d-flex w-100" style="margin-top: 12px">--}}
 {{--                            <div class="align-left" style="width: 60%; padding-top: 2px;">사용가능 마일리지</div>--}}
-{{--                            <div class="c-blue-title align-right" style="width: 40%"><b class="f-20">128,126</b>원</div>--}}
+{{--                            <div class="text-nodemon align-right" style="width: 40%"><b class="f-20">128,126</b>원</div>--}}
 {{--                        </div>--}}
 {{--                        <div class="d-flex w-100" style="margin-top: 5px">--}}
 {{--                            <div class="align-left" style="width: 60%; padding-top: 1px;">구매전용 마일리지</div>--}}
@@ -118,20 +118,20 @@
                         <div class="d-flex w-100">
                             <div class="each-part">
                                 <div class="align-center" style="padding-top:2px;">프리미엄</div>
-                                <div class="align-center f-20 c-blue-title">{{$coupon[1]}}</div>
+                                <div class="align-center f-20 text-nodemon">{{$coupon[1]}}</div>
                             </div>
                             <div class="each-part">
                                 <div class="align-center" style="padding-top:2px;">물품강조</div>
-                                <div class="align-center f-20 c-blue-title">{{$coupon[2]}}</div>
+                                <div class="align-center f-20 text-nodemon">{{$coupon[2]}}</div>
                             </div>
                             <div class="each-part">
                                 <div class="align-center" style="padding-top:2px;">스피드 거래</div>
-                                <div class="align-center f-20 c-blue-title">{{$coupon[3]}}</div>
+                                <div class="align-center f-20 text-nodemon">{{$coupon[3]}}</div>
                             </div>
                         </div>
                     </div>
                     <div class="user-market-status f-28">
-                        <!-- 판매등록 -->
+
                         <div class="position-abs align-center " style="top: 298px; left: 235px; width: 50px;" title="판매등록">
                             <a class="c-white" href="/myroom/sell/sell_regist?strRelationType=regist">{{$selling_register}}</a>
                         </div>
@@ -147,7 +147,7 @@
                         <div class="position-abs align-center f-14" style="top: 380px; left: 685px; width: 86px; padding: 4px 0; background-color: #87c4de;">
                             <a class="c-black" href="/myroom/complete/sell" >자세히보기</a>
                         </div>
-                        <!-- 구매등록 -->
+
                         <div class="position-abs align-center " style="top: 450px; left: 235px; width: 50px;" title="구매등록">
                             <a class="c-white" href="/myroom/buy/buy_regist?strRelationType=regist">{{$buying_register}}</a>
                         </div>
@@ -167,7 +167,7 @@
                 </div>
             </div>
             <div class="content_area content_recent_trade">
-                <div class="g_subtitle f-16">최근 거래내역</div>
+                <div class="highlight_contextual_nodemon f-16">최근 거래내역</div>
                 <div class="content_table_wrap">
                     <table class="market_history_table f-14">
                         <colgroup>
@@ -191,7 +191,7 @@
                                 <td>{{$v['user_title']}}</td>
                                 <td>{{number_format($v['payitem']['price'])}}원</td>
                                 <td>{{date("Y/m/d",strtotime($v['updated_at']))}}</td>
-                                <td style="background-color: white;" class="c-blue-title">{{$order_alias}}완료</td>
+                                <td style="background-color: white;" class="text-nodemon">{{$order_alias}}완료</td>
                             </tr>
                         @endforeach
                         @if(sizeof($recent_orders) == 0)
@@ -204,7 +204,7 @@
                 </div>
             </div>
             <div class="content_area ">
-                <div class="g_subtitle f-16">나의 보안 및 인증상태</div>
+                <div class="highlight_contextual_nodemon f-16">나의 보안 및 인증상태</div>
                 <div class="my_security_state_wrap d-flex" style="margin-top: 4px;">
                     <div class="d-flex" style="float:left; width: 49%; height: 160px; ">
                         <div class="align-center" style="width: 150px; border: solid 1px #89c1ce;">
@@ -251,7 +251,7 @@
                 </div>
             </div>
             <div class="content_area ">
-                <div class="g_subtitle f-16 align-center">즐겨찾기 설정</div>
+                <div class="highlight_contextual_nodemon f-16 align-center">즐겨찾기 설정</div>
                 <div class="content_box_wrap">
                     <div class="align-center">
                         <img src="/assets/img/bkg/myroom_menu.jpg" />
@@ -263,15 +263,14 @@
                     </div>
                 </div>
             </div>
-            <div class="g_finish"></div>
+            <div class="empty-high"></div>
         </div>
-        <form id="reqCBAForm" name="reqCBAForm" method="post" action="/certify/ipin_auth/v3/module/ipin_request.php" target="frmTarget">
-            <input type="hidden" name="wis" value="MyAuthState"> </form>
+
         <iframe src="about:blank" width="0" height="0" name="frmTarget" style="border:none"></iframe>
         <form id="reloadFrm" name="reloadFrm" method="post"> </form>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection
 
 @section('foot_attach')

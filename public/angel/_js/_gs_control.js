@@ -84,14 +84,14 @@
 
     var hide = function(el) {
         var rgClass = el.className.split(' ');
-        var strClass = 'g_hidden';
+        var strClass = 'd-none';
         if (rgClass.indexOf(strClass) === -1) {
             el.className += ' ' + strClass;
         }
     };
 
     var show = function(el) {
-        el.className = el.className.replace(/ g_hidden/g, '');
+        el.className = el.className.replace(/ d-none/g, '');
     };
 
     var GameServerList = function(container, params) {
@@ -158,7 +158,7 @@
 
             if (this.gameserver && this.gameserver.listContainer) {
                 this.gameserver.listContainer.mode = 'open';
-                this.gameserver.listContainer.classList.remove('g_hidden');
+                this.gameserver.listContainer.classList.remove('d-none');
             } else {
                 this.mode = 'open';
             }
@@ -187,7 +187,7 @@
             var m = this;
             if (this.gameserver && this.gameserver.listContainer) {
                 this.gameserver.listContainer.mode = 'close';
-                this.gameserver.listContainer.classList.add('g_hidden');
+                this.gameserver.listContainer.classList.add('d-none');
             } else {
                 this.mode = 'close';
                 hide(this.listWrap);
@@ -284,7 +284,7 @@
 
             if (code === '' && txt === '') {
                 if (this.selected) {
-                    this.selected.classList.remove('sel_on');
+                    this.selected.classList.remove('filter__selected');
                     this.selected = null;
                     this.selectedData = null;
                 }
@@ -345,7 +345,7 @@
         container.data('gameList', this);
 
         this.listWrap = document.createElement('div');
-        this.listWrap.className = 'game g_hidden';
+        this.listWrap.className = 'game d-none';
         if (this.title === true) {
             var title = document.createElement('div');
             title.classList.add('title');
@@ -380,8 +380,8 @@
         notGames: [45, 512],
         tradeType: '',
         hidden_use: {
-            code: '[name="search_game"]',
-            text: '[name="search_game_text"]'
+            code: '[name="filtered_game_id"]',
+            text: '[name="filtered_game_alias"]'
         },
         getData: function(callback) {
             var m = this;
@@ -471,7 +471,7 @@
 
                 if (m.gameCode !== '' && String(m.gameCode) === String(list[i].C)) {
                     m.selected = childNode;
-                    m.selected.classList.add('sel_on');
+                    m.selected.classList.add('filter__selected');
                     m.selectedData = $.data(childNode);
                     m.gameCode = '';
                 }
@@ -493,9 +493,9 @@
                 if (String(elData.code) === String(this.getValue().code)) {
                     return;
                 }
-                this.selected.classList.remove('sel_on');
+                this.selected.classList.remove('filter__selected');
             }
-            el.classList.add('sel_on');
+            el.classList.add('filter__selected');
             this.selected = el;
             this.selectedData = elData;
 
@@ -609,10 +609,10 @@
                 m.position = 'game';
                 m.gameserver.gameList.selectedIndex = -1;
             }
-            if (m.position !== 'goods' && m.gameserver.goodsList && m.gameserver.goodsList.listWrap.classList.contains('g_hidden') === false && m.gameserver.serverList.selected) {
+            if (m.position !== 'goods' && m.gameserver.goodsList && m.gameserver.goodsList.listWrap.classList.contains('d-none') === false && m.gameserver.serverList.selected) {
                 m.position = 'goods';
                 m.gameserver.goodsList.selectedIndex = 0;
-            } else if (m.position !== 'goods' && m.position !== 'server' && m.gameserver.serverList && m.gameserver.serverList.list.children.length > 0 && m.gameserver.serverList.listWrap.classList.contains('g_hidden') === false) {
+            } else if (m.position !== 'goods' && m.position !== 'server' && m.gameserver.serverList && m.gameserver.serverList.list.children.length > 0 && m.gameserver.serverList.listWrap.classList.contains('d-none') === false) {
                 m.position = 'server';
                 delete m.gameserver.serverList.selectedIndex;
             }
@@ -803,7 +803,7 @@
         container.data('serverList', this);
 
         this.listWrap = document.createElement('div');
-        this.listWrap.className = 'server g_hidden';
+        this.listWrap.className = 'server d-none';
         if (this.title === true) {
             var title = document.createElement('div');
             title.classList.add('title');
@@ -833,7 +833,7 @@
         }
 
         if (this.selected) {
-            this.selected.classList.add('sel_on');
+            this.selected.classList.add('filter__selected');
         }
     };
 
@@ -848,8 +848,8 @@
         serverText: '',
         exceptCode: [],
         hidden_use: {
-            code: '[name="search_server"]',
-            text: '[name="search_server_text"]'
+            code: '[name="filtered_child_id"]',
+            text: '[name="filtered_child_alias"]'
         },
         getData: function(callback) {
             var m = this;
@@ -967,9 +967,9 @@
         onChange: function(el, e) {
             var elData = $.data(el);
             if (this.selected) {
-                this.selected.classList.remove('sel_on');
+                this.selected.classList.remove('filter__selected');
             }
-            el.classList.add('sel_on');
+            el.classList.add('filter__selected');
             this.selected = el;
             this.selectedData = elData;
 
@@ -1067,7 +1067,7 @@
         container.data('goodsList', this);
 
         this.listWrap = document.createElement('div');
-        this.listWrap.className = 'goods g_hidden';
+        this.listWrap.className = 'goods d-none';
         if (this.title === true) {
             var title = document.createElement('div');
             title.classList.add('title');
@@ -1089,7 +1089,7 @@
         // this.createList();
 
         // if (this.selected) {
-        // 	this.selected.classList.add('sel_on');
+        // 	this.selected.classList.add('filter__selected');
         // }
     };
 
@@ -1105,7 +1105,7 @@
             {'C': 'etc', 'N': '기타', 'V': true}
         ],
         hidden_use: {
-            code: '[name="search_goods"]',
+            code: '[name="filtered_items"]',
             text: ''
         },
         exceptCode: [],
@@ -1168,9 +1168,9 @@
             }
 
             if (this.selected) {
-                this.selected.classList.remove('sel_on');
+                this.selected.classList.remove('filter__selected');
             }
-            el.classList.add('sel_on');
+            el.classList.add('filter__selected');
             this.selected = el;
             this.selectedData = $.data(el);
 

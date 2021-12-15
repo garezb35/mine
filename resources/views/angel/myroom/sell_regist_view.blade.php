@@ -27,18 +27,18 @@
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         @include('aside.myroom',['group'=>'sell'])
-        <div class="g_content">
+        <div class="pagecontainer">
             <a name="top"></a>
-            <!-- ▼ 타이틀 //-->
+
             <div class="g_title_noborder"> 판매등록 <span>물품</span>
             </div>
             <div class="g_gray_border"></div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 물품정보 //-->
-            <div class="g_subtitle first">물품정보</div>
+
+
+            <div class="highlight_contextual_nodemon first">물품정보</div>
             @if($user_goods_type == 'general' || $user_goods_type == 'bargain')
                 <table class="table-striped table-green1">
                     <colgroup>
@@ -100,7 +100,7 @@
                     <tr>
                         <th>물품제목</th>
                         <td colspan="3">
-                            <!-- 퀵 아이콘 -->
+
                             {{$user_title}}             </td>
                     </tr>
 
@@ -131,7 +131,7 @@
                     </tbody>
                 </table>
                 @if($discount_use == 1)
-                <div class="g_subtitle">복수 구매 할인</div>
+                <div class="highlight_contextual_nodemon">복수 구매 할인</div>
                 <table class="table-striped table-green1">
                     <colgroup>
                         <col width="160">
@@ -145,9 +145,9 @@
                 </table>
                 @endif
             @endif
-            <!-- ▲ 물품정보 //-->
-            <!-- ▼ 내 개인정보 //-->
-            <div class="g_subtitle">내 거래정보</div>
+
+
+            <div class="highlight_contextual_nodemon">내 거래정보</div>
             <table class="table-striped table-green1">
                 <colgroup>
                     <col width="160">
@@ -158,10 +158,10 @@
                     <td>{{$cuser['name']}}</td>
                 <tr>
                     <th>연락처</th>
-                    <td> @if(empty($cuser["home"])){{'자택번호없음'}}@else{{$cuser['home']}}@endif / {{$cuser['number']}} <span class='f_blue3 f_bold'>(SMS수신)</span> </td>
+                    <td> @if(empty($cuser["home"])){{'자택번호없음'}}@else{{$cuser['home']}}@endif / {{$cuser['number']}} <span class='f_blue3 font-weight-bold'>(SMS수신)</span> </td>
                 </tr>
             </table>
-            <div class="g_subtitle gray" style="padding-left: 6px">상세설명</div>
+            <div class="highlight_contextual_nodemon gray" style="padding-left: 6px">상세설명</div>
             <div class="detail_info mt-0">
                 <div class="detail_text">
                     <div id="js-gallery" class="mb-5">
@@ -175,34 +175,34 @@
                     {{$user_text}}
                 </div>
             </div>
-            <!-- ▲ 내 개인정보 //-->
-            <!-- ▼ 거래진행상황 //-->
-            <!-- ▼ 판매진행안내 //-->
+
+
+
             <div class="trade_progress">
-                <div class="g_subtitle"> 거래 진행 상황 </div>
+                <div class="highlight_contextual_nodemon"> 거래 진행 상황 </div>
                 <div class="trade_progress_content">
                     <div class="guide_wrap">
-                        <div class="guide_set @if($status == 0){{'active'}} @endif"> <span class="SpGroup sell_regist_icon"></span> <span class="state">판매등록</span>
+                        <div class="guide_set @if($status == 0){{'active'}} @endif"> <span class="has-sprite sell_regist_icon"></span> <span class="state">판매등록</span>
                             <p>판매할 물품을 등록해놓은
                                 <br/>[거래대기] 상태입니다.
                                 <br/>구매신청이 들어올때까지
                                 <br/>기다려주세요.</p>
                         </div>
-                        <div class="guide_set @if($status == 1){{'active'}} @endif"> <span class="SpGroup sell_ing_icon"></span> <span class="state">판매중</span>
+                        <div class="guide_set @if($status == 1){{'active'}} @endif"> <span class="has-sprite sell_ing_icon"></span> <span class="state">판매중</span>
                             <p>현재 구매자와 거래중입니다.
                                 <br/>구매자와 반드시 전화통화로
                                 <br/>거래할 캐릭터명을 확인 후
-                                <br/>물품을 건네시기 바랍니다. </p> <i class="SpGroup arr_mini"></i>
+                                <br/>물품을 건네시기 바랍니다. </p> <i class="has-sprite arr_mini"></i>
                         </div>
-                        <div class="guide_set @if(str_contains($status,3)){{'active'}} @endif"> <span class="SpGroup trade_icon"></span> <span class="state">인계완료</span>
+                        <div class="guide_set @if(str_contains($status,3)){{'active'}} @endif"> <span class="has-sprite trade_icon"></span> <span class="state">인계완료</span>
                             <p>거래종료 예정입니다.
                                 <br/>구매자가 인수할때까지
-                                <br/>기다려주세요.</p> <i class="SpGroup arr_mini"></i> </div>
-                        <div class="guide_set @if(str_contains($status,4)){{'active'}} @endif"> <span class="SpGroup sell_complete_icon"></span> <span class="state">판매완료</span>
+                                <br/>기다려주세요.</p> <i class="has-sprite arr_mini"></i> </div>
+                        <div class="guide_set @if(str_contains($status,4)){{'active'}} @endif"> <span class="has-sprite sell_complete_icon"></span> <span class="state">판매완료</span>
                             <p>거래가 정상적으로
                                 <br/>종료되었습니다.
                                 <br/>문제 발생 시
-                                <br/>고객센터로 문의해주세요.</p> <i class="SpGroup arr_mini"></i> </div>
+                                <br/>고객센터로 문의해주세요.</p> <i class="has-sprite arr_mini"></i> </div>
                     </div>
                 </div>
             </div>
@@ -218,13 +218,13 @@
                     5 거래취소 sns 수신 후 1시간 이내 인계확인 되지 않을 경우 거래가 자동취소 될수 있으니 유희하시기 바랍니다.
                 </p>
             </div>
-            <!-- ▲ 판매진행안내 //-->
-            <!-- ▲ 거래진행상황 //-->
+
+
             <form id="frmList" name="frmList" method="post">
                 @csrf
                 <input type="hidden" name="trade_id" value="{{$orderNo}}">
                 <input type="hidden" id="process" name="process"> </form>
-            <div class="g_btn_wrap">
+            <div class="b_input_group">
                 @if($status == 0)
                     <a href="/myroom/sell/sell_re_reg?id={{$orderNo}}" class="btn-default btn-suc">재등록</a>
                     <a href="javascript:;" onclick="tradeProcess('@if($hide == 0){{'hideSelect'}}@else{{'showSelect'}}@endif')" class="btn-default btn-cancel">
@@ -233,13 +233,13 @@
                     <a class="btn-default btn-gray" onclick="tradeProcess('deleteSelect');">삭제</a>
                 @endif
             </div>
-            <!-- ▼ 상세설명 //-->
+
 
 
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection
 
 @section('foot_attach')

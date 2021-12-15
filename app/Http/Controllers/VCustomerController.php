@@ -69,7 +69,7 @@ class VCustomerController extends BaseController
         $data['server_text'] = $request->gserver;
         $data['search_price_min'] = $request->search_price_min;
         $data['search_price_max'] = $request->search_price_max;
-        $data['search_goods'] = $request->search_goods;
+        $data['filtered_items'] = $request->filtered_items;
         // To get selling items
         $data['sellingRecord'] = MItem::with(['game','server','payitem'])
             ->whereHas('payitem',function($query) {
@@ -102,8 +102,8 @@ class VCustomerController extends BaseController
             if(!empty($data['server_text']))
                 $data['sellingRecord'] = $data['sellingRecord']->where('server_code',$data['server_text']);
         }
-        if(!empty($data['search_goods'])) {
-            $snzGoodType = getItemNameType($data['search_goods']);
+        if(!empty($data['filtered_items'])) {
+            $snzGoodType = getItemNameType($data['filtered_items']);
             if ($snzGoodType != "") {
                 $data['sellingRecord'] = $data['sellingRecord']->where('good_type', $snzGoodType);
             }
@@ -149,7 +149,7 @@ class VCustomerController extends BaseController
         $data['server_text'] = $request->gserver;
         $data['search_price_min'] = $request->search_price_min;
         $data['search_price_max'] = $request->search_price_max;
-        $data['search_goods'] = $request->search_goods;
+        $data['filtered_items'] = $request->filtered_items;
         // To get selling items
         $data['sellingRecord'] = MItem::with(['game','server','payitem'])
             ->whereHas('payitem',function($query) {
@@ -181,8 +181,8 @@ class VCustomerController extends BaseController
             if(!empty($data['server_text']))
                 $data['sellingRecord'] = $data['sellingRecord']->where('server_code',$data['server_text']);
         }
-        if(!empty($data['search_goods'])) {
-            $snzGoodType = getItemNameType($data['search_goods']);
+        if(!empty($data['filtered_items'])) {
+            $snzGoodType = getItemNameType($data['filtered_items']);
             if ($snzGoodType != "") {
                 $data['sellingRecord'] = $data['sellingRecord']->where('good_type', $snzGoodType);
             }

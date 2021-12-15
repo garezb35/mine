@@ -11,7 +11,7 @@
             background: white !important;
         }
     </style>
-    <!-- Section -->
+
     <section class="pb-6 bg-soft bg-white">
         <div class="warning-19-part mb-lg-5">
             <div class="row justify-content-center py-lg-2 bg-gray-50 border-bottom border-2">
@@ -46,7 +46,7 @@
                         <div class="text-center text-md-center mt-5 mb-3 fw-bolder fs-5">회원 로그인</div>
 
                         <form wire:submit.prevent="login" action="#" class="mt-3" method="POST">
-                            <!-- Form -->
+
                             <div class="form-group mb-3">
                                 <div class="input-group">
                                     <input wire:model="email" type="text" class="form-control py-2 fs-6"
@@ -55,9 +55,9 @@
                                 @error('email') <div wire:key="form" class="invalid-feedback"> {{$message}} </div>
                                 @enderror
                             </div>
-                            <!-- End of Form -->
+
                             <div class="form-group">
-                                <!-- Form -->
+
                                 <div class="form-group mb-3">
                                     <div class="input-group">
                                         <input wire:model.lazy="password" type="password" placeholder="비밀번호"
@@ -65,7 +65,7 @@
                                     </div>
                                     @error('password') <div class="invalid-feedback"> {{ $message }} </div> @enderror
                                 </div>
-                                <!-- End of Form -->
+
                                 <div class="d-flex justify-content-between align-items-top mb-3">
                                     <div class="form-check">
                                         <input wire:model="remember_me" class="form-check-input" type="checkbox"

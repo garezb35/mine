@@ -263,19 +263,19 @@ function fnAddPay(strType) {
         if (g_trade_info.curr_mileage < paymentPrice) {
             useMileage.val((g_trade_info.curr_mileage).currency());
             $('#add_pay').text((paymentPrice - g_trade_info.curr_mileage).currency());
-            $('#add_charge').removeClass('g_hidden');
+            $('#add_charge').removeClass('d-none');
             $('#mile_check1').show();
             $('#mile_check2').hide();
         } else {
             useMileage.val(paymentPrice.currency());
-            $('#add_charge').addClass('g_hidden');
+            $('#add_charge').addClass('d-none');
             $('#mile_check1').hide();
             $('#mile_check2').show();
         }
     } else {
         useMileage.val(0);
         $('#add_pay').text(paymentPrice.currency());
-        $('#add_charge').removeClass('g_hidden');
+        $('#add_charge').removeClass('d-none');
     }
 }
 
@@ -291,8 +291,8 @@ function fnPaymentCheck() {
     var nIndex = $.inArray(pType, rgType);
     var useMileage = $('#use_mileage');
 
-    $('.payment').not('.g_hidden').addClass('g_hidden');
-    $('.payment').eq(nIndex).removeClass('g_hidden');
+    $('.payment').not('.d-none').addClass('d-none');
+    $('.payment').eq(nIndex).removeClass('d-none');
     if (nIndex === 3) {
         $('.pay_text').eq(0).html('TCash(티캐시)<br><a href="/event/event_ing/e160714_tcash/" target="_blank" class="g_blue1_11"><이용안내 자세히보기></a>');
         $('.pay_text').eq(1).text(rgText[nIndex]);
@@ -312,8 +312,8 @@ function fnPaymentCheck() {
             fnUseMileage();
         });
         $('#other_pay').attr('name', 'use_creditcard');
-        $('#sub_creditcard').removeClass('g_hidden');
-        $('#sub_samsungpay').addClass('g_hidden');
+        $('#sub_creditcard').removeClass('d-none');
+        $('#sub_samsungpay').addClass('d-none');
     } else if (pType == 'samsungpay') {
         useMileage.removeAttr('readonly');
         useMileage.removeAttr('disabled');
@@ -325,8 +325,8 @@ function fnPaymentCheck() {
             fnUseMileage();
         });
         $('#other_pay').attr('name', 'use_creditcard');
-        $('#sub_creditcard').addClass('g_hidden');
-        $('#sub_samsungpay').removeClass('g_hidden');
+        $('#sub_creditcard').addClass('d-none');
+        $('#sub_samsungpay').removeClass('d-none');
     } else {
         if (pType === 'mobile' || pType === 'tcash' ) {
             useMileage.removeAttr('readonly');
@@ -350,8 +350,8 @@ function fnPaymentCheck() {
             fnUseMileage();
         });
 
-        $('#sub_creditcard').addClass('g_hidden');
-        $('#sub_samsungpay').addClass('g_hidden');
+        $('#sub_creditcard').addClass('d-none');
+        $('#sub_samsungpay').addClass('d-none');
     }
     fnAddPay(rgType[nIndex]);
 }
@@ -788,7 +788,7 @@ function fnApplication(defType) {
 
                     $('#layer_character').text($('input[name="user_character"]').val());
 
-                    LayerControl.open({layer: $('#dvGoodsInfo')[0]});
+                    KeepAlivesRaw.open({layer: $('#dvGoodsInfo')[0]});
 
                     break;
                 default:
@@ -852,11 +852,11 @@ function fnSubmit() {
                         action: strUrl
                     }).submit();
                     $('#dvGoodsInfo').hide();
-                    $('#g_SLEEP').show();
+                    $('#global_root').show();
 
                     var interval = setInterval(function() {
                         if (pop.closed) {
-                            $('#g_SLEEP').hide();
+                            $('#global_root').hide();
                             clearInterval(interval);
                         }
                     }, 500);

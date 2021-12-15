@@ -37,13 +37,13 @@
 
 @section('content')
 
-<!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-<div class="g_container" id="g_CONTENT">
+
+<div class="container_fulids" id="module-teaser-fullscreen">
     @include('aside.myroom',['group'=>'buy'])
-    <div class="g_content">
+    <div class="pagecontainer">
         <a name="top"></a>
-        <div class="g_title_green noborder"> 구매 등록 <span>물품</span> </div>
-        <div class="g_subtitle first">물품정보</div>
+        <div class="text-green_moderation noborder"> 구매 등록 <span>물품</span> </div>
+        <div class="highlight_contextual_nodemon first">물품정보</div>
         @if($user_goods_type == 'general')
             <table class="table-striped table-green1">
                 <colgroup>
@@ -107,7 +107,7 @@
                         <th>물품제목</th>
                         <td colspan="3">
                         {{$user_title}}
-                        <!-- 퀵 아이콘 -->
+
                         </td>
                     </tr>
                     <tr>
@@ -160,7 +160,7 @@
                         <th>물품제목</th>
                         <td colspan="3">
                         {{$user_title}}
-                        <!-- 퀵 아이콘 -->
+
                         </td>
                     </tr>
                     <tr>
@@ -184,9 +184,9 @@
                 </tbody>
             </table>
         @endif
-        <!-- ▲ 물품정보 //-->
-        <!-- ▼ 내 개인정보 //-->
-        <div class="g_subtitle">내 거래정보</div>
+
+
+        <div class="highlight_contextual_nodemon">내 거래정보</div>
         <table class="table-striped table-green1">
             <colgroup>
                 <col width="160">
@@ -197,7 +197,7 @@
             </tr>
             <tr>
                 <th class="bd_left">연락처</th>
-                <td>자택번호없음 / 010-4797-3690 <span class='f_green2 f_bold'>(SMS수신)</span></td>
+                <td>자택번호없음 / 010-4797-3690 <span class='f_green2 font-weight-bold'>(SMS수신)</span></td>
             </tr>
         </table>
         <table class="table-striped table-green1">
@@ -208,48 +208,48 @@
                 <td class="vt" style="border-left: 1px solid #e1e1e1;height: 200px;overflow-y: scroll">{{$user_text}}</td>
             </tr>
         </table>
-        <!-- ▲ 내 개인정보 //-->
-        <!-- ▼ 거래진행상황 //-->
-        <!-- ▼ 판매진행안내 //-->
+
+
+
         <div class="trade_progress buy">
-            <div class="g_subtitle"> 거래 진행 상황 </div>
+            <div class="highlight_contextual_nodemon"> 거래 진행 상황 </div>
             <div class="trade_progress_content">
                 <div class="guide_wrap">
-                    <div class="guide_set active"> <span class="SpGroup buy_regist_icon"></span> <span class="state">구매등록</span>
+                    <div class="guide_set active"> <span class="has-sprite buy_regist_icon"></span> <span class="state">구매등록</span>
                         <p>구매할 물품을 등록해놓은
                             <br/>[거래대기] 상태입니다.
                             <br/>판매신청이 들어올때까지
                             <br/>기다려주세요.</p>
                     </div>
-                    <div class="guide_set"> <span class="SpGroup pay_wait_icon"></span> <span class="state">입금대기</span>
+                    <div class="guide_set"> <span class="has-sprite pay_wait_icon"></span> <span class="state">입금대기</span>
                         <p>구매자가 입금을
                             <br/>준비하고 있습니다.
                             <br/>입금완료 후, 구매중 상태가
-                            <br/>되면 거래를 시작해주세요.</p> <i class="SpGroup arr_mini"></i> </div>
-                    <div class="guide_set"> <span class="SpGroup buy_ing_icon"></span> <span class="state">구매중</span>
+                            <br/>되면 거래를 시작해주세요.</p> <i class="has-sprite arr_mini"></i> </div>
+                    <div class="guide_set"> <span class="has-sprite buy_ing_icon"></span> <span class="state">구매중</span>
                         <p>현재 판매자와 거래중입니다.
                             <br/>판매자와 반드시 전화통화로
                             <br/>거래하시기 바랍니다.
-                            <br/>[통화 불가 시 1:1대화함 사용] </p> <i class="SpGroup arr_mini"></i> </div>
-                    <div class="guide_set"> <span class="SpGroup trade_icon"></span> <span class="state">인수완료</span>
+                            <br/>[통화 불가 시 1:1대화함 사용] </p> <i class="has-sprite arr_mini"></i> </div>
+                    <div class="guide_set"> <span class="has-sprite trade_icon"></span> <span class="state">인수완료</span>
                         <p>거래종료 예정입니다.
                             <br/>판매자가 인계확인 할 때까지
-                            <br/>기다려주세요.</p> <i class="SpGroup arr_mini"></i> </div>
-                    <div class="guide_set"> <span class="SpGroup buy_complete_icon"></span> <span class="state">구매완료</span>
+                            <br/>기다려주세요.</p> <i class="has-sprite arr_mini"></i> </div>
+                    <div class="guide_set"> <span class="has-sprite buy_complete_icon"></span> <span class="state">구매완료</span>
                         <p>거래가 정상적으로
                             <br/>종료되었습니다.
                             <br/>문제 발생 시
-                            <br/>고객센터로 문의해주세요.</p> <i class="SpGroup arr_mini"></i> </div>
+                            <br/>고객센터로 문의해주세요.</p> <i class="has-sprite arr_mini"></i> </div>
                 </div>
             </div>
         </div>
-        <!-- ▲ 판매진행안내 //-->
-        <!-- ▲ 거래진행상황 //-->
+
+
         <form id="frmList" name="frmList" method="post">
             @csrf
             <input type="hidden" name="trade_id" value="{{$orderNo}}">
             <input type="hidden" id="process" name="process"> </form>
-        <div class="g_btn">
+        <div class="btn-groups_angel">
             <a href="/myroom/buy/buy_re_reg?id={{$orderNo}}" class="btn-default btn-suc">
                 재등록
             </a>
@@ -260,11 +260,11 @@
                 삭제
             </a>
         </div>
-        <!-- ▼ 상세설명 //-->
+
 
 
     </div>
-    <div class="g_finish"></div>
+    <div class="empty-high"></div>
 </div>
-<!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

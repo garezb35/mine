@@ -3,22 +3,22 @@
         <title>아이템천사</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link type="text/css" rel="stylesheet" href="/angel/_css/_comm.css">
-        <link type="text/css" rel="stylesheet" href="/angel/_head_tail/css/_head_popup.css">
+        <link type="text/css" rel="stylesheet" href="/angel/_css/webpack.css">
+        <link type="text/css" rel="stylesheet" href="/angel/global_h/css/_head_popup.css">
         <link type="text/css" rel="stylesheet" href="/angel/_banner/css/banner_module.css">
         <link type="text/css" rel="stylesheet" href="/angel/myroom/cash_receipt/css/cash_receipt_confirm.css">
         <script type="text/javascript" src="/angel/_js/jquery.js"></script>
-        <script type="text/javascript" src="/angel/_js/_comm.js"></script>
+        <script type="text/javascript" src="/angel/_js/webpack.js"></script>
         <script type="text/javascript" src="/angel/_js/angelic-global.js"></script>
     </head>
     <body>
-    <div id="g_SLEEP" class="g_sleep g_hidden ">
-        <div id="g_OVERLAY" class="g_overlay"></div>
+    <div id="global_root" class="mainEntity d-none ">
+        <div id="thirdys" class="fluid-div"></div>
     </div>
-    <div id="g_BODY">
-        <div id="popup_title_bar">현금영수증 승인번호 확인</div>
+    <div id="angel">
+        <div id="model_titlebar">현금영수증 승인번호 확인</div>
         <div id="g_POPUP">
-            <table class="g_blue_table">
+            <table class="table-primary">
                 <colgroup>
                     <col width="200">
                     <col width="370">
@@ -55,7 +55,7 @@
                 </tr>
                 </tbody>
             </table>
-            <div class="g_btn">
+            <div class="btn-groups_angel">
                 <a href="javascript:self.close();" class="btn-default btn-suc">확인</a>
             </div>
 

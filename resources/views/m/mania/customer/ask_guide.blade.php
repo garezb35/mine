@@ -13,8 +13,8 @@
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .notice {
                 height: 24px;
@@ -51,12 +51,12 @@
             }
         </style>
         @include('angel.customer.aside', ['group'=>'report', 'part'=>'guide'])
-        <div class="g_content">
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue no-border">1:1 상담하기</div>
-            <!-- ▲ 타이틀 //-->
-            <div class="g_finish"></div>
-            <!-- ▼ 상담분류선택 //-->
+        <div class="pagecontainer">
+
+            <div class="contextual--title no-border">1:1 상담하기</div>
+
+            <div class="empty-high"></div>
+
             <div class="s_subtitle">상담 분류 선택</div>
             <table class="g_sky_table category_tb" id="category_tb">
                 <colgroup>
@@ -91,27 +91,27 @@
                     </td>
                 </tr>
             </table>
-            <!-- ▲ 상담분류선택 //-->
-            <div class="g_finish"></div>
+
+            <div class="empty-high"></div>
             <div class="s_subtitle">자주하는 질문 TOP</div>
             <div class="list_wrap" id="top_faq">
                 @foreach ($faqRecord as $rec)
                 <div class="sub_title">
                     <span class="subject">
-                         <img class="g_left" src="/angel/img/icons/ico_q.png" width="14" height="21" alt="">[{{$rec['type']}}]
+                         <img class="float-left" src="/angel/img/icons/ico_q.png" width="14" height="21" alt="">[{{$rec['type']}}]
                     </span>
                     <span>{{$rec['title']}}</span>
                 </div>
                 <div class="gray_box">
-                    <img class="g_left" src="/angel/img/icons/ico_a.png" width="16" height="19" alt="">
-                    <div class="g_left">
+                    <img class="float-left" src="/angel/img/icons/ico_a.png" width="16" height="19" alt="">
+                    <div class="float-left">
                         {!! $rec['content'] !!}
                     </div>
                 </div>
-                <div class="g_finish"></div>
+                <div class="empty-high"></div>
                 @endforeach
             </div>
-            <div class="g_finish"></div>
+            <div class="empty-high"></div>
             @if ($faqType != 'normal')
                 @if ($faqType != 'faulty')
                     <div class="s_subtitle">상담서작성하기</div>
@@ -130,7 +130,7 @@
                             <tr class="report_tr">
                                 <th>제목</th>
                                 <td>
-                                    <input type="text" name="subject" value="" id="title" maxlength="40" class="g_text" placeholder="※ 제목을 입력해 주세요." required>
+                                    <input type="text" name="subject" value="" id="title" maxlength="40" class="angel__text" placeholder="※ 제목을 입력해 주세요." required>
                                 </td>
                             </tr>
                             <tr class="report_tr">
@@ -145,7 +145,7 @@
                                     <div class="screenshot_wrap">
                                         <div class="screen_guide"> 용량 300KB이하 jpg만 가능(최대 3개) </div>
                                         <div class="g_screenshot">
-                                            <input type="text" class="g_text" readonly="">
+                                            <input type="text" class="angel__text" readonly="">
                                             <div class="tmp_file"><span class="tmp_btn">찾아보기</span>
                                                 <input type="file" name="user_screen[]">
                                             </div>
@@ -153,21 +153,21 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="g_finish"></div>
+                                    <div class="empty-high"></div>
                                     <div class="screenshot_sub">* 첨부파일 용량이 초과될 경우 itemmania@itemmania.com로 이메일 발송 후 고객감동센터(1544-8278)로 문의바랍니다.</div>
                                 </td>
                             </tr>
                             <tr>
                                 <th>통화가능한 번호</th>
                                 <td>
-                                    <input type="text" placeholder="000" name="user_phone1" id="user_phone1" value="" class="g_text" maxlength="3" required> -
-                                    <input type="text" placeholder="0000" name="user_phone2" id="user_phone2" value="" class="g_text" maxlength="4" required> -
-                                    <input type="text" placeholder="0000" name="user_phone3" id="user_phone3" value="" class="g_text" maxlength="4" required>
+                                    <input type="text" placeholder="000" name="user_phone1" id="user_phone1" value="" class="angel__text" maxlength="3" required> -
+                                    <input type="text" placeholder="0000" name="user_phone2" id="user_phone2" value="" class="angel__text" maxlength="4" required> -
+                                    <input type="text" placeholder="0000" name="user_phone3" id="user_phone3" value="" class="angel__text" maxlength="4" required>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
-                        <div class="g_btn">
+                        <div class="btn-groups_angel">
                             <button class="btn-color-img btn-blue-img" type="submit">확인</button>
                             <button class="btn-color-img btn-gray-img" type="reset">취소</button>
                         </div>
@@ -198,7 +198,7 @@
                             <tr>
                                 <th>거래번호</th>
                                 <td>#
-                                    <input type="text" id="trade_num" name="trade_num" class="g_text trade_num" value="" required>
+                                    <input type="text" id="trade_num" name="trade_num" class="angel__text trade_num" value="" required>
                                 </td>
                             </tr>
                             <tr>
@@ -217,7 +217,7 @@
                             </tr>
                             </tbody>
                         </table>
-                        <div class="g_btn ">
+                        <div class="btn-groups_angel ">
                             <button class="btn-color-img btn-blue-img " type="submit ">확인</button>
                             <button class="btn-color-img btn-gray-img " type="reset">취소</button>
                         </div>
@@ -225,7 +225,7 @@
                 @endif
             @endif
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

@@ -50,21 +50,20 @@ if(sizeof($split_number) == 3){
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         @include('aside.myroom',['group'=>'buy'])
-        <div class="g_content">
+        <div class="pagecontainer">
             <a name="top"></a>
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_green">
+            <div class="text-green_moderation">
                 구매중인 <span>물품</span>
             </div>
 
             <form id="frmIngView" name="frmIngView" method="post">
                 <input type="hidden" id="id" name="id" value="{{$orderNo}}" />
             </form>
-            <!-- ▼ 물품정보 //-->
-            <div class="g_subtitle first">물품정보</div>
+
+            <div class="highlight_contextual_nodemon first">물품정보</div>
             <table class="table-striped table-green1">
                 <colgroup>
                     <col width="160" />
@@ -107,9 +106,7 @@ if(sizeof($split_number) == 3){
                 </tr>
                 </tbody>
             </table>
-            <!-- ▲ 물품정보 //-->
-            <!-- ▼ 거래필수정보 //-->
-            <div class="g_subtitle">판매자 정보</div>
+            <div class="highlight_contextual_nodemon">판매자 정보</div>
             <table class="table-striped table-green1">
                 <colgroup>
                     <col width="160" />
@@ -144,7 +141,7 @@ if(sizeof($split_number) == 3){
                     <th class="p-left-10">
                         <div>
                             <img src="/angel/img/level/{{$user['roles']['icon']}}" width="37"/>
-                            <span class="f_green4 f_bold">{{$user['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($user['point'])}}점)
+                            <span class="f_green4 font-weight-bold">{{$user['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($user['point'])}}점)
                         </div>
                     </th>
                     <td>
@@ -177,15 +174,13 @@ if(sizeof($split_number) == 3){
                                     @endif이메일</span>
                                 </dd>
                             </dl>
-                        <div class="g_right">
+                        <div class="float__right">
                             <a href="javascript:fnCreditViewCheck()"></a>
                         </div>
                     </td>
                 </tr>
             </table>
-            <!-- ▲ 거래필수정보 //-->
-            <!-- ▼ 내 개인정보 //-->
-            <div class="g_subtitle">내 거래정보</div>
+            <div class="highlight_contextual_nodemon">내 거래정보</div>
             <table class="table-striped">
                 <colgroup>
                     <col width="160" />
@@ -204,11 +199,7 @@ if(sizeof($split_number) == 3){
                 </tr>
                 </tbody>
             </table>
-            <!-- ▲ 내 개인정보 //-->
-            <!-- ▼ 1:1 채팅 //-->
             <link rel="stylesheet" href="/angel/myroom/chat/css/chat.css" />
-{{--            <script type="text/javascript" src="../chat/js/socket.io.js"></script>--}}
-{{--            <script type="text/javascript" src="../chat/js/connect.js"></script>--}}
             <table class="noborder mt-15">
                 <colgroup>
                     <col width="50%" />
@@ -216,8 +207,8 @@ if(sizeof($split_number) == 3){
                 <tbody>
                     <tr>
                         <td class="vt p-left-0">
-                            <!-- ▼ 상세설명 //-->
-                            <div class="g_subtitle gray mt-0 p-left-10">상세설명</div>
+
+                            <div class="highlight_contextual_nodemon gray mt-0 p-left-10">상세설명</div>
                             <div class="detail_info">
                                 <div class="detail_text">
                                     <div id="js-gallery" class="mb-5">
@@ -257,36 +248,20 @@ if(sizeof($split_number) == 3){
                     </tr>
                 </tbody>
             </table>
-
-            <!-- ▲ 1:1 채팅 //-->
-            <!-- ▼ 거래진행상황 //-->
-            <!-- ▼ 판매진행안내 //-->
             <div class="trade_progress buy">
-                <div class="g_subtitle">
+                <div class="highlight_contextual_nodemon">
                     거래 진행 상황
-                    <div class="g_right">
-                        <img
-                            id="msg_box"
-                            src="http://img3.itemmania.com/images/btn/btn_1vs1_talk.gif"
-                            width="71"
-                            height="20"
-                            alt="1:1 대화함"
-                            class="g_button"
-                            onclick="_window.open('talk','/myroom/include/live.html?info=YQgPJ51PTFZv0crookaS|s4y4Vlxlu5tl5kqnayYO/MlE9y7Qs1K09S045soIpxCrQCOVWOvi0Pd3q/8YS3Jq|YLEWklNUPUPF1lHhcULg1zGDDBYIaZIkWS67bLHd4rMsppQa3lRPqOHWT77cBUPJV1pvHVY5gpaNFOMFm1oCvswk4KrPraXUKhl|XJV3Evtt0WSIPhNtWzzCPykoOj215eizUb01WrRAr1IpxzJ9xHPqmB3G8/0xq/TFPbX8UDOdu8/vEdv4nMThijqMfb3wj7V6oQbVM1gevJv5HFmezOZvK7Iy3Kjg93un9Dla5LbYY2y049WMrZaeaMStXkXSY8pLkyR|sFo5hzIz3BTSGTUbZUcGqJKuY|7W96qWFHSKeJuQYqUYTLmbhtG9kY6FNZUgdW/7SHySwx|Lqq7ZDOrww7Rj25WS1bjg7pOYVsAG44iSDK3zq9gRr7WYAwuo1D/jPCjBIQAhlnDaI9u68LMYBZl5E6pq3Qmz7C|o3/2xnVmGhrRWoqIjoYz1cBjQsxgFmXkTqmomm26hlatG8OqtgVOC5Cv6NAfsZPBbzpbgUVg4ik8AcKMMrRvgPH8GkszZTQV1MPGYxbb1Ykn61e05Rmjo7|vu5w1arHIx/xnD4QPzmpTeb|50bES3YDO9viATWMArRxJLAOYTRCNXKbkJslxB3WCoxSdwzhiZY/Nt5ePcv2sUALMYBZl5E6ppL|zQGyn40rkxIpqSb9M7khx2iUswrIRn2UwwEd3FeRdCxI3pHZDEXZz5EHt7lNZo4y3sbwR5lsOKK6NQjvdfYmCdEH6GDyzzaMZbAnC2rq',625,550)"
-                            style="display: none;"
-                        />
-                    </div>
                 </div>
                 <div class="trade_progress_content">
                     <div class="guide_wrap">
                         <div class="guide_set @if($status == 0) {{'active'}}@endif">
-                            <span class="SpGroup pay_wait_icon"></span>
+                            <span class="has-sprite pay_wait_icon"></span>
                             <span class="state">입금대기</span>
                             <p>구매자가 입금을<br>준비하고 있습니다.<br>입금완료 후, 구매중 상태가<br>되면 거래를 시작해주세요.</p>
-                            <i class="SpGroup arr_mini"></i>
+                            <i class="has-sprite arr_mini"></i>
                         </div>
                         <div class="guide_set @if(($status == 1) || (!str_contains($status, '2')  && $status != 10 && $status !=32 && $status !=23 && $status != 0)) {{'active'}}@endif">
-                            <span class="SpGroup buy_ing_icon"></span>
+                            <span class="has-sprite buy_ing_icon"></span>
                             <span class="state">구매중</span>
                             <p>
                                 현재 판매자와 거래중입니다.<br />
@@ -294,20 +269,20 @@ if(sizeof($split_number) == 3){
                                 거래하시기 바랍니다.<br />
                                 [통화 불가 시 1:1대화함 사용]
                             </p>
-                            <i class="SpGroup arr_mini"></i>
+                            <i class="has-sprite arr_mini"></i>
                         </div>
                         <div class="guide_set @if($status == 2) {{'active'}}@endif">
-                            <span class="SpGroup trade_icon"></span>
+                            <span class="has-sprite trade_icon"></span>
                             <span class="state">인수완료</span>
                             <p>
                                 거래종료 예정입니다.<br />
                                 판매자가 인계확인 할 때까지<br />
                                 기다려주세요.
                             </p>
-                            <i class="SpGroup arr_mini"></i>
+                            <i class="has-sprite arr_mini"></i>
                         </div>
                         <div class="guide_set @if($status == 23 || $status == 32) {{'active'}}@endif">
-                            <span class="SpGroup buy_complete_icon"></span>
+                            <span class="has-sprite buy_complete_icon"></span>
                             <span class="state">구매완료</span>
                             <p>
                                 거래가 정상적으로<br />
@@ -315,15 +290,15 @@ if(sizeof($split_number) == 3){
                                 문제 발생 시<br />
                                 고객센터로 문의해주세요.
                             </p>
-                            <i class="SpGroup arr_mini"></i>
+                            <i class="has-sprite arr_mini"></i>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="g_popup" id="dvTradeSellCheck">
-                <div class="layer_title">
+            <div class="modal_dialog" id="dvTradeSellCheck">
+                <div class="modal__title">
                     물품 인수 확인
-                    <img class="btn_close" src="http://img3.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();">
+                    <span class="modal__close" onclick="g_nodeSleep.disable();">닫기</span>
                 </div>
 
                 <form name="moneyreceipt" id="moneyreceipt" method="POST">
@@ -331,13 +306,13 @@ if(sizeof($split_number) == 3){
                     <input type="hidden" name="process">
                     <input type="hidden" id="answer" name="answer">
                     <input type="hidden" id="character_sign" name="character_sign">
-                    <div class="layer_content">
+                    <div class="modal--content">
                         <div style="height: 86px;border: 1px solid #BBBBBB;">
-                            <div id="goods_img" class="g_left"><img src="/angel/img/icons/cash-receipt.png" width="106" height="85" alt=""></div>
-                            <ul id="goods_info" class="g_left g_black2">
+                            <div id="goods_img" class="float-left"><img src="/angel/img/icons/cash-receipt.png" width="106" height="85" alt=""></div>
+                            <ul id="goods_info" class="float-left g_black2">
                                 <li><span class="bold_txt">판매자에게 물품을 받으셨습니까?</span></li>
                                 <li>
-                                    <span class="f_blue1 f_bold">물품 인수 확인</span> 후에는 거래 취소가 불가능합니다.<br>
+                                    <span class="text-blue_modern font-weight-bold">물품 인수 확인</span> 후에는 거래 취소가 불가능합니다.<br>
                                     <span style="font-size:12px;">(물품 인수 확인은 판매자로부터 물품을 받으신 후 하시기 바랍니다.)</span>
                                 </li>
                             </ul>
@@ -345,10 +320,10 @@ if(sizeof($split_number) == 3){
                         <div class="gray-div">
                             현금영수증
                         </div>
-                        <div class="g_finish"></div>
-                        <!-- ▼ 물품인수 버튼 //-->
-                        <!-- ▲ 물품인수 버튼 //-->
-                        <!-- ▼ 현금영수증 발급 폼 //-->
+                        <div class="empty-high"></div>
+
+
+
                         <table class="table-green1" id="receipt_table">
                             <colgroup>
                                 <col width="164">
@@ -373,7 +348,7 @@ if(sizeof($split_number) == 3){
                                 <tr>
                                     <th>신청자 성명</th>
                                     <td>
-                                        <input type="text" name="moneyreceipt_name" class="g_text" value="{{$cuser['name']}}">
+                                        <input type="text" name="moneyreceipt_name" class="angel__text" value="{{$cuser['name']}}">
                                     </td>
                                 </tr>
                                 <tr id="juminnumber">
@@ -382,16 +357,16 @@ if(sizeof($split_number) == 3){
                                         <div id="info_phone_div" class="sub_div">
                                             <input type="radio" name="member_info" id="info_phone" class="g_radio" value="p" checked="">
                                             <label for="info_phone">휴대폰 번호</label>
-                                            <input type="text" name="user_phone1" id="user_phone1" class="g_text w50" maxlength="3" value="{{$user_phone1}}"> -
-                                            <input type="text" name="user_phone2" id="user_phone2" class="g_text w50" maxlength="4" value="{{$user_phone2}}"> -
-                                            <input type="text" name="user_phone3" id="user_phone3" class="g_text w50" maxlength="4" value="{{$user_phone3}}">
+                                            <input type="text" name="user_phone1" id="user_phone1" class="angel__text w50" maxlength="3" value="{{$user_phone1}}"> -
+                                            <input type="text" name="user_phone2" id="user_phone2" class="angel__text w50" maxlength="4" value="{{$user_phone2}}"> -
+                                            <input type="text" name="user_phone3" id="user_phone3" class="angel__text w50" maxlength="4" value="{{$user_phone3}}">
                                         </div>
                                     </td>
                                 </tr>
                                 <tr style="border-bottom:1px solid #E2E2E2">
                                     <th>신청자 이메일</th>
                                     <td>
-                                        <input type="text" class="g_text" name="moneyreceipt_email" size="23" style="width:200px;" value="{{$cuser['email']}}">
+                                        <input type="text" class="angel__text" name="moneyreceipt_email" size="23" style="width:200px;" value="{{$cuser['email']}}">
                                     </td>
                                 </tr>
                             </tbody>
@@ -401,8 +376,8 @@ if(sizeof($split_number) == 3){
                             <div class="attention position-absolute"
                                  style="bottom: -6px;background: #fff; font-size: 14px;left: 217px;padding-left: 10px;padding-right: 10px;">현금영수증 발급 안내 & 조회</div>
                         </div>
-                        <!-- ▲ 현금영수증 발급 폼 //-->
-                        <!-- ▼ 현금영수증 발급 안내문 //-->
+
+
                         <ul class="box6 g_list">
                             <li class="list_non">* 현금영수증 미발급 시 승인번호만 발급됩니다. (마이룸 &gt; 현금영수증 발급에서 확인 가능)</li>
                             <li class="list_non">* 현금영수증 발급 안내 사항</li>
@@ -412,28 +387,15 @@ if(sizeof($split_number) == 3){
                             <li>발급된 현금영수증은 '마이룸&gt;현금영수증' 메뉴 및 국세청 현금영수증 홈페이지에서 확인하실 수 있습니다.<br><span class="g_red1_b">(2일 후 반영됨)</span>
                             </li>
                         </ul>
-                        <!-- ▲ 현금영수증 발급 안내문 //-->
-                        <div class="g_finish"></div>
-                        <div class="g_btn">
+
+                        <div class="empty-high"></div>
+                        <div class="btn-groups_angel">
                             <a  class="first btn-default btn-suc" onclick="TradeComplete('',{{$payitem['price']}},'m','{{$orderNo}}','check','N');">물품 인수 확인</a>
                             <a  class="btn-default btn-cancel" onclick="g_nodeSleep.disable()">취소</a>
                         </div>
                     </div>
                 </form>
             </div>
-            <!-- ▲ 판매진행안내 //-->
-            <!-- ▲ 거래진행상황 //-->
-
-            <!--
-        <div style="">
-            <img src="/images/banner/etc/20150108_790_139_bitcoin.jpg" width="760" height="139" alt="비트코인 상품권 입점기념 EVENT" title="비트코인 상품권 입점기념 EVENT" usemap="#20150108_790_139_bitcoin">
-            <map name="20150108_790_139_bitcoin">
-                <area shape="rect" coords="521,82,697,118" href="http://giftcard.itemmania.com/portal/giftcard/bitcoin/" alt="상품권 발급받으러 가기" title="상품권 발급받으러 가기" />
-            </map>
-        </div>
-        <div class="g_finish"></div>
-        -->
-            <!-- ▼ 물품인수시 주의사항 //-->
             <dl class="notice_box">
                 <dt class="first">물품을 받기전에 꼭 읽어보세요!</dt>
                 <dd>1. 판매자의 연락처가 다를 경우 거래를 중지하시고 고객센터를 통해 문의해 주시기 바랍니다.</dd>
@@ -441,8 +403,8 @@ if(sizeof($split_number) == 3){
                 <dd>3. 거래시에는 게임상에서 채팅이나 귓말은 삼가하시고 가능하면 전화통화를 유지하시기 바랍니다.</dd>
                 <dd>4. 반드시 물품을 정상적으로 인수하신 후 물품인수확인을 하시기 바랍니다.</dd>
             </dl>
-            <!-- ▲ 물품인수시 주의사항 //-->
-            <div class="g_btn">
+
+            <div class="btn-groups_angel">
                 @if(!str_contains($status,2) && !str_contains($status,5) && !str_contains($status,6)  && !str_contains($status,-1))
                 <a href="javascript:void(0)" id="trade_btn" class="btn-default btn-suc">물품인수확인</a>
                 @elseif($status == -1)
@@ -491,11 +453,11 @@ if(sizeof($split_number) == 3){
                         <tr>
                             <th>연락처</th>
                             <td class="h_auto">
-                                <div id="myinfo" class="g_left g_black3_11"> 집(직장) : N{{$cuser['home']}}&nbsp;&nbsp;휴대폰 :
+                                <div id="myinfo" class="float-left g_black3_11"> 집(직장) : N{{$cuser['home']}}&nbsp;&nbsp;휴대폰 :
                                     {{$cuser['number']}}
                                     <br /> 정확한 연락처로 신고해 주세요.
                                     <br /> 연락처가 틀릴 경우 상담이 원활히 이루어지지 않을 수 있습니다. </div>
-                                <div class="g_right"></div>
+                                <div class="float__right"></div>
                             </td>
                         </tr>
                         <tr id="TR_trade_num">
@@ -524,26 +486,26 @@ if(sizeof($split_number) == 3){
                         <tr>
                             <th>통화가능번호</th>
                             <td>
-                                <input type="text" name="user_phone1" class="g_text" id="phone1" maxlength="3" /> -
-                                <input type="text" name="user_phone2" class="g_text" id="phone2" maxlength="4" /> -
-                                <input type="text" name="user_phone3" class="g_text" id="phone3" maxlength="4" /> <span class="g_black3_11">현재 통화 가능한 연락처를 남겨주세요.</span></td>
+                                <input type="text" name="user_phone1" class="angel__text" id="phone1" maxlength="3" /> -
+                                <input type="text" name="user_phone2" class="angel__text" id="phone2" maxlength="4" /> -
+                                <input type="text" name="user_phone3" class="angel__text" id="phone3" maxlength="4" /> <span class="g_black3_11">현재 통화 가능한 연락처를 남겨주세요.</span></td>
                         </tr>
                     </table>
-                    <!-- ▲ 보기 //-->
-                    <!-- ▼ 버튼 //-->
-                    <div class="g_btn">
+
+
+                    <div class="btn-groups_angel">
                         <button class="btn-blue-img btn-color-img" type="submit">확인</button>
                         <button class="btn-gray-img btn-color-img" type="button">취소</button>
                     </div>
-                    <!-- ▲ 버튼 //-->
+
                 </form>
             </div>
-            <div class="g_finish"></div>
+            <div class="empty-high"></div>
         </div>
 
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection
 
 

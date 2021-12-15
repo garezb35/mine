@@ -142,7 +142,7 @@
 
 
 
-.bs_content {
+.body_rt34DF {
     position: relative;
     width: 820px;
     height: 104px;
@@ -152,33 +152,33 @@
 
 
 
-.bs_content:last-child {
+.body_rt34DF:last-child {
     background-position: -2px -209px;
 }
 
-.bs_content>.icon_wrap {
+.body_rt34DF>.icon_wrap {
     position: absolute;
     top: 14px;
     left: 15px;
 }
 
-.bs_content>.icon_wrap>span {
+.body_rt34DF>.icon_wrap>span {
     display: inline-block;
     width: 77px;
     height: 77px;
     text-indent: -9999px;
 }
 
-.bs_content>.icon_wrap>.sell_icon {
+.body_rt34DF>.icon_wrap>.sell_icon {
     background: url(/angel/img/icons/sells.png)
 }
 
-.bs_content>.icon_wrap>.buy_icon {
+.body_rt34DF>.icon_wrap>.buy_icon {
     background: url(/angel/img/icons/buys.png);
     background-size: 100% 100% !important;
 }
 
-.bs_content>.arr_icon {
+.body_rt34DF>.arr_icon {
     display: inline-block;
     position: absolute;
     top: 37px;
@@ -187,38 +187,38 @@
     background: url(/angel/img/icons/right.png);
 }
 
-.bs_content.buy_content>.arr_icon{
+.body_rt34DF.buy__h34Efd>.arr_icon{
     background: url(/angel/img/icons/right-blue.png);
 }
 
-.bs_content>.arr1 {
+.body_rt34DF>.arr1 {
     left: 423px;
 }
 
-.bs_content>.arr2 {
+.body_rt34DF>.arr2 {
     left: 606px;
 }
 
-.bs_content>.step_title {
+.body_rt34DF>.step_title {
     position: absolute;
     top: 15px;
     font-size: 14px;
     color: #fff;
 }
 
-.bs_content>.deposit_product_title {
+.body_rt34DF>.deposit_product_title {
     left: 293px;
 }
 
-.bs_content>.product_title {
+.body_rt34DF>.product_title {
     left: 475px;
 }
 
-.bs_content>.complete_title {
+.body_rt34DF>.complete_title {
     left: 670px;
 }
 
-.bs_content>.regist_product {
+.body_rt34DF>.regist_product {
     position: absolute;
     left: 110px;
     width: 112px;
@@ -227,7 +227,7 @@
     font-weight: bold;
 }
 
-.bs_content>.bargain_request_product {
+.body_rt34DF>.bargain_request_product {
     position: absolute;
     left: 110px;
     width: 112px;
@@ -236,18 +236,18 @@
     font-weight: bold;
 }
 
-.bs_content>.regist_product>.regist_title,
-.bs_content>.bargain_request_product>.bargain_request_title {
+.body_rt34DF>.regist_product>.regist_title,
+.body_rt34DF>.bargain_request_product>.bargain_request_title {
     float: left;
 }
 
-.bs_content>.regist_product>.regist_result,
-.bs_content>.bargain_request_product>.bargain_request_result {
+.body_rt34DF>.regist_product>.regist_result,
+.body_rt34DF>.bargain_request_product>.bargain_request_result {
     float: right;
     font-weight: bold;
 }
 
-.bs_content>.box_line {
+.body_rt34DF>.box_line {
     position: absolute;
     top: -1px;
     left: 264px;
@@ -257,11 +257,11 @@
     background: #0081B9;
 }
 
-.bs_content.buy_content>.box_line{
+.body_rt34DF.buy__h34Efd>.box_line{
     background: #0F9E84;
 }
 
-.bs_content>.deposit_product {
+.body_rt34DF>.deposit_product {
     position: absolute;
     left: 293px;
     top: 51px;
@@ -270,11 +270,11 @@
     color: #fff;
 }
 
-.bs_content>.deposit_product span {
+.body_rt34DF>.deposit_product span {
     font-size: 12px;
 }
 
-.bs_content>.sell_product {
+.body_rt34DF>.sell_product {
     position: absolute;
     left: 475px;
     top: 51px;
@@ -283,11 +283,11 @@
     color: #fff;
 }
 
-.bs_content>.sell_product span {
+.body_rt34DF>.sell_product span {
     font-size: 12px;
 }
 
-.bs_content>.detail_btn {
+.body_rt34DF>.detail_btn {
     display: block;
     position: absolute;
     left: 660px;
@@ -303,7 +303,7 @@
     font-weight: bold;
 }
 
-.bs_content>.detail_btn>.arr_right {
+.body_rt34DF>.detail_btn>.arr_right {
     display: inline-block;
     width: 5px;
     height: 9px;

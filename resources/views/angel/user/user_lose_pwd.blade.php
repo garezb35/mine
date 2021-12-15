@@ -42,7 +42,7 @@
         }
     </style>
 
-    <div class="g_container">
+    <div class="container_fulids">
         <div class="g_title_txt f-30 align-center">
             비밀번호 찾기
         </div>
@@ -57,13 +57,13 @@
                         <div class="d-flex div-each">
                             <div class="part-title">비밀번호</div>
                             <div class="part-content">
-                                <input type="password" class="g_text" name="user_pass1" maxlength="12" value="{{$user_pass1}}" required>
+                                <input type="password" class="angel__text" name="user_pass1" maxlength="12" value="{{$user_pass1}}" required>
                             </div>
                         </div>
                         <div class="d-flex div-each">
                             <div class="part-title">재입력</div>
                             <div class="part-content">
-                                <input type="password" class="g_text" name="user_pass2" maxlength="12" required>
+                                <input type="password" class="angel__text" name="user_pass2" maxlength="12" required>
                             </div>
                         </div>
                     </div>
@@ -71,25 +71,25 @@
                 <div class="d-flex div-each">
                     <div class="part-title">이름</div>
                     <div class="part-content">
-                        <input type="text" class="g_text" name="user_name" maxlength="12" value="{{$user_name}}" required>
+                        <input type="text" class="angel__text" name="user_name" maxlength="12" value="{{$user_name}}" required>
                     </div>
                 </div>
                 <div class="d-flex div-each">
                     <div class="part-title">생년월일</div>
                     <div class="part-content">
-                        <input type="text" class="g_text" name="user_birth" maxlength="10" value="{{$user_birth}}" placeholder="예)1999-01-01" >
+                        <input type="text" class="angel__text" name="user_birth" maxlength="10" value="{{$user_birth}}" placeholder="예)1999-01-01" >
                     </div>
                 </div>
                 <div class="d-flex div-each">
                     <div class="part-title">이메일</div>
                     <div class="part-content">
-                        <input type="text" class="g_text" name="user_email" value="{{$user_email}}" placeholder="richman@email.com">
+                        <input type="text" class="angel__text" name="user_email" value="{{$user_email}}" placeholder="richman@email.com">
                     </div>
                 </div>
                 <div class="d-flex div-each">
                     <div class="part-title">아이디</div>
                     <div class="part-content">
-                        <input type="text" class="g_text" name="user_id" value="{{$user_id}}" maxlength="20">
+                        <input type="text" class="angel__text" name="user_id" value="{{$user_id}}" maxlength="20">
                     </div>
                 </div>
                 <div class="align-center" style="margin-top: 20px;">

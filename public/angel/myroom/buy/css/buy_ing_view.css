@@ -14,7 +14,7 @@
     width: 668px
 }
 
-#dvTradeSellCheck .layer_content {
+#dvTradeSellCheck .modal--content {
     text-align: center
 }
 
@@ -81,7 +81,7 @@
     background-color: #FBFBFB
 }
 
-.layer_content #receipt_table {
+.modal--content #receipt_table {
     margin-top: 9px
 }
 
@@ -96,20 +96,20 @@
     border-right: 1px solid #E2E2E2
 }
 
-#dvTradeSellCheck .g_gray_table #juminnumber td div {
+#dvTradeSellCheck .table_angel_secondary #juminnumber td div {
     height: 25px;
     line-height: 25px
 }
 
-#dvTradeSellCheck .g_gray_table #juminnumber td div .g_text {
+#dvTradeSellCheck .table_angel_secondary #juminnumber td div .angel__text {
     text-align: center
 }
 
-#dvTradeSellCheck .g_gray_table #juminnumber td #info_phone_div .g_text {
+#dvTradeSellCheck .table_angel_secondary #juminnumber td #info_phone_div .angel__text {
     width: 60px
 }
 
-#dvTradeSellCheck .g_gray_table #juminnumber td div #info_jumin {
+#dvTradeSellCheck .table_angel_secondary #juminnumber td div #info_jumin {
     margin-left: 20px
 }
 
@@ -187,7 +187,7 @@
     max-width: 1000px;
 }
 
-.elt_contract .g_btn_wrap .btn_blue3 {
+.elt_contract .b_input_group .btn_blue3 {
     width: 100px;
     height: 35px;
     line-height: 33px;
@@ -256,7 +256,7 @@
     width: 60px;
 }
 
-.g_title_green {
+.text-green_moderation {
     border-bottom: none !important;
 }
 

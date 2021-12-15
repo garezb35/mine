@@ -17,8 +17,8 @@
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .notice {
                 height: 24px;
@@ -87,17 +87,17 @@
                 padding: 14px 10px;
                 font-size: 14px;
             }
-            .search_bar_wrap .g_image {
+            .search_bar_wrap .v_middle_img {
                 position: absolute;
                 right: 10px;
 
             }
-            .search_list {
+            .item_filtered {
                 padding: 18px 0;
                 font-size: 14px;
                 color: #67a3da;
             }
-            .search_list li {
+            .item_filtered li {
                 word-spacing: 28px;
             }
             .cus_content {
@@ -113,8 +113,8 @@
             }
         </style>
         @include('angel.customer.aside', ['group'=>'faq', 'part'=>''])
-        <div class="g_content">
-            <p class="f-16 c-blue-title f-bold">고객센터</p>
+        <div class="pagecontainer">
+            <p class="f-16 text-nodemon f-bold">고객센터</p>
             <table class="customer_button_table no-border">
                 <tbody>
                 <tr>
@@ -138,7 +138,7 @@
                 <input type="hidden" name="second_code">
                 <div class="search">
                     <div class="search_bar_wrap">
-                        <button style="background: none" type="submit"  class="g_image g_right"><i class="fa fa-search"></i></button>
+                        <button style="background: none" type="submit"  class="v_middle_img float__right"><i class="fa fa-search"></i></button>
                         <div class="search_bar d-flex">
                             <div class="search_img_wrap"> 이용안내에서 궁금한 점을 빠르게 <br>찾아보세요 </div>
                             <div class="search_input_wrap">
@@ -148,7 +148,7 @@
                     </div>
                 </div>
                 <div>
-                    <ul class="search_list">
+                    <ul class="item_filtered">
                         <li>추천검색어 | </li>
                         <li><a href="#" onclick="$(this).fnSearch();">안전거래</a> </li>
                         <li><a href="#" onclick="$(this).fnSearch();">거래취소</a> </li>
@@ -162,26 +162,26 @@
                     </ul>
                 </div>
             </form>
-            <!-- ▼ best5 //-->
+
             <div class="cus_content">
                 @foreach ($faqRecord as $rec)
                     <div class="sub_title">
                         <span class="subject">
-                            <img class="g_left" src="/angel/img/icons/ico_q.png" width="14" height="21" alt="">[{{$rec['type']}}]
+                            <img class="float-left" src="/angel/img/icons/ico_q.png" width="14" height="21" alt="">[{{$rec['type']}}]
                         </span>
                         <span>{{$rec['title']}}</span>
                     </div>
                     <div class="gray_box">
-                        <img class="g_left" src="/angel/img/icons/ico_a.png" width="16" height="19" alt="">
-                        <div class="g_left">
+                        <img class="float-left" src="/angel/img/icons/ico_a.png" width="16" height="19" alt="">
+                        <div class="float-left">
                             {!! $rec['content'] !!}
                         </div>
                     </div>
-                    <div class="g_finish"></div>
+                    <div class="empty-high"></div>
                 @endforeach
             </div>
-            <div class="g_finish"></div>
+            <div class="empty-high"></div>
         </div>
-        <!-- ▲ 컨텐츠 영역 //-->
+
     </div>
 @endsection

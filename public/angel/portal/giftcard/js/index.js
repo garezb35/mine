@@ -11,7 +11,7 @@ function _init() {
         var height = $(document).height();
         var height_win = $(window).height();
         var sideBanner = $('#side_banner');
-        var footerHeight = $('#g_TAIL').height();
+        var footerHeight = $('#footerads').height();
         // 스크롤 바닥에서 푸터를 뺀만큼 스크롤시 css 변경
         if (scrollTop >= ((height - height_win) - footerHeight)) {
             sideBanner.attr("class", "side_banner");

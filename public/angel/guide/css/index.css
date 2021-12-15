@@ -14,7 +14,7 @@
     background: linear-gradient(to right, #159efd, #b197fc);
 }
 
-.top_box .g_subtitle {
+.top_box .highlight_contextual_nodemon {
     margin-top: 0;
     padding: 20px 0 0 40px;
     color: #fff;
@@ -93,7 +93,7 @@
     float: left;
 }
 
-.service_qna .g_subtitle {
+.service_qna .highlight_contextual_nodemon {
     margin-bottom: 20px;
 }
 
@@ -145,7 +145,7 @@
     margin-left: 0;
 }
 
-.fv_menu>a>.SpGroup {
+.fv_menu>a>.has-sprite {
     float: left;
     display: inline-block;
     width: 45px;

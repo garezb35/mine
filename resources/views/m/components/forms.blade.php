@@ -24,39 +24,39 @@
 <div class="row">
     <div class="col-12 mb-4">
         <div class="card border-0 shadow components-section">
-            <div class="card-body">     
+            <div class="card-body">
                 <div class="row mb-4">
                     <div class="col-lg-4 col-sm-6">
-                        <!-- Form -->
+
                         <div class="mb-4">
                             <label for="email">Email address</label>
                             <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
-                        <!-- End of Form -->
-                        <!-- Form -->
+
+
                         <div class="mb-3">
                             <label for="exampleInputIconLeft">Icon Left</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon1">
-                                    <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>  
+                                    <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
                                 </span>
                                 <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search">
                             </div>
                         </div>
-                        <!-- End of Form -->
-                        <!-- Form -->
+
+
                         <div class="mb-3">
                             <label for="exampleInputIconRight">Icon Right</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="exampleInputIconRight" placeholder="Search" aria-label="Search">
                                 <span class="input-group-text" id="basic-addon2">
-                                    <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>  
+                                    <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
                                 </span>
                             </div>
                         </div>
-                        <!-- End of Form -->
-                        <!-- Form -->
+
+
                         <div class="mb-3">
                             <label for="exampleInputIconPassword">Password</label>
                             <div class="input-group">
@@ -66,34 +66,34 @@
                                 </span>
                             </div>
                         </div>
-                        <!-- End of Form -->
-                        <!-- Form -->
+
+
                         <div class="mb-3">
                             <label for="firstName">First name</label>
                             <input type="text" class="form-control is-valid" id="firstName" value="Mark" required>
                             <div class="valid-feedback">
                                 Looks good!
-                            </div>                
+                            </div>
                         </div>
-                        <!-- End of Form -->
+
                     </div>
                     <div class="col-lg-4 col-sm-6">
 
-                        <!-- Form -->
+
                         <div class="my-4">
                             <label for="textarea">Example textarea</label>
                             <textarea class="form-control" placeholder="Enter your message..." id="textarea" rows="4"></textarea>
                         </div>
-                        <!-- End of Form -->
-                        <!-- Form -->
+
+
                         <div class="mb-4">
                             <label for="usernameValidate">Username</label>
                             <input type="text" class="form-control is-invalid" id="usernameValidate" required>
                             <div class="invalid-feedback">
                                 Please choose a username.
-                            </div>               
+                            </div>
                         </div>
-                        <!-- End of Form -->
+
                     </div>
                     <div class="col-lg-4 col-sm-6">
                         <div class="mb-3">
@@ -102,10 +102,10 @@
                                 <span class="input-group-text">
                                     <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
                                 </span>
-                                <input data-datepicker="" class="form-control" id="birthday" type="text" placeholder="dd/mm/yyyy" required>                                               
+                                <input data-datepicker="" class="form-control" id="birthday" type="text" placeholder="dd/mm/yyyy" required>
                             </div>
                         </div>
-                        <!-- Form -->
+
                         <div class="mb-3">
                             <label for="disabledTextInput">Name</label>
                             <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input" disabled>
@@ -116,8 +116,8 @@
                             <option>Disabled select</option>
                             </select>
                         </div>
-                        <!-- End of Form -->
-                        <!-- Form -->
+
+
                         <div class="mb-4">
                             <label class="my-1 me-2" for="country">Country</label>
                             <select class="form-select" id="country" aria-label="Default select example">
@@ -127,18 +127,18 @@
                                 <option value="3">Three</option>
                             </select>
                         </div>
-                        <!-- End of Form -->
-                        <!-- Form -->
+
+
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Default file input example</label>
                             <input class="form-control" type="file" id="formFile">
                         </div>
-                        <!-- End of Form -->
+
                     </div>
                 </div>
                 <div class="row mb-5 mb-lg-5">
                     <div class="col-lg-3 col-md-6">
-                        <!-- Checkboxes -->
+
                         <div class="mb-3">
                             <span class="h6 fw-bold">Checkboxes Round</span>
                         </div>
@@ -156,7 +156,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 mt-4 mt-md-0">
-                        <!-- Radio -->
+
                         <fieldset>
                             <legend class="h6">Radios</legend>
                             <div class="form-check">
@@ -177,7 +177,7 @@
                                   Disabled radio
                                 </label>
                               </div>
-                            <!-- End of Radio -->
+
                         </fieldset>
                     </div>
                     <div class="col-lg-3 col-sm-6 mt-4 mt-md-0">

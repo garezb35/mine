@@ -89,9 +89,9 @@ function btnView(nday) {
             checked[1] = 'checked';
         }
 
-        var txtSearch = '<div class=\'g_left\'><strong>' + g_gs_name + ' 일별 시세 그래프</strong><span id="avr_range"></span></div>  ';
-        txtSearch += '<div class="g_right"><input type=\'radio\' name=\'slt_cnt\' id=\'slt_cnt15\' onclick=\'$.btnView(15);\' class=\'g_radio\' ' + checked[0] + '> <label for=\'slt_cnt15\'>최근15일</label>  ';
-        txtSearch += '<input type=\'radio\' name=\'slt_cnt\' id=\'slt_cnt90\' onclick=\'$.btnView(90);\' class=\'g_radio\' ' + checked[1] + '> <label for=\'slt_cnt90\'>최근 3개월(90일)</label></div><div class="g_finish"></div>';
+        var txtSearch = '<div class=\'float-left\'><strong>' + g_gs_name + ' 일별 시세 그래프</strong><span id="avr_range"></span></div>  ';
+        txtSearch += '<div class="float__right"><input type=\'radio\' name=\'slt_cnt\' id=\'slt_cnt15\' onclick=\'$.btnView(15);\' class=\'g_radio\' ' + checked[0] + '> <label for=\'slt_cnt15\'>최근15일</label>  ';
+        txtSearch += '<input type=\'radio\' name=\'slt_cnt\' id=\'slt_cnt90\' onclick=\'$.btnView(90);\' class=\'g_radio\' ' + checked[1] + '> <label for=\'slt_cnt90\'>최근 3개월(90일)</label></div><div class="empty-high"></div>';
         $('#lbl_graph_title').html(txtSearch);
 
         $.fnajax_money(g_game_code, g_server_code, nday, g_gs_name);
@@ -192,7 +192,7 @@ $.extend({
                 labelsLength = 5;
 
                 var strUnit = $(xml).find('quotation').attr('multiple') + $(xml).find('quotation').attr('unit_trade') + ' ' + $(xml).find('quotation').attr('denomination');
-                //var txtSearch = '<div class=\'avr_day\'>(' + strUnit + '당)</div><div class=\'g_finish\'></div>';
+                //var txtSearch = '<div class=\'avr_day\'>(' + strUnit + '당)</div><div class=\'empty-high\'></div>';
                 //$('#lbl_graph_title').append(txtSearch);
 
                 if ($(xml).find('quotation').attr('result') == 'fail') {
@@ -209,7 +209,7 @@ $.extend({
                 var nAvgPrice = $(xml).find('quotation').attr('nAvgPrice');
                 var minRlt = $(xml).find('quotation').attr('min_result');
                 var unitTxt = $(xml).find('quotation').attr('denomination');
-                var extra_info = ' <span class=\'f_blue1\'> 일 평균 ' + Number(nAvgPrice).currency() + '원</span>';
+                var extra_info = ' <span class=\'text-blue_modern\'> 일 평균 ' + Number(nAvgPrice).currency() + '원</span>';
 
                 /* ▼ 환율계산정보 */
                 money_unit = $(xml).find('quotation').attr('unit_trade');

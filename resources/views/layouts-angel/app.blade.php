@@ -10,8 +10,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link type="text/css" rel="stylesheet" href="/angel/photoswipe/css/photoswipe.css">
         <link type="text/css" rel="stylesheet" href="/angel/photoswipe/css/default-skin/default-skin.css">
-        <link type="text/css" rel="stylesheet" href="/angel/_css/_comm.css">
-        <link type="text/css" rel="stylesheet" href="/angel/_head_tail/css/_head_comm.css">
+        <link type="text/css" rel="stylesheet" href="/angel/_css/webpack.css">
+        <link type="text/css" rel="stylesheet" href="/angel/global_h/css/header_1.css">
         <link type="text/css" rel="stylesheet" href="/angel/_banner/css/banner_module.css">
         <link type="text/css" rel="stylesheet" href="/angel/dev/global.css">
         <link type="text/css" rel="stylesheet" href="/angel/dev/change.css">
@@ -36,25 +36,25 @@
             popupWindow = window.open(url,'popUpWindow','height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
         }
     </script>
-        <div id="g_SLEEP" class="g_sleep g_hidden">
-            <div id="g_OVERLAY" class="g_overlay"></div>
+        <div id="global_root" class="mainEntity d-none">
+            <div id="thirdys" class="fluid-div"></div>
         </div>
-        <div class="g_body" id="g_BODY">
+        <div class="roots" id="angel">
             @include('layouts-angel.header')
             @yield('content')
             @include('layouts-angel.footer')
         </div>
         <script type="text/javascript" src="/angel/_js/jquery.js"></script>
-        <script type="text/javascript" src="/angel/_js/_comm.js"></script>
+        <script type="text/javascript" src="/angel/_js/webpack.js"></script>
         <script type="text/javascript" src="/angel/_js/angelic-global.js"></script>
-        <script type="text/javascript" src="/angel/_js/_common_initialize_new.js"></script>
+        <script type="text/javascript" src="/angel/_js/loader.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/packery/1.4.3/packery.pkgd.min.js"></script>
         <script type="text/javascript" src="/angel/photoswipe/js/jquery.photoswipe-global.js"></script>
 
     @yield('foot_attach')
 
         <script type="text/javascript">
-            _initialize();
+            loadGlobalItems()
         </script>
         <style>
             .pt-1 {
@@ -66,7 +66,7 @@
         </style>
     </body>
     <div class="topbar-left well well--tooltip" id="topbar-left">
-        <div class="quickmenu_cont" id="quickmenu_cont">
+        <div class="toobar-content" id="toobar-content">
             @if(auth()->check())
             <div class="myinfo">
                 <div style='padding: 0 10px;'>
@@ -125,36 +125,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <dl class="status">
-                    <dd class="credir_rt">
-                        <div class="rt_figure">
-                            <img src="/angel/img/level/silver.png">
-                        </div>
-                        <div class="user_name">{{$me['name']}}
-                            <span class="cert">
-                                <span class="cert_state f_black1">@if($me['mobile_verified'] == 1)<img src="/angel/img/icons/icon_check.png">@endif 휴대폰</span>
-                                <span class="cert_state f_black1">@if($me['bank_verified'] == 1)<img src="/angel/img/icons/icon_check.png">@endif &nbsp;계좌</span>
-                                <span class="cert_state f_black1">@if(!empty($me['email_verified_at']))<img src="/angel/img/icons/icon_check.png">@endif &nbsp;이메일</span>
-                            </span>
-                        </div>
-                        <span class="rank _txt">
-                            {{$top_role['alias']}} &nbsp;&nbsp;
-                            <span class="f_blue1 f_bold f-16">
-                                {{number_format($me['point'])}}
-                                <dl class="milage">
-                                    <dt class="f_black1">총 마일리지</dt>
-                                    <dd>{{number_format($me['mileage'])}}<span class="f_black1">원</span></dd>
-                                </dl>
-                            </span>
-                        </span>
-                    </dd>
-                </dl>
-
-                <div class="other_link">
-                    <a href="/myroom/my_mileage/index_c" class="head_charge">충전</a>
-                    <a href="/myroom/my_mileage/index_e" class="head_give">출금</a>
-{{--                    <a href="/myroom/" class="head_myroom">마이룸</a>--}}
-                </div>-->
                 <table class="table box-menus mar-t-5 mb-0">
                     <colgroup>
                         <col width="25%">
@@ -215,7 +185,7 @@
                 </table>
             </div>
             <style>
-                .quickmenu_cont .ing_count .ings > div {
+                .toobar-content .ing_count .ings > div {
                     width: 88px;
                 }
             </style>
@@ -227,13 +197,13 @@
                             <div class="ings">
                                 <div style="width: 136px !important">
                                     <span class="mr-4">등록</span>
-                                    <span><a href="/myroom/sell/sell_regist"><span class="f_blue1 f_bold">{{number_format($top_selling_register)}}</span>건</a></span>
+                                    <span><a href="/myroom/sell/sell_regist"><span class="text-blue_modern font-weight-bold">{{number_format($top_selling_register)}}</span>건</a></span>
                                     <span class="mr-4" style="margin-left: 4px;">판매중</span>
-                                    <span><a href="/myroom/sell/sell_regist"><span class="f_blue1 f_bold">{{number_format($top_selling_register)}}</span>건</a></span>
+                                    <span><a href="/myroom/sell/sell_regist"><span class="text-blue_modern font-weight-bold">{{number_format($top_selling_register)}}</span>건</a></span>
                                 </div>
                                 <div>
                                     <span class="mr-4">흥정신청</span>
-                                    <span><a href="/myroom/sell/sell_check"><span class="f_blue1 f_bold">{{number_format($top_bargain_request)}}</span>건</a></span>
+                                    <span><a href="/myroom/sell/sell_check"><span class="text-blue_modern font-weight-bold">{{number_format($top_bargain_request)}}</span>건</a></span>
                                 </div>
                             </div>
                         </div>
@@ -244,9 +214,9 @@
                             <dl class="ings">
                                 <div style="width: 132px !important">
                                     <span class="mr-4">등록</span>
-                                    <span><a href="/myroom/buy/buy_regist"><span class="f_green1 f_bold">{{number_format($top_buying_register)}}</span>건</a></span>
+                                    <span><a href="/myroom/buy/buy_regist"><span class="text-green_modern font-weight-bold">{{number_format($top_buying_register)}}</span>건</a></span>
                                     <span class="mr-4" style="margin-left: 4px;">구매중</span>
-                                    <span><a href="/myroom/buy/buy_regist"><span class="f_green1 f_bold">{{number_format($top_buying_register)}}</span>건</a></span>
+                                    <span><a href="/myroom/buy/buy_regist"><span class="text-green_modern font-weight-bold">{{number_format($top_buying_register)}}</span>건</a></span>
                                 </div>
                             </dl>
                         </div>
@@ -259,14 +229,14 @@
                     <a href="/myroom/customer/search" style="margin-left: 15px"><i class="fa fa-cog"></i></a>
                 </div>
 
-                <a class="showing_fav f_bold f_14" href="javascript:controlFavorite()"><i class="fa fa-plus"></i></a>
+                <a class="showing_fav font-weight-bold f_14" href="javascript:controlFavorite()"><i class="fa fa-plus"></i></a>
                 <dl class="my_game" style="display: none" id="my_game">
                     @foreach($top_games as $t_g)
                     <dd title="{{$t_g['game_text']}}">
                         <span class="title-{{$t_g['type']}}"><img src="/angel/img/icons/{{$t_g['type']}}-i.png">-{{$t_g['type'] == 'sell' ? '팝니다':'삽니다'}}-</span>
                         <strong>{{$t_g['game_text']}} &gt; {{$t_g['server_text']}}</strong>
                         <div class="btn_area">
-                            <a href="/{{$t_g['type']}}/list_search?search_type={{$t_g['type']}}&amp;search_game={{$t_g['game']}}&amp;search_game_text={{$t_g['game_text']}}&amp;search_server={{$t_g['server']}}&amp;search_server_text={{$t_g['server_text']}}&amp;search_goods={{itemAlias($t_g['goods_text'])}}">검색</a>
+                            <a href="/{{$t_g['type']}}/list_search?search_type={{$t_g['type']}}&amp;filtered_game_id={{$t_g['game']}}&amp;filtered_game_alias={{$t_g['game_text']}}&amp;filtered_child_id={{$t_g['server']}}&amp;filtered_child_alias={{$t_g['server_text']}}&amp;filtered_items={{itemAlias($t_g['goods_text'])}}">검색</a>
                             <a href="/{{$t_g['type']}}?game={{$t_g['game']}}&amp;server={{$t_g['server']}}">등록</a>
                         </div>
                     </dd>
@@ -312,10 +282,10 @@
 </html>
 
 <style>
-    .g_header .g_snav {
+    .siteHeader .js-nav-menu {
         padding: 0;
     }
-    .g_container{
+    .container_fulids{
         min-height: 730px;
     }
     .well--tooltip {
@@ -330,7 +300,6 @@
         }
     }
 
-    /* Tooltip Arrow */
     .well--tooltip::before,
     .well--tooltip::after {
         content: "";
@@ -370,19 +339,19 @@
             $("#topbar-left").css("left",pos_left.left - 325 + "px")
             $("#topbar-left").css("top",171 + "px")
         @else
-            var pos_left = $(".g_container").offset();
+            var pos_left = $(".container_fulids").offset();
             $("#topbar-left").css("left",pos_left.left - 325 + "px")
             $("#topbar-left").css("top",171 + "px")
         @endif
         if ($(window).width() < 1694){
-            $("#quickmenu_area").show();
+            $("#toolbar-btn").show();
             $("#topbar-left").css("display","none")
             $("#topbar-left").css("position","fixed")
             $("#topbar-left").css("top","45px")
             $("#topbar-left").css("left","15px")
         }
         else{
-            $("#quickmenu_area").hide();
+            $("#toolbar-btn").hide();
         }
     })
 </script>

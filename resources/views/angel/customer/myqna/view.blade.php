@@ -14,8 +14,8 @@
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .notice {
                 height: 24px;
@@ -52,11 +52,11 @@
             }
         </style>
         @include('angel.customer.aside', ['group'=>'myqna', 'part'=>''])
-        <div class="g_content">
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue no-border">1:1 상담하기</div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 나의 1:1 상담내역 //-->
+        <div class="pagecontainer">
+
+            <div class="contextual--title no-border">1:1 상담하기</div>
+
+
             <div class="s_subtitle">나의 1:1 상담내역</div>
             <table class="g_gray_tb g_sky_table">
                 <colgroup>
@@ -109,8 +109,8 @@
                     </td>
                 </tr>
             </table>
-            <!-- ▲ 나의 1:1 상담내역 //-->
-            <!-- ▼ 문의한 내용 답변보기 //-->
+
+
             <div class="s_subtitle">문의한 내용 답변보기</div>
             @if ($askDetail['response'] != '')
                 <table class="g_gray_tb g_sky_table">
@@ -134,8 +134,8 @@
                 </table>
             @endif
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 
 @endsection

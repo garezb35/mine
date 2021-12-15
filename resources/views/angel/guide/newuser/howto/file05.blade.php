@@ -16,18 +16,18 @@
 
 @section('content')
     <style>
-        .g_title_blue {
+        .contextual--title {
             margin-left: 20px;
         }
-        .g_tab>* {
+        .react_nav_tab>* {
             background-color: #e3f0f3;
             border-bottom: 2px solid #0081b9;
         }
-        .g_tab>.selected {
+        .react_nav_tab>.selected {
             border: 2px solid #0081b9;
             border-bottom: 0;
         }
-        .g_tab>*>a {
+        .react_nav_tab>*>a {
             font-size: 14px;
         }
         .tb_list th {
@@ -36,12 +36,12 @@
         .tb_list td {
             font-size: 13px;
         }
-        .g_blue_table tr th {
+        .table-primary tr th {
             background-color: #e3f0f3;
         }
-        .g_blue_table,
-        .g_blue_table tr th,
-        .g_blue_table tr td {
+        .table-primary,
+        .table-primary tr th,
+        .table-primary tr td {
             border: solid 1px #89c1ce;
         }
     </style>
@@ -50,8 +50,8 @@
 
     </style>
 
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .img_wrap {
                 width: 214px;
@@ -120,27 +120,27 @@
             }
         </style>
         @include('angel.guide.aside', ['group'=>'new_guide', 'part'=>''])
-        <div class="g_content">
+        <div class="pagecontainer">
             <a name="top"></a>
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue no-border"> 초보자 가이드 </div>
+
+            <div class="contextual--title no-border"> 초보자 가이드 </div>
             <div class="g_gray_border"></div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 메뉴탭 //-->
-            <div class="g_tab">
+
+
+            <div class="react_nav_tab">
                 <div class="selected"><a href="{{route('guide_howto')}}">거래방법 보기</a></div>
-                <!--<div class=""><a href="{{route('guide_movie')}}">동영상 가이드</a></div>-->
+
                 <div class=""><a href="{{route('guide_safe')}}">안전 거래 시스템</a></div>
                 <div class=""><a href="{{route('guide_trade')}}">거래시 주의사항</a></div>
                 <div class=""><a href="{{route('guide_failed')}}">거래 사기 실시간 조회</a></div>
             </div>
-            <div class="g_finish"></div>
-            <!-- ▲ 메뉴탭 //-->
+            <div class="empty-high"></div>
+
             <div class="top_menu">
-                <a href="{{route('guide_howto')}}"><span class="f_blue3 f_bold">판매자 가이드</span></a> |
+                <a href="{{route('guide_howto')}}"><span class="f_blue3 font-weight-bold">판매자 가이드</span></a> |
                 <a href="{{route('guide_howto2')}}"><span class="g_black2">구매자 가이드</span></a>
             </div>
-            <div class="g_finish"></div>
+            <div class="empty-high"></div>
             <ul id="guide_sell">
                 <li>
                     <a href="{{route('guide_howto')}}" class="blue_arrow_right">
@@ -171,10 +171,10 @@
                     </a>
                 </li>
             </ul>
-            <div class="g_finish"></div>
-            <div class="g_subtitle_blue">물품전달 및 인계확인</div>
+            <div class="empty-high"></div>
+            <div class="highlight_contextual">물품전달 및 인계확인</div>
             <div class="guide_subtitle">
-                <span class="f_red1 f_bold">하나. </span>구매자와 연락을 하시면서 게임상에서 물품을 구매자에게 전달합니다.
+                <span class="f_red1 font-weight-bold">하나. </span>구매자와 연락을 하시면서 게임상에서 물품을 구매자에게 전달합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_hand_01.png" width="820" height="227" alt="">
             <dl class="notice">
@@ -188,29 +188,29 @@
                     물품을 받을 구매자의 캐릭터명이 거래정보에 기재되어 있는 캐릭터명과 동일한지 다시 한번 확인 하시기 바랍니다.
                 </dd>
             </dl>
-            <div class="g_finish"></div>
+            <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 f_bold">둘. </span>구매자에게 거래물품을 건네주신 후 <b>[물품인계확인]</b> 버튼을 클릭합니다.
+                <span class="f_red1 font-weight-bold">둘. </span>구매자에게 거래물품을 건네주신 후 <b>[물품인계확인]</b> 버튼을 클릭합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_hand_02.gif" width="820" height="510" alt="">
-            <div class="g_finish"></div>
+            <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 f_bold">셋. </span>현금영수증 정보를 확인 후 [물품인계확인] 버튼을 클릭하세요.
+                <span class="f_red1 font-weight-bold">셋. </span>현금영수증 정보를 확인 후 [물품인계확인] 버튼을 클릭하세요.
                 <br>현금영수증 발급을 원하지 않으시면 [미발급] 을 선택해주시기 바랍니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_hand_03.gif" width="820" height="800" alt="">
-            <div class="g_finish"></div>
+            <div class="empty-high"></div>
             <div class="divi_line"></div>
             <a href="#top">
-                <img class="g_right" src="/angel/img/icons/Scroll-to-top.png" width="61" height="60">
+                <img class="float__right" src="/angel/img/icons/Scroll-to-top.png" width="61" height="60">
             </a>
-            <div class="g_finish"></div>
-            <div class="g_btn">
+            <div class="empty-high"></div>
+            <div class="btn-groups_angel">
                 <a class="btn-arrow-left" href="{{route('guide_howto')}}?file=04" style="padding: 14px 50px; background: #07819C; color: white; font-size: 16px;">구매자 정보확인</a>
                 <a class="btn-arrow-right" href="{{route('guide_howto')}}?file=06" style="padding: 14px 50px; background: #07819C; color: white; font-size: 16px;">판매종료 물품확인</a>
             </div>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

@@ -239,7 +239,7 @@
             n.insertBefore(e, f[k]);
             var j = document.createElement("input");
             j.type = "text";
-            j.className = "g_text";
+            j.className = "angel__text";
             j.readOnly = true;
             e.appendChild(j);
             var b = document.createElement("div");
@@ -1096,7 +1096,7 @@ _selectbox.convertAll = function(c) {
     var d = null;
     var b = c.find("SELECT");
     for (var a = 0; a < b.length; a++) {
-        if (!$(b[a]).hasClass("g_hidden")) {
+        if (!$(b[a]).hasClass("d-none")) {
             continue
         }
         d = $("<DIV />");
@@ -1111,7 +1111,7 @@ $.extend(_selectbox, {
             return
         }
         var f = this;
-        c.classList.remove("g_hidden");
+        c.classList.remove("d-none");
         var b = $("<input />", {
             type: "hidden",
             name: $(c).attr("name")
@@ -2674,7 +2674,7 @@ function g_fnSECURITY2() {
     })
 }(function() {
     var a = function(c) {
-        var e = document.getElementById("g_SLEEP");
+        var e = document.getElementById("global_root");
         var d = {
             el: null,
             layer: null,
@@ -2690,11 +2690,11 @@ function g_fnSECURITY2() {
         if (d.el !== null) {
             d.el.addEventListener("click", function() {
                 if (d.mask === true) {
-                    e.classList.toggle("g_hidden");
+                    e.classList.toggle("d-none");
                     document.body.classList.add("mask_on")
                 }
                 if (d.type === "class") {
-                    d.layer.classList.toggle("g_hidden")
+                    d.layer.classList.toggle("d-none")
                 } else {
                     if (d.layer.style.display !== "block") {
                         d.layer.style.display = "block"
@@ -2714,37 +2714,37 @@ function g_fnSECURITY2() {
         }
     };
     a.open = function(b) {
-        var c = document.getElementById("g_SLEEP");
+        var c = document.getElementById("global_root");
         if (b.mask !== false) {
             document.body.classList.add("mask_on");
-            c.classList.remove("g_hidden");
+            c.classList.remove("d-none");
             if (c.style.display !== "block") {
                 c.removeAttribute("style")
             }
         }
         if (b.type === "class") {
-            b.layer.classList.remove("g_hidden")
+            b.layer.classList.remove("d-none")
         } else {
             b.layer.style.display = "block"
         }
     };
     a.close = function(b) {
-        var c = document.getElementById("g_SLEEP");
+        var c = document.getElementById("global_root");
         if (b.mask !== false) {
             document.body.classList.remove("mask_on");
-            c.classList.add("g_hidden")
+            c.classList.add("d-none")
         }
         if (b.type === "class") {
-            b.layer.classList.add("g_hidden")
+            b.layer.classList.add("d-none")
         } else {
             b.layer.style.display = "none"
         }
     };
-    window.LayerControl = a;
+    window.KeepAlivesRaw = a;
     document.addEventListener("click", function(d) {
         if (d.target.getAttribute("data-close") === "true") {
             var b = d.target;
-            var c = b.closest(".g_layer");
+            var c = b.closest(".react___gatsby");
             if (c !== null) {
                 a.close({
                     layer: c
@@ -2807,7 +2807,7 @@ var _myService = {
                     var f = n.nodeValue + " > " + l.nodeValue + " > " + b.nodeValue;
                     m.push('<li data-id="' + o.getAttribute("id") + '" data-idx="' + h + '">');
                     m.push('<a href="javascript:;" class="gs_name"><span class="' + o.getAttribute("type") + '">[' + d + "]</span>" + f + "</a>");
-                    m.push('<a href="javascript:;" class="delete_btn"></a>');
+                    m.push('<a href="javascript:;" class="topsearchbar__close"></a>');
                     m.push("</li>")
                 }
             }
@@ -2826,7 +2826,7 @@ var _myService = {
         _myService.myGameHandler = true;
         var l = _myService.getGameServerEl(j.target);
         var c = _xml.getElements(_myService.mySearchXml, "item");
-        if (j.target.classList.contains("delete_btn") === true) {
+        if (j.target.classList.contains("topsearchbar__close") === true) {
             var k = j.target.parentNode.getAttribute("data-idx");
             var h = c[k].getElementsByTagName("game")[0];
             var g = c[k].getElementsByTagName("server")[0];
@@ -2942,12 +2942,12 @@ var _myService = {
     },
     setLastSearch: function() {
         var j = _cookie.get("userSerachListNew") || [],
-            k, b = document.getElementById("g_searchbar_form"),
+            k, b = document.getElementById("search-overlay-container"),
             h = b.querySelector('[name="search_type"]:checked').value,
-            e = b.querySelector('[name="search_game"]').value,
-            d = b.querySelector('[name="search_game_text"]').value,
-            c = b.querySelector('[name="search_server"]').value,
-            a = b.querySelector('[name="search_server_text"]').value;
+            e = b.querySelector('[name="filtered_game_id"]').value,
+            d = b.querySelector('[name="filtered_game_alias"]').value,
+            c = b.querySelector('[name="filtered_child_id"]').value,
+            a = b.querySelector('[name="filtered_child_alias"]').value;
         if (e.isEmpty()) {
             return
         }
@@ -3028,7 +3028,7 @@ var _myService = {
                         t.push('<i class="icon_star_' + c + m + '" data-mygame="' + v + '"></i>')
                     }
                     t.push('<a href="javascript:;" class="gs_name"><span class="' + c + '">[' + h + "]</span>" + r + "</a>");
-                    t.push('<a href="javascript:;" class="delete_btn"></a>');
+                    t.push('<a href="javascript:;" class="topsearchbar__close"></a>');
                     t.push("</li>")
                 }
             }
@@ -3047,7 +3047,7 @@ var _myService = {
     },
     lastSearchClickHandler: function(c) {
         _myService.lastSearchHandler = true;
-        if (c.target.classList.contains("delete_btn") === true) {
+        if (c.target.classList.contains("topsearchbar__close") === true) {
             _myService.deleteLastSearch(c.target.parentElement.getAttribute("data-id"));
             _myService.makeLastSearch();
             return
@@ -3124,7 +3124,7 @@ var _myService = {
     },
     getGameServerEl: function(b) {
         var a = b.parentElement;
-        while (a !== null && a.classList.contains("g_search_frame") === false) {
+        while (a !== null && a.classList.contains("gameWindowPopup") === false) {
             a = a.parentElement
         }
         var c = a.querySelector('[data-gslist="true"]');
@@ -3134,15 +3134,15 @@ var _myService = {
 var rootObj = {};
 var g_nodeSleep;
 
-function _initialize() {
-    rootObj = $("#g_BODY");
-    g_nodeSleep = $("#g_SLEEP")[0];
+function loadGlobalItems() {
+    rootObj = $("#angel");
+    g_nodeSleep = $("#global_root")[0];
     if (g_nodeSleep) {
         $.extend(g_nodeSleep, {
             enable: function(h) {
-                var m = $("#g_OVERLAY");
+                var m = $("#thirdys");
                 m.show();
-                $(this).removeClass("g_hidden");
+                $(this).removeClass("d-none");
                 if (h.length > 0) {
                     this.node = h;
                     h.appendTo($(this));
@@ -3169,7 +3169,7 @@ function _initialize() {
                     if (document.body.clientWidth < h.css("width").replace("px", "")) {
                         m.css("width", o + "px")
                     }
-                    h.removeClass("g_hidden").css(f).show().focus();
+                    h.removeClass("d-none").css(f).show().focus();
                     var j = this.node.find("DIV");
                     var g = j.length;
                     for (var n = 0; n < g; n++) {
@@ -3188,8 +3188,8 @@ function _initialize() {
                 if (this.node) {
                     this.node.hide()
                 }
-                $(this).addClass("g_hidden");
-                $("#g_OVERLAY").hide();
+                $(this).addClass("d-none");
+                $("#thirdys").hide();
                 $(window).off("resize", this.repositionLayer);
                 if ("OnClose" in this) {
                     this.OnClose.call(this)
@@ -3197,7 +3197,7 @@ function _initialize() {
             },
             repositionLayer: function() {
                 var f = g_nodeSleep.node;
-                var e = $("#g_OVERLAY");
+                var e = $("#thirdys");
                 if (document.body.clientHeight > f.css("height").replace("px", "")) {
                     f.css({
                         top: "50%",

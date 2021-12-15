@@ -49,7 +49,7 @@
     margi-bottom: 8px;
 }
 
-.g_content .box6 {
+.pagecontainer .box6 {
     margin-top: 20px;
     padding: 40px 0;
     text-align: center;
@@ -71,7 +71,7 @@
     text-align: center;
 }
 
-.g_blue_table td {
+.table-primary td {
     line-height: 20px;
 }
 

@@ -13,7 +13,7 @@
 #message_view table tr th, #message_view table tr td{ border-left:0; border-right:0 }
 #message_view table tr td{ padding-left:10px; color:#767676; text-align:left }
 #dvMessage_content{ overflow-y:auto; width:580px; height:200px; padding:15px 10px }
-#message_view .g_left img{ margin-right:175px }
+#message_view .float-left img{ margin-right:175px }
 #dvMessage_move{ margin-top:10px; }
 /* â–² ë©”ì‹œì§€ ë ˆì´ì–´ */
 a.save{

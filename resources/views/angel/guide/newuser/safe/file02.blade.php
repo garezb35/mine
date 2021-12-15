@@ -18,18 +18,18 @@
 
 @section('content')
     <style>
-        .g_title_blue {
+        .contextual--title {
             margin-left: 20px;
         }
-        .g_tab>* {
+        .react_nav_tab>* {
             background-color: #e3f0f3;
             border-bottom: 2px solid #0081b9;
         }
-        .g_tab>.selected {
+        .react_nav_tab>.selected {
             border: 2px solid #0081b9;
             border-bottom: 0;
         }
-        .g_tab>*>a {
+        .react_nav_tab>*>a {
             font-size: 14px;
         }
         .tb_list th {
@@ -38,18 +38,18 @@
         .tb_list td {
             font-size: 13px;
         }
-        .g_blue_table tr th {
+        .table-primary tr th {
             background-color: #e3f0f3;
         }
-        .g_blue_table,
-        .g_blue_table tr th,
-        .g_blue_table tr td {
+        .table-primary,
+        .table-primary tr th,
+        .table-primary tr td {
             border: solid 1px #89c1ce;
         }
     </style>
 
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .img_wrap {
                 width: 214px;
@@ -119,37 +119,37 @@
             }
         </style>
         @include('angel.guide.aside', ['group'=>'new_guide', 'part'=>''])
-        <div class="g_content">
+        <div class="pagecontainer">
             <a name="top"></a>
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue no-border"> 초보자 가이드 </div>
+
+            <div class="contextual--title no-border"> 초보자 가이드 </div>
             <div class="g_gray_border"></div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 메뉴탭 //-->
-            <div class="g_tab">
+
+
+            <div class="react_nav_tab">
                 <div class=""><a href="{{route('guide_howto')}}">거래방법 보기</a></div>
-                <!--<div class=""><a href="{{route('guide_movie')}}">동영상 가이드</a></div>-->
+
                 <div class="selected"><a href="{{route('guide_safe')}}">안전 거래 시스템</a></div>
                 <div class=""><a href="{{route('guide_trade')}}">거래시 주의사항</a></div>
                 <div class=""><a href="{{route('guide_failed')}}">거래 사기 실시간 조회</a></div>
             </div>
-            <div class="g_finish"></div>
-            <!-- ▲ 메뉴탭 //-->
-            <div class="top_menu"> <a href="?file=01"><span class="g_black2 ">거래보호 장치</span></a> | <a href="?file=02"><span class="g_black2 f_blue3 f_bold">결제인증</span></a> | <a href="?file=03"><span class="g_black2 ">본인인증</span></a> | <a href="?file=04"><span class="g_black2 ">신용등급 표시제</span></a> | <a href="?file=05"><span class="g_black2 ">개인정보보호</span></a> | <a href="?file=06"><span class="g_black2 ">보안시스템</span></a> </div>
-            <div class="g_finish"></div>
-            <div class="g_subtitle_blue">결제인증</div>
+            <div class="empty-high"></div>
+
+            <div class="top_menu"> <a href="?file=01"><span class="g_black2 ">거래보호 장치</span></a> | <a href="?file=02"><span class="g_black2 f_blue3 font-weight-bold">결제인증</span></a> | <a href="?file=03"><span class="g_black2 ">본인인증</span></a> | <a href="?file=04"><span class="g_black2 ">신용등급 표시제</span></a> | <a href="?file=05"><span class="g_black2 ">개인정보보호</span></a> | <a href="?file=06"><span class="g_black2 ">보안시스템</span></a> </div>
+            <div class="empty-high"></div>
+            <div class="highlight_contextual">결제인증</div>
             <div class="gray_box">
                 <div class="inner_box">
-                    <div class="f_bold">▶결제인증이란?</div>
+                    <div class="font-weight-bold">▶결제인증이란?</div>
                     <div class="">고객님의 마일리지를 안전하게 보호하기 위해 아이템/상품권 구매결제 시 결제인증 단계를 거쳐 마일리지를 사용하는 시스템입니다.</div>
                 </div>
                 <div class="divi_line"></div>
                 <div class="inner_box">
-                    <div class="f_bold">▶결제인증 수단</div>
+                    <div class="font-weight-bold">▶결제인증 수단</div>
                     <ul class="g_list">
-                        <li><span class="f_bold">휴대폰 인증</span> : 가입자 본인 명의 또는 회원정보의 휴대폰으로 인증이 가능합니다.</li>
-                        <li><span class="f_bold">공인인증서 인증</span> :가입자 본인 명의의 범용인증서만 인증이 가능합니다.</li>
-                        <li><span class="f_bold">전화 인증</span> : 등록되어있는 휴대폰 및 자택 연락처를 통한 인증이 가능합니다.</li>
+                        <li><span class="font-weight-bold">휴대폰 인증</span> : 가입자 본인 명의 또는 회원정보의 휴대폰으로 인증이 가능합니다.</li>
+                        <li><span class="font-weight-bold">공인인증서 인증</span> :가입자 본인 명의의 범용인증서만 인증이 가능합니다.</li>
+                        <li><span class="font-weight-bold">전화 인증</span> : 등록되어있는 휴대폰 및 자택 연락처를 통한 인증이 가능합니다.</li>
                     </ul>
                 </div>
                 <div class="divi_line"></div>
@@ -157,7 +157,7 @@
                     <br> &nbsp;&nbsp;(결제보안센터 설정은 홈페이지 &gt; 마이룸 &gt; 보안센터에서 설정하시면 됩니다.) </div>
             </div>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

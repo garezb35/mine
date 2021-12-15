@@ -65,7 +65,7 @@ function fnChargeServiceLayer(strType) {
             for (var i = 1; i <= 24; i++) {
                 rgOptions.push('<option value="' + i + '">' + i + 'ì‹œê°„</option>');
             }
-            $('.layer_title .title').text('í”„ë¦¬ë¯¸ì—„ ê¸°ê°„ì—°ìž¥');
+            $('.modal__title .title').text('í”„ë¦¬ë¯¸ì—„ ê¸°ê°„ì—°ìž¥');
             $('#premium').show();
         } else if(strType == 'quickIcon'){
             var strService = 'í€µì•„ì´ì½˜';
@@ -77,7 +77,7 @@ function fnChargeServiceLayer(strType) {
             for (var i = 1; i <= 24; i++) {
                 rgOptions.push('<option value="' + i + '">' + i + 'ì‹œê°„</option>');
             }
-            $('.layer_title .title').text('í€µì•„ì´ì½˜ ê¸°ê°„ì—°ìž¥');
+            $('.modal__title .title').text('í€µì•„ì´ì½˜ ê¸°ê°„ì—°ìž¥');
             $('#premium').show();
         } else {
             if (strType == 'texticon') {
@@ -87,7 +87,7 @@ function fnChargeServiceLayer(strType) {
                     'width': '128',
                     'alt': 'êµµì€ì²´ ê¸°ê°„ì—°ìž¥'
                 });
-                $('.layer_title .title').text('ì œëª© êµµì€ì²´ ê¸°ê°„ì—°ìž¥');
+                $('.modal__title .title').text('ì œëª© êµµì€ì²´ ê¸°ê°„ì—°ìž¥');
             } else {
                 var strService = 'ì œëª© íŒŒëž€íŽœ';
                 $('#title_img').attr({
@@ -95,7 +95,7 @@ function fnChargeServiceLayer(strType) {
                     'width': '128',
                     'alt': 'íŒŒëž€íŽœ ê¸°ê°„ì—°ìž¥'
                 });
-                $('.layer_title .title').text('íŒŒëž€íŽœ ê¸°ê°„ì—°ìž¥');
+                $('.modal__title .title').text('íŒŒëž€íŽœ ê¸°ê°„ì—°ìž¥');
             }
 
             for (var i = 1; i <= 6; i++) {

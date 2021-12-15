@@ -27,18 +27,18 @@
             padding: 0;
         }
 
-        .g_title_blue {
+        .contextual--title {
             margin-left: 20px;
         }
-        .g_tab>* {
+        .react_nav_tab>* {
             background-color: #e3f0f3;
             border-bottom: 2px solid #0081b9;
         }
-        .g_tab>.selected {
+        .react_nav_tab>.selected {
             border: 2px solid #0081b9;
             border-bottom: 0;
         }
-        .g_tab>*>a {
+        .react_nav_tab>*>a {
             font-size: 14px;
         }
         .tb_list th {
@@ -47,18 +47,18 @@
         .tb_list td {
             font-size: 13px;
         }
-        .g_blue_table tr th {
+        .table-primary tr th {
             background-color: #e3f0f3;
         }
-        .g_blue_table,
-        .g_blue_table tr th,
-        .g_blue_table tr td {
+        .table-primary,
+        .table-primary tr th,
+        .table-primary tr td {
             border: solid 1px #89c1ce;
         }
     </style>
 
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .img_wrap {
                 width: 214px;
@@ -128,28 +128,28 @@
             }
         </style>
         @include('angel.guide.aside', ['group'=>'new_guide', 'part'=>''])
-        <div class="g_content">
+        <div class="pagecontainer">
             <a name="top"></a>
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue no-border">부가서비스</div>
+
+            <div class="contextual--title no-border">부가서비스</div>
             <div class="g_gray_border"></div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 메뉴탭 //-->
-            <div class="g_tab">
+
+
+            <div class="react_nav_tab">
 {{--                <div><a href="coupon.html">할인쿠폰</a></div>--}}
                 <div class="selected"><a href="{{route('security_number')}}">안심번호</a></div>
                 <div><a href="{{route('security_number_plus')}}">안심번호 플러스</a></div>
             </div>
-            <div class="g_finish"></div>
-            <!-- ▲ 메뉴탭 //-->
-            <div class="g_subtitle_blue">안심번호</div>
+            <div class="empty-high"></div>
+
+            <div class="highlight_contextual">안심번호</div>
             고객님의 개인정보 보호를 위해 휴대폰번호에 안심번호를 부여하여 실제 휴대폰번호 대신 가상의 안심번호를 노출시켜주는 무료 서비스<br>
             - 전화번호가 비정상일 경우 서비스 이용불가<br>
             - 불법적, 악의적 고객 연락처 수집, 보관 행위를 근본적으로 차단<br>
             - 스팸이나 불법 TM 행위 근절<br>
             - 거래 사고 예방 및 직거래 차단 효과
             <div class="guide_subtitle">
-                <div class="f_bold">■ 안심번호 이용안내</div>
+                <div class="font-weight-bold">■ 안심번호 이용안내</div>
                 1. 판매등록 / 구매신청 시 안심번호가 자동 발급되며, 거래중인 물품에서 상대 거래자에게 실제 전화번호 대신 안심번호로 안내됩니다.<br>
                 2. 제공되는 안심번호 서비스의 전화번호는 "0508"로 시작되는 11자리의 가상번호가 부여됩니다.<br>
                 3. 거래중인 물품에서 0508로 시작되는 안심번호를 확인 후 상대거래자와 통화&nbsp;하시면서 거래를 진행하시면 됩니다.<br>
@@ -158,11 +158,11 @@
             </div>
             <div class="guide_subtitle">■ 안심번호 이용방법</div>
             <div class="guide_subtitle">
-                <span class="f_red1 f_bold">하나. </span>판매등록/구매신청 시 안심번호 서비스를 이용하실 수 있습니다.
+                <span class="f_red1 font-weight-bold">하나. </span>판매등록/구매신청 시 안심번호 서비스를 이용하실 수 있습니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_safe_1.gif" width="820" height="411" alt="">
             <div class="guide_subtitle">
-                <span class="f_red1 f_bold">둘. </span>안심번호 신청 후 거래중인 상태가 되면 상대 거래자에게 휴대폰 번호가 안심번호로 노출됩니다.
+                <span class="f_red1 font-weight-bold">둘. </span>안심번호 신청 후 거래중인 상태가 되면 상대 거래자에게 휴대폰 번호가 안심번호로 노출됩니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_safe_2.gif" width="820" height="578" alt="">
             <dl class="notice">
@@ -172,7 +172,7 @@
                 <dd>SMS 수신 및 발신 시 실제 연락처가 노출 됩니다.</dd>
             </dl>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

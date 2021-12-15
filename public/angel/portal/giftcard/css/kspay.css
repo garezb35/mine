@@ -3,29 +3,29 @@
     margin-top: 0
 }
 
-.g_blue_table td {
+.table-primary td {
     height: 20px;
     padding-left: 0;
     text-align: center
 }
 
-.g_blue_table select {
+.table-primary select {
     padding-top: 2px;
     text-align: center
 }
 
-.g_blue_table option {
+.table-primary option {
     width: 44px;
     height: 16px;
     text-align: center
 }
 
-.g_blue_table .g_text {
+.table-primary .angel__text {
     text-align: left;
     border: none
 }
 
-.g_blue_table .first {
+.table-primary .first {
     color: #F26522;
     font-weight: bold
 }

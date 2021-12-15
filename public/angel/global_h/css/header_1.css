@@ -3,31 +3,20 @@ body{
     min-width:1100px;
 }
 
-
-.portalSpIcon{
-    display:inline-block;
-    margin-bottom:-7px;
-}
-.portalSpGroup.adult19{
-    width:24px;
-    height:24px;
-    background-position:-139px -10px;
-}
-
-.quickmenu_area{
+.toolbar-btn{
     z-index:50;
     position:fixed;
     top:0;
 }
 
-.quickmenu_cont .cert_state:before{
+.toobar-content .cert_state:before{
     background: url(/angel/img/icon_check.png);
 }
-.quickmenu_area .inner{
+.toolbar-btn .inner{
     position:relative;
     height:100%;
 }
-.quickmenu_area .arrow{
+.toolbar-btn .arrow{
     position:absolute;
     top:415px;
     left:-12px;
@@ -40,61 +29,61 @@ body{
 .qickmenu_on .arrow{
     background-position:-465px -230px;
 }
-.quickmenu{
+.drawer-content-menu{
     width: 43px;
     z-index:51;
     position:fixed;
     top:100%;
     margin-top:-76px;
 }
-.quickmenu.close, .quickmenu_area ~ .quickmenu{
+.drawer-content-menu.close, .toolbar-btn ~ .drawer-content-menu{
     left:15px;
 }
-.qickmenu_on ~ .quickmenu{
+.qickmenu_on ~ .drawer-content-menu{
     right:230px;
 }
-.quickmenu li{
+.drawer-content-menu li{
     position:relative;
     width:43px;
     border-bottom:1px solid #A4A4A4;
 }
-.quickmenu li:last-child{
+.drawer-content-menu li:last-child{
     border-bottom:0;
 }
-.quickmenu li > a{
+.drawer-content-menu li > a{
     display:block;
     padding:10px 0;
     text-align:center;
 }
 
-.quickmenu .user_info{
+.drawer-content-menu .user_info{
     display:inline-block;
     width:28px;
     height:32px;
     background: url(/angel/img/icons/user.png);
     background-size: cover;
 }
-.quickmenu .trade_list{
+.drawer-content-menu .trade_list{
     display:inline-block;
     width:24px;
     height:30px;
     background-position:-108px -230px;
 }
-.quickmenu .favorite{
+.drawer-content-menu .favorite{
     display:inline-block;
     width:38px;
     height:33px;
     background-position:-176px -230px;
 
 }
-.quickmenu .service{
+.drawer-content-menu .service{
     display:inline-block;
     width:34px;
     height:29px;
     margin-left:7px;
     background-position:-272px -230px;
 }
-.quickmenu .pluszone{
+.drawer-content-menu .pluszone{
     display:inline-block;
     width:31px;
     height:27px;
@@ -102,19 +91,19 @@ body{
     background-position:-573px -230px;
 }
 
-.quickmenu .on .trade_list{
+.drawer-content-menu .on .trade_list{
     background-position:-142px -230px;
 }
-.quickmenu .on .favorite{
+.drawer-content-menu .on .favorite{
     background-position:-224px -230px;
 }
-.quickmenu .on .service{
+.drawer-content-menu .on .service{
     background-position:-316px -230px;
 }
-.quickmenu .on .pluszone{
+.drawer-content-menu .on .pluszone{
     background-position:-532px -230px;
 }
-.quickmenu li div{
+.drawer-content-menu li div{
     position:absolute;
     top:10px;
     right:36px;
@@ -122,7 +111,7 @@ body{
     white-space:nowrap;
 }
 
-.quickmenu li i{
+.drawer-content-menu li i{
     position: relative;
     display: block;
     height: 50px;
@@ -135,18 +124,18 @@ body{
 
 
 
-.quickmenu_area .quickmenu_dtl{
+.toolbar-btn .sidebar-btn{
     display:none;
     width:250px;
     height:100%;
     margin-left:43px;
     background-color:#FFF;
 }
-.qickmenu_on .quickmenu_dtl{
+.qickmenu_on .sidebar-btn{
     display:block;
 }
 
-.quickmenu_dtl .quickmenu_cont{
+.sidebar-btn .toobar-content{
     padding:40px 0px 0px 0px !important;
     color:#767676;
 }
@@ -170,32 +159,32 @@ body{
     display: inline-block;
 }
 
-.quickmenu_cont .cert{
+.toobar-content .cert{
     background: #F3F5FA;
     padding-top: 5px;
     padding-bottom: 5px;
 }
-.quickmenu_cont .user_name{
+.toobar-content .user_name{
     font-size: 17px;
     color: #6D6D6D;
     margin-left: 10px;
     font-weight: 600;
 }
-.quickmenu_cont .myinfo .status dt{
+.toobar-content .myinfo .status dt{
     font-size:14px;
     font-weight:700;
 }
-.quickmenu_cont .myinfo .status .credir_rt{
+.toobar-content .myinfo .status .credir_rt{
     position:relative;
     margin-left:17px;
     padding:3px 0 15px 54px;
 }
-.quickmenu_cont .myinfo .status .rt_figure{
+.toobar-content .myinfo .status .rt_figure{
     position:absolute;
     top:-7px;
     left:0;
 }
-.quickmenu_cont .rank{
+.toobar-content .rank{
     display: inline-block;
     font-size: 16px;
     font-weight: 700;
@@ -203,38 +192,38 @@ body{
     margin-top: 2px;
     color: #6D6D6D;
 }
-.quickmenu_cont .cert span{
+.toobar-content .cert span{
     width: 56px;
     height: 31px;
     margin-right: 0;
     font-size: 12px;
     line-height: 28px;
 }
-.quickmenu_cont .milage{
+.toobar-content .milage{
     margin-top: 5px;
     padding-left: 91px;
     font-weight: 700;
     padding-right: 10px;
     display: inline-flex;
 }
-.quickmenu_cont .milage dt{
+.toobar-content .milage dt{
     float:left;
     width:80px;
     margin-left:-80px;
 }
-.quickmenu_cont .milage dd{
+.toobar-content .milage dd{
     margin-bottom:6px;
     font-size:14px;
     text-align:right;
 }
-.quickmenu_cont .other_link{
+.toobar-content .other_link{
     padding-bottom:6px;
     border-bottom:1px solid #CCC;
     text-align:center;
 }
 
 
-.quickmenu_cont .other_link a{
+.toobar-content .other_link a{
     display:inline-block;
     width:65px;
     height:23px;
@@ -250,74 +239,74 @@ body{
     height: 30px;
     line-height: 30px;
 }
-.quickmenu_cont .other_link a:first-child{
+.toobar-content .other_link a:first-child{
     margin-left:0;
 }
-.quickmenu_cont .trade_list{
+.toobar-content .trade_list{
     margin-left: 10px;
     margin-right: 10px;
 }
-.quickmenu_cont .ing_count{
+.toobar-content .ing_count{
     overflow:hidden;
 }
-.quickmenu_cont .ing_count li{
+.toobar-content .ing_count li{
     display: block;
     width: 100% !important;
 }
 
-.quickmenu_cont .ing_count .c_txt{
+.toobar-content .ing_count .c_txt{
     padding:4px 0 5px;
     font-weight:700;
     text-align:center;
     background: #fff;
 
 }
-.quickmenu_cont .ing_count .c_txt.sells{
+.toobar-content .ing_count .c_txt.sells{
     color:#1FAEFF;
 }
-.quickmenu_cont .ing_count .c_txt.buys{
+.toobar-content .ing_count .c_txt.buys{
     color: #13BA41;
 }
-.quickmenu_cont .ing_count .qbox{
+.toobar-content .ing_count .qbox{
     margin-top: 3px;
     padding: 0px 0px;
     display: inline-block;
     margin-left: 10px;
 }
 
-.quickmenu_cont .ing_count .cnt{
+.toobar-content .ing_count .cnt{
     display:block;
     font-size:16px;
     font-weight:700;
     text-align:center;
 }
-.quickmenu_cont .ing_count .ings{
+.toobar-content .ing_count .ings{
     margin-top:9px;
     /*padding-left:55px;*/
     display: inline-block;
 }
-.quickmenu_cont .ing_count .ings > div{
+.toobar-content .ing_count .ings > div{
     display: inline-block;
     width: 110px;
 }
-.quickmenu_cont .ing_count .ings dt{
+.toobar-content .ing_count .ings dt{
     float:left;
     width:55px;
     margin-left:-55px;
 }
-.quickmenu_cont .ing_count .ings dd{
+.toobar-content .ing_count .ings dd{
     overflow:hidden;
     text-align:right;
     white-space:nowrap;
     text-overflow:ellipsis;
 }
-.quickmenu_cont .favorite{
+.toobar-content .favorite{
     margin-top:15px;
     border:1px solid #C4C4C4;
     border-left: none;
     position: relative;
 }
-.quickmenu_cont .favorite .s_title{
+.toobar-content .favorite .s_title{
     position:relative;
     height:30px;
     padding-left:12px;
@@ -327,7 +316,7 @@ body{
     line-height:27px;
     color:#000;
 }
-.quickmenu_cont .s_title .setting{
+.toobar-content .s_title .setting{
     position:absolute;
     top:6px;
     right:8px;
@@ -335,18 +324,18 @@ body{
     height:15px;
     background-position:-142px -10px;
 }
-.quickmenu_cont .my_game .btn_area{
+.toobar-content .my_game .btn_area{
     position:absolute;
     top:5px;
     right:5px;
 }
-.quickmenu_cont .my_game .btn_area a{
+.toobar-content .my_game .btn_area a{
     padding:0 4px 2px;
     background-color:#39C4FF;
     font-size:11px;
     color:#FFF;
 }
-.quickmenu_cont .my_game dd{
+.toobar-content .my_game dd{
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
@@ -358,14 +347,14 @@ body{
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.quickmenu_cont .my_game dd:last-child{
+.toobar-content .my_game dd:last-child{
     border-bottom:0;
 }
-.quickmenu_cont .my_game dd.empty{
+.toobar-content .my_game dd.empty{
     padding-top:16px;
     text-align:center;
 }
-.quickmenu_cont .my_game dd .bedge{
+.toobar-content .my_game dd .bedge{
     position:absolute;
     top:9px;
     left:0;
@@ -373,39 +362,39 @@ body{
     width:35px;
     height:13px;
 }
-.quickmenu_cont .my_game dd .bedge.sell{
+.toobar-content .my_game dd .bedge.sell{
     background-position:-487px -230px;
 }
-.quickmenu_cont .my_game dd .bedge.buy{
+.toobar-content .my_game dd .bedge.buy{
     background-position:-487px -245px;
 }
-.quickmenu_cont .bt_bn_area{
+.toobar-content .bt_bn_area{
     margin-top:20px;
 }
 
-.quickmenu_cont .bt_bn_area .bn_freecoupon{
+.toobar-content .bt_bn_area .bn_freecoupon{
     display:inline-block;
     width:102px;
     height:144px;
     background-position:-930px -2px;
     text-indent:-9999px;
 }
-.quickmenu_cont .bt_bn_area .mgl{
+.toobar-content .bt_bn_area .mgl{
     margin-left:4px;
 }
-.quickmenu_cont .s_title{
+.toobar-content .s_title{
     position:relative;
     font-size:14px;
     font-weight:700;
 }
-.quickmenu_cont .ssada li{
+.toobar-content .ssada li{
     margin-top:10px;
 }
-.quickmenu_cont .other_menu{
+.toobar-content .other_menu{
     overflow:hidden;
     padding-left:24px;
 }
-.quickmenu_cont .other_menu li{
+.toobar-content .other_menu li{
     position:relative;
     float:left;
     width:67px;
@@ -415,10 +404,10 @@ body{
     text-align:center;
 }
 
-.quickmenu_cont .other_menu li:nth-child(even){
+.toobar-content .other_menu li:nth-child(even){
     margin-left:28px;
 }
-.quickmenu_cont .other_menu li .SpGroup{
+.toobar-content .other_menu li .has-sprite{
     position:absolute;
     top:0;
     left:0;
@@ -428,173 +417,127 @@ body{
     margin-bottom:10px;
 }
 
-.quickmenu_cont .other_menu li .ssadaprice{
+.toobar-content .other_menu li .ssadaprice{
     background-position:-992px -230px;
 }
-.quickmenu_cont .other_menu li .freecharge{
+.toobar-content .other_menu li .freecharge{
     background-position:-923px -162px;
 }
-.quickmenu_cont .other_menu li .pointgive{
+.toobar-content .other_menu li .pointgive{
     background-position:-992px -162px;
 }
 
-.quickmenu_cont .other_menu li .lotto{
+.toobar-content .other_menu li .lotto{
     background-position:-854px -230px;
 }
-.quickmenu_cont .other_menu li .freecoupon{
+.toobar-content .other_menu li .freecoupon{
     background-position:-854px -162px;
 }
-.quickmenu_cont .other_menu li .fortune{
+.toobar-content .other_menu li .fortune{
     background-position:-923px -230px;
 }
 
 
-.g_remocon_l{
+.recommend_e34rf{
     z-index:50;
     position:absolute;
     top:30px;
     right:1100px
 }
-.g_remocon{
-    z-index:50;
-    position:absolute;
-    top:30px;
-    right:-118px;
-    width:98px;
-    font-size:11px;
-}
-.g_remocon .title{
-    width:98px;
-    height:26px;
-    background-position:-345px -88px;
-    text-indent:12px;
-    line-height:26px;
-    color:#FFF;
-}
-.g_remocon dl{
-    margin-bottom:10px;
-    padding:3px;
-    border:1px solid #D6D6D6;
-    border-top:0;
-    background-color:#FFF;
-}
-.g_remocon dl dt{
-    height:21px;
-    margin-bottom:2px;
-    padding-left:8px;
-    background-color:#ECEFF3;
-    cursor:pointer;
-    line-height:21px;
-    color:#505A69;
-}
-.g_remocon dl .last_dt{
-    margin-bottom:0
-}
-.g_remocon dl dd{
-    margin:2px 0 6px
-}
-.g_remocon dl dd a{
-    display:block;
-    margin-left:8px;
-    line-height:19px;
-    color:#9199A4;
-}
-.g_remocon dl dd .g_red1_11b{
-    margin-left:3px
-}
 
-.g_header{
+
+.siteHeader{
     position:relative;
 }
-.g_header .top_bg{
+.siteHeader .top_bg{
     clear:both;
     height:30px;
     background-color:#E3E3E3;
     text-align:center;
     line-height:30px;
 }
-.g_header .g_snav{
+.siteHeader .js-nav-menu{
     width:1080px;
     margin:0 auto;
     font-size:12px;
     color:#767676;
 }
-.g_header .g_snav .snav_left{
+.siteHeader .js-nav-menu .js-nav-justicy-left{
     float:left;
 }
-.g_header .g_snav .snav_left > li{
+.siteHeader .js-nav-menu .js-nav-justicy-left > li{
     padding:0 10px;
 }
-.g_header .g_snav .snav_left > li > a{
+.siteHeader .js-nav-menu .js-nav-justicy-left > li > a{
     display:block;
 }
-.g_header .g_snav .snav_left > li#direct_icon:hover .direct_layer{
+.siteHeader .js-nav-menu .js-nav-justicy-left > li#direct_icon:hover .direct_layer{
     display:block;
 }
-.g_header .g_snav .snav_left .shortcut{
+.siteHeader .js-nav-menu .js-nav-justicy-left .shortcut{
     display:inline-block;
     margin:-2px 0 0 3px;
     padding:0;
     vertical-align:middle;
     cursor:pointer;
 }
-.g_header .g_snav .snav_left .sp_icon{
+.siteHeader .js-nav-menu .js-nav-justicy-left .sp_icon{
     display:block;
     width:48px;
     height:16px;
 }
-.g_header .g_snav .snav_left .shortcut_on{
+.siteHeader .js-nav-menu .js-nav-justicy-left .shortcut_on{
     background-position:-364px -10px;
 }
-.g_header .g_snav .snav_left .shortcut_off{
+.siteHeader .js-nav-menu .js-nav-justicy-left .shortcut_off{
     background-position:-419px -10px;
 }
-.g_header .g_snav .g_left_com .selected{
+.siteHeader .js-nav-menu .float-left_com .selected{
     height:30px;
     border-right:1px solid #2A2F3A;
     border-left:1px solid #2A2F3A;
     background-color:#FFF;
     color:#495164;
 }
-.g_header .g_snav .g_left_com .left_bar{
+.siteHeader .js-nav-menu .float-left_com .left_bar{
     width:8px;
     height:22px;
     padding:0;
     background-position:100% -300px;
     cursor:default;
 }
-.g_header .g_snav .g_right li{
+.siteHeader .js-nav-menu .float__right li{
     cursor:pointer;
     color:#BBB;
 }
-.g_header .g_snav .center_bar{
+.siteHeader .js-nav-menu .center_bar{
     margin:0 5px;
     cursor:default;
     color:#858994;
 }
-.g_header .g_snav .g_left_com .center_bar{
+.siteHeader .js-nav-menu .float-left_com .center_bar{
     margin:0;
     padding:0;
 }
-.g_header .g_snav .snav_right > li{
+.siteHeader .js-nav-menu .js-nav-justicy-right > li{
     float:left;
     padding:0 5px;
 }
-.g_header .g_snav .snav_right > li:before{
+.siteHeader .js-nav-menu .js-nav-justicy-right > li:before{
     display:inline-block;
     margin-top:-1px;
     padding-right:10px;
     content:"|";
     vertical-align:top;
 }
-.g_header .g_snav .snav_right > li:first-child:before{
+.siteHeader .js-nav-menu .js-nav-justicy-right > li:first-child:before{
     padding-right:10px;
     content:"";
 }
-.g_header .g_snav .snav_right > li span{
+.siteHeader .js-nav-menu .js-nav-justicy-right > li span{
     margin:0 5px;
 }
-.g_header .nav_wrap{
+.siteHeader .nav_wrap{
     position:relative;
     height:45px;
     background-color:#159EFD;
@@ -603,11 +546,11 @@ body{
 .nav_wrap .content_center{
     text-align:center;
 }
-.g_header .nav_wrap .nav_ct{
+.siteHeader .nav_wrap .nav_menu_nodemon{
     display:inline-block;
     margin-left:107px;
 }
-.g_header .nav_wrap .nav_highlight{
+.siteHeader .nav_wrap .topmenu_right{
     position:absolute;
     top:0;
     left:0;
@@ -644,40 +587,40 @@ body{
 .nav_wrap_p .nav .highlight > a:after{
     content:"" !important;
 }
-.g_header .right_icon{
+.siteHeader .right_icon{
     position:absolute;
     top:0;
     right:0;
     height:45px;
 }
-.g_header .nav_wrap .user_noti{
+.siteHeader .nav_wrap .user_noti{
     position:relative;
     display:inline-block;
     padding:11px 8px;
 }
-.g_header .user_noti .goods_alarm{
+.siteHeader .user_noti .goods_alarm{
     display:block;
     width:22px;
     height:22px;
     background-position:-82px -10px;
 }
-.g_header .user_noti .bell{
+.siteHeader .user_noti .bell{
     display:block;
     width:24px;
     height:22px;
     background-position:-8px -367px;
 }
-.g_header .nav_wrap .all_menu{
+.siteHeader .nav_wrap .all_menu{
     display:inline-block;
     padding:14px 8px;
 }
-.g_header .all_menu .list{
+.siteHeader .all_menu .list{
     display:block;
     width:20px;
     height:16px;
     background-position:-112px -10px;
 }
-.g_header .user_noti .new_alarm{
+.siteHeader .user_noti .new_alarm{
     position:absolute;
     top:7px;
     right:-2px;
@@ -694,10 +637,10 @@ body{
     color:#FFF;
     display:none;
 }
-.g_header .user_noti .new_alarm.on{
+.siteHeader .user_noti .new_alarm.on{
     display:block;
 }
-.g_header .user_noti .icon_bubble{
+.siteHeader .user_noti .icon_bubble{
     position:absolute;
     top:7px;
     right:-3px;
@@ -713,22 +656,22 @@ body{
     line-height:14px;
     color:#FFF;
 }
-.all_menu_layer .inner{
+.outterWrapper .inner{
     border:2px solid #159EFD;
 }
-.all_menu_layer .menu_wrap{
+.outterWrapper .menu_wrap{
     display:table;
     table-layout:fixed;
     width:100%;
     padding-bottom:25px;
 }
-.all_menu_layer dl{
+.outterWrapper dl{
     display:table-cell;
     padding:0 16px;
     border-left:1px solid #E4E4E4;
     line-height:20px;
 }
-.all_menu_layer .sv{
+.outterWrapper .sv{
     margin-top:25px;
 }
 
@@ -741,63 +684,63 @@ body{
     background-position:center 30px;
     background-size:2560px auto;
 }
-.g_logo_area{
+.header-brand-logo{
     position:relative;
     width:1080px;
     min-height:140px;
     margin:0 auto;
 }
-.g_logo_area .logo a{
+.header-brand-logo .logo a{
     display:block;
     width:221px;
     height:140px;
 }
-.nav_wrap_df .g_logo_area .logo a{
+.nav_wrap_df .header-brand-logo .logo a{
     height:auto;
 }
-.g_logo_area .header-right-banner{
+.header-brand-logo .header-right-banner{
     position:absolute;
     top:0;
     right:-40px;
 }
-.g_search_top{
+.search-overlay-wrapper{
     position:absolute;
     top:36px;
     left:219px;
     width:690px;
 }
 
-.g_footer_area{
+.moduler_footer{
     clear:both;
     margin-top:30px;
     background-color:#616161;
     letter-spacing:0;
 }
-.g_footer{
+.siteFooter{
     overflow:hidden;
     border-bottom:1px solid #767676;
 }
-.g_footer .g_footer_menu{
+.siteFooter .hsds-footer__nav{
     position:relative;
     width:1080px;
     height:43px;
     margin:0 auto;
     line-height:43px;
 }
-.g_footer .g_footer_menu li{
+.siteFooter .hsds-footer__nav li{
     float:left;
     margin-right:35px;
     color:#E1E1E1;
 }
-.g_footer .g_footer_menu .f_bold{
+.siteFooter .hsds-footer__nav .font-weight-bold{
     color:#FEFFCF;
 }
-.g_footer_menu .sns{
+.hsds-footer__nav .sns{
     position:absolute;
     top:0;
     right:16px;
 }
-.g_footer_menu .sns a{
+.hsds-footer__nav .sns a{
     display:inline-block;
     width:22px;
     height:22px;
@@ -805,16 +748,16 @@ body{
     vertical-align:middle;
     text-indent:-9999px;
 }
-.g_footer_menu .sns .facebook{
+.hsds-footer__nav .sns .facebook{
     background-position:-802px -2px;
 }
-.g_footer_menu .sns .instagram{
+.hsds-footer__nav .sns .instagram{
     background-position:-802px -26px;
 }
-.g_footer_menu .sns .youtube{
+.hsds-footer__nav .sns .youtube{
     background-position:-802px -50px;
 }
-.g_footer_area .g_copyright{
+.moduler_footer .article-copyright{
     position:relative;
     box-sizing:border-box;
     width:1080px;
@@ -824,7 +767,7 @@ body{
     font-size:12px;
     color:#B0B0B0;
 }
-.g_footer_area .inicis_com{
+.moduler_footer .inicis_com{
     position:absolute;
     top:23px;
     right:30px;
@@ -833,11 +776,11 @@ body{
     height:54px;
     background-color:#616161;
 }
-.g_copyright .footer_logo{
+.article-copyright .angel-logo-footer{
     float:left;
     margin-top:13px;
 }
-.g_copyright .comp_info{
+.article-copyright .css-1q9mcvr{
     float:left;
     margin-left:40px;
     line-height:18px;
@@ -903,7 +846,7 @@ body{
     line-height: 50px;
     padding-left: 0px;
 }
-.aside .nav > .on_active{
+.aside .nav > .activated{
     background:#3AB7D3;
     color:white;
 }
@@ -915,10 +858,10 @@ body{
     line-height:20px;
     color:#9F9F9F;
 }
-.aside .nav > .on_active ~ .nav_sub{
+.aside .nav > .activated ~ .nav_sub{
     margin-top:5px;
 }
-.aside .nav > .nav_sub .on_active{
+.aside .nav > .nav_sub .activated{
     font-weight:bold;
     color:#767676;
 }
@@ -933,7 +876,7 @@ body{
     padding-top:0;
     border-bottom:4px solid #407FD4;
 }
-.nav_wrap_df .g_logo_area{
+.nav_wrap_df .header-brand-logo{
     float:left;
     width:auto;
     min-height:0;
@@ -965,10 +908,10 @@ body{
     margin:0 auto;
     text-align:right;
 }
-.g_header .nav_wrap .nav_mi{
+.siteHeader .nav_wrap .nav_mi{
     display:inline-block;
 }
-.g_header .nav_wrap .nav_mi li{
+.siteHeader .nav_wrap .nav_mi li{
     padding:0 0 0 60px;
 }
 .g_logo_right{

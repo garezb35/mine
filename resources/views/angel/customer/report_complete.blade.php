@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <div class="g_container" id="g_CONTENT">
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .notice {
                 height: 24px;
@@ -46,8 +46,8 @@
             }
         </style>
         @include('angel.customer.aside', ['group'=>'report', 'part'=>''])
-        <div class="g_content">
-            <div class="g_finish"></div>
+        <div class="pagecontainer">
+            <div class="empty-high"></div>
             <div id="report_complete">
                 <ul id="complete_info">
                     <li class="blue_text">고객님의 상담이 정상적으로 접수되었습니다.</li>
@@ -58,12 +58,12 @@
                     <li class="list_non">앞으로 더 나은 서비스를 제공하도록 최선을 다하겠습니다.</li>
                     <li>다른 문의사항이 있으시면 [1:1 상담하기]를 이용해 주시기 바랍니다.</li>
                 </ul>
-                <div class="g_btn">
+                <div class="btn-groups_angel">
                     <a href="{{route('main_customer')}}" class="button_ok">고객센터 메인으로</a>
                     <a href="{{route('index')}}" class="button_cancel"> 메인으로</a>
                 </div>
             </div>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
 @endsection

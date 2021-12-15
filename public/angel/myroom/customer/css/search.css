@@ -34,7 +34,7 @@
     padding-left: 180px;
 }
 
-.custom_search_wrapper .g_trade_type {
+.custom_search_wrapper .gameTypePopup {
     position: absolute;
     top: 50%;
     left: 0;
@@ -47,16 +47,16 @@
     border: 2px solid #d3d3d3;
     border-radius: 20px;
     padding: 0 115px 0 20px;
-    height: 53px;
+    height: 43px;
 }
 
 
-.custom_search_wrapper .g_search_list {
+.custom_search_wrapper .search__submit {
     position: absolute;
     top: 0;
     right: 0;
     width: 62px;
-    height: 56px;
+    height: 41px;
     background: url(/angel/img/button/search_add.png);
     font-weight: bold;
     text-align: center;

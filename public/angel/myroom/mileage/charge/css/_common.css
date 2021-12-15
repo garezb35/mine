@@ -1,4 +1,4 @@
-#g_BODY #g_POPUP {
+#angel #g_POPUP {
     position: relative;
     overflow: hidden;
     width: 640px;
@@ -106,7 +106,7 @@
     padding: 2px 0
 }
 
-table td .g_text {
+table td .angel__text {
     width: 55px
 }
 
@@ -219,7 +219,7 @@ table td .g_text {
     color: #ED1C24
 }
 
-#charge_main .mile_detail .detail_txt .g_list li .g_left {
+#charge_main .mile_detail .detail_txt .g_list li .float-left {
     clear: both;
     width: 240px
 }
@@ -259,7 +259,7 @@ table td .g_text {
     padding-top: 2px
 }
 
-#charge_main .m_chargelist .custom .g_text {
+#charge_main .m_chargelist .custom .angel__text {
     width: 97px;
     text-align: right;
     vertical-align: middle;
@@ -473,33 +473,33 @@ table td .g_text {
     margin-top: 15px
 }
 
-#dvPopup #money_tb #juminnumber td div {
+#dialog_fade #money_tb #juminnumber td div {
     height: 25px;
     line-height: 25px
 }
 
-#dvPopup #money_tb #juminnumber td div .g_text {
+#dialog_fade #money_tb #juminnumber td div .angel__text {
     text-align: center
 }
 
-#dvPopup #money_tb #juminnumber td #info_phone_div .g_text {
+#dialog_fade #money_tb #juminnumber td #info_phone_div .angel__text {
     width: 60px
 }
 
-#dvPopup #money_tb #juminnumber td div #info_jumin {
+#dialog_fade #money_tb #juminnumber td div #info_jumin {
     margin-left: 20px
 }
 
-#dvPopup #money_tb #receipt_username {
+#dialog_fade #money_tb #receipt_username {
     text-align: left
 }
 
-#dvPopup #money_tb #receipt_useremail {
+#dialog_fade #money_tb #receipt_useremail {
     width: 180px;
     text-align: left
 }
 
-#dvPopup #money_tb span {
+#dialog_fade #money_tb span {
     font-weight: bold
 }
 
@@ -538,7 +538,7 @@ table td .g_text {
 }
 
 #complete_tb td,
-#dvPopup table td {
+#dialog_fade table td {
     padding-left: 10px;
     text-align: left
 }
@@ -547,7 +547,7 @@ table td .g_text {
     margin-right: 5px
 }
 
-#dvPopup {
+#dialog_fade {
     z-index: 1;
     position: absolute;
     left: 180px;
@@ -555,7 +555,7 @@ table td .g_text {
     width: 470px
 }
 
-#dvPopup .alert {
+#dialog_fade .alert {
     margin-top: 10px;
     padding: 10px;
     border: 2px solid #E9E9E9;
@@ -575,7 +575,7 @@ table td .g_text {
 }
 
 #inifnc,
-.g_btn {
+.btn-groups_angel {
     margin-bottom: 10px
 }
 
@@ -645,7 +645,7 @@ table td .g_text {
     font-size: 11px
 }
 
-.m_close .g_right {
+.m_close .float__right {
     margin: 5px 10px 0 0
 }
 

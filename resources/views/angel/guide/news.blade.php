@@ -13,10 +13,10 @@
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container " id="g_CONTENT">
+
+    <div class="container_fulids " id="module-teaser-fullscreen">
         <div class="ct_cont mb-20">
-            <div class="g_finish"></div>
+            <div class="empty-high"></div>
             <div class="detail">
                 <p class="title">{{$title}}</p>
                 <em class="reporter">{{$subtitle}}</em>

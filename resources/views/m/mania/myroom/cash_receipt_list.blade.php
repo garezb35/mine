@@ -10,19 +10,19 @@
 <script src="/angel/myroom/cash_receipt/js/cash_receipt_list.js" type="text/javascript" ></script>
 @endsection
 @section('content')
-    <div class="g_container" id="g_CONTENT">
-        <div class="g_remocon_l">
+    <div class="container_fulids" id="module-teaser-fullscreen">
+        <div class="recommend_e34rf">
         </div>
         @include('aside.myroom',['group'=>'money'])
-        <div class="g_content">
-            <div class="g_title_blue noborder">
+        <div class="pagecontainer">
+            <div class="contextual--title noborder">
                 현금영수증
             </div>
-            <div class="f_bold f-14 mb-5">
+            <div class="font-weight-bold f-14 mb-5">
                 거래관련
             </div>
-            <!-- ▼ 현금영수증 테이블 //-->
-            <table class="g_green_table1 tb_list">
+
+            <table class="table-modern-primary tb_list">
                 <colgroup>
                     <col width="58">
                     <col width="120">
@@ -71,12 +71,12 @@
 
                 </tbody>
             </table>
-            <!-- ▼ 페이징 //-->
-            <div class="dvPaging mt-5">
+
+            <div class="pagination__bootstrap mt-5">
                 {{$cash->withQueryString()->links()}}
             </div>
-            <!-- ▲ 페이징 //-->
-            <!-- ▼ 알아두기 //-->
+
+
             <ul class="g_notice_box1 g_list">
                 <li>"<span class="f_red1">승인번호 확인</span>"은 구매자께서 현금영수증을 신청하지 않아 자진발급된 현금영수증 발급내역입니다.</li>
                 <li>자진 발급된 현금영수증을 등록하시려면 <span class="f_red1">국세청 홈페이지 "사용내역조회&gt;자진발급분 사용자등록"</span>에서 승인번호를 등록하시면 됩니다.
@@ -87,8 +87,8 @@
                 <li>발급된 현금영수증은 거래 일자의 익일로 조회하셔야 확인 가능합니다 (ex. 2016-01-01 거래종료시 2016-01-02 발급내역 조회)</li>
                 <li>이밖에 발급된 현금영수증 내역이 보이지 않으실 때에는 고객센터로 문의 해 주십시오.</li>
             </ul>
-            <!-- ▲ 알아두기 //-->
+
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
 @endsection

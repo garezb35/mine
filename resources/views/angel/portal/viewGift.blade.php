@@ -10,8 +10,8 @@
 @endsection
 @section('content')
 
-    <div class="g_container" id="g_CONTENT">
-        <div class="g_remocon_l">
+    <div class="container_fulids" id="module-teaser-fullscreen">
+        <div class="recommend_e34rf">
         </div>
         <script type="text/javascript">
             function serviceCert() {
@@ -27,7 +27,7 @@
             <input type="hidden" name="code" value="418791970741de63073a73fc3fe93995">
         </form>
         @include('aside.portal',['portal'=>$gift])
-        <div class="g_content">
+        <div class="pagecontainer">
             <div class="g_title noborder">
                 구매하기
             </div>
@@ -50,6 +50,6 @@
                 </div>
             </div>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
 @endsection

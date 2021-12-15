@@ -28,18 +28,18 @@
 .g_gray_tb td #content{ width:98%; height:100px; padding:5px; overflow-y:auto; font-size:12px }
 
 .g_gray_tb tr .screenshot_sub{ border-top:0px; font-size:12px }
-.g_gray_tb tr #screenshot .g_screenshot .g_text{ width:210px !important }
+.g_gray_tb tr #screenshot .g_screenshot .angel__text{ width:210px !important }
 /* ▼ 거래리스트 테이블 */
 #trade_list td .btn_red1{ display:inline-block; padding:1px 4px 3px; border:1px solid #A80000; background-color:#E50000; color:#FFF; text-align:center; font-size:12px; cursor:pointer; }
 /* ▲ 거래리스트 테이블 */
 /* ▼ 팝업 레이어 */
-.g_popup{ width:448px }
-.g_popup .state_box{ width:402px; padding:10px 0px; border:2px solid #D4DEE6; text-align:center }
-.g_popup .state_box li{ margin-top:27px; text-align:center }
-.g_popup .state_box .last{ margin-bottom:27px }
-.g_popup .g_blue_table{ margin-top:10px }
-.g_popup .g_blue_table td{ height:20px }
-.g_popup .command{ margin-top:10px; font-size:12px; }
-.g_popup .command img{ margin-right:3px }
+.modal_dialog{ width:448px }
+.modal_dialog .state_box{ width:402px; padding:10px 0px; border:2px solid #D4DEE6; text-align:center }
+.modal_dialog .state_box li{ margin-top:27px; text-align:center }
+.modal_dialog .state_box .last{ margin-bottom:27px }
+.modal_dialog .table-primary{ margin-top:10px }
+.modal_dialog .table-primary td{ height:20px }
+.modal_dialog .command{ margin-top:10px; font-size:12px; }
+.modal_dialog .command img{ margin-right:3px }
 .cancel_box{ font-size:11px }
 /* ▲ 팝업 레이어 */

@@ -55,37 +55,37 @@ function _init(){
 }
 
 function moreBtnAction(code, name){
-    var form = document.getElementById("g_searchbar_form");
+    var form = document.getElementById("search-overlay-container");
     form.setAttribute("method", "post");
     form.setAttribute("action", "/sell/list.html");
 
     var hiddenField = document.createElement("input");
     hiddenField.setAttribute("type", "hidden");
-    hiddenField.setAttribute("name", "search_game");
+    hiddenField.setAttribute("name", "filtered_game_id");
     hiddenField.setAttribute("value", code);
     form.appendChild(hiddenField);
 
     hiddenField = document.createElement("input");
     hiddenField.setAttribute("type", "hidden");
-    hiddenField.setAttribute("name", "search_game_text");
+    hiddenField.setAttribute("name", "filtered_game_alias");
     hiddenField.setAttribute("value", name);
     form.appendChild(hiddenField);
 
     hiddenField = document.createElement("input");
     hiddenField.setAttribute("type", "hidden");
-    hiddenField.setAttribute("name", "search_server");
+    hiddenField.setAttribute("name", "filtered_child_id");
     hiddenField.setAttribute("value", 0);
     form.appendChild(hiddenField);
 
     hiddenField = document.createElement("input");
     hiddenField.setAttribute("type", "hidden");
-    hiddenField.setAttribute("name", "search_server_text");
+    hiddenField.setAttribute("name", "filtered_child_alias");
     hiddenField.setAttribute("value", '서버전체');
     form.appendChild(hiddenField);
 
     hiddenField = document.createElement("input");
     hiddenField.setAttribute("type", "hidden");
-    hiddenField.setAttribute("name", "search_goods");
+    hiddenField.setAttribute("name", "filtered_items");
     hiddenField.setAttribute("value", 'character');
     form.appendChild(hiddenField);
 

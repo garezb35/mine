@@ -32,8 +32,8 @@
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <div class="aside">
             <div class="title_blue">
                 <img src="/angel/img/icons/exclamation-mark-png-exclamation-mark-icon-11563006763v9utxg8tnp 1.png" />
@@ -53,7 +53,7 @@
                 </ul>
             </div>
         </div>
-        <div class="g_content">
+        <div class="pagecontainer">
             <div class="g_title_noborder"> 팝니다 <span>등록</span>
             </div>
             <div class="box6">
@@ -62,8 +62,8 @@
                     <p class="complete_txt">축하합니다<br>물품이 정상적으로 등록되었습니다.</p> 현재 연락처로 꼭 수정해주세요!
                     <br> 연락처가 불분명 시 거래에 불이익을 받을 수 있습니다. </div>
             @endif
-            <div class="g_subtitle">물품정보</div>
-            <table class="g_blue_table">
+            <div class="highlight_contextual_nodemon">물품정보</div>
+            <table class="table-primary">
                 <colgroup>
                     <col width="130">
                     <col width="*">
@@ -119,14 +119,14 @@
                 </tr>
 
             </table>
-            <div id="btn_list" class="g_btn_wrap btn_list" style="display: block;">
+            <div id="btn_list" class="b_input_group btn_list" style="display: block;">
                 <a href="/myroom/sell/sell_regist_view?id={{$orderNo ?? ''}}" class="btn-default btn-suc" >등록 물품보기</a>
                 <a href="/sell/list_search?pinit=1" class="btn-default btn-suc" style="font-size: 16px">등록 물품알아보기</a>
                 <a href="/index" class="btn-default btn-cancel">메인으로 가기</a>
                 <a href="/myroom/sell/sell_regist"class="btn-default btn-cancel">마이룸으로 가기</a>
             </div>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

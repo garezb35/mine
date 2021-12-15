@@ -7,7 +7,7 @@ var defaultImages = {
 };
 
 var checkLogo = function() {
-    var logoWrapper = document.querySelector('.g_header');
+    var logoWrapper = document.querySelector('.siteHeader');
     if (logoWrapper == null) {
         return;
     }
@@ -19,7 +19,7 @@ var checkLogo = function() {
             function() {
 
             }, function() {
-                var logo = logoWrapper.querySelector('#logo_img');
+                var logo = logoWrapper.querySelector('#hsds-nav__logo');
                 logo.style.display = 'block';
             });
     }

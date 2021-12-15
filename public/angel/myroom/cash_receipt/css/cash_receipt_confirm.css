@@ -1,11 +1,11 @@
 
-.g_blue_table td {
+.table-primary td {
     padding-left: 20px;
     border-right: 1px solid #E2E2E2;
     text-align: left
 }
 
-.g_btn {
+.btn-groups_angel {
     margin: 20px 0 25px
 }
 

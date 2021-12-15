@@ -230,7 +230,7 @@ function chageTableAction(value){
         el +='<label><input type="checkbox" name="excellent" id="excellent" class="g_checkbox"> ìš°ìˆ˜ì¸ì¦ ë¬¼í’ˆ</label></div>'
         wrapper.innerHTML = el;
         table.classList.remove('g_green_table');
-        table.classList.add('g_blue_table');
+        table.classList.add('table-primary');
         submitBtn.classList.remove('buy');
         submitBtn.classList.add('sell')
     }
@@ -241,7 +241,7 @@ function chageTableAction(value){
         el += '<label><input type="checkbox" name="direct" id="direct" class="g_checkbox"> ì¦‰ì‹œêµ¬ë§¤ ë¬¼í’ˆ</label>'
         el += '<label><input type="checkbox" name="excellent" id="excellent" class="g_checkbox"> ìš°ìˆ˜ì¸ì¦ ë¬¼í’ˆ</label></div>'
         wrapper.innerHTML = el;
-        table.classList.remove('g_blue_table');
+        table.classList.remove('table-primary');
         table.classList.add('g_green_table');
         submitBtn.classList.remove('sell');
         submitBtn.classList.add('buy');

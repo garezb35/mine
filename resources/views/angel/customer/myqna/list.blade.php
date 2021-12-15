@@ -16,8 +16,8 @@
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .notice {
                 height: 24px;
@@ -54,9 +54,9 @@
             }
         </style>
         @include('angel.customer.aside', ['group'=>'myqna', 'part'=>''])
-        <div class="g_content">
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue no-border">나의 질문과 답변</div>
+        <div class="pagecontainer">
+
+            <div class="contextual--title no-border">나의 질문과 답변</div>
             <div style="height: 20px"></div>
             <form name="signForm" id="signForm" method="post">
                 <table class="g_gray_tb g_sky_table tb_list">
@@ -70,9 +70,7 @@
                         <col width="125" />
                     </colgroup>
                     <tr>
-{{--                        <th class="first_th">--}}
-{{--                            <input type="checkbox" name="cTotal" class="g_checkbox" onclick="fnCheck();">--}}
-{{--                        </th>--}}
+
                         <th>상태</th>
                         <th>분야</th>
                         <th>거래번호</th>
@@ -82,9 +80,6 @@
                     </tr>
                     @foreach ($askRecord as $rec)
                         <tr>
-{{--                            <td class="first_td">--}}
-{{--                                <input type="checkbox" name="pSeq[]" value="{{$rec['askid']}}" class="g_checkbox" />--}}
-{{--                            </td>--}}
                             <td>
                                 @if ($rec['is_read'] == 1)
                                     <img src="/angel/img/icons/ico_message.png" width="14" height="11" alt="확인" />
@@ -127,37 +122,15 @@
                         </tr>
                     @endforeach
 
-{{--                    <tr>--}}
-{{--                        <td class="first_td">--}}
-{{--                            <input type="checkbox" name="blankCheck" class="g_checkbox" disabled="disabled" /> </td>--}}
-{{--                        <td><img src="http://img3.itemmania.com/images/icon/ico_message_on.gif" width="14" height="11" alt="미확인" /></td>--}}
-{{--                        <td>종료요청</td>--}}
-{{--                        <td>2021013113448891</td>--}}
-{{--                        <td class="left"><a href="/customer/myqna/view.html?seq=13531925&original_type=1">거래 종료 요청</a></td>--}}
-{{--                        <td> 답변 완료 </td>--}}
-{{--                        <td>2021-01-31 23:15</td>--}}
-{{--                    </tr>--}}
-{{--                    <tr>--}}
-{{--                        <td class="first_td">--}}
-{{--                            <input type="checkbox" name="blankCheck" class="g_checkbox" disabled="disabled" /> </td>--}}
-{{--                        <td><img src="http://img3.itemmania.com/images/icon/ico_message_on.gif" width="14" height="11" alt="미확인" /></td>--}}
-{{--                        <td>종료요청</td>--}}
-{{--                        <td>2021013111553078</td>--}}
-{{--                        <td class="left"><a href="/customer/myqna/view.html?seq=13531645&original_type=1">거래 종료 요청</a></td>--}}
-{{--                        <td> 답변 완료 </td>--}}
-{{--                        <td>2021-01-31 20:04</td>--}}
-{{--                    </tr>--}}
                 </table>
             </form>
-{{--            <div class="tb_bt_txt"> <img src="http://img4.itemmania.com/images/btn/btn_del1.gif" width="42" height="20" alt="삭제" class="g_button" onclick="$('signForm').check();" /> <span class="f_org1">- 2020년 7월 1일 이후 메시지만 보관되오니 이점 양지해주시기 바랍니다.</span> </div>--}}
-            <!-- ▼ 페이징 //-->
-            <div class="dvPaging">
+
+            <div class="pagination__bootstrap">
                 {{$askRecord->withQueryString()->links()}}
             </div>
-            <!-- ▲ 페이징 //-->
+
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
 @endsection
 

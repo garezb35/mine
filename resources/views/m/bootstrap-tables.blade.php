@@ -40,7 +40,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Item -->
+
                     <tr>
                         <td><a href="#" class="text-primary fw-bold">1</a> </td>
                         <td class="fw-bold d-flex align-items-center">
@@ -51,7 +51,7 @@
                             Direct
                         </td>
                         <td>
-                           - 
+                           -
                         </td>
                         <td>
                            --
@@ -70,14 +70,14 @@
                         </td>
                         <td class="text-success">
                             <div class="d-flex align-items-center">
-                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>                                   
+                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">2.45%</span>
                             </div>
                         </td>
                     </tr>
-                    <!-- End of Item -->
 
-                    <!-- Item -->
+
+
                     <tr>
                         <td><a href="#" class="text-primary fw-bold">2</a> </td>
                         <td class="fw-bold d-flex align-items-center">
@@ -107,14 +107,14 @@
                         </td>
                         <td class="text-success">
                             <div class="d-flex align-items-center">
-                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>                                   
+                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">17.78%</span>
-                            </div>                          
+                            </div>
                         </td>
                     </tr>
-                    <!-- End of Item -->
 
-                    <!-- Item -->
+
+
                     <tr>
                         <td><a href="#" class="text-primary fw-bold">3</a> </td>
                         <td class="fw-bold d-flex align-items-center">
@@ -143,12 +143,12 @@
                             </div>
                         </td>
                         <td>
-                            -                                
+                            -
                         </td>
                     </tr>
-                    <!-- End of Item -->
 
-                    <!-- Item -->
+
+
                     <tr>
                         <td><a href="#" class="text-primary fw-bold">4</a> </td>
                         <td class="fw-bold d-flex align-items-center">
@@ -180,12 +180,12 @@
                             <div class="d-flex align-items-center">
                                 <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">9.45%</span>
-                            </div>                                
+                            </div>
                         </td>
                     </tr>
-                    <!-- End of Item -->
 
-                    <!-- Item -->
+
+
                     <tr>
                         <td><a href="#" class="text-primary fw-bold">5</a> </td>
                         <td class="fw-bold d-flex align-items-center">
@@ -214,10 +214,10 @@
                             </div>
                         </td>
                         <td>
-                            -                                
+                            -
                         </td>
                     </tr>
-                    <!-- End of Item -->
+
                 </tbody>
             </table>
         </div>
@@ -239,9 +239,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Item -->
+
                     <tr>
-                        <td class="border-0">                                             
+                        <td class="border-0">
                             <a href="#" class="d-flex align-items-center">
                                 <img class="me-2 image image-small rounded-circle" alt="Image placeholder" src="../../assets/img/flags/united-states-of-america.svg">
                                 <div><span class="h6">United States</span></div>
@@ -252,29 +252,29 @@
                             <div class="d-flex align-items-center">
                                 <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">5</span>
-                            </div> 
+                            </div>
                         </td>
                         <td class="border-0 fw-bold">
-                           3 
+                           3
                         </td>
                         <td class="border-0">
                            =
                         </td>
                         <td class="border-0 fw-bold">
-                           32  
+                           32
                         </td>
                         <td class="border-0 text-success">
                             <div class="d-flex align-items-center">
-                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>                                   
+                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">3</span>
                             </div>
                         </td>
                     </tr>
-                    <!-- End of Item -->
 
-                   <!-- Item -->
+
+
                     <tr>
-                        <td class="border-0">                                             
+                        <td class="border-0">
                             <a href="#" class="d-flex align-items-center">
                                 <img class="me-2 image image-small rounded-circle" alt="Image placeholder" src="../../assets/img/flags/canada.svg">
                                 <div><span class="h6">Canada</span></div>
@@ -283,31 +283,31 @@
                         <td class="border-0 fw-bold">76</td>
                         <td class="border-0 text-success">
                             <div class="d-flex align-items-center">
-                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>                                   
+                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">17</span>
                             </div>
                         </td>
                         <td class="border-0 fw-bold">
-                        4 
+                        4
                         </td>
                         <td class="border-0">
                         =
                         </td>
                         <td class="border-0 fw-bold">
-                        30  
+                        30
                         </td>
                         <td class="border-0 text-success">
                             <div class="d-flex align-items-center">
-                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>                                   
+                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">3</span>
                             </div>
                         </td>
                     </tr>
-                    <!-- End of Item -->
 
-                   <!-- Item -->
+
+
                     <tr>
-                        <td class="border-0">                                             
+                        <td class="border-0">
                             <a href="#" class="d-flex align-items-center">
                                 <img class="me-2 image image-small rounded-circle" alt="Image placeholder" src="../../assets/img/flags/united-kingdom.svg">
                                 <div><span class="h6">United Kingdom</span></div>
@@ -316,31 +316,31 @@
                         <td class="border-0 fw-bold">147</td>
                         <td class="border-0 text-success">
                             <div class="d-flex align-items-center">
-                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>                                   
+                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">10</span>
                             </div>
                         </td>
                         <td class="border-0 fw-bold">
-                        5 
+                        5
                         </td>
                         <td class="border-0">
                         =
                         </td>
                         <td class="border-0 fw-bold">
-                        34  
+                        34
                         </td>
                         <td class="border-0 text-success">
                             <div class="d-flex align-items-center">
-                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>                                   
+                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">7</span>
                             </div>
                         </td>
                     </tr>
-                    <!-- End of Item -->
 
-                    <!-- Item -->
+
+
                     <tr>
-                        <td class="border-0">                                             
+                        <td class="border-0">
                             <a href="#" class="d-flex align-items-center">
                                 <img class="me-2 image image-small rounded-circle" alt="Image placeholder" src="../../assets/img/flags/france.svg">
                                 <div><span class="h6">France</span></div>
@@ -349,34 +349,34 @@
                         <td class="border-0 fw-bold">112</td>
                         <td class="border-0 text-success">
                             <div class="d-flex align-items-center">
-                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>                                   
+                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">3</span>
                             </div>
                         </td>
                         <td class="border-0 fw-bold">
-                        5 
+                        5
                         </td>
                         <td class="border-0 text-success">
                             <div class="d-flex align-items-center">
-                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>                                   
+                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">1</span>
                             </div>
                         </td>
                         <td class="border-0 fw-bold">
-                        34  
+                        34
                         </td>
                         <td class="border-0 text-danger">
                             <div class="d-flex align-items-center">
                                 <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">2</span>
-                            </div> 
+                            </div>
                         </td>
                     </tr>
-                    <!-- End of Item -->
 
-                    <!-- Item -->
+
+
                     <tr>
-                        <td class="border-0">                                             
+                        <td class="border-0">
                             <a href="#" class="d-flex align-items-center">
                                 <img class="me-2 image image-small rounded-circle" alt="Image placeholder" src="../../assets/img/flags/japan.svg">
                                 <div><span class="h6">Japan</span></div>
@@ -387,32 +387,32 @@
                             <div class="d-flex align-items-center">
                                 <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">12</span>
-                            </div> 
+                            </div>
                         </td>
                         <td class="border-0 fw-bold">
-                        6 
+                        6
                         </td>
                         <td class="border-0 text-danger">
                             <div class="d-flex align-items-center">
                                 <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">1</span>
-                            </div> 
+                            </div>
                         </td>
                         <td class="border-0 fw-bold">
-                        37  
+                        37
                         </td>
                         <td class="border-0 text-danger">
                             <div class="d-flex align-items-center">
                                 <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">5</span>
-                            </div> 
+                            </div>
                         </td>
                     </tr>
-                    <!-- End of Item -->
 
-                    <!-- Item -->
+
+
                     <tr>
-                        <td class="border-0">                                             
+                        <td class="border-0">
                             <a href="#" class="d-flex align-items-center">
                                 <img class="me-2 image image-small rounded-circle" alt="Image placeholder" src="../../assets/img/flags/germany.svg">
                                 <div><span class="h6">Germany</span></div>
@@ -423,28 +423,28 @@
                             <div class="d-flex align-items-center">
                                 <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">56</span>
-                            </div> 
+                            </div>
                         </td>
                         <td class="border-0 fw-bold">
-                            7 
+                            7
                         </td>
                         <td class="border-0 text-danger">
                             <div class="d-flex align-items-center">
                                 <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">3</span>
-                            </div> 
+                            </div>
                         </td>
                         <td class="border-0 fw-bold">
-                            30  
+                            30
                         </td>
                         <td class="border-0 text-success">
                             <div class="d-flex align-items-center">
-                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>                                   
+                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="fw-bold">2</span>
                             </div>
                         </td>
                     </tr>
-                    <!-- End of Item -->
+
                 </tbody>
             </table>
         </div>

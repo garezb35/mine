@@ -22,9 +22,9 @@
             padding-left: 0px;
         }
     </style>
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
-        <div class="g_remocon_l"> </div>
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
+        <div class="recommend_e34rf"> </div>
         <script type="text/javascript">
             function serviceCert() {
                 if(confirm('I-Pin(아이핀)을 이용하여 아이템천사에 가입하신 회원\n님들께서는 마일리지 충전 및 물품 거래 시 정상적인 이용\n을 위하여 최초 1회 이름 및 주민등록 번호로 본인 확인 절\n차를 거쳐야만 모든 기능을 사용하실 수 있습니다.\n인증을 하시겠습니까?')) {
@@ -36,7 +36,7 @@
         </script>
         @include('aside.portal',['portal'=>$gift])
 
-        <div class="g_content">
+        <div class="pagecontainer">
             <div class="top_area">
                 <div class="big_bn">
                     <a href="/portal/giftcard/onestore/"><img src="/angel/_banner/sns_share_default.png" width="820" height="250" alt="원스토어" title="원스토어"></a>
@@ -55,7 +55,7 @@
                 </ul>
             </div>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

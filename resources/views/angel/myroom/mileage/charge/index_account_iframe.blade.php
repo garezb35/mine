@@ -4,11 +4,11 @@
         <title>아이템천사</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link type="text/css" rel="stylesheet" href="/angel/_css/_comm.css?v=210317">
-        <link type="text/css" rel="stylesheet" href="/angel/_head_tail/css/_head_popup.css?v=210531">
+        <link type="text/css" rel="stylesheet" href="/angel/_css/webpack.css?v=210317">
+        <link type="text/css" rel="stylesheet" href="/angel/global_h/css/_head_popup.css?v=210531">
         <link type="text/css" rel="stylesheet" href="/angel/myroom/mileage/charge/css/_common.css?v=210602" />
         <script type="text/javascript" src="/angel/_js/jquery.js?190220"></script>
-        <script type="text/javascript" src="/angel/_js/_comm.js?v=211005"></script>
+        <script type="text/javascript" src="/angel/_js/webpack.js?v=211005"></script>
         <script type="text/javascript" src="/angel/_js/_gs_control.js?v=200803"></script>
         <link type="text/css" rel="stylesheet" href="/angel/_banner/css/banner_module.css?v=210422">
         <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
@@ -35,11 +35,11 @@
             }
         </style>
 
-        <div id="g_SLEEP" class="g_sleep g_hidden ">
-            <div id="g_OVERLAY" class="g_overlay"></div>
+        <div id="global_root" class="mainEntity d-none ">
+            <div id="thirdys" class="fluid-div"></div>
         </div>
-        <div id="g_BODY">
-            <div id="popup_title_bar">
+        <div id="angel">
+            <div id="model_titlebar">
                 <div class="f-20">마일리지{{$snzProc}}</div>
             </div>
             <div id="g_POPUP">
@@ -48,7 +48,7 @@
                     <span class="m_price" style="">{{number_format($userDetail->mileage)}}</span>
                     <span class="m_price c-black p-0">원</span>
                 </div>
-                <div class="g_finish"></div>
+                <div class="empty-high"></div>
                 <script type="text/javascript">
                     if(self.name == "mileage_charge_event") {
                         $('charge_menu').style.display = "none";
@@ -67,7 +67,7 @@
                         <input type="hidden" name="charge_rate" id="charge_rate" value="2" />
                         <input type="hidden" name="ITEM_OID" value="" />
                         <input type="hidden" name="price" id="price" />
-                        <div id="" class="g_subtitle" style="padding-left: 100px; padding-top: 16px;">{{$snzProc}}금액 선택</div>
+                        <div id="" class="highlight_contextual_nodemon" style="padding-left: 100px; padding-top: 16px;">{{$snzProc}}금액 선택</div>
                         <div class="f-bold" style="background: #e4eef0; padding: 24px;">
                             <div class="d-flex m-auto" style="width: 60%;">
                                 <div class="align-center" style="width: 33.33%">
@@ -100,17 +100,17 @@
                             <hr style="width: 60%;">
                             <div class="m-auto align-center" style="width: 60%;">
                                 <input type="radio" name="selectPrice" id="priceD" value="0" class="g_radio" onclick="selectedPrice(this.value)" />
-                                <input type="text" name="price_custom" id="price_custom" maxlength="6" class="g_text" onclick="selectedPrice(0)" onblur="fnCustomOut()" onkeyup="onlynum(this.value);selectedPrice(this.value)" maxlength="5" />원
+                                <input type="text" name="price_custom" id="price_custom" maxlength="6" class="angel__text" onclick="selectedPrice(0)" onblur="fnCustomOut()" onkeyup="onlynum(this.value);selectedPrice(this.value)" maxlength="5" />원
                             </div>
                         </div>
 
-                        <div class="g_finish"></div>
+                        <div class="empty-high"></div>
                         <div class="real_price align-right part-border" style="padding-right: 18px; padding-bottom: 14px; padding-top: 10px;">
                             <span class="m_price f-14 c-black">실제 마일리지 {{$snzProc}}금액</span>
                             <span id="spnPrice" class="m_price f-16"></span>
                             <span class="m_price f-14 c-black p-0">원</span>
                         </div>
-                        <div class="g_finish"></div>
+                        <div class="empty-high"></div>
                         <div class="m_button" style="padding-bottom: 24px;">
                             @if ($snzProc == "충전")
                                 <a href="javascript:void(0)" class="mileage_charge btn-color-img btn-blue-img" style="" >충전하기</a>
@@ -161,7 +161,7 @@
             }
         </script>
         <script>
-            _initialize();
+            loadGlobalItems()
 
             $(".mileage_charge").click(function() {
                 if (confirm("{{$snzProc}}하시겟습니까?")) {

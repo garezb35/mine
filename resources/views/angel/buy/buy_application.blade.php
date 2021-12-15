@@ -71,8 +71,8 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
         @endif
         var submit_condition = {{$submit_condition}};
     </script>
-<!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-<div class="g_container" id="g_CONTENT">
+
+<div class="container_fulids" id="module-teaser-fullscreen">
     <div class="aside">
         <div class="title">안전거래수칙</div>
         <div class="menu_know">
@@ -95,12 +95,12 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
         </div>
 
     </div>
-    <div class="g_content">
-        <!-- ▼ 타이틀 //-->
-        <div class="g_title_green noborder"> 판매정보 <span>확인</span>
+    <div class="pagecontainer">
+
+        <div class="text-green_moderation noborder"> 판매정보 <span>확인</span>
         </div>
         <div class="g_gray_border"></div>
-        <!-- ▲ 타이틀 //-->
+
         <a name="top"></a>
         <form id="frmSell" name="frmSell" action="/buy/application_ok" method="post">
             @csrf
@@ -113,15 +113,15 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
             <input type="hidden" name="user_goods" id="user_goods" value="etc">
             <input type="hidden" name="user_goods_type" id="user_goods_type" value="{{$user_goods_type}}">
             <input type="hidden" name="use_creditcard" id="use_creditcard" value="{{$price}}">
-            <!-- 안심번호-->
+
             <input type="hidden" name="user_cell_auth" id="user_cell_auth" value="1">
             <input type="hidden" name="user_cell_num" id="user_cell_num" value="{{$cuser['number']}}">
             <input type="hidden" name="user_safety_type" id="user_safety_type" value="2">
             <input type="hidden" name="safety_using_flag" id="safety_using_flag" value="true">
             <input type="hidden" name="game_code" id="game_code" value="{{$game_code}}">
-            <!-- 안심번호-->
-            <!-- ▼ 물품정보 //-->
-            <div class="g_subtitle first">물품정보</div>
+
+
+            <div class="highlight_contextual_nodemon first">물품정보</div>
             @if($user_goods_type == 'general')
                 <table class="table-striped table-green1">
                     <colgroup>
@@ -137,7 +137,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                     <tr>
                         <th>물품제목</th>
                         <td colspan="3" class="table_goods_subject"> {{$user_title}}
-                        <!-- 퀵 아이콘 -->
+
                         </td>
                     </tr>
                     <tr>
@@ -194,7 +194,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                     <tr>
                         <th>판매수량</th>
                         <td>
-                            <input type="text" id="buy_quantity" name="buy_quantity" class="g_text buy_quantity" value="{{str_replace(",","",$user_quantity_min) / str_replace(",","",$user_division_unit)}}" onchange="changeP()"> 번 (<span id="spnQuantity_Unit">{{$user_division_unit}}</span> x
+                            <input type="text" id="buy_quantity" name="buy_quantity" class="angel__text buy_quantity" value="{{str_replace(",","",$user_quantity_min) / str_replace(",","",$user_division_unit)}}" onchange="changeP()"> 번 (<span id="spnQuantity_Unit">{{$user_division_unit}}</span> x
                             <span id="spnQuantity"></span>번 =
                             <span id="spnQuantity_total"></span> {{$goods_label}})
                         </td>
@@ -211,7 +211,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                 </table>
         @endif
 
-            <div class="g_subtitle"> 구매자정보
+            <div class="highlight_contextual_nodemon"> 구매자정보
             </div>
             <table class="table-greenwith">
                 <colgroup>
@@ -223,7 +223,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                     <th class="p-left-10">
                         <div>
                             <img src="/angel/img/level/{{$cuser['roles']['icon']}}" width="37"/>
-                            <span class="f_green4 f_bold">{{$cuser['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($cuser['point'])}}점)
+                            <span class="f_green4 font-weight-bold">{{$cuser['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($cuser['point'])}}점)
                         </div>
                     </th>
                     <td>
@@ -257,7 +257,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
 
                             </dd>
                         </dl>
-                        <div class="g_right">
+                        <div class="float__right">
                             <a href="javascript:fnCreditViewCheck()"></a>
                         </div>
                     </td>
@@ -278,9 +278,9 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
             <input type="hidden" name="user_mobileA" id="user_mobileA" value="{{$mobile_a}}">
             <input type="hidden" name="user_mobileB" id="user_mobileB" value="{{$mobile_b}}">
             <input type="hidden" name="user_mobileC" id="user_mobileC" value="{{$mobile_c}}">
-            <!-- ▲ 연락처 중복 //-->
-            <div class="g_subtitle">내 거래정보</div>
-            <table class="g_green_table private_area">
+
+            <div class="highlight_contextual_nodemon">내 거래정보</div>
+            <table class="g_green_table user__contact">
                 <colgroup>
                     <col width="160">
                     <col/> </colgroup>
@@ -291,8 +291,8 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                 <tr>
                     <th>판매자 캐릭터명</th>
                     <td>
-                        <div class="g_left">
-                            <input type="text" name="user_character" id="user_character" class="g_text" maxlength="30" tabindex="2"> 물품을 전달 하실 본인의 캐릭터명 </div>
+                        <div class="float-left">
+                            <input type="text" name="user_character" id="user_character" class="angel__text" maxlength="30" tabindex="2"> 물품을 전달 하실 본인의 캐릭터명 </div>
                         <div class="character_noti"> * 본인이 사용하는 서버/캐릭터 명 <em>미 선택 및 미 기재 시</em> 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다. </div>
                     </td>
                 </tr>
@@ -301,14 +301,14 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                     <td> <span id="spnUserPhone">
                 자택번호 없음                </span> (
                         <label>
-                            <input type="checkbox" class="g_checkbox" name="user_cell_check" id="user_cell_check" value="on" checked> 자택번호안내</label> ) / <span id="spnUserCell">010-4797-3690</span> <a href="javascript:_window.open('private_edit', '/user/contact_edit', 496, 350);" class="btn_white1 after">연락처 수정</a> </td>
+                            <input type="checkbox" class="g_checkbox" name="user_cell_check" id="user_cell_check" value="on" checked> 자택번호안내</label> ) / <span id="spnUserCell">010-4797-3690</span> <a href="javascript:_window.open('private_edit', '/user/contact_edit', 496, 350);" class="btn-light-modern after">연락처 수정</a> </td>
                 </tr>
                 <tr class="SafetyNumber">
                     <th>안심번호</th>
                     <td> 개인정보보호 및 사고예방을 위해
                         <br> 고객님의 휴대폰으로 거래 시 0508로 시작하는 무료안심번호가 휴대폰으로 부여되어 상대방에게 안내됩니다.
                         <div class="safe_area">
-                            <div class="g_msgbox green" id="safe_layer" style="right:0;margin-top:-14px;">
+                            <div class="mailbox__list green" id="safe_layer" style="right:0;margin-top:-14px;">
                                 <div class="cont"> 고객님의 개인정보 보호를 위해 휴대폰번호에 안심번호를 부여하여 실제 휴대폰번호 대신
                                     <br> 가상의 안심번호를 상대 거래자에게 노출시켜주는 무료 서비스 입니다.
                                     <ul class="f_red1"> <strong>안심번호 서비스 사용 시 주의사항</strong>
@@ -327,7 +327,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                     <td> 개인정보보호 및 사고예방을 위해
                         <br> 고객님의 휴대폰으로 거래 시 02-1234-1234 형태의 번호가 부과되어 상대방에게 안내됩니다.
                         <div class="safe_area"> <a href="javascript:;" class="guide_txt" id="safe_plus_guide">안심번호 플러스란?</a>
-                            <div class="g_msgbox green" id="safe_plus_layer" style="right:0;margin-top:-14px;">
+                            <div class="mailbox__list green" id="safe_plus_layer" style="right:0;margin-top:-14px;">
                                 <div class="title"> 안심번호 플러스란?
                                     <a href="javascript:;" class="close"></a>
                                 </div>
@@ -348,7 +348,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
             <script>
                 window.onload = function() {
                     if(document.getElementById('safe_guide') !== null) {
-                        LayerControl({
+                        KeepAlivesRaw({
                             el: document.getElementById('safe_guide'),
                             layer: document.getElementById('safe_layer'),
                             close_btn: document.getElementById('safe_layer').querySelector('.close'),
@@ -357,7 +357,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                         });
                     }
                     if(document.getElementById('safe_plus_guide') !== null) {
-                        LayerControl({
+                        KeepAlivesRaw({
                             el: document.getElementById('safe_plus_guide'),
                             layer: document.getElementById('safe_plus_layer'),
                             close_btn: document.getElementById('safe_plus_layer').querySelector('.close'),
@@ -373,22 +373,22 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                 <li>거래 교환 창 스크린샷과 완료 스크린샷을 보유하시기 바랍니다.</li>
             </ul>
 
-            <div class="g_btn">
+            <div class="btn-groups_angel">
                 <a  class="btn-default btn-suc" onclick="fnFormChecker();">판매 신청</a>
             </div>
         </form>
 
-        <div class="g_subtitle"> 상세설명 <a href="javascript:;" class="wideview" id="wideview">열기▼</a> </div>
+        <div class="highlight_contextual_nodemon"> 상세설명 <a href="javascript:;" class="wideview" id="wideview">열기▼</a> </div>
         <div class="detail_info" id="detail_info">
             <div class="detail_text">{{$user_text}}</div>
         </div>
 
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
 
-    <div id="dvGoodsInfo" class="g_popup green dvGoodsInfo">
-        <div class="layer_title"> <img src="http://img4.itemmania.com/images/buy/titlep_info_gg.gif" width="102" height="19" alt="물품신청정보"> <img class="btn_close" src="http://img4.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();"> </div>
-        <div class="layer_content">
+    <div id="dvGoodsInfo" class="modal_dialog green dvGoodsInfo">
+        <div class="modal__title">물품신청정보 <span class="modal__close" onclick="g_nodeSleep.disable();">닫기</span> </div>
+        <div class="modal--content">
             <table class="g_green_table table-striped">
                 <colgroup>
                     <col width="122">
@@ -408,7 +408,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                 </tr>
                 <tr>
                     <th>판매자 캐릭터명</th>
-                    <td> <span id="layer_character" class="f_blue1 f_bold"></span> (물품을 전달 하실 본인의 캐릭터명) </td>
+                    <td> <span id="layer_character" class="text-blue_modern font-weight-bold"></span> (물품을 전달 하실 본인의 캐릭터명) </td>
                 </tr>
             </table>
             <div class="position-relative height90">
@@ -419,7 +419,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                 <li>판매물품의 해킹, 복사, 사기 등의 문제가 발생할 때 민/형사상 책임은 판매자에게 있음을 동의합니다.</li>
                 <li>거래 교환 창 스크린샷과 완료 스크린샷을 보유하시기 바랍니다.</li>
             </ul>
-            <div class="g_btn">
+            <div class="btn-groups_angel">
                 <a  onclick="$('#frmSell').submit();"  class="btn-default btn-suc">확인</a>
                 <a  onclick="g_nodeSleep.disable();" class="btn-default btn-cancel">취소</a>
             </div>
@@ -430,9 +430,9 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
         <input type="hidden" id="infoId" value="a68e5ed758fe86e630c7f30c1dbb221b">
         <input type="hidden" name="id" id="encryptId">
         <input type="hidden" name="type" id="encryptType"> </form>
-    <div class="g_finish"></div>
+    <div class="empty-high"></div>
 </div>
-<!-- ▲ 컨텐츠 영역 //-->
+
 
 @endsection
 

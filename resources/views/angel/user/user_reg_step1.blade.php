@@ -11,7 +11,7 @@
 
 @section('content')
     <style>
-        .g_container {
+        .container_fulids {
             padding-top: 70px;
         }
         .g_title_txt {
@@ -96,7 +96,7 @@
         }
     </style>
 
-    <div class="g_container">
+    <div class="container_fulids">
         <div class="g_title_txt">
             <span>회원가입</span> 서비스
         </div>

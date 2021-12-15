@@ -39,7 +39,7 @@ function elementFromListData(tradeItem) {
     if (tradeItem.trade_category === '3' && tradeItem.trade_kind != "6") {
         listHtml += '               <br>';
     }
-    listHtml += '	    	        <span class="title' + (expression.blue ? ' title_blue' : '') + (expression.bold ? ' f_bold' : '') + '">' + tradeItem.trade_subject + '</span>' + (tradeItem.screenshot === 'Y' ? ' <span class="hasScreenshot"></span>' : '') +
+    listHtml += '	    	        <span class="title' + (expression.blue ? ' title_blue' : '') + (expression.bold ? ' font-weight-bold' : '') + '">' + tradeItem.trade_subject + '</span>' + (tradeItem.screenshot === 'Y' ? ' <span class="hasScreenshot"></span>' : '') +
         '	                    </div>';
     listHtml += '	        </a>';
     if(tradeItem.quickicon)
@@ -92,7 +92,7 @@ function fnajax_ag_quotation() {
         dataType: "xml",
         type: "GET",
         timeout: 3000,
-        data: "gamecode=" + $("#search_game").val() + "&servercode=" + $("#search_server").val() + "&count=2",
+        data: "gamecode=" + $("#filtered_game_id").val() + "&servercode=" + $("#filtered_child_id").val() + "&count=2",
         success: function(xml) {
 
             if ($(xml).find("quotation").attr("result") !== "fail") {
@@ -103,7 +103,7 @@ function fnajax_ag_quotation() {
                     var font_color = "f_red1";
                     var icon = "â–²";
                 } else if ($(xml).find("data").attr("amount_type") == "down") {
-                    var font_color = "f_blue1";
+                    var font_color = "text-blue_modern";
                     var icon = "â–¼";
                 } else if ($(xml).find("data").attr("amount_type") == "none") {
                     var font_color = "black";
@@ -121,9 +121,9 @@ function fnajax_ag_quotation() {
 }
 
 function mySearch_menu_check() {
-    var game_code = $('#search_game').val();
-    var server_code = $('#search_server').val();
-    var goods = $("#search_goods").val();
+    var game_code = $('#filtered_game_id').val();
+    var server_code = $('#filtered_child_id').val();
+    var goods = $("#filtered_items").val();
 
     var goods_type = {
         all: 0,
@@ -200,13 +200,13 @@ $(document).ready(function() {
         });
     }
 
-    /* â–¼ ë‚˜ë§Œì˜ ê²€ìƒ‰ë©”ë‰´ ì¶”ê°€ */
+
     $('#favorite').on('click', function() {
-        var game_code = $('#search_game').val();
-        var game_code_text = $('#search_game_text').val();
-        var server_code = $('#search_server').val();
-        var server_code_text = $('#search_server_text').val();
-        var goods = $("#search_goods").val();
+        var game_code = $('#filtered_game_id').val();
+        var game_code_text = $('#filtered_game_alias').val();
+        var server_code = $('#filtered_child_id').val();
+        var server_code_text = $('#filtered_child_alias').val();
+        var goods = $("#filtered_items").val();
 
         var e_goods_text = {
             all: 'ë¬¼í’ˆì „ì²´',

@@ -52,7 +52,7 @@ function _init() {
         }
     });
 
-    document.getElementById('d_template').addEventListener('click', function(e) {
+    document.getElementById('sr-template').addEventListener('click', function(e) {
         if (e.target.name === 'gamemoney_unit') {
             var unit = e.target.value;
             if (e.target.value === '1') {
@@ -82,19 +82,19 @@ function _init() {
 
     document.getElementById('user_icon_use').addEventListener('change', function() {
         chargePremiumService();
-        chargeServiceApply.call(this, 'f_bold');
+        chargeServiceApply.call(this, 'font-weight-bold');
     });
 
     document.getElementById('user_bluepen_use').addEventListener('change', function() {
         chargePremiumService();
-        chargeServiceApply.call(this, 'f_blue1');
+        chargeServiceApply.call(this, 'text-blue_modern');
     });
     document.getElementById('user_quickicon_use').addEventListener('change', function() {
         chargePremiumService();
         chargeServiceCalc();
-        //chargeServiceApply.call(this, 'f_blue1');
+        //chargeServiceApply.call(this, 'text-blue_modern');
     });
-    document.getElementById('premium_btn').addEventListener('click', premiumSet);
+    document.getElementById('actionPremium').addEventListener('click', premiumSet);
 
     if (document.getElementById('discount_use') !== null) {
         if (document.getElementById('discount_use').checked === true) {
@@ -103,7 +103,7 @@ function _init() {
     }
 
     if (document.getElementById('compen_guide') !== null) {
-        LayerControl({
+        KeepAlivesRaw({
             el: document.getElementById('compen_guide'),
             layer: document.getElementById('compen_layer'),
             mask: false,
@@ -121,9 +121,9 @@ function _init() {
         document.getElementById('credit_benefit').addEventListener('click', getCreditBenefit);
     }
 
-    LayerControl({
-        layer: document.getElementById('dvPopup'),
-        close_btn: document.getElementById('dvPopup').querySelector('.close_w'),
+    KeepAlivesRaw({
+        layer: document.getElementById('dialog_fade'),
+        close_btn: document.getElementById('dialog_fade').querySelector('.fade__out'),
         type: 'style'
     });
 
@@ -255,7 +255,7 @@ function changeTemplateAddCheck() {
     var userGoodsType = document.querySelector('[name="user_goods_type"]');
     var gameCode = document.querySelector('[name="game_code"]').value;
     if (userGoodsType.value === 'division') {
-        LayerControl({
+        KeepAlivesRaw({
             el: document.getElementById('discount_guide'),
             layer: document.getElementById('discount_layer'),
             mask: false,
@@ -621,8 +621,8 @@ function changeTemplateAddCheck() {
 }
 
 function premiumSet() {
-    var dvPremium = document.getElementById('dvPremium');
-    LayerControl.close({layer: dvPremium});
+    var premiumPart = document.getElementById('premiumPart');
+    KeepAlivesRaw.close({layer: premiumPart});
     createLayerContent(false);
 }
 
@@ -632,14 +632,14 @@ function createLayerContent(b) {
     }
 
     var frm = document.forms.frmSell;
-    var dvPopup = document.getElementById('dvPopup');
+    var dialog_fade = document.getElementById('dialog_fade');
 
     if (b !== false) {
-        var dvPremium = document.getElementById('dvPremium');
+        var premiumPart = document.getElementById('premiumPart');
         var userMile = document.getElementById('txtCurrentMileage').innerHTML.numeric();
         if (userMile > 100) {
             if ($('#user_premium_time').val().isEmpty() === true) {
-                LayerControl.open({layer: dvPremium});
+                KeepAlivesRaw.open({layer: premiumPart});
                 return;
             }
         }
@@ -859,7 +859,7 @@ function chargeServiceApply(strClass) {
 function chargePremiumService() {
     bPremiumLayer = true;
     if (bPremiumLayer == false) {
-        LayerControl.open({
+        KeepAlivesRaw.open({
             layer: document.getElementById('premium_layer'),
             close_btn: document.getElementById('premium_layer').querySelector('.close'),
             mask: false,
@@ -867,7 +867,7 @@ function chargePremiumService() {
         });
 
         document.getElementById('premium_close').addEventListener('click', function() {
-            LayerControl.close({layer: document.getElementById('premium_layer')});
+            KeepAlivesRaw.close({layer: document.getElementById('premium_layer')});
         });
 
         bPremiumLayer = true;
@@ -891,7 +891,7 @@ function fnPower() {
     var game_code = $('#game_code').val();
     var server_code = $('#server_code').val();
 
-    $("#dv_power").html("");
+    $("#angel_registration").html("");
     var paramsValue = "game_code=" + game_code + "&server_code=" + server_code + "&api_token=" + a_token;
     fnAjax('/api/power/_AJAX_power_check', 'html', 'post', paramsValue, {
         complete: function(request) {
@@ -899,16 +899,16 @@ function fnPower() {
             var returnData = request.split("|");
             if (returnData[0] == true) {
 
-                power_date = '<span class="f_blue1">선택시 서비스 이용 가능합니다.</span>';
-                power_date_use = '<span class="f_blue1">' + returnData[1] + ' ~ ' + returnData[2] + ' 까지 등록 가능합니다.</span>';
+                power_date = '<span class="text-blue_modern">선택시 서비스 이용 가능합니다.</span>';
+                power_date_use = '<span class="text-blue_modern">' + returnData[1] + ' ~ ' + returnData[2] + ' 까지 등록 가능합니다.</span>';
 
-                var createDIV = '<div class="g_left"><label class="f_bold"><input type="checkbox" name="power_regist" value="y" > 파워 등록 사용 </label></div>';
-                var createtxt2 = '<div class="g_left" id="power_use"></div>';
+                var createDIV = '<div class="float-left"><label class="font-weight-bold"><input type="checkbox" name="power_regist" value="y" > 파워 등록 사용 </label></div>';
+                var createtxt2 = '<div class="float-left" id="power_use"></div>';
 
-                $('#dv_power').removeClass('g_hidden').append(createDIV, createtxt2);
+                $('#angel_registration').removeClass('d-none').append(createDIV, createtxt2);
                 $("#power_use").html(power_date);
             } else {
-                $("#dv_power").html("").addClass('g_hidden');
+                $("#angel_registration").html("").addClass('d-none');
             }
 
             if ($("#inptType").val() == returnData[4]) {
@@ -916,7 +916,7 @@ function fnPower() {
             }
         },
         error: function() {
-            $("#dv_power").addClass('g_hidden');
+            $("#angel_registration").addClass('d-none');
         }
     });
 }
@@ -1140,8 +1140,8 @@ var itemDetailSetting = {
 
                 var strGoods = rgGoods.join(' ');
 
-                $('#item_can').removeClass('g_hidden');
-                $('#item_suc, #item_detail_wrap, #add_detail_wrap').addClass('g_hidden');
+                $('#item_can').removeClass('d-none');
+                $('#item_suc, #item_detail_wrap, #add_detail_wrap').addClass('d-none');
                 $('#item_info_txt').text(strGoods);
                 $('#user_title').val('(' + strGoods + ') 팝니다.');
 
@@ -1168,8 +1168,8 @@ var itemDetailSetting = {
             });
 
             document.getElementById('can_btn').addEventListener('click', function() {
-                $('#item_suc, #item_detail_wrap, #add_detail_wrap').removeClass('g_hidden');
-                $('#item_can').addClass('g_hidden');
+                $('#item_suc, #item_detail_wrap, #add_detail_wrap').removeClass('d-none');
+                $('#item_can').addClass('d-none');
                 $('#item_info_txt').text('');
                 $('#iteminfo_use_complete').val('N');
                 itemDetailSetting.detailItemInfoReset();
@@ -1260,9 +1260,9 @@ var itemDetailSetting = {
         $('#attr_enchant').append(rgEnchnt.join(''));
 
         if (this.detailItemInfo.manage.attr_enchant_visible === 'Y') {
-            $('#add_detail_wrap').removeClass('g_hidden');
+            $('#add_detail_wrap').removeClass('d-none');
         } else {
-            $('#add_detail_wrap').addClass('g_hidden');
+            $('#add_detail_wrap').addClass('d-none');
         }
     },
     changeItem: function(el, data) {
@@ -1280,15 +1280,15 @@ var itemDetailSetting = {
     detailItemInfoReset: function(use) {
         $('#item_detail_srh').find('option[value=""]').prop('selected', true);
         $('#category').trigger('change');
-        $('#item_suc').removeClass('g_hidden');
-        $('#item_can').addClass('g_hidden');
+        $('#item_suc').removeClass('d-none');
+        $('#item_can').addClass('d-none');
         if (use === false) {
-            $('#item_detail_srh').addClass('g_hidden');
-            $('#item_guide_txt, .item_detail_opts').removeClass('g_hidden');
+            $('#item_detail_srh').addClass('d-none');
+            $('#item_guide_txt, .item_detail_opts').removeClass('d-none');
             $('#user_title, #user_text').prop('readonly', false).val(e_goods_text[e_select.goods] + ' 팝니다.');
         } else {
-            $('#item_detail_srh').removeClass('g_hidden');
-            $('#item_guide_txt, .item_detail_opts').addClass('g_hidden');
+            $('#item_detail_srh').removeClass('d-none');
+            $('#item_guide_txt, .item_detail_opts').addClass('d-none');
             $('#user_title, #user_text').prop('readonly', 'readonly').val(e_goods_text[e_select.goods] + ' 팝니다.');
         }
     },

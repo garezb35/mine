@@ -45,7 +45,7 @@
     border: 1px solid #159EFD;
 }
 
-.custom_search_wrapper .g_text {
+.custom_search_wrapper .angel__text {
     width: 100%;
     padding-left: 13px;
     margin-left: 0;
@@ -59,6 +59,6 @@
     height: 200px;
 }
 
-.custom_search_wrapper .gs_selection > div > ul {
+.custom_search_wrapper .game_filters > div > ul {
     height: 165px;
 }

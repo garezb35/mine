@@ -373,7 +373,7 @@ $.fn.extend({
                 value: strText,
                 id: "subject",
                 maxlength: 40
-            }).addClass('g_text').bind({
+            }).addClass('angel__text').bind({
                 focus: function() {
                     if ($(this).val() == strText) {
                         $(this).val('')
@@ -454,7 +454,7 @@ $.fn.extend({
         INPUT.attr({
             type: "text",
             name: "user_id"
-        }).addClass('g_text');
+        }).addClass('angel__text');
 
         INPUT2.attr({
             type: "checkbox",
@@ -490,7 +490,7 @@ $.fn.extend({
         INPUT.attr({
             type: "text",
             name: "character"
-        }).addClass('g_text');
+        }).addClass('angel__text');
 
         INPUT2.attr({
             type: "checkbox",
@@ -947,7 +947,7 @@ function insertRs(request) {
             } else if ((rsData[2] == "A10101" && user_id == buyer_id) || (rsData[2] == "A10102" && user_id == seller_id)) {
                 $("#tradeNum").text('');
                 $("#tradeNum").text(splitRs[0]);
-                g_nodeSleep.enable($('#dvPopup'));
+                g_nodeSleep.enable($('#dialog_fade'));
             } else {
                 $("#tradeNum").text('');
                 $("#tradeNum").text(splitRs[0]);
@@ -1001,9 +1001,9 @@ function fnReLayerShow(layer, hA_code, hCount, trade_id, getTable, return_c, cod
     hiddenFrm.find('input[name="iReturn_c"]').val(return_c);
     hiddenFrm.find('input[name="iCode"]').val(code);
     if (layer == "2") {
-        g_nodeSleep.enable($("#dvPopup2"));
+        g_nodeSleep.enable($("#dialog_fade2"));
     } else {
-        g_nodeSleep.enable($("#dvPopup3"));
+        g_nodeSleep.enable($("#dialog_fade3"));
     }
 }
 
@@ -1174,7 +1174,7 @@ function fnTrade_Cancel_Ajax_Complete(request) {
                 }
             }
             else if (returnData == "BOARD") {
-                g_nodeSleep.disable($('#dvPopup'));
+                g_nodeSleep.disable($('#dialog_fade'));
                 move_self_A1("01");
             }
             else if (returnData == "FRIST") {

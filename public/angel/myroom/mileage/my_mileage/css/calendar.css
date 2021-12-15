@@ -9,9 +9,9 @@
 #mile_calendar{margin:10px 0;border-top:2px solid #666;border-right:1px solid #DCDCDC;border-spacing:0;border-collapse:collapse;color:#444}
 #mile_calendar th{height:25px;background-color:#F8F8F8;text-align:center;border-left:1px solid #DCDCDC;border-bottom:1px solid #DCDCDC}
 #mile_calendar td{height:70px;padding:5px 10px;border-left:1px solid #DCDCDC;border-bottom:1px solid #DCDCDC;vertical-align:top}
-#mile_calendar .g_right{font-weight:bold}
+#mile_calendar .float__right{font-weight:bold}
 #mile_calendar .saterday{color:#288fa7;background-color:#f3fff5}
 #mile_calendar .sunday{background-color:#fffaf1}
-#mile_calendar .sunday .g_right{color:#DE0000}
+#mile_calendar .sunday .float__right{color:#DE0000}
 #mile_calendar .in{margin-top:5px;padding-left:16px;background:url(../../../../img/icons/icon_deposit.gif) no-repeat 0 2px}
 #mile_calendar .out{margin-top:3px;padding-left:16px;background:url(../../../../img/icons/icon_withdraw.gif) no-repeat 0 2px}

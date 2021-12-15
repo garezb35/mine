@@ -86,7 +86,7 @@ table .left>img {
     color: #278C0D;
 }
 
-.trade_progress>.trade_progress_content>.guide_wrap>.guide_set>.SpGroup {
+.trade_progress>.trade_progress_content>.guide_wrap>.guide_set>.has-sprite {
     display: inline-block;
     width: 69px;
     height: 69px;

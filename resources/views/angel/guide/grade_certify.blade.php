@@ -17,18 +17,18 @@
 
 @section('content')
     <style>
-        .g_title_blue {
+        .contextual--title {
             margin-left: 20px;
         }
-        .g_tab>* {
+        .react_nav_tab>* {
             background-color: #e3f0f3;
             border-bottom: 2px solid #0081b9;
         }
-        .g_tab>.selected {
+        .react_nav_tab>.selected {
             border: 2px solid #0081b9;
             border-bottom: 0;
         }
-        .g_tab>*>a {
+        .react_nav_tab>*>a {
             font-size: 14px;
         }
         .tb_list th {
@@ -37,18 +37,18 @@
         .tb_list td {
             font-size: 13px;
         }
-        .g_blue_table tr th {
+        .table-primary tr th {
             background-color: #e3f0f3;
         }
-        .g_blue_table,
-        .g_blue_table tr th,
-        .g_blue_table tr td {
+        .table-primary,
+        .table-primary tr th,
+        .table-primary tr td {
             border: solid 1px #89c1ce;
         }
     </style>
 
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .img_wrap {
                 width: 214px;
@@ -118,21 +118,21 @@
             }
         </style>
         @include('angel.guide.aside', ['group'=>'new_guide', 'part'=>''])
-        <div class="g_content">
+        <div class="pagecontainer">
             <a name="top"></a>
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue">신용등급/인증센터</div>
+
+            <div class="contextual--title">신용등급/인증센터</div>
             <div class="g_gray_border"></div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 메뉴탭 //-->
-            <div class="g_tab">
+
+
+            <div class="react_nav_tab">
 {{--                <div><a href="safe_grade.html">신용등급</a></div>--}}
                 <div><a href="{{route('safe_grade_point')}}">관리점수</a></div>
                 <div class="selected"><a href="{{route('safe_grade_certify')}}">인증센터</a></div>
             </div>
-            <div class="g_finish"></div>
-            <!-- ▲ 메뉴탭 //-->
-            <div class="g_subtitle_blue">인증센터</div>
+            <div class="empty-high"></div>
+
+            <div class="highlight_contextual">인증센터</div>
             아이템천사는 고객님들의 거래에 더욱 신뢰성을 줄 수 있도록 인증제도를 도입하였습니다.<br>
             인증제도에는 휴대폰인증, 이메일인증, 출금계좌인증이 있습니다.
             <div class="guide_subtitle">■ 인증 수단별 안내</div>
@@ -140,5 +140,5 @@
             <div style="height: 40px;"></div>
         </div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

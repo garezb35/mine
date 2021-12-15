@@ -7,51 +7,51 @@
     <meta name="keywords" content="아이템천사,아이템거래,아이템,천사,아이템천사주소,아이템천사바로가기">
     <meta name="description" content="아이템거래 No.1 아이템천사 - 빠르고 안전한 아이템거래.">
     <meta name="referrer" content="no-referrer-when-downgrade" />
-    <link type="text/css" rel="stylesheet" href="/angel/_css/_comm.css?v=210317">
-    <link type="text/css" rel="stylesheet" href="/angel/_head_tail/css/_head_popup.css?v=210531">
+    <link type="text/css" rel="stylesheet" href="/angel/_css/webpack.css?v=210317">
+    <link type="text/css" rel="stylesheet" href="/angel/global_h/css/_head_popup.css?v=210531">
     <link type="text/css" rel="stylesheet" href="/angel/_css/_table_list.css" />
     <link type="text/css" rel="stylesheet" href="/angel/notice/css/list.css" />
 </head>
 <body>
-<div id="g_SLEEP" class="g_sleep g_hidden">
-    <div id="g_OVERLAY" class="g_overlay"></div>
+<div id="global_root" class="mainEntity d-none">
+    <div id="thirdys" class="fluid-div"></div>
 </div>
-<div id="g_BODY">
+<div id="angel">
     <div class="myotp_id_layer_wrapper">
         <div class="inner"></div>
     </div>
-    <div class="popup_title_bar"><img src="http://img2.itemmania.com/images/notice/titlep_notice.gif" alt="공지사항"></div>
+    <div class="model_titlebar"><img src="http://img2.itemmania.com/images/notice/titlep_notice.gif" alt="공지사항"></div>
     <div id="g_POPUP2">
-        <!-- ▼ 탭 //-->
-        <div class="g_tab">
+
+        <div class="react_nav_tab">
             <div class="selected"><a href="./list.html?pub=TRADE&type=all">전체</a></div>
             <div><a href="./list.html?pub=TRADE&type=general">안내</a></div>
             <div><a href="./list.html?pub=TRADE&type=update">업데이트</a></div>
             <div><a href="./list.html?pub=TRADE&type=safe">안전</a></div>
             <div><a href="./list.html?pub=TRADE&type=event ">이벤트</a></div>
-            <!-- <a href="./list.html?type=charge "><div>충전</div></a> -->
-        </div>
-        <!-- ▲ 탭 //-->
 
-        <!-- ▼ 검색 //-->
+        </div>
+
+
+
         <form action="./list.html " method="get " id='srchFrm' name='srchFrm' onSubmit='return srch()'>
             <input type="hidden " name="pub " value="TRADE " />
-            <ul class="g_right g_sideway ">
+            <ul class="float__right g_sideway ">
                 <li>
                     <select name="srchField ">
                         <option value="subject " selected>제목</option>
                     </select>
                 </li>
-                <li><input type="text " name="srchString " class="g_text " maxlength='15' value=" "/></li>
-                <li><input type="image " src="http://img2.itemmania.com/images/btn/btn_serch_blue1.gif " width="34 " height="20 " alt="검색 " class="g_image " /></li>
+                <li><input type="text " name="srchString " class="angel__text " maxlength='15' value=" "/></li>
+                <li><input type="image " src="http://img2.itemmania.com/images/btn/btn_serch_blue1.gif " width="34 " height="20 " alt="검색 " class="v_middle_img " /></li>
             </ul>
         </form>
-        <!-- ▲ 검색 //-->
 
-        <div class="g_finish "></div>
 
-        <!-- ▼ 공지사항 리스트 //-->
-        <table class="g_blue_table tb_list ">
+        <div class="empty-high "></div>
+
+
+        <table class="table-primary tb_list ">
             <colgroup>
                 <col width="45 " />
                 <col width="69 " />
@@ -137,9 +137,9 @@
                 <td>1,130</td>
             </tr>
         </table>
-        <!-- ▲ 공지사항 리스트 //-->
 
-        <div class="dvPaging ">
+
+        <div class="pagination__bootstrap ">
             <ul class="g_paging ">
                 <li class='start'><strong class="g_blue ">1</strong></li>
                 <li><a href="?page=2&pub=TRADE&srchString=&type=all ">2</a></li>
@@ -175,7 +175,7 @@
     }
 </script>
 <script>
-    _initialize();
+    loadGlobalItems()
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
-#popup_title_bar,
-.popup_title_bar {
+#model_titlebar,
+.model_titlebar {
     padding: 10px 0 13px 20px;
     background-color: #159efd;
     text-align: left;
@@ -22,11 +22,11 @@
     padding: 20px;
 }
 
-.g_btn {
+.btn-groups_angel {
     margin: 25px 0 10px;
 }
 
-.g_btn .first {
+.btn-groups_angel .first {
     margin-right: 6px
 }
 

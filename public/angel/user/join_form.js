@@ -152,10 +152,10 @@ function _init() {
                     if (_form.validator.userid($('#user_id').val()) === true) {
                         $('#idCheck').html('');
                     } else {
-                        $('#idCheck').html("<span class=\"f_red1 f_bold\">아이디는 4~12자 영문/숫자/영문+숫자 조합이여야합니다.</span>");
+                        $('#idCheck').html("<span class=\"f_red1 font-weight-bold\">아이디는 4~12자 영문/숫자/영문+숫자 조합이여야합니다.</span>");
                     }
-                    if ($('#captcha_check').val() == 'Y' && $('#captcha_area').hasClass('g_hidden')) {
-                        $('#captcha_area').removeClass('g_hidden');
+                    if ($('#captcha_check').val() == 'Y' && $('#captcha_area').hasClass('d-none')) {
+                        $('#captcha_area').removeClass('d-none');
                         frm.find('[name="user_id_check"]').val("N");
                         captchaResets();
                     }
@@ -225,10 +225,10 @@ function _init() {
         keyup: function() {
             if (this.value !== $('#user_password').val()) {
                 $(this).removeClass('blue').addClass('red');
-                $('#password_help2').html('<span class="f_red1 f_bold">미일치</span>');
+                $('#password_help2').html('<span class="f_red1 font-weight-bold">미일치</span>');
             } else {
                 $(this).removeClass('red').addClass('blue');
-                $('#password_help2').html('<span class="f_blue3 f_bold">일치</span>');
+                $('#password_help2').html('<span class="f_blue3 font-weight-bold">일치</span>');
             }
 
         }
@@ -345,7 +345,7 @@ function idCheck() {
     }
     else {
         frm.find('[name="user_id_check"]').val("N");
-        $('#idCheck').html("<span class=\"f_red1 f_bold\">아이디는 4~12자 영문/숫자/영문+숫자 조합이여야합니다.</span>");
+        $('#idCheck').html("<span class=\"f_red1 font-weight-bold\">아이디는 4~12자 영문/숫자/영문+숫자 조합이여야합니다.</span>");
         $('#user_id').val("").focus();
         if (bIdCheckAx == true) {
             captchaResets();
@@ -367,13 +367,13 @@ function OnLoadIdCheck(request) {
     }
     if (returnData[0] == "true") {
         frm.find('[name="user_id_check"]').val("Y");
-        $('#idCheck').html("<span class=\"f_blue3 f_bold\">사용 가능한 아이디 입니다.</span>");
-        $('#captcha_area').addClass('g_hidden');
+        $('#idCheck').html("<span class=\"f_blue3 font-weight-bold\">사용 가능한 아이디 입니다.</span>");
+        $('#captcha_area').addClass('d-none');
     }
     else {
         // console.log(2);
         frm.find('[name="user_id_check"]').val("N");
-        $('#idCheck').html("<span class=\"f_red1 f_bold\">" + returnData[1] + "</span>");
+        $('#idCheck').html("<span class=\"f_red1 font-weight-bold\">" + returnData[1] + "</span>");
     }
 
     if (bIdCheckAx == true) {
@@ -382,10 +382,10 @@ function OnLoadIdCheck(request) {
 }
 
 function captchaCheckView() {
-    if ($('#captcha_area').hasClass('g_hidden')) {
+    if ($('#captcha_area').hasClass('d-none')) {
         bIdCheckAx = true;
         $('#captcha_check').val('Y');
-        $('#captcha_area').removeClass('g_hidden');
+        $('#captcha_area').removeClass('d-none');
         $('#user_id').off('blur').on('blur', function() {
             $('#id_help').hide();
         });
@@ -420,13 +420,13 @@ function passwordCheck(e) {
     if (safeCheck === true) {
         strHtml = '';
         userPassword.removeClass('red').addClass('blue');
-        $('#password_help').html('<span class="f_blue3 f_bold">안전</span>');
+        $('#password_help').html('<span class="f_blue3 font-weight-bold">안전</span>');
 
     } else {
         if (userPassword.val().isEmpty() === false) {
             strHtml = '10~16자 / 영문+숫자or특수문자 조합이여야 합니다.';
             userPassword.removeClass('blue').addClass('red');
-            $('#password_help').html('<span class="f_red1 f_bold">사용불가</span>');
+            $('#password_help').html('<span class="f_red1 font-weight-bold">사용불가</span>');
         } else {
             userPassword.removeClass('blue red');
             $('#password_help').html('');

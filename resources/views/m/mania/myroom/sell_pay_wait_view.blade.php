@@ -13,7 +13,7 @@
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css?210503" />
     <link type='text/css' rel='stylesheet' href='/angel/myroom/sell/css/common_view.css?v=210114'>
-    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+
     <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
@@ -34,18 +34,18 @@
 
 @section('content')
 
-<!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-<div class="g_container" id="g_CONTENT">
+
+<div class="container_fulids" id="module-teaser-fullscreen">
     @include("aside.myroom",['group'=>'buy'])
-    <div class="g_content">
+    <div class="pagecontainer">
         <a name="top"></a>
-        <!-- ▼ 타이틀 //-->
-        <div class="g_title_blue noborder"> 구매자의 입금을 기다리는 <span>물품</span>
+
+        <div class="contextual--title noborder"> 구매자의 입금을 기다리는 <span>물품</span>
         </div>
         <div class="g_gray_border"></div>
-        <!-- ▲ 타이틀 //-->
-        <!-- ▼ 물품정보 //-->
-        <div class="g_subtitle first">물품정보</div>
+
+
+        <div class="highlight_contextual_nodemon first">물품정보</div>
         <table class="table-striped table-green1">
             <colgroup>
                 <col width="160">
@@ -82,9 +82,9 @@
                 <td colspan="3">{{$seller['character']}}</td>
             </tr>
         </table>
-        <!-- ▲ 물품정보 //-->
-        <!-- ▼ 내 개인정보 //-->
-        <div class="g_subtitle">내 거래정보</div>
+
+
+        <div class="highlight_contextual_nodemon">내 거래정보</div>
         <table class="table-striped table-green1">
             <colgroup>
                 <col width="160">
@@ -96,49 +96,49 @@
             </tr>
             <tr>
                 <th>연락처</th>
-                <td>{{$seller['home']}} / {{$seller['number']}} <span class="f_blue3 f_bold">(SMS수신)</span></td>
+                <td>{{$seller['home']}} / {{$seller['number']}} <span class="f_blue3 font-weight-bold">(SMS수신)</span></td>
             </tr>
         </table>
-        <!-- ▲ 내 개인정보 //-->
-        <!-- ▼ 거래진행상황 //-->
-        <!-- ▼ 판매진행안내 //-->
+
+
+
         <div class="trade_progress">
-            <div class="g_subtitle"> 거래 진행 상황 </div>
+            <div class="highlight_contextual_nodemon"> 거래 진행 상황 </div>
             <div class="trade_progress_content">
                 <div class="guide_wrap">
-                    <div class="guide_set"> <span class="SpGroup sell_regist_icon"></span> <span class="state">판매등록</span>
+                    <div class="guide_set"> <span class="has-sprite sell_regist_icon"></span> <span class="state">판매등록</span>
                         <p>판매할 물품을 등록해놓은
                             <br/>[거래대기] 상태입니다.
                             <br/>구매신청이 들어올때까지
                             <br/>기다려주세요.</p>
                     </div>
-                    <div class="guide_set @if($status == 0) active @endif"> <span class="SpGroup pay_wait_icon"></span> <span class="state">입금대기</span>
+                    <div class="guide_set @if($status == 0) active @endif"> <span class="has-sprite pay_wait_icon"></span> <span class="state">입금대기</span>
                         <p>구매자가 구매신청 후
                             <br/>입금을 준비하고 있습니다.
                             <br/>입금완료 후, 판매중 상태가
-                            <br/>되면 거래를 시작해주세요.</p> <i class="SpGroup arr_mini"></i> </div>
-                    <div class="guide_set @if(($status == 1) || (!str_contains($status, '3')  && $status != 10 && $status !=32 && $status !=23 && $status != 0)) {{'active'}}@endif"> <span class="SpGroup sell_ing_icon"></span> <span class="state">판매중</span>
+                            <br/>되면 거래를 시작해주세요.</p> <i class="has-sprite arr_mini"></i> </div>
+                    <div class="guide_set @if(($status == 1) || (!str_contains($status, '3')  && $status != 10 && $status !=32 && $status !=23 && $status != 0)) {{'active'}}@endif"> <span class="has-sprite sell_ing_icon"></span> <span class="state">판매중</span>
                         <p>현재 구매자와 거래중입니다.
                             <br/>구매자와 반드시 전화통화로
                             <br/>거래할 캐릭터명을 확인 후
-                            <br/>물품을 건네시기 바랍니다. </p> <i class="SpGroup arr_mini"></i> </div>
-                    <div class="guide_set @if($status == 3) {{'active'}} @endif"> <span class="SpGroup trade_icon"></span> <span class="state">인계완료</span>
+                            <br/>물품을 건네시기 바랍니다. </p> <i class="has-sprite arr_mini"></i> </div>
+                    <div class="guide_set @if($status == 3) {{'active'}} @endif"> <span class="has-sprite trade_icon"></span> <span class="state">인계완료</span>
                         <p>거래종료 예정입니다.
                             <br/>구매자가 인수할때까지
-                            <br/>기다려주세요.</p> <i class="SpGroup arr_mini"></i> </div>
-                    <div class="guide_set @if($status == 23 || $status == 32) {{'active'}} @endif"> <span class="SpGroup sell_complete_icon"></span> <span class="state">판매완료</span>
+                            <br/>기다려주세요.</p> <i class="has-sprite arr_mini"></i> </div>
+                    <div class="guide_set @if($status == 23 || $status == 32) {{'active'}} @endif"> <span class="has-sprite sell_complete_icon"></span> <span class="state">판매완료</span>
                         <p>거래가 정상적으로
                             <br/>종료되었습니다.
                             <br/>문제 발생 시
-                            <br/>고객센터로 문의해주세요.</p> <i class="SpGroup arr_mini"></i> </div>
+                            <br/>고객센터로 문의해주세요.</p> <i class="has-sprite arr_mini"></i> </div>
                 </div>
             </div>
         </div>
-        <!-- ▲ 판매진행안내 //-->
-        <!-- ▲ 거래진행상황 //-->
-        <div class="g_finish"></div>
-        <!-- ▼ 상세설명 //-->
-        <div class="g_subtitle">상세설명</div>
+
+
+        <div class="empty-high"></div>
+
+        <div class="highlight_contextual_nodemon">상세설명</div>
         <div class="detail_info">
             <div class="detail_text">
                 <div id="js-gallery" class="mb-5">
@@ -152,7 +152,7 @@
             </div>
         </div>
     </div>
-    <div class="g_finish"></div>
+    <div class="empty-high"></div>
 </div>
-<!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

@@ -16,18 +16,18 @@
 
 @section('content')
     <style>
-        .g_title_blue {
+        .contextual--title {
             margin-left: 20px;
         }
-        .g_tab>* {
+        .react_nav_tab>* {
             background-color: #e3f0f3;
             border-bottom: 2px solid #0081b9;
         }
-        .g_tab>.selected {
+        .react_nav_tab>.selected {
             border: 2px solid #0081b9;
             border-bottom: 0;
         }
-        .g_tab>*>a {
+        .react_nav_tab>*>a {
             font-size: 14px;
         }
         .tb_list th {
@@ -36,18 +36,18 @@
         .tb_list td {
             font-size: 13px;
         }
-        .g_blue_table tr th {
+        .table-primary tr th {
             background-color: #e3f0f3;
         }
-        .g_blue_table,
-        .g_blue_table tr th,
-        .g_blue_table tr td {
+        .table-primary,
+        .table-primary tr th,
+        .table-primary tr td {
             border: solid 1px #89c1ce;
         }
     </style>
 
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .img_wrap {
                 width: 214px;
@@ -116,25 +116,25 @@
             }
         </style>
         @include('angel.guide.aside', ['group'=>'new_guide', 'part'=>''])
-        <div class="g_content">
+        <div class="pagecontainer">
             <a name="top"></a>
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue no-border"> 초보자 가이드 </div>
+
+            <div class="contextual--title no-border"> 초보자 가이드 </div>
             <div class="g_gray_border"></div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 메뉴탭 //-->
-            <div class="g_tab">
+
+
+            <div class="react_nav_tab">
                 <div class=""><a href="{{route('guide_howto')}}">거래방법 보기</a></div>
-                <!--<div class=""><a href="{{route('guide_movie')}}">동영상 가이드</a></div>-->
+
                 <div class=""><a href="{{route('guide_safe')}}">안전 거래 시스템</a></div>
                 <div class=""><a href="{{route('guide_trade')}}">거래시 주의사항</a></div>
                 <div class="selected"><a href="{{route('guide_failed')}}">거래 사기 실시간 조회</a></div>
             </div>
-            <div class="g_finish"></div>
-            <!-- ▲ 메뉴탭 //-->
-            <div class="g_subtitle_blue">거래 사기 실시간 조회</div>
+            <div class="empty-high"></div>
+
+            <div class="highlight_contextual">거래 사기 실시간 조회</div>
             <img src="/angel/img/guide/screenshot/img_thecheat.jpg" width="100%" alt="">
-            <div class="g_subtitle">■ 이용방법</div>
+            <div class="highlight_contextual_nodemon">■ 이용방법</div>
             <div class="way_txt">팝니다 등록물품 &gt; 물품정보 하단에 [거래사기 실시간 조회 서비스] 확인 가능</div>
             <img src="/angel/img/guide/screenshot/img_thecheat02.jpg" width="100%" alt="">
 
@@ -145,7 +145,7 @@
 
             <strong>※ 조회된 더치트의 피해사례 게시물 내용에 대해 아이템천사는 보증하지 않으며, 게시물의 법적 책임은 더치트 피해사례 등록자에게 있습니다.</strong>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

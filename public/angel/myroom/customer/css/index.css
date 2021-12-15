@@ -23,14 +23,14 @@
     color: #FF4E00;
 }
 
-.service_layer .inner {
+.settings_window .inner {
     margin-top: 20px;
     width: 840px;
     height: 276px;
     border: 1Px solid #A0A0A0;
 }
 
-.service_layer .title {
+.settings_window .title {
     position: relative;
     overflow: hidden;
     padding: 40px 20px 20px 30px;
@@ -39,19 +39,19 @@
     font-weight: bold;
 }
 
-.service_layer .title span {
+.settings_window .title span {
     font-size: 11px;
     color: #767676;
     font-weight: normal;
 }
 
-.service_layer .title .r_area {
+.settings_window .title .r_area {
     position: absolute;
     top: 35px;
     right: 20px;
 }
 
-.service_layer .r_area .btn_white2 {
+.settings_window .r_area .btn_white2 {
     display: inline-block;
     width: 51px;
     height: 28px;
@@ -64,13 +64,13 @@
     line-height: 25px;
 }
 
-.service_layer .service_list {
+.settings_window .service_list {
     overflow: hidden;
     /* margin-bottom:20px; */
     padding: 0px 20px 20px 20px;
 }
 
-.service_layer .service_list li {
+.settings_window .service_list li {
     position: relative;
     box-sizing: border-box;
     float: left;
@@ -82,7 +82,7 @@
     color: #9F9F9F
 }
 
-.service_layer .service_list .on {
+.settings_window .service_list .on {
     background-color: #FFF;
     color: #767676
 }
@@ -115,7 +115,7 @@
     cursor: pointer;
 }
 
-.service_list label .SpGroup {
+.service_list label .has-sprite {
     display: block;
     width: 36px;
     height: 36px;

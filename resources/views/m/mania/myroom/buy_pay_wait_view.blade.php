@@ -46,19 +46,19 @@ else
 @endsection
 
 @section('content')
-    <div class="g_container" id="g_CONTENT">
+    <div class="container_fulids" id="module-teaser-fullscreen">
         @include('aside.myroom',['group'=>'buy'])
         <input type="hidden" id="screenshot_info" value="TiUzQg==">
-        <div class="g_content">
+        <div class="pagecontainer">
             <a name="top"></a>
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_green noborder">
+
+            <div class="text-green_moderation noborder">
                 입금해야 할
                 <span>물품</span>
             </div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 물품정보 //-->
-            <div class="g_subtitle first">물품정보</div>
+
+
+            <div class="highlight_contextual_nodemon first">물품정보</div>
             <table class="table-striped table-green1">
                 <colgroup>
                     <col width="160">
@@ -104,9 +104,9 @@ else
                 </tr>
                 </tbody>
             </table>
-            <!-- ▲ 물품정보 //-->
-            <!-- ▼ 판매자정보 //-->
-            <div class="g_subtitle">판매자 정보</div>
+
+
+            <div class="highlight_contextual_nodemon">판매자 정보</div>
             <table class="table-greenwith">
                 <colgroup>
                     <col width="310px" />
@@ -116,7 +116,7 @@ else
                     <th class="p-left-10">
                         <div>
                             <img src="/angel/img/level/{{$seller['roles']['icon']}}" width="37"/>
-                            <span class="f_green4 f_bold">{{$seller['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($seller['point'])}}점)
+                            <span class="f_green4 font-weight-bold">{{$seller['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($seller['point'])}}점)
                         </div>
                     </th>
                     <td>
@@ -149,15 +149,15 @@ else
                                     @endif이메일</span>
                                 </dd>
                             </dl>
-                        <div class="g_right">
+                        <div class="float__right">
                             <a href="javascript:fnCreditViewCheck()"></a>
                         </div>
                     </td>
                 </tr>
             </table>
-            <!-- ▲ 판매자정보 //-->
-            <!-- ▼ 내 개인정보 //-->
-            <div class="g_subtitle">내 거래정보</div>
+
+
+            <div class="highlight_contextual_nodemon">내 거래정보</div>
             <table class="table-striped table-green1">
                 <colgroup>
                     <col width="160">
@@ -174,7 +174,7 @@ else
                 </tr>
                 </tbody>
             </table>
-            <!-- ▲ 내 개인정보 //-->
+
             <form id="frmPayment" name="frmPayment" action="buy_pay_wait_ok" method="post">
                 @csrf
                 <input type="hidden" name="id" value="{{$orderNo}}">
@@ -183,15 +183,14 @@ else
                 <input type="hidden" name="p_type" value="m">
                 <input type="hidden" name="bankCode" value="">
                 <input type="hidden" name="code" id="code">
-                <!-- 마일리지 결제 인증 변수 -->
+
                 <input type="hidden" id="security_type" name="security_type" value="INCS">
-                <input type="hidden" id="certify_pay" name="certify_pay" value="YTo0OntzOjEwOiJjZXJ0aWZ5X2xjIjtzOjM6InBheSI7czo5OiJmb3JtX25hbWUiO3M6MTA6ImZybVBheW1lbnQiO3M6MTE6InN1Ym1pdF90eXBlIjtzOjE6IjEiO3M6MTA6InN1Ym1pdF91cmwiO3M6MzE6Ii9teXJvb20vYnV5L2J1eV9wYXlfd2FpdF9vay5waHAiO30=">
                 <input type="hidden" name="price" value="">
                 <input type="hidden" name="mileage" value="0">
                 <input type="hidden" name="my_mileage" value="{{$buyer['mileage']}}">
                 <input type="hidden" id="other_pay" name="use_creditcard" value="{{number_format($buyer['mileage'])}}">
                 <input type="hidden" name="use_creditcard_original" value="{{$buyer['mileage']}}">
-                <div class="g_subtitle">결제정보</div>
+                <div class="highlight_contextual_nodemon">결제정보</div>
                 <div>
                     <div class="card text-white bg-success mb-3 fl" style="max-width: 18rem;">
                         <div class="card-header">
@@ -218,7 +217,7 @@ else
                             </div>
                             <div style="clear: both;height: 20px">
                                 <span class="fl">사용할 마일리지</span>
-                                <span class="fr"><input style="width: 100px" type="text" class="g_text" id="use_mileage" name="use_mileage" value="{{number_format($payitem['price'])}}" readonly disabled>원</span>
+                                <span class="fr"><input style="width: 100px" type="text" class="angel__text" id="use_mileage" name="use_mileage" value="{{number_format($payitem['price'])}}" readonly disabled>원</span>
                             </div>
                         </div>
                     </div>
@@ -240,10 +239,10 @@ else
                         <th>마일리지</th>
                         <td>
                             @if($buyer['mileage'] < $payitem['price'])
-                                <span class="g_left f_bold">* 현재 결제할 마일리지가 부족합니다.</span>
-                                <a href="javascript:_window.open('mileage_charge', '/myroom/mileage/charge/index', 701, 900);" class="g_right btn btn-outline-secondary btn-sm" style="margin-right: 10px">마일리지 충전 &gt;</a>
+                                <span class="float-left font-weight-bold">* 현재 결제할 마일리지가 부족합니다.</span>
+                                <a href="javascript:_window.open('mileage_charge', '/myroom/mileage/charge/index', 701, 900);" class="float__right btn btn-outline-secondary btn-sm" style="margin-right: 10px">마일리지 충전 &gt;</a>
                             @else
-                                <span class="g_left f_bold">* 현재 결제할 마일리지가 충분합니다.</span>
+                                <span class="float-left font-weight-bold">* 현재 결제할 마일리지가 충분합니다.</span>
                             @endif
                         </td>
                     </tr>
@@ -279,8 +278,8 @@ else
                         <span class="bold_txt">원</span> (<span class="pay_text">마일리지</span> 방식으로 해당 추가금액을 결제합니다.)
                     </li>
                 </ul>
-                <div class="g_finish"></div>
-                <div class="g_btn_wrap">
+                <div class="empty-high"></div>
+                <div class="b_input_group">
                     <a href="javascript:void(0)"  onclick="Payment();" class="btn-default btn-suc">입금확인요청</a>
                     <a href="javascript:void(0)"  onclick="PaymentCancel();" id="cancel_btn"  class="btn-default btn-cancel">구매취소</a>
                 </div>
@@ -291,13 +290,13 @@ else
             <input type="hidden" name="id" id="encryptId">
             <input type="hidden" name="type" id="encryptType">
         </form>
-        <!-- ▼ 확인 팝업 //-->
-        <div id="dvGoodsInfo" class="g_popup green">
-            <div class="layer_title">
+
+        <div id="dvGoodsInfo" class="modal_dialog green">
+            <div class="modal__title">
                 <div class="title">물품신청정보</div>
-                <img class="btn_close" src="http://img4.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();">
+                <img class="modal__close" src="http://img4.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();">
             </div>
-            <div class="layer_content">
+            <div class="modal--content">
                 <table class="table-striped table-green1">
                     <colgroup>
                         <col width="130">
@@ -327,7 +326,7 @@ else
                     </tr>
                     <tr>
                         <th>구매자 캐릭터명</th>
-                        <td class="f_blue1">{{$buyer['character']}}</td>
+                        <td class="text-blue_modern">{{$buyer['character']}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -347,17 +346,17 @@ else
                     </li>
                 </ul>
 
-                <div class="g_btn">
+                <div class="btn-groups_angel">
                     <a  onclick="fnSubmit()" class="btn-default btn-suc">확인</a>
                     <a  onclick="g_nodeSleep.disable();" class="btn-default btn-cancel">취소</a>
                 </div>
             </div>
         </div>
-        <!-- ▲ 확인 팝업 //-->
-        <!-- ▼ 팝업 레이어 //-->
-        <div id="dvPopup" class="g_popup"></div>
-        <!-- ▲ 팝업 레이어 //-->
 
-        <div class="g_finish"></div>
+
+        <div id="dialog_fade" class="modal_dialog"></div>
+
+
+        <div class="empty-high"></div>
     </div>
 @endsection

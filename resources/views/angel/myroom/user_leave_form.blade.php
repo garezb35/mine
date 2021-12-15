@@ -42,15 +42,15 @@
             padding-bottom: 15.5px;
         }
     </style>
-    <div class="g_container" id="g_CONTENT">
+    <div class="container_fulids" id="module-teaser-fullscreen">
         @include('aside.myroom',['group'=>'exit'])
-        <div class="g_content">
-            <div class="g_title_blue noborder">
+        <div class="pagecontainer">
+            <div class="contextual--title noborder">
                 회원<span>탈퇴</span>
             </div>
 
-            <div class="g_subtitle">마일리지 및 포인트 정보</div>
-            <table class="g_blue_table noborder">
+            <div class="highlight_contextual_nodemon">마일리지 및 포인트 정보</div>
+            <table class="table-primary noborder">
                 <colgroup>
                     <col width="33%">
                     <col width="33%">
@@ -82,7 +82,7 @@
                         </div>
                         <div class="tb_cell2 w-100">
                             <input type="submit" class="" width="66" height="20" value="신청하기" />
-{{--                            <input type="image" src="http://img2.itemmania.com/images/myroom/user_leave/btn_b_appl.gif" width="66" height="20" title="신청하기" class="g_image">--}}
+{{--                            <input type="image" src="http://img2.itemmania.com/images/myroom/user_leave/btn_b_appl.gif" width="66" height="20" title="신청하기" class="v_middle_img">--}}
                         </div>
                     </form>
                 </div>
@@ -90,7 +90,7 @@
                     <form id="signForm" name="signForm" method="post" action="/myroom/user_leave/user_leave_cause">
                         @csrf
                         <input type="hidden" name="pMode" value="user_leave">
-                        <table class="g_blue_table g_sky_table">
+                        <table class="table-primary g_sky_table">
                             <colgroup>
                                 <col width="140">
                                 <col width="240">
@@ -115,7 +115,7 @@
                                 </tr>
                                 <tr>
                                     <th>비밀번호</th>
-                                    <td><input type="password" class="g_text" name="passwd" id="user_passwd" maxlength="30"></td>
+                                    <td><input type="password" class="angel__text" name="passwd" id="user_passwd" maxlength="30"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -123,7 +123,7 @@
                 </div>
             </div>
 
-            <div class="g_subtitle f-16"><span class="ft_orange">회원탈퇴</span>안내</div>
+            <div class="highlight_contextual_nodemon f-16"><span class="ft_orange">회원탈퇴</span>안내</div>
             <div style="border: solid 1px #bbb;padding: 12px 15px;">
                 <p>
                     회원 탈퇴 시 회원님께서 보유하셨던 마일리지 및 포인트, 쿠폰, 무료이용권은 모두 삭제됩니다.<br>
@@ -131,7 +131,7 @@
                 </p>
             </div>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
 @endsection
 <style>

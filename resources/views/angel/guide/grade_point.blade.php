@@ -8,26 +8,23 @@
 
 @section('foot_attach')
     <script type='text/javascript' src='/angel/guide/frshmn_guide/js/common.js'></script>
-    <script type='text/javascript'>
-
-
-    </script>
+    <script type='text/javascript'></script>
 @endsection
 
 @section('content')
     <style>
-        .g_title_blue {
+        .contextual--title {
             margin-left: 20px;
         }
-        .g_tab>* {
+        .react_nav_tab>* {
             background-color: #e3f0f3;
             border-bottom: 2px solid #0081b9;
         }
-        .g_tab>.selected {
+        .react_nav_tab>.selected {
             border: 2px solid #0081b9;
             border-bottom: 0;
         }
-        .g_tab>*>a {
+        .react_nav_tab>*>a {
             font-size: 14px;
         }
         .tb_list th {
@@ -36,18 +33,18 @@
         .tb_list td {
             font-size: 13px;
         }
-        .g_blue_table tr th {
+        .table-primary tr th {
             background-color: #e3f0f3;
         }
-        .g_blue_table,
-        .g_blue_table tr th,
-        .g_blue_table tr td {
+        .table-primary,
+        .table-primary tr th,
+        .table-primary tr td {
             border: solid 1px #89c1ce;
         }
     </style>
 
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .img_wrap {
                 width: 214px;
@@ -117,25 +114,21 @@
             }
         </style>
         @include('angel.guide.aside', ['group'=>'new_guide', 'part'=>''])
-        <div class="g_content">
+        <div class="pagecontainer">
             <a name="top"></a>
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue">
-                <div class="g_left"><img src="http://img3.itemmania.com/images/guide/title_cred.gif" width="145" height="20" alt="신용등급/인증센터"></div>
+
+            <div class="contextual--title">
+                <div class="float-left">신용등급/인증센터</div>
             </div>
             <div class="g_gray_border"></div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 메뉴탭 //-->
-            <div class="g_tab">
-{{--                <div><a href="safe_grade.html">신용등급</a></div>--}}
+            <div class="react_nav_tab">
                 <div class="selected"><a href="{{route('safe_grade_point')}}">관리점수</a></div>
                 <div ><a href="{{route('safe_grade_certify')}}">인증센터</a></div>
             </div>
-            <div class="g_finish"></div>
-            <!-- ▲ 메뉴탭 //-->
-            <div class="g_subtitle_blue">관리점수</div> 안전한 거래를 위해 불량거래나 사이트 이용 시 규정을 위반한 경우 관리점수를 부과합니다.
+            <div class="empty-high"></div>
+            <div class="highlight_contextual">관리점수</div> 안전한 거래를 위해 불량거래나 사이트 이용 시 규정을 위반한 경우 관리점수를 부과합니다.
             <div class="guide_subtitle">■ 감점사항</div>
-            <table class="g_blue_table" id="point_table">
+            <table class="table-primary" id="point_table">
                 <colgroup>
                     <col width="55">
                     <col width="">
@@ -216,7 +209,7 @@
                 </tbody>
             </table>
             <div class="guide_subtitle">■ 감점에 따른 제재</div>
-            <table class="g_blue_table" id="point_table2">
+            <table class="table-primary" id="point_table2">
                 <colgroup>
                     <col width="160">
                     <col width="199">
@@ -248,9 +241,8 @@
                 <br> - 제재기간에는 하락된 등급에서 상승이나 하락이 불가능합니다.
                 <br> - 제재기간 후에는 신용등급 책정 기준에 따라 신용등급이 다시 책정됩니다. </div>
             <div class="divi_line"></div>
-            <a href="#top"><img class="g_right" src="http://img2.itemmania.com/images/btn/Scroll-to-top.png" width="61" height="20" alt="맨위로"></a>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

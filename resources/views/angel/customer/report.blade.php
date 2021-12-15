@@ -34,8 +34,8 @@
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .notice {
                 height: 24px;
@@ -88,8 +88,8 @@
             }
         </style>
         @include('angel.customer.aside', ['group'=>'report', 'part'=>'close'])
-        <div class="g_content">
-            <div class="g_title_blue no-border"> 1:1 상담하기 </div>
+        <div class="pagecontainer">
+            <div class="contextual--title no-border"> 1:1 상담하기 </div>
             <div class="s_subtitle">상담 분류 선택</div>
             <table class="g_sky_table category_tb" id="category_tb">
                 <colgroup>
@@ -112,17 +112,17 @@
                     </td>
                 </tr>
             </table>
-            <div class="g_finish"></div>
-            <div class="g_tab onetab">
+            <div class="empty-high"></div>
+            <div class="react_nav_tab onetab">
                 <div class="selected f-16"> 거래중 내역 </div>
             </div>
-            <div class="g_tab_line"></div>
+            <div class="react_nav_tab_line"></div>
             <ul id="trade_subtab" class="g_sideway">
-                <li> <a class="f-14 {{$typeTxt == 'sell' ? 'f_blue3 f_bold' : ''}}" href="{{route("customer_report")}}?type=sell">판매중 물품 </a> </li>
+                <li> <a class="f-14 {{$typeTxt == 'sell' ? 'f_blue3 font-weight-bold' : ''}}" href="{{route("customer_report")}}?type=sell">판매중 물품 </a> </li>
                 <li> |</li>
-                <li> <a class="f-14 {{$typeTxt == 'buy' ? 'f_blue3 f_bold' : ''}}" href="{{route("customer_report")}}?type=buy">구매중 물품 </a> </li>
+                <li> <a class="f-14 {{$typeTxt == 'buy' ? 'f_blue3 font-weight-bold' : ''}}" href="{{route("customer_report")}}?type=buy">구매중 물품 </a> </li>
             </ul>
-            <div class="g_finish"></div>
+            <div class="empty-high"></div>
             <div class="g_big_box1">
                 <form id="frmSearch" action="" method="post">
                     @csrf
@@ -137,24 +137,24 @@
                     <div class="" style="height: 35px;">
                         <div id="dvGame" name="game"><input type="hidden" name="selected" value="{{$game_text}}"/></div>
                         <div id="dvServer" name="gserver"><input type="hidden" name="selected" value="{{$server_text}}"/></div>
-                        <select id="dvGoods" name="search_goods" class="g_hidden">
-                            <option @if ($search_goods == "all") selected @endif value="all">물품전체</option>
-                            <option @if ($search_goods == '3') selected @endif value="3">게임머니</option>
-                            <option @if ($search_goods == '1') selected @endif value="1">아이템</option>
-                            <option @if ($search_goods == '2') selected @endif value="2">계정</option>
-                            <option @if ($search_goods == '4') selected @endif value="4">기타</option>
+                        <select id="dvGoods" name="filtered_items" class="d-none">
+                            <option @if ($filtered_items == "all") selected @endif value="all">물품전체</option>
+                            <option @if ($filtered_items == '3') selected @endif value="3">게임머니</option>
+                            <option @if ($filtered_items == '1') selected @endif value="1">아이템</option>
+                            <option @if ($filtered_items == '2') selected @endif value="2">계정</option>
+                            <option @if ($filtered_items == '4') selected @endif value="4">기타</option>
                         </select>
                     </div>
                     <div class="">
                         <strong class="f-12">금액 : </strong>
-                        <input type="text" name="search_price_min" maxlength="13" class="g_text" style="width:140px; text-align: right;" value="{{$search_price_min}}" /> ~
-                        <input type="text" name="search_price_max" maxlength="13" class="g_text" style="width:140px; text-align: right;" value="{{$search_price_max}}" />
-                        <input type="submit" width="46" height="20" alt="검색" class="g_image btn_search" value="검색" />
+                        <input type="text" name="search_price_min" maxlength="13" class="angel__text" style="width:140px; text-align: right;" value="{{$search_price_min}}" /> ~
+                        <input type="text" name="search_price_max" maxlength="13" class="angel__text" style="width:140px; text-align: right;" value="{{$search_price_max}}" />
+                        <input type="submit" width="46" height="20" alt="검색" class="v_middle_img btn_search" value="검색" />
                     </div>
-                    <div class="g_finish"></div>
+                    <div class="empty-high"></div>
                 </form>
             </div>
-            <!-- ▼ 리스트 //-->
+
             <table id="trade_list" class="g_sky_table g_sky_tb tb_list">
                 <colgroup>
                     <col width="50" />
@@ -175,7 +175,7 @@
                 </tr>
                 @foreach ($sellingRecord as $record)
                 <tr>
-                    <td class="f_blue3 f_bold">
+                    <td class="f_blue3 font-weight-bold">
                         {{$typeTxt == 'sell' ? '판매' : '구매'}}
                     </td>
                     <td>{{$record['game']['game']}} >...</td>
@@ -208,8 +208,8 @@
                 @endforeach
             </table>
 
-            <div class="dvPaging"></div>
-            <div class="g_finish"></div>
+            <div class="pagination__bootstrap"></div>
+            <div class="empty-high"></div>
             <div id="Form_table" style="display: none">
                 <form name="form_member" id="form_member" method="post" enctype="multipart/form-data">
                     @csrf
@@ -240,11 +240,11 @@
                         <tr>
                             <th>연락처</th>
                             <td class="h_auto">
-                                <div id="myinfo" class="g_left g_black3_11"> 집(직장) : N{{$user['home']}}&nbsp;&nbsp;휴대폰 :
+                                <div id="myinfo" class="float-left g_black3_11"> 집(직장) : N{{$user['home']}}&nbsp;&nbsp;휴대폰 :
                                     {{$user->phone}}
                                     <br /> 정확한 연락처로 신고해 주세요.
                                     <br /> 연락처가 틀릴 경우 상담이 원활히 이루어지지 않을 수 있습니다. </div>
-                                <div class="g_right"></div>
+                                <div class="float__right"></div>
                             </td>
                         </tr>
                         <tr id="TR_trade_num">
@@ -273,20 +273,20 @@
                         <tr>
                             <th>통화가능번호</th>
                             <td>
-                                <input type="text" name="user_phone1" class="g_text" id="phone1" maxlength="3" /> -
-                                <input type="text" name="user_phone2" class="g_text" id="phone2" maxlength="4" /> -
-                                <input type="text" name="user_phone3" class="g_text" id="phone3" maxlength="4" />
+                                <input type="text" name="user_phone1" class="angel__text" id="phone1" maxlength="3" /> -
+                                <input type="text" name="user_phone2" class="angel__text" id="phone2" maxlength="4" /> -
+                                <input type="text" name="user_phone3" class="angel__text" id="phone3" maxlength="4" />
                                 <span class="g_black3_11">현재 통화 가능한 연락처를 남겨주세요.</span>
                             </td>
                         </tr>
                     </table>
-                    <div class="g_btn">
+                    <div class="btn-groups_angel">
                         <button class="btn-blue-img btn-color-img" type="submit">확인</button>
                         <button class="btn-gray-img btn-color-img" type="button">취소</button>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
 @endsection

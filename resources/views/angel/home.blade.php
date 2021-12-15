@@ -7,8 +7,8 @@
 
 @section('foot_attach')
 
-    <script type="text/javascript" src="/angel/_js/_xml2json.js"></script>
-    <script type="text/javascript" src="/angel/_js_chart/_avgGameChart.js"></script>
+    <script type="text/javascript" src="/angel/_js/insomnia.js"></script>
+    <script type="text/javascript" src="/angel/diagram_chart/init.js"></script>
     <script type="text/javascript" src="/angel/js/home.js"></script>
     <script>
         $(document).ready(function() {
@@ -22,12 +22,12 @@
         });
         $(".searchbar_tab div").click(function(){
             if($(this).data('t') == 1){
-                $("#tab_sell").removeClass('g_hidden');
-                $("#tab_buy").addClass('g_hidden');
+                $("#tab_sell").removeClass('d-none');
+                $("#tab_buy").addClass('d-none');
             }
             else{
-                $("#tab_buy").removeClass('g_hidden');
-                $("#tab_sell").addClass('g_hidden');
+                $("#tab_buy").removeClass('d-none');
+                $("#tab_sell").addClass('d-none');
             }
         })
     </script>
@@ -51,67 +51,67 @@
             border: none !important;
         }
     </style>
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
+
     <input type="hidden" name="new_except" value="">
-    <div class="g_layer service_layer" id="service_layer">
-        <div class="inner"> <a href="javascript:;" class="close" id="service_close">닫기</a>
+    <div class="react___gatsby settings_window" id="settings_window">
+        <div class="inner"> <a href="javascript:;" class="close" id="disableSettings">닫기</a>
             <div class="title f-15">
                 즐겨찾는 서비스 <span class="f-13">최대 8개를 선택할수 잇습니다.</span>
                 <div class="r_area">
-                    <a href="javascript:;" class="btn_white2 save" id="service_save">저장</a>
-                    <a href="javascript:;" class="btn_white2 init" id="service_init">초기화</a>
+                    <a href="javascript:;" class="btn_white2 save" id="submit_menus">저장</a>
+                    <a href="javascript:;" class="btn_white2 init" id="reset_menus">초기화</a>
                 </div>
             </div>
             <ul class="service_list" id="service_list">
-                <li class="service_list_btn @if(!empty($fav[1])) on @endif">
+                <li class="arrange_menus @if(!empty($fav[1])) on @endif">
                     <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="1" @if(!empty($fav[1])) checked @endif> <span class="tmp_checkbox"></span> <span class="SpGroup mileage"></span> 내 마일리지 </label>
+                        <input type="checkbox" class="cs_checkbox" name="service[]" value="1" @if(!empty($fav[1])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite mileage"></span> 내 마일리지 </label>
                 </li>
-                <li class="service_list_btn @if(!empty($fav[2])) on @endif">
+                <li class="arrange_menus @if(!empty($fav[2])) on @endif">
                     <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="2" @if(!empty($fav[2])) checked @endif> <span class="tmp_checkbox"></span> <span class="SpGroup counsel"></span> 상담내역보기 </label>
+                        <input type="checkbox" class="cs_checkbox" name="service[]" value="2" @if(!empty($fav[2])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite counsel"></span> 상담내역보기 </label>
                 </li>
-                <li class="service_list_btn @if(!empty($fav[3])) on @endif">
+                <li class="arrange_menus @if(!empty($fav[3])) on @endif">
                     <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="3" @if(!empty($fav[3])) checked @endif> <span class="tmp_checkbox"></span> <span class="SpGroup sell"></span> 판매관련물품 </label>
+                        <input type="checkbox" class="cs_checkbox" name="service[]" value="3" @if(!empty($fav[3])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite sell"></span> 판매관련물품 </label>
                 </li>
-                <li class="service_list_btn @if(!empty($fav[4])) on @endif">
+                <li class="arrange_menus @if(!empty($fav[4])) on @endif">
                     <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="4" @if(!empty($fav[4])) checked @endif> <span class="tmp_checkbox"></span> <span class="SpGroup buy"></span> 구매관련물품 </label>
+                        <input type="checkbox" class="cs_checkbox" name="service[]" value="4" @if(!empty($fav[4])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite buy"></span> 구매관련물품 </label>
                 </li>
-                <li class="service_list_btn @if(!empty($fav[5])) on @endif">
+                <li class="arrange_menus @if(!empty($fav[5])) on @endif">
                     <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="5" @if(!empty($fav[5])) checked @endif> <span class="tmp_checkbox"></span> <span class="SpGroup charge"></span> 마일리지충전 </label>
+                        <input type="checkbox" class="cs_checkbox" name="service[]" value="5" @if(!empty($fav[5])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite charge"></span> 마일리지충전 </label>
                 </li>
-                <li class="service_list_btn @if(!empty($fav[6])) on @endif">
+                <li class="arrange_menus @if(!empty($fav[6])) on @endif">
                     <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="6" @if(!empty($fav[6])) checked @endif> <span class="tmp_checkbox"></span> <span class="SpGroup calc"></span> 수수료 </label>
+                        <input type="checkbox" class="cs_checkbox" name="service[]" value="6" @if(!empty($fav[6])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite calc"></span> 수수료 </label>
                 </li>
-                <li class="service_list_btn @if(!empty($fav[7])) on @endif">
+                <li class="arrange_menus @if(!empty($fav[7])) on @endif">
                     <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="7" @if(!empty($fav[7])) checked @endif> <span class="tmp_checkbox"></span> <span class="SpGroup credit_rating"></span> 신용등급/수수료 </label>
+                        <input type="checkbox" class="cs_checkbox" name="service[]" value="7" @if(!empty($fav[7])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite credit_rating"></span> 신용등급/수수료 </label>
                 </li>
-                <li class="service_list_btn @if(!empty($fav[8])) on @endif">
+                <li class="arrange_menus @if(!empty($fav[8])) on @endif">
                     <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="8" @if(!empty($fav[8])) checked @endif> <span class="tmp_checkbox"></span> <span class="SpGroup guide"></span> 초보자가이드 </label>
+                        <input type="checkbox" class="cs_checkbox" name="service[]" value="8" @if(!empty($fav[8])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite guide"></span> 초보자가이드 </label>
                 </li>
-                <li class="service_list_btn @if(!empty($fav[9])) on @endif">
+                <li class="arrange_menus @if(!empty($fav[9])) on @endif">
                     <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="9" @if(!empty($fav[9])) checked @endif> <span class="tmp_checkbox"></span> <span class="SpGroup faq"></span> FAQ </label>
+                        <input type="checkbox" class="cs_checkbox" name="service[]" value="9" @if(!empty($fav[9])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite faq"></span> FAQ </label>
                 </li>
-                <li class="service_list_btn @if(!empty($fav[10])) on @endif">
+                <li class="arrange_menus @if(!empty($fav[10])) on @endif">
                     <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="10" @if(!empty($fav[10])) checked @endif> <span class="tmp_checkbox"></span> <span class="SpGroup message"></span> 메시지함 </label>
+                        <input type="checkbox" class="cs_checkbox" name="service[]" value="10" @if(!empty($fav[10])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite message"></span> 메시지함 </label>
                 </li>
 
             </ul>
         </div>
     </div>
     <style>
-        .g_logo_area {
+        .header-brand-logo {
             width: 1308px;
         }
-        .g_search_top {
+        .search-overlay-wrapper {
             margin-left: 222px;
         }
         .service_wrap, .bg_opacity {
@@ -126,7 +126,7 @@
             left: 10px;
         }
 
-        .initial_screen .tab>div {
+        ._34Cr45d_reacts .tab>div {
             height: 40px;
             line-height: 40px;
         }
@@ -162,7 +162,7 @@
                 </script>
                 <div class="service_wrap">
                     <div class="service_set">
-                        <a href="javascript:;" id="service_btn"><i class="fa fa-cog setting f-18 text-white"></i></a>
+                        <a href="javascript:;" id="enableSettings"><i class="fa fa-cog setting f-18 text-white"></i></a>
                         <ul>
                             @foreach($list as $v)
                                 <a href="{{getmyService()[$v['id']]['href']}}" target="_self">
@@ -179,7 +179,7 @@
             </div>
         </div>
         <div class="sec_left realtime_status">
-            <div class="initial_screen">
+            <div class="_34Cr45d_reacts">
                 <div class="tab searchbar_tab">
                     <div class="active" data-t="1">
                         <a class="f-18 tab-title" href="javascript:void(0);" >실시간 팝니다 목록</a>
@@ -229,7 +229,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="realtime_sell_wrapper g_hidden" id="tab_buy">
+                        <div class="realtime_sell_wrapper d-none" id="tab_buy">
                             <table class="realtime_sell_table f-14 no-border">
                                 <tbody>
                                 @if(!empty($buys))
@@ -261,11 +261,11 @@
                         </div>
                     </div>
                     <div class="tab_child" data-content="tab_mygame">
-                        <ul class="g_my_search"></ul>
+                        <ul class="mysearch_filters"></ul>
                     </div>
                 </div>
             </div>
-            <div class="gs_list g_hidden" data-gslist="true"></div>
+            <div class="angel__menugames d-none" data-gslist="true"></div>
         </div>
         <div class="sec_right">
             <div class="box3 gamenews">
@@ -281,7 +281,7 @@
                 </ul>
             </div>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
 
         <div class="sec_left no-border">
             <div class="title">게임별 시세정보
@@ -318,7 +318,7 @@
                 </ul>
             </div>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
 
         <div class="d-flex w-100">
             <div class="w-50 sec_left no-border back-normal " style="margin-right: 10px;">
@@ -350,9 +350,9 @@
                 </div>
             </div>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 테스트 홈 //-->
-    <!-- ▲ 컨텐츠 영역 //-->
+
+
 
 @endsection

@@ -17,7 +17,7 @@ if(Request::get('state') == '3-2'){
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <!-- Card header -->
+
                     <div class="card-header border-0">
                         <h3 class="mb-2">{{$title}}</h3>
                         <form class="form-inline" action="{{route('members')}}" method="GET" >
@@ -61,7 +61,7 @@ if(Request::get('state') == '3-2'){
                         </form>
                     </div>
 
-                    <!-- Light table -->
+
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
@@ -141,7 +141,7 @@ if(Request::get('state') == '3-2'){
                             </tbody>
                         </table>
                     </div>
-                    <!-- Card footer -->
+
                     <div class="card-footer py-4">
                         <form class="form-inline" action="{{route('member_control')}}" method="POST" id="member_control">
                             <input type="hidden" id="userIds" name="userIds">

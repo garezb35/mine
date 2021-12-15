@@ -50,7 +50,7 @@ function _init() {
         }
     });
 
-    document.getElementById('d_template').addEventListener('click', function(e) {
+    document.getElementById('sr-template').addEventListener('click', function(e) {
         if (e.target.name === 'gamemoney_unit') {
             var unit = e.target.value;
             if (e.target.value === '1') {
@@ -73,7 +73,7 @@ function _init() {
     // 굵은체 등록
     document.getElementById('user_icon_use').addEventListener('change', function() {
         chargePremiumService();
-        chargeServiceApply.call(this, 'f_bold');
+        chargeServiceApply.call(this, 'font-weight-bold');
     });
     // 녹색펜 등록
     document.getElementById('user_bluepen_use').addEventListener('change', function() {
@@ -98,7 +98,7 @@ function _init() {
     // 	}
     // });
 
-    document.getElementById('premium_btn').addEventListener('click', premiumSet);
+    document.getElementById('actionPremium').addEventListener('click', premiumSet);
 
     if (document.getElementById('credit_benefit') !== null) {
         document.getElementById('credit_benefit').addEventListener('click', getCreditBenefit);
@@ -477,8 +477,8 @@ function changeTemplateAddCheck() {
 
 
 function premiumSet() {
-    var dvPremium = document.getElementById('dvPremium');
-    LayerControl.close({layer: dvPremium});
+    var premiumPart = document.getElementById('premiumPart');
+    KeepAlivesRaw.close({layer: premiumPart});
     createLayerContent(false);
 }
 
@@ -503,11 +503,11 @@ function createLayerContent(b) {
     }
 
     if (b !== false) {
-        var dvPremium = document.getElementById('dvPremium');
+        var premiumPart = document.getElementById('premiumPart');
         var userMile = document.getElementById('txtCurrentMileage').innerHTML.numeric();
         if (userMile > 100) {
             if ($('#user_premium_time').val().isEmpty() === true) {
-                LayerControl.open({layer: dvPremium});
+                KeepAlivesRaw.open({layer: premiumPart});
                 return;
             }
         }
@@ -621,7 +621,7 @@ function chargeServiceApply(strClass) {
 function chargePremiumService() {
     bPremiumLayer = true;
     if (bPremiumLayer == false) {
-        LayerControl.open({
+        KeepAlivesRaw.open({
             layer: document.getElementById('premium_layer'),
             close_btn: document.getElementById('premium_layer').querySelector('.close'),
             mask: false,
@@ -629,7 +629,7 @@ function chargePremiumService() {
         });
 
         document.getElementById('premium_close').addEventListener('click', function() {
-            LayerControl.close({layer: document.getElementById('premium_layer')});
+            KeepAlivesRaw.close({layer: document.getElementById('premium_layer')});
         });
 
         bPremiumLayer = true;

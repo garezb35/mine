@@ -20,8 +20,8 @@
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <style>
             .aside .notice {
                 height: 24px;
@@ -68,9 +68,9 @@
             }
         </style>
         @include('angel.customer.aside', ['group'=>'safety', 'part'=>''])
-        <div class="g_content">
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue no-border"> 안전거래 </div>
+        <div class="pagecontainer">
+
+            <div class="contextual--title no-border"> 안전거래 </div>
             <div class="f-22 f-bold" style="margin-top: 20px; margin-bottom: 14px;">안전한 거래를 위하여 꼭 지켜주세요!!</div>
             <img src="/angel/img/bkg/safety1.png" width="812" height="496" />
             <div style="height: 20px;"></div>
@@ -78,5 +78,5 @@
             <div style="height: 60px;"></div>
         </div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

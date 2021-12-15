@@ -7,8 +7,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="keywords" content="">
 	<meta name="description" content="">
-    <link type="text/css" rel="stylesheet" href="/angel/_css/_comm.css?v=210317">
-    <link type="text/css" rel="stylesheet" href="/angel/_head_tail/css/_head_popup.css">
+    <link type="text/css" rel="stylesheet" href="/angel/_css/webpack.css?v=210317">
+    <link type="text/css" rel="stylesheet" href="/angel/global_h/css/_head_popup.css">
     <link type="text/css" rel="stylesheet" href="/angel/css/fixed_trade_subject.css">
 
     <style>
@@ -19,20 +19,20 @@
 </head>
 
 <body>
-	<div id="g_SLEEP" class="g_sleep g_hidden ">
-		<div id="g_OVERLAY" class="g_overlay"></div>
+	<div id="global_root" class="mainEntity d-none ">
+		<div id="thirdys" class="fluid-div"></div>
 	</div>
-	<div id="g_BODY">
-		<div id="popup_title_bar"><img src="http://img2.itemmania.com/images/sell/p_title_basic.jpg" alt="물품제목 기본값 설정" width="165" height="19" /></div>
+	<div id="angel">
+		<div id="model_titlebar"><img src="http://img2.itemmania.com/images/sell/p_title_basic.jpg" alt="물품제목 기본값 설정" width="165" height="19" /></div>
 		<div id="g_POPUP">
 			<form name='ini' id='ini' method='post' action='/sell/fixed_trade_subject' onsubmit='return sendit()'>
                 @csrf
 				<div id="top_title" class="g_black3_11">모든 물품 등록 시 마다 미리 설정해둔 문구를<br />물품제목의 맨 앞으로 자동 기입해주는 기능입니다</div>
-				<div class="g_finish"></div>
+				<div class="empty-high"></div>
 				<div id="top_txt" class="g_notice_box1"> <span class='g_org1_b'>텍스트 : </span>
-					<input type='text' class='g_text' id='txt_fixed_title' name='txt_fixed_title' value='{{$title}}' maxlength='8'> (8자/16Byte) </div>
-				<div class="g_finish"></div>
-				<div class="g_btn">
+					<input type='text' class='angel__text' id='txt_fixed_title' name='txt_fixed_title' value='{{$title}}' maxlength='8'> (8자/16Byte) </div>
+				<div class="empty-high"></div>
+				<div class="btn-groups_angel">
 					<input type='submit'   value="확인" class="btn-submit"/>
                 </div>
 			</form>
@@ -56,7 +56,7 @@
     }
 	</script>
 	<script>
-_initialize();
+loadGlobalItems()
 	</script>
 </body>
 

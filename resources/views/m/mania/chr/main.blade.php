@@ -34,11 +34,11 @@ $acc[9] = '기타';
         #character_top_section #character_top_section_content .character_menu_wrapper .character_menu {font-size: 13px;}
         #character_top_section #character_top_section_content .character_menu_wrapper .character_menu:hover {font-size: 14px;}
     </style>
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <div id="character_top_section">
             <div class="section_title_wrapper">
-                <h2 class="section_title c-blue-title">캐릭터 거래 게임 리스트</h2> </div>
+                <h2 class="section_title text-nodemon">캐릭터 거래 게임 리스트</h2> </div>
             <div id="character_top_section_content" class="clear_fix">
                 <div class="character_menu_wrapper">
                     <ul class="character_menu_list clear_fix">
@@ -75,7 +75,7 @@ $acc[9] = '기타';
                 @endif
                 <div class="games_goods_wrapper">
                     <div class="section_title_wrapper">
-                        <h2 class="section_title c-blue-title">{{$v['game']}} <span class="goods_more_btn" data-code="{{$v['id']}}" data-gamename="{{$v['game']}}">더보기</span></h2></div>
+                        <h2 class="section_title text-nodemon">{{$v['game']}} <span class="goods_more_btn" data-code="{{$v['id']}}" data-gamename="{{$v['game']}}">더보기</span></h2></div>
                     <div class="games_goods_carousel">
                         <div class="carousel_module">
                             <div class="banner_in center_banner">
@@ -107,6 +107,6 @@ $acc[9] = '기타';
 
         </div>
     </div>
-    <div class="g_finish"></div>
-    <!-- ▲ 컨텐츠 영역 //-->
+    <div class="empty-high"></div>
+
 @endsection

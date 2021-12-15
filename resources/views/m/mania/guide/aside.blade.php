@@ -37,9 +37,9 @@
     </div>
     {{--    <div class="nav_subject"><a href="/guide/" class="guide">이용안내</a></div>--}}
     <div class="nav">
-        <div class="@if($group == 'guide') on_active @endif nav_title"><a href="#">이용안내</a></div>
-        <div class="@if($group == 'new_guide') on_active @endif nav_title"><a href="#">초보자 가이드</a></div>
-        <div class="@if($group == 'notices') on_active @endif nav_title"><a href="#">공지사항</a></div>
+        <div class="@if($group == 'guide') activated @endif nav_title"><a href="#">이용안내</a></div>
+        <div class="@if($group == 'new_guide') activated @endif nav_title"><a href="#">초보자 가이드</a></div>
+        <div class="@if($group == 'notices') activated @endif nav_title"><a href="#">공지사항</a></div>
     </div>
 
 </div>

@@ -108,7 +108,7 @@ $(function () {
                 return false;
             }
 
-            $('[class="g_btn"]').hide();
+            $('[class="btn-groups_angel"]').hide();
             $('#loding').show();
 
             $('#buy_form').submit();

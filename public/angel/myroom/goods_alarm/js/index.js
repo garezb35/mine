@@ -94,11 +94,11 @@ function stateChange(el){
                 success: function (res) {
                     if(res.DAT.TYPE == 'list') {
                         if(confirm("í•´ë‹¹ ë¬¼í’ˆì´ ì‚­ì œ ë˜ì—ˆê±°ë‚˜ ìž¬ë“±ë¡ ëœ ìƒíƒœìž…ë‹ˆë‹¤.\ní•´ë‹¹ ê²Œìž„/ì„œë²„ë¡œ ì´ë™í•˜ì‹œê² ìŠµë‹ˆê¹Œ?")) {
-                            $("#trade_search_form [name='search_goods']").val(res.DAT.PARAM.goods);
-                            $("#trade_search_form [name='search_game']").val(res.DAT.PARAM.game_code);
-                            $("#trade_search_form [name='search_game_text']").val(res.DAT.PARAM.game_text);
-                            $("#trade_search_form [name='search_server']").val(res.DAT.PARAM.server_code);
-                            $("#trade_search_form [name='search_server_text']").val(res.DAT.PARAM.server_text);
+                            $("#trade_search_form [name='filtered_items']").val(res.DAT.PARAM.goods);
+                            $("#trade_search_form [name='filtered_game_id']").val(res.DAT.PARAM.game_code);
+                            $("#trade_search_form [name='filtered_game_alias']").val(res.DAT.PARAM.game_text);
+                            $("#trade_search_form [name='filtered_child_id']").val(res.DAT.PARAM.server_code);
+                            $("#trade_search_form [name='filtered_child_alias']").val(res.DAT.PARAM.server_text);
                             $("#trade_search_form [name='srch_char_alarm']").val(res.DAT.PARAM.char_alarm);
                             $("#trade_search_form").attr('action', res.DAT.URL);
                             $("#trade_search_form").submit();

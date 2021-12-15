@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-    <div class="g_container ">
+    <div class="container_fulids ">
         <div class="container">
             <div class="ct_cont">
                 @foreach($notices as $v)

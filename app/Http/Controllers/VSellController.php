@@ -223,10 +223,10 @@ class VSellController extends BaseController
         $params['goods_type'] = !empty($params['goods_type']) && $params['goods_type'] !=1  ? $params['goods_type'] : 'all';
         $params['excellent'] = !empty($params['excellent']) ? $params['excellent'] : '';
         $params['discont'] = !empty($params['discont']) ? $params['discont'] : '';
-        $params['search_server'] = !empty($params['search_server']) ? $params['search_server'] : '';
-        $params['search_game_text'] = !empty($params['search_game_text']) ? $params['search_game_text'] : '';
-        $params['search_server_text'] = !empty($params['search_server_text']) ? $params['search_server_text'] : '';
-        $params['search_goods'] = !empty($params['search_goods']) ? $params['search_goods'] : '';
+        $params['filtered_child_id'] = !empty($params['filtered_child_id']) ? $params['filtered_child_id'] : '';
+        $params['filtered_game_alias'] = !empty($params['filtered_game_alias']) ? $params['filtered_game_alias'] : '';
+        $params['filtered_child_alias'] = !empty($params['filtered_child_alias']) ? $params['filtered_child_alias'] : '';
+        $params['filtered_items'] = !empty($params['filtered_items']) ? $params['filtered_items'] : '';
         $params['speed'] = !empty($params['speed']) ? $params['speed'] : '';
         $roles = MRole::orderBy('level',"ASC")->get()->toArray();
         $params['roles'] = $roles;

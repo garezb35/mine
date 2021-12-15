@@ -27,12 +27,12 @@ function _init() {
             success: function(res) {
 
                 if(res.result === 'SUCCESS') {
-                    cultureName.parentNode.classList.remove('g_hidden');
+                    cultureName.parentNode.classList.remove('d-none');
                     cultureName.innerHTML = res.data;
                     orderID.value = res.oid;
 
                 } else {
-                    cultureName.parentNode.classList.add('g_hidden');
+                    cultureName.parentNode.classList.add('d-none');
                     alert(res.msg);
 //					cultureName.innerHTML = res.msg;
                 }

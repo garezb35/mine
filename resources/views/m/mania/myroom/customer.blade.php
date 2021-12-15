@@ -2,7 +2,7 @@
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/customer/css/index.css" />
-    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+
     <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
@@ -10,25 +10,25 @@
     <script type="text/javascript"  src="/angel/myroom/customer/js/index.js"></script>
 @endsection
 @section('content')
-    <div class="g_container" id="g_CONTENT">
-        <div class="g_remocon_l">
+    <div class="container_fulids" id="module-teaser-fullscreen">
+        <div class="recommend_e34rf">
         </div>
         @include('aside.myroom',['group'=>'settings'])
-        <div class="g_content">
-            <!-- ▼ 사용자 환결설정 탭 -->
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue noborder">
+        <div class="pagecontainer">
+
+
+            <div class="contextual--title noborder">
                 환경설정
             </div>
             @include('tab.g_tab_customer',['group'=>'index'])
-            <div class="service_layer" id="service_layer">
+            <div class="settings_window" id="settings_window">
                 <div class="inner">
                     <div class="title">
                         나만의 서비스 설정
                         <span>빠른 메뉴 설정을 위해 아이콘 8개를 선택하신 후 저장 버튼을 클릭하세요.</span>
                         <div class="r_area">
-                            <a href="javascript:;" class="btn_white2 save" id="service_save">저장</a>
-                            <a href="javascript:;" class="btn_white2 init" id="service_init">초기화</a>
+                            <a href="javascript:;" class="btn_white2 save" id="submit_menus">저장</a>
+                            <a href="javascript:;" class="btn_white2 init" id="reset_menus">초기화</a>
                         </div>
                     </div>
                     <ul class="service_list" id="service_list">
@@ -137,6 +137,6 @@
                 </div>
             </div>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
 @endsection

@@ -68,9 +68,9 @@ var searchList = {
         $('#frm_search').submit();
     },
     serverSearch: function(server, sever_name, kind) {
-        $('#search_server').val(server);
-        $('#search_server_text').val(sever_name);
-        $('#search_goods').val(kind);
+        $('#filtered_child_id').val(server);
+        $('#filtered_child_alias').val(sever_name);
+        $('#filtered_items').val(kind);
 
         $('#frm_search').attr('action', '/buy/list_search');
         $('#frm_search').submit();
@@ -107,7 +107,7 @@ function elementFromListData(tradeItem) {
     if (tradeItem.trade_kind == '6') {
         listHtml += '   		    <span class="unit">' + tradeItem.character_subject + '</span><br />';
     }
-    listHtml += '	    	        <span class="title' + (expression.blue ? ' title_green' : '') + (expression.bold ? ' f_bold' : '') + '">' + tradeItem.trade_subject + '</span>' + (tradeItem.screenshot === 'Y' ? ' <span class="hasScreenshot"></span>' : '') +
+    listHtml += '	    	        <span class="title' + (expression.blue ? ' title_green' : '') + (expression.bold ? ' font-weight-bold' : '') + '">' + tradeItem.trade_subject + '</span>' + (tradeItem.screenshot === 'Y' ? ' <span class="hasScreenshot"></span>' : '') +
         '	                    </div>';
     listHtml += '	        </a>';
 
@@ -150,8 +150,8 @@ $(document).ready(function() {
             return;
         }
 
-        var searchListPremium = $('.search_list_premium');
-        var searchListNormal = $('.search_list_normal');
+        var searchListPremium = $('.item_filtered__premium');
+        var searchListNormal = $('.item_filtered__average');
         ajaxRequest({
             type: 'post',
             url: searchList.ajaxUrl,
@@ -162,7 +162,7 @@ $(document).ready(function() {
             },
             success: function(res) {
                 if (res.result === 'SUCCESS') {
-                    $('.loading').addClass('g_hidden');
+                    $('.loading').addClass('d-none');
 
                     if (res.data.p && res.data.p.length > 0) {
                         searchListPremium.html((res.data.p).map(function(e) {
@@ -213,8 +213,8 @@ $(document).ready(function() {
 
     listLoad(append);
 
-    $('.g_tab').children('[value]').on('click', function() {
-        $('#search_goods').val($(this).attr('value'));
+    $('.react_nav_tab').children('[value]').on('click', function() {
+        $('#filtered_items').val($(this).attr('value'));
         $('#search_word').val('');
         $('#goods_type').attr('value', '');
         searchList.formSubmit();
@@ -255,19 +255,19 @@ $(document).ready(function() {
     });
     /*  end 물품정보 안내 */
 
-    $('#item_regInfo').find('a.close_w').on('click', function() {
+    $('#item_regInfo').find('a.fade__out').on('click', function() {
         $('#item_regInfo').removeClass('layer_active');
     });
 
     $('#detail_search div.toggleer').on('click', function() {
-        $('#detail_search div.search_box').slideToggle();
+        $('#detail_search div.navtabs__react').slideToggle();
         $(this).toggleClass('down');
     });
 
     /* begin 리스트 새로고침 */
     $('.icon_refresh').on('click', function() {
-        $('.search_list_premium').html('');
-        $('.search_list_normal').html('');
+        $('.item_filtered__premium').html('');
+        $('.item_filtered__average').html('');
         $('.load_more').show();
 
         nListPage = 1;
@@ -277,11 +277,11 @@ $(document).ready(function() {
 
     /* ▼ 리스트 추가 로드 */
     $('.load_more').on('click', function() {
-        var search_goods = $('#search_goods').val();
-        if (search_goods != 'character') {
+        var filtered_items = $('#filtered_items').val();
+        if (filtered_items != 'character') {
             if (nListPage == 11) {
-                $('.search_list_premium').html('');
-                $('.search_list_normal').html('');
+                $('.item_filtered__premium').html('');
+                $('.item_filtered__average').html('');
 
                 nListPage = 1;
             }
@@ -300,14 +300,14 @@ $(document).ready(function() {
     });
 
     $('.search_reset').on('click', function() {
-        frmSearch.find('[class="g_text"]').val('');
+        frmSearch.find('[class="angel__text"]').val('');
         frmSearch.find('[class="g_checkbox"]').prop('checked', false);
         frmSearch.find('ul li:first-child [type="radio"]').prop('checked', true);
         searchList.formSubmit();
     });
 
     $('#btn_game_money').click(function() {
-        _window.open('game_money', '/game_info/money/index?win=pop&gamecode=' + $('#search_game').val() + '&servercode=' + $('#search_server').val(), 800, 900);
+        _window.open('game_money', '/game_info/money/index?win=pop&gamecode=' + $('#filtered_game_id').val() + '&servercode=' + $('#filtered_child_id').val(), 800, 900);
     });
 
     $('#alarm_float').click(function(){

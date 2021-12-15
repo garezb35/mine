@@ -184,8 +184,8 @@ function protectKey(Event) {
 }
 
 function fnReceiptPopupOpen() {
-    if ($('#dvPopup').length > 0) {
-        g_nodeSleep.enable($('#dvPopup'));
+    if ($('#dialog_fade').length > 0) {
+        g_nodeSleep.enable($('#dialog_fade'));
     }
 }
 

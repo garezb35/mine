@@ -3,7 +3,7 @@
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css?210503" />
     <link type="text/css" rel="stylesheet" href="/angel/myroom/complete/css/common.css?700101" />
-    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+
     <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
@@ -11,8 +11,8 @@
 @endsection
 
 @section('content')
-    <!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-    <div class="g_container" id="g_CONTENT">
+
+    <div class="container_fulids" id="module-teaser-fullscreen">
         <div class="aside">
             <div class="nav_subject"><a href="http://trade.itemmania.com/myroom/" class="myroom">MyRoom</a></div>
             <div class="nav">
@@ -21,7 +21,7 @@
                 <div class="nav_title "><a href="http://trade.itemmania.com/myroom/buy/buy_regist.html">구매관련</a></div>
                 <div class="nav_title "><a href="http://trade.itemmania.com/myroom/goods_alarm/alarm_sell_list.html">물품등록 알리미<span class="new">N</span></a></div>
                 <div class="nav_title "><a href="http://trade.itemmania.com/myroom/complete/sell.html">종료내역</a></div>
-                <div class="nav_title on_active"><a href="http://trade.itemmania.com/myroom/complete/cancel_sell.html">취소내역</a></div>
+                <div class="nav_title activated"><a href="http://trade.itemmania.com/myroom/complete/cancel_sell.html">취소내역</a></div>
                 <div class="nav_title "><a href="http://trade.itemmania.com/myroom/mileage/my_mileage/">마일리지</a></div>
                 <ul class='nav_sub g_list'>
                     <li class=""><a href="http://trade.itemmania.com/myroom/mileage/my_mileage/">내마일리지</a></li>
@@ -45,9 +45,9 @@
                 <div class="nav_title "><a href="http://trade.itemmania.com/myroom/user_leave/user_leave_form.html">회원탈퇴</a></div>
             </div>
         </div>
-        <div class="g_content">
-            <!-- ▼ 타이틀 //-->
-            <div class="g_title_blue"> 취소 <span>내역</span>
+        <div class="pagecontainer">
+
+            <div class="contextual--title"> 취소 <span>내역</span>
                 <ul class="g_path">
                     <li>홈</li>
                     <li>마이룸</li>
@@ -55,14 +55,14 @@
                     <li class="select">구매 취소 내역</li>
                 </ul>
             </div>
-            <!-- ▲ 타이틀 //-->
-            <!-- ▼ 메뉴탭 //-->
-            <div class="g_tab">
+
+
+            <div class="react_nav_tab">
                 <div><a href="/myroom/complete/cancel_sell.html">판매취소내역</a></div>
                 <div class='selected'><a href="/myroom/complete/cancel_buy.html">구매취소내역</a></div>
             </div>
-            <div class="search_box"> <a href="?type=sell&continue=YTo3OntzOjQ6ImdhbWUiO3M6MDoiIjtzOjk6ImdhbWVfdGV4dCI7czowOiIiO3M6Njoic2VydmVyIjtzOjA6IiI7czoxMToic2VydmVyX3RleHQiO3M6MDoiIjtzOjEyOiJzZWFyY2hfZ29vZHMiO3M6MDoiIjtzOjE2OiJzZWFyY2hfcHJpY2VfbWluIjtzOjA6IiI7czoxNjoic2VhcmNoX3ByaWNlX21heCI7czowOiIiO30="><span class="f_blue3 f_bold">팝니다 취소한 내역</span></a> | <a href="?type=buy&continue=YTo3OntzOjQ6ImdhbWUiO3M6MDoiIjtzOjk6ImdhbWVfdGV4dCI7czowOiIiO3M6Njoic2VydmVyIjtzOjA6IiI7czoxMToic2VydmVyX3RleHQiO3M6MDoiIjtzOjEyOiJzZWFyY2hfZ29vZHMiO3M6MDoiIjtzOjE2OiJzZWFyY2hfcHJpY2VfbWluIjtzOjA6IiI7czoxNjoic2VhcmNoX3ByaWNlX21heCI7czowOiIiO30="><span class="">삽니다 취소한 내역</span></a> </div>
-            <!-- ▲ 메뉴탭 //-->
+            <div class="navtabs__react"> <a href="?type=sell&continue=YTo3OntzOjQ6ImdhbWUiO3M6MDoiIjtzOjk6ImdhbWVfdGV4dCI7czowOiIiO3M6Njoic2VydmVyIjtzOjA6IiI7czoxMToic2VydmVyX3RleHQiO3M6MDoiIjtzOjEyOiJzZWFyY2hfZ29vZHMiO3M6MDoiIjtzOjE2OiJzZWFyY2hfcHJpY2VfbWluIjtzOjA6IiI7czoxNjoic2VhcmNoX3ByaWNlX21heCI7czowOiIiO30="><span class="f_blue3 font-weight-bold">팝니다 취소한 내역</span></a> | <a href="?type=buy&continue=YTo3OntzOjQ6ImdhbWUiO3M6MDoiIjtzOjk6ImdhbWVfdGV4dCI7czowOiIiO3M6Njoic2VydmVyIjtzOjA6IiI7czoxMToic2VydmVyX3RleHQiO3M6MDoiIjtzOjEyOiJzZWFyY2hfZ29vZHMiO3M6MDoiIjtzOjE2OiJzZWFyY2hfcHJpY2VfbWluIjtzOjA6IiI7czoxNjoic2VhcmNoX3ByaWNlX21heCI7czowOiIiO30="><span class="">삽니다 취소한 내역</span></a> </div>
+
             <div class="tab_sib">- 최근 24시간 동안 취소된 물품만 확인하실 수 있습니다.</div>
             <table class="g_green_table tb_list">
                 <colgroup>
@@ -83,13 +83,13 @@
                     <td colspan="5">구매취소내역이 없습니다.</td>
                 </tr>
             </table>
-            <!-- ▼ 페이징 //-->
-            <div class="dvPaging">
+
+            <div class="pagination__bootstrap">
                 <ul class="g_paging"> </ul>
             </div>
-            <!-- ▲ 페이징 //-->
+
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
-    <!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

@@ -2,7 +2,7 @@
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/mileage/guide/css/charge.css?v=210602">
-    <!--<script type="text/javascript" src="/angel/advertise/advertise_code_head.js?v=200727"></script>-->
+
     <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
 @endsection
 
@@ -15,11 +15,11 @@
 
 @section('content')
 
-<!--▼▼▼ 캐릭터 등롤 알리미 ▼▼▼ -->
-<div class="g_container" id="g_CONTENT">
+
+<div class="container_fulids" id="module-teaser-fullscreen">
     @include('angel.myroom.aside', ['group'=>'mileage', 'part'=>'charging'])
-    <div class="g_content">
-        <div class="g_title_blue"> 마일리지 충전
+    <div class="pagecontainer">
+        <div class="contextual--title"> 마일리지 충전
             <ul class="g_path">
                 <li>홈</li>
                 <li>마이룸</li>
@@ -61,7 +61,7 @@
             <li onclick="_window.open('mileage_charge', '/myroom/mileage/charge/paycoin.html', 701, 900);">페이코인 충전<span class="img_charge36">페이코인 충전</span></li>
             <li onclick="_window.open('mileage_charge', '/myroom/mileage/charge/kbank.html', 701, 900);">케이뱅크 페이<span class="img_charge37">케이뱅크 페이</span></li>
         </ul>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
         <div class="mile_info">
             <div class="top_info"> <img src="http://img4.itemmania.com/images/icon/icon_info.gif" width="69" height="69" alt="INFO 08"></div>
             <div class="g_no"> <img src="http://img2.itemmania.com/new_images/myroom/img_mileage.gif" width="816" height="74" alt="마일리지 충전 안내"> </div>
@@ -79,10 +79,10 @@
                 <li class="title"> <img src="http://img4.itemmania.com/images/myroom/mileage/info05.gif" width="73" height="15" alt="상품권충전"> </li>
                 <li>문화상품권, 스마트문화상품권, 도서문화, 해피머니 상품권으로 마일리지를 충전하실 수 있습니다.</li>
                 <li class="line"></li>
-                <!--			<li class="title"><img src="-->
-                <!--/images/myroom/mileage/info06.gif" width="73" height="15" alt="편의점충전"></li>-->
-                <!--			<li>가맹 편의점에서 아이템천사 캐쉬를 구입 후 영수증에 기재된 일련번호를 입력하면 즉시 마일리지로 충전할 수 있습니다.</li>-->
-                <!--			<li class="line"></li>-->
+
+
+
+
                 <li class="title"> <img src="http://img3.itemmania.com/images/myroom/mileage/info07.gif" width="84" height="15" alt="선불카드충전"> </li>
                 <li>편의점 또는 문구점에서 판매되는 틴캐시, 에그머니, GP쿠폰 등으로 마일리지를 충전하실 수 있습니다.</li>
                 <li class="line"></li>
@@ -91,7 +91,7 @@
             </ul>
         </div>
     </div>
-    <div class="g_finish"></div>
+    <div class="empty-high"></div>
 </div>
-<!-- ▲ 컨텐츠 영역 //-->
+
 @endsection

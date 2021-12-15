@@ -27,8 +27,8 @@
 <div class="row">
     <div class="col-12 mb-4">
         <div class="card border-0 shadow components-section">
-            <div class="card-body">     
-                <div class="row mb-4 mb-lg-5">                                           
+            <div class="card-body">
+                <div class="row mb-4 mb-lg-5">
                     <div class="col-12 col-md-6">
                         <h2 class="h5 mb-3">Headings</h2>
                         <h1>h1. Themesberg heading</h1>
@@ -46,7 +46,7 @@
                         <h1 class="display-4">Display 4</h1>
                     </div>
                 </div>
-                <!-- Title  -->
+
                 <div class="row">
                     <div class="col-md-4">
                         <div class="mb-5">
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- End of Title -->
+
                 <div class="row mb-4 mb-lg-5">
                     <div class="col-md-6">
                         <div class="mb-3">
@@ -126,7 +126,7 @@
                         <p class="text-success mb-0">Design is not just what it looks like and feels like. Design is how it works.</p>
                     </div>
                 </div>
-                <!-- Title  -->
+
                 <div class="row">
                     <div class="col-md-4">
                         <div class="mt-6 mb-5">
@@ -134,7 +134,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- End of Title -->
+
                 <div class="row">
                     <div class="col-md-8">
                         <blockquote class="blockquote text-center">
@@ -143,7 +143,7 @@
                         </blockquote>
                     </div>
                 </div>
-                <!-- Title  -->
+
                 <div class="row">
                     <div class="col-md-4">
                         <div class="mt-6 mb-5">
@@ -151,7 +151,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- End of Title -->
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">

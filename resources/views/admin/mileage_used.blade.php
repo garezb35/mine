@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <!-- Card header -->
+
                     <div class="card-header border-0">
                         <h3 class="mb-2">{{$title}}</h3>
                         <form class="form-inline" action="{{route('mileage_used')}}" method="GET" >

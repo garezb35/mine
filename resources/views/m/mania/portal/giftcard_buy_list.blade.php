@@ -9,8 +9,8 @@
     <script type="text/javascript" src="/angel/portal/banner/js/banner.js"></script>
 @endsection
 @section('content')
-    <div class="g_container" id="g_CONTENT">
-        <div class="g_remocon_l">
+    <div class="container_fulids" id="module-teaser-fullscreen">
+        <div class="recommend_e34rf">
         </div>
         <script type="text/javascript">
             function serviceCert() {
@@ -22,7 +22,7 @@
             }
         </script>
         @include('aside.portal',['portal'=>$gift])
-        <div class="g_content">
+        <div class="pagecontainer">
             <div class="g_title noborder">
                 나의 구매내역
             </div>
@@ -32,7 +32,7 @@
                     <option value="{{$v['alias']}}" @if(Request::get('pMode') == $v['alias']) selected @endif>{{$v['name']}}</option>
                 @endforeach
             </select>
-            <table class="g_blue_table tb_list">
+            <table class="table-primary tb_list">
                 <tbody>
                 <tr>
                     <th class="first">순번</th>
@@ -52,7 +52,7 @@
                 @endforeach
                 </tbody>
             </table>
-            <div class="dvPaging">
+            <div class="pagination__bootstrap">
                 {{$list->withQueryString()->links()}}
             </div>
             <div class="notice_box dash">
@@ -61,6 +61,6 @@
                 <dd>번호 관리 소홀의 문제로 인해 등록이 안 되는 경우, 판매사는 책임을 지지 않습니다.</dd>
             </div>
         </div>
-        <div class="g_finish"></div>
+        <div class="empty-high"></div>
     </div>
 @endsection

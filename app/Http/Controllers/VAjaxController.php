@@ -35,20 +35,20 @@ class VAjaxController extends BaseController
         $result = new \stdClass();
         $result->result=  'SUCCESS';
         $result->data = new \stdClass();
-        $search_game = $request->search_game;
-        $search_server = $request->search_server;
+        $filtered_game_id = $request->filtered_game_id;
+        $filtered_child_id = $request->filtered_child_id;
         $temp = array();
         $request->order = empty($request->order) ? 2 : $request->order;
         $request->excellent = empty($request->excellent) ? '' : $request->excellent;
         $game = MItem
             ::with(['premiums','game','server','user.roles'])
-            ->where('game_code',$search_game)
+            ->where('game_code',$filtered_game_id)
             ->where('status',"!=",-1)
-            ->where('server_code',$search_server)
+            ->where('server_code',$filtered_child_id)
             ->where('type',$request->search_type);
 
-        if(!empty($request->search_goods) && $request->search_goods != 'all')
-            $game = $game->where('user_goods',$request->search_goods);
+        if(!empty($request->filtered_items) && $request->filtered_items != 'all')
+            $game = $game->where('user_goods',$request->filtered_items);
 
         if(!empty($request->purchase_type))
             $game = $game->where('purchase_type',$request->purchase_type);
@@ -281,19 +281,19 @@ class VAjaxController extends BaseController
         $result = new \stdClass();
         $result->result=  'SUCCESS';
         $result->data = new \stdClass();
-        $search_game = $request->search_game;
-        $search_server = $request->search_server;
+        $filtered_game_id = $request->filtered_game_id;
+        $filtered_child_id = $request->filtered_child_id;
         $temp = array();
         $request->order = empty($request->order) ? 2 : $request->order;
 
         $game = MItem
             ::with(['premiums','premium','game','server','user.roles'])
-            ->where('game_code',$search_game)
+            ->where('game_code',$filtered_game_id)
             ->where('status',"!=",-1)
             ->where('type',$request->search_type);
 
-        if(!empty($request->search_goods) && $request->search_goods != 'all')
-            $game = $game->where('user_goods',$request->search_goods);
+        if(!empty($request->filtered_items) && $request->filtered_items != 'all')
+            $game = $game->where('user_goods',$request->filtered_items);
 
         if(!empty($request->search_word))
             $game = $game->where('user_title','LIKE','%'.$request->search_word.'%');
@@ -635,7 +635,7 @@ class VAjaxController extends BaseController
                 <span class='title-{$v['type']}'><img src='/angel/img/icons/{$v['type']}-i.png' />-{$m_type}-</span>
                 <strong>{$v['game_text']} > {$v['server_text']}</strong>{$v['serer_text']}
                 <div class=\"btn_area\">
-                    <a href=\"/sell/list_search?search_type={$v['type']}&search_game={$v['game']}&search_game_text={$v['game_text']}&search_server={$v['server']}&search_server_text={$v['server_text']}&search_goods={$item_alias}\">검색</a>
+                    <a href=\"/sell/list_search?search_type={$v['type']}&filtered_game_id={$v['game']}&filtered_game_alias={$v['game_text']}&filtered_child_id={$v['server']}&filtered_child_alias={$v['server_text']}&filtered_items={$item_alias}\">검색</a>
                     <a href=\"/{$v['type']}?game={$v['game']}&server={$v['server']}\">등록</a>
                  </div>
              </dd>";

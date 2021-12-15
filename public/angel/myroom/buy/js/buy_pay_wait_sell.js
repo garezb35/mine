@@ -110,12 +110,12 @@ function fnSubmit() {
     //     });
     //
     //     $("#dvGoodsInfo").hide();
-    //     $('#g_SLEEP').show();
+    //     $('#global_root').show();
     //     frm.submit();
     //
     //     var interval = setInterval(function() {
     //         if (pop.closed) {
-    //             $('#g_SLEEP').hide();
+    //             $('#global_root').hide();
     //             clearInterval(interval);
     //         }
     //     }, 500);
@@ -380,7 +380,7 @@ function sendMsg2() {
             target: 'hpp'
         }).submit();
 
-        $('.g_btn').find('img').hide();
+        $('.btn-groups_angel').find('img').hide();
 
     } else {
         alert("인증 버튼을 두번 이상 클릭이 안됩니다.");
@@ -414,7 +414,7 @@ function sendMsg4() {
             target: 'openhpp'
         }).submit();
 
-        $('.g_btn').find('img').hide();
+        $('.btn-groups_angel').find('img').hide();
 
     } else {
         alert("인증 버튼을 두번 이상 클릭이 안됩니다.");
@@ -449,7 +449,7 @@ function sendMsg5() {
             target: 'openhpp'
         }).submit();
 
-        $('.g_btn').find('img').hide();
+        $('.btn-groups_angel').find('img').hide();
 
     } else {
         alert("인증 버튼을 두번 이상 클릭이 안됩니다.");
@@ -490,7 +490,7 @@ function sendMsg6() {
             target: 'openhpp'
         }).submit();
 
-        $('.g_btn').find('img').hide();
+        $('.btn-groups_angel').find('img').hide();
 
     } else {
         alert("인증 버튼을 두번 이상 클릭이 안됩니다.");
@@ -531,7 +531,7 @@ function sendMsg7() {
             target: 'openhpp'
         }).submit();
 
-        $('.g_btn').find('img').hide();
+        $('.btn-groups_angel').find('img').hide();
 
     } else {
         alert("인증 버튼을 두번 이상 클릭이 안됩니다.");
@@ -869,9 +869,9 @@ $.extend(CPayment, {
             return;
         }
 
-        $("#dvPopup").children().remove();
-        _xslt.parseXML($("#dvPopup"), this.xml, this.xsl[this.type]);
-        g_nodeSleep.enable($("#dvPopup"));
+        $("#dialog_fade").children().remove();
+        _xslt.parseXML($("#dialog_fade"), this.xml, this.xsl[this.type]);
+        g_nodeSleep.enable($("#dialog_fade"));
 
         $('select[name=ini_onlycardcode]').val(currentCardCode).trigger('change');
 

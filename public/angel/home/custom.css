@@ -1,28 +1,28 @@
 
-.quickmenu_area .quickmenu_dtl {
+.toolbar-btn .sidebar-btn {
     width: 300px;
 }
 
-.quickmenu_dtl .quickmenu_cont {
+.sidebar-btn .toobar-content {
     padding: 40px 20px 40px;
 }
 .credit_mark.vip {
     background-image: url("../img/icons/icon_vip.png");
 }
-.quickmenu_cont .myinfo .status .rt_figure{
+.toobar-content .myinfo .status .rt_figure{
     top: 0;
 }
-.quickmenu_cont .user_name {
+.toobar-content .user_name {
     font-size: 16px;
     padding-top: 3px;
     color: #159efd !important;
 }
-.quickmenu_cont .rank {
+.toobar-content .rank {
     font-size: 14px;
     font-weight: 600;
     padding-top: 3px;
 }
-.quickmenu_cont .myinfo .status .credir_rt {
+.toobar-content .myinfo .status .credir_rt {
     padding: 3px 0 0px 60px;
 }
 
@@ -66,7 +66,7 @@
 }
 
 
-.quickmenu_cont .ing_count li {
+.toobar-content .ing_count li {
     width: 126px;
 }
 
@@ -134,7 +134,7 @@
 .sec_left, .sec_right {
     height: 320px;
 }
-.initial_screen .tab_content {
+._34Cr45d_reacts .tab_content {
     padding-top: 14px;
     padding-bottom: 14px;
     padding-left: 10px;
@@ -205,10 +205,10 @@
 .charge_list li a {
     border-right:none;
 }
-.service_list label .SpGroup {
+.service_list label .has-sprite {
     margin: 10px auto 7px;
 }
-.service_layer .service_list li {
+.settings_window .service_list li {
     height: 90px;
 }
 .service_list .tmp_checkbox {

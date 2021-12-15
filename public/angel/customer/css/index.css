@@ -1,4 +1,4 @@
-.g_subtitle {
+.highlight_contextual_nodemon {
     position: relative;
     box-sizing: border-box;
     min-height: 30px;
@@ -45,14 +45,14 @@
     margin-bottom: 10px
 }
 
-.g_content .search .search_bar .g_selectbox {
+.pagecontainer .search .search_bar .g_selectbox {
     float: left;
     width: 100px;
     margin-top: 1px;
     border: 0;
 }
 
-.g_content .search .search_bar .g_selectbox .arrow_img {
+.pagecontainer .search .search_bar .g_selectbox .arrow_img {
     height: 15px;
     background: url(/angel/img/icons/dropdown-icon-png-22.png) no-repeat;
     cursor: pointer;
@@ -91,15 +91,15 @@
     margin: 0 9px 0 95px
 }
 
-.cus_content .gray_box div.g_left {
+.cus_content .gray_box div.float-left {
     width: 608px
 }
 
-.cus_content .gray_box div.g_left p {
+.cus_content .gray_box div.float-left p {
     margin: 0
 }
 
-.subject .g_left {
+.subject .float-left {
     padding-right: 10px;
 }
 
@@ -128,7 +128,7 @@
     display: block;
 }
 
-.submain_customer_info .SpGroup {
+.submain_customer_info .has-sprite {
     display: inline-block;
     width: 65px;
     height: 59px;
@@ -232,7 +232,7 @@
     border-bottom: 2px solid #636363;
 }
 
-.g_right {
+.float__right {
     padding: 11px 20px 0;
 }
 

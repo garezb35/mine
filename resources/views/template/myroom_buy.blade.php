@@ -22,7 +22,7 @@
         @endphp
     @endif
     <tr>
-        <td class="first"><a href='/buy/list_search?search_type=buy&search_goods=all&search_game={{$v['game']['id']}}&search_game_text={{$v['game']['game']}}&search_server={{$v['Server']['id']}}&search_server_text={{$v['Server']['id']}}'><strong>{{$v['game']['game']}}</strong>  <br />{{$v['Server']['game']}}</a></td>
+        <td class="first"><a href='/buy/list_search?search_type=buy&filtered_items=all&filtered_game_id={{$v['game']['id']}}&filtered_game_alias={{$v['game']['game']}}&filtered_child_id={{$v['Server']['id']}}&filtered_child_alias={{$v['Server']['id']}}'><strong>{{$v['game']['game']}}</strong>  <br />{{$v['Server']['game']}}</a></td>
         <td>{{$v['good_type']}}</td>
         <td class="left">
             <input type="hidden" name="check[]" value="{{$v['orderNo']}}">

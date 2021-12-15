@@ -348,11 +348,11 @@ background-color: #F0F0F0;
 text-align: center;
 }
 
-.g_content .tb_list .th2 {
+.pagecontainer .tb_list .th2 {
 background-color: #FAFAFA;
 }
 
-.g_content .tb_list td {
+.pagecontainer .tb_list td {
 position: static;
 }
 

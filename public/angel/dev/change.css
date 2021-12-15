@@ -1,33 +1,33 @@
-.g_header .top_bg {
+.siteHeader .top_bg {
     height: initial !important;
 }
-.g_header .g_snav {
+.siteHeader .js-nav-menu {
     font-size: 14px;
 }
-.g_header .g_snav a {
+.siteHeader .js-nav-menu a {
     cursor: pointer;
 }
-.g_header .g_snav {
+.siteHeader .js-nav-menu {
     height: 32px;
     padding: 8px 0;
 }
-.g_header .g_snav .snav_right > li:before {
+.siteHeader .js-nav-menu .js-nav-justicy-right > li:before {
     content: "";
 }
-.g_header .top_bg {
+.siteHeader .top_bg {
     background: #fdfdfd;
 }
-.g_logo_area {
+.header-brand-logo {
     height: 80px !important;
     min-height: 80px !important;
 }
-.g_logo_area .logo {
+.header-brand-logo .logo {
     padding-top: 17px;
 }
-.g_logo_area .logo a {
+.header-brand-logo .logo a {
     display: initial;
 }
-.g_search_top {
+.search-overlay-wrapper {
     margin-left: 88px;
     top: 22px;
     padding: 4px 0;
@@ -39,7 +39,7 @@
     background: transparent;
     height: 37px;
 }
-.search_area .g_text {
+.search_area .angel__text {
     font-size: 16px;
     color: lightgrey;
     height: 30px;
@@ -47,7 +47,7 @@
     margin-top: 5px;
     background: transparent;
 }
-.g_search_list .icon_search {
+.search__submit .icon_search {
     background-image: url("../img/icons/icon_search.png");
     background-position: initial;
     background-size: 100%;
@@ -56,59 +56,59 @@
     width: 28px;
     height: 30px;
 }
-.g_search_top .g_search_list {
+.search-overlay-wrapper .search__submit {
     background-color: initial;
     right: 6px;
     text-align: center;
 }
-.search_gs_name ~ .delete_btn {
+.search_gs_name ~ .topsearchbar__close {
     top: 11px;
     right: 4px;
 }
-.g_search_frame {
+.gameWindowPopup {
     border: 1px solid #d3d3d3;
     border-top: 1px solid #d3d3d3;
     top: 54px;
 }
-.g_trade_type {
+.gameTypePopup {
     padding: 2px 0 12px;
 }
-.g_trade_type .radiocontainer {
+.gameTypePopup .radiocontainer {
     padding-left: 26px;
     padding-top: 3px;
     font-size: 14px;
 }
-.g_trade_type .f_green1 {
+.gameTypePopup .text-green_modern {
     margin-left: 40px;
 }
-.initial_screen .tab>div {
+._34Cr45d_reacts .tab>div {
     font-size: 15px;
     border: 1px solid #32b5ff;
     border-right: 0;
     border-top: 0;
 }
-.initial_screen .tab>.active {
+._34Cr45d_reacts .tab>.active {
     border-top: 1px solid #32b5ff;
 }
-.initial_screen .popular_game>.popular_game_title {
+._34Cr45d_reacts .tradecan_top>.tradecan_h89eC {
     background-color: transparent;
     color: black;
 }
-.initial_screen .popular_game>.popular_game_title span {
+._34Cr45d_reacts .tradecan_top>.tradecan_h89eC span {
     border-bottom: solid 2px #37cfff;
 }
-.initial_screen .popular_game>.popular_list {
+._34Cr45d_reacts .tradecan_top>.top__gamelist {
     font-size: 14px;
 }
-.g_header .nav_wrap {
+.siteHeader .nav_wrap {
     background-color: #159efd;
     height: 50px;
 }
-.g_header .nav_wrap .nav_ct {
+.siteHeader .nav_wrap .nav_menu_nodemon {
     display: block;
     margin-left: 0;
 }
-.g_header .nav_wrap .nav_highlight {
+.siteHeader .nav_wrap .topmenu_right {
     left: 720px;
 }
 .nav_wrap .nav li {
@@ -121,7 +121,7 @@
 .nav_wrap .nav .highlight {
     padding: 0 58px;
 }
-.nav_wrap .nav_ct li a:after {
+.nav_wrap .nav_menu_nodemon li a:after {
     position: absolute;
     top: 0;
     right: 0;
@@ -129,11 +129,11 @@
     font-size: 13px;
     color: #6ac2ff;
 }
-.nav_wrap .nav_ct li:last-child a:after {
+.nav_wrap .nav_menu_nodemon li:last-child a:after {
     content: "";
 }
 
-.initial_screen .tab>div {
+._34Cr45d_reacts .tab>div {
     height: 48px;
     line-height: 48px;
 }
@@ -155,7 +155,7 @@
     height: 100px;
     width: 100%;
 }
-.g_content {
+.pagecontainer {
     min-height: 560px;
 }
 .content_center {

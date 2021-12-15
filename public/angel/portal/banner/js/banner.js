@@ -45,10 +45,10 @@ $(function () {
         },
         rollingMarginBanner : function () {
             var objMarginBanner = $(this),
-                nMarginBanner	= objMarginBanner.find("div.g_hidden").length,
+                nMarginBanner	= objMarginBanner.find("div.d-none").length,
                 nRandom			= parseInt(Math.random() * nMarginBanner);
 
-            objMarginBanner.find("div.g_hidden").eq(nRandom).show();
+            objMarginBanner.find("div.d-none").eq(nRandom).show();
         }
     });
 

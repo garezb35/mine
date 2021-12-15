@@ -1,5 +1,5 @@
 
-.g_title_blue {
+.contextual--title {
     margin-bottom: 0;
 }
 
@@ -29,7 +29,7 @@
     border-bottom: 1px solid #E8E8E8;
 }
 
-.list_wrap .subject .g_left {
+.list_wrap .subject .float-left {
     padding-right: 10px;
 }
 
@@ -182,7 +182,7 @@
     padding: 2px 0;
 }
 
-.g_btn .btn {
+.btn-groups_angel .btn {
     width: 150px;
     line-height: 55px;
     text-align: center;
@@ -191,10 +191,10 @@
     color: #fff;
 }
 
-.g_btn .submit_btn {
+.btn-groups_angel .submit_btn {
     background-color: #159efd;
 }
 
-.g_btn .cancel_btn {
+.btn-groups_angel .cancel_btn {
     background-color: #7C7C7C;
 }

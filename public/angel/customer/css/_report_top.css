@@ -8,18 +8,18 @@
 }
 
 
-.report_top .g_left {
+.report_top .float-left {
     margin: 42px 0 0 50px;
     _margin-left: 25px;
     line-height: 1.6;
     font-size: 14px;
 }
 
-.report_top .g_left li {
+.report_top .float-left li {
     padding-left: 10px
 }
 
-.report_top .g_left .bg_icon {}
+.report_top .float-left .bg_icon {}
 
 .category_tb {
     border-top: 2px solid #636363;
@@ -43,7 +43,7 @@
     width: 155px
 }
 
-.g_gray_table tr th {
+.table_angel_secondary tr th {
     background-color: #f5f7f8;
     border-bottom: 1px solid #E0E0E0;
 }

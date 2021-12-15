@@ -8,22 +8,22 @@
     <meta name="description" content="아이템거래 No.1 아이템천사 - 빠르고 안전한 아이템거래.">
     <meta name="referrer" content="no-referrer-when-downgrade">
     <link rel="shortcut icon" href="/favicon.ico">
-    <link type="text/css" rel="stylesheet" href="/angel/_css/_comm.css?v=210317">
-    <link type="text/css" rel="stylesheet" href="/angel/_head_tail/css/_head_popup.css?v=210531">
+    <link type="text/css" rel="stylesheet" href="/angel/_css/webpack.css?v=210317">
+    <link type="text/css" rel="stylesheet" href="/angel/global_h/css/_head_popup.css?v=210531">
     <link type="text/css" rel="stylesheet" href="/angel/certify/payment/css/user_certify.css?v=210603"> </head>
 
 <body>
-<div id="g_SLEEP" class="g_sleep g_hidden">
-    <div id="g_OVERLAY" class="g_overlay"></div>
+<div id="global_root" class="mainEntity d-none">
+    <div id="thirdys" class="fluid-div"></div>
 </div>
-<div id="g_BODY">
+<div id="angel">
     <div class="myotp_id_layer_wrapper">
         <div class="inner"></div>
     </div>
-    <div class="popup_title_bar"><img src="http://img1.itemmania.com/images/certify/title_confirm.gif" alt="인증"></div>
+    <div class="model_titlebar"><img src="http://img1.itemmania.com/images/certify/title_confirm.gif" alt="인증"></div>
     <div id="g_POPUP2">
         <input type="hidden" id="submit_type" value="1">
-        <!-- 인증 //-->
+
         <div class="subtitle">서비스 이용 시 인증확인이 필요합니다.
             <br>아래 인증수단을 이용하여 인증확인을 받아주시기 바랍니다.</div>
         <div class="box_wrap" id="pub_auth_a">
@@ -45,7 +45,7 @@
                     <br>잠시만 기다려 주세요. </li>
             </ul>
         </div>
-        <div class="g_btn"> <a href="javascript:;" onclick="fnWinClose()" class="btn_gray3">취소</a> </div>
+        <div class="btn-groups_angel"> <a href="javascript:;" onclick="fnWinClose()" class="btn_gray3">취소</a> </div>
         <ul class="g_notice_box1 g_list">
             <li>위 인증 수단은 본인 명의로만 인증이 가능합니다.</li>
             <li>보안서비스 PC등록, 결제IP를 이용하실 경우 인증단계 없이 이용이 가능합니다.</li>
@@ -54,14 +54,14 @@
         <div class="simple_box">
             <a href="http://trade.itemmania.com/myroom/myinfo/my_pin_info.html" target="_blank"><img src="http://img4.itemmania.com/new_images/certify/210602_470X158.jpg" width="470" alt="마일리지 간편결제"></a>
         </div>
-        <div id="dvPopup" class="g_popup"> <img src="http://img4.itemmania.com/images/certify/loading_top.gif" width="168" height="74" alt="로딩중"> <img src="http://img4.itemmania.com/images/certify/loading.gif" width="354" height="40" alt="로딩중"> </div>
-        <div id="dvPopup2" class="g_popup kakaopay">
-            <div class="layer_title">
-                <div class="title">카카오페이 간편인증</div> <img class="btn_close" src="http://img4.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();"> </div>
-            <div class="layer_content">
+        <div id="dialog_fade" class="modal_dialog"> <img src="http://img4.itemmania.com/images/certify/loading_top.gif" width="168" height="74" alt="로딩중"> <img src="http://img4.itemmania.com/images/certify/loading.gif" width="354" height="40" alt="로딩중"> </div>
+        <div id="dialog_fade2" class="modal_dialog kakaopay">
+            <div class="modal__title">
+                <div class="title">카카오페이 간편인증</div> <img class="modal__close" src="http://img4.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();"> </div>
+            <div class="modal--content">
                 <div class="top_info"> 카카오톡으로 인증 요청이 발송되었습니다. </div>
-                <div class="box2"> 카카오페이 인증을 완료 하신 후 하단의 <span class="f_blue3 f_bold">[확인]</span>버튼을 눌러주세요. </div>
-                <div class="g_btn">
+                <div class="box2"> 카카오페이 인증을 완료 하신 후 하단의 <span class="f_blue3 font-weight-bold">[확인]</span>버튼을 눌러주세요. </div>
+                <div class="btn-groups_angel">
                     <a href="javascript:fnKakaopayCertify('step2');"><img src="http://img1.itemmania.com/new_images/btn/pop_btn_ok.gif" alt="확인"></a>
                     <a href="javascript:g_nodeSleep.disable();"><img class="first" src="http://img1.itemmania.com/new_images/btn/pop_btn_cancel.gif" alt="취소"></a>
                 </div>
@@ -76,7 +76,7 @@
     </div>
 </div>
 <script type="text/javascript" src="/angel/_js/jquery.js?190220"></script>
-<script type="text/javascript" src="/angel/_js/_comm.js?v=2110051622"></script>
+<script type="text/javascript" src="/angel/_js/webpack.js?v=2110051622"></script>
 <script type="text/javascript" src="/angel/_js/angelic-global.js?v=2110081625"></script>
 <script type="text/javascript">
     setTimeout(function() {
@@ -166,7 +166,7 @@
 </script>
 <script type="text/javascript" src="/angel/certify/payment/js/user_certify.js?v=210531"></script>
 <script>
-    _initialize();
+    loadGlobalItems()
 </script>
 </body>
 

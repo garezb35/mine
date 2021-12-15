@@ -9,19 +9,19 @@
     <meta name="description" content="아이템거래 No.1 아이템천사 - 빠르고 안전한 아이템거래.">
     <meta name="referrer" content="no-referrer-when-downgrade" />
     <link rel="shortcut icon" href="/favicon.ico">
-    <link type="text/css" rel="stylesheet" href="/angel/_css/_comm.css">
-    <link type="text/css" rel="stylesheet" href="/angel/_head_tail/css/_head_popup.css">
+    <link type="text/css" rel="stylesheet" href="/angel/_css/webpack.css">
+    <link type="text/css" rel="stylesheet" href="/angel/global_h/css/_head_popup.css">
     <link type="text/css" rel="stylesheet" href="/angel/css/user_certify.css?190604" />
 </head>
 <body>
-<div id="g_SLEEP" class="g_sleep g_hidden">
-    <div id="g_OVERLAY" class="g_overlay"></div>
+<div id="global_root" class="mainEntity d-none">
+    <div id="thirdys" class="fluid-div"></div>
 </div>
-<div id="g_BODY">
+<div id="angel">
     <div class="myotp_id_layer_wrapper">
         <div class="inner"></div>
     </div>
-    <div class="popup_title_bar">본인 휴대폰 인증</div>
+    <div class="model_titlebar">본인 휴대폰 인증</div>
     <div id="g_POPUP2">
 
         <div class="box_wrap">
@@ -37,7 +37,6 @@
 
         <form name="ini_hpp" id="ini_hpp" method="post">
             <input type="hidden" name="wis" value=""/>
-            <input type="hidden" name="certify_pay" value="Tjs="/>
             <input type="hidden" id="bTalkCheck" value=""/>
             <input type="hidden" name="user_mobile_type">
             <input type="hidden" name="user_mobileA">
@@ -47,12 +46,12 @@
     </div>
 </div>
 <script type="text/javascript" src="/angel/_js/jquery.js"></script>
-<script type="text/javascript" src="/angel/_js/_comm.js"></script>
+<script type="text/javascript" src="/angel/_js/webpack.js"></script>
 <script type="text/javascript" src="/angel/_js/angelic-global.js"></script>
 <script type="text/javascript" src="/angel/js/user_certify.js?190604"></script>
 <script>
 
-    _initialize();
+    loadGlobalItems()
 </script>
 </body>
 </html>

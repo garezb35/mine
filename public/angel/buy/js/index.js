@@ -48,7 +48,7 @@ function _init() {
     var regGameServerEl = document.getElementById('reg_gameserver');
     regGameServer = new GameServerList(document.getElementById('reg_gameserver_list'), {
         containerWrapper: regGameServerEl,
-        toggleContainer: regGameServerEl.getElementsByClassName('initial_screen')[0],
+        toggleContainer: regGameServerEl.getElementsByClassName('_34Cr45d_reacts')[0],
         formElement: '#frmBuy',
         game: {
             autoComplete: '#searchRegGameServer',
@@ -90,11 +90,11 @@ function _init() {
 
                 /** [ITM-10872] 캐릭터 거래 신규 서비스 삽니다 추가 by 20200720 KBR */
                 if (this.getValue().code === 'character') {
-                    if ($('#division').hasClass('g_hidden') === false) {
-                        $('#division').addClass('g_hidden');
+                    if ($('#division').hasClass('d-none') === false) {
+                        $('#division').addClass('d-none');
                     }
                 } else {
-                    $('#division').removeClass('g_hidden');
+                    $('#division').removeClass('d-none');
                 }
 
                 if (e_select.goods !== this.getValue().code) {
@@ -158,7 +158,7 @@ function _init() {
     });
     /* ▲ 상세설명 문구선택 */
 
-    document.getElementById('d_template').addEventListener('click', function(e) {
+    document.getElementById('sr-template').addEventListener('click', function(e) {
         if (e.target.name === 'gamemoney_unit') {
             var unit = e.target.value;
             if (e.target.value === '1') {
@@ -188,13 +188,13 @@ function _init() {
     document.getElementById('user_quickicon_use').addEventListener('change', function() {
         chargePremiumService();
         chargeServiceCalc();
-        //chargeServiceApply.call(this, 'f_blue1');
+        //chargeServiceApply.call(this, 'text-blue_modern');
     });
 
     // 굵은체 등록
     document.getElementById('user_icon_use').addEventListener('change', function () {
         chargePremiumService();
-        chargeServiceApply.call(this, 'f_bold');
+        chargeServiceApply.call(this, 'font-weight-bold');
     });
 
     // 녹색펜 등록
@@ -217,7 +217,7 @@ function _init() {
     // 	}
     // });
 
-    document.getElementById('premium_btn').addEventListener('click', premiumSet);
+    document.getElementById('actionPremium').addEventListener('click', premiumSet);
 
     if (document.getElementById('wideview') !== null) {
         document.getElementById('wideview').addEventListener('click', function() {
@@ -240,14 +240,14 @@ function _init() {
         document.getElementById('credit_benefit').addEventListener('click', getCreditBenefit);
     }
 
-    LayerControl({
-        layer: document.getElementById('dvPopup'),
-        close_btn: document.getElementById('dvPopup').querySelector('.close_w'),
+    KeepAlivesRaw({
+        layer: document.getElementById('dialog_fade'),
+        close_btn: document.getElementById('dialog_fade').querySelector('.fade__out'),
         type: 'style'
     });
 
     if (document.getElementById('lastList') !== null) {
-        LayerControl({
+        KeepAlivesRaw({
             layer: document.getElementById('lastList'),
             close_btn: document.getElementById('lastList').querySelector('.close'),
             mask: false,
@@ -349,11 +349,11 @@ function changeTemplate() {
     if (document.getElementById('integration_server') !== null) {
         integrationServer = document.getElementById('integration_server').value;
     }
-    var last_alias  = $(".goods").find(".sel_on").text();
+    var last_alias  = $(".goods").find(".filter__selected").text();
     e_select.goods = userGoods || 'money';
     e_select.sale = userGoodsType;
-    $(".gs_list1").addClass('g_hidden')
-    $(".initial_screen").removeClass('g_hidden')
+    $(".gs_list1").addClass('d-none')
+    $("._34Cr45d_reacts").removeClass('d-none')
     setDefaultText();
 
     ajaxRequest({
@@ -400,7 +400,7 @@ function changeTemplate() {
             // });
 
             history.pushState({back: true}, '', location.href);
-            $('#d_template').html(res);
+            $('#sr-template').html(res);
             $('[name="user_goods_type"]').on('click', changeTemplate);
             changeTemplateAddCheck();
             if (typeof(reRegSet) === 'function') {
@@ -601,7 +601,7 @@ function changeTemplateAddCheck() {
             var userCharacter = document.getElementById('user_character');
             if (gameCode === '281') {
                 if (dfServerCode === null && document.getElementById('integration_server') === null) {
-                    var strHtml = '<div id="dfServerCode" class="df_server_code"><input type="hidden" name="df_server_code"><input type="text" class="g_text" name="df_server_code_text" id="df_server_code_text" placeholder="서버검색" autocomplete="off"><div class="gs_list_area" id="dfServerList"></div></div> 물품을 전달하실 서버 |';
+                    var strHtml = '<div id="dfServerCode" class="df_server_code"><input type="hidden" name="df_server_code"><input type="text" class="angel__text" name="df_server_code_text" id="df_server_code_text" placeholder="서버검색" autocomplete="off"><div class="gs_list_area" id="dfServerList"></div></div> 물품을 전달하실 서버 |';
                     document.getElementById('dfServer').innerHTML = strHtml;
                 }
 
@@ -617,7 +617,7 @@ function changeTemplateAddCheck() {
                     });
                 }
 
-                dfServer.classList.remove('g_hidden');
+                dfServer.classList.remove('d-none');
                 userCharacter.setAttribute('maxlength', 27);
 
                 formCheck.add({
@@ -632,7 +632,7 @@ function changeTemplateAddCheck() {
                     }
                 });
             } else {
-                dfServer.classList.add('g_hidden');
+                dfServer.classList.add('d-none');
                 userCharacter.setAttribute('maxlength', 30);
             }
             /* ▲ 던전앤파이터 통합서버 처리 */
@@ -705,8 +705,8 @@ function changeTemplateAddCheck() {
 }
 
 function premiumSet() {
-    var dvPremium = document.getElementById('dvPremium');
-    LayerControl.close({layer: dvPremium});
+    var premiumPart = document.getElementById('premiumPart');
+    KeepAlivesRaw.close({layer: premiumPart});
     createLayerContent(false);
 }
 
@@ -716,7 +716,7 @@ function createLayerContent(b) {
     }
 
     var frm = document.forms.frmBuy;
-    var dvPopup = document.getElementById('dvPopup');
+    var dialog_fade = document.getElementById('dialog_fade');
     var strLayerURL = '/api/buy/include/reg_info_character';
 
     if (frm.direct_reg_trade.checked == true) {
@@ -735,11 +735,11 @@ function createLayerContent(b) {
     }
 
     if (b !== false) {
-        var dvPremium = document.getElementById('dvPremium');
+        var premiumPart = document.getElementById('premiumPart');
         var userMile = document.getElementById('txtCurrentMileage').innerHTML.numeric();
         if (userMile > 100) {
             if ($('#user_premium_time').val().isEmpty() === true) {
-                LayerControl.open({layer: dvPremium});
+                KeepAlivesRaw.open({layer: premiumPart});
                 return;
             }
         }
@@ -802,13 +802,13 @@ function createLayerContent(b) {
         type: 'POST',
         data: rgData,
         success: function(res) {
-            $('#dvPopup').find('.cont').html(res);
-            LayerControl.open({layer: dvPopup});
+            $('#dialog_fade').find('.cont').html(res);
+            KeepAlivesRaw.open({layer: dialog_fade});
 
             /** [ITM-10872] 캐릭터 거래 신규 서비스 삽니다 추가 by 20200720 KBR */
             if (rgData.user_goods === 'character' && frm.account_type.value !== '1') {
-                document.getElementById('dvPopup').classList.add('reg_info_character');
-                document.getElementById('dvPopup').getElementsByClassName('title')[0].innerHTML = '전자계약서';
+                document.getElementById('dialog_fade').classList.add('reg_info_character');
+                document.getElementById('dialog_fade').getElementsByClassName('title')[0].innerHTML = '전자계약서';
                 document.getElementById('reg_submit').addEventListener('click', function() {
                     if ($("#user_without").val() == '6') {
                         if (!confirm('고객님은 현재 회원탈퇴 신청 진행중입니다.\n판매 등록 진행 시 신청하신 회원탈퇴 접수가 철회됩니다.\n계속 진행 하시겠습니까?')) {
@@ -822,8 +822,8 @@ function createLayerContent(b) {
                     frm.submit();
                 });
             } else {
-                document.getElementById('dvPopup').classList.remove('reg_info_character');
-                document.getElementById('dvPopup').getElementsByClassName('title')[0].innerHTML = '물품등록정보';
+                document.getElementById('dialog_fade').classList.remove('reg_info_character');
+                document.getElementById('dialog_fade').getElementsByClassName('title')[0].innerHTML = '물품등록정보';
                 document.getElementById('reg_submit').addEventListener('click', function() {
                     frm.target = '_self';
                     frm.action = '/addService';
@@ -832,7 +832,7 @@ function createLayerContent(b) {
                 });
             }
             document.getElementById('cancel_submit').addEventListener('click', function() {
-                LayerControl.close({layer: dvPopup});
+                KeepAlivesRaw.close({layer: dialog_fade});
             });
         }
     });
@@ -1108,7 +1108,7 @@ function chargeServiceApply(strClass) {
 function chargePremiumService() {
     bPremiumLayer = true;
     if (bPremiumLayer == false) {
-        LayerControl.open({
+        KeepAlivesRaw.open({
             layer: document.getElementById('premium_layer'),
             close_btn: document.getElementById('premium_layer').querySelector('.close'),
             mask: false,
@@ -1116,7 +1116,7 @@ function chargePremiumService() {
         });
 
         document.getElementById('premium_close').addEventListener('click', function() {
-            LayerControl.close({layer: document.getElementById('premium_layer')});
+            KeepAlivesRaw.close({layer: document.getElementById('premium_layer')});
         });
 
         bPremiumLayer = true;
@@ -1379,7 +1379,7 @@ function getTagList(data){
                         $('.tag_list').append('<span class="tag" data-text="'+tagList[i]+'">#'+tagList[i]+'</span>');
                     }
 
-                    $('.tag_list').append('<button id="tag_more" class="btn_white1" type="button">더보기</button>');
+                    $('.tag_list').append('<button id="tag_more" class="btn-light-modern" type="button">더보기</button>');
 
                     $('#tag_more').click(function(){
                         $(this).remove();

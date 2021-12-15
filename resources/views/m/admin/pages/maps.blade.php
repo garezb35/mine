@@ -22,32 +22,32 @@
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
   <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
-  <!-- Favicon -->
+
   <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
-  <!-- Fonts -->
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-  <!-- Icons -->
+
   <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
   <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-  <!-- Page plugins -->
-  <!-- Argon CSS -->
+
+
   <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
 </head>
 
 <body>
-  <!-- Sidenav -->
+
   <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
     <div class="scrollbar-inner">
-      <!-- Brand -->
+
       <div class="sidenav-header  align-items-center">
         <a class="navbar-brand" href="javascript:void(0)">
           <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
         </a>
       </div>
       <div class="navbar-inner">
-        <!-- Collapse -->
+
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-          <!-- Nav items -->
+
           <ul class="nav align-items-center d-md-none">
             <li class="nav-item dropdown">
                 <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -86,9 +86,9 @@
                 </div>
             </li>
         </ul>
-        <!-- Collapse -->
+
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-          <!-- Nav items -->
+
           <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('home') }}">
@@ -139,13 +139,13 @@
                 </a>
             </li>
         </ul>
-          <!-- Divider -->
+
           <hr class="my-3">
-          <!-- Heading -->
+
           <h6 class="navbar-heading p-0 text-muted">
             <span class="docs-normal">Documentation</span>
           </h6>
-          <!-- Navigation -->
+
           <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
@@ -176,13 +176,13 @@
       </div>
     </div>
   </nav>
-  <!-- Main content -->
+
   <div class="main-content" id="panel">
-    <!-- Topnav -->
+
     <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!-- Search form -->
+
           <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
             <div class="form-group mb-0">
               <div class="input-group input-group-alternative input-group-merge">
@@ -196,10 +196,10 @@
               <span aria-hidden="true">×</span>
             </button>
           </form>
-          <!-- Navbar links -->
+
           <ul class="navbar-nav align-items-center  ml-md-auto ">
             <li class="nav-item d-xl-none">
-              <!-- Sidenav toggler -->
+
               <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
                 <div class="sidenav-toggler-inner">
                   <i class="sidenav-toggler-line"></i>
@@ -218,16 +218,16 @@
                 <i class="ni ni-bell-55"></i>
               </a>
               <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
-                <!-- Dropdown header -->
+
                 <div class="px-3 py-3">
                   <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
                 </div>
-                <!-- List group -->
+
                 <div class="list-group list-group-flush">
                   <a href="#!" class="list-group-item list-group-item-action">
                     <div class="row align-items-center">
                       <div class="col-auto">
-                        <!-- Avatar -->
+
                         <img alt="Image placeholder" src="../assets/img/theme/team-2.jpg" class="avatar rounded-circle">
                       </div>
                       <div class="col ml--2">
@@ -246,7 +246,7 @@
                   <a href="#!" class="list-group-item list-group-item-action">
                     <div class="row align-items-center">
                       <div class="col-auto">
-                        <!-- Avatar -->
+
                         <img alt="Image placeholder" src="../assets/img/theme/team-3.jpg" class="avatar rounded-circle">
                       </div>
                       <div class="col ml--2">
@@ -265,7 +265,7 @@
                   <a href="#!" class="list-group-item list-group-item-action">
                     <div class="row align-items-center">
                       <div class="col-auto">
-                        <!-- Avatar -->
+
                         <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg" class="avatar rounded-circle">
                       </div>
                       <div class="col ml--2">
@@ -284,7 +284,7 @@
                   <a href="#!" class="list-group-item list-group-item-action">
                     <div class="row align-items-center">
                       <div class="col-auto">
-                        <!-- Avatar -->
+
                         <img alt="Image placeholder" src="../assets/img/theme/team-5.jpg" class="avatar rounded-circle">
                       </div>
                       <div class="col ml--2">
@@ -301,7 +301,7 @@
                     </div>
                   </a>
                 </div>
-                <!-- View all -->
+
                 <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
               </div>
             </li>
@@ -394,8 +394,8 @@
         </div>
       </div>
     </nav>
-    <!-- Header -->
-    <!-- Header -->
+
+
     <div class="header bg-primary pb-6">
       <div class="container-fluid">
         <div class="header-body">
@@ -418,7 +418,7 @@
         </div>
       </div>
     </div>
-    <!-- Page content -->
+
     <div class="container-fluid mt--6">
       <div class="row">
         <div class="col">
@@ -427,7 +427,7 @@
           </div>
         </div>
       </div>
-      <!-- Footer -->
+
       <footer class="footer pt-0">
         <div class="row align-items-center justify-content-lg-between">
           <div class="col-lg-6">
@@ -459,16 +459,16 @@
       </footer>
     </div>
   </div>
-  <!-- Argon Scripts -->
-  <!-- Core -->
+
+
   <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
   <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
   <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
   <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-  <!-- Optional JS -->
+
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
-  <!-- Argon JS -->
+
   <script src="../assets/js/argon.js?v=1.2.0"></script>
 </body>
 
