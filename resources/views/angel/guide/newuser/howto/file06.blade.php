@@ -177,7 +177,7 @@
             <div class="guide_subtitle">
                 판매종료된 물품은 마이룸 > 종료내역에서 확인하실 수 있습니다.
             </div>
-            <img src="/angel/img/guide/screenshot/img_close_01.gif" width="820" height="227" alt="">
+            <img src="/angel/img/guide/screenshot/game_closed.png" width="820" height="227" alt="">
             <div class="empty-high"></div>
             <div class="divi_line"></div>
             <a href="#top">

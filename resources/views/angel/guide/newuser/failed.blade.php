@@ -133,11 +133,7 @@
             <div class="empty-high"></div>
 
             <div class="highlight_contextual">거래 사기 실시간 조회</div>
-            <img src="/angel/img/guide/screenshot/img_thecheat.jpg" width="100%" alt="">
-            <div class="highlight_contextual_nodemon">■ 이용방법</div>
-            <div class="way_txt">팝니다 등록물품 &gt; 물품정보 하단에 [거래사기 실시간 조회 서비스] 확인 가능</div>
-            <img src="/angel/img/guide/screenshot/img_thecheat02.jpg" width="100%" alt="">
-
+            <img src="/angel/img/guide/screenshot/img_thecheat.png" width="100%" alt="">
             <ul class="way">
                 <li>1. 좌측 [조회] : 현재 물품 등록자의 휴대폰 번호, 계좌번호로 더치트 등록된 사기피해사례를 실시간으로 조회 할 수 있습니다.</li>
                 <li>2. 우측 [조회] : 휴대폰 번호, 계좌번호를 직접 입력하여 더치트에 등록된 사기피해사례를 실시간으로 조회 할 수 있습니다.</li>

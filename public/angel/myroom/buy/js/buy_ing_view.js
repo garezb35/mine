@@ -92,7 +92,7 @@ function popLayer_2(elementID) {
     popLayer(elementID, params);
 }
 
-/* ▼ 거래보류해제 */
+
 function TradeCheck(process, tid) {
     var frm = $('#frmIngView');
 
@@ -100,9 +100,9 @@ function TradeCheck(process, tid) {
     frm.attr('action', "buy_ing_ok.php?tid=" + tid).submit();
 }
 
-/* ▲ 거래보류해제 */
 
-/* ▼ 물품인수확인 */
+
+
 function TradeComplete(process, money, type, tid, tMode, sUserType) {
     var frm = $('#moneyreceipt');
     var returnValue = true;
@@ -134,9 +134,7 @@ function TradeComplete(process, money, type, tid, tMode, sUserType) {
     }
 }
 
-/* ▲ 물품인수확인 */
 
-/* ▼ 현금영수증 */
 function inputChange(su) {
     if (su == 1) {
         $('#juminnumber').show();
@@ -218,11 +216,11 @@ $(function() {
     _form.autotab($('#moneyreceipt_jumin1'), $('#moneyreceipt_jumin2'));
     _form.autotab($('#moneyreceipt_jumin2'), $('[name="moneyreceipt_email"]'));
 });
-/* ▲ 현금영수증 */
 
-/* ▼ 주민등록번호 체크 */
+
+
 function check_jumin(val1, val2) {
-    //앞자리가 일자인지 체크
+
     var tmp1, tmp2
     var t1, t2, t3, t4, t5, t6, t7
     var ok = true;
@@ -238,7 +236,7 @@ function check_jumin(val1, val2) {
         return ok;
     }
 
-    //뒷자리 체크
+
     t1 = val1.substring(0, 1);
     t2 = val1.substring(1, 2);
     t3 = val1.substring(2, 3);
@@ -268,9 +266,6 @@ function check_jumin(val1, val2) {
 
 }
 
-/* ▲ 주민등록번호 체크 */
-
-/* ▼ 사업자등록번호 체크 */
 function check_busino(vencod) {
     var sum = 0;
     var getlist = new Array(10);
@@ -301,9 +296,6 @@ function check_busino(vencod) {
     }
 }
 
-/* ▲ 사업자등록번호 체크 */
-
-/* ▼ 다른글꼴로보기 */
 function fnDifferentFacePopup(sellercharacter) {
     if (arguments.length != 1 || arguments[0] === 'undefiend') return;
 
@@ -327,7 +319,6 @@ function fnDifferentFacePopup(sellercharacter) {
     }).submit();
 }
 
-/* ▲ 다른글꼴로보기 */
 
 function fnCreditViewCheck() {
     var infoId = $('#infoId').val();

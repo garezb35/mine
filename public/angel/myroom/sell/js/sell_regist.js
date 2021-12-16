@@ -1,12 +1,4 @@
-/*
- * @title		판매등록물품
- * @author		김보람
- * @date		2012.02.16
- * @update		수정날짜(수정자)
- * @description
- */
 
-/* ▼ 물품 처리 */
 function tradeProcess(flag, tid) {
 
     var confirmMsg;
@@ -34,9 +26,7 @@ function tradeProcess(flag, tid) {
     frm.submit();
 }
 
-/* ▲ 물품 처리 */
 
-/* ▼ 재등록 */
 function reInsert(tid) {
     if (confirm("재등록 하시겠습니까?")) {
         var frm = $("#reInsertFrm");
@@ -46,4 +36,4 @@ function reInsert(tid) {
     }
 }
 
-/* ▲ 재등록 */
+

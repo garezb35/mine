@@ -1,10 +1,4 @@
-/*
- * @title		메시지 확인
- * @author		장원진
- * @date		2012.02.21
- * @update		수정날짜(수정자)
- * @description
- */
+
 var g_node,
     g_mode,
     bNewRead = false;

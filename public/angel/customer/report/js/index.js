@@ -1,12 +1,4 @@
-/*
- * @title		1:1 상담하기
- * @author		김보람
- * @date		2012.03.21
- * @update		수정날짜(수정자)
- * @description
- */
 
-//var a_code;
 
 function _init() {
     $('#category_tb').find('input[type="radio"]').click(function() {

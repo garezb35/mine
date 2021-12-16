@@ -2,7 +2,7 @@
 var eventPromotion,
     eventDiscount;
 
-/* ▼ 할인 이벤트 체크  */
+
 function __init() {
     if(eventPromotion == true) {
         var basicPrice		= [],

@@ -37,7 +37,6 @@ function elementFromListData(tradeItem) {
         '	                    </div>';
     listHtml += '	        </a>';
 
-    // 퀵아이콘 등록
     if (tradeItem.quickicon) {
         listHtml += '	        <div class="view_detail_quick" trade-id="' + tradeItem.trade_id + '"></div>';
     }
@@ -155,14 +154,8 @@ function mySearch_menu_check() {
 }
 
 $(document).ready(function() {
-
-    //나만의 검색메뉴 등록 체크
     mySearch_menu_check();
-
-    //시세정보
     fnajax_ag_quotation();
-
-    /* ▼ 나만의 검색메뉴 추가 */
     $('#favorite').on('click', function() {
         var game_code = $('#filtered_game_id').val();
         var game_code_text = $('#filtered_game_alias').val();
@@ -210,5 +203,4 @@ $(document).ready(function() {
             }
         });
     });
-    /* ▲ 나만의 검색메뉴 추가 */
 });

@@ -135,7 +135,7 @@ class VMyRoomController extends BaseController
             $query->where('status',"!=",32);
             $query->where('status',"!=",-1);
         })->orWhere(function($query){
-            $query->where('toId',$this->user->id);
+            $query->where('userId',$this->user->id);
             $query->where('type','buy');
             $query->where('status',"!=",0);
             $query->where('status',"!=",23);
@@ -846,7 +846,7 @@ class VMyRoomController extends BaseController
             $query->where('status',"!=",32);
             $query->where('status',"!=",-1);
         })->orWhere(function($query){
-            $query->where('toId',$this->user->id);
+            $query->where('userId',$this->user->id);
             $query->where('type','buy');
             $query->where('status',"!=",0);
             $query->where('status',"!=",23);
@@ -965,7 +965,7 @@ class VMyRoomController extends BaseController
             $query->where('status',"!=",32);
             $query->where('status',"!=",-1);
         })->orWhere(function($query){
-            $query->where('toId',$this->user->id);
+            $query->where('userId',$this->user->id);
             $query->where('type','buy');
             $query->where('status',"!=",0);
             $query->where('status',"!=",23);
@@ -1038,7 +1038,7 @@ class VMyRoomController extends BaseController
             $query->where('status',"!=",32);
             $query->where('status',"!=",-1);
         })->orWhere(function($query){
-            $query->where('toId',$this->user->id);
+            $query->where('userId',$this->user->id);
             $query->where('type','buy');
             $query->where('status',"!=",0);
             $query->where('status',"!=",23);
@@ -1165,7 +1165,7 @@ class VMyRoomController extends BaseController
             $query->where('status',"!=",32);
             $query->where('status',"!=",-1);
         })->orWhere(function($query){
-            $query->where('toId',$this->user->id);
+            $query->where('userId',$this->user->id);
             $query->where('type','buy');
             $query->where('status',"!=",0);
             $query->where('status',"!=",23);

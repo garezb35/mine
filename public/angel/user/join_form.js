@@ -1,10 +1,3 @@
-/*
- * @title		[포탈] 회원가입 폼 스크립트
- * @author		이주원
- * @date		2007.10. 8
- * @update		2011.10.07 - 회원가입개선(김보람)
- * @description
- */
 
 var frm = null,
     Ftcapslock = false,
@@ -19,7 +12,7 @@ function _init() {
     var userPasswordVali = $('#user_password_validate');
     var checker = new FormChecker('frmInfo');
     checker.add({name: 'user_id', type: 'userid', protect: true, msg: '아이디는 4~12자의 영문/영문,숫자조합으로 이루어져야 합니다.'});
-    // 아이디 중복 검사 체크
+
     checker.add({
         custom: function() {
             if ($(this).find('[name="user_id_check"]').val() == "N") {
@@ -38,21 +31,20 @@ function _init() {
             var userMobileB = $('#user_mobileB');
             var userMobileC = $('#user_mobileC');
 
-            // 비밀번호 \ 입력제한
+
             if (userPassword.val().indexOf('\\') !== -1) {
                 alert('\\는 비밀번호 사용이 불가능합니다.');
                 userPassword.val('').focus();
                 return false;
             }
 
-            // 비밀번호 확인
+
             if (userPassword.val() != userPasswordVali.val()) {
                 alert('비밀번호 확인이 비밀번호와 같지 않습니다.');
                 userPasswordVali.val('').focus();
                 return false;
             }
 
-            // 연락처(휴대폰)
             if ($('#slctMobile_type')[0].value != "N") {
                 if (userMobileB.val().trim().length < 3) {
                     alert('연락처를 입력해주세요.');
@@ -70,7 +62,7 @@ function _init() {
             return true;
         }
     });
-    // 이메일체크
+
     checker.add({name: 'user_email', type: 'string', msg: '이메일을 입력해 주세요.'});
     checker.add({name: 'user_email_host', msg: '이메일을 서비스 업체를 선택해 주세요.'});
     checker.add({
@@ -79,8 +71,6 @@ function _init() {
             var userMobileA = $('#user_mobileA');
             var userMobileB = $('#user_mobileB');
             var userMobileC = $('#user_mobileC');
-
-            // 이메일 호스트 체크
             if ($('#slctEmail_host')[0].value == "direct") {
                 if (emailDirect.val().isEmpty()) {
                     alert('도메인을 입력해주세요.');
@@ -99,8 +89,6 @@ function _init() {
                 alert('이메일 중복확인을 해주세요.');
                 return false;
             }
-
-            // 비밀번호로 사용할 수 없는 값
             var pw = userPassword.val();
 
             if (pw.indexOf($('#user_id').val()) > -1) {
@@ -444,7 +432,7 @@ function passwordCheck(e) {
     $('#muser_password').html(strHtml);
 }
 
-/* ▼ 연락처 중복체크 */
+
 function fnCheckContact() {
     var slctMobileType = $('#slctMobile_type')[0].value,
         params = {
@@ -454,11 +442,7 @@ function fnCheckContact() {
             mobile_yn: (slctMobileType == 'N') ? 'N' : 'Y'
         };
 
-    // if(params['contact_yn'] == 'Y') {
-    // 	params['user_contactA'] = slctContact;
-    // 	params['user_contactB'] = $('#user_contactB').val();
-    // 	params['user_contactC'] = $('#user_contactC').val();
-    // }
+
     if (params['mobile_yn'] == 'Y') {
         params['user_mobileA'] = $('#user_mobileA')[0].value;
         params['user_mobileB'] = $('#user_mobileB').val();
@@ -506,9 +490,7 @@ function fnCheckContact() {
     });
 }
 
-/* ▲ 연락처 중복체크 */
 
-/* ▼ 이메일 중복체크 */
 function fnCheckEmail() {
     var frm = $('#frmInfo');
 
@@ -516,7 +498,7 @@ function fnCheckEmail() {
         return alert('이메일을 입력해주세요.');
     }
 
-    // 이메일 호스트 체크
+
     if ($("#slctEmail_host")[0].value.isEmpty()) {
         return alert('이메일 서비스 업체를 선택해 주세요.');
     }

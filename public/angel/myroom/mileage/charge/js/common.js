@@ -1,18 +1,8 @@
-/*
- * @title		마일리지 충전팝업
- * @author		김보람
- * @date		2011.07.11
- * @update		수정날짜(수정자)
- * @description
- */
+
 
 function __init() {
     _window.resize(700, 950);
     _form.protect.number($('#price_custom'));
-// 	g_fnSECURITY();
-
-    // 배너를 콘텐츠안으로 밀어넣는코드 180831 나상권
-    // /carsouel_plugin/mileage_charge.html
 
     if (document.getElementById('charge_banner') !== null) {
         document.getElementById('charge_main').appendChild(document.getElementById('charge_banner'));

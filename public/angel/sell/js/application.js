@@ -687,7 +687,7 @@ function fnApplication(defType) {
     if (result === false) {
         return;
     }
-    /* ▼ 결제수단별 이용 제한 */
+
     var strPaymentType = $('[name="payment_type"]:checked').val();
     switch (strPaymentType) {
         case 'creditcard':// 1,3

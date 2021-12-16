@@ -49,10 +49,10 @@
 
                             <div class="form-group mb-3">
                                 <div class="input-group">
-                                    <input wire:model="email" type="text" class="form-control py-2 fs-6"
+                                    <input wire:model="loginId" type="text" class="form-control py-2 fs-6"
                                         placeholder="아이디" id="userid" autofocus required>
                                 </div>
-                                @error('email') <div wire:key="form" class="invalid-feedback"> {{$message}} </div>
+                                @error('loginId') <div wire:key="form" class="invalid-feedback"> {{$message}} </div>
                                 @enderror
                             </div>
 

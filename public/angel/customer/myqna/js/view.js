@@ -1,10 +1,4 @@
-/*
- * @title			ë‚˜ì˜ì§ˆë¬¸ê³¼ ë‹µë³€
- * @author		ìž¥ì›ì§„
- * @date			2012. 02. 20
- * @update		ìˆ˜ì •ë‚ ì§œ(ìˆ˜ì •ìž)
- * @description
- */
+
 
 function _init() {
     var frm = $("#statistics");

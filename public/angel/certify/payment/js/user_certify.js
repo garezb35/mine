@@ -1,10 +1,4 @@
-/*
- * @title		ë¬¼í’ˆë“±ë¡íŒì—…[íŒë‹ˆë‹¤]
- * @author		ê¹€í˜„ì§„
- * @date		2012.03.22
- * @update		ìˆ˜ì •ë‚ ì§œ(ìˆ˜ì •ìž)
- * @description
- */
+
 
 function _init() {
     g_fnSECURITY2();

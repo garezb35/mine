@@ -66,11 +66,11 @@ function CalcMoney(pMode) {
 
     $('[name="card"]').val(card_val);
 
-    /* ▼ 할인 이벤트 체크 */
+
     if(eventPromotion == true) {
         money = money - (money * (eventDiscount/100));
     }
-    /* ▲ 할인 이벤트 체크  */
+
 
     if(money > user_Totmile) {
         alert('마일리지가 부족합니다!');

@@ -1,12 +1,3 @@
-/*
- * @title		입금대기물품
- * @author		김보람
- * @date		2012.01.27
- * @update		수정날짜(수정자)
- * @description
- */
-
-
 var cardCode = '',
     currentPhonePG = 'galaxia',
     currentCardPG = 'galaxia2',
@@ -880,7 +871,7 @@ $.extend(CPayment, {
 });
 
 
-/* ▼ 한도체크 */
+
 var CreditCardLimitCheck = {};
 $.extend(CreditCardLimitCheck, {
     xhr: null,
@@ -956,7 +947,6 @@ function fnSECURITY() {
     });
 }
 
-/* ▼ 듀얼결제 */
 var fnCheckDualPhone = {};
 $.extend(fnCheckDualPhone, {
     xhr: null,
@@ -1018,12 +1008,10 @@ $.extend(fnCheckDualCard, {
         }
     },
     OnError: function() {
-//		console.log('[ajax call error]', '/payment/_check_dual_payment_AJAX.php');
+
     }
 });
-/* ▲ 듀얼결제 */
 
-/* ▼ 티캐시 팝업 처리 */
 function fnTcash(msg, url, code) {
     clearInterval(tcash_interval);
 
@@ -1037,5 +1025,5 @@ function fnTcash(msg, url, code) {
     }
 }
 
-/* ▲ 티캐시 팝업 처리 */
+
 

@@ -1,10 +1,4 @@
-/*
- * @title			신규게임/서버 추가
- * @author			김현진
- * @date			2012.02.15
- * @update			수정날짜(수정자)
- * @description
- */
+
 
 function _init() {
     var frm = $("#frm_game");

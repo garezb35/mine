@@ -321,7 +321,7 @@
         <div class="empty-high"></div>
 
         <div class="d-flex w-100">
-            <div class="w-50 sec_left no-border back-normal " style="margin-right: 10px;">
+            <div class="w-50 sec_left no-border back-normal " style="margin-right: 10px;height: 188px">
                 <div class="title no-border">
                     전화 상담안내
                 </div>
@@ -333,20 +333,26 @@
                     </div>
                 </div>
             </div>
-            <div class="w-50 sec_right no-border">
+            <div class="w-50  no-border sec_right" style="    overflow: hidden;
+    box-sizing: border-box;
+    height: 196px;
+    margin-bottom: 10px;
+    border: 1px solid #DEE3EB;
+    background-color: #FFF;
+    float: right;
+">
                 <div class="title">
                     마일리지 충전
                 </div>
-                <div class="charge_wrap border-normal fixed-height" id="charge_list">
-                    <ul class="charge_list">
+                <div class="charge_wrap fixed-height" id="bacnked_list_3e9RT">
+                    <ul class="bacnked_list_3e9RT">
                         <li>
                             <a href="{{route('my_mileage_index_c')}}">
                                 <span class="c_name">계좌입금</span>
-                                <span class="sp_main account"></span>
+                                <span class="bank_account_emoticon account"></span>
                             </a>
                         </li>
                     </ul>
-                    <i class="border_hz"></i>
                 </div>
             </div>
         </div>

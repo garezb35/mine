@@ -1,10 +1,4 @@
-/*
- * @title			내마일리지 - 달력
- * @author		장원진
- * @date			2012.02.27
- * @update		수정날짜(수정자)
- * @description
- */
+
 
 function _init() {
 

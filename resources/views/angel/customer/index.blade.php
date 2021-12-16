@@ -62,7 +62,7 @@
                 border: solid 1px #5b96c7;
             }
             .search {
-                background: #67A3DA;
+                background: #3AB7D3;
                 padding: 26px 0;
             }
             .search .search_bar {
@@ -95,7 +95,7 @@
             .item_filtered {
                 padding: 18px 0;
                 font-size: 14px;
-                color: #67a3da;
+                color: #3AB7D3;
             }
             .item_filtered li {
                 word-spacing: 28px;
@@ -167,12 +167,12 @@
                 @foreach ($faqRecord as $rec)
                     <div class="sub_title">
                         <span class="subject">
-                            <img class="float-left" src="/angel/img/icons/ico_q.png" width="14" height="21" alt="">[{{$rec['type']}}]
+                            [{{$rec['type']}}]
                         </span>
                         <span>{{$rec['title']}}</span>
                     </div>
                     <div class="gray_box">
-                        <img class="float-left" src="/angel/img/icons/ico_a.png" width="16" height="19" alt="">
+                        <span class="float-left" style="width: 19px;height: 19px"></span>
                         <div class="float-left">
                             {!! $rec['content'] !!}
                         </div>

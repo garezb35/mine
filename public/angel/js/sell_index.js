@@ -742,13 +742,11 @@ function alterConstructorAddCheck() {
 
                 formCheck.add({
                     custom: function() {
-                        /* ▼ 던전앤파이터 통합서버 처리 */
                         if (document.getElementById('dfServerList').serverList.getValue().code.isEmpty()) {
                             alert('물품을 전달 하실 서버를 선택 해주세요.');
                             return false;
                         }
                         return true;
-                        /* ▲ 던전앤파이터 통합서버 처리 */
                     }
                 });
 
@@ -764,7 +762,7 @@ function alterConstructorAddCheck() {
         formCheck.add({
             custom: function() {
 
-                /* ▼ 연락처 중복체크 */
+
                 var slctContact = $('#user_contactA').val();
                 var slctMobileType = $('#slctMobile_type').val();
                 var params = {
@@ -922,11 +920,6 @@ function createLayerContent(b) {
                     }
 
                     if ($("#account_type").val() != 1) {
-                        // _window.open('contract', '', 360, 550);
-                        // frm.target = 'contract';
-                        // frm.action = '/certify/payment/user_certify';
-                        // frm.submit();
-
                         frm.onsubmit = null;
                         frm.target = '_self';
                         frm.action = '/addService';
@@ -1068,9 +1061,7 @@ function bookmarkAdd() {
         });
     }
 }
-/* ▲ 나만의 검색메뉴 추가 */
 
-/* ▼ 나만의 검색메뉴 삭제 */
 function fnSearchDel(id) {
     var delMessage = confirm("해당 카테고리를 삭제하시겠습니까?");
     if (delMessage == true) {
@@ -1087,9 +1078,6 @@ function fnSearchDel(id) {
         });
     }
 }
-/* ▲ 나만의 검색메뉴 삭제 */
-
-/* ▼ 나만의 검색메뉴 체크 */
 function mineGaming() {
 
     $('.favorite_icon').removeClass('on');
@@ -1199,7 +1187,7 @@ function getPriceLimit() {
     }
 }
 
-/* ▼ 수수료계산 */
+
 function commissionCalcu(t) {
     var comsArea = document.getElementById('coms_area');
     if (t === '2') {
@@ -1238,29 +1226,17 @@ function commissionCalcu(t) {
             nComPrice -= (nComPrice % 10);
         }
 
-        /* ▼ 최저/최대수수료 */
         if (nComPrice < 1000) {
             nComPrice = 1000;
         } else if (nComPrice > nMaxCommission) {
             nComPrice = nMaxCommission;
         }
-        /* ▲ 최저/최대수수료 */
+
 
         nReceivePrice = nPrice - nComPrice;
     }
-
-    // if (t === '2') {
-    // 	$('#commission_price2').html(nComPrice.currency());
-    // 	$('#receive_price2').html(nReceivePrice.currency());
-    // } else {
-    // 	$('#commission_price').html(nComPrice.currency());
-    // 	$('#receive_price').html(nReceivePrice.currency());
-    // }
 }
 
-/* ▲ 수수료계산 */
-
-/* ▼ 마일리지 결제금액 */
 function chargeServiceCalc() {
 
     var userPremiumUseHidden = document.getElementById('user_premium_use');
@@ -1313,9 +1289,6 @@ function chargeServiceCalc() {
     return true;
 }
 
-/* ▲ 마일리지 결제금액 */
-
-/* ▼ 유료등록 서비스 */
 function fnChargeService(userCharge) {
     if (userCharge == '1') {
         document.getElementById('user_charge').value = '1';
@@ -1338,12 +1311,6 @@ function chargeServiceApply(strClass) {
 
 function chargePremiumService() {
     if (premiumService == false) {
-        // KeepAlivesRaw.open({
-        //     layer: document.getElementById('premium_layer'),
-        //     close_btn: document.getElementById('premium_layer').querySelector('.close'),
-        //     mask: false,
-        //     type: 'style'
-        // });
 
         document.getElementById('premium_close').addEventListener('click', function() {
             KeepAlivesRaw.close({layer: document.getElementById('premium_layer')});
@@ -1353,11 +1320,11 @@ function chargePremiumService() {
     }
 }
 
-/* ▲ 유료등록 서비스 */
+
 
 var power_date_use, power_date;
 
-/* ▼ 파워등록권 서비스 */
+
 function fnpoweruse() {
     if (this.checked === true) {
         $("#power_use").html(power_date_use);
@@ -1397,9 +1364,6 @@ function fnPower() {
     });
 }
 
-/* ▲ 파워등록권 서비스 */
-
-/* ▼ 복수구매할인 */
 function ComplexDiscount() {
     var bCharge = $("input[name='discount_use']")[0].checked;
     if (bCharge) {
@@ -1631,7 +1595,7 @@ function reRegSet() {
     lastListEl = '';
 }
 
-// 아이템정보 추가
+
 function fnSltItemAdd() {
     var rgIdept = [];
     var rgIdeptTxt = [];
@@ -1676,7 +1640,7 @@ function fnSltItemAdd() {
     itemInfoResult.innerHTML = rgIdeptTxt.join(',');
 }
 
-// 아이템정보 삭제
+
 function fnSltItemRm(idept) {
     var rgIdeptTxt = [];
     var itemInfo = document.getElementById('slt_item_info');
@@ -1970,9 +1934,9 @@ function SafetyNumber(){
     });
 }
 
-//ITM-11901 물품등록알리미 등록방식 추가
+
 function getTagList(data){
-    /* 물품등록 알리미 */
+
     ajaxRequest({
         url: '/myroom/goods_alarm/_ajax_process.php',
         type: 'post',
@@ -2045,6 +2009,6 @@ function tagAction(){
 }
 
 function setTit(title){
-    $("#trade_sign_txt").text(title)
+    $("#trade_sign_txt").text(title);
 }
 

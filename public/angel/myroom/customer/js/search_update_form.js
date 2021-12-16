@@ -1,10 +1,4 @@
-/*
- * @title			나만의 검색 메뉴 수정 팝업
- * @author		김현진
- * @date			2012.02.13
- * @update		수정날짜(수정자)
- * @description
- */
+
 
 function _init() {
     _window.resize(680, 420);

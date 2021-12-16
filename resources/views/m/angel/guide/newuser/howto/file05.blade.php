@@ -176,7 +176,6 @@
             <div class="guide_subtitle">
                 <span class="text-rock font-weight-bold">하나. </span>구매자와 연락을 하시면서 게임상에서 물품을 구매자에게 전달합니다.
             </div>
-            <img src="/angel/img/guide/screenshot/img_hand_01.png" width="820" height="227" alt="">
             <dl class="notice">
                 <dt>[주의사항]</dt>
                 <dd>
@@ -192,13 +191,13 @@
             <div class="guide_subtitle">
                 <span class="text-rock font-weight-bold">둘. </span>구매자에게 거래물품을 건네주신 후 <b>[물품인계확인]</b> 버튼을 클릭합니다.
             </div>
-            <img src="/angel/img/guide/screenshot/img_hand_02.gif" width="820" height="510" alt="">
+            <img src="/angel/img/guide/screenshot/sending__pay.png" width="820" height="510" alt="">
             <div class="empty-high"></div>
             <div class="guide_subtitle">
                 <span class="text-rock font-weight-bold">셋. </span>현금영수증 정보를 확인 후 [물품인계확인] 버튼을 클릭하세요.
                 <br>현금영수증 발급을 원하지 않으시면 [미발급] 을 선택해주시기 바랍니다.
             </div>
-            <img src="/angel/img/guide/screenshot/img_hand_03.gif" width="820" height="800" alt="">
+            <img src="/angel/img/guide/screenshot/sending_submit.png" width="820" height="800" alt="">
             <div class="empty-high"></div>
             <div class="divi_line"></div>
             <a href="#top">

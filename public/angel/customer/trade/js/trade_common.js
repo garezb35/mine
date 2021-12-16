@@ -1,24 +1,15 @@
-/*
- * @title	    고객감동센터
- * @author		이진수
- * @date		2010.01.08
- * @update		수정날짜(수정자)
- * @description
- */
 
-/* ▼ initialize */
-// 제목
 var obj_subject = {
     'general': 0,
     'special': 1
 };
 
-// 상담내용
+
 var obj_content = {
     'general': 0
 };
 
-// 취소사유선택
+
 var obj_cancel_text = {
     'a': '상대방과 연락이 안됩니다.',
     'b': '이미 팔린 물품 입니다',
@@ -29,7 +20,6 @@ var obj_cancel_text = {
     'g': '기타 사유'
 };
 
-// 종료사유선택
 var obj_complete_text = {
     'a': '물품 인계 후 구매자 연락 안됨',
     'b': '물품 인계 후 구매자 물품인수확인 안됨',
@@ -37,7 +27,7 @@ var obj_complete_text = {
     'd': '기타 사유'
 };
 
-//선택문의
+
 var obj_selecter = {
     'a': '해킹 물품입니다',
     'b': '물품을 받지 않았으나 거래가 완료되었습니다',
@@ -45,7 +35,7 @@ var obj_selecter = {
     'd': '문제는 없으며, 거래자의 연락처를 알려주세요'
 };
 
-// 해킹여부
+
 var obj_hacking = {
     'a': '해킹 당한게 확실합니다',
     'b': '해킹이 아닙니다` 1대 도움을 받으려 문의하였습니다',
@@ -53,21 +43,21 @@ var obj_hacking = {
     'd': '해킹이 아닌, 다른 문제가 발생 되었습니다'
 };
 
-// 해킹일자
+
 var obj_hacking_info = {
     'a': '물품 인수 후 바로 해킹 당함',
     'b': '구매 후 24시간이내에 해킹 당함',
     'c': '3일 이상 지난후 해킹 당함'
 };
 
-// 정보변경 확인
+
 var obj_hacking_check = {
     'a': '일부 변경함',
     'b': '바꿀수 있는 정보는 모두 변경함',
     'c': '모두 변경 못함'
 };
 
-// 정보변경 확인 => 일부 변경함
+
 var obj_hacking_check_b = {
     'info_question': '질문/답변/퀴즈',
     'info_email': '이메일',
@@ -75,18 +65,18 @@ var obj_hacking_check_b = {
     'info_otp_password': '2차 비밀번호'
 };
 
-// 현재지정
+
 var obj_select = {
     subject: 'general',
     content: 'general'
 };
 
-// 제목 기본 문구
+
 var obj_subject_text = {
     'A003': '사용 및 출금이 가능한 마일리지로 전환을 요청합니다.'
 };
 
-// 상담내용 기본 문구
+
 var obj_content_text = {
     'A001': '※ 공통계좌로 입금하셨다면 마일리지 충전요청에 접수해 주시기 바랍니다.',
     'A003': '리니지1, 2의 판매대금은 출금내역이 있어야만 마일리지 전환이 가능합니다. \n아래의 내용을 반드시 기재해 주세요.\n판매한 게임명 : \n연락 가능한 핸드폰 번호 : \n핸드폰 명의자의 주민등록번호 : \n집 전화번호 : ',
@@ -97,20 +87,7 @@ var obj_content_text = {
     'A101': '※ 취소 사유선택이 상대방의 직거래 유도일 경우, 해당 직거래에 대한 상황을 구체적으로 기재해주시기 바랍니다.\n직거래 신고에 대한 사항은 담당자가 조사 후 답변을 드리도록 하겠습니다.\n허위로 직거래 신고를 할 경우 사이트 이용에 제한이 있을 수 있으니 이점 양지해주시기 바랍니다.'
 };
 
-//// 첨부파일이 필요한 코드
-//var obj_upload_code = Array(
-//	'A001',		// 충전/입금문의
-//	'A002',		// 출금문의
-//	'A003',		// 마일리지 전환요청
-//	'A102',		// 거래중 문제 발생
-//	'A201',		// 거래 문제 발생(거래종료)
-//	'A202',		// 거래 문제 발생(거래중)
-//	'A301',		// 개선/건의요청
-//	'A302',		// 버그/오류신고
-//	'A701'		// 서비스문의
-//);
 
-/* ▲ initialize */
 
 var checker = null;
 var strThisCode2 = null;
@@ -137,19 +114,7 @@ function _init() {
 
     if (frmCustomer.length > 0) {
         checker = new _form_checker(frmCustomer);
-//
-//		/* ▼ 폼체크 */
-//		$.extend(checker,{
-//			OnSubmit: function()
-//			{
-//				if(confirm('접수를 하시겠습니까??'))
-//				{
-//					$('#form_member').attr('action', '../report_ok.html');
-//					$('#form_member').submit();
-//				}
-//			}
-//		});
-//		/* ▲ 폼체크 */
+
     }
 
     $('#category_tb').find('input[type="radio"]').click(function() {
@@ -201,7 +166,7 @@ function _init() {
     _form.protect.number($('#user_phone1, #user_phone2, #user_phone3'));
 }
 
-/* ▼ 거래취소/종료 요청 */
+
 function move_self_A1(value) {
     if (value == "") {
         $("#Form_table").hide();
@@ -211,9 +176,7 @@ function move_self_A1(value) {
     }
 }
 
-/* ▲ 거래취소/종료 요청 */
 
-/* ▼ 거래사고신고 */
 function move_self_A2(code, t_type) {
     var frm = $("#form_member");
     var rowSpanTH = $("#TR_trade_th");
@@ -248,20 +211,16 @@ function move_self_A2(code, t_type) {
     fnCreateDom('', t_type);
 }
 
-/* ▲ 거래사고신고 */
 
-/* ▼ 테이블 DOM 생성 */
 function fnCreateDom(strType, c_code) {
-    /* ▼ form check initialize */
     var nSelect_subject = obj_subject[obj_select.subject];
     var nSelect_content = obj_content[obj_select.content];
-    /* ▲ form check initialize */
+
 
     if (checker) {
         checker.free();
     }
 
-    /* ▼ 폼체크 */
     if (strType === 'ACS') {
         $.extend(checker, {
             OnSubmit: function() {
@@ -308,8 +267,6 @@ function fnCreateDom(strType, c_code) {
 
 
     var goodsTable = $('#goods_table');
-    // goodsTable.find('.m_tmp').remove();
-
     if (strThisCode.substring(0, 2) == "A1") {
         var iIndex = 3;
         if (strThisCode == "A101") {
@@ -354,7 +311,6 @@ function fnCreateDom(strType, c_code) {
     location.href = "#form_member";
 }
 
-/* ▲ 테이블 DOM 생성 */
 
 $.fn.extend({
     getSubject: function(subject) {
@@ -1143,22 +1099,16 @@ function fnTrade_Cancel_Ajax_Complete(request) {
                 }
             }
             else if (returnData == "FRIST") {
-                /* ▼ 팝업 레이어 설정 및 뷰 */
                 nodemonPopup.disable();
                 nodemonPopup.enable($("#cancelPopup5"));
-                /* ▲ 팝업 레이어 설정 및 뷰 */
             }
             else if (returnData == "SECOND") {
-                /* ▼ 팝업 레이어 설정 및 뷰 */
                 nodemonPopup.disable();
                 nodemonPopup.enable($("#cancelPopup10"));
-                /* ▲ 팝업 레이어 설정 및 뷰 */
             }
             else if (returnData == "THIRD") {
-                /* ▼ 팝업 레이어 설정 및 뷰 */
                 nodemonPopup.disable();
                 nodemonPopup.enable($("#cancelPopup10more"));
-                /* ▲ 팝업 레이어 설정 및 뷰 */
             }
             else {
                 alert('관리자에게 문의 하세요.');
@@ -1186,10 +1136,10 @@ function fnTrade_Cancel_Ajax_Complete(request) {
                 nodemonPopup.enable($("#cancelPopup10"));
             }
             else if (returnData == "THIRD") {
-                /* ▼ 팝업 레이어 설정 및 뷰 */
+
                 nodemonPopup.disable();
                 nodemonPopup.enable($("#cancelPopup10more"));
-                /* ▲ 팝업 레이어 설정 및 뷰 */
+
             }
             else {
                 alert('관리자에게 문의 하세요.');

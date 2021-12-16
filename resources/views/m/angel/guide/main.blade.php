@@ -197,22 +197,13 @@
                 <dd><a href="{{route('guide_charge')}}">마일리지 충전</a>
                     <a href="{{route('guide_withdraw')}}">마일리지 출금</a>
                 </dd>
-{{--                <dt>보안관련</dt>--}}
-{{--                <dd>--}}
-{{--                    <a href="#">로그인 플러스</a>--}}
-{{--                    <a href="#">로그인 도용방지</a>--}}
-{{--                    <a href="#">SMS 알림</a>--}}
-{{--                    <a href="#">PC등록 인증</a>--}}
-{{--                </dd>--}}
                 <dt>편의관련</dt>
                 <dd>
                     <a href="{{route('talk_box')}}">1:1 대화함</a>
-                    <a href="{{route('hide_func')}}">숨김기능</a>
                     <a href="{{route('howto_search')}}">물품 검색 방법</a>
                 </dd>
                 <dt>부가관련</dt>
                 <dd>
-{{--                    <a href="#">할인쿠폰</a>--}}
                     <a href="{{route('security_number')}}">안심번호</a>
                     <a href="{{route('security_number_plus')}}">안심번호 플러스</a>
                 </dd>

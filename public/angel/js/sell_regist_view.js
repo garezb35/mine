@@ -1,10 +1,4 @@
-/*
- * @title		íŒë§¤ë“±ë¡ë¬¼í’ˆ
- * @author		ê¹€ë³´ëžŒ
- * @date		2012.02.20
- * @update		ìˆ˜ì •ë‚ ì§œ(ìˆ˜ì •ìž)
- * @description
- */
+
 
 var angel_premiun_items = {
     premium: 0,

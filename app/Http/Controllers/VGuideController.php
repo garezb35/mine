@@ -276,6 +276,8 @@ class VGuideController extends BaseController
 
     public function user_reg_step1()
     {
+        if($this->user)
+            return redirect(route('index'));
         return view('angel.user.user_reg_step1');
     }
 

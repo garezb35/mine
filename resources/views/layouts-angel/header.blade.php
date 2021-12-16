@@ -20,10 +20,10 @@
                 <ul class="js-nav-justicy-right">
                     <li><a href="{{route('myroom')}}">마이룸</a></li>
                     <li><a href="{{route('main_customer')}}">고객센터</a></li>
-                    <li><a href="{{route('user_reg_step1')}}">회원가입</a></li>
                     @if(auth()->check())
                         <li><a href="/logout">로그아웃</a></li>
                     @else
+                        <li><a href="{{route('user_reg_step1')}}">회원가입</a></li>
                         <li><a href="/login">로그인</a></li>
                     @endif
                 </ul>

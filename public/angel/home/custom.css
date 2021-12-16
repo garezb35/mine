@@ -175,7 +175,7 @@
     margin-top: 27px;
 }
 .fixed-height {
-    height: 270px;
+    height: 145px;
 }
 .inquery_part {
     margin-top: 40px;
@@ -196,13 +196,13 @@
 .move_btn {
     top: 16px;
 }
-.charge_list {
+.bacnked_list_3e9RT {
     width: 100%;
 }
-.charge_list li {
+.bacnked_list_3e9RT li {
     width: 132px;
 }
-.charge_list li a {
+.bacnked_list_3e9RT li a {
     border-right:none;
 }
 .service_list label .has-sprite {

@@ -38,6 +38,9 @@ class MItem extends Model
         return $this->hasMany(MBargainRequest::class,'orderNo','orderNo')->where('status',0);
     }
 
+    public function bargainByUser(){
+        return $this->hasOne(MBargainRequest::class,'userId','userId');
+    }
 
     public function premium(){
         return $this->hasOne(MPremium::class,'post_id','id')

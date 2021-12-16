@@ -1,11 +1,3 @@
-/*
- * @title		흥정신청된 물품
- * @author		김보람
- * @date		2012.01.27
- * @update		수정날짜(수정자)
- * @description
- */
-
 function _init()
 {
     var checker = new _form_checker($("#frmReBa"));
@@ -16,7 +8,7 @@ function _init()
     baInput.bind('blur', fnCheck_price);
 }
 
-/* ▼ Price Check */
+
 function fnCheck_price(bLimit) {
     if($(this).val().isEmpty() || $(this).val() == '0') { return false }
     var last = $(this).val().substring($(this).val().length-2, $(this).val().length);
@@ -39,9 +31,7 @@ function fnCheck_price(bLimit) {
 
     return true;
 }
-/* ▲ Price Check */
 
-/* ▼ 흥정 처리 */
 function TradeCheck(process, check_id)
 {
     var frm = $('#frmCheckView');
@@ -49,9 +39,8 @@ function TradeCheck(process, check_id)
     frm.find('input[name="process"]').val(process);
     frm.attr('action', "sell_check_ok.php").submit();
 }
-/* ▲ 흥정 처리 */
 
-/* ▼ 재흥정 레이어 */
+
 function TradeReCheck(process)
 {
     var frm = $('#frmReBa');
@@ -78,9 +67,7 @@ function TradeReCheck(process)
 
     frm.attr('action', "/sell_check_ok").submit();
 }
-/* ▲ 재흥정 레이어 */
 
-/* ▼ 삭제 */
 function fnTradeDelete()
 {
     if(confirm("선택한 물품을 삭제하겠습니까?")) {
@@ -89,7 +76,7 @@ function fnTradeDelete()
         frm.submit();
     }
 }
-/* ▲ 삭제 */
+
 
 
 function popLayer(elementID,params){

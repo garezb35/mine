@@ -22,12 +22,6 @@ function _init() {
         gamelist.append(option);
     }
     if (!bslt) {
-        // alert('요청하신 게임은 전일 시세정보만 제공합니다.');
-        // var strUrl = '/game_info/money/index?gamecode=125&servercode=11523';
-        // if (bPop) {
-        //     strUrl += '&win=pop';
-        // }
-        // location.href = strUrl;
     }
 
     serverLoad(g_game_code);
@@ -192,8 +186,6 @@ $.extend({
                 labelsLength = 5;
 
                 var strUnit = $(xml).find('quotation').attr('multiple') + $(xml).find('quotation').attr('unit_trade') + ' ' + $(xml).find('quotation').attr('denomination');
-                //var txtSearch = '<div class=\'avr_day\'>(' + strUnit + '당)</div><div class=\'empty-high\'></div>';
-                //$('#lbl_graph_title').append(txtSearch);
 
                 if ($(xml).find('quotation').attr('result') == 'fail') {
                     alert($(xml).find('quotation').attr('result_descript'));
@@ -211,16 +203,13 @@ $.extend({
                 var unitTxt = $(xml).find('quotation').attr('denomination');
                 var extra_info = ' <span class=\'text-blue_modern\'> 일 평균 ' + Number(nAvgPrice).currency() + '원</span>';
 
-                /* ▼ 환율계산정보 */
+
                 money_unit = $(xml).find('quotation').attr('unit_trade');
                 money_standard = $(xml).find('quotation').attr('multiple');
                 money_date = $(xml).find('quotation > data').attr('date');
                 money_avg = $(xml).find('quotation > data').attr('price');
                 $('#txtUnitMoney').text(money_unit + ' ' + unitTxt);
                 $('#dvStandard').html('<span>'+ money_standard + money_unit + '당 ' + Number(money_avg).currency() + '원</span><br><span>(' + money_date + ' 기준)</span>');
-                /* ▲ 환율계산정보 */
-
-                /* ▼ 차트데이터 처리 */
                 var rgDate = new Array();
                 var rgSrvPrice = new Array();
                 var rgMinSrvPrice = new Array();
@@ -229,7 +218,7 @@ $.extend({
                 $('#tbl_money_list_01').html('');
                 $('#tbl_money_list_02').html('');
                 $(xml).find('quotation > data').each(function() {
-                    /* ▼ 일자 별 시세 등락 폭 */
+
                     var strDate = $(this).attr('date').replace(/\//g, '-');
                     var tr_row = '<tr><td>' + strDate + '</td><td>' + Number($(this).attr('price')).currency() + '</td>';
                     if ($(this).attr('amount_type') == 'down') {

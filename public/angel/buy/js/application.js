@@ -28,7 +28,7 @@ var simpleTradeParams = null;
 function _init() {
     _form.protect.price($('#sell_quantity'));
 
-    /* ▼ 던전앤파이터 통합서버 처리 */
+
     if ($('#dfServer').length > 0) {
         new ServerList(document.getElementById('dfServerList'), {
             autoComplete: '#df_server_code_text',
@@ -104,8 +104,6 @@ function fnCheckSimpleSubmit() {
 
 function fnFormChecker() {
     var frm = $('#frmSell');
-
-    /* ▼ 던전앤파이터 통합서버 처리 */
     if ($('#dfServer').length > 0) {
         if ($('[name="df_server_code"]').val().isEmpty()) {
             alert('물품을 전달 하실 서버를 선택 해주세요.');
@@ -136,7 +134,7 @@ function fnFormChecker() {
         $("#layer_money").text($("#trade_money").text());
     }
 
-    /* ▼ 안심번호 서비스 */
+
     if ($("#safety_using_flag").val() == "true") {
         if ($("#user_safety_type").val() == "1" && $("#using_safety_number").val() == "on") {
             if ($("#user_cell_auth").val() == '0') {
@@ -145,9 +143,7 @@ function fnFormChecker() {
             }
         }
     }
-    /* ▲ 안심번호 서비스 */
 
-    /* ▼ 연락처 중복체크 */
     var slctContact = $('#user_contactA').val();
     var slctMobileType = $('#slctMobile_type').val();
     var params = {

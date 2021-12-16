@@ -1,12 +1,4 @@
-/*
- * @title		íŒë§¤ë“±ë¡ë¬¼í’ˆ
- * @author		ê¹€ë³´ëžŒ
- * @date		2012.02.16
- * @update		ìˆ˜ì •ë‚ ì§œ(ìˆ˜ì •ìž)
- * @description
- */
 
-/* â–¼ ë¬¼í’ˆ ì²˜ë¦¬ */
 function tradeProcess(flag, tid) {
 
     var confirmMsg;

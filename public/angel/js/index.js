@@ -1,45 +1,7 @@
-/*
- * @title		ë§ˆì´ë£¸
- * @author		ê¹€ë³´ëžŒ
- * @date		2012.01.19
- * @update		2020.07.21 (ê°•í¬ê²½)
- * @description
- */
+
 
 function _init(){
-// 	g_fnSECURITY2();
-//	StartSmartUpdate();
 
-    // $.ajax({
-    //     url			: "/_include/_loginbox_security.php",
-    //     dataType	: "text",
-    //     type		: "get",
-    //     data		: null,
-    //     success		: function(request) {
-    //         reqData = request.split("$");
-    //
-    //         var strSecuResult = "ë¯¸ì„¤ì •";
-    //         var strLoginAlarm = "ë¯¸ì„¤ì •";
-    //         var strLoginResult = "ë¯¸ì„¤ì •";
-    //         var strUseService = "<span class='text-blue_modern'>ì„¤ì •ì™„ë£Œ</span>";
-    //         if (reqData[0] == true) { strSecuResult = strUseService; }
-    //         if (reqData[3] == true) { strLoginResult = strUseService; }
-    //         if (reqData[4] == true) { strLoginAlarm = strUseService; }
-    //
-    //         // $("#login_security_service").html("ë¡œê·¸ì¸ ë³´ì•ˆ ì„œë¹„ìŠ¤ : <b>"+strLoginResult+"</b>");
-    //         // $("#login_alert_service").html("ë¡œê·¸ì¸ ì•Œë¦¼ ì„œë¹„ìŠ¤ : <b>"+strLoginAlarm+"</b>");
-    //         // $("#payment_security_service").html("ê²°ì œ ë³´ì•ˆ ì„œë¹„ìŠ¤ : <b>"+strSecuResult+"</b>");
-    //
-    //         $("#login_security_state").html("<b>"+strLoginResult+"</b>");
-    //         $("#login_alert_state").html("<b>"+strLoginAlarm+"</b>");
-    //         $("#payment_state").html("<b>"+strSecuResult+"</b>");
-    //
-    //         //$('#loading_img').hide();
-    //     },
-    //     error : function (xhr) {
-    //         alert("ì ‘ì†ì´ ì›í™œí•˜ì§€ ì•ŠìŠµë‹ˆë‹¤."+xhr.status);
-    //     }
-    // });
 
 }
 

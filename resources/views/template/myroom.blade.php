@@ -37,10 +37,18 @@
         <td>{{date("Y-m-d H:i:s",strtotime($v['created_at']))}}</td>
         @if($type == 0)
             <td>
-                @if(empty($v['payitem']) && $v['status'] == 0 && empty($v['toId']))
+                @if(empty($v['payitem']) && $v['status'] == 0 && empty($v['toId']) && $v['userId'] == $me['id'])
                 <a href="javascript:;" onclick="reInsert('{{$v['orderNo']}}');" class="regist_btn09">재등록</a>
                 <a href="javascript:;" onclick="tradeProcess('deleteSelect', '{{$v['orderNo']}}')" class="regist_btn10">삭제</a>
                 @endif
+                @if($v['status'] == 23 || $v['status'] == 32)
+                <span>판매완료</span>
+                @endif
+            </td>
+        @endif
+        @if($type == 1)
+            <td>
+                <a href="{{$href}}"  class="btn-default-medium btn-suc-rect">물품보기</a>
             </td>
         @endif
     </tr>

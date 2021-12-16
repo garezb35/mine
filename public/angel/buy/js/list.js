@@ -1,4 +1,4 @@
-// 리스트 초기값
+
 var nListPage = 1;
 var searchList = {
     ajaxUrl: '/api/ajax_list',
@@ -245,7 +245,7 @@ $(document).ready(function() {
 
     $('#opt_list li').click(listOptionClick);
 
-    /*  begin 물품정보 안내 */
+
     $listInfo.find('i.icon_info').on('click', function() {
         $listInfo.find('.info_layer').toggleClass('active');
     });
@@ -253,7 +253,7 @@ $(document).ready(function() {
     $listInfo.find('.info_layer > .il_close').on('click', function() {
         $(this).parent().removeClass('active');
     });
-    /*  end 물품정보 안내 */
+
 
     $('#item_regInfo').find('a.fade__out').on('click', function() {
         $('#item_regInfo').removeClass('layer_active');
@@ -264,7 +264,7 @@ $(document).ready(function() {
         $(this).toggleClass('down');
     });
 
-    /* begin 리스트 새로고침 */
+
     $('.icon_refresh').on('click', function() {
         $('.item_filtered__premium').html('');
         $('.item_filtered__average').html('');
@@ -273,9 +273,7 @@ $(document).ready(function() {
         nListPage = 1;
         listLoad(append);
     });
-    /* end 리스트 새로고침 */
 
-    /* ▼ 리스트 추가 로드 */
     $('.load_more').on('click', function() {
         var filtered_items = $('#filtered_items').val();
         if (filtered_items != 'character') {

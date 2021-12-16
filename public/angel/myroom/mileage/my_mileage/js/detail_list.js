@@ -1,10 +1,4 @@
-/*
- * @title		ë‚´ë§ˆì¼ë¦¬ì§€ - ìƒì„¸ë‚´ì—­ë³´ê¸°
- * @author		ìž¥ì›ì§„
- * @date		2012.02.28
- * @update		ìˆ˜ì •ë‚ ì§œ(ìˆ˜ì •ìž)
- * @description
- */
+
 
 var g_rgStart	= null;
 var g_rgEnd		= null;

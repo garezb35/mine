@@ -1,10 +1,4 @@
-/*
- * @title			상품권몰
- * @author			[F/E] 김현진
- * @date			2015.08.24
- * @update
- * @description
- */
+
 function _init() {
     $(window).scroll(function () {
         var scrollTop = $(window).scrollTop();

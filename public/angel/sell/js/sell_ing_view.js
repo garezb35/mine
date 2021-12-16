@@ -1,12 +1,4 @@
-/*
- * @title		판매중인 물품
- * @author		김보람
- * @date		2012.03.19
- * @update		수정날짜(수정자)
- * @description
- */
 
-// 판매유형
 var e_type = {
     'sell' : 0,
     'buy' : 1
@@ -139,12 +131,12 @@ function popLayer_2(elementID) {
     }
 }
 
-// 판매금액 적립
+
 function popLayer_3() {
     nodemonPopup.enable($('#trade_reserve'));
 }
 
-/* ▼ 거래가능확인 */
+
 function TradeCheck(process,tid)
 {
     var frm = $('#frmIngView');
@@ -153,9 +145,7 @@ function TradeCheck(process,tid)
     frm.attr('action', "sell_ing_ok.php?tid="+tid);
     frm.submit();
 }
-/* ▲ 거래가능확인 */
 
-/* ▼ 거래취소 */
 function TraceCancel(process,tid)
 {
     var select_cancel = $('#SELECT_CANCEL')[0];
@@ -223,9 +213,7 @@ function TraceCancel(process,tid)
     frm.attr('action', "/sell_ing_ok?tid="+tid);
     frm.submit();
 }
-/* ▲ 거래취소 */
 
-/* ▼ 물품인계확인 */
 function TradeComplete(process, tid, tMode, sUserType) {
     var frm			= $('#moneyreceipt'),
         returnValue	= true;
@@ -247,9 +235,7 @@ function TradeComplete(process, tid, tMode, sUserType) {
         }).submit();
     }
 }
-/* ▲ 물품인계확인 */
 
-/* ▼ 현금영수증 */
 function inputChange(su){
     if(su == 1){
         $('#juminnumber').show();
@@ -331,11 +317,9 @@ $(function () {
     _form.autotab($('#moneyreceipt_jumin1'), $('#moneyreceipt_jumin2'));
     _form.autotab($('#moneyreceipt_jumin2'), $('[name="moneyreceipt_email"]'));
 });
-/* ▲ 현금영수증 */
 
-/* ▼ 주민등록번호 체크 */
 function check_jumin(val1,val2) {
-    //앞자리가 일자인지 체크
+
     var tmp1,tmp2
     var t1,t2,t3,t4,t5,t6,t7
     var ok=true;
@@ -371,10 +355,7 @@ function check_jumin(val1,val2) {
     return ok;
 
 }
-/* ▲ 주민등록번호 체크 */
 
-
-/* ▼ 사업자등록번호 체크 */
 function check_busino(vencod){
     var sum = 0;
     var getlist = new Array(10);
@@ -404,9 +385,7 @@ function check_busino(vencod){
         return false;
     }
 }
-/* ▲ 사업자등록번호 체크 */
 
-/* ▼ 거래취소사유 선택 */
 function cancel_select(regData)
 {
     var cancelDetail = $('#cancelDetail');
@@ -429,9 +408,7 @@ function cancel_select(regData)
         cancelDetail.hide();
     }
 }
-/* ▲ 거래취소사유 선택 */
 
-/* ▼ 다른글꼴로보기 */
 function fnDifferentFacePopup(buyercharacter)
 {
     if(arguments.length != 1 || arguments[0] === 'undefiend') return;
@@ -491,7 +468,7 @@ function fnPaymentPhone(tId, tType) {
     location.href	= '/myroom/myinfo/payment_phone_set.html?trade_id=' + tId + '&trade_type=' + tType;
 }
 
-/* ▼ 다시보지 않음 */
+
 function newSetDeny(strName) {
     if(this.checked === true) {
         _cookie.add(strName, 'deny', 365, '/');
@@ -500,4 +477,4 @@ function newSetDeny(strName) {
         _cookie.remove(strName);
     }
 }
-/* ▲ 다시보지않음 */
+

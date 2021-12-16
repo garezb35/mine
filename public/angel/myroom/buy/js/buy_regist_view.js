@@ -1,10 +1,4 @@
-/*
- * @title		구매등록물품
- * @author		김보람
- * @date		2012.01.27
- * @update		수정날짜(수정자)
- * @description
- */
+
 
 var angel_premiun_items = {
     premium: 0,

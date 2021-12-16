@@ -22,7 +22,7 @@ var g_trade_info = {
 var checker = null;
 
 function _init() {
-    /* ▼ 흥정 거래시 */
+
     var frm = $('#frmbaRequest');
 
     if (frm.length > 0) {
@@ -55,14 +55,14 @@ function _init() {
                     return;
                 }
 
-                /* ▼ 던전앤파이터 통합서버 처리 */
+
                 if ($('#dfServer').length > 0) {
                     if (document.getElementById('dfServerList').serverList.getValue().code.isEmpty()) {
                         alert('물품을 전달 받으실 서버를 선택 해주세요.');
                         return false;
                     }
                 }
-                /* ▲ 던전앤파이터 통합서버 처리 */
+
 
                 if($('#trade_kind').val() != 6){
                     if ($('#user_character').val().isEmpty()) {
@@ -111,12 +111,10 @@ function _init() {
                         alert('서비스가 원할하지 않습니다. 잠시후 이용해 주세요.');
                     }
                 });
-                /* ▲ 연락처 중복체크 */
             }
         });
 
         frm.find('input[name="ba_money"]').bind('blur', checkBaMoney);
-        /* ▼ 던전앤파이터 통합서버 처리 */
         var userCharacter = document.getElementById('user_character');
         if ($('#dfServer').length > 0) {
             var dfServerCode = document.querySelector('[name="df_server_code"]').value;

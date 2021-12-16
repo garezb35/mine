@@ -384,9 +384,7 @@ function alterConstructorAddCheck() {
                 return true;
             }
         });
-        /** [ITM-10872] 캐릭터 거래 신규 서비스 삽니다 추가 by 20200720 KBR */
     } else {
-        /* ▼ 던전앤파이터 통합서버 처리 */
         var dfServer = document.getElementById('dfServer');
         var dfServerCode = document.getElementById('dfServerCode');
         var userCharacter = document.getElementById('user_character');
@@ -424,7 +422,6 @@ function alterConstructorAddCheck() {
     formCheck.add({
         custom: function() {
 
-            /* ▼ 연락처 중복체크 */
             var slctContact = $('#user_contactA').val();
             var slctMobileType = $('#slctMobile_type').val();
             var params = {

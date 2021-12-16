@@ -1,12 +1,4 @@
-/*
- * @title		제목
- * @author		작성자
- * @date		날짜
- * @update		수정날짜(수정자)
- * @description
- */
 
-/* ▼ 물품 처리 */
 function tradeProcess(flag, tid) {
 
     var confirmMsg;

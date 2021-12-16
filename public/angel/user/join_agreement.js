@@ -1,10 +1,4 @@
-/*
- * @title		회원가입 약관동의/실명확인
- * @author		김보람
- * @date		2011.10.04
- * @update
- * @description
- */
+
 
 $(function() {
     var frm = new _form_checker($('#reqCBAForm')),

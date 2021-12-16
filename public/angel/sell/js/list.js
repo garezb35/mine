@@ -292,9 +292,7 @@ $(document).ready(function() {
         nListPage = 1;
         listLoad(append);
     });
-    /* end 리스트 새로고침 */
 
-    /* ▼ 리스트 추가 로드 */
     $('.load_more').on('click', function() {
         var filtered_items = $('#filtered_items').val();
         if(filtered_items != 'character') {
@@ -307,7 +305,7 @@ $(document).ready(function() {
         }
         listLoad(append);
     });
-    /* ▲ 리스트 추가 로드 */
+
 
     $(document).on('click', '.item_filtered__average div.view_detail, .item_filtered__average div.view_detail_quick', function() {
         $(this).parents('li').addClass('on');

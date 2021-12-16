@@ -43,5 +43,11 @@
                 @endif
             </td>
         @endif
+        @if($type == 1)
+        <td>
+            <a href="javascript:;" onclick="reInsert('{{$v['orderNo']}}');" class="regist_btn09">재흥정</a>
+            <a href="javascript:;" onclick="tradeProcess('deleteSelect', '{{$v['orderNo']}}')" class="regist_btn10">취소</a>
+        </td>
+        @endif
     </tr>
 @endforeach
