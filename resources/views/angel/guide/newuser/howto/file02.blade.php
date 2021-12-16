@@ -176,17 +176,17 @@
             <div class="empty-high"></div>
             <div class="highlight_contextual">삽니다 물품검색 후 판매신청</div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span>상단 검색바에서 게임/서버명을 선택합니다.
+                <span class="text-rock font-weight-bold">하나. </span>상단 검색바에서 게임/서버명을 선택합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_search_01.png" width="820" height="448" alt="">
             <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>검색된 물품 목록에서 물품제목과 금액 등을 확인하신 후 판매 의사가 있으신 물품을 클릭합니다.
+                <span class="text-rock font-weight-bold">둘. </span>검색된 물품 목록에서 물품제목과 금액 등을 확인하신 후 판매 의사가 있으신 물품을 클릭합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_search_02.png" width="820" height="638" alt="">
             <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">셋. </span>물품정보와 개인정보를 확인 하신 후 [판매신청] 버튼을 클릭합니다.
+                <span class="text-rock font-weight-bold">셋. </span>물품정보와 개인정보를 확인 하신 후 [판매신청] 버튼을 클릭합니다.
                 <br>개인정보의 판매자 캐릭터명은 반드시 입력하셔야 안전한 거래가 이루어집니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_search_03.png" width="820" height="763" alt="">

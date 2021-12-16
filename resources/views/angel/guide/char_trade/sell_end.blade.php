@@ -184,9 +184,6 @@
                     판매종료된 물품은 마이룸 > 종료내역에서 확인하실 수 있습니다.
                 </div>
                 <img src="/angel/img/guide/screenshot/img_char_sell6_01.png" width="820" height="" alt="">
-
-                {{--                <img src="http://img3.itemmania.com/new_images/guide/screenshot/img_char_sell1_03.jpg" width="820" height="320" alt="">--}}
-                {{--                <div class="guide_subtxt">* 등록한 물품은 마이룸 &gt; 판매관련 &gt; 판매등록물품에서 확인가능합니다.</div>--}}
                 <div class="divi_line"></div>
             </div>
         </div>

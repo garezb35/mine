@@ -112,7 +112,7 @@ function fnTelCertify2(k, t) {
                 window.opener.$('#global_root').show();
             }
             check_tel = 0;
-            g_nodeSleep.enable($("#dialog_fade"));
+            nodemonPopup.enable($("#dialog_fade"));
             var returnData = request.split("|");
             switch(returnData[0]) {
                 case "S" :
@@ -121,7 +121,7 @@ function fnTelCertify2(k, t) {
                     break;
                 case "F" :
                     alert("ì¸ì¦ì´ ì‹¤íŒ¨ í•˜ì˜€ìŠµë‹ˆë‹¤.\në‹¤ë¥¸ ì¸ì¦ ìˆ˜ë‹¨ì„ ì´ìš©í•˜ì—¬ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.");
-                    g_nodeSleep.disable($("#dialog_fade"));
+                    nodemonPopup.disable($("#dialog_fade"));
                     break;
                 default:
                     alert("ì „í™”ì¸ì¦ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤. \në‹¤ì‹œ ì‹œë„í•´ì£¼ì„¸ìš”. [E" + returnData[0] + "]");
@@ -154,7 +154,7 @@ function fnTelCertify() {
         complete : function (request){
             if(window.opener.closed == false) { window.opener.$('#global_root').show();	}
             check_tel = 0;
-            g_nodeSleep.enable($("#dialog_fade"));
+            nodemonPopup.enable($("#dialog_fade"));
             var returnData = request.split("|");
             switch (returnData[0]) {
                 case "S" :
@@ -163,7 +163,7 @@ function fnTelCertify() {
                     break;
                 case "F" :
                     alert("ì¸ì¦ì´ ì‹¤íŒ¨ í•˜ì˜€ìŠµë‹ˆë‹¤.\në‹¤ë¥¸ ì¸ì¦ ìˆ˜ë‹¨ì„ ì´ìš©í•˜ì—¬ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.");
-                    g_nodeSleep.disable($("#dialog_fade"));
+                    nodemonPopup.disable($("#dialog_fade"));
                     break;
                 default:
                     alert("ì „í™”ì¸ì¦ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤. \në‹¤ì‹œ ì‹œë„í•´ì£¼ì„¸ìš”. [E" + returnData[0] + "]");
@@ -193,23 +193,23 @@ function fnThinkat(tid) {
                     break;
                 case "F3" : //ì •ìƒì ì¸ê²½ë¡œ
                     alert("ì •ìƒì ì¸ ê²½ë¡œë¥¼ ì´ìš©í•´ì£¼ì„¸ìš”.");
-                    g_nodeSleep.disable($("#dialog_fade"));
+                    nodemonPopup.disable($("#dialog_fade"));
                     break;
                 case "F4" : //ì‹¤íŒ¨
                     alert("ì¸ì¦ì´ ì‹¤íŒ¨ í•˜ì˜€ìŠµë‹ˆë‹¤.\në‹¤ë¥¸ ì¸ì¦ ìˆ˜ë‹¨ì„ ì´ìš©í•˜ì—¬ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.");
-                    g_nodeSleep.disable($("#dialog_fade"));
+                    nodemonPopup.disable($("#dialog_fade"));
                     break;
                 case "F6" : //ì‹¤íŒ¨
                     alert("ì¸ì¦ì´ ì‹¤íŒ¨ í•˜ì˜€ìŠµë‹ˆë‹¤.\në‹¤ë¥¸ ì¸ì¦ ìˆ˜ë‹¨ì„ ì´ìš©í•˜ì—¬ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.");
-                    g_nodeSleep.disable($("#dialog_fade"));
+                    nodemonPopup.disable($("#dialog_fade"));
                     break;
                 case "F7" : //ì‹¤íŒ¨
                     alert("ì¸ì¦ì‹œê°„ì´ ì´ˆê³¼í•˜ì˜€ìŠµë‹ˆë‹¤.\në‹¤ì‹œ ì‹œë„í•´ì£¼ì„¸ìš”.");
-                    g_nodeSleep.disable($("#dialog_fade"));
+                    nodemonPopup.disable($("#dialog_fade"));
                     break;
                 case "F8" : //ì‹¤íŒ¨
                     alert("ì¸ì¦ì‹œê°„ì´ ì´ˆê³¼í•˜ì˜€ìŠµë‹ˆë‹¤.\në‹¤ì‹œ ì‹œë„í•´ì£¼ì„¸ìš”.[ex00]");
-                    g_nodeSleep.disable($("#dialog_fade"));
+                    nodemonPopup.disable($("#dialog_fade"));
                     break;
                 case "S" : //ì„±ê³µ
                     fnOpenerSubmit();
@@ -217,7 +217,7 @@ function fnThinkat(tid) {
             }
         },
         error : function() {
-            g_nodeSleep.disable($("#dialog_fade"));
+            nodemonPopup.disable($("#dialog_fade"));
         }
     });
 }
@@ -274,7 +274,7 @@ function fnKakaopayCertify(k) {
                     alert(returnData[1]);
                     return;
                 }
-                g_nodeSleep.enable($("#dialog_fade2"));
+                nodemonPopup.enable($("#dialog_fade2"));
 
             } else if(k == "step2"){
                 switch(returnData[0]) {
@@ -284,7 +284,7 @@ function fnKakaopayCertify(k) {
                         break;
                     case "F" : //ì •ìƒì ì¸ê²½ë¡œ
                         alert(returnData[1]);
-                        g_nodeSleep.disable($("#dialog_fade"));
+                        nodemonPopup.disable($("#dialog_fade"));
                         break;
                     case "S" : //ì„±ê³µ
                         alert("ì¸ì¦ì´ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
@@ -293,11 +293,11 @@ function fnKakaopayCertify(k) {
                 }
             } else {
                 alert("ìž˜ëª»ëœ ì ‘ê·¼ìž…ë‹ˆë‹¤.");
-                g_nodeSleep.disable($("#dialog_fade"));
+                nodemonPopup.disable($("#dialog_fade"));
             }
         },
         error : function() {
-            g_nodeSleep.disable($("#dialog_fade"));
+            nodemonPopup.disable($("#dialog_fade"));
         }
     });
 }

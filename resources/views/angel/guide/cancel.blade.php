@@ -129,11 +129,11 @@
 {{--            <div class="highlight_contextual">구매자의 구매중인 물품 거래취소</div>--}}
 {{--            구매취소는 마이룸&gt;구매관련&gt;구매중인 물품의 [거래취소] 버튼이나, 고객센터 &gt; 1:1 상담하기 &gt; 거래취소요청으로 가능합니다.--}}
 {{--            <div class="guide_subtitle">--}}
-{{--                <span class="f_red1 font-weight-bold">하나. </span>고객센터&gt;1:1상담하기&gt; 거래취소/종료요청에서&nbsp;‘취소요청’ 선택하신 후 구매중인 물품에서 취소할 물품의 [접수]&nbsp;버튼을 클릭 합니다.--}}
+{{--                <span class="text-rock font-weight-bold">하나. </span>고객센터&gt;1:1상담하기&gt; 거래취소/종료요청에서&nbsp;‘취소요청’ 선택하신 후 구매중인 물품에서 취소할 물품의 [접수]&nbsp;버튼을 클릭 합니다.--}}
 {{--            </div>--}}
 {{--            <img src="/angel/img/guide/screenshot/img_cancel2_01.jpg" width="820" alt="">--}}
 {{--            <div class="guide_subtitle">--}}
-{{--                <span class="f_red1 font-weight-bold">둘. </span><span class="font-weight-bold">상담서 작성하기</span>--}}
+{{--                <span class="text-rock font-weight-bold">둘. </span><span class="font-weight-bold">상담서 작성하기</span>--}}
 {{--                <div class="guide_subtxt">거래취소 물품의 상담정보를 입력 하신 후 <span class="font-weight-bold">[확인] </span>버튼을 누르시면 취소접수가 완료됩니다.</div>--}}
 {{--            </div>--}}
 {{--            <img src="/angel/img/guide/screenshot/img_cancel2_02.gif" width="820" alt="">--}}
@@ -142,11 +142,11 @@
             판매자의 거래취소는 마이룸 &gt; 판매관련 &gt; 판매중인 물품의 [거래취소] 버튼이나, 고객센터 &gt; 1:1 상담하기 &gt; 거래취소 요청을 통해 거래취소를
             할 수 있습니다. (판매자의 거래취소는 신청 즉시 거래가 취소됩니다.)
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span>고객센터 &gt; 1:1상담하기 &gt; [거래취소/종료] 에서&nbsp;‘취소요청’ 선택 후  판매중인 물품에서 취소하실 물품의&nbsp;[접수하기] 를 클릭 합니다.
+                <span class="text-rock font-weight-bold">하나. </span>고객센터 &gt; 1:1상담하기 &gt; [거래취소/종료] 에서&nbsp;‘취소요청’ 선택 후  판매중인 물품에서 취소하실 물품의&nbsp;[접수하기] 를 클릭 합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_cancel2_03.png" width="820" alt="">
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>취소 요청 창에서 취소사유를 선택하신 후 <span class="font-weight-bold">[취소요청] </span>버튼을 클릭하면 거래는 즉시 취소됩니다.
+                <span class="text-rock font-weight-bold">둘. </span>취소 요청 창에서 취소사유를 선택하신 후 <span class="font-weight-bold">[취소요청] </span>버튼을 클릭하면 거래는 즉시 취소됩니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_cancel2_04.png" width="820" alt="">
             <div class="divi_line"></div>

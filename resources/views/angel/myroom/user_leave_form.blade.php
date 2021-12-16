@@ -64,7 +64,6 @@
                     </tr>
                     <tr>
                         <td class="noborder text-center bg-white"><a href="/myroom/mileage/my_mileage/">{{number_format($user['mileage'])}} 원</a></td>
-{{--                        <td class="noborder text-center bg-white">VIP <a href="http://trade.itemmania.com/myroom/myinfo/credit_rating><img src="http://img4.itemmania.com/images/myroom/user_leave/btn_calssbe.gif" width="109" height="20" alt="신용등급 혜택받기" title="신용등급 혜택받기"></a></td>--}}
                         <td class="noborder text-center bg-white">VIP</td>
                         <td class="noborder text-center bg-white">907 점</td>
                     </tr>
@@ -76,13 +75,12 @@
                 <div class="cancel_area" style="width: 200px;">
                     <form id="cancelForm" name="cancelForm" method="post" action="./user_refuse_ok.php">
                         <div class="tb_cell1">
-                            <label for="email_cancel"><input type="checkbox" class="g_checkbox" name="email" id="email_cancel"> 이메일 수신거부</label><br>
-                            <label for="sms_cancel"><input type="checkbox" class="g_checkbox" name="sms" id="sms_cancel"> SMS 수신거부</label><br>
-                            <label for="offer_cancel"><input type="checkbox" class="g_checkbox" name="offer" id="offer_cancel"> 정보제공동의 철회</label><br>
+                            <label for="email_cancel"><input type="checkbox" class="angel_game_sel" name="email" id="email_cancel"> 이메일 수신거부</label><br>
+                            <label for="sms_cancel"><input type="checkbox" class="angel_game_sel" name="sms" id="sms_cancel"> SMS 수신거부</label><br>
+                            <label for="offer_cancel"><input type="checkbox" class="angel_game_sel" name="offer" id="offer_cancel"> 정보제공동의 철회</label><br>
                         </div>
                         <div class="tb_cell2 w-100">
                             <input type="submit" class="" width="66" height="20" value="신청하기" />
-{{--                            <input type="image" src="http://img2.itemmania.com/images/myroom/user_leave/btn_b_appl.gif" width="66" height="20" title="신청하기" class="v_middle_img">--}}
                         </div>
                     </form>
                 </div>

@@ -154,16 +154,16 @@
             <div class="highlight_contextual">재흥정</div>
             <div>판매자가 흥정 신청한 흥정자에게 재흥정을 하실 수 있습니다.</div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span>마이룸 > 판매관련 > 흥정신청된 물품에서 <b>흥정신청내역</b>을 확인하실 수 있습니다.
+                <span class="text-rock font-weight-bold">하나. </span>마이룸 > 판매관련 > 흥정신청된 물품에서 <b>흥정신청내역</b>을 확인하실 수 있습니다.
             </div>
             <img class="" src="/angel/img/guide/screenshot/img_bar_bar01.gif" width="820" height="" alt="">
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>
+                <span class="text-rock font-weight-bold">둘. </span>
                 흥정신청된 물품 상세페이지에서 흥정거래정보의 <b>[재흥정]</b> 버튼을 클릭합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_bar_bar02.gif" width="820" height="" alt="">
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">셋. </span>
+                <span class="text-rock font-weight-bold">셋. </span>
                 재흥정 금액을 입력하신 후 [확인] 버튼을 클릭하시면 구매자에게 재흥정됩니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_bar_bar03.gif" width="820" height="" alt="">

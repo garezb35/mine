@@ -174,17 +174,17 @@
             <div class="empty-high"></div>
             <div class="highlight_contextual">구매결정 및 결제하기</div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span> 판매자로부터 판매신청이 들어오면 <b>SMS</b>로 <b>판매신청 알림 메시지</b>를 보내드립니다.
+                <span class="text-rock font-weight-bold">하나. </span> 판매자로부터 판매신청이 들어오면 <b>SMS</b>로 <b>판매신청 알림 메시지</b>를 보내드립니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_deciacc_01.gif" width="650" alt="">
             <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>구매결제 완료된 물품은 마이룸 > 구매관련 > 구매중인 물품에서 확인하실 수 있습니다.
+                <span class="text-rock font-weight-bold">둘. </span>구매결제 완료된 물품은 마이룸 > 구매관련 > 구매중인 물품에서 확인하실 수 있습니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_deciacc_02.png" width="820" alt="">
             <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">셋. </span>판매자의 신용도를 확인 및 결제수단을 선택하신 후 [구매신청] 버튼을 클릭합니다.
+                <span class="text-rock font-weight-bold">셋. </span>판매자의 신용도를 확인 및 결제수단을 선택하신 후 [구매신청] 버튼을 클릭합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_deciacc_03.png" width="820" alt="">
             <div class="empty-high"></div>

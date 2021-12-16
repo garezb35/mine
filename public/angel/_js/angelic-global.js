@@ -326,7 +326,7 @@
                             var o = p.getElementsByClassName("show");
                             var n = this.getElementsByClassName("active");
                             if(s === "tab_mygame") {
-                                _myService.makeFavoriteList()
+                                mineGames.addBookmark()
                             }
                             if(o[0]) {
                                 o[0].classList.remove("show")
@@ -381,8 +381,8 @@
                     }
                 }
                 if(k.toggleContainer !== undefined) {
-                    if(_myService.lastSearchHandler !== true) {
-                        _myService.makeLastSearch()
+                    if(mineGames.lastSearchHandler !== true) {
+                        mineGames.restoreRecentGame()
                     }
                 }
             } else {
@@ -1611,7 +1611,7 @@
     window.GameList = d;
     window.ServerList = b;
     window.GoodsList = e;
-    window.GameServerList = g
+    window.AngelGames = g
 })(jQuery);
 var _gamedata = {
     xml: null,

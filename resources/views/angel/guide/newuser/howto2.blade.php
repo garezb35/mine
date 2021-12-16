@@ -173,23 +173,23 @@
             <div class="empty-high"></div>
             <div class="highlight_contextual">팝니다 물품 검색 후 구매신청</div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span> 상단 검색바에서 게임/서버명을 선택합니다.
+                <span class="text-rock font-weight-bold">하나. </span> 상단 검색바에서 게임/서버명을 선택합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_buysch_01.png" width="820" height="460" alt="">
             <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>검색된 물품 목록에서 물품제목과 금액 등을 확인하신 후 구매 의사가 있는 물품을 클릭합니다.
+                <span class="text-rock font-weight-bold">둘. </span>검색된 물품 목록에서 물품제목과 금액 등을 확인하신 후 구매 의사가 있는 물품을 클릭합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_buysch_02.png" width="820" height="422" alt="">
             <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">셋. </span>물품정보와 판매자의 신용도, 상세내용을 다시 한번 꼼꼼히 확인하신 후 [구매신청] 버튼을 클릭합니다.
+                <span class="text-rock font-weight-bold">셋. </span>물품정보와 판매자의 신용도, 상세내용을 다시 한번 꼼꼼히 확인하신 후 [구매신청] 버튼을 클릭합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_buysch_03.png" width="820" height="673" alt="">
             <br> <span class="guide_subtxt">* 등록한 물품은 </span><span class="font-weight-bold">마이룸 > 판매관련 > 판매등록물품</span>에서 확인가능합니다.
             <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">넷. </span>구매정보확인 페이지에서 개인정보 확인 및 결제정보(결제방식)를 선택하여 [구매신청] 버튼을 클릭합니다.
+                <span class="text-rock font-weight-bold">넷. </span>구매정보확인 페이지에서 개인정보 확인 및 결제정보(결제방식)를 선택하여 [구매신청] 버튼을 클릭합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_buysch_04.png" width="820" height="1057" alt="">
             <br> <span class="guide_subtxt">* 등록한 물품은 </span><span class="font-weight-bold">마이룸 > 판매관련 > 판매등록물품</span>에서 확인가능합니다.

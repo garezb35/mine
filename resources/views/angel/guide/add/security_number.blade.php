@@ -158,11 +158,11 @@
             </div>
             <div class="guide_subtitle">■ 안심번호 이용방법</div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span>판매등록/구매신청 시 안심번호 서비스를 이용하실 수 있습니다.
+                <span class="text-rock font-weight-bold">하나. </span>판매등록/구매신청 시 안심번호 서비스를 이용하실 수 있습니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_safe_1.gif" width="820" height="411" alt="">
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>안심번호 신청 후 거래중인 상태가 되면 상대 거래자에게 휴대폰 번호가 안심번호로 노출됩니다.
+                <span class="text-rock font-weight-bold">둘. </span>안심번호 신청 후 거래중인 상태가 되면 상대 거래자에게 휴대폰 번호가 안심번호로 노출됩니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_safe_2.gif" width="820" height="578" alt="">
             <dl class="notice">

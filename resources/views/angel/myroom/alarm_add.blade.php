@@ -113,11 +113,11 @@
                         <div id="alarm_change_wrapper" class="alarm_change_wrapper">
                             <div class="goods_radio_wrapper">
                                 <label>
-                                    <input type="checkbox" name="compen" id="compen" class="g_checkbox"> 200% 보상 물품</label>
+                                    <input type="checkbox" name="compen" id="compen" class="angel_game_sel"> 200% 보상 물품</label>
                                 <label>
-                                    <input type="checkbox" name="sell_compen" id="sell_compen" class="g_checkbox"> 200% 구매보상</label>
+                                    <input type="checkbox" name="sell_compen" id="sell_compen" class="angel_game_sel"> 200% 구매보상</label>
                                 <label>
-                                    <input type="checkbox" name="excellent" id="excellent" class="g_checkbox"> 우수인증 물품</label>
+                                    <input type="checkbox" name="excellent" id="excellent" class="angel_game_sel"> 우수인증 물품</label>
                             </div>
                         </div>
                     </td>
@@ -128,7 +128,7 @@
                         <div class="">
                             <input type="text" class="add_subject mode-active" name="subject[]" minlength="2" maxlength="5" value="">
                             <input type="text" class="add_subject mode-active" name="subject[]" minlength="2" maxlength="5" value="">
-                            <input type="text" class="add_subject mode-active" name="subject[]" minlength="2" maxlength="5" value=""> <span id="sub_text" class="f_red1">(1개 이상 필수 입력)</span> </div>
+                            <input type="text" class="add_subject mode-active" name="subject[]" minlength="2" maxlength="5" value=""> <span id="sub_text" class="text-rock">(1개 이상 필수 입력)</span> </div>
                         <p class="character_noti">- 제목 알림 설정은 최대 3개까지 가능하며, 이중 1개만 매칭 되어도 알림이 됩니다.</p>
                         <p class="character_noti">- 각 제목의 텍스트는 한글기준 최소 2글자 ~ 최대 5글자까지 입력 가능합니다.</p>
                     </td>

@@ -94,7 +94,7 @@
         el.className = el.className.replace(/ d-none/g, '');
     };
 
-    var GameServerList = function(container, params) {
+    var AngelGames = function(container, params) {
         var game = {};
         var server = {};
         var goods = {};
@@ -111,7 +111,7 @@
         if (m.container.length > 1) {
             var gameserver = [];
             m.container.each(function() {
-                gameserver.push(new GameServerList(this, params));
+                gameserver.push(new AngelGames(this, params));
             });
             return gameserver;
         }
@@ -150,7 +150,7 @@
         return this;
     };
 
-    GameServerList.prototype = {
+    AngelGames.prototype = {
         onOpen: function(e) {
             if (this.gameserver && this.gameserver.listContainer.mode === 'open' || this.mode === 'open') {
                 return;
@@ -435,7 +435,7 @@
                 var strInner = list[i].N;
 
                 if (inputVal !== '' && strInner.indexOf(inputVal) !== -1) {
-                    strInner = '<span class="f_red1">' + inputVal + '</span>' + (list[i].N.substr(inputVal.length, list[i].N.length));
+                    strInner = '<span class="text-rock">' + inputVal + '</span>' + (list[i].N.substr(inputVal.length, list[i].N.length));
                 }
                 childNode.innerHTML = strInner;
                 childNode.addEventListener('click', function(e) {
@@ -788,7 +788,7 @@
         }
     };
 
-    extend(GameList.prototype, GameServerList.prototype);
+    extend(GameList.prototype, AngelGames.prototype);
 
     var ServerList = function(container, params) {
         if (container.length === 0) {
@@ -1054,7 +1054,7 @@
         }
     };
 
-    extend(ServerList.prototype, GameServerList.prototype);
+    extend(ServerList.prototype, AngelGames.prototype);
 
     var GoodsList = function(container, params) {
         if (container.length === 0) {
@@ -1206,13 +1206,13 @@
         }
     };
 
-    extend(GoodsList.prototype, GameServerList.prototype);
+    extend(GoodsList.prototype, AngelGames.prototype);
 
     window.Suggest = Suggest;
     window.GameList = GameList;
     window.ServerList = ServerList;
     window.GoodsList = GoodsList;
-    window.GameServerList = GameServerList;
+    window.AngelGames = AngelGames;
 })(jQuery);
 
 // 게임데이터

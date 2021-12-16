@@ -176,12 +176,12 @@
             <div class="empty-high"></div>
             <div class="highlight_contextual">삽니다 물품검색 후 판매신청</div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span>구매자의 입금이 확인되면 마이룸 > 판매관련 > 판매중인물품에서 확인가능합니다.
+                <span class="text-rock font-weight-bold">하나. </span>구매자의 입금이 확인되면 마이룸 > 판매관련 > 판매중인물품에서 확인가능합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_search_01.png" width="820" height="448" alt="">
             <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>구매자와 연락이 되셨다면, 구매자로부터 구매자 캐릭터명을 반드시 확인하시기 바랍니다.
+                <span class="text-rock font-weight-bold">둘. </span>구매자와 연락이 되셨다면, 구매자로부터 구매자 캐릭터명을 반드시 확인하시기 바랍니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_search_02.png" width="820" height="638" alt="">
             <div class="empty-high"></div>

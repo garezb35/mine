@@ -134,11 +134,11 @@
             <div class="highlight_contextual">비거래 물품 신고</div>
             <span class="g_blue1">등록된 물품 중에 연락처 기재나 직거래 유도글, 사기글 기재 시  비거래 물품 신고하시면 관리자가 확인 후  처리해 드립니다.</span>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span>고객센터 &gt; 1:1상담하기 &gt;&nbsp;[비거래물품 신고하기]&nbsp;를 클릭합니다.
+                <span class="text-rock font-weight-bold">하나. </span>고객센터 &gt; 1:1상담하기 &gt;&nbsp;[비거래물품 신고하기]&nbsp;를 클릭합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_bad_01.png" width="820" height="" alt="">
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>신고할 내용을 자세히 적으신 후
+                <span class="text-rock font-weight-bold">둘. </span>신고할 내용을 자세히 적으신 후
                 <span class="font-weight-bold">[신고하기] </span>버튼을 클릭하면 비거래물품 신고가 완료 됩니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_bad_02.png" width="820" height="" alt="">

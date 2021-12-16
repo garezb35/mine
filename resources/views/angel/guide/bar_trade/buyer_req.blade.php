@@ -153,16 +153,16 @@
             <div class="empty-high"></div>
             <div class="highlight_contextual">구매자의 흥정신청</div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span>상단의 검색기능을 사용하여 팝니다에 등록된 분할 물품 중 <b>흥정 아이콘이 적용된 물품을 선택</b>합니다.
+                <span class="text-rock font-weight-bold">하나. </span>상단의 검색기능을 사용하여 팝니다에 등록된 분할 물품 중 <b>흥정 아이콘이 적용된 물품을 선택</b>합니다.
             </div>
             <img class="" src="/angel/img/guide/screenshot/img_bar_req01.png" width="820" height="" alt="">
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>
+                <span class="text-rock font-weight-bold">둘. </span>
                 주문물품 정보 및 판매자의 신용정보 등 을 확인 후 <b>[흥정신청]</b> 버튼을 클릭합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_bar_req02.png" width="820" height="" alt="">
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">셋. </span>
+                <span class="text-rock font-weight-bold">셋. </span>
                 흥정금액 및 구매자 캐릭명을 입력하신 후 <b>[흥정신청]</b> 버튼을 클릭하시면 흥정신청이 완료 됩니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_bar_req03.png" width="820" height="" alt="">

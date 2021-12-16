@@ -100,7 +100,7 @@ function fnajax_ag_quotation() {
                 $("#quotation").show();
 
                 if ($(xml).find("data").attr("amount_type") == "up") {
-                    var font_color = "f_red1";
+                    var font_color = "text-rock";
                     var icon = "â–²";
                 } else if ($(xml).find("data").attr("amount_type") == "down") {
                     var font_color = "text-blue_modern";
@@ -208,7 +208,7 @@ $(document).ready(function() {
         var server_code_text = $('#filtered_child_alias').val();
         var goods = $("#filtered_items").val();
 
-        var e_goods_text = {
+        var angel_item_alias = {
             all: 'ë¬¼í’ˆì „ì²´',
             compen200: 'ë¬¼í’ˆì „ì²´',
             item: 'ì•„ì´í…œ',
@@ -233,7 +233,7 @@ $(document).ready(function() {
             server: server_code,
             server_text: server_code_text,
             goods: goods_type[goods],
-            goods_text: e_goods_text[goods]
+            goods_text: angel_item_alias[goods]
         };
 
         ajaxRequest({

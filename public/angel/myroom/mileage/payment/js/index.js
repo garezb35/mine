@@ -131,9 +131,9 @@ function _init()
             }else{
                 chargeType = false;
             }
-        }if(e_use_payment > 0 && parseInt($("#charge").val()) != 0){
+        }if(angel_premiun_items_payment > 0 && parseInt($("#charge").val()) != 0){
             chargeType = true;
-            $("#spnPayment_charge").html("(* ë§ˆì¼ë¦¬ì§€ì¶œê¸ˆë¬´ë£Œì´ìš©ê¶Œ 1ë§¤ì‚¬ìš©(ìž”ì—¬:"+e_use_payment+"íšŒ))");
+            $("#spnPayment_charge").html("(* ë§ˆì¼ë¦¬ì§€ì¶œê¸ˆë¬´ë£Œì´ìš©ê¶Œ 1ë§¤ì‚¬ìš©(ìž”ì—¬:"+angel_premiun_items_payment+"íšŒ))");
         }
 
         if (!chargeType){

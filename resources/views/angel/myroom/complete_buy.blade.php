@@ -86,7 +86,7 @@
                     <td class="left">
                         <div class="list_trade_title"> <a href="/sell/view?id={{$v['orderNo']}}&type={{$v['type']}}">{{$heads}} {{$v['user_title']}}-{{$user_goods_type}}</a> </div>
                     </td>
-                    <td class="right f_red1">{{number_format($v['payitem']['price'])}}원</td>
+                    <td class="right text-rock">{{number_format($v['payitem']['price'])}}원</td>
                     <td>{{date("Y-m-d H:i:s",strtotime($v['created_at']))}}</td>
                 </tr>
             @endforeach

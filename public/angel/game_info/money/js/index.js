@@ -237,7 +237,7 @@ $.extend({
                     } else if ($(this).attr('amount_type') == 'none') {
                         tr_row += '<td class=\'g_black1\'>-</td>';
                     } else {
-                        tr_row += '<td class=\'g_red1\'><img src=\'' + IMG_DOMAIN4 + '/images/icon/ico_p_up.gif\'>' + Number($(this).attr('amount')).currency() + '</td>';
+                        tr_row += '<td class=\'text-rock\'><img src=\'' + IMG_DOMAIN4 + '/images/icon/ico_p_up.gif\'>' + Number($(this).attr('amount')).currency() + '</td>';
                     }
                     if (minRlt == 'fail') {
                         tr_row += '<td>-</td></tr>';

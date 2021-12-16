@@ -39,7 +39,7 @@
         <div class="pagecontainer">
             <div class="top_area">
                 <div class="big_bn">
-                    <a href="/portal/giftcard/onestore/"><img src="/angel/_banner/sns_share_default.png" width="820" height="250" alt="원스토어" title="원스토어"></a>
+                    <a href="/portal/giftcard/onestore/"><img src="/angel/carsouel_plugin/sns_share_default.png" width="820" height="250" alt="원스토어" title="원스토어"></a>
                 </div>
             </div>
             <div class="giftcard_list">

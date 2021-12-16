@@ -298,7 +298,7 @@ if(sizeof($split_number) == 3){
             <div class="modal_dialog" id="dvTradeSellCheck">
                 <div class="modal__title">
                     물품 인수 확인
-                    <span class="modal__close" onclick="g_nodeSleep.disable();">닫기</span>
+                    <span class="modal__close" onclick="nodemonPopup.disable();">닫기</span>
                 </div>
 
                 <form name="moneyreceipt" id="moneyreceipt" method="POST">
@@ -342,7 +342,7 @@ if(sizeof($split_number) == 3){
                                 <tr>
                                     <th>발급구분</th>
                                     <td>
-                                        <input type="radio" name="moneyreceipt_type" value="u" class="g_checkbox" checked="" onclick="inputChange(1);"> 소득공제용 (일반개인용)
+                                        <input type="radio" name="moneyreceipt_type" value="u" class="angel_game_sel" checked="" onclick="inputChange(1);"> 소득공제용 (일반개인용)
                                     </td>
                                 </tr>
                                 <tr>
@@ -391,7 +391,7 @@ if(sizeof($split_number) == 3){
                         <div class="empty-high"></div>
                         <div class="btn-groups_angel">
                             <a  class="first btn-default btn-suc" onclick="TradeComplete('',{{$payitem['price']}},'m','{{$orderNo}}','check','N');">물품 인수 확인</a>
-                            <a  class="btn-default btn-cancel" onclick="g_nodeSleep.disable()">취소</a>
+                            <a  class="btn-default btn-cancel" onclick="nodemonPopup.disable()">취소</a>
                         </div>
                     </div>
                 </form>

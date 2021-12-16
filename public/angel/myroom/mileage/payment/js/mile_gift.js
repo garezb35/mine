@@ -67,10 +67,10 @@ function fnMileGift(type, money, code) {
 
         objForm.attr({
             target: strPopName,
-            action: SSL_DOMAIN + strParam
+            action: site_dns_s + strParam
         }).submit();
     }
     else {
-        _window.open(type, SSL_DOMAIN + '/portal/giftcard/' + strParam + 'pmoney=' + nMoney + '&pbill=' + obj.val(), 440, 530);
+        _window.open(type, site_dns_s + '/portal/giftcard/' + strParam + 'pmoney=' + nMoney + '&pbill=' + obj.val(), 440, 530);
     }
 }

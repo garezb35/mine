@@ -14,8 +14,8 @@ $money_range = json_decode($money);
     <script type="text/javascript" src="/angel/_js/jquery.js"></script>
     <script type="text/javascript" src="/angel/_js/webpack.js"></script>
     <script type="text/javascript" src="/angel/_js/angelic-global.js"></script>
-    <link type="text/css" rel="stylesheet" href="/angel/_banner/css/banner_module.css">
-    <script type="text/javascript" src="/angel/_banner/js/banner_module.js"></script>
+    <link type="text/css" rel="stylesheet" href="/angel/carsouel_plugin/css/carsouel_plugin.css">
+    <script type="text/javascript" src="/angel/carsouel_plugin/js/carsouel_plugin.js"></script>
 </head>
 <body>
 <div id="global_root" class="mainEntity d-none ">
@@ -85,13 +85,9 @@ $money_range = json_decode($money);
                 </tr>
                 </tbody>
             </table>
-            <div id="loding" style="display:none;margin-top:20px;text-align:center">
-                <img src="http://img3.itemmania.com/images/portal/gift/loding.gif" width="250" height="40" alt="로딩중">
-            </div>
             <div class="btn-groups_angel">
                 <a  class="btn-default-medium btn-suc-rect" class="v_middle_img first" id="giftcard_btn">구매</a>
                 <a  class="btn-default-medium btn-cancel-rect" onclick="self.close();">취소</a>
-{{--                <a  class="btn-default-medium btn-cancel-rect" onclick="_window.open('mileage', '/myroom/mileage/charge/index', 701, 900);">마일리지 충전</a>--}}
             </div>
 
 
@@ -113,11 +109,8 @@ $money_range = json_decode($money);
 <script type="text/javascript">
     _window.resize(460, 680);
     var user_Totmile = {{$user['mileage']}};
-
-    /* ▼ 할인 이벤트 체크 */
     eventDiscount = '';
     eventPromotion = '';
-    /* ▲ 할인 이벤트 체크  */
 
 </script>
 <script>loadGlobalItems()</script>

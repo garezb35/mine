@@ -6,7 +6,7 @@
  * @description
  */
 
-var e_use = {
+var angel_premiun_items = {
     premium: 0,
     quickIcon:0,
     highlight: 0
@@ -17,7 +17,7 @@ var layerNode,
 
 function _init() {
     $("#user_time").on('change', fnSelectChange);
-    layerNode = g_nodeSleep;
+    layerNode = nodemonPopup;
     $.extend(layerNode, {
         OnOpen: function() {
             $("#user_time").change();
@@ -115,25 +115,25 @@ function fnChargeServiceLayer(strType) {
     $('#' + strType).show();
 
 
-    g_nodeSleep.enable($('#charge_service'));
+    nodemonPopup.enable($('#charge_service'));
 }
 
 function fnSelectChange() {
     var oSelect = $('#user_time');
     if (gStrType == 'premium') {
         var nPaymentTime = Number(oSelect.val()),
-            freeTicket = e_use.premium,
+            freeTicket = angel_premiun_items.premium,
             freeTime = freeTicket,
             serviceTxt = 'í”„ë¦¬ë¯¸ì—„';
     } else if (gStrType == 'quickIcon') {
         var nPaymentTime = Number(oSelect.val()),
 
-            freeTicket = e_use.quickIcon,
+            freeTicket = angel_premiun_items.quickIcon,
             freeTime = freeTicket,
             serviceTxt = 'í€µì•„ì´ì½˜';
     } else {
         var nPaymentTime = Number(oSelect.val()) / 12,
-            freeTicket = e_use.highlight,
+            freeTicket = angel_premiun_items.highlight,
             freeTime = freeTicket * 12,
             serviceTxt = (gStrType == 'textblue') ? 'íŒŒëž€íŽœ' : 'êµµì€ì²´';
     }
@@ -151,7 +151,7 @@ function fnSelectChange() {
 
     var paymentText = (paymentMoney - nFreeUse).currency() + "ì›";
     if (nFreeUse > 0) {
-        paymentText += '(ì´ìš©ë£Œ ' + paymentMoney.currency() + 'ì›<span class="g_red1">-' + serviceTxt + ' ë¬´ë£Œì´ìš© ' + freeTime + 'ì‹œê°„ ì‚¬ìš©</span>) ìž”ì—¬ ì‹œê°„:' + freeTime + 'ì‹œê°„';
+        paymentText += '(ì´ìš©ë£Œ ' + paymentMoney.currency() + 'ì›<span class="text-rock">-' + serviceTxt + ' ë¬´ë£Œì´ìš© ' + freeTime + 'ì‹œê°„ ì‚¬ìš©</span>) ìž”ì—¬ ì‹œê°„:' + freeTime + 'ì‹œê°„';
     }
     paymentMoneySpan.html(paymentText);
 }

@@ -251,7 +251,7 @@ class VBuyController extends BaseController
                                                                         <label class="f_blue1 f_small">(단위)</label>
                                             </div>
                                                                 <div id="game_money">
-                                                    <input type="text" name="user_quantity" id="user_quantity" maxlength="7" class="angel__text f_right rad13">
+                                                    <input type="text" name="user_quantity" id="user_quantity" maxlength="7" class="angel__text text_right rad13">
                                                     <span class="unit"></span> '.$game->alias.'
                                                     <span class="g_txtbtn first_btn radbtn" id="plus10" value="10">+10</span>
                                                     <span class="g_txtbtn radbtn" id="plus50" value="50">+50</span>
@@ -266,7 +266,7 @@ class VBuyController extends BaseController
                 $result .= '<tr>
                             <th>구매금액</th>
                             <td>
-                                <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text f_right rad13"> 원 (3,000원 이상, 10원 단위 등록 가능)
+                                <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text text_right rad13"> 원 (3,000원 이상, 10원 단위 등록 가능)
                             </td>
                         </tr>';
                 if($game->purchase_enable == 1){
@@ -311,7 +311,7 @@ class VBuyController extends BaseController
                                                 </div>
                                 <div class="g_left">
                                     <input type="text" class="angel__text mode-active rad13" name="user_character" maxlength="30" id="user_character"> 물품을 전달 받으실 본인의 캐릭터명
-                                    <span id="sub_text" class="f_red1"></span>
+                                    <span id="sub_text" class="text-rock"></span>
                                 </div>
                                 <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
                             </td>
@@ -331,10 +331,10 @@ class VBuyController extends BaseController
                                                 </div>
                                                                 <div id="game_money">
                                                     최소
-                                                    <input type="text" name="user_quantity_min" id="user_quantity_min" maxlength="7" class="angel__text f_right rad13">
+                                                    <input type="text" name="user_quantity_min" id="user_quantity_min" maxlength="7" class="angel__text text_right rad13">
                                                     <span class="unit"></span> '.$game->alias.' ~
                                                     최대
-                                                    <input type="text" name="user_quantity_max" id="user_quantity_max" maxlength="7" class="angel__text f_right rad13">
+                                                    <input type="text" name="user_quantity_max" id="user_quantity_max" maxlength="7" class="angel__text text_right rad13">
                                                     <span class="unit"></span> '.$game->alias.'                </div>
                                                         </td>
                                     </tr>';
@@ -346,10 +346,10 @@ class VBuyController extends BaseController
         <td>
                             <div id="game_money">
                     최소
-                    <input type="text" name="user_quantity_min" id="user_quantity_min" maxlength="7" class="angel__text f_right rad13">
+                    <input type="text" name="user_quantity_min" id="user_quantity_min" maxlength="7" class="angel__text text_right rad13">
                     <span class="unit"></span> 개 ~
                     최대
-                    <input type="text" name="user_quantity_max" id="user_quantity_max" maxlength="7" class="angel__text f_right rad13">
+                    <input type="text" name="user_quantity_max" id="user_quantity_max" maxlength="7" class="angel__text text_right rad13">
                     <span class="unit"></span> 개                </div>
                         </td>
     </tr>';
@@ -359,9 +359,9 @@ class VBuyController extends BaseController
                     $result .= '<tr>
         <th>구매금액</th>
         <td>
-                        <input type="text" name="user_division_unit" id="user_division_unit" maxlength="7" class="angel__text f_right rad13" size="18">
+                        <input type="text" name="user_division_unit" id="user_division_unit" maxlength="7" class="angel__text text_right rad13" size="18">
             <span class="unit"></span> '.$game->alias.' 당
-            <input type="text" name="user_division_price" id="user_division_price" maxlength="10" class="angel__text f_right rad13" size="18"> 원에 판매합니다.
+            <input type="text" name="user_division_price" id="user_division_price" maxlength="10" class="angel__text text_right rad13" size="18"> 원에 판매합니다.
             <span class="f_small f_black1">(100원 이상, 10원 단위 등록 가능)</span>
         </td>
         </tr>
@@ -372,7 +372,7 @@ class VBuyController extends BaseController
                             </div>
             <div class="g_left">
                 <input type="text" class="angel__text mode-active rad13" name="user_character" maxlength="30" id="user_character"> 물품을 전달 받으실 본인의 캐릭터명
-                <span id="sub_text" class="f_red1"></span>
+                <span id="sub_text" class="text-rock"></span>
             </div>
             <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
         </td>
@@ -382,9 +382,9 @@ class VBuyController extends BaseController
                     $result .= '<tr>
         <th>구매금액</th>
         <td>
-                        <input type="text" name="user_division_unit" id="user_division_unit" maxlength="7" class="angel__text f_right rad13" size="18">
+                        <input type="text" name="user_division_unit" id="user_division_unit" maxlength="7" class="angel__text text_right rad13" size="18">
             <span class="unit"></span> '.$game->alias.' 당
-            <input type="text" name="user_division_price" id="user_division_price" maxlength="10" class="angel__text f_right rad13" size="18"> 원에 판매합니다.
+            <input type="text" name="user_division_price" id="user_division_price" maxlength="10" class="angel__text text_right rad13" size="18"> 원에 판매합니다.
             <span class="f_small f_black1">(100원 이상, 10원 단위 등록 가능)</span>
         </td>
         </tr>
@@ -395,7 +395,7 @@ class VBuyController extends BaseController
                             </div>
             <div class="g_left">
                 <input type="text" class="angel__text mode-active rad13" name="user_character" maxlength="30" id="user_character"> 물품을 전달 받으실 본인의 캐릭터명
-                <span id="sub_text" class="f_red1"></span>
+                <span id="sub_text" class="text-rock"></span>
             </div>
             <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
         </td>

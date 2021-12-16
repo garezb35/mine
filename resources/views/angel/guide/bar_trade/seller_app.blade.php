@@ -152,7 +152,7 @@
             <div class="highlight_contextual">판매자의 흥정수락</div>
             <div>흥정신청이 들어오면 판매자에게 SMS 안내 및 거래관련 메시지로 흥정신청을 알려드립니다</div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span>마이룸 > 판매관련 > [흥정신청된 물품]에서 흥정신청내역을 확인하실 수 있습니다.
+                <span class="text-rock font-weight-bold">하나. </span>마이룸 > 판매관련 > [흥정신청된 물품]에서 흥정신청내역을 확인하실 수 있습니다.
             </div>
             <img class="" src="/angel/img/guide/screenshot/img_bar_acc01.png" width="820" height="" alt="">
             <div class="guide_subtxt">
@@ -161,7 +161,7 @@
                 <div class="font-weight-bold">2. 최저 흥정가격 설정</div>
                 - 최소한의 최저흥정가격을 설정하여 터무니 없는 흥정신청이 들어오지 않게 하는 금액설정 기능입니다.
             </div>
-            <div class="guide_subtitle"><span class="f_red1 font-weight-bold">둘. </span>판매 물품정보를 다시 확인 합니다.</div>
+            <div class="guide_subtitle"><span class="text-rock font-weight-bold">둘. </span>판매 물품정보를 다시 확인 합니다.</div>
             <img src="/angel/img/guide/screenshot/img_bar_acc02.png" width="820" height="" alt="">
             <div class="guide_subtxt">* 등록한 물품은 마이룸&gt;판매관련&gt;판매등록물품에서 확인 가능합니다.</div>
         </div>

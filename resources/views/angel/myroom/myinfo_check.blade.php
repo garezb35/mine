@@ -120,9 +120,9 @@ $user_contactC = !empty($splited_mobile[2]) ? $splited_mobile[2] : "";
                         <th>광고정보<br>수신동의</th>
                         <td class="sms_info">
                             <div>
-                                <input type="checkbox" class="g_checkbox" name="sms_agree" id="sms_agree" value="Y" checked=""> <label for="sms_agree">SMS 수신동의</label>
-                                <input type="checkbox" class="g_checkbox" name="email_agree" id="email_agree" value="Y" checked=""> <label for="email_agree">이메일 수신동의</label>
-                                <input type="checkbox" class="g_checkbox" name="naver_smart_alarm" id="naver_smart_alarm" value="Y"> <label for="naver_smart_alarm">네이버 스마트 알림톡 서비스 수신동의</label>
+                                <input type="checkbox" class="angel_game_sel" name="sms_agree" id="sms_agree" value="Y" checked=""> <label for="sms_agree">SMS 수신동의</label>
+                                <input type="checkbox" class="angel_game_sel" name="email_agree" id="email_agree" value="Y" checked=""> <label for="email_agree">이메일 수신동의</label>
+                                <input type="checkbox" class="angel_game_sel" name="naver_smart_alarm" id="naver_smart_alarm" value="Y"> <label for="naver_smart_alarm">네이버 스마트 알림톡 서비스 수신동의</label>
                             </div>
                             <div class="empty-high"></div>
                             <div class="text-orange">

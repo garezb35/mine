@@ -153,7 +153,7 @@
             <div class="empty-high"></div>
             <div class="highlight_contextual">흥정판매 등록</div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span>팝니다 등록 중 물품종류의 게임머니를 제외한 아이템, 기타 항목 선택 시&nbsp;판매유형에서 흥정을 선택하여 등록합니다.
+                <span class="text-rock font-weight-bold">하나. </span>팝니다 등록 중 물품종류의 게임머니를 제외한 아이템, 기타 항목 선택 시&nbsp;판매유형에서 흥정을 선택하여 등록합니다.
             </div>
             <img class="" src="/angel/img/guide/screenshot/img_bar_reg01.png" width="820" height="" alt="">
             <div class="guide_subtxt">
@@ -162,7 +162,7 @@
                 <div class="font-weight-bold">2. 최저 흥정가격 설정</div>
                 - 최소한의 최저흥정가격을 설정하여 터무니 없는 흥정신청이 들어오지 않게 하는 금액설정 기능입니다.
             </div>
-            <div class="guide_subtitle"><span class="f_red1 font-weight-bold">둘. </span>판매 물품정보를 다시 확인 합니다.</div>
+            <div class="guide_subtitle"><span class="text-rock font-weight-bold">둘. </span>판매 물품정보를 다시 확인 합니다.</div>
             <img src="/angel/img/guide/screenshot/img_bar_reg02.png" width="820" height="" alt="">
             <div class="guide_subtxt">* 등록한 물품은 마이룸&gt;판매관련&gt;판매등록물품에서 확인 가능합니다.</div>
         </div>

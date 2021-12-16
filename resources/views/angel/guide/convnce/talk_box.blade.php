@@ -146,11 +146,11 @@
             <div class="highlight_contextual">1:1 대화함</div>
             거래중에 전화로 연락이 어려운 경우 1:1 대화함을 통해 상대거래자와 실시간으로 대화를 주고 받으며, 거래를 진행하실 수 있습니다.
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span>거래중인 물품 내 거래정보 하단에  <span class="font-weight-bold">[1:1대화함]</span>이 표시됩니다.
+                <span class="text-rock font-weight-bold">하나. </span>거래중인 물품 내 거래정보 하단에  <span class="font-weight-bold">[1:1대화함]</span>이 표시됩니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_con_talk01.png" width="820" height="" alt="">
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>1:1 대화함을 통해 상대 거래자에게 전달하실 내용을 적으신 후 <span class="font-weight-bold">[전송] </span>버튼을 클릭합니다.
+                <span class="text-rock font-weight-bold">둘. </span>1:1 대화함을 통해 상대 거래자에게 전달하실 내용을 적으신 후 <span class="font-weight-bold">[전송] </span>버튼을 클릭합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_con_talk02.png" width="820" height="" alt="">
             <div class="g_green1_11">* 1:1 대화함에 상대방의 응답이 없을 경우 오프라인 일 경우도 있으니 반드시 유선상 통화를 하시기 바랍니다.</div>

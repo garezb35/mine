@@ -3,7 +3,7 @@
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/message/css/index.css?190220">
 
-    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
+    <script type="text/javascript" src="/angel/carsouel_plugin/js/carsouel_plugin.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
@@ -12,10 +12,10 @@
         function checkGbox(){
            if($(".all_gbox").prop('checked'))
            {
-                $(".g_checkbox").prop('checked',true);
+                $(".angel_game_sel").prop('checked',true);
            }
            else{
-               $(".g_checkbox").prop('checked',false);
+               $(".angel_game_sel").prop('checked',false);
            }
         }
     </script>
@@ -70,9 +70,9 @@
                 <tr>
                     <td>
                         @if($v['readed'] == 1)
-                            <input type="checkbox" name="message_id[]" value="{{$v['id']}}" class="g_checkbox">
+                            <input type="checkbox" name="message_id[]" value="{{$v['id']}}" class="angel_game_sel">
                             @else
-                            <input type="checkbox" name="message_id[]" value="{{$v['id']}}" class="g_checkbox" disabled>
+                            <input type="checkbox" name="message_id[]" value="{{$v['id']}}" class="angel_game_sel" disabled>
                         @endif
                         <input type="hidden" name="message_date[]" value="{{date("Y-m-d H:i:s",strtotime($v['created_at']))}}">
                         <input type="hidden" name="message_state[]" value="1"> </td>
@@ -92,7 +92,7 @@
         </form>
 
         @if(Request::get('type') != 'storage')
-            <div class="tb_bt_txt"> <img src="http://img2.itemmania.com/images/btn/btn_msg_save.gif" width="85" height="20" onclick="$('#procType').val('save');$('#frmDeleteAll').submit();" class="g_button" alt="보관함에 저장"> <span class="text-orange">- 메시지는 올해를 제외한 이전 6개월만 보관되오니, 중요한 메시지는 보관함에 저장하시기 바랍니다.</span> </div>
+            <div class="tb_bt_txt"> <button onclick="$('#procType').val('save');$('#frmDeleteAll').submit();" class="btn-default-medium btn-cancel-rect">보관함</button> <span class="text-orange">- 메시지는 올해를 제외한 이전 6개월만 보관되오니, 중요한 메시지는 보관함에 저장하시기 바랍니다.</span> </div>
         @endif
         <div class="empty-high"></div>
 
@@ -104,7 +104,7 @@
 
     <div id="message_view" class="modal_dialog">
         <div class="modal__title"> 메시지
-            <div class="modal__close" onclick="g_nodeSleep.disable();"></div>
+            <div class="modal__close" onclick="nodemonPopup.disable();"></div>
         </div>
         <div class="modal--content">
             <table class="table-primary">

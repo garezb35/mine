@@ -252,7 +252,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/notice/list', [\App\Http\Controllers\VNoticeController::class, 'notice_list'])->name('notice_list');
     Route::post('buy_pay_wait_cancel', [\App\Http\Controllers\ManiaController::class, 'buy_pay_wait_cancel']);
-    Route::get('/certify/payment/user_certify', [\App\Http\Controllers\VCertifyController::class, 'user_certify'])->name('user_certify');
+    Route::post('/certify/payment/user_certify', [\App\Http\Controllers\VCertifyController::class, 'user_certify'])->name('user_certify');
     Route::post('buy_re_reg_ok',[\App\Http\Controllers\ManiaController::class, 'buy_re_reg_ok'])->name('buy_re_reg_ok');
     Route::post('/sell_re_reg_ok',[\App\Http\Controllers\ManiaController::class, 'sell_re_reg_ok'])->name('sell_re_reg_ok');
     Route::post('/buy_regist',[\App\Http\Controllers\ManiaController::class, 'buy_regist'])->name('buy_regist');

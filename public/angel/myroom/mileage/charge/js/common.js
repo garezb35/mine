@@ -12,7 +12,7 @@ function __init() {
 // 	g_fnSECURITY();
 
     // 배너를 콘텐츠안으로 밀어넣는코드 180831 나상권
-    // /_banner/mileage_charge.html
+    // /carsouel_plugin/mileage_charge.html
 
     if (document.getElementById('charge_banner') !== null) {
         document.getElementById('charge_main').appendChild(document.getElementById('charge_banner'));
@@ -185,12 +185,12 @@ function protectKey(Event) {
 
 function fnReceiptPopupOpen() {
     if ($('#dialog_fade').length > 0) {
-        g_nodeSleep.enable($('#dialog_fade'));
+        nodemonPopup.enable($('#dialog_fade'));
     }
 }
 
 function fnReceiptPopupClose() {
-    g_nodeSleep.disable();
+    nodemonPopup.disable();
 }
 
 /* ▼ 주민번호,사업자번호 숫자만입력 */

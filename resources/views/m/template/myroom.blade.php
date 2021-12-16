@@ -33,7 +33,7 @@
                 <a href="{{$href}}">{{$v['user_title']}}</a>
             </div>
         </td>
-        <td class="right f_red1">{{$price}}원</td>
+        <td class="right text-rock">{{$price}}원</td>
         <td>{{date("Y-m-d H:i:s",strtotime($v['created_at']))}}</td>
         @if($type == 0)
             <td>

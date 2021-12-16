@@ -51,7 +51,7 @@
             <div id="report_complete">
                 <ul id="complete_info">
                     <li class="blue_text">고객님의 상담이 정상적으로 접수되었습니다.</li>
-                    <li>상담 답변은 <span class="f_red1">[나의 질문과 답변]</span>에서 확인 하실 수 있습니다.</li>
+                    <li>상담 답변은 <span class="text-rock">[나의 질문과 답변]</span>에서 확인 하실 수 있습니다.</li>
                 </ul>
                 <ul class="g_list g_black3_11">
                     <li>접수된 문의는 등록된 순서대로 처리되며, 문의량이 많을 경우 처리가 지연될 수 있음을 미리 양해 부탁드립니다.</li>

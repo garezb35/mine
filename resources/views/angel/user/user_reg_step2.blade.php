@@ -4,7 +4,7 @@
     <link type="text/css" rel="stylesheet" href="/angel/user/join_agreement.css">
     <link type="text/css" rel="stylesheet" href="/angel/user/_join_title.css">
 
-    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
+    <script type="text/javascript" src="/angel/carsouel_plugin/js/carsouel_plugin.js?v=210209"></script>
 @endsection
 
 @section('foot_attach')
@@ -287,7 +287,7 @@
 
 ① 회사에서 제공하는 서비스에는 아이템거래(판매관련, 구매관련, 상품 정보검색 관련 서비스), 상품권몰 서비스 등이 있습니다.
 ② 회사가 제공하는 서비스의 종류는 회사의 사정에 의하여 수시로 변경될 수 있습니다.
-③ 회원자격이 정지되지 않은 아이템천사 회원은 누구든지 동의절차를 거친 후 아이템천사 가입 계정을 통해 오픈마켓 인터넷 사이트인 싸다프라이스(http://ssadaprice.itemmania.com)를 이용할 수 있습니다.
+
 
 제 13 조 (서비스 내용의 공지 및 변경)
 
@@ -418,7 +418,7 @@
 
 제 3 조 (약관의 명시와 설명 및 개정)
 
-① 이 약관 외 사항은 '아이템천사 사이트(www.itemmania.com)'의 '아이템천사 이용약관'을 준용합니다.
+① 이 약관 외 사항은  이용약관을 준용합니다.
 ② 회사가 이 약관을 개정할 경우에는 적용일자 및 개정사유를 명시하여 현행약관과 함께 변경 후 약관을 회사 사이트의 초기화면이나 팝업화면 또는 공지사항란, 이메일 등을 통해 통상 그 적용일자 7일 이전에 공지 또는 통지합니다. 다만, 회원에게 불리한 내용으로 변경되는 경우에 한해서는 적용일자 30일 이전에 공지 또는 통지합니다.
 ③ 회사가 전항에 따라 개정약관을 공지 또는 통지하고, 회원이 그 기간 내에 명시적인 거부의 의사표시를 하지 아니한 경우 개정약관에 동의한 것으로 봅니다.
 ④ 회원이 개정약관의 적용에 동의하지 않는 경우 회원은 이용계약을 해지할 수 있습니다. 다만, 기존 약관을 적용할 수 없는 특별한 사정이 있는 경우에는 회사는 이용계약을 해지할 수 있습니다.

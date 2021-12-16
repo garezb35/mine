@@ -459,7 +459,7 @@ $.fn.extend({
         INPUT2.attr({
             type: "checkbox",
             name: "not_user_id"
-        }).addClass('g_checkbox').bind({
+        }).addClass('angel_game_sel').bind({
             click: function() {
                 if ($(this).prop('checked') == true) {
                     INPUT.attr('disabled', true);
@@ -495,7 +495,7 @@ $.fn.extend({
         INPUT2.attr({
             type: "checkbox",
             name: "not_character"
-        }).addClass('g_checkbox').bind({
+        }).addClass('angel_game_sel').bind({
             click: function() {
                 if ($(this).prop('checked') == true) {
                     INPUT.attr('disabled', true);
@@ -720,7 +720,7 @@ $.fn.extend({
                         type: "checkbox",
                         name: "information_b[]",
                         value: obj_hacking_check_b[checkValue]
-                    }).addClass("g_checkbox");
+                    }).addClass("angel_game_sel");
                     DIV.append(INPUT2);
                     DIV.append(" ");
                 }
@@ -947,7 +947,7 @@ function insertRs(request) {
             } else if ((rsData[2] == "A10101" && user_id == buyer_id) || (rsData[2] == "A10102" && user_id == seller_id)) {
                 $("#tradeNum").text('');
                 $("#tradeNum").text(splitRs[0]);
-                g_nodeSleep.enable($('#dialog_fade'));
+                nodemonPopup.enable($('#dialog_fade'));
             } else {
                 $("#tradeNum").text('');
                 $("#tradeNum").text(splitRs[0]);
@@ -1001,16 +1001,16 @@ function fnReLayerShow(layer, hA_code, hCount, trade_id, getTable, return_c, cod
     hiddenFrm.find('input[name="iReturn_c"]').val(return_c);
     hiddenFrm.find('input[name="iCode"]').val(code);
     if (layer == "2") {
-        g_nodeSleep.enable($("#dialog_fade2"));
+        nodemonPopup.enable($("#dialog_fade2"));
     } else {
-        g_nodeSleep.enable($("#dialog_fade3"));
+        nodemonPopup.enable($("#dialog_fade3"));
     }
 }
 
 function fnReLayerHide() {
     var hiddenFrm = $('#hiddenForm');
 
-    g_nodeSleep.disable();
+    nodemonPopup.disable();
     fnImgBtn(hiddenFrm.find('input[name="hA_code.value"]'));
     initXhr(hiddenFrm.find('input[name="iTrade_id"]').val(), hiddenFrm.find('input[name="iGetTable"]').val(), hiddenFrm.find('input[name="iReturn_c"]').val(), hiddenFrm.find('input[name="iCode"]').val());
 }
@@ -1028,7 +1028,7 @@ function fnDirect() {
     $("#cancel_trade_money").text(signFrm.find("input[name='trade_money']").val() + "원");
     $("input[name='trade_type']").val(m_type_realTable[1]);
     $("#SELECT_CANCEL").select("");
-    g_nodeSleep.enable($("#trade_cancel"));
+    nodemonPopup.enable($("#trade_cancel"));
 }
 function cancel_select(regData) {
     var cancelDetail = document.getElementById('cancelDetail');
@@ -1144,20 +1144,20 @@ function fnTrade_Cancel_Ajax_Complete(request) {
             }
             else if (returnData == "FRIST") {
                 /* ▼ 팝업 레이어 설정 및 뷰 */
-                g_nodeSleep.disable();
-                g_nodeSleep.enable($("#cancelPopup5"));
+                nodemonPopup.disable();
+                nodemonPopup.enable($("#cancelPopup5"));
                 /* ▲ 팝업 레이어 설정 및 뷰 */
             }
             else if (returnData == "SECOND") {
                 /* ▼ 팝업 레이어 설정 및 뷰 */
-                g_nodeSleep.disable();
-                g_nodeSleep.enable($("#cancelPopup10"));
+                nodemonPopup.disable();
+                nodemonPopup.enable($("#cancelPopup10"));
                 /* ▲ 팝업 레이어 설정 및 뷰 */
             }
             else if (returnData == "THIRD") {
                 /* ▼ 팝업 레이어 설정 및 뷰 */
-                g_nodeSleep.disable();
-                g_nodeSleep.enable($("#cancelPopup10more"));
+                nodemonPopup.disable();
+                nodemonPopup.enable($("#cancelPopup10more"));
                 /* ▲ 팝업 레이어 설정 및 뷰 */
             }
             else {
@@ -1174,21 +1174,21 @@ function fnTrade_Cancel_Ajax_Complete(request) {
                 }
             }
             else if (returnData == "BOARD") {
-                g_nodeSleep.disable($('#dialog_fade'));
+                nodemonPopup.disable($('#dialog_fade'));
                 move_self_A1("01");
             }
             else if (returnData == "FRIST") {
-                g_nodeSleep.disable();
-                g_nodeSleep.enable($("#cancelPopup5"));
+                nodemonPopup.disable();
+                nodemonPopup.enable($("#cancelPopup5"));
             }
             else if (returnData == "SECOND") {
-                g_nodeSleep.disable();
-                g_nodeSleep.enable($("#cancelPopup10"));
+                nodemonPopup.disable();
+                nodemonPopup.enable($("#cancelPopup10"));
             }
             else if (returnData == "THIRD") {
                 /* ▼ 팝업 레이어 설정 및 뷰 */
-                g_nodeSleep.disable();
-                g_nodeSleep.enable($("#cancelPopup10more"));
+                nodemonPopup.disable();
+                nodemonPopup.enable($("#cancelPopup10more"));
                 /* ▲ 팝업 레이어 설정 및 뷰 */
             }
             else {
@@ -1219,24 +1219,24 @@ function fnTrade_Complete_Ajax_Complete(request) {
             }
         }
         else if (returnData == "CONFIRM") {
-            g_nodeSleep.disable();
-            g_nodeSleep.enable($('#failPopup'));
+            nodemonPopup.disable();
+            nodemonPopup.enable($('#failPopup'));
         }
         else if (returnData == "STOP") {
-            g_nodeSleep.disable();
-            g_nodeSleep.enable($('#failPopup'));
+            nodemonPopup.disable();
+            nodemonPopup.enable($('#failPopup'));
         }
         else if (returnData == "FRIST") {
-            g_nodeSleep.disable();
-            g_nodeSleep.enable($('#endPopup5'));
+            nodemonPopup.disable();
+            nodemonPopup.enable($('#endPopup5'));
         }
         else if (returnData == "SECOND") {
-            g_nodeSleep.disable();
-            g_nodeSleep.enable($('#endPopup10'));
+            nodemonPopup.disable();
+            nodemonPopup.enable($('#endPopup10'));
         }
         else if (returnData == "THIRD") {
-            g_nodeSleep.disable();
-            g_nodeSleep.enable($('#endPopup10more'));
+            nodemonPopup.disable();
+            nodemonPopup.enable($('#endPopup10more'));
         }
         else if (returnData == "BOARD") {
             if (confirm('거래 종료 요청을 하겠습니까?')) {

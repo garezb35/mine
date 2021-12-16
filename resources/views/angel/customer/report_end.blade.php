@@ -188,7 +188,7 @@
                                     @break;
                                 @endswitch
                                 &#160;{{$record['user_title']}}</td>
-                        <td class="f_red1 right">{{number_format($record['payitem']['price'])}}원</td>
+                        <td class="text-rock right">{{number_format($record['payitem']['price'])}}원</td>
                         <td>{{date("m-d H:i",strtotime($record['created_at']))}}</td>
                         <td>
                             @if ($record['accept_flag'] == 0)

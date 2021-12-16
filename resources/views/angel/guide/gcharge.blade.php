@@ -134,7 +134,7 @@
             <div class="g_gray_border"></div>
             <div class="highlight_contextual">충전방법</div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span>홈페이지에서 마일리지 <b>[충전]</b>버튼을 선택하세요.
+                <span class="text-rock font-weight-bold">하나. </span>홈페이지에서 마일리지 <b>[충전]</b>버튼을 선택하세요.
             </div>
             <img class="" src="/angel/img/guide/screenshot/img_charge01.png" width="820" height="" alt="">
 

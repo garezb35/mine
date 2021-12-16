@@ -93,7 +93,7 @@ function fnTradeDelete()
 
 
 function popLayer(elementID,params){
-    g_nodeSleep.enable($("#"+elementID));
+    nodemonPopup.enable($("#"+elementID));
     if(params)
     {
         _form.addValues($("#"+elementID).find('form').eq(0), params);

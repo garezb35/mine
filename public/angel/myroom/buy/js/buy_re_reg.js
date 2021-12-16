@@ -1,10 +1,10 @@
 // 판매유형
-var e_sale = {
+var angel_item_s_alias = {
     'general': '일반판매',
     'division': '분할판매'
 };
 
-var e_goods_text = {
+var angel_item_alias = {
     'money': '게임머니',
     'item': '아이템',
     'character': '캐릭터',
@@ -12,15 +12,15 @@ var e_goods_text = {
 };
 
 // 현재선택된 타입
-var e_select = {
+var angel_enable_type = {
     sale: 'general',
     goods: 'money'
 };
 
 // 현재선택된 단위
-var g_unit = '';
+var angel_item_unit = '';
 
-var e_use = {
+var angel_premiun_items = {
     premium: 0,
     highlight: 0,
     quickIcon:0,
@@ -28,7 +28,7 @@ var e_use = {
 };
 
 // 프리미엄 레이어 활성화
-var bPremiumLayer = false;
+var premiumService = false;
 
 function _init() {
 
@@ -105,7 +105,7 @@ function _init() {
     }
 
     SafetyNumber();
-    changeTemplateAddCheck();
+    alterConstructorAddCheck();
 
     $('#tag_generator').keydown(function(e){
         if($('#tag_generator').is(':focus'))
@@ -153,9 +153,9 @@ function getFreeUse() {
             api_token: a_token
         },
         success: function(res) {
-            e_use.premium = res.premium;
-            e_use.highlight = res.highlight;
-            e_use.quickIcon = res.quickicon;
+            angel_premiun_items.premium = res.premium;
+            angel_premiun_items.highlight = res.highlight;
+            angel_premiun_items.quickIcon = res.quickicon;
             $('#user_premium_time').val('');
             $('#user_icon_use').val('');
             $('#user_bluepen_use').val('');
@@ -221,9 +221,9 @@ function getCreditBenefit() {
 }
 
 function setDefaultText() {
-    var strGoods = e_goods_text[e_select.goods];
-    if (e_select.goods === 'money' && g_unit.isEmpty() === false) {
-        strGoods = g_unit;
+    var strGoods = angel_item_alias[angel_enable_type.goods];
+    if (angel_enable_type.goods === 'money' && angel_item_unit.isEmpty() === false) {
+        strGoods = angel_item_unit;
     }
 
     var defaultText = strGoods + ' 삽니다.';
@@ -235,7 +235,7 @@ function setDefaultText() {
     }
 }
 
-function changeTemplateAddCheck() {
+function alterConstructorAddCheck() {
     var frm = document.forms.frmBuy;
     if (frm.checker) {
         frm.checker.free();
@@ -497,7 +497,7 @@ function createLayerContent(b) {
             frm.action = '/certify/payment/user_certify';
             frm.submit();
 
-            changeTemplateAddCheck();
+            alterConstructorAddCheck();
             return;
         }
     }
@@ -533,7 +533,7 @@ function checkPrice() {
     }
 
     var nCheckPrice = 0;
-    if (e_sale[e_select.sale] == e_sale.division) {
+    if (angel_item_s_alias[angel_enable_type.sale] == angel_item_s_alias.division) {
         nCheckPrice = 100;
     } else {
         nCheckPrice = 3000;
@@ -566,8 +566,8 @@ function chargeServiceCalc() {
     // 프리미엄 등록
     if (userPremiumTime > 0) {
         userPremiumUseHidden.value = '1';
-        if (userPremiumTime > Number(e_use.premium)) {
-            plusMile += (userPremiumTime - Number(e_use.premium)) * 100;
+        if (userPremiumTime > Number(angel_premiun_items.premium)) {
+            plusMile += (userPremiumTime - Number(angel_premiun_items.premium)) * 100;
         }
     } else {
         userPremiumUseHidden.value = '';
@@ -576,14 +576,14 @@ function chargeServiceCalc() {
     // 퀵아이콘 등록
     if (userQuickIcon > 0) {
         userQuickIconUseHidden.value = '1';
-        if (userQuickIcon > Number(e_use.quickIcon)) {
-            plusMile += (userQuickIcon - Number(e_use.quickIcon)) * 100;
+        if (userQuickIcon > Number(angel_premiun_items.quickIcon)) {
+            plusMile += (userQuickIcon - Number(angel_premiun_items.quickIcon)) * 100;
         }
     } else {
         userQuickIconUseHidden.value = '';
     }
-    if (highlightTotalTime > Number(e_use.highlight)) {
-        plusMile += (highlightTotalTime - Number(e_use.highlight)) * 100;
+    if (highlightTotalTime > Number(angel_premiun_items.highlight)) {
+        plusMile += (highlightTotalTime - Number(angel_premiun_items.highlight)) * 100;
     }
 
     // plusMile += (reregCount * 100);
@@ -619,8 +619,8 @@ function chargeServiceApply(strClass) {
 }
 
 function chargePremiumService() {
-    bPremiumLayer = true;
-    if (bPremiumLayer == false) {
+    premiumService = true;
+    if (premiumService == false) {
         KeepAlivesRaw.open({
             layer: document.getElementById('premium_layer'),
             close_btn: document.getElementById('premium_layer').querySelector('.close'),
@@ -632,7 +632,7 @@ function chargePremiumService() {
             KeepAlivesRaw.close({layer: document.getElementById('premium_layer')});
         });
 
-        bPremiumLayer = true;
+        premiumService = true;
     }
 }
 
@@ -643,7 +643,7 @@ function setDirectBuy() {
     var frm = document.forms.frmBuy;
     if (this.checked === true) {
         var useMileNum = useMileage.numeric();
-        if (e_sale[e_select.sale] === e_sale.general) {
+        if (angel_item_s_alias[angel_enable_type.sale] === angel_item_s_alias.general) {
             var userPrice = document.getElementById('user_price');
             var userPriceVal = userPrice.value.numeric();
 

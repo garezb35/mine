@@ -171,16 +171,16 @@
                 <div class="empty-high"></div>
                 <div class="highlight_contextual">판매한 물품등록</div>
                 <div class="guide_subtitle">
-                    <span class="f_red1 font-weight-bold">하나. </span>홈페이지 상단의 <span class="font-weight-bold"> "판매등록" </span>메뉴를 클릭합니다.
+                    <span class="text-rock font-weight-bold">하나. </span>홈페이지 상단의 <span class="font-weight-bold"> "판매등록" </span>메뉴를 클릭합니다.
                 </div>
                 <img src="/angel/img/guide/screenshot/img_char_sell1_01.png" width="820" height="" alt="">
                 <div class="guide_subtitle">
-                    <span class="f_red1 font-weight-bold">둘. </span>판매를 원하는 물품의 정보를 순서대로 입력하신 후 하단의 [판매등록] 버튼을 클릭합니다.<br>
+                    <span class="text-rock font-weight-bold">둘. </span>판매를 원하는 물품의 정보를 순서대로 입력하신 후 하단의 [판매등록] 버튼을 클릭합니다.<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;팝니다 등록페이지의 팝니다 등록 알아두기를 먼저 꼼꼼히 읽어보세요.
                 </div>
                 <img src="/angel/img/guide/screenshot/img_char_sell1_02.png" width="820" height="" alt="">
                 <div class="guide_subtitle">
-                    <span class="f_red1 font-weight-bold">셋. </span>판매등록 물품 정보를 확인 후 [서명하기] 버튼을 클릭합니다.<br>
+                    <span class="text-rock font-weight-bold">셋. </span>판매등록 물품 정보를 확인 후 [서명하기] 버튼을 클릭합니다.<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;전자 계약서 서명은 본인 명의의 휴대폰 번호로만 인증만 가능합니다.
                 </div>
                 <div class="divi_line"></div>

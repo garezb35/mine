@@ -30,9 +30,9 @@
         var useMileage = '{{$user['mileage']}}';
         function __init() {
         }
-        e_use.premium = {{$premium}};
-        e_use.highlight = {{$highlight}} /12;
-        e_use.quickIcon = {{$quickicon}};
+        angel_premiun_items.premium = {{$premium}};
+        angel_premiun_items.highlight = {{$highlight}} /12;
+        angel_premiun_items.quickIcon = {{$quickicon}};
     </script>
 @endsection
 
@@ -97,7 +97,7 @@
                                     <div class="input_area">
                                         <input type="text" class="angel__text search_gs_name" id="searchRegGameServer" placeholder="게임명 또는 서버명을 입력해주세요." autocomplete="off" data-gameserver="true">
                                     </div>
-                                    <i class="fa fa-star favorite_icon" onclick="fnSearchAdd()"></i>
+                                    <i class="fa fa-star favorite_icon" onclick="bookmarkAdd()"></i>
                                     <button type="button" class="search__submit text-center" title="검색">
                                         <i class="fa fa-search" style="color: #fff;font-size: 23px;"></i>
                                     </button>
@@ -164,7 +164,7 @@
                                                 </thead>
                                                 <tbody id="lastListTbody"></tbody>
                                             </table>
-                                            <ul class="f_red1 sub_txt">
+                                            <ul class="text-rock sub_txt">
                                                 <li>※ 최근 등록 물품은 7일 이내 등록했던 물품 중 최대 5개 까지 불러오기가 가능합니다. (흥정물품은 제외)</li>
                                                 <li>※ 해당 표시된 정보로 등록정보를 불러오니, 등록정보 변동 시 체크 수정하시기 바랍니다.</li>
                                             </ul>
@@ -210,7 +210,7 @@
                                 <label class="f_green2 f_small">(단위)</label>
                             </div>
                             <div id="game_money">
-                                <input type="text" name="user_quantity" id="user_quantity" maxlength="7" class="angel__text f_right rad13">
+                                <input type="text" name="user_quantity" id="user_quantity" maxlength="7" class="angel__text text_right rad13">
                                 <span class="unit"></span> 게임머니
                                 <span class="g_txtbtn first_btn radbtn" id="plus10" value="10">+10</span>
                                 <span class="g_txtbtn radbtn" id="plus50" value="50">+50</span>
@@ -223,8 +223,8 @@
                     <tr>
                         <th>구매금액</th>
                         <td>
-                            <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text f_right rad13"> 원 (3,000원 이상, 10원 단위 등록 가능)
-                            <div class="coms_area" id="coms_area">수수료 5% : <span class="f_red1" id="commission_price">0</span>원 | 실 수령액 : <span class="f_red1" id="receive_price">0</span>원 </div>
+                            <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text text_right rad13"> 원 (3,000원 이상, 10원 단위 등록 가능)
+                            <div class="coms_area" id="coms_area">수수료 5% : <span class="text-rock" id="commission_price">0</span>원 | 실 수령액 : <span class="text-rock" id="receive_price">0</span>원 </div>
                         </td>
                     </tr>
                     <tr>
@@ -232,7 +232,7 @@
                         <td>
                             <div class="dfServer" id="dfServer"> </div>
                             <div class="float-left">
-                                <input type="text" class="angel__text mode-active rad13" name="user_character" id="user_character" maxlength="30"> 물품을 전달 받으실 본인의 캐릭터명 <span id="sub_text" class="g_red1"></span> </div>
+                                <input type="text" class="angel__text mode-active rad13" name="user_character" id="user_character" maxlength="30"> 물품을 전달 받으실 본인의 캐릭터명 <span id="sub_text" class="text-rock"></span> </div>
                             <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
                         </td>
                     </tr>
@@ -242,7 +242,7 @@
                         <td>
                             <div>
                                 <label>
-                                    <input type="checkbox" class="g_checkbox" id="direct_reg_trade" name="direct_reg_trade" value="1"> 즉시구매 등록</label>
+                                    <input type="checkbox" class="angel_game_sel" id="direct_reg_trade" name="direct_reg_trade" value="1"> 즉시구매 등록</label>
                             </div>
                             <dl class="direct_info"> <dt>판매신청 조건 설정 :</dt>
                                 <dd>
@@ -273,7 +273,7 @@
                         <td>
                             <div class="item_detail_opts">
                                 <label>
-                                    <input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="g_checkbox"> 물품제목 기본값 : </label> <span id="trade_sign_txt" class="text-blue_modern">tff</span>
+                                    <input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="angel_game_sel"> 물품제목 기본값 : </label> <span id="trade_sign_txt" class="text-blue_modern">tff</span>
                                 <a href="javascript:_window.open('fixed_title', '/sell/fixed_trade_subject', 500, 300);" class="btn-light-modern">설정</a> </div>
                             <input type="text" class="angel__text w90 rad10 input34" name="user_title" id="user_title" maxlength="40" value=""> </td>
                     </tr>
@@ -286,7 +286,7 @@
                                 <label>
                                     <input type="radio" class="g_radio" name="text_select" value="1">직접입력</label>
                             </div> <a href="javascript:;" class="wideview1" id="wideview">열기 <i class="fa fa-angle-down"></i></a>
-                            <textarea id="user_text" name="user_text" class="txtarea w100" readonly placeholder="휴대폰번호, 메신저(카톡) ID 및 거래와 무관한 내용 기재 시 물품은 삭제되며, 서비스 이용에 제재를 받게 됩니다.">게임머니 삽니다.</textarea>
+                            <textarea id="user_text" name="user_text" class="txtarea w100" readonly float__right>게임머니 삽니다.</textarea>
                         </td>
                     </tr>
 
@@ -296,7 +296,7 @@
                         <td> <span class="f_small">아래 입력란에 키워드 등록을 하시면, <br>해당 키워드로 알림등록 신청을 해놓은 회원에게 알림이 되어 더욱 빠른 캐릭터 거래가 진행될 수 있습니다.</span>
                             <input type="text" id="tag_generator" name="noti_keyword" maxlength="5"> <span class="alarm_notice">(한글기준 최소 2글자, 최대 5글자 까지 입력가능)</span> <span class="character_use_info"><a href="javascript:_window.open('premium_guide','/sell/goods_alarm_guide.html',875, 630);" class="btn-light-modern">이용안내</a></span>
                             <div class="tag_wrapper">
-                                <h4 class="f_red1">※현재 해당 서버에 등록된 알림 키워드 <span>(클릭 시 자동으로 입력됩니다)</span></h4>
+                                <h4 class="text-rock">※현재 해당 서버에 등록된 알림 키워드 <span>(클릭 시 자동으로 입력됩니다)</span></h4>
                                 <div class="tag_list"> </div>
                             </div>
                             <div class="alarm_ballon"> <span class="close_btn" onclick="this.parentNode.style.display = 'none';"></span> 물품등록알리미를
@@ -431,10 +431,10 @@
                 </div>
                 <div class="total_charge">
                     <strong class="total_label">총 결제금액 : </strong>
-                    <strong class="total_charge_money f_red1" id="total_charge_money">0원</strong>
+                    <strong class="total_charge_money text-rock" id="total_charge_money">0원</strong>
                     <span class="f-small">
                         (내 사용가능한 마일리지 :
-                        <strong id="txtCurrentMileage" class="f_red1">{{number_format($user->mileage)}}원</strong>)
+                        <strong id="txtCurrentMileage" class="text-rock">{{number_format($user->mileage)}}원</strong>)
                     </span>
                 </div>
                 <style>
@@ -467,7 +467,7 @@
                         <td class="text-center">
                 <span id="spnUserPhone">
                 {{$user->home}}                </span>
-                            ( <label><input type="checkbox" class="g_checkbox" name="user_cell_check" id="chk_user_cell_check" value="on" checked> 자택번호안내</label> ) /
+                            ( <label><input type="checkbox" class="angel_game_sel" name="user_cell_check" id="chk_user_cell_check" value="on" checked> 자택번호안내</label> ) /
                             <span id="spnUserCell">{{$user->number}}</span>
                             <a href="javascript:_window.open('private_edit', '/user/contact_edit?check=true', 496, 350);" class="btn-light-modern after">연락처 수정</a>
                         </td>
@@ -486,7 +486,7 @@
                                     <div class="cont">
                                         고객님의 개인정보 보호를 위해 휴대폰번호에 안심번호를 부여하여 실제 휴대폰번호 대신
                                         <br> 가상의 안심번호를 상대 거래자에게 노출시켜주는 무료 서비스 입니다.
-                                        <ul class="f_red1">
+                                        <ul class="text-rock">
                                             <strong>
                                                 안심번호 서비스 사용 시 주의사항</strong><br>
                                             1) 부여받은 안심번호로도 문자 수신이 가능합니다.(발신시에는 부여받은 안심번호 사용)<br>
@@ -513,7 +513,7 @@
                                     </div>
                                     <div class="cont">
                                         고객님의 개인정보 보호를 위해 휴대폰번호에 안심번호를 부여하여 실제 휴대폰번호 대신<br> 가상의 안심번호를 상대 거래자에게 노출시켜주는 무료 서비스 입니다.
-                                        <ul class="f_red1">
+                                        <ul class="text-rock">
                                             <strong>안심번호 플러스 사용 시 주의사항</strong><br>
                                             1) 부여받은 안심번호로 통화 시 수신자에게 10초에 20원의 이용료가 부과됩니다.<br> 2) 안심번호 플러스로 문자 수신은 불가능합니다.<br> 3) 부여 받은 안심번호 플러스는 거래가 종료되는 시점에 자동 회수되며, 회수된 이후에는 연락이 불가능합니다.<br> 4) 가상 번호 사용 후 24시간을 초과하거나 거래종료 후 문제발생 시 실제 전화번호가 노출됩니다.
                                         </ul>
@@ -601,7 +601,7 @@
                 <div class="title">프리미엄 등록안내</div>
                 <div class="middle_text">프리미엄 물품 등록을 하시면 물품 리스트 상단에 판매 물품 노출이 가능합니다.
                     <br/>빠른 거래를 원하신다면 프리미엄 등록서비스를 이용하시기 바랍니다. </div>
-                <div class="mile_area">(내 사용가능한 마일리지 : <span id="alias__mileage_span" class="text-orange">{{number_format($user->mileage)}}</span> 원) </div>
+                <div class="mileage_sea">(내 사용가능한 마일리지 : <span id="alias__mileage_span" class="text-orange">{{number_format($user->mileage)}}</span> 원) </div>
                 <div class="mt-40 text-center">
                     <a href="javascript:;_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=premium',440,450)" class="btn_gray">프리미엄 무료이용권 보기</a>
                 </div>

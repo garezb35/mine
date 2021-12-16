@@ -12,11 +12,11 @@
         <link type="text/css" rel="stylesheet" href="/angel/photoswipe/css/default-skin/default-skin.css">
         <link type="text/css" rel="stylesheet" href="/angel/_css/webpack.css">
         <link type="text/css" rel="stylesheet" href="/angel/global_h/css/header_1.css">
-        <link type="text/css" rel="stylesheet" href="/angel/_banner/css/banner_module.css">
+        <link type="text/css" rel="stylesheet" href="/angel/carsouel_plugin/css/carsouel_plugin.css">
         <link type="text/css" rel="stylesheet" href="/angel/dev/global.css">
         <link type="text/css" rel="stylesheet" href="/angel/dev/change.css">
-        <link type="text/css" rel="stylesheet" href="/angel/_banner/css/_banner.css">
-        <script type="text/javascript" src="/angel/_banner/js/banner_module.js"></script>
+        <link type="text/css" rel="stylesheet" href="/angel/carsouel_plugin/css/carsouel.css">
+        <script type="text/javascript" src="/angel/carsouel_plugin/js/carsouel_plugin.js"></script>
         @yield('head_attach')
 
     </head>

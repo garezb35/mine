@@ -29,7 +29,7 @@ $issues_list = json_decode($user['issue_count']);
                             <div class="font-weight-bold"><span class="text-blue_modern">{{$user['name']}}</span>님의 신용등급은
                                 <span class="text-blue_modern">{{$user['roles']['alias']}}</span>입니다.
                             </div>
-                            전체거래점수 : <strong class="f_red1">{{number_format($user['point'])}}점</strong>
+                            전체거래점수 : <strong class="text-rock">{{number_format($user['point'])}}점</strong>
                         </div>
                     </td>
                     <td class="point_parts text-center font-weight-bold">
@@ -72,7 +72,7 @@ $issues_list = json_decode($user['issue_count']);
                 <tr>
                     <td class="fir_td">
                         <span class="font-weight-bold f-14 text-blue_modern">관리점수</span>&nbsp;&nbsp;&nbsp;
-                        <span class="f_red1 font-weight-bold">{{$user['issue_point']}}</span> 점
+                        <span class="text-rock font-weight-bold">{{$user['issue_point']}}</span> 점
                         <span class="f_black1"> (불량거래 : {{number_format($issues_list[0])}}건, 일시정지 : {{number_format($issues_list[1])}}회)</span>
                     </td>
                     <td class="sec_td" style="height: 59px;">

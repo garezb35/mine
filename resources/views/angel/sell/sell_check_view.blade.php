@@ -182,7 +182,7 @@ $category = '> > 기타';
         <div id="dialog_fade" class="modal_dialog">
             <div class="modal__title">
                 재흥정
-                <a href="javascript:g_nodeSleep.disable();" class="modal__close">닫기</a>
+                <a href="javascript:nodemonPopup.disable();" class="modal__close">닫기</a>
             </div>
             <form id="frmReBa" name="frmReBa" method="post">
                 @csrf
@@ -207,7 +207,7 @@ $category = '> > 기타';
                     </div>
                     <div class="btn-groups_angel">
                         <a onclick="TradeReCheck('{{$orderNo}}');" class="btn-default btn-suc">확인</a>
-                        <a alt="취소" onclick="g_nodeSleep.disable();" class="btn-default btn-cancel">취소</a>
+                        <a alt="취소" onclick="nodemonPopup.disable();" class="btn-default btn-cancel">취소</a>
                     </div>
                 </div>
             </form>

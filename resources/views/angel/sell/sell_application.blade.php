@@ -241,7 +241,7 @@
                     <td> <span id="spnUserPhone">
                 {{$cuser['home']}}  </span> (
                         <label>
-                            <input type="checkbox" class="g_checkbox" name="user_cell_check" id="user_cell_check" value="on" checked> 자택번호안내</label> ) / <span id="spnUserCell">{{$cuser['number']}}</span>  </td>
+                            <input type="checkbox" class="angel_game_sel" name="user_cell_check" id="user_cell_check" value="on" checked> 자택번호안내</label> ) / <span id="spnUserCell">{{$cuser['number']}}</span>  </td>
                 </tr>
                 <tr class="SafetyNumber">
                     <th>안심번호</th>
@@ -254,7 +254,7 @@
                                 </div>
                                 <div class="cont"> 고객님의 개인정보 보호를 위해 휴대폰번호에 안심번호를 부여하여 실제 휴대폰번호 대신
                                     <br> 가상의 안심번호를 상대 거래자에게 노출시켜주는 무료 서비스 입니다.
-                                    <ul class="f_red1"> <strong>안심번호 서비스 사용 시 주의사항</strong>
+                                    <ul class="text-rock"> <strong>안심번호 서비스 사용 시 주의사항</strong>
                                         <br> 1) 부여받은 안심번호로도 문자 수신이 가능합니다.(발신시에는 부여받은 안심번호 사용)
                                         <br> 2) 상대거래자가 안심번호 서비스를 사용하지 않는 상태에서 발신한 경우 실제 번호가 표시됩니다.
                                         <br> 3) 부여 받은 안심번호는 거래가 종료되는 시점에 자동 회수되며, 회수된 이후에는 연락이 불가능합니다.
@@ -276,7 +276,7 @@
                                 </div>
                                 <div class="cont"> 고객님의 개인정보 보호를 위해 휴대폰번호에 안심번호를 부여하여 실제 휴대폰번호 대신
                                     <br> 가상의 안심번호를 상대 거래자에게 노출시켜주는 무료 서비스 입니다.
-                                    <ul class="f_red1"> <strong>안심번호 플러스 사용 시 주의사항</strong>
+                                    <ul class="text-rock"> <strong>안심번호 플러스 사용 시 주의사항</strong>
                                         <br> 1) 부여받은 안심번호로 통화 시 수신자에게 10초에 20원의 이용료가 부과됩니다.
                                         <br> 2) 안심번호 플러스로 문자 수신은 불가능합니다.
                                         <br> 3) 부여 받은 안심번호 플러스는 거래가 종료되는 시점에 자동 회수되며, 회수된 이후에는 연락이 불가능합니다.

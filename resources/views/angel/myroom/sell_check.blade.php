@@ -1,8 +1,8 @@
 @extends('layouts-angel.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css?210503" />
-    <link type="text/css" rel="stylesheet" href="/angel/myroom/sell/css/common_list.css?210114" />
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/sell/css/common_list.css" />
 @endsection
 
 @section('foot_attach')
@@ -47,8 +47,8 @@
 
 
         <dl class="notice_box"> <dt>흥정거래 알아두기</dt>
-            <dd> <img src="http://img4.itemmania.com/images/icon/icon_barg_ing.gif" width="62" height="14" alt="흥정신청중"> 구매자가 흥정거래를 요청한 상태로 1시간 이내에 수락하시면 거래가 진행됩니다. 1시간 이내 수락하지 않은 경우 거래는 취소됩니다. </dd>
-            <dd> <img src="http://img2.itemmania.com/images/icon/icon_barg_again1.gif" width="39" height="14" alt="재흥정"> 판매자가 구매자에게 재흥정 가격을 제시한 상태로 30분 이내에 재흥정에 대한 구매자의 수락이 없거나 거부할 경우 거래가 취소됩니다. </dd>
+            <dd> 구매자가 흥정거래를 요청한 상태로 1시간 이내에 수락하시면 거래가 진행됩니다. 1시간 이내 수락하지 않은 경우 거래는 취소됩니다. </dd>
+            <dd> 판매자가 구매자에게 재흥정 가격을 제시한 상태로 30분 이내에 재흥정에 대한 구매자의 수락이 없거나 거부할 경우 거래가 취소됩니다. </dd>
         </dl>
 
         <div class="empty-high"></div>

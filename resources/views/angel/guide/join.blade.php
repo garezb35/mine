@@ -123,10 +123,10 @@
             <div class="g_gray_border"></div>
 
             <div class="g_notice_box1">아이템천사 회원가입 절차 방법입니다.</div>
-            <div class="guide_subtitle"><span class="f_red1 font-weight-bold">하나.</span> 홈페이지 상단에서 [회원가입]을 클릭합니다.</div>
+            <div class="guide_subtitle"><span class="text-rock font-weight-bold">하나.</span> 홈페이지 상단에서 [회원가입]을 클릭합니다.</div>
             <img src="/angel/img/guide/screenshot/img_join_01.png" width="820" alt="회원가입">
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>가입 유형을 선택 해주시기 바랍니다.
+                <span class="text-rock font-weight-bold">둘. </span>가입 유형을 선택 해주시기 바랍니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_join_02.png" width="820" height="" alt="가입유형 선택">
             <div class="guide_subtxt">
@@ -135,7 +135,7 @@
                 <span class="font-weight-bold">- 외국인 회원 : </span> 국내에 거주하는 외국인 회원
             </div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">셋. </span>약관동의/실명확인
+                <span class="text-rock font-weight-bold">셋. </span>약관동의/실명확인
                 <div class="guide_subtxt">
                     서비스 이용약관, 개인정보 취급 방침 동의는 필수사항입니다. 반드시 읽어보신 후 <span class="font-weight-bold">동의하기</span>를 선택하십시오.<br>
                     실명확인이 되지 않으실 경우 '<a href="http://www.idcheck.co.kr">NICE평가정보(www.idcheck.co.kr)</a>'를 방문하시어 실명확인을 하신 후 다시 회원가입을 해주시기 바랍니다.
@@ -143,7 +143,7 @@
             </div>
             <img src="/angel/img/guide/screenshot/img_join_03.png" width="820" height="" alt="약관동의/실명확인">
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">넷.</span> 정보 입력
+                <span class="text-rock font-weight-bold">넷.</span> 정보 입력
             </div>
             <img src="/angel/img/guide/screenshot/img_join_04.png" width="820" height="" alt="회원정보 입력">
             <div class="guide_subtxt">
@@ -153,7 +153,7 @@
                 - 개인정보로 이루어진 비밀번호는 사용 불가능 합니다.
             </div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">다섯. </span>가입완료
+                <span class="text-rock font-weight-bold">다섯. </span>가입완료
             </div>
             <img src="/angel/img/guide/screenshot/img_join_05.png" width="820" height="" alt="추가정보 입력">
             <div class="guide_subtxt">

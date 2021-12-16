@@ -225,9 +225,9 @@ function chageTableAction(value){
     if(value == 1)
     {
         el ='<div class="goods_radio_wrapper">'
-        el += '<label><input type="checkbox" name="compen" id="compen" class="g_checkbox"> 200% ë³´ìƒ ë¬¼í’ˆ</label>'
-        el += '<label><input type="checkbox" name="sell_compen" id="sell_compen" class="g_checkbox"> 200% êµ¬ë§¤ë³´ìƒ</label>'
-        el +='<label><input type="checkbox" name="excellent" id="excellent" class="g_checkbox"> ìš°ìˆ˜ì¸ì¦ ë¬¼í’ˆ</label></div>'
+        el += '<label><input type="checkbox" name="compen" id="compen" class="angel_game_sel"> 200% ë³´ìƒ ë¬¼í’ˆ</label>'
+        el += '<label><input type="checkbox" name="sell_compen" id="sell_compen" class="angel_game_sel"> 200% êµ¬ë§¤ë³´ìƒ</label>'
+        el +='<label><input type="checkbox" name="excellent" id="excellent" class="angel_game_sel"> ìš°ìˆ˜ì¸ì¦ ë¬¼í’ˆ</label></div>'
         wrapper.innerHTML = el;
         table.classList.remove('g_green_table');
         table.classList.add('table-primary');
@@ -238,8 +238,8 @@ function chageTableAction(value){
     {
 
         el ='<div class="goods_radio_wrapper">'
-        el += '<label><input type="checkbox" name="direct" id="direct" class="g_checkbox"> ì¦‰ì‹œêµ¬ë§¤ ë¬¼í’ˆ</label>'
-        el += '<label><input type="checkbox" name="excellent" id="excellent" class="g_checkbox"> ìš°ìˆ˜ì¸ì¦ ë¬¼í’ˆ</label></div>'
+        el += '<label><input type="checkbox" name="direct" id="direct" class="angel_game_sel"> ì¦‰ì‹œêµ¬ë§¤ ë¬¼í’ˆ</label>'
+        el += '<label><input type="checkbox" name="excellent" id="excellent" class="angel_game_sel"> ìš°ìˆ˜ì¸ì¦ ë¬¼í’ˆ</label></div>'
         wrapper.innerHTML = el;
         table.classList.remove('table-primary');
         table.classList.add('g_green_table');

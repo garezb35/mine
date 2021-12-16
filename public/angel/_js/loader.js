@@ -4,7 +4,7 @@ function _header() {
         var c = h.querySelector('[name="filtered_game_id"]');
         var g = h.querySelector('[name="filtered_child_id"]');
         var d = h.getElementsByClassName("gameWindowPopup")[0];
-        new GameServerList(h.querySelector('[data-gslist="true"]'), {
+        new AngelGames(h.querySelector('[data-gslist="true"]'), {
             formElement: h,
             containerWrapper: d,
             toggleContainer: d.getElementsByClassName("_34Cr45d_reacts")[0],
@@ -29,7 +29,7 @@ function _header() {
                     var k = h.querySelector('[name="search_type"]:checked').value;
                     var m = "/" + k + "/" + l;
                     h.action = m;
-                    _myService.setLastSearch();
+                    mineGames.saveRecentGameFilter();
                     h.submit()
                 }
             }
@@ -150,7 +150,7 @@ function searchbarSubmit() {
         alert("게임을 선택해주세요.");
         return false
     } else {
-        _myService.setLastSearch()
+        mineGames.saveRecentGameFilter()
     }
     f.action = e;
     return true

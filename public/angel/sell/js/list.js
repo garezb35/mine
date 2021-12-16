@@ -213,7 +213,7 @@ $(document).ready(function() {
                     nListPage++;
                 } else if(res.result === 'BLOCK') {
                     alert(res.message);
-                    location.href = ROOT_DOMAIN;
+                    location.href = site_dns;
                     return;
                 } else if(res.message !== undefined) {
                     alert(res.message);
@@ -326,7 +326,7 @@ $(document).ready(function() {
 
     $(".search_reset").on('click', function() {
         frmSearch.find('[class="angel__text"]').val('');
-        frmSearch.find('[class="g_checkbox"]').prop('checked', false);
+        frmSearch.find('[class="angel_game_sel"]').prop('checked', false);
         frmSearch.find('ul li:first-child [type="radio"]').prop('checked', true);
         $("#search_word").val("");
         searchList.formSubmit();

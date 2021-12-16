@@ -33,7 +33,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script type="text/javascript" src="/assets/js/angel/webpack.js"></script>
     <script type="text/javascript" src="/assets/js/angel/_gs_control.js"></script>
-    <script type="text/javascript" src="/assets/js/angel/banner_module.js"></script>
+    <script type="text/javascript" src="/assets/js/angel/carsouel_plugin.js"></script>
 
 </head>
 
@@ -42,7 +42,7 @@
     <div id="thirdys" class="fluid-div"></div>
 </div>
 <div id="angel">
-    <div id="model_titlebar"><img src="https://img2.itemmania.com/images/user/titlep_hp_edit.gif" width="89" height="19" alt="연락처 수정" /></div>
+    <div id="model_titlebar">연락처 수정</div>
     <div id="g_POPUP">
         <form id="certifyForm" action="/user/contact_edit_ok" method="post">
             @csrf
@@ -55,7 +55,6 @@
             <input type="hidden" name="user_mobileA">
             <input type="hidden" name="user_mobileB">
             <input type="hidden" name="user_mobileC"> </form>
-        <form id="frmContact" action="https://trade.itemmania.com/user/contact_edit_ok method="post">
             <input type="hidden" name="check" value="true">
             <input type="hidden" name="security_service_userinfo" value="N">
             <input type="hidden" name="security_type" value="none">
@@ -108,10 +107,10 @@
                         <input type="text" name="user_mobileB" id="user_mobileB" maxlength="4" class="angel__text" value="{{$home_b}}" /> -
                         <input type="text" name="user_mobileC" id="user_mobileC" maxlength="4" class="angel__text" value="{{$home_c}}" /> </td>
                 </tr>
-            </table> <span class="g_red1">※</span> <span class="g_red1_11">013으로 시작되는 번호는 연락처 등록이 불가 합니다.</span>
+            </table> <span class="text-rock">※</span> <span class="g_red1_11">013으로 시작되는 번호는 연락처 등록이 불가 합니다.</span>
             <div class="btn-groups_angel">
-                <a class="btn-default btn-suc"  href="javascript:void(0);">확인</a>
-                <a href="#" onclick="self.close();" class="btn-default btn-cancel">취소</a>
+                <a class="btn-default-medium btn-suc-rect"  href="javascript:void(0);">확인</a>
+                <a href="#" onclick="self.close();" class="btn-default-medium btn-cancel-rect">취소</a>
             </div>
         </form>
     </div>

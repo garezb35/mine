@@ -25,7 +25,7 @@ if($goods_text == '물품전체')
     <div class="myotp_id_layer_wrapper">
         <div class="inner"></div>
     </div>
-    <div class="model_titlebar"><img src="http://img3.itemmania.com/images/myroom/title/title_my_smenu.gif" alt="나만의 검색 메뉴 수정"></div>
+    <div class="model_titlebar">나만의 검색 메뉴 수정</div>
     <div id="g_POPUP2">
         <div class="popup_icon">자주 거래하시는 물품 종류를 등록해 주세요. 간편하게 신규 물품을 확인/등록 할 수 있습니다.</div>
         <form id="frmSearch" action="/myroom/customer/search_update" method="post">

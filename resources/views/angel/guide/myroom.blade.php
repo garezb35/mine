@@ -126,18 +126,18 @@
             <img src="/angel/img/guide/screenshot/img_my_01.png" width="820" alt="충전">
             <div class="divi_line"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나.</span> 고객님의 신용등급, 거래점수, 마일리지, 할인쿠폰/이용권 등을 확인하실 수 있습니다.
+                <span class="text-rock font-weight-bold">하나.</span> 고객님의 신용등급, 거래점수, 마일리지, 할인쿠폰/이용권 등을 확인하실 수 있습니다.
             </div>
             <div class="guide_subtitle">
-                <div class="font-weight-bold"><span class="f_red1 font-weight-bold">둘. </span>내 전체 거래현황</div>
+                <div class="font-weight-bold"><span class="text-rock font-weight-bold">둘. </span>내 전체 거래현황</div>
                 - 모든 거래의 진행상황을 한눈에 확인하실 수 있습니다.
             </div>
             <div class="guide_subtitle">
-                <div class="font-weight-bold"><span class="f_red1 font-weight-bold">셋. </span>나의 보안 및 인증상태</div>
+                <div class="font-weight-bold"><span class="text-rock font-weight-bold">셋. </span>나의 보안 및 인증상태</div>
                 - 보안상태 및 인증상태를 확인하실 수 있습니다.
             </div>
             <div class="guide_subtitle">
-                <div class="font-weight-bold"><span class="f_red1 font-weight-bold">넷. </span>나만의 전용 서비스</div>
+                <div class="font-weight-bold"><span class="text-rock font-weight-bold">넷. </span>나만의 전용 서비스</div>
                 - 나만의 서비스 메뉴설정 및 물품등록 검색 시 나만의검색메뉴를 설정하실 수 있으며 기타 개인별 환경설정이 가능합니다.
             </div>
         </div>

@@ -1,45 +1,26 @@
 
 <div class="react___gatsby outterWrapper" id="outterWrapper">
-    <div class="inner"> <a href="javascript:;" class="sp_icon close_r" id="menu_close">닫기</a> </div>
+    <div class="inner"> <a href="javascript:;" class="close_r" id="menu_close">닫기</a> </div>
 </div>
-<div class="toolbar-btn" id="toolbar-btn">
+<div class="toolbar-btn" id="toolbar-btn" style="display: none">
     <div class="inner">
         <ul class="drawer-content-menu close" id="drawer-content-menu">
-            <li><a href="javascript:;" data-type="user_info">
-                    <span class="user_info"></span>
-                </a>
-                <div><i>나의 거래정보</i></div>
-            </li>
+            <li ><a href="#tooltip"  data-type="ss"><i class="fa fa-commenting"></i></a></li>
         </ul>
-        <div class="sidebar-btn" id="sidebar-btn">
-            <a href="javascript:;" class="sp_icon close" id="sidebar-cls">닫기</a>
-            <div class="toobar-content" id="toobar-content"></div>
+        <div class="sidebar-btn" id="sidebar-btn"> <a href="javascript:;" class="close" id="sidebar-cls"></a>
+
         </div>
     </div>
 </div>
 <div class="siteHeader ">
     <div class="top_bg">
-        <div class="top-ads-part">
-            <div class="top-ads-content">
-                <table class="w-init m-auto no-border p-0" cellpadding="0" cellspacing="0" style="padding-top :40px">
-                    <tr>
-                        <td class="p-0 no-border">
-                            <p class="ads-title p-0">봄맞이 이벤트</p>
-                        </td>
-                        <td class="p-0 no-border">
-                            <p class="f-16 c-white ads-content">모바일캐시비 충전하면 2천원추가충전</br>꽝없는 적립금 지급은 Bonus!</p>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
         <div class="border-bottom">
             <div class="js-nav-menu">
                 <ul class="js-nav-justicy-left"></ul>
                 <ul class="js-nav-justicy-right">
                     <li><a href="{{route('myroom')}}">마이룸</a></li>
                     <li><a href="{{route('main_customer')}}">고객센터</a></li>
-                    <li><a href="#">회원가입</a></li>
+                    <li><a href="{{route('user_reg_step1')}}">회원가입</a></li>
                     @if(auth()->check())
                         <li><a href="/logout">로그아웃</a></li>
                     @else

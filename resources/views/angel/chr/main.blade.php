@@ -44,25 +44,6 @@ $acc[9] = '기타';
                         @endforeach
                     </ul>
                 </div>
-                {{--                <div class="character_banner_carousel">--}}
-                {{--                    <div class="carousel_module" data-code="TR0002">--}}
-                {{--                        <div class="banner_in center_banner" id="center_banner">--}}
-                {{--                            <div class="banner_item" data-idx="0">--}}
-                {{--                                <a href="http://www.itemmania.com/event/event_ing/e161012_mobile/" target="_blank"> <img class="carousel_images" src="http://img4.itemmania.com/new_images/banner_manager/20210203/20210203175731_dNX66.jpg" alt="아무게임" title="아무게임"> </a>--}}
-                {{--                            </div>--}}
-                {{--                        </div>--}}
-                {{--                        <div class='banner_indicate indicate'></div>--}}
-                {{--                    </div>--}}
-                {{--                    <script>--}}
-                {{--                        var selector = document.querySelector(".carousel_module")--}}
-                {{--                        new Carousel(selector, {--}}
-                {{--                            "showNavi": false,--}}
-                {{--                            "showIndicate": true,--}}
-                {{--                            "delay": 3000,--}}
-                {{--                            "random": true--}}
-                {{--                        });--}}
-                {{--                    </script>--}}
-                {{--                </div>--}}
             </div>
         </div>
         <div id="character_goods_content">

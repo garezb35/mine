@@ -2,7 +2,7 @@ function _init() {
     var frm = $('#frm_search');
     if (frm.length > 0) {
         var gameServerEl = document.getElementById('custom_gameserver');
-        regGameServer = new GameServerList(document.getElementById('custom_gameserver_list'), {
+        existedAngelGameServer = new AngelGames(document.getElementById('custom_gameserver_list'), {
             containerWrapper: gameServerEl,
             toggleContainer: gameServerEl.getElementsByClassName('_34Cr45d_reacts')[0],
             formElement: '#frm_search',

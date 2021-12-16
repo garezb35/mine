@@ -153,11 +153,11 @@
             <div class="empty-high"></div>
             <div class="highlight_contextual">구매자의 결제</div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span>홈페이지> 마이룸>구매관련 > 흥정신청한 물품에서 <b>흥정신청내역을 확인</b>하실 수 있습니다.
+                <span class="text-rock font-weight-bold">하나. </span>홈페이지> 마이룸>구매관련 > 흥정신청한 물품에서 <b>흥정신청내역을 확인</b>하실 수 있습니다.
             </div>
             <img class="" src="/angel/img/guide/screenshot/img_bar_pay01.png" width="820" height="" alt="">
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>
+                <span class="text-rock font-weight-bold">둘. </span>
                 흥정신청된 물품 상세페이지에서 거래금액을 확인하신 후 <b>[결제하기]</b> 버튼을 클릭합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_bar_pay02.gif" width="820" height="" alt="">

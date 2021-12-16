@@ -1,7 +1,7 @@
 @extends('layouts-angel.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/angel/_banner/css/_banner.css?v=210107101945">
+    <link type="text/css" rel="stylesheet" href="/angel/carsouel_plugin/css/carsouel.css?v=210107101945">
     <link type="text/css" rel="stylesheet" href="/angel/home/index.css">
     <link type="text/css" rel="stylesheet" href="/angel/home/custom.css">
 @endsection

@@ -172,18 +172,18 @@
             <div class="empty-high"></div>
             <div class="highlight_contextual">판매할 물품 등록</div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span>홈페이지 상단의<span class="font-weight-bold">"판매등록" </span>메뉴를 클릭합니다.
+                <span class="text-rock font-weight-bold">하나. </span>홈페이지 상단의<span class="font-weight-bold">"판매등록" </span>메뉴를 클릭합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_reg_01.png" width="820" height="190" alt="">
             <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>판매를 원하는 물품의 정보를 순서대로 입력하신 후 하단의 <span class="font-weight-bold">[판매등록]</span>버튼을 클릭합니다.
+                <span class="text-rock font-weight-bold">둘. </span>판매를 원하는 물품의 정보를 순서대로 입력하신 후 하단의 <span class="font-weight-bold">[판매등록]</span>버튼을 클릭합니다.
                 <br> 팝니다 등록페이지의 <span class="font-weight-bold">팝니다 등록 알아두기</span>를 먼저 꼼꼼히 읽어보세요.
             </div>
             <img src="/angel/img/guide/screenshot/img_reg_02.png" width="820" height="575" alt="">
             <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">셋. </span>마지막으로 등록하시려는 물품을 확인하시고 '확인' 버튼을 클릭하세요.
+                <span class="text-rock font-weight-bold">셋. </span>마지막으로 등록하시려는 물품을 확인하시고 '확인' 버튼을 클릭하세요.
             </div>
             <img src="/angel/img/guide/screenshot/img_reg_03.png" width="820" height="563" alt="">
             <br> <span class="guide_subtxt">* 등록한 물품은 </span><span class="font-weight-bold">마이룸 > 판매관련 > 판매등록물품</span>에서 확인가능합니다.

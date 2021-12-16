@@ -112,16 +112,16 @@
                         <div class="search_tit">기타조건</div>
                         <ul id="etc">
                             <li>
-                                <label><input type="checkbox" name="excellent" id="excellent" class="g_checkbox" @if(!empty($excellent)) checked @endif>우수인증 회원</label>
+                                <label><input type="checkbox" name="excellent" id="excellent" class="angel_game_sel" @if(!empty($excellent)) checked @endif>우수인증 회원</label>
                             </li>
                             <li>
-                                <label><input type="checkbox" name="overlap_tmp" id="overlap_tmp" class="g_checkbox" @if($overlap == 'on') checked @endif> 중복물품제외</label>
+                                <label><input type="checkbox" name="overlap_tmp" id="overlap_tmp" class="angel_game_sel" @if($overlap == 'on') checked @endif> 중복물품제외</label>
                             </li>
                             <li>
-                                <label><input type="checkbox" name="speed" id="speed" class="g_checkbox" value="1" @if(!empty($speed)) checked @endif> 스피드거래</label>
+                                <label><input type="checkbox" name="speed" id="speed" class="angel_game_sel" value="1" @if(!empty($speed)) checked @endif> 스피드거래</label>
                             </li>
                             <li>
-                                <label><input type="checkbox" name="discont" id="discont" class="g_checkbox" @if(!empty($discont)) checked @endif>할인물품</label>
+                                <label><input type="checkbox" name="discont" id="discont" class="angel_game_sel" @if(!empty($discont)) checked @endif>할인물품</label>
                             </li>
 
                         </ul>
@@ -131,25 +131,25 @@
                         <div class="search_tit">분류</div>
                         <ul id="etc">
                             <li>
-                                <label><input type="checkbox" name="archer" value="궁수"  class="g_checkbox" @if(!empty($archer)) checked @endif>궁수</label>
+                                <label><input type="checkbox" name="archer" value="궁수"  class="angel_game_sel" @if(!empty($archer)) checked @endif>궁수</label>
                             </li>
                             <li>
-                                <label><input type="checkbox" name="wizard" value="마법사"  class="g_checkbox" @if(!empty($wizard)) checked @endif> 마법사</label>
+                                <label><input type="checkbox" name="wizard" value="마법사"  class="angel_game_sel" @if(!empty($wizard)) checked @endif> 마법사</label>
                             </li>
                             <li>
-                                <label><input type="checkbox" name="man" value="전사"  class="g_checkbox"  @if(!empty($man)) checked @endif> 전사</label>
+                                <label><input type="checkbox" name="man" value="전사"  class="angel_game_sel"  @if(!empty($man)) checked @endif> 전사</label>
                             </li>
                             <li>
-                                <label><input type="checkbox" name="holy" value="성기사" class="g_checkbox" @if(!empty($holy)) checked @endif>성기사</label>
+                                <label><input type="checkbox" name="holy" value="성기사" class="angel_game_sel" @if(!empty($holy)) checked @endif>성기사</label>
                             </li>
                             <li>
-                                <label><input type="checkbox" name="sculptor" value="조각사" class="g_checkbox" @if(!empty($sculptor)) checked @endif>조각사</label>
+                                <label><input type="checkbox" name="sculptor" value="조각사" class="angel_game_sel" @if(!empty($sculptor)) checked @endif>조각사</label>
                             </li>
                             <li>
-                                <label><input type="checkbox" name="alchemy" value="연금술사" class="g_checkbox" @if(!empty($alchemy)) checked @endif>연금술사</label>
+                                <label><input type="checkbox" name="alchemy" value="연금술사" class="angel_game_sel" @if(!empty($alchemy)) checked @endif>연금술사</label>
                             </li>
                             <li>
-                                <label><input type="checkbox" name="changi" value="창기사" class="g_checkbox" @if(!empty($changi)) checked @endif>창기사</label>
+                                <label><input type="checkbox" name="changi" value="창기사" class="angel_game_sel" @if(!empty($changi)) checked @endif>창기사</label>
                             </li>
                         </ul>
                     </div>
@@ -159,16 +159,16 @@
                         <div class="search_tit">계정종류</div>
                         <ul id="etc">
                             <li>
-                                <label><input type="checkbox" name="google"  class="g_checkbox" @if(!empty($google)) checked @endif>구글</label>
+                                <label><input type="checkbox" name="google"  class="angel_game_sel" @if(!empty($google)) checked @endif>구글</label>
                             </li>
                             <li>
-                                <label><input type="checkbox" name="facebook"  class="g_checkbox" @if(!empty($facebook)) checked @endif> 페북</label>
+                                <label><input type="checkbox" name="facebook"  class="angel_game_sel" @if(!empty($facebook)) checked @endif> 페북</label>
                             </li>
                             <li>
-                                <label><input type="checkbox" name="guest"  class="g_checkbox"  @if(!empty($guest)) checked @endif> 게스트</label>
+                                <label><input type="checkbox" name="guest"  class="angel_game_sel"  @if(!empty($guest)) checked @endif> 게스트</label>
                             </li>
                             <li>
-                                <label><input type="checkbox" name="out" class="g_checkbox" @if(!empty($out)) checked @endif>기타</label>
+                                <label><input type="checkbox" name="out" class="angel_game_sel" @if(!empty($out)) checked @endif>기타</label>
                             </li>
                         </ul>
                         <div class="search_tit">구매경로</div>
@@ -177,10 +177,10 @@
                                 <label><input type="radio" name="purchase_type" value="" class="g_btn_white2_radio" @if(empty($purchase_type)) checked @endif>전체</label>
                             </li>
                             <li>
-                                <label><input type="radio" name="purchase_type" value="1"   class="g_checkbox" @if(!empty($purchase_type) && $purchase_type == 1) checked @endif>본인 1대</label>
+                                <label><input type="radio" name="purchase_type" value="1"   class="angel_game_sel" @if(!empty($purchase_type) && $purchase_type == 1) checked @endif>본인 1대</label>
                             </li>
                             <li>
-                                <label><input type="radio" name="purchase_type"  value="9" class="g_checkbox" @if(!empty($purchase_type) && $purchase_type == 9) checked @endif> 그외</label>
+                                <label><input type="radio" name="purchase_type"  value="9" class="angel_game_sel" @if(!empty($purchase_type) && $purchase_type == 9) checked @endif> 그외</label>
                             </li>
                         </ul>
                     </div>
@@ -188,22 +188,22 @@
                         <div class="search_tit">고객번호 유무</div>
                         <ul id="etc">
                             <li>
-                                <label><input type="radio" name="customer_num" value="1"  class="g_checkbox" @if(!empty($customer_num) && $customer_num == 1) checked @endif>o</label>
+                                <label><input type="radio" name="customer_num" value="1"  class="angel_game_sel" @if(!empty($customer_num) && $customer_num == 1) checked @endif>o</label>
                             </li>
                             <li>
-                                <label><input type="radio" name="customer_num" value="2" class="g_checkbox" @if(empty($customer_num) || $customer_num == 2) checked @endif>x</label>
+                                <label><input type="radio" name="customer_num" value="2" class="angel_game_sel" @if(empty($customer_num) || $customer_num == 2) checked @endif>x</label>
                             </li>
                         </ul>
                         <div class="search_tit">결제내역 유무</div>
                         <ul id="etc">
                             <li>
-                                <label><input type="radio" name="payment_existence" value="" class="g_checkbox" @if(empty($payment_existence)) checked @endif>전체</label>
+                                <label><input type="radio" name="payment_existence" value="" class="angel_game_sel" @if(empty($payment_existence)) checked @endif>전체</label>
                             </li>
                             <li>
-                                <label><input type="radio" name="payment_existence" value="1"  class="g_checkbox" @if(!empty($payment_existence) && $payment_existence == 1) checked @endif>o</label>
+                                <label><input type="radio" name="payment_existence" value="1"  class="angel_game_sel" @if(!empty($payment_existence) && $payment_existence == 1) checked @endif>o</label>
                             </li>
                             <li>
-                                <label><input type="radio" name="payment_existence" value="2" class="g_checkbox" @if(!empty($payment_existence) && $payment_existence == 2) checked @endif>x</label>
+                                <label><input type="radio" name="payment_existence" value="2" class="angel_game_sel" @if(!empty($payment_existence) && $payment_existence == 2) checked @endif>x</label>
                             </li>
                         </ul>
                     </div>

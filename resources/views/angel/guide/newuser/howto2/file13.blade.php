@@ -176,12 +176,12 @@
             <div>[마일리지 결제]</div>
             <div>마일리지가 거래금액보다 많을 경우에는 구매신청과 동시에 결제가 완료됩니다.</div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span> 구매결제 금액확인 후 <b>결제방식을 마일리지로 선택</b>하여 <b>[구매신청]</b> 버튼을 클릭합니다.
+                <span class="text-rock font-weight-bold">하나. </span> 구매결제 금액확인 후 <b>결제방식을 마일리지로 선택</b>하여 <b>[구매신청]</b> 버튼을 클릭합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_milexis_01.png" width="820" alt="">
             <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>구매결제 완료된 물품은 마이룸 > 구매관련 > 구매중인 물품에서 확인하실 수 있습니다.
+                <span class="text-rock font-weight-bold">둘. </span>구매결제 완료된 물품은 마이룸 > 구매관련 > 구매중인 물품에서 확인하실 수 있습니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_milexis_02.png" width="820" alt="">
             <div class="empty-high"></div>

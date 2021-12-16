@@ -14,7 +14,7 @@
             @include('tab.bs_content',['group'=>'sell'])
             @include('tab.g_tab',['group'=>'sell_pay_wait'])
             <div class="tab_sib">
-                <span class="f_red1 font-weight-bold">※ 구매자가 아직 입금을 하지 않은 상태입니다.  입금확인이 완료된 후에 거래를 진행하시기 바랍니다.</span>
+                <span class="text-rock font-weight-bold">※ 구매자가 아직 입금을 하지 않은 상태입니다.  입금확인이 완료된 후에 거래를 진행하시기 바랍니다.</span>
             </div>
 
             <div class="empty-high"></div>

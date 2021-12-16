@@ -12,7 +12,7 @@ var e_type = {
     'buy' : 1
 };
 
-var e_sale = {
+var angel_item_s_alias = {
     'general':	0,
     'division':	1,
     'bargain':	2
@@ -24,14 +24,14 @@ var e_goods = {
     'item'	:	1,
     'etc'	:	2
 };
-var e_goods_text = {
+var angel_item_alias = {
     'money':	'게임머니',
     'item':		'아이템',
     'character': '캐릭터',
     'etc':		'기타'
 };
 // 현재선택된 타입
-var e_select = {
+var angel_enable_type = {
     sale:	'general',
     org_sale: 'general',
     goods:	'money',
@@ -53,7 +53,7 @@ function _init(){
     }
 
     if($('#dfGameNotice').length > 0) {
-        g_nodeSleep.enable($('#dfGameNotice'));
+        nodemonPopup.enable($('#dfGameNotice'));
     }
 
     var screenshot = document.getElementsByClassName('screenshot');
@@ -68,7 +68,7 @@ function _init(){
 }
 
 function popLayer(elementID,params){
-    g_nodeSleep.enable($("#"+elementID));
+    nodemonPopup.enable($("#"+elementID));
     if(params)
     {
         _form.addValues($("#"+elementID).find('form').eq(0), params);
@@ -111,7 +111,7 @@ function popLayer_2(elementID) {
             dataType: 'text',
             success: function (r) {
                 if (r == 'successTcashTarget') {
-                    g_nodeSleep.disable();
+                    nodemonPopup.disable();
 
                     popLayer(elementID, params);
                 }
@@ -124,7 +124,7 @@ function popLayer_2(elementID) {
             error: function () {
                 alert('서버와의 접속이 원활하지 않습니다.');
 
-                g_nodeSleep.disable();
+                nodemonPopup.disable();
 
                 bAjax	= false;
 
@@ -133,7 +133,7 @@ function popLayer_2(elementID) {
         });
     }
     else {
-        g_nodeSleep.disable();
+        nodemonPopup.disable();
 
         popLayer(elementID, params);
     }
@@ -141,7 +141,7 @@ function popLayer_2(elementID) {
 
 // 판매금액 적립
 function popLayer_3() {
-    g_nodeSleep.enable($('#trade_reserve'));
+    nodemonPopup.enable($('#trade_reserve'));
 }
 
 /* ▼ 거래가능확인 */
@@ -182,7 +182,7 @@ function TraceCancel(process,tid)
 
     var reReg = "N";
 
-    if(e_sale[e_select.org_sale]==e_sale.general && e_type[e_select.trade_type] == e_type.sell)
+    if(angel_item_s_alias[angel_enable_type.org_sale]==angel_item_s_alias.general && e_type[angel_enable_type.trade_type] == e_type.sell)
     {
         if(confirm('현재 물품이 취소된 후 같은 내용으로 물품을 다시 등록하시겠습니까?\n확인을 누르시면 물품이 재등록됩니다.'))
         {

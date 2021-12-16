@@ -199,6 +199,6 @@ function reregAction(e){
         }
     });
 
-    g_nodeSleep.enable($("#rereg_alarm"));
+    nodemonPopup.enable($("#rereg_alarm"));
     console.log(e.getAttribute('data-seq'));
 }

@@ -175,18 +175,18 @@
             <div class="empty-high"></div>
             <div class="highlight_contextual">판매자 정보확인</div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span> 결제완료가 되면 <b>마이룸>구매관련>구매진행중인 물품</b>에서 판매자의 정보를 확인을 할 수 있습니다.
+                <span class="text-rock font-weight-bold">하나. </span> 결제완료가 되면 <b>마이룸>구매관련>구매진행중인 물품</b>에서 판매자의 정보를 확인을 할 수 있습니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_deciacc_04.gif" width="650" alt="">
             <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>해당 물품의 물품정보에서 <b>거래필수정보를 확인</b>하신 후 판매자의 연락처로 판매자에게 연락을 합니다.<br>
+                <span class="text-rock font-weight-bold">둘. </span>해당 물품의 물품정보에서 <b>거래필수정보를 확인</b>하신 후 판매자의 연락처로 판매자에게 연락을 합니다.<br>
                 판매자와 연락이 되셨다면 판매자로부터 판매자 캐릭터명을 반드시 확인하시기 바랍니다
             </div>
             <img src="/angel/img/guide/screenshot/img_deciacc_05.png" width="820" alt="">
             <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">셋. </span>판매자의 신용도를 확인 및 결제수단을 선택하신 후 [구매신청] 버튼을 클릭합니다.
+                <span class="text-rock font-weight-bold">셋. </span>판매자의 신용도를 확인 및 결제수단을 선택하신 후 [구매신청] 버튼을 클릭합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_deciacc_03.png" width="820" alt="">
             <div class="empty-high"></div>

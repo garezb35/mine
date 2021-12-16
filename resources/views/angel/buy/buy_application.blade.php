@@ -301,7 +301,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                     <td> <span id="spnUserPhone">
                 자택번호 없음                </span> (
                         <label>
-                            <input type="checkbox" class="g_checkbox" name="user_cell_check" id="user_cell_check" value="on" checked> 자택번호안내</label> ) / <span id="spnUserCell">010-4797-3690</span> <a href="javascript:_window.open('private_edit', '/user/contact_edit', 496, 350);" class="btn-light-modern after">연락처 수정</a> </td>
+                            <input type="checkbox" class="angel_game_sel" name="user_cell_check" id="user_cell_check" value="on" checked> 자택번호안내</label> ) / <span id="spnUserCell">010-4797-3690</span> <a href="javascript:_window.open('private_edit', '/user/contact_edit', 496, 350);" class="btn-light-modern after">연락처 수정</a> </td>
                 </tr>
                 <tr class="SafetyNumber">
                     <th>안심번호</th>
@@ -311,7 +311,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                             <div class="mailbox__list green" id="safe_layer" style="right:0;margin-top:-14px;">
                                 <div class="cont"> 고객님의 개인정보 보호를 위해 휴대폰번호에 안심번호를 부여하여 실제 휴대폰번호 대신
                                     <br> 가상의 안심번호를 상대 거래자에게 노출시켜주는 무료 서비스 입니다.
-                                    <ul class="f_red1"> <strong>안심번호 서비스 사용 시 주의사항</strong>
+                                    <ul class="text-rock"> <strong>안심번호 서비스 사용 시 주의사항</strong>
                                         <br> 1) 부여받은 안심번호로도 문자 수신이 가능합니다.(발신시에는 부여받은 안심번호 사용)
                                         <br> 2) 상대거래자가 안심번호 서비스를 사용하지 않는 상태에서 발신한 경우 실제 번호가 표시됩니다.
                                         <br> 3) 부여 받은 안심번호는 거래가 종료되는 시점에 자동 회수되며, 회수된 이후에는 연락이 불가능합니다.
@@ -333,7 +333,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
                                 </div>
                                 <div class="cont"> 고객님의 개인정보 보호를 위해 휴대폰번호에 안심번호를 부여하여 실제 휴대폰번호 대신
                                     <br> 가상의 안심번호를 상대 거래자에게 노출시켜주는 무료 서비스 입니다.
-                                    <ul class="f_red1"> <strong>안심번호 플러스 사용 시 주의사항</strong>
+                                    <ul class="text-rock"> <strong>안심번호 플러스 사용 시 주의사항</strong>
                                         <br> 1) 부여받은 안심번호로 통화 시 수신자에게 10초에 20원의 이용료가 부과됩니다.
                                         <br> 2) 안심번호 플러스로 문자 수신은 불가능합니다.
                                         <br> 3) 부여 받은 안심번호 플러스는 거래가 종료되는 시점에 자동 회수되며, 회수된 이후에는 연락이 불가능합니다.
@@ -387,7 +387,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
     </div>
 
     <div id="dvGoodsInfo" class="modal_dialog green dvGoodsInfo">
-        <div class="modal__title">물품신청정보 <span class="modal__close" onclick="g_nodeSleep.disable();">닫기</span> </div>
+        <div class="modal__title">물품신청정보 <span class="modal__close" onclick="nodemonPopup.disable();">닫기</span> </div>
         <div class="modal--content">
             <table class="g_green_table table-striped">
                 <colgroup>
@@ -421,7 +421,7 @@ if($cuser['role'] < $direct_condition_credit || ($direct_condition_hpp == 1 && $
             </ul>
             <div class="btn-groups_angel">
                 <a  onclick="$('#frmSell').submit();"  class="btn-default btn-suc">확인</a>
-                <a  onclick="g_nodeSleep.disable();" class="btn-default btn-cancel">취소</a>
+                <a  onclick="nodemonPopup.disable();" class="btn-default btn-cancel">취소</a>
             </div>
         </div>
     </div>

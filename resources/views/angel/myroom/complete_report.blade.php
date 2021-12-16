@@ -32,11 +32,12 @@
                         <option value="{{$i}}" @if((Request::get('selectYear') == $i) || (empty(Request::get('selectYear')) && $i == date("Y"))) selected @endif>{{$i}}년</option>
                     @endfor
                 </select>
-                <input type="image" src="http://img3.itemmania.com/images/btn/btn_find1.gif" width="50" height="20" alt="검색" class="v_middle_img"> </div>
+                <button class="v_middle_img" style="width: 50px;height: 20px;line-height: 20px;text-align: center"><i class="fa fa-search" style="font-size: 14px"></i></button>
+            </div>
         </form>
 
         <div class="empty-high"></div>
-        <table class="table-modern-primary tb_list">
+        <table class="table-modern-primary tb_list mt-10">
             <colgroup>
                 <col width="64">
                 <col width="106">

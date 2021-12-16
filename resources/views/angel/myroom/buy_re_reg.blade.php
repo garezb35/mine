@@ -36,15 +36,15 @@ if(!empty($cuser['home'])){
     <script type="text/javascript" src="/angel/myroom/buy/js/buy_re_reg.js"></script>
     <script type="text/javascript">
         var useMileage = '{{$cuser['mileage']}}';
-        e_select.goods = "{{$user_goods}}";
-        e_select.sale = "{{$user_goods_type}}";
+        angel_enable_type.goods = "{{$user_goods}}";
+        angel_enable_type.sale = "{{$user_goods_type}}";
         function __init() {
-            e_select.goods = "{{$user_goods}}";
-            e_select.sale = "{{$user_goods_type}}";
+            angel_enable_type.goods = "{{$user_goods}}";
+            angel_enable_type.sale = "{{$user_goods_type}}";
         }
-        e_use.premium = {{$premium}};
-        e_use.highlight = {{$highlight}} / 12;
-        e_use.quickIcon = {{$quickicon}};
+        angel_premiun_items.premium = {{$premium}};
+        angel_premiun_items.highlight = {{$highlight}} / 12;
+        angel_premiun_items.quickIcon = {{$quickicon}};
     </script>
 
 @endsection
@@ -96,8 +96,8 @@ if(!empty($cuser['home'])){
                     <tr>
                         <th>구매금액</th>
                         <td>
-                            <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text f_right rad13" value="{{number_format($user_price)}}"> 원 (3,000원 이상, 10원 단위 등록 가능)
-                            <div id="coms_area" class="coms_area">수수료 5% : <span class="f_red1" id="commission_price">0</span>원 | 실 수령액 : <span class="f_red1" id="receive_price">0</span>원 </div>
+                            <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text text_right rad13" value="{{number_format($user_price)}}"> 원 (3,000원 이상, 10원 단위 등록 가능)
+                            <div id="coms_area" class="coms_area">수수료 5% : <span class="text-rock" id="commission_price">0</span>원 | 실 수령액 : <span class="text-rock" id="receive_price">0</span>원 </div>
                         </td>
                     </tr>
                     </tbody>
@@ -113,7 +113,7 @@ if(!empty($cuser['home'])){
                         <td>
                             <div>
                                 <label>
-                                    <input type="checkbox" class="g_checkbox" id="direct_reg_trade" name="direct_reg_trade" value="1"> 즉시구매 등록</label>
+                                    <input type="checkbox" class="angel_game_sel" id="direct_reg_trade" name="direct_reg_trade" value="1"> 즉시구매 등록</label>
                             </div>
                             <dl class="direct_info"> <dt>판매신청 조건 설정 :</dt>
                                 <dd>
@@ -142,7 +142,7 @@ if(!empty($cuser['home'])){
                         <td>
                             <div class="item_detail_opts">
                                 <label>
-                                    <input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="g_checkbox"> 물품제목 기본값 : </label> <span id="trade_sign_txt" class="text-blue_modern">{{$title}}</span>
+                                    <input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="angel_game_sel"> 물품제목 기본값 : </label> <span id="trade_sign_txt" class="text-blue_modern">{{$title}}</span>
                                     <a href="javascript:_window.open('fixed_title', '/sell/fixed_trade_subject', 500, 300);" class="btn-light-modern">설정</a> </div>
                             <input type="text" class="angel__text w90 input34 rad10" name="user_title" id="user_title" maxlength="40" value="{{$user_title}}">
                             <br> </td>
@@ -175,10 +175,10 @@ if(!empty($cuser['home'])){
                             <td>
                                 <div id="game_money">
                                     최소
-                                    <input type="text" name="user_quantity_min" id="user_quantity_min" maxlength="7" class="angel__text f_right rad13" value="{{number_format($user_quantity_min)}}">
+                                    <input type="text" name="user_quantity_min" id="user_quantity_min" maxlength="7" class="angel__text text_right rad13" value="{{number_format($user_quantity_min)}}">
                                     <span class="unit"> </span> 개 ~
                                     최대
-                                    <input type="text" name="user_quantity_max" id="user_quantity_max" maxlength="7" class="angel__text f_right rad13" value="{{number_format($user_quantity_max)}}">
+                                    <input type="text" name="user_quantity_max" id="user_quantity_max" maxlength="7" class="angel__text text_right rad13" value="{{number_format($user_quantity_max)}}">
                                     <span class="unit"> </span> 개
                                 </div>
                             </td>
@@ -186,9 +186,9 @@ if(!empty($cuser['home'])){
                         <tr>
                             <th>판매금액</th>
                             <td>
-                                <input type="text" name="user_division_unit" id="user_division_unit" maxlength="7" class="angel__text f_right rad13" value="{{number_format($user_division_unit)}}" size="18">
+                                <input type="text" name="user_division_unit" id="user_division_unit" maxlength="7" class="angel__text text_right rad13" value="{{number_format($user_division_unit)}}" size="18">
                                 <span class="unit"></span> 개 당
-                                <input type="text" name="user_division_price" id="user_division_price" maxlength="10" class="angel__text f_right rad13" value="{{number_format($user_division_price)}}" size="18"> 원에 판매합니다.
+                                <input type="text" name="user_division_price" id="user_division_price" maxlength="10" class="angel__text text_right rad13" value="{{number_format($user_division_price)}}" size="18"> 원에 판매합니다.
                                 <span class="f_small f_black1">(100원 이상, 10원 단위 등록 가능)</span>
                             </td>
                         </tr>
@@ -199,7 +199,7 @@ if(!empty($cuser['home'])){
                                 </div>
                                 <div class="float-left">
                                     <input type="text" class="angel__text mode-active rad13" name="user_character" maxlength="30" value="{{$user_character}}" id="user_character"> 물품을 전달 하실 본인의 캐릭터명
-                                    <span id="sub_text" class="f_red1"></span>
+                                    <span id="sub_text" class="text-rock"></span>
                                 </div>
                                 <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
                             </td>
@@ -209,7 +209,7 @@ if(!empty($cuser['home'])){
                             <th>물품제목</th>
                             <td>
                                 <div class="item_detail_opts">
-                                    <label><input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="g_checkbox"> 물품제목 기본값 :
+                                    <label><input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="angel_game_sel"> 물품제목 기본값 :
                                     </label>
                                     <span id="trade_sign_txt" class="text-blue_modern"></span>
                                     <a href="javascript:_window.open('fixed_title', '/sell/fixed_trade_subject', 500, 300);" class="btn-light-modern">설정</a>
@@ -222,7 +222,7 @@ if(!empty($cuser['home'])){
                             <th>상세설명</th>
                             <td>
                                 <textarea id="user_text" name="user_text" class="txtarea w100 rad13"
-                                          placeholder="* 휴대폰번호, 메신저(카톡) ID 및 거래와 무관한 내용 기재 시 물품은 삭제되며, 서비스 이용에 제재를 받게 됩니다.">{{$user_text}}</textarea>
+                                          float__right>{{$user_text}}</textarea>
                             </td>
                         </tr>
                         </tbody>
@@ -357,10 +357,10 @@ if(!empty($cuser['home'])){
                 </div>
                 <div class="total_charge">
                     <strong class="total_label">총 결제금액 : </strong>
-                    <strong class="total_charge_money f_red1" id="total_charge_money">0원</strong>
+                    <strong class="total_charge_money text-rock" id="total_charge_money">0원</strong>
                     <span class="f-small">
                         (내 사용가능한 마일리지 :
-                        <strong id="txtCurrentMileage" class="f_red1">{{number_format($cuser['mileage'])}}원</strong>)
+                        <strong id="txtCurrentMileage" class="text-rock">{{number_format($cuser['mileage'])}}원</strong>)
                     </span>
                 </div>
 
@@ -394,7 +394,7 @@ if(!empty($cuser['home'])){
                         <td class="text-center">
                 <span id="spnUserPhone">
                 {{$cuser['home']}}                </span>
-                            ( <label><input type="checkbox" class="g_checkbox" name="user_cell_check" id="chk_user_cell_check" value="on" checked> 자택번호안내</label> ) /
+                            ( <label><input type="checkbox" class="angel_game_sel" name="user_cell_check" id="chk_user_cell_check" value="on" checked> 자택번호안내</label> ) /
                             <span id="spnUserCell">{{$cuser['number']}}</span>
                             <a href="javascript:_window.open('private_edit', '/user/contact_edit?check=true', 496, 350);" class="btn-light-modern after">연락처 수정</a>
                         </td>
@@ -412,7 +412,7 @@ if(!empty($cuser['home'])){
                                     </div>
                                     <div class="cont">
                                         고객님의 개인정보 보호를 위해 휴대폰번호에 안심번호를 부여하여 실제 휴대폰번호 대신<br> 가상의 안심번호를 상대 거래자에게 노출시켜주는 무료 서비스 입니다.
-                                        <ul class="f_red1">
+                                        <ul class="text-rock">
                                             <strong>안심번호 서비스 사용 시 주의사항</strong><br> 1) 부여받은 안심번호로도 문자 수신이 가능합니다.(발신시에는 부여받은 안심번호 사용)<br> 2) 상대거래자가 안심번호 서비스를 사용하지 않는 상태에서 발신한 경우 실제 번호가 표시됩니다.<br> 3) 부여 받은 안심번호는 거래가 종료되는 시점에 자동 회수되며, 회수된 이후에는 연락이 불가능합니다.<br> 4) 안심번호 사용 후 48시간을 초과하거나 거래종료 후 문제발생 시 실제 전화번호가 노출됩니다.
                                         </ul>
                                     </div>
@@ -434,7 +434,7 @@ if(!empty($cuser['home'])){
                                     </div>
                                     <div class="cont">
                                         고객님의 개인정보 보호를 위해 휴대폰번호에 안심번호를 부여하여 실제 휴대폰번호 대신<br> 가상의 안심번호를 상대 거래자에게 노출시켜주는 무료 서비스 입니다.
-                                        <ul class="f_red1">
+                                        <ul class="text-rock">
                                             <strong>안심번호 플러스 사용 시 주의사항</strong><br> 1) 부여받은 안심번호로 통화 시 수신자에게 10초에 20원의 이용료가 부과됩니다.<br> 2) 안심번호 플러스로 문자 수신은 불가능합니다.<br> 3) 부여 받은 안심번호 플러스는 거래가 종료되는 시점에 자동 회수되며, 회수된 이후에는 연락이 불가능합니다.<br> 4) 가상 번호 사용 후 24시간을 초과하거나 거래종료 후 문제발생 시 실제 전화번호가 노출됩니다.
                                         </ul>
                                     </div>
@@ -523,7 +523,7 @@ if(!empty($cuser['home'])){
                 <div class="title">프리미엄 등록안내</div>
                 <div class="middle_text">프리미엄 물품 등록을 하시면 물품 리스트 상단에 판매 물품 노출이 가능합니다.
                     <br/>빠른 거래를 원하신다면 프리미엄 등록서비스를 이용하시기 바랍니다. </div>
-                <div class="mile_area">(내 사용가능한 마일리지 : <span id="alias__mileage_span" class="text-orange">{{number_format($cuser['mileage'])}}</span> 원) </div>
+                <div class="mileage_sea">(내 사용가능한 마일리지 : <span id="alias__mileage_span" class="text-orange">{{number_format($cuser['mileage'])}}</span> 원) </div>
                 <div class="mt-40 text-center">
                     <a href="javascript:;_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=premium',440,450)" class="btn_gray">프리미엄 무료이용권 보기</a>
                 </div>

@@ -4,7 +4,7 @@
     <link type="text/css" rel="stylesheet" href="/angel/photoswipe/css/default-skin/default-skin.css">
     <link type="text/css" rel="stylesheet" href="/angel/_css/webpack.css">
     <link type="text/css" rel="stylesheet" href="/angel/global_h/css/_head_popup.css">
-    <link type="text/css" rel="stylesheet" href="/angel/_banner/css/banner_module.css">
+    <link type="text/css" rel="stylesheet" href="/angel/carsouel_plugin/css/carsouel_plugin.css">
 </head>
 <body>
 중복접속 되었습니다.

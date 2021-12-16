@@ -127,11 +127,11 @@
             판매자의 거래취소는 마이룸 &gt; 판매관련 &gt; 판매중인 물품의 [거래취소] 버튼이나, 고객센터 &gt; 1:1 상담하기 &gt; 거래취소 요청을 통해 거래취소를
             할 수 있습니다. (판매자의 거래취소는 신청 즉시 거래가 취소됩니다.)
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span>고객센터 &gt; 1:1상담하기 &gt; [거래취소/종료] 에서&nbsp;‘취소요청’ 선택 후  판매중인 물품에서 취소하실 물품의&nbsp;[접수하기] 를 클릭 합니다.
+                <span class="text-rock font-weight-bold">하나. </span>고객센터 &gt; 1:1상담하기 &gt; [거래취소/종료] 에서&nbsp;‘취소요청’ 선택 후  판매중인 물품에서 취소하실 물품의&nbsp;[접수하기] 를 클릭 합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_cancel2_03.png" width="820" height="" alt="">
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>취소 요청 창에서 취소사유를 선택하신 후 <span class="font-weight-bold">[취소요청] </span>버튼을 클릭하면 거래는 즉시 취소됩니다.
+                <span class="text-rock font-weight-bold">둘. </span>취소 요청 창에서 취소사유를 선택하신 후 <span class="font-weight-bold">[취소요청] </span>버튼을 클릭하면 거래는 즉시 취소됩니다.
             </div>
             <div class="divi_line"></div>
         </div>

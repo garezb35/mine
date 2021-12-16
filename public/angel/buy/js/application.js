@@ -1,6 +1,6 @@
 
 
-var e_sale = {
+var angel_item_s_alias = {
     'general': 0,
     'division': 1,
     'bargain': 2
@@ -181,10 +181,10 @@ function fnFormChecker() {
                     /** [ITM-10872] 캐릭터 거래 신규 서비스 삽니다 추가 by 20200720 KBR */
                     if (document.getElementById('elt_contract') !== null) {
                         document.getElementById('tmp_character_id').innerHTML = document.getElementById('character_id').value;
-                        g_nodeSleep.enable($('#elt_contract'));
+                        nodemonPopup.enable($('#elt_contract'));
                     } else {
                         $('#layer_character').text($('input[name="user_character"]').val());
-                        g_nodeSleep.enable($("#dvGoodsInfo"));
+                        nodemonPopup.enable($("#dvGoodsInfo"));
                     }
                     break;
                 default:

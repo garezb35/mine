@@ -17,7 +17,7 @@ $('#btn_reg').on({
 
         var objInterval = setInterval(function () {
             if (phoneReg.closed) {
-                g_nodeSleep.disable();
+                nodemonPopup.disable();
 
                 clearInterval(objInterval);
             }

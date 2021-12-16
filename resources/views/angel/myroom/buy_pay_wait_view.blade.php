@@ -290,7 +290,7 @@ else
         <div id="dvGoodsInfo" class="modal_dialog green">
             <div class="modal__title">
                 <div class="title">물품신청정보</div>
-                <span class="modal__close" onclick="g_nodeSleep.disable();">닫기</span>
+                <span class="modal__close" onclick="nodemonPopup.disable();">닫기</span>
             </div>
             <div class="modal--content">
                 <table class="table-striped table-green1">
@@ -344,7 +344,7 @@ else
 
                 <div class="btn-groups_angel">
                     <a  onclick="fnSubmit()" class="btn-default btn-suc">확인</a>
-                    <a  onclick="g_nodeSleep.disable();" class="btn-default btn-cancel">취소</a>
+                    <a  onclick="nodemonPopup.disable();" class="btn-default btn-cancel">취소</a>
                 </div>
             </div>
         </div>

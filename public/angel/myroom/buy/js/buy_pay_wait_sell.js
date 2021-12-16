@@ -88,7 +88,7 @@ function Payment() {
     //     return;
     // }
 
-    g_nodeSleep.enable($("#dvGoodsInfo"));
+    nodemonPopup.enable($("#dvGoodsInfo"));
 }
 
 function fnSubmit() {
@@ -98,7 +98,7 @@ function fnSubmit() {
     // if (securityType !== 'PASS') {
     //     var strUrl = '';
     //     if (securityType === 'MYPIN') {
-    //         strUrl = SSL_DOMAIN + "/myroom/myinfo/my_pin_use.html";
+    //         strUrl = site_dns_s + "/myroom/myinfo/my_pin_use.html";
     //     } else {
     //         strUrl = "/certify/payment/user_certify";
     //     }
@@ -871,7 +871,7 @@ $.extend(CPayment, {
 
         $("#dialog_fade").children().remove();
         _xslt.parseXML($("#dialog_fade"), this.xml, this.xsl[this.type]);
-        g_nodeSleep.enable($("#dialog_fade"));
+        nodemonPopup.enable($("#dialog_fade"));
 
         $('select[name=ini_onlycardcode]').val(currentCardCode).trigger('change');
 

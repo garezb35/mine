@@ -28,8 +28,8 @@
     <script type="text/javascript" src="/angel/myroom/buy/js/buy_regist_view.js?v=210512"></script>
     <script type="text/javascript">
         function __init() {
-            e_use.premium=7;
-            e_use.highlight=7;
+            angel_premiun_items.premium=7;
+            angel_premiun_items.highlight=7;
         }
     </script>
 

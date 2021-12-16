@@ -182,15 +182,15 @@
                 <div class="empty-high"></div>
                 <div class="highlight_contextual">구매자 정보확인</div>
                 <div class="guide_subtitle">
-                    <span class="f_red1 font-weight-bold">하나. </span>구매자 1:1 대화함으로 캐릭터 정보를 구매자에게 전달합니다.
+                    <span class="text-rock font-weight-bold">하나. </span>구매자 1:1 대화함으로 캐릭터 정보를 구매자에게 전달합니다.
                 </div>
                 <img src="/angel/img/guide/screenshot/img_char_sell5_01.png" width="820" height="" alt="">
                 <div class="guide_subtitle">
-                    <span class="f_red1 font-weight-bold">둘. </span>구매자에게 거래물품을 건네주신 후 <b>[물품인계확인]</b> 버튼을 클릭합니다.
+                    <span class="text-rock font-weight-bold">둘. </span>구매자에게 거래물품을 건네주신 후 <b>[물품인계확인]</b> 버튼을 클릭합니다.
                 </div>
                 <img src="/angel/img/guide/screenshot/img_char_sell5_02.png" width="820" height="" alt="">
                 <div class="guide_subtitle">
-                    <span class="f_red1 font-weight-bold">셋. </span>현금영수증 정보를 확인 후 [물품인계확인] 버튼을 클릭하세요.<br>현금영수증 발급을 원하지 않으시면 [미발급]을 선택해주시기 바랍니다.
+                    <span class="text-rock font-weight-bold">셋. </span>현금영수증 정보를 확인 후 [물품인계확인] 버튼을 클릭하세요.<br>현금영수증 발급을 원하지 않으시면 [미발급]을 선택해주시기 바랍니다.
                 </div>
                 <img src="/angel/img/guide/screenshot/img_char_sell5_03.png" width="820" height="" alt="">
                 <div class="divi_line"></div>

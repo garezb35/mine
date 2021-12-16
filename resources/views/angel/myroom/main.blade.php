@@ -2,7 +2,7 @@
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css?210503" />
     <link type="text/css" rel="stylesheet" href="/angel/myroom/css/index.css?">
-    <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
+    <script type="text/javascript" src="/angel/carsouel_plugin/js/carsouel_plugin.js?v=210209"></script>
 @endsection
 
 @section('content')

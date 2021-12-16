@@ -514,9 +514,9 @@ var _ENABLE = function() {
 var _DISABLE = function() {
     return false
 };
-var ROOT_DOMAIN = "http://" + location.host;
-var SSL_DOMAIN = "https://" + location.host;
-var getBrowserData = function() {
+var site_dns = "http://" + location.host;
+var site_dns_s = "https://" + location.host;
+var browserAgent = function() {
     var a = window.navigator || navigator;
     var e = {};
     var b = e.uaString = a.userAgent;
@@ -565,7 +565,7 @@ var getBrowserData = function() {
     };
     return e
 };
-var _BROWSER = getBrowserData();
+var _BROWSER = browserAgent();
 var _event = {};
 $.extend(_event, {
     KEY_BACKSPACE: 8,
@@ -2753,9 +2753,9 @@ function g_fnSECURITY2() {
         }
     })
 })();
-var _myService = {
+var mineGames = {
     mySearchXml: null,
-    getFavorite: function(e) {
+    bookmarkedItems: function(e) {
         var d = document.querySelectorAll('[data-content="tab_mygame"]');
         var a = d.length;
         for (var b = 0; b < a; b++) {
@@ -2768,19 +2768,19 @@ var _myService = {
             type: "get",
             data:{api_token:a_token},
             success: function(f) {
-                _myService.mySearchXml = _xml.getElement(f, "mysearch", 0);
+                mineGames.mySearchXml = _xml.getElement(f, "mysearch", 0);
                 if (e) {
-                    e.call(_myService)
+                    e.call(mineGames)
                 } else {
-                    _myService.makeFavoriteList()
+                    mineGames.addBookmark()
                 }
             },
-            error: _myService.OnError
+            error: mineGames.OnError
         })
     },
-    makeFavoriteList: function() {
+    addBookmark: function() {
         if (this.mySearchXml === null) {
-            this.getFavorite(this.makeFavoriteList);
+            this.bookmarkedItems(this.addBookmark);
             return
         }
         var m = [];
@@ -2817,23 +2817,23 @@ var _myService = {
         for (var h = 0; h < k; h++) {
             var e = c[h].querySelector("ul");
             e.innerHTML = m.join("");
-            if (_myService.myGameHandler !== true) {
-                e.addEventListener("click", _myService.myGameClickHandler)
+            if (mineGames.myGameHandler !== true) {
+                e.addEventListener("click", mineGames.enterIndividuslGame)
             }
         }
     },
-    myGameClickHandler: function(j) {
-        _myService.myGameHandler = true;
-        var l = _myService.getGameServerEl(j.target);
-        var c = _xml.getElements(_myService.mySearchXml, "item");
+    enterIndividuslGame: function(j) {
+        mineGames.myGameHandler = true;
+        var l = mineGames.getGameServerEl(j.target);
+        var c = _xml.getElements(mineGames.mySearchXml, "item");
         if (j.target.classList.contains("topsearchbar__close") === true) {
             var k = j.target.parentNode.getAttribute("data-idx");
             var h = c[k].getElementsByTagName("game")[0];
             var g = c[k].getElementsByTagName("server")[0];
             var b = (c[k].getAttribute("type") === "sell") ? "팝니다" : "삽니다";
             if (confirm(b + " > " + h.childNodes[0].nodeValue + " > " + g.childNodes[0].nodeValue + " 게임을 나만의 게임리스트에서 삭제하시겠습니까?") === true) {
-                _myService.deleteFavorite(j.target.parentElement.getAttribute("data-id"), function() {
-                    _myService.getFavorite()
+                mineGames.disableBookmark(j.target.parentElement.getAttribute("data-id"), function() {
+                    mineGames.bookmarkedItems()
                 })
             }
             return
@@ -2864,7 +2864,7 @@ var _myService = {
             }
         }
     },
-    deleteFavorite: function(a, b) {
+    disableBookmark: function(a, b) {
         ajaxRequest({
             url: "/api/myroom/customer/search_delete",
             data: {
@@ -2885,7 +2885,7 @@ var _myService = {
                 }
                 if (c.result === "SUCCESS") {
                     if (b) {
-                        b.call(_myService, c)
+                        b.call(mineGames, c)
                     }
                 }
             }
@@ -2910,23 +2910,23 @@ var _myService = {
                 }
                 if (c.result === "SUCCESS") {
                     if (b) {
-                        b.call(_myService, c)
+                        b.call(mineGames, c)
                     }
                 }
             }
         })
     },
     count: 14,
-    getLastCount: function() {
-        var b = _cookie.get("userSerachListNew") || [];
+    minigamesCount: function() {
+        var b = _cookie.get("filterGamesList") || [];
         var a = 0;
         if (b.length > 0) {
             a = Object.keys(JSON.parse(b)).length
         }
         return a
     },
-    getLastSearch: function() {
-        var a = _cookie.get("userSerachListNew") || [];
+    viewRecentGame: function() {
+        var a = _cookie.get("filterGamesList") || [];
         if (a.length > 0) {
             a = JSON.parse(a);
             a = Object.keys(a).map(function(b) {
@@ -2936,12 +2936,12 @@ var _myService = {
                     a[b].serverName = c[1].trim()
                 }
                 return a[b]
-            }).slice(0, _myService.count)
+            }).slice(0, mineGames.count)
         }
         return a
     },
-    setLastSearch: function() {
-        var j = _cookie.get("userSerachListNew") || [],
+    saveRecentGameFilter: function() {
+        var j = _cookie.get("filterGamesList") || [],
             k, b = document.getElementById("search-overlay-container"),
             h = b.querySelector('[name="search_type"]:checked').value,
             e = b.querySelector('[name="filtered_game_id"]').value,
@@ -2971,27 +2971,27 @@ var _myService = {
             serverCode: "" + c + "",
             serverName: "" + a + ""
         });
-        if (j.length > _myService.count) {
-            j = j.slice(0, _myService.count)
+        if (j.length > mineGames.count) {
+            j = j.slice(0, mineGames.count)
         }
-        _cookie.add("userSerachListNew", JSON.stringify(j), null, "/", ".localhost")
+        _cookie.add("filterGamesList", JSON.stringify(j), null, "/", ".localhost")
     },
-    makeLastSearch: function() {
-        var o = _myService.getLastCount();
+    restoreRecentGame: function() {
+        var o = mineGames.minigamesCount();
         if (o > 0) {
             if (this.mySearchXml === null) {
-                this.getFavorite(_myService.makeLastSearch);
+                this.bookmarkedItems(mineGames.restoreRecentGame);
                 return
             }
         }
-        var b = _myService.getLastSearch();
+        var b = mineGames.viewRecentGame();
         var t = [];
         if (b.length > 0) {
             if (this.mySearchXml === null) {
                 var s = {}
             } else {
                 var s = {};
-                var l = _xml.getElements(_myService.mySearchXml, "item");
+                var l = _xml.getElements(mineGames.mySearchXml, "item");
                 var q = l.length;
                 for (var n = 0; n < q; n++) {
                     var p = $(l[n]);
@@ -3040,20 +3040,20 @@ var _myService = {
         for (var n = 0; n < d; n++) {
             var a = g[n].querySelector("ul");
             a.innerHTML = t.join("");
-            if (_myService.lastSearchHandler !== true) {
-                a.addEventListener("click", _myService.lastSearchClickHandler)
+            if (mineGames.lastSearchHandler !== true) {
+                a.addEventListener("click", mineGames.recentGameEnter)
             }
         }
     },
-    lastSearchClickHandler: function(c) {
-        _myService.lastSearchHandler = true;
+    recentGameEnter: function(c) {
+        mineGames.lastSearchHandler = true;
         if (c.target.classList.contains("topsearchbar__close") === true) {
-            _myService.deleteLastSearch(c.target.parentElement.getAttribute("data-id"));
-            _myService.makeLastSearch();
+            mineGames.removeRecentViewed(c.target.parentElement.getAttribute("data-id"));
+            mineGames.restoreRecentGame();
             return
         }
         if (c.target.classList.contains("icon_star_sell") === true || c.target.classList.contains("icon_star_buy") === true) {
-            var d = _myService.getLastSearch();
+            var d = mineGames.viewRecentGame();
             var g = c.target.parentElement.getAttribute("data-id");
             var j = c.target.getAttribute("data-mygame");
             var f = {
@@ -3068,21 +3068,21 @@ var _myService = {
             var a = (d[g].type === "sell") ? "팝니다" : "삽니다";
             if (j.isEmpty() === true) {
                 if (confirm(a + " > " + f.game_text + " > " + f.server_text + " 게임을 나만의 게임리스트에 추가하시겠습니까?") === true) {
-                    _myService.addFavorite(f, function(e) {
+                    mineGames.addFavorite(f, function(e) {
                         if (e.result === "SUCCESS") {
                             c.target.setAttribute("data-mygame", e.mygameID);
                             c.target.classList.add("on");
-                            _myService.getFavorite()
+                            mineGames.bookmarkedItems()
                         }
                     })
                 }
             } else {
                 if (confirm(a + " > " + f.game_text + " > " + f.server_text + " 게임을 나만의 게임리스트에서 삭제하시겠습니까?") === true) {
-                    _myService.deleteFavorite(j, function(e) {
+                    mineGames.disableBookmark(j, function(e) {
                         if (e.result === "SUCCESS") {
                             c.target.setAttribute("data-mygame", "");
                             c.target.classList.remove("on");
-                            _myService.getFavorite()
+                            mineGames.bookmarkedItems()
                         }
                     })
                 }
@@ -3093,9 +3093,9 @@ var _myService = {
             b = b.parentElement
         }
         if (b !== null && b.className === "gs_name") {
-            var k = _myService.getGameServerEl(b);
+            var k = mineGames.getGameServerEl(b);
             if (k !== null) {
-                var d = _myService.getLastSearch();
+                var d = mineGames.viewRecentGame();
                 var h = b.parentElement.getAttribute("data-id");
                 if (k.formElement.querySelector('[value="' + d[h].type + '"]') !== null) {
                     k.formElement.querySelector('[value="' + d[h].type + '"]').checked = true
@@ -3107,19 +3107,19 @@ var _myService = {
             }
         }
     },
-    deleteLastSearch: function(b) {
+    removeRecentViewed: function(b) {
         if (b.isEmpty()) {
             return
         }
-        var a = _cookie.get("userSerachListNew") || [];
+        var a = _cookie.get("filterGamesList") || [];
         if (a.length > 0) {
             var a = JSON.parse(a);
             a.splice(b, 1);
-            _cookie.add("userSerachListNew", JSON.stringify(a), null, "/", ".localhost")
+            _cookie.add("filterGamesList", JSON.stringify(a), null, "/", ".localhost")
         }
     },
     deleteListAll: function(a) {
-        _cookie.remove("userSerachListNew", "/", ".localhost");
+        _cookie.remove("filterGamesList", "/", ".localhost");
         a.remove()
     },
     getGameServerEl: function(b) {
@@ -3132,13 +3132,13 @@ var _myService = {
     }
 };
 var rootObj = {};
-var g_nodeSleep;
+var nodemonPopup;
 
 function loadGlobalItems() {
     rootObj = $("#angel");
-    g_nodeSleep = $("#global_root")[0];
-    if (g_nodeSleep) {
-        $.extend(g_nodeSleep, {
+    nodemonPopup = $("#global_root")[0];
+    if (nodemonPopup) {
+        $.extend(nodemonPopup, {
             enable: function(h) {
                 var m = $("#thirdys");
                 m.show();
@@ -3196,7 +3196,7 @@ function loadGlobalItems() {
                 }
             },
             repositionLayer: function() {
-                var f = g_nodeSleep.node;
+                var f = nodemonPopup.node;
                 var e = $("#thirdys");
                 if (document.body.clientHeight > f.css("height").replace("px", "")) {
                     f.css({
@@ -3228,7 +3228,7 @@ function loadGlobalItems() {
                 h = h.parentElement
             }
             if (h !== null && h.getAttribute("data-pgame") !== null) {
-                var j = _myService.getGameServerEl(h);
+                var j = mineGames.getGameServerEl(h);
                 if (j !== null) {
                     var f = h.getAttribute("data-pgame");
                     j.changeAction = true;

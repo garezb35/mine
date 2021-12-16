@@ -162,19 +162,19 @@
                 <div class="empty-high"></div>
                 <div class="highlight_contextual">판매한 물품등록</div>
                 <div class="guide_subtitle">
-                    <span class="f_red1 font-weight-bold">하나. </span>상단 검색바에서 게임/서버명을 선택합니다.
+                    <span class="text-rock font-weight-bold">하나. </span>상단 검색바에서 게임/서버명을 선택합니다.
                 </div>
                 <img src="/angel/img/guide/screenshot/img_char_buy1_01.png" width="820" height="" alt="">
                 <div class="guide_subtitle">
-                    <span class="f_red1 font-weight-bold">둘. </span>검색된 물품 목록에서 물품제목과 금액 등을 확인하신 후 구매 의사가 있는 물품을 클릭합니다.
+                    <span class="text-rock font-weight-bold">둘. </span>검색된 물품 목록에서 물품제목과 금액 등을 확인하신 후 구매 의사가 있는 물품을 클릭합니다.
                 </div>
                 <img src="/angel/img/guide/screenshot/img_char_buy1_02.png" width="820" height="" alt="">
                 <div class="guide_subtitle">
-                    <span class="f_red1 font-weight-bold">셋. </span>물품정보와 판매자의 신용도, 상세내용을 다시 한 번 꼼꼼히 확인하신 후 <b>[구매신청]</b>버튼을 클릭합니다.
+                    <span class="text-rock font-weight-bold">셋. </span>물품정보와 판매자의 신용도, 상세내용을 다시 한 번 꼼꼼히 확인하신 후 <b>[구매신청]</b>버튼을 클릭합니다.
                 </div>
                 <img src="/angel/img/guide/screenshot/img_char_buy1_03.png" width="820" height="" alt="">
                 <div class="guide_subtitle">
-                    <span class="f_red1 font-weight-bold">넷. </span>구매정보확인 페이지에서 개인정보 확인 및 결제정보(결제방식)를 선택하여 <b>[구매신청]</b>버튼을 클릭합니다.
+                    <span class="text-rock font-weight-bold">넷. </span>구매정보확인 페이지에서 개인정보 확인 및 결제정보(결제방식)를 선택하여 <b>[구매신청]</b>버튼을 클릭합니다.
                 </div>
                 <img src="/angel/img/guide/screenshot/img_char_buy1_04.png" width="820" height="" alt="">
                 {{--                <div class="guide_subtxt">* 등록한 물품은 마이룸 &gt; 판매관련 &gt; 판매등록물품에서 확인가능합니다.</div>--}}

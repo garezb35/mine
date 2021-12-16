@@ -1,11 +1,11 @@
 // 판매유형
-var e_sale = {
+var angel_item_s_alias = {
     'general': '일반판매',
     'division': '분할판매',
     'bargain': '흥정판매'
 };
 
-var e_goods_text = {
+var angel_item_alias = {
     'money': '게임머니',
     'item': '아이템',
     'character': '캐릭터',
@@ -13,15 +13,15 @@ var e_goods_text = {
 };
 
 // 현재선택된 타입
-var e_select = {
+var angel_enable_type = {
     sale: 'general',
     goods: 'money'
 };
 
 // 현재선택된 단위
-var g_unit = '';
+var angel_item_unit = '';
 
-var e_use = {
+var angel_premiun_items = {
     premium: 0,
     highlight: 0,
     quickIcon:0,
@@ -29,7 +29,7 @@ var e_use = {
 };
 
 // 프리미엄 레이어 활성화
-var bPremiumLayer = false;
+var premiumService = false;
 
 function _init() {
     var bargain = $('#bargain');
@@ -98,7 +98,7 @@ function _init() {
 
     if (document.getElementById('discount_use') !== null) {
         if (document.getElementById('discount_use').checked === true) {
-            fnRevenDiscount();
+            ComplexDiscount();
         }
     }
 
@@ -128,7 +128,7 @@ function _init() {
     });
 
     SafetyNumber();
-    changeTemplateAddCheck();
+    alterConstructorAddCheck();
     fnPower();
 
     new FileStyleVer2(document.querySelectorAll('[name="user_screen[]"]'));
@@ -179,9 +179,9 @@ function getFreeUse() {
             api_token: a_token
         },
         success: function(res) {
-            e_use.premium = res.premium;
-            e_use.highlight = res.highlight;
-            e_use.quickIcon = res.quickicon;
+            angel_premiun_items.premium = res.premium;
+            angel_premiun_items.highlight = res.highlight;
+            angel_premiun_items.quickIcon = res.quickicon;
             $('#user_premium_time').val('');
             $('#user_icon_use').val('');
             $('#user_bluepen_use').val('');
@@ -245,7 +245,7 @@ function getCreditBenefit() {
     });
 }
 
-function changeTemplateAddCheck() {
+function alterConstructorAddCheck() {
     var frm = document.forms.frmSell;
     if (frm.checker) {
         frm.checker.free();
@@ -361,13 +361,13 @@ function changeTemplateAddCheck() {
         frm.user_quantity_min.onkeyup = function() {
             if (frm.discount_use.checked == true) {
                 frm.discount_use.checked = false;
-                fnRevenDiscount();
+                ComplexDiscount();
             }
         };
         frm.user_division_unit.onkeyup = function() {
             if (frm.discount_use.checked == true) {
                 frm.discount_use.checked = false;
-                fnRevenDiscount();
+                ComplexDiscount();
             }
         };
 
@@ -498,9 +498,9 @@ function changeTemplateAddCheck() {
         document.getElementById('iteminfo_use').addEventListener('click', function() {
             if (this.checked === false) {
                 var itemInfoResult = document.getElementById('item_info_result');
-                if (itemInfoResult.classList.contains('f_red1') === false) {
+                if (itemInfoResult.classList.contains('text-rock') === false) {
                     itemInfoResult.innerHTML = '아이템 정보를 선택하시면 판매에 도움이 됩니다.';
-                    itemInfoResult.classList.add('f_red1');
+                    itemInfoResult.classList.add('text-rock');
                 }
                 iteminfoDept1.options[0].selected = true;
                 $(iteminfoDept1).trigger('change');
@@ -665,7 +665,7 @@ function checkPrice() {
     }
 
     var nCheckPrice = 0;
-    if (e_sale[e_select.sale] == e_sale.division) {
+    if (angel_item_s_alias[angel_enable_type.sale] == angel_item_s_alias.division) {
         nCheckPrice = 100;
     } else {
         nCheckPrice = 3000;
@@ -796,8 +796,8 @@ function chargeServiceCalc() {
 
     if (userPremiumTime > 0) {
         userPremiumUseHidden.value = '1';
-        if (userPremiumTime > Number(e_use.premium)) {
-            plusMile += (userPremiumTime - Number(e_use.premium)) * 100;
+        if (userPremiumTime > Number(angel_premiun_items.premium)) {
+            plusMile += (userPremiumTime - Number(angel_premiun_items.premium)) * 100;
         }
     } else {
         userPremiumUseHidden.value = '';
@@ -805,15 +805,15 @@ function chargeServiceCalc() {
 
     if (userQuickIcon > 0) {
         userQuickIconUseHidden.value = '1';
-        if (userQuickIcon > Number(e_use.quickIcon)) {
-            plusMile += (userQuickIcon - Number(e_use.quickIcon)) * 100;
+        if (userQuickIcon > Number(angel_premiun_items.quickIcon)) {
+            plusMile += (userQuickIcon - Number(angel_premiun_items.quickIcon)) * 100;
         }
     } else {
         userQuickIconUseHidden.value = '';
     }
 
-    if (highlightTotalTime > Number(e_use.highlight)) {
-        plusMile += (highlightTotalTime - Number(e_use.highlight)) * 100;
+    if (highlightTotalTime > Number(angel_premiun_items.highlight)) {
+        plusMile += (highlightTotalTime - Number(angel_premiun_items.highlight)) * 100;
     }
 
     plusMile += (reregCount * 100);
@@ -857,8 +857,8 @@ function chargeServiceApply(strClass) {
 }
 
 function chargePremiumService() {
-    bPremiumLayer = true;
-    if (bPremiumLayer == false) {
+    premiumService = true;
+    if (premiumService == false) {
         KeepAlivesRaw.open({
             layer: document.getElementById('premium_layer'),
             close_btn: document.getElementById('premium_layer').querySelector('.close'),
@@ -870,7 +870,7 @@ function chargePremiumService() {
             KeepAlivesRaw.close({layer: document.getElementById('premium_layer')});
         });
 
-        bPremiumLayer = true;
+        premiumService = true;
     }
 }
 
@@ -924,7 +924,7 @@ function fnPower() {
 /* ▲ 파워등록권 서비스 */
 
 /* ▼ 복수구매할인 */
-function fnRevenDiscount() {
+function ComplexDiscount() {
     var bCharge = $("input[name='discount_use']")[0].checked;
     if (bCharge) {
         $("#reven_discount").find("input").prop("disabled", false);
@@ -1058,7 +1058,7 @@ function fnSltItemAdd() {
     }
 
     itemInfo.value = rgIdept.join(',');
-    itemInfoResult.classList.remove('f_red1');
+    itemInfoResult.classList.remove('text-rock');
     itemInfoResult.innerHTML = rgIdeptTxt.join(',');
 }
 
@@ -1079,7 +1079,7 @@ function fnSltItemRm(idept) {
     itemInfo.value = rgIdept.join(',');
     itemInfoResult.innerHTML = rgIdeptTxt.join(',');
     if (i < 2) {
-        itemInfoResult.classList.add('f_red1');
+        itemInfoResult.classList.add('text-rock');
         itemInfoResult.innerHTML = '아이템 정보를 선택하시면 판매에 도움이 됩니다.';
     }
 }
@@ -1285,11 +1285,11 @@ var itemDetailSetting = {
         if (use === false) {
             $('#item_detail_srh').addClass('d-none');
             $('#item_guide_txt, .item_detail_opts').removeClass('d-none');
-            $('#user_title, #user_text').prop('readonly', false).val(e_goods_text[e_select.goods] + ' 팝니다.');
+            $('#user_title, #user_text').prop('readonly', false).val(angel_item_alias[angel_enable_type.goods] + ' 팝니다.');
         } else {
             $('#item_detail_srh').removeClass('d-none');
             $('#item_guide_txt, .item_detail_opts').addClass('d-none');
-            $('#user_title, #user_text').prop('readonly', 'readonly').val(e_goods_text[e_select.goods] + ' 팝니다.');
+            $('#user_title, #user_text').prop('readonly', 'readonly').val(angel_item_alias[angel_enable_type.goods] + ' 팝니다.');
         }
     },
     itemSelectCheck: function() {

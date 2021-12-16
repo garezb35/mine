@@ -31,7 +31,7 @@
     <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css" />
     <link type="text/css" rel="stylesheet" href="/angel/sell/css/index.css">
     <script type="text/javascript" src="/angel/advertise/advertise_code_head.js"></script>
-    <script type="text/javascript" src="/angel/_banner/js/banner_module.js"></script>
+    <script type="text/javascript" src="/angel/carsouel_plugin/js/carsouel_plugin.js"></script>
 @endsection
 
 @section('foot_attach')
@@ -39,14 +39,14 @@
     <script type="text/javascript">
         var useMileage = '{{$cuser['mileage']}}';
         function __init() {
-            e_select.goods = "{{$user_goods}}";
-            e_select.sale = "{{$user_goods_type}}";
+            angel_enable_type.goods = "{{$user_goods}}";
+            angel_enable_type.sale = "{{$user_goods_type}}";
         }
-        e_select.goods = "{{$user_goods}}";
-        e_select.sale = "{{$user_goods_type}}";
-        e_use.premium = {{$premium}};
-        e_use.highlight = {{$highlight}} / 12;
-        e_use.quickIcon = {{$quickicon}};
+        angel_enable_type.goods = "{{$user_goods}}";
+        angel_enable_type.sale = "{{$user_goods_type}}";
+        angel_premiun_items.premium = {{$premium}};
+        angel_premiun_items.highlight = {{$highlight}} / 12;
+        angel_premiun_items.quickIcon = {{$quickicon}};
     </script>
 
 @endsection
@@ -102,7 +102,7 @@
                             <tr>
                                 <th>판매금액</th>
                                 <td>
-                                    <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text f_right rad13" value="{{number_format($user_price)}}"> 원 (3,000원 이상, 10원 단위 등록 가능)
+                                    <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text text_right rad13" value="{{number_format($user_price)}}"> 원 (3,000원 이상, 10원 단위 등록 가능)
 
                                 </td>
                             </tr>
@@ -113,7 +113,7 @@
                                     </div>
                                     <div class="float-left">
                                         <input type="text" class="angel__text mode-active rad13" name="user_character" maxlength="30" value="{{$user_character}}" id="user_character"> 물품을 전달 하실 본인의 캐릭터명
-                                        <span id="sub_text" class="f_red1"></span>
+                                        <span id="sub_text" class="text-rock"></span>
                                     </div>
                                     <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
                                 </td>
@@ -124,7 +124,7 @@
                             <th>물품제목</th>
                             <td>
                                 <div class="item_detail_opts">
-                                    <label><input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="g_checkbox"> 물품제목 기본값 :
+                                    <label><input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="angel_game_sel"> 물품제목 기본값 :
                                     </label>
                                     <span id="trade_sign_txt" class="text-blue_modern">{{$title}}</span>
                                     <a href="javascript:_window.open('fixed_title', '/sell/fixed_trade_subject', 500, 300);" class="btn-light-modern">설정</a>
@@ -136,7 +136,7 @@
                         <tr>
                             <th>상세설명</th>
                             <td>
-                                <textarea id="user_text" name="user_text" class="txtarea w100" placeholder="* 휴대폰번호, 메신저(카톡) ID 및 거래와 무관한 내용 기재 시 물품은 삭제되며, 서비스 이용에 제재를 받게 됩니다.">{{$user_text}}</textarea>
+                                <textarea id="user_text" name="user_text" class="txtarea w100" float__right>{{$user_text}}</textarea>
                             </td>
                         </tr>
                         </tbody>
@@ -175,10 +175,10 @@
                                 @endif
                                 <div id="game_money">
                                     최소
-                                    <input type="text" name="user_quantity_min" id="user_quantity_min" maxlength="7" class="angel__text f_right rad13" value="{{number_format($user_quantity_min)}}">
+                                    <input type="text" name="user_quantity_min" id="user_quantity_min" maxlength="7" class="angel__text text_right rad13" value="{{number_format($user_quantity_min)}}">
                                     <span class="unit"> </span> 개 ~
                                     최대
-                                    <input type="text" name="user_quantity_max" id="user_quantity_max" maxlength="7" class="angel__text f_right rad13" value="{{number_format($user_quantity_max)}}">
+                                    <input type="text" name="user_quantity_max" id="user_quantity_max" maxlength="7" class="angel__text text_right rad13" value="{{number_format($user_quantity_max)}}">
                                     <span class="unit"> </span> 개
                                 </div>
                             </td>
@@ -186,26 +186,16 @@
                         <tr>
                             <th>판매금액</th>
                             <td>
-                                <input type="text" name="user_division_unit" id="user_division_unit" maxlength="7" class="angel__text f_right rad13" value="{{number_format($user_division_unit)}}" size="18">
+                                <input type="text" name="user_division_unit" id="user_division_unit" maxlength="7" class="angel__text text_right rad13" value="{{number_format($user_division_unit)}}" size="18">
                                 <span class="unit"></span> 개 당
-                                <input type="text" name="user_division_price" id="user_division_price" maxlength="10" class="angel__text f_right rad13" value="{{number_format($user_division_price)}}" size="18"> 원에 판매합니다.
+                                <input type="text" name="user_division_price" id="user_division_price" maxlength="10" class="angel__text text_right rad13" value="{{number_format($user_division_price)}}" size="18"> 원에 판매합니다.
                                 <span class="f_small f_black1">(100원 이상, 10원 단위 등록 가능)</span>
                                 <div class="discount">
-                                    <label><input type="checkbox" class="g_checkbox" name="discount_use" id="discount_use" value="1" onclick="fnRevenDiscount();" @if(!empty($discount_use)) checked @endif>복수구매 할인적용</label>
+                                    <label><input type="checkbox" class="angel_game_sel" name="discount_use" id="discount_use" value="1" onclick="ComplexDiscount();" @if(!empty($discount_use)) checked @endif>복수구매 할인적용</label>
                                     <div id="reven_discount">
                                         <input type="text" class="angel__text rad13" name="discount_quantity" id="discount_quantity" maxlength="10" readonly="" onfocus="$(this).blur();" value="{{number_format($discount_quantity)}}"><span id="SpnDiscount"></span>x
                                         <input type="text" class="angel__text discount_quantity_cnt rad13" name="discount_quantity_cnt" id="discount_quantity_cnt" maxlength="10" value="{{number_format($discount_quantity_cnt)}}">번 구매시
                                         <input type="text" class="angel__text discount_price rad13" name="discount_price" id="discount_price" maxlength="10" value="{{number_format($discount_price)}}">원 할인
-                                    </div>
-                                </div>
-                                <div class="mailbox__list blue" id="discount_layer">
-                                    <div class="title">복수 구매할인이란?</div>
-                                    <div class="cont">구매자가 분할물품에 구매신청을 할 때, 판매자가 정해놓은 일정 구매수량 조건을
-                                        <br>충족할 경우 구매자에게 거래금액을 할인해주는 거래 방식입니다.
-                                        <br>복수구매할인 적용 시 물품리스트 제목에 할인마크가 부여되며 묶음당 할인금액은
-                                        <br>판매자의 거래금액에서 차감됩니다.
-                                        <br>복수구매 할인에 대한 자세한 사항은 홈페이지 &gt; 이용안내를 참고해 주시기 바랍니다.</div>
-                                    <div class="btn"> <a href="/guide/div_trade/index.html?file=02" class="btn_blue4">복수구매할인 이용안내 &gt;</a>
                                     </div>
                                 </div>
                             </td>
@@ -217,7 +207,7 @@
                                 </div>
                                 <div class="float-left">
                                     <input type="text" class="angel__text mode-active rad13" name="user_character" maxlength="30" value="{{$user_character}}" id="user_character"> 물품을 전달 하실 본인의 캐릭터명
-                                    <span id="sub_text" class="f_red1"></span>
+                                    <span id="sub_text" class="text-rock"></span>
                                 </div>
                                 <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
                             </td>
@@ -228,7 +218,7 @@
                             <th>물품제목</th>
                             <td>
                                 <div class="item_detail_opts">
-                                    <label><input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="g_checkbox"> 물품제목 기본값 :
+                                    <label><input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="angel_game_sel"> 물품제목 기본값 :
                                     </label>
                                     <span id="trade_sign_txt" class="text-blue_modern">{{$title}}</span>
                                     <a href="javascript:_window.open('fixed_title', '/sell/fixed_trade_subject', 500, 300);" class="btn-light-modern">설정</a>
@@ -240,7 +230,7 @@
                         <tr>
                             <th>상세설명</th>
                             <td>
-                                <textarea id="user_text" name="user_text" class="txtarea w100" placeholder="* 휴대폰번호, 메신저(카톡) ID 및 거래와 무관한 내용 기재 시 물품은 삭제되며, 서비스 이용에 제재를 받게 됩니다.">{{$user_text}}</textarea>
+                                <textarea id="user_text" name="user_text" class="txtarea w100" float__right>{{$user_text}}</textarea>
                             </td>
                         </tr>
                         </tbody>
@@ -269,11 +259,11 @@
                                 즉시판매금액
                                 <span class="f_blue3 f_small">(구매자의 흥정 신청 시 해당금액보다 높은 가격으로는 흥정신청이 되지 않습니다.)</span><br>
                                 <div class="bargain_area">
-                                    <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text f_right" value="4,000"> 원 (3,000원 이상, 10원 단위 등록 가능)
+                                    <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text text_right" value="4,000"> 원 (3,000원 이상, 10원 단위 등록 가능)
                                 </div>
-                                <label><input type="checkbox" name="user_deny_use" value="1" id="user_deny_use" class="g_checkbox" checked="">최저 흥정가격 설정</label>
+                                <label><input type="checkbox" name="user_deny_use" value="1" id="user_deny_use" class="angel_game_sel" checked="">최저 흥정가격 설정</label>
                                 <div id="min_user_bargain" class="min_user_bargain">
-                                    <input type="text" keyevent="price" name="user_price_limit" maxlength="10" class="angel__text f_right" value="3,500"> 원 미만으로는 흥정신청을 받지 않습니다.
+                                    <input type="text" keyevent="price" name="user_price_limit" maxlength="10" class="angel__text text_right" value="3,500"> 원 미만으로는 흥정신청을 받지 않습니다.
                                 </div>
                             </td>
                         </tr>
@@ -284,7 +274,7 @@
                                 </div>
                                 <div class="float-left">
                                     <input type="text" class="angel__text mode-active" name="user_character" maxlength="30" value="yy" id="user_character"> 물품을 전달 하실 본인의 캐릭터명
-                                    <span id="sub_text" class="f_red1"></span>
+                                    <span id="sub_text" class="text-rock"></span>
                                 </div>
                                 <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
                             </td>
@@ -295,7 +285,7 @@
                             <th>물품제목</th>
                             <td>
                                 <div class="item_detail_opts">
-                                    <label><input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="g_checkbox"> 물품제목 기본값 :
+                                    <label><input type="checkbox" name="fixed_trade_subject" id="fixed_trade_subject" class="angel_game_sel"> 물품제목 기본값 :
                                     </label>
                                     <span id="trade_sign_txt" class="text-blue_modern">{{$title}}</span>
                                     <a href="javascript:_window.open('fixed_title', '/sell/fixed_trade_subject', 500, 300);" class="btn-light-modern">설정</a>
@@ -307,7 +297,7 @@
                         <tr>
                             <th>상세설명</th>
                             <td>
-                                <textarea id="user_text" name="user_text" class="txtarea w100" placeholder="* 휴대폰번호, 메신저(카톡) ID 및 거래와 무관한 내용 기재 시 물품은 삭제되며, 서비스 이용에 제재를 받게 됩니다.">{{$user_text}}</textarea>
+                                <textarea id="user_text" name="user_text" class="txtarea w100">{{$user_text}}</textarea>
                             </td>
                         </tr>
                         </tbody>
@@ -440,10 +430,10 @@
                 </div>
                 <div class="total_charge">
                     <strong class="total_label">총 결제금액 : </strong>
-                    <strong class="total_charge_money f_red1" id="total_charge_money">0원</strong>
+                    <strong class="total_charge_money text-rock" id="total_charge_money">0원</strong>
                     <span class="f-small">
                         (내 사용가능한 마일리지 :
-                        <strong id="txtCurrentMileage" class="f_red1">{{number_format($cuser['mileage'])}}원</strong>)
+                        <strong id="txtCurrentMileage" class="text-rock">{{number_format($cuser['mileage'])}}원</strong>)
                     </span>
                 </div>
                 <div id="angel_registration" class="angel_registration d-none"></div>
@@ -476,7 +466,7 @@
                         <td class="text-center">
                 <span id="spnUserPhone">
                 {{$cuser['home']}}                </span>
-                            ( <label><input type="checkbox" class="g_checkbox" name="user_cell_check" id="chk_user_cell_check" value="on" checked> 자택번호안내</label> ) /
+                            ( <label><input type="checkbox" class="angel_game_sel" name="user_cell_check" id="chk_user_cell_check" value="on" checked> 자택번호안내</label> ) /
                             <span id="spnUserCell">{{$cuser['number']}}</span>
                             <a href="javascript:_window.open('private_edit', '/user/contact_edit?check=true', 496, 350);" class="btn-light-modern after">연락처 수정</a>
                         </td>
@@ -494,7 +484,7 @@
                                     </div>
                                     <div class="cont">
                                         고객님의 개인정보 보호를 위해 휴대폰번호에 안심번호를 부여하여 실제 휴대폰번호 대신<br> 가상의 안심번호를 상대 거래자에게 노출시켜주는 무료 서비스 입니다.
-                                        <ul class="f_red1">
+                                        <ul class="text-rock">
                                             <strong>안심번호 서비스 사용 시 주의사항</strong><br> 1) 부여받은 안심번호로도 문자 수신이 가능합니다.(발신시에는 부여받은 안심번호 사용)<br> 2) 상대거래자가 안심번호 서비스를 사용하지 않는 상태에서 발신한 경우 실제 번호가 표시됩니다.<br> 3) 부여 받은 안심번호는 거래가 종료되는 시점에 자동 회수되며, 회수된 이후에는 연락이 불가능합니다.<br> 4) 안심번호 사용 후 48시간을 초과하거나 거래종료 후 문제발생 시 실제 전화번호가 노출됩니다.
                                         </ul>
                                     </div>
@@ -516,7 +506,7 @@
                                     </div>
                                     <div class="cont">
                                         고객님의 개인정보 보호를 위해 휴대폰번호에 안심번호를 부여하여 실제 휴대폰번호 대신<br> 가상의 안심번호를 상대 거래자에게 노출시켜주는 무료 서비스 입니다.
-                                        <ul class="f_red1">
+                                        <ul class="text-rock">
                                             <strong>안심번호 플러스 사용 시 주의사항</strong><br> 1) 부여받은 안심번호로 통화 시 수신자에게 10초에 20원의 이용료가 부과됩니다.<br> 2) 안심번호 플러스로 문자 수신은 불가능합니다.<br> 3) 부여 받은 안심번호 플러스는 거래가 종료되는 시점에 자동 회수되며, 회수된 이후에는 연락이 불가능합니다.<br> 4) 가상 번호 사용 후 24시간을 초과하거나 거래종료 후 문제발생 시 실제 전화번호가 노출됩니다.
                                         </ul>
                                     </div>
@@ -606,7 +596,7 @@
                 <div class="title">프리미엄 등록안내</div>
                 <div class="middle_text">프리미엄 물품 등록을 하시면 물품 리스트 상단에 판매 물품 노출이 가능합니다.<br>빠른 거래를 원하신다면 프리미엄 등록서비스를 이용하시기 바랍니다.
                 </div>
-                <div class="mile_area">(내 사용가능한 마일리지 :
+                <div class="mileage_sea">(내 사용가능한 마일리지 :
                     <span id="alias__mileage_span" class="text-orange">{{number_format($cuser['mileage'])}}</span> 원)
                 </div>
                 <div class="mt-40 text-center">

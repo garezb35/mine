@@ -244,9 +244,6 @@
             <div class="trade_progress">
                 <div class="highlight_contextual_nodemon">
                     거래 진행 상황
-                    <div class="float__right">
-                        <img id="msg_box" src="http://img3.itemmania.com/images/btn/btn_1vs1_talk.gif" width="71" height="20" alt="1:1 대화함" class="g_button" onclick="_window.open('talk','/myroom/include/live.html?info=YQgPJ51PTFZv0crookaS|s4y4Vlxlu5t|gOnPKwN3APvgSA66Le0dDIuMlfbJV3lt44n8pv8txg|hi2Ja8wWvmRYn6YsvuMShaFqgKHL26jwPPTcCWfg1PLd/ksyGcZ2PmlWhK2QO9LX3Z1HH50FDOLy3Y/8GjaEToYYduZv54v6IkpA7Thc6qgNBP5Ar/ZIaSzNlNBXUw|8nbpR7yZkZcc0rf3MTZHpHWz3tftrQoMOsQvN00UW8tlp5oxK1eRdJjykuTJH6wXvzDNUp6W|JIUSr0sD2/owvdjjobmVgCbSzBhIh7lY0m2VKU|7RlhlA2efjoR1ZM5bWZcugLpfxJug3BumyNqvgevJv5HFmezOZvK7Iy3KjkM4vyMdAVuKCXDm/clvTDx3fHrzpW5l46mOowcY3bezFd|g34T35Ln1CKb0ULBsRmtcOiThsqeabYee9lDGOW6hH2zQrrrcq/2xCVNan|Cl2FgLvF76nFS6diqS74NPLfRxNnaZbQHsK6Ut3|X0/gEUweBg031GZmexmv/qTzIdVTxexYUSIkIuzBjRsxJhpVd/dnvQk0IDz0bdWJ68gCGcPhA/OalN5taX4DW5FTvNFfo4LVoqjP3Fi2jT|7EFotFdGk9tKORabgUVg4ik8AchwB4HTwk6UFBDapBQvzOHkIgJW3pv6J/niq3AJMt7Z4vFCWXQZkgESudTT2/bBobd/E3uP0KX01WusmLX7AmvCmXxesy|HglWV/DsBrB1D/Y0nEXsjKu4JTCJuF7S5g0LMYBZl5E6ppL|zQGyn40rkxIpqSb9M7khx2iUswrIRn2UwwEd3FeRdCxI3pHZDEUsP8H1yQ/MoA==',625,550);" style="display: none;">
-                    </div>
                 </div>
                 <div class="trade_progress_content">
                     <div class="guide_wrap">
@@ -278,18 +275,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-            <!--
-               <div style="">
-                   <img src="/images/banner/etc/20150108_790_139_bitcoin.jpg" width="760" height="139" alt="비트코인 상품권 입점기념 EVENT" title="비트코인 상품권 입점기념 EVENT" usemap="#20150108_790_139_bitcoin">
-                   <map name="20150108_790_139_bitcoin">
-                       <area shape="rect" coords="521,82,697,118" href="http://giftcard.itemmania.com/portal/giftcard/bitcoin/" alt="상품권 발급받으러 가기" title="상품권 발급받으러 가기" />
-                   </map>
-               </div>
-               <div class="empty-high"></div>
-               -->
             <div class="empty-high"></div>
 
             <dl id="transfer_info" class="notice_box">
@@ -321,7 +306,7 @@
         <div class="modal_dialog" id="dvTradeSellCheck">
             <div class="modal__title">
                 물품 인계 확인
-                <img class="modal__close" src="http://img2.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();">
+                <a href="javascript:nodemonPopup.disable();" class="modal__close">닫기</a>
             </div>
             <form name="moneyreceipt" id="moneyreceipt">
                 @csrf
@@ -358,7 +343,7 @@
                         <tr>
                             <th>발급구분</th>
                             <td>
-                                <input type="radio" name="moneyreceipt_type" value="u" class="g_checkbox" checked="" onclick="inputChange(1);"> 소득공제용 (일반개인용)
+                                <input type="radio" name="moneyreceipt_type" value="u" class="angel_game_sel" checked="" onclick="inputChange(1);"> 소득공제용 (일반개인용)
                             </td>
                         </tr>
                         <tr>
@@ -407,7 +392,7 @@
                     <div class="empty-high"></div>
                     <div class="btn-groups_angel">
                         <a  class="first btn-default btn-suc" onclick="TradeComplete('Y29tcGxldGU=','{{$orderNo}}','check','N');">물품인계 확인</a>
-                        <a  class="btn-default btn-cancel"  onclick="g_nodeSleep.disable();">취소</a>
+                        <a  class="btn-default btn-cancel"  onclick="nodemonPopup.disable();">취소</a>
                     </div>
                 </div>
             </form>
@@ -421,8 +406,8 @@
                 <input type="hidden" name="trade_type" value="c2VsbA==">
                 <input type="hidden" name="trade_rereg">
                 <div class="modal__title">
-                    <img src="http://img3.itemmania.com/images/myroom/title/titles_deal_cancel.gif" width="72" height="19" alt="거래 취소">
-                    <img class="modal__close" src="http://img4.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();">
+                    거래 취소
+                    <span class="modal__close" onclick="nodemonPopup.disable();">닫기</span>
                 </div>
                 <div class="modal--content">
                     <div class="gray_box">판매자의 거래 취소는 즉시 취소가 됩니다.</div>
@@ -465,7 +450,7 @@
                     </ul>
                     <div class="btn-groups_angel">
                         <a  href="javascript:void(0)" alt="거래취소" class="btn-default btn-suc" onclick="TraceCancel('order_cancel','{{$orderNo}}');">거래취소</a>
-                        <a  href="javascript:void(0)" class="btn-default btn-cancel" onclick="g_nodeSleep.disable();">닫기</a>
+                        <a  href="javascript:void(0)" class="btn-default btn-cancel" onclick="nodemonPopup.disable();">닫기</a>
                     </div>
                 </div>
             </form>
@@ -473,8 +458,8 @@
 
         <div id="trade_reserve" class="modal_dialog">
             <div class="modal__title">
-                <img src="http://img3.itemmania.com/images/myroom/title/pop_title_selling.gif" width="108" height="20" alt="판매금액 적립">
-                <img class="modal__close" src="http://img4.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable();">
+                판매금액 적립
+                <span class="modal__close" onclick="nodemonPopup.disable();">닫기</span>
             </div>
             <div class="modal--content">
                 <div>거래 종료 후 판매 금액의 적립 방법을 선택해 주시기 바랍니다.</div>
@@ -484,23 +469,13 @@
                         <col width="420">
                     </colgroup>
                     <tbody>
-                    <tr>
-                        <th>
-                            <input type="radio" name="sell_reserve" id="sell_reserve1" value="milage" class="g_radio" checked="checked">
-                            <label for="sell_reserve1">마일리지로 적립하기</label>
-                        </th>
-                        <td>회원님의 아이디에 마일리지가 즉시 적립됩니다.</td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <input type="radio" name="sell_reserve" id="sell_reserve2" value="phone" class="g_radio">
-                            <label for="sell_reserve2">휴대폰 번호로 즉시 출금하기</label>
-                        </th>
-                        <td>
-                            등록된 휴대폰 번호 <span class="g_red1_b">010-2614-3654</span> 으로 즉시 출금 됩니다.<br>
-                            <img src="http://img3.itemmania.com/images/btn/btn_phone2.gif" width="149" height="22" alt="등록된 휴대폰번호 변경하기" class="g_button" onclick="fnPaymentPhone('2021102508444942', 'sell');">
-                        </td>
-                    </tr>
+                        <tr>
+                            <th>
+                                <input type="radio" name="sell_reserve" id="sell_reserve1" value="milage" class="g_radio" checked="checked">
+                                <label for="sell_reserve1">마일리지로 적립하기</label>
+                            </th>
+                            <td>회원님의 아이디에 마일리지가 즉시 적립됩니다.</td>
+                        </tr>
                     </tbody>
                 </table>
                 <div class="g_notice_box1" style="margin-top:10px">
@@ -512,8 +487,8 @@
                     3. 휴대폰번호 출금한도 월 2,000만원 초과 시
                 </div>
                 <div class="btn-groups_angel">
-                    <img src="http://img3.itemmania.com/images/btn/btn_popup_enter.gif" width="63" height="34" alt="확인" class="first" id="btn_reserve" onclick="popLayer_2('dvTradeSellCheck');">
-                    <img src="http://img2.itemmania.com/images/btn/btn_popup_cancel.gif" width="63" height="34" alt="취소" onclick="g_nodeSleep.disable();">
+                    <a href="javascript:popLayer_2('dvTradeSellCheck');" id="btn_reserve" class="btn-default-medium btn-suc-rect">확인</a>
+                    <a href="javascript:nodemonPopup.disable();"  class="btn-default-medium btn-cancel-rect">취소</a>
                 </div>
             </div>
         </div>

@@ -808,15 +808,17 @@
 #gameChart .gameChart_server_list_area .gamechart_arrow_left {
     top: 9px;
     left: 63px;
-    background-image: url(//img1.itemmania.com/new_images/common/sp_icon_20210312.png);
-    background-position: -168px -10px;
+    background-image: url(/angel/img/icons/Arrow-Left-icon.png);
+    background-repeat: no-repeat;
+    background-size: 19px;
 }
 
 #gameChart .gameChart_server_list_area .gamechart_arrow_right {
     top: 9px;
     left: 81px;
-    background-image: url(//img1.itemmania.com/new_images/common/sp_icon_20210312.png);
-    background-position: -186px -10px;
+    background-image: url(/angel/img/icons/Arrow-Right-icon.png);
+    background-repeat: no-repeat;
+    background-size: 19px;
 }
 
 #gameChart .gameChart_server_list_area .gamechart_arrow_disabled {

@@ -1,5 +1,5 @@
 
-var e_sale = {
+var angel_item_s_alias = {
     'general': 0,
     'division': 1,
     'bargain': 2
@@ -161,7 +161,7 @@ function _init() {
                     } else {
                         $('#fraud_result').find('.result').addClass('none');
                     }
-                    g_nodeSleep.enable($('#fraud_result'));
+                    nodemonPopup.enable($('#fraud_result'));
                 } else {
                     alert(res.msg);
                 }

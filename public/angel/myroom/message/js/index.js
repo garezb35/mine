@@ -66,7 +66,7 @@ function _init() {
         }
     });
 
-    $.extend(g_nodeSleep, {
+    $.extend(nodemonPopup, {
         OnOpen : function() {
             if (!$('#split_btn_layer').hasClass('d-none')) {
                 $('#split_btn_layer').addClass('d-none');
@@ -216,7 +216,7 @@ $.extend({
                     newImg		= $(rmTd_3).find('img');
 
                 selCross.remove();
-                rgInfo[0].className = 'g_checkbox';
+                rgInfo[0].className = 'angel_game_sel';
 
                 if (newImg.length > 0) { // new 이미지 있을 때만 삭제 처리
                     newImg.remove();
@@ -226,7 +226,7 @@ $.extend({
             rgInfo[0].value = $(xml).find('message').attr('id');
             rgInfo[2].value = 2;
         }
-        g_nodeSleep.enable($('#message_view'));
+        nodemonPopup.enable($('#message_view'));
     },
     fnDelete : function () {
         if (!g_node) { return; }
@@ -279,12 +279,12 @@ $.extend(splitButton, {
 
         // btnAll.toggle(
         // 	function() {
-        // 		$('td.first>input[class=g_checkbox]').each(function() {
+        // 		$('td.first>input[class=angel_game_sel]').each(function() {
         // 			this.checked = true;
         // 		});
         // 	},
         // 	function() {
-        // 		$('td.first>input[class=g_checkbox]').each(function() {
+        // 		$('td.first>input[class=angel_game_sel]').each(function() {
         // 			this.checked = false;
         // 		});
         // 	}
@@ -312,12 +312,12 @@ $.extend(splitButton, {
         });
     },
     onSelAll : function() {
-        $('td:first-child > input[class=g_checkbox]').each(function() {
+        $('td:first-child > input[class=angel_game_sel]').each(function() {
             this.checked = true;
         });
     },
     onSelCancel : function() {
-        $('td:first-child > input[class=g_checkbox]').each(function() {
+        $('td:first-child > input[class=angel_game_sel]').each(function() {
             this.checked = false;
         });
     },
@@ -326,7 +326,7 @@ $.extend(splitButton, {
 
         $('td:first-child').each(function() {
             if ($(this).find('input[value=1]').length > 0) {
-                $(this).find('input[class=g_checkbox]').each(function() {
+                $(this).find('input[class=angel_game_sel]').each(function() {
                     this.checked = true;
                 });
             }
@@ -337,7 +337,7 @@ $.extend(splitButton, {
 
         $('td:first-child').each(function() {
             if ($(this).find('input[value=2]').length > 0) {
-                $(this).find('input[class=g_checkbox]').each(function() {
+                $(this).find('input[class=angel_game_sel]').each(function() {
                     this.checked = true;
                 });
             }

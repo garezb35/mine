@@ -1,18 +1,17 @@
-// 판매유형
-var e_sale = {
+
+var angel_item_s_alias = {
     'general': '일반판매',
     'division': '분할판매',
     'bargain': '흥정판매'
 };
 
-// 판매유형 타입값
-var e_sale_type = {
+var angel_item_s_type = {
     'general': 0,
     'division': 1,
     'bargain': 2
 };
 
-var e_goods_text = {
+var angel_item_alias = {
     '': '게임머니',
     'money': '게임머니',
     'item': '아이템',
@@ -20,30 +19,29 @@ var e_goods_text = {
     'etc': '기타'
 };
 
-// 현재선택된 타입
-var e_select = {
+
+var angel_enable_type = {
     sale: 'general',
     goods: ''
 };
 
-// 현재선택된 단위
-var g_unit = '';
 
-var e_use = {
+var angel_item_unit = '';
+
+var angel_premiun_items = {
     premium: 0,
     highlight: 0,
     quickIcon:0,
     rereg: 0
 };
 
-// 프리미엄 레이어 활성화
-var bPremiumLayer = false;
+var premiumService = false;
 if (history.state !== null && history.state !== undefined && history.state.back == true) {
     document.querySelector('[name="user_goods_type"]').checked = true;
 }
 
 var lastListEl = '';
-var regGameServer;
+var existedAngelGameServer;
 
 var tagList;
 
@@ -51,10 +49,10 @@ function _init() {
 
     var bargain = $('#bargain');
 
-    var regGameServerEl = document.getElementById('reg_gameserver');
-    regGameServer = new GameServerList(document.getElementById('reg_gameserver_list'), {
-        containerWrapper: regGameServerEl,
-        toggleContainer: regGameServerEl.getElementsByClassName('_34Cr45d_reacts')[0],
+    var existedAngelGames = document.getElementById('reg_gameserver');
+    existedAngelGameServer = new AngelGames(document.getElementById('reg_gameserver_list'), {
+        containerWrapper: existedAngelGames,
+        toggleContainer: existedAngelGames.getElementsByClassName('_34Cr45d_reacts')[0],
         formElement: '#frmSell',
         game: {
             autoComplete: '#searchRegGameServer',
@@ -63,7 +61,7 @@ function _init() {
                 text: '[name="game_code_text"]'
             },
             onCustomChange: function() {
-                e_select.goods = '';
+                angel_enable_type.goods = '';
 
                 $('.favorite').removeClass('on');
 
@@ -92,10 +90,10 @@ function _init() {
             },
             onCustomChange: function(el, e) {
                 $('.favorite_icon').removeClass('on');
-                if (_myService.mySearchXml === null) {
-                    _myService.getFavorite(mySearchListCheck);
+                if (mineGames.mySearchXml === null) {
+                    mineGames.bookmarkedItems(mineGaming);
                 } else {
-                    mySearchListCheck();
+                    mineGaming();
                 }
 
                 if (this.getValue().code === 'money') {
@@ -113,24 +111,22 @@ function _init() {
                         $('#division').removeClass('d-none');
                     }
                 }
-                if (e_select.goods !== this.getValue().code) {
-                    e_select.goods = this.getValue().code;
+                if (angel_enable_type.goods !== this.getValue().code) {
+                    angel_enable_type.goods = this.getValue().code;
                     if (lastListEl == '') {
                         document.querySelectorAll('[name="user_goods_type"]')[0].checked = true;
                     }
                 }
 
-                changeTemplate();
+                alterConstructor();
 
-                /* ▼ 200% 보상 */
                 if (g_compensation == 'Y') {
-                    if (e_select.goods == 'money' || e_select.goods == 'item') {
+                    if (angel_enable_type.goods == 'money' || angel_enable_type.goods == 'item') {
                         $('#compensation').show();
                     } else {
                         $('#compensation').hide();
                     }
                 }
-                /* ▲ 200% 보상 */
 
                 if (e !== undefined) {
                     var m = this;
@@ -142,18 +138,8 @@ function _init() {
         }
     });
 
-    // gameServer.onCustomCloseBefore = function() {
-    // 	if (this.gameList.selected && !this.serverList.selected) {
-    // 		alert('서버를 선택해주세요.');
-    // 		return false;
-    // 	}
-    // 	return true;
-    // };
 
-    $('[name="user_goods_type"]').on('click', changeTemplate);
-    // document.querySelectorAll('[name="user_goods_type"]').addEventListener('click', changeTemplate);
-
-    // 물품기본값적용
+    $('[name="user_goods_type"]').on('click', alterConstructor);
     document.getElementById('fixed_trade_subject').addEventListener('click', function() {
         var strFixTag = document.getElementById('trade_sign_txt').innerHTML;
         if (strFixTag.isEmpty() === true) {
@@ -170,8 +156,6 @@ function _init() {
             document.getElementById('user_title').value = document.getElementById('user_title').value.replace(strFixTag, '');
         }
     });
-
-    /* ▼ 상세설명 문구선택 */
     $("[name='text_select']").on('click', function() {
         var userTextObj = document.getElementById('user_text');
 
@@ -182,7 +166,6 @@ function _init() {
             setDefaultText();
         }
     });
-    /* ▲ 상세설명 문구선택 */
 
     document.getElementById('sr-template').addEventListener('click', function(e) {
         if (e.target.name === 'gamemoney_unit') {
@@ -223,7 +206,6 @@ function _init() {
     document.getElementById('user_quickicon_use').addEventListener('change', function() {
         chargePremiumService();
         chargeServiceCalc();
-        //chargeServiceApply.call(this, 'text-blue_modern');
     });
 
     document.getElementById('pop_user_premium_time').addEventListener('change', function() {
@@ -285,13 +267,13 @@ function _init() {
         });
     }
 
-    changeTemplateAddCheck();
+    alterConstructorAddCheck();
 
     new FileStyleVer2(document.querySelectorAll('[name="user_screen[]"]'));
 }
 
 function getFreeUse() {
-    var gameCode = regGameServer.gameList.getValue().code;
+    var gameCode = existedAngelGameServer.gameList.getValue().code;
     ajaxRequest({
         url: '/api/_include/_get_free_use',
         dataType: 'xml',
@@ -301,9 +283,9 @@ function getFreeUse() {
             api_token:a_token
         },
         success: function(res) {
-            e_use.premium = res.premium;
-            e_use.quickIcon = res.quickicon;
-            e_use.highlight = res.highlight;
+            angel_premiun_items.premium = res.premium;
+            angel_premiun_items.quickIcon = res.quickicon;
+            angel_premiun_items.highlight = res.highlight;
             $('#user_premium_time').val('');
             $('#user_icon_use').val('');
             $('#user_bluepen_use').val('');
@@ -313,81 +295,22 @@ function getFreeUse() {
     });
 }
 
-/**
- * 신용등급 혜택받기
- */
-function getCreditBenefit() {
-
-    ajaxRequest({
-        url: '/myroom/myinfo/credit_rating_ok.php',
-        type: 'post',
-        data: 'type=1',
-        success: function(data) {
-            var returnData = data.split(";");
-            switch (returnData[0]) {
-                case "Empty" :
-                    alert("잘못된 접근입니다.");
-                    break;
-                case "CreditNo" :
-                    alert("신용등급을 업데이트하지 못했습니다. 관리자에게 문의해 주세요.");
-                    break;
-                case "CreditNo2" :
-                    alert("신용등급을 가져오지 못했습니다. 관리자에게 문의해 주세요.");
-                    break;
-                case "Dberror" :
-                    alert("서비스가 원할하지 않습니다. 잠시 후 이용해주세요");
-                    break;
-                case "Overlap" :
-                    if (returnData[1] == 1) {
-                        alert("이미 무료이용권을 발급 받으셨습니다.");
-                    } else {
-                        alert("이미 옥션입찰권을 발급 받으셨습니다");
-                    }
-                    break
-                case "Rowerror" :
-                    alert("프리미엄 이용권을 지급하지 못했습니다. 다시 시도해주세요.");
-                    break;
-                case "Rowerror2" :
-                    alert("물품강조 이용권을 지급하지 못했습니다. 다시 시도해주세요.");
-                    break;
-                case "Rowerror3" :
-                    alert("옥션입찰권을 지급하지 못했습니다. 다시 시도해주세요.");
-                    break;
-                case "Rowerror4" :
-                    alert("출금 무료이용권을 지급하지 못했습니다. 다시 시도해주세요.");
-                    break;
-                case "Success" :
-                    alert('무료이용권이 발급되었습니다.\n[무료이용권보기]를 확인해주세요.');
-                    getFreeUse();
-                    break;
-            }
-        },
-        error: function() {
-            alert("시스템 점검중입니다. 잠시 후 이용해 주세요.");
-        }
-    });
-}
-
-
-/**
- * 템플릿 변경
- */
-function changeTemplate() {
-    if (regGameServer.serverList.selected) {
-        g_unit = regGameServer.serverList.selectedData.U;
+function alterConstructor() {
+    if (existedAngelGameServer.serverList.selected) {
+        angel_item_unit = existedAngelGameServer.serverList.selectedData.U;
     }
 
     var userGoods = document.querySelector('[name="user_goods"]').value;
     var userGoodsType = document.querySelector('[name="user_goods_type"]:checked').value;
-    var gameCode = regGameServer.gameList.getValue().code;
-    var serverCode = regGameServer.serverList.getValue().code;
+    var gameCode = existedAngelGameServer.gameList.getValue().code;
+    var serverCode = existedAngelGameServer.serverList.getValue().code;
     var integrationServer = '';
     var last_alias  = $(".goods").find(".filter__selected").text();
     if (document.getElementById('integration_server') !== null) {
         integrationServer = document.getElementById('integration_server').value;
     }
-    e_select.goods = userGoods || 'money';
-    e_select.sale = userGoodsType;
+    angel_enable_type.goods = userGoods || 'money';
+    angel_enable_type.sale = userGoodsType;
 
 
     setDefaultText();
@@ -400,7 +323,7 @@ function changeTemplate() {
         data: {
             user_goods: userGoods,
             user_goods_type: userGoodsType,
-            money: g_unit,
+            money: angel_item_unit,
             game_code: gameCode,
             server_code: serverCode,
             integration_server: integrationServer,
@@ -408,38 +331,9 @@ function changeTemplate() {
             last_alias: last_alias
         },
         success: function(res) {
-            /* 물품등록 알리미 */
-            // ajaxRequest({
-            // 	url: '/myroom/goods_alarm/_ajax_process.php',
-            // 	type: 'post',
-            // 	dataType: 'json',
-            // 	data: {
-            // 		'mode':'game_check',
-            // 		'game_code':gameCode
-            // 	},
-            // 	success: function(res) {
-            //
-            // 		var data = {
-            // 			type:userGoods,
-            // 			gameCode:gameCode,
-            // 			serverCode:serverCode
-            // 		};
-            //
-            // 		if(res.DAT == 'Y' && userGoods =='character')
-            // 		{
-            // 			$('#alarm_line').show();
-            // 			getTagList(data);
-            // 		}
-            // 		else
-            // 		{
-            // 			$('#alarm_line').hide();
-            // 		}
-            // 	}
-            // });
-
             history.pushState({back: true}, '', location.href);
             $('#sr-template').html(res);
-            changeTemplateAddCheck();
+            alterConstructorAddCheck();
             if (typeof (reRegSet) === 'function') {
                 reRegSet();
             }
@@ -451,9 +345,9 @@ function changeTemplate() {
 
 function setDefaultText() {
 
-    var strGoods = e_goods_text[e_select.goods];
-    if (e_select.goods === 'money' && g_unit.isEmpty() === false) {
-        strGoods = g_unit;
+    var strGoods = angel_item_alias[angel_enable_type.goods];
+    if (angel_enable_type.goods === 'money' && angel_item_unit.isEmpty() === false) {
+        strGoods = angel_item_unit;
     }
     $("#good_type").val(strGoods);
     var defaultText = strGoods + ' 팝니다.';
@@ -473,7 +367,7 @@ function setDefaultText() {
     }
 }
 
-function changeTemplateAddCheck() {
+function alterConstructorAddCheck() {
     try {
         var frm = document.forms.frmSell;
         if (frm.checker) {
@@ -482,7 +376,7 @@ function changeTemplateAddCheck() {
         var formCheck = new FormChecker('frmSell');
         var userGoods = document.querySelector('[name="user_goods"]');
         var userGoodsType = document.querySelector('[name="user_goods_type"]:checked');
-        var gameCode = regGameServer.gameList.getValue().code;
+        var gameCode = existedAngelGameServer.gameList.getValue().code;
 
         formCheck.add({name: 'game_code', msg: '게임을 선택해주세요.', focus: '#searchRegGameServer'});
         formCheck.add({name: 'server_code', msg: '서버를 선택해주세요.', focus: '#searchRegGameServer'});
@@ -598,13 +492,13 @@ function changeTemplateAddCheck() {
             frm.user_quantity_min.onkeyup = function() {
                 if (frm.discount_use.checked == true) {
                     frm.discount_use.checked = false;
-                    fnRevenDiscount();
+                    ComplexDiscount();
                 }
             };
             frm.user_division_unit.onkeyup = function() {
                 if (frm.discount_use.checked == true) {
                     frm.discount_use.checked = false;
-                    fnRevenDiscount();
+                    ComplexDiscount();
                 }
             };
 
@@ -737,9 +631,9 @@ function changeTemplateAddCheck() {
             document.getElementById('iteminfo_use').addEventListener('click', function() {
                 if (this.checked === false) {
                     var itemInfoResult = document.getElementById('item_info_result');
-                    if (itemInfoResult.classList.contains('f_red1') === false) {
+                    if (itemInfoResult.classList.contains('text-rock') === false) {
                         itemInfoResult.innerHTML = '아이템 정보를 선택하시면 판매에 도움이 됩니다.';
-                        itemInfoResult.classList.add('f_red1');
+                        itemInfoResult.classList.add('text-rock');
                     }
                     iteminfoDept1.options[0].selected = true;
                     $(iteminfoDept1).trigger('change');
@@ -822,7 +716,6 @@ function changeTemplateAddCheck() {
                 document.getElementById('sub_text').innerHTML = '';
             }
 
-            /* ▼ 던전앤파이터 통합서버 처리 */
             var dfServer = document.getElementById('dfServer');
             var dfServerCode = document.getElementById('dfServerCode');
             var userCharacter = document.getElementById('user_character');
@@ -864,7 +757,6 @@ function changeTemplateAddCheck() {
                 dfServer.classList.add('d-none');
                 userCharacter.setAttribute('maxlength', 30);
             }
-            /* ▲ 던전앤파이터 통합서버 처리 */
         }
 
         formCheck.add({name: 'user_title', msg: '물품제목을 입력해주세요.'});
@@ -921,7 +813,6 @@ function changeTemplateAddCheck() {
                         alert('서비스가 원할하지 않습니다. 잠시후 이용해 주세요.');
                     }
                 });
-                /* ▲ 연락처 중복체크 */
 
                 return false;
             }
@@ -967,8 +858,8 @@ function createLayerContent(b) {
         user_title: frm.user_title.value,
         security_service_userinfo: frm.security_service_userinfo.value,
         security_type: frm.security_type.value,
-        unit: g_unit,
-        e_sale: e_sale_type[e_select.sale]
+        unit: angel_item_unit,
+        angel_item_s_alias: angel_item_s_type[angel_enable_type.sale]
     };
 
     if (rgData.user_goods_type === 'division') {
@@ -1020,7 +911,6 @@ function createLayerContent(b) {
             $('#dialog_fade').find('.cont').html(res);
             KeepAlivesRaw.open({layer: dialog_fade});
 
-            /** [ITM-10872] 캐릭터 거래 신규 서비스 삽니다 추가 by 20200720 KBR */
             if (rgData.user_goods === 'character' && frm.account_type.value !== '1') {
                 document.getElementById('dialog_fade').classList.add('reg_info_character');
                 document.getElementById('dialog_fade').getElementsByClassName('title')[0].innerHTML = '전자계약서';
@@ -1072,7 +962,6 @@ function createLayerContent(b) {
     });
 }
 
-/* ▼ 나만의 검색메뉴 선택 */
 function fnSearchSelect(game, gname, server, sname, goods, self) {
     var strGoods;
 
@@ -1092,24 +981,22 @@ function fnSearchSelect(game, gname, server, sname, goods, self) {
             break;
     }
 
-    if (regGameServer.gameList.getValue().code == game && regGameServer.serverList.getValue().code == server && regGameServer.goodsList.getValue().code == strGoods) {
+    if (existedAngelGameServer.gameList.getValue().code == game && existedAngelGameServer.serverList.getValue().code == server && existedAngelGameServer.goodsList.getValue().code == strGoods) {
         if (self) {
-            changeTemplate();
+            alterConstructor();
         }
         return;
     }
 
-    regGameServer.gameList.gameCode = game;
-    regGameServer.serverList.serverCode = server;
-    regGameServer.goodsList.goodsCode = strGoods;
+    existedAngelGameServer.gameList.gameCode = game;
+    existedAngelGameServer.serverList.serverCode = server;
+    existedAngelGameServer.goodsList.goodsCode = strGoods;
 
-    regGameServer.changeAction = true;
-    regGameServer.gameList.createList();
+    existedAngelGameServer.changeAction = true;
+    existedAngelGameServer.gameList.createList();
 }
-/* ▲ 나만의 검색메뉴 선택 */
 
-/* ▼ 나만의 검색메뉴 추가 */
-function fnSearchAdd() {
+function bookmarkAdd() {
     var game_code = $('#game_code').val();
     var game_code_text = $('#game_code_text').val();
     var server_code = $('#server_code').val();
@@ -1163,7 +1050,7 @@ function fnSearchAdd() {
             goods: goods_code,
             goods_text: goods_text
         };
-        _myService.addFavorite(rgData, function(res) {
+        mineGames.addFavorite(rgData, function(res) {
 
             var mygame_id = res.mygameID;
             if (document.getElementById('mygame_info').children[0].classList.contains('empty') === true) {
@@ -1177,7 +1064,7 @@ function fnSearchAdd() {
 
             alert("해당 카테고리가 나만의검색메뉴에 추가되었습니다.");
             $('.favorite_icon').addClass('on');
-            _myService.getFavorite();
+            mineGames.bookmarkedItems();
         });
     }
 }
@@ -1187,12 +1074,12 @@ function fnSearchAdd() {
 function fnSearchDel(id) {
     var delMessage = confirm("해당 카테고리를 삭제하시겠습니까?");
     if (delMessage == true) {
-        _myService.deleteFavorite(id, function() {
+        mineGames.disableBookmark(id, function() {
             var mygame_id = "mygame_" + id;
             $('#' + mygame_id).remove();
             alert("해당 카테고리가 삭제되었습니다.");
             $('.favorite_icon').removeClass('on');
-            _myService.getFavorite();
+            mineGames.bookmarkedItems();
 
             if (document.getElementById('mygame_info').children[0] === undefined) {
                 document.getElementById('mygame_info').innerHTML = '<li class="empty">게임서버 검색 후 우측 ★표를 클릭하시면 해당물품이 나만의검색메뉴로 등록됩니다.</li>';
@@ -1203,23 +1090,23 @@ function fnSearchDel(id) {
 /* ▲ 나만의 검색메뉴 삭제 */
 
 /* ▼ 나만의 검색메뉴 체크 */
-function mySearchListCheck() {
+function mineGaming() {
 
     $('.favorite_icon').removeClass('on');
 
-    if(_myService.mySearchXml === null) {
+    if(mineGames.mySearchXml === null) {
         return;
     }
 
-    var rgItem = _xml.getElements(_myService.mySearchXml, 'item');
+    var rgItem = _xml.getElements(mineGames.mySearchXml, 'item');
     var itemCount = rgItem.length;
     if (itemCount < 1) {
         return;
     }
 
-    var gameCode = regGameServer.gameList.getValue().code;
-    var serverCode = regGameServer.serverList.getValue().code;
-    var goodsCode = regGameServer.goodsList.getValue().code;
+    var gameCode = existedAngelGameServer.gameList.getValue().code;
+    var serverCode = existedAngelGameServer.serverList.getValue().code;
+    var goodsCode = existedAngelGameServer.goodsList.getValue().code;
 
     for (var i = 0; i < itemCount; i++) {
         var item = $(rgItem[i]);
@@ -1254,7 +1141,7 @@ function checkPrice() {
     }
 
     var nCheckPrice = 0;
-    if (e_sale[e_select.sale] == e_sale.division) {
+    if (angel_item_s_alias[angel_enable_type.sale] == angel_item_s_alias.division) {
         nCheckPrice = 100;
     } else {
         nCheckPrice = 3000;
@@ -1389,8 +1276,8 @@ function chargeServiceCalc() {
 
     if (userPremiumTime > 0) {
         userPremiumUseHidden.value = '1';
-        if (userPremiumTime > Number(e_use.premium)) {
-            plusMile += (userPremiumTime - Number(e_use.premium)) * 100;
+        if (userPremiumTime > Number(angel_premiun_items.premium)) {
+            plusMile += (userPremiumTime - Number(angel_premiun_items.premium)) * 100;
         }
     } else {
         userPremiumUseHidden.value = '';
@@ -1398,15 +1285,15 @@ function chargeServiceCalc() {
 
     if (userQuickIcon > 0) {
         userQuickIconUseHidden.value = '1';
-        if (userQuickIcon > Number(e_use.quickIcon)) {
-            plusMile += (userQuickIcon - Number(e_use.quickIcon)) * 100;
+        if (userQuickIcon > Number(angel_premiun_items.quickIcon)) {
+            plusMile += (userQuickIcon - Number(angel_premiun_items.quickIcon)) * 100;
         }
     } else {
         userQuickIconUseHidden.value = '';
     }
 
-    if (highlightTotalTime > Number(e_use.highlight)) {
-        plusMile += (highlightTotalTime - Number(e_use.highlight)) * 100;
+    if (highlightTotalTime > Number(angel_premiun_items.highlight)) {
+        plusMile += (highlightTotalTime - Number(angel_premiun_items.highlight)) * 100;
     }
 
     plusMile += (reregCount * 100);
@@ -1450,7 +1337,7 @@ function chargeServiceApply(strClass) {
 }
 
 function chargePremiumService() {
-    if (bPremiumLayer == false) {
+    if (premiumService == false) {
         // KeepAlivesRaw.open({
         //     layer: document.getElementById('premium_layer'),
         //     close_btn: document.getElementById('premium_layer').querySelector('.close'),
@@ -1462,7 +1349,7 @@ function chargePremiumService() {
             KeepAlivesRaw.close({layer: document.getElementById('premium_layer')});
         });
 
-        bPremiumLayer = true;
+        premiumService = true;
     }
 }
 
@@ -1513,7 +1400,7 @@ function fnPower() {
 /* ▲ 파워등록권 서비스 */
 
 /* ▼ 복수구매할인 */
-function fnRevenDiscount() {
+function ComplexDiscount() {
     var bCharge = $("input[name='discount_use']")[0].checked;
     if (bCharge) {
         $("#reven_discount").find("input").prop("disabled", false);
@@ -1785,7 +1672,7 @@ function fnSltItemAdd() {
     }
 
     itemInfo.value = rgIdept.join(',');
-    itemInfoResult.classList.remove('f_red1');
+    itemInfoResult.classList.remove('text-rock');
     itemInfoResult.innerHTML = rgIdeptTxt.join(',');
 }
 
@@ -1806,7 +1693,7 @@ function fnSltItemRm(idept) {
     itemInfo.value = rgIdept.join(',');
     itemInfoResult.innerHTML = rgIdeptTxt.join(',');
     if (i < 2) {
-        itemInfoResult.classList.add('f_red1');
+        itemInfoResult.classList.add('text-rock');
         itemInfoResult.innerHTML = '아이템 정보를 선택하시면 판매에 도움이 됩니다.';
     }
 }
@@ -2015,11 +1902,11 @@ var itemDetailSetting = {
         if (use === false) {
             $('#item_detail_srh').addClass('d-none');
             $('#item_guide_txt, .item_detail_opts').removeClass('d-none');
-            $('#user_title, #user_text').prop('readonly', false).val(e_goods_text[e_select.goods] + ' 팝니다.');
+            $('#user_title, #user_text').prop('readonly', false).val(angel_item_alias[angel_enable_type.goods] + ' 팝니다.');
         } else {
             $('#item_detail_srh').removeClass('d-none');
             $('#item_guide_txt, .item_detail_opts').addClass('d-none');
-            $('#user_title, #user_text').prop('readonly', 'readonly').val(e_goods_text[e_select.goods] + ' 팝니다.');
+            $('#user_title, #user_text').prop('readonly', 'readonly').val(angel_item_alias[angel_enable_type.goods] + ' 팝니다.');
         }
     },
     itemSelectCheck: function() {

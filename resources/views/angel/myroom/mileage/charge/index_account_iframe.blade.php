@@ -10,8 +10,8 @@
         <script type="text/javascript" src="/angel/_js/jquery.js?190220"></script>
         <script type="text/javascript" src="/angel/_js/webpack.js?v=211005"></script>
         <script type="text/javascript" src="/angel/_js/_gs_control.js?v=200803"></script>
-        <link type="text/css" rel="stylesheet" href="/angel/_banner/css/banner_module.css?v=210422">
-        <script type="text/javascript" src="/angel/_banner/js/banner_module.js?v=210209"></script>
+        <link type="text/css" rel="stylesheet" href="/angel/carsouel_plugin/css/carsouel_plugin.css?v=210422">
+        <script type="text/javascript" src="/angel/carsouel_plugin/js/carsouel_plugin.js?v=210209"></script>
         <script>
             var a_token = '{{Auth::user()->api_token}}';
         </script>

@@ -11,7 +11,7 @@ function _init() {
     var frm = $('#frmSearch');
     if (frm.length > 0) {
         var gameServerEl = document.getElementById('custom_gameserver');
-        regGameServer = new GameServerList(document.getElementById('custom_gameserver_list'), {
+        existedAngelGameServer = new AngelGames(document.getElementById('custom_gameserver_list'), {
             containerWrapper: gameServerEl,
             formElement: '#frmSearch',
             game: {

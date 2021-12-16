@@ -19,7 +19,7 @@ function _init() {
                     return;
                 }
                 document.getElementById('character_sign').value = 'Y';
-                g_nodeSleep.disable();
+                nodemonPopup.disable();
                 popLayer_2('dvTradeSellCheck');
             });
             document.getElementById('modify_btn').addEventListener('click', function(ev) {
@@ -67,7 +67,7 @@ function _init() {
                         }
                     })
                 }
-                g_nodeSleep.enable($('#elt_contract'));
+                nodemonPopup.enable($('#elt_contract'));
             } else {
                 popLayer_2('dvTradeSellCheck');
             }
@@ -76,7 +76,7 @@ function _init() {
 }
 
 function popLayer(elementID, params) {
-    g_nodeSleep.enable($("#" + elementID));
+    nodemonPopup.enable($("#" + elementID));
     if (params) {
         _form.addValues($("#" + elementID).find('form').eq(0), params);
     }

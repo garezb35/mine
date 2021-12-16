@@ -6,7 +6,7 @@
  * @description
  */
 
-var e_use = {
+var angel_premiun_items = {
     premium: 0,
     quickIcon: 0,
     highlight: 0
@@ -17,7 +17,7 @@ var layerNode,
 
 function _init() {
     $('#user_time').on('change', fnSelectChange);
-    layerNode = g_nodeSleep;
+    layerNode = nodemonPopup;
     $.extend(layerNode, {
         OnOpen: function() {
             $('#user_time').change();
@@ -94,25 +94,25 @@ function fnChargeServiceLayer(strType) {
 
     $('#charge_service').find('.service_hide').hide();
     $('#' + strType).show();
-    g_nodeSleep.enable($('#charge_service'));
+    nodemonPopup.enable($('#charge_service'));
 }
 
 function fnSelectChange() {
     var oSelect = $('#user_time');
     if (gStrType == 'premium') {
         var nPaymentTime = Number(oSelect.val()),
-            freeTicket = e_use.premium,
+            freeTicket = angel_premiun_items.premium,
             freeTime = freeTicket,
             serviceTxt = '프리미엄';
     }  else if (gStrType == 'quickIcon') {
         var nPaymentTime = Number(oSelect.val()),
 
-            freeTicket = e_use.quickIcon,
+            freeTicket = angel_premiun_items.quickIcon,
             freeTime = freeTicket,
             serviceTxt = '퀵아이콘';
     } else {
         var nPaymentTime = Number(oSelect.val()) / 12,
-            freeTicket = e_use.highlight,
+            freeTicket = angel_premiun_items.highlight,
             freeTime = freeTicket * 12,
             serviceTxt = (gStrType == 'textblue') ? '파란펜' : '굵은체';
     }
@@ -130,7 +130,7 @@ function fnSelectChange() {
 
     var paymentText = (paymentMoney - nFreeUse).currency() + '원';
     if (nFreeUse > 0) {
-        paymentText += '(이용료 ' + paymentMoney.currency() + '원<span class="g_red1">-' + serviceTxt + ' 무료이용 ' + freeTime + '시간 사용</span>) 잔여 시간:' + freeTime + '시간';
+        paymentText += '(이용료 ' + paymentMoney.currency() + '원<span class="text-rock">-' + serviceTxt + ' 무료이용 ' + freeTime + '시간 사용</span>) 잔여 시간:' + freeTime + '시간';
     }
     paymentMoneySpan.html(paymentText);
 }

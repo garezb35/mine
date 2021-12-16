@@ -174,18 +174,18 @@
             <div class="empty-high"></div>
             <div class="highlight_contextual">구매할 물품등록</div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span> 메인 상단의 "구매등록" 메뉴를 클릭합니다.
+                <span class="text-rock font-weight-bold">하나. </span> 메인 상단의 "구매등록" 메뉴를 클릭합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_buyreg_01.png" width="820" alt="">
             <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>구매를 원하는 물품의 정보를 순서대로 입력하신 후 하단의 <b>[구매등록]</b> 버튼을 클릭 합니다.<br>
+                <span class="text-rock font-weight-bold">둘. </span>구매를 원하는 물품의 정보를 순서대로 입력하신 후 하단의 <b>[구매등록]</b> 버튼을 클릭 합니다.<br>
                 삽니다 등록 페이지의 <b>삽니다 등록 알아두기</b>를 먼저 꼼꼼히 읽어보세요.
             </div>
             <img src="/angel/img/guide/screenshot/img_buyreg_02.png" width="820" alt="">
             <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">셋. </span>구매 물품정보를 다시 확인 합니다.
+                <span class="text-rock font-weight-bold">셋. </span>구매 물품정보를 다시 확인 합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_buyreg_03.png" width="820"  alt="">
             <br> <span class="guide_subtxt">* 등록한 물품은 </span><span class="font-weight-bold">마이룸 > 판매관련 > 판매등록물품</span>에서 확인가능합니다.

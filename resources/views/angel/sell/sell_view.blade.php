@@ -288,7 +288,7 @@
                 @endif
                 @if($user_goods_type == 'bargain')
                     <a href="/sell/application?id={{$orderNo}}&amp;" class="btn-default btn-suc">즉시 구매</a>
-                    <a href="javascript:void(0);" class="btn-default btn-cancel" onclick="g_nodeSleep.enable($('#dialog_fade'));">흥정신청</a>
+                    <a href="javascript:void(0);" class="btn-default btn-cancel" onclick="nodemonPopup.enable($('#dialog_fade'));">흥정신청</a>
                 @endif
             </div>
         </div>
@@ -311,7 +311,7 @@
                     <input type="hidden" name="trade_kind" id="trade_kind" value="1">
                     <div class="modal__title">
                         <div class="title">흥정신청</div>
-                        <img class="modal__close" src="http://img1.itemmania.com/images/icon/popup_x.gif" width="15" height="15" alt="닫기" onclick="g_nodeSleep.disable($('#dialog_fade'));">
+                        <a href="javascript:nodemonPopup.disable($('#dialog_fade'));" class="modal__close">닫기</a>
                     </div>
                     <div class="modal--content">
 
@@ -346,9 +346,6 @@
 
                         <div class="highlight_contextual_nodemon">
                             <div class="float-left">개인정보</div>
-{{--                            <div class="float__right">--}}
-{{--                                <a href="#" onclick="_window.open('private_edit','/user/contact_edit',420,300);"><img src="http://img4.itemmania.com/images/btn/btn_call_edit.gif" width="84" height="20" alt="연락처 수정"></a>--}}
-{{--                            </div>--}}
                         </div>
                         <table class="table-green1">
                             <colgroup>
@@ -383,17 +380,12 @@
                         </ul>
                         <div class="btn-groups_angel">
                             <a href="javascript:void(0)" class="btn-default btn-suc" onclick="$('#frmbaRequest').submit();">흥정신청</a>
-                            <a href="javascript:void(0)" class="btn-default btn-cancel" onclick="g_nodeSleep.disable();">취소</a>
+                            <a href="javascript:void(0)" class="btn-default btn-cancel" onclick="nodemonPopup.disable();">취소</a>
                         </div>
                     </div>
                 </form>
             </div>
         @endif
-
-        <form id="creditForm" name="creditForm" method="post">
-            <input type="hidden" id="infoId" value="d8b16a8a27778da8792dc32e5d5aaeb7">
-            <input type="hidden" name="id" id="encryptId">
-            <input type="hidden" name="type" id="encryptType"> </form>
         <div class="empty-high"></div>
     </div>
 

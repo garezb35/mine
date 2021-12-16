@@ -118,7 +118,7 @@ function _init() {
             if (this.value === 'kb') {
                 $('select[name="creditcard_tmp"] option:eq(0)').prop('selected', true);
 
-                g_nodeSleep.enable($('#layer_kb'));
+                nodemonPopup.enable($('#layer_kb'));
             }
         }
     });
@@ -841,7 +841,7 @@ function fnSubmit() {
                 } else {
                     var strUrl = '';
                     if (securityType === 'MYPIN') {
-                        strUrl = SSL_DOMAIN + '/myroom/myinfo/my_pin_use';
+                        strUrl = site_dns_s + '/myroom/myinfo/my_pin_use';
                     } else {
                         strUrl = '/certify/payment/user_certify';
                     }
@@ -889,7 +889,7 @@ function newSetDeny(name) {
 }
 
 function fnInfoClose() {
-    g_nodeSleep.disable();
+    nodemonPopup.disable();
 }
 
 function SafetyNumber(){

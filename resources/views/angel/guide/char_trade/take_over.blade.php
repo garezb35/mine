@@ -161,11 +161,11 @@
                 <div class="empty-high"></div>
                 <div class="highlight_contextual">판매한 물품등록</div>
                 <div class="guide_subtitle">
-                    <span class="f_red1 font-weight-bold">하나. </span>판매자와 연락을 하시면서 게임상에서 판매자로부터 물품을 받습니다.
+                    <span class="text-rock font-weight-bold">하나. </span>판매자와 연락을 하시면서 게임상에서 판매자로부터 물품을 받습니다.
                 </div>
                 <img src="/angel/img/guide/screenshot/img_char_buy4_01.png" width="820" height="" alt="">
                 <div class="guide_subtitle">
-                    <span class="f_red1 font-weight-bold">둘. </span>물품을 정상적으로 받으셨다면 [인수확인]버튼을 클릭합니다.
+                    <span class="text-rock font-weight-bold">둘. </span>물품을 정상적으로 받으셨다면 [인수확인]버튼을 클릭합니다.
                 </div>
                 <img src="/angel/img/guide/screenshot/img_char_buy4_02.png" width="820" height="" alt="">
                 {{--                <div class="guide_subtxt">* 등록한 물품은 마이룸 &gt; 판매관련 &gt; 판매등록물품에서 확인가능합니다.</div>--}}

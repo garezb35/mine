@@ -666,7 +666,7 @@ class ManiaController extends BaseController
                 $result .= '<tr id="item_detail_srh_service">
     <th>
         아이템정보<br>
-        <label><input type="checkbox" class="g_checkbox" name="iteminfo_use" id="iteminfo_use" value="Y" checked="">서비스이용</label>
+        <label><input type="checkbox" class="angel_game_sel" name="iteminfo_use" id="iteminfo_use" value="Y" checked="">서비스이용</label>
     </th>
     <td>
         <input type="hidden" name="iteminfo_use_complete" id="iteminfo_use_complete" value="N">
@@ -730,7 +730,7 @@ class ManiaController extends BaseController
                 <div id="item_suc"><a href="javascript:;" class="btn_blue4" id="suc_btn">정보입력 완료</a>
                     <span class="f_org1">* 아이템정보 서비스를 이용 하시면 판매에 도움이 됩니다.</span></div>
                 <div id="item_can" class="item__ajax_item_all.phpcan g_hidden"> 아이템정보 :
-                    <strong class="f_red1" id="item_info_txt"></strong><a href="javascript:;" class="btn_gray1" id="can_btn">취소</a>
+                    <strong class="text-rock" id="item_info_txt"></strong><a href="javascript:;" class="btn_gray1" id="can_btn">취소</a>
                 </div>
             </div>
         </div>
@@ -750,7 +750,7 @@ class ManiaController extends BaseController
                                                                         <label class="f_blue1 f_small">(단위)</label>
                                             </div>
                                                                 <div id="game_money">
-                                                    <input type="text" name="user_quantity" id="user_quantity" maxlength="7" class="angel__text f_right rad13">
+                                                    <input type="text" name="user_quantity" id="user_quantity" maxlength="7" class="angel__text text_right rad13">
                                                     <span class="unit"></span> '.$game->alias.'
                                                     <span class="g_txtbtn first_btn radbtn" id="plus10" value="10">+10</span>
                                                     <span class="g_txtbtn radbtn" id="plus50" value="50">+50</span>
@@ -765,7 +765,7 @@ class ManiaController extends BaseController
                 $result .= '<tr>
                             <th>판매금액</th>
                             <td>
-                                <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text f_right rad13"> 원 (3,000원 이상, 10원 단위 등록 가능)
+                                <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text text_right rad13"> 원 (3,000원 이상, 10원 단위 등록 가능)
                             </td>
                         </tr>';
                 if($game->purchase_enable == 1){
@@ -810,7 +810,7 @@ class ManiaController extends BaseController
                                                 </div>
                                 <div class="g_left">
                                     <input type="text" class="angel__text mode-active rad13" name="user_character" maxlength="30" id="user_character"> 물품을 전달 하실 본인의 캐릭터명
-                                    <span id="sub_text" class="f_red1"></span>
+                                    <span id="sub_text" class="text-rock"></span>
                                 </div>
                                 <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
                             </td>
@@ -830,10 +830,10 @@ class ManiaController extends BaseController
                                                 </div>
                                                                 <div id="game_money">
                                                     최소
-                                                    <input type="text" name="user_quantity_min" id="user_quantity_min" maxlength="7" class="angel__text f_right rad13">
+                                                    <input type="text" name="user_quantity_min" id="user_quantity_min" maxlength="7" class="angel__text text_right rad13">
                                                     <span class="unit"></span> '.$game->alias.' ~
                                                     최대
-                                                    <input type="text" name="user_quantity_max" id="user_quantity_max" maxlength="7" class="angel__text f_right rad13">
+                                                    <input type="text" name="user_quantity_max" id="user_quantity_max" maxlength="7" class="angel__text text_right rad13">
                                                     <span class="unit"></span> '.$game->alias.'                </div>
                                                         </td>
                                     </tr>';
@@ -845,10 +845,10 @@ class ManiaController extends BaseController
         <td>
                             <div id="game_money">
                     최소
-                    <input type="text" name="user_quantity_min" id="user_quantity_min" maxlength="7" class="angel__text f_right rad13">
+                    <input type="text" name="user_quantity_min" id="user_quantity_min" maxlength="7" class="angel__text text_right rad13">
                     <span class="unit"></span> 개 ~
                     최대
-                    <input type="text" name="user_quantity_max" id="user_quantity_max" maxlength="7" class="angel__text f_right rad13">
+                    <input type="text" name="user_quantity_max" id="user_quantity_max" maxlength="7" class="angel__text text_right rad13">
                     <span class="unit"></span> 개                </div>
                         </td>
     </tr>';
@@ -858,30 +858,16 @@ class ManiaController extends BaseController
                     $result .= '<tr>
         <th>판매금액</th>
         <td>
-                        <input type="text" name="user_division_unit" id="user_division_unit" maxlength="7" class="angel__text f_right rad13" size="18">
+                        <input type="text" name="user_division_unit" id="user_division_unit" maxlength="7" class="angel__text text_right rad13" size="18">
             <span class="unit"></span> '.$game->alias.' 당
-            <input type="text" name="user_division_price" id="user_division_price" maxlength="10" class="angel__text f_right rad13" size="18"> 원에 판매합니다.
+            <input type="text" name="user_division_price" id="user_division_price" maxlength="10" class="angel__text text_right rad13" size="18"> 원에 판매합니다.
             <span class="f_small f_black1">(100원 이상, 10원 단위 등록 가능)</span>
             <div class="discount">
-                <label><input type="checkbox" class="g_checkbox" name="discount_use" id="discount_use" value="1" onclick="fnRevenDiscount();">복수구매 할인적용</label>
+                <label><input type="checkbox" class="angel_game_sel" name="discount_use" id="discount_use" value="1" onclick="ComplexDiscount();">복수구매 할인적용</label>
                 <div id="reven_discount">
                     <input type="text" class="angel__text" name="discount_quantity" id="discount_quantity" maxlength="10" disabled readonly onfocus="$(this).blur();"><span class="unit"></span> x
                     <input type="text" class="angel__text discount_quantity_cnt" name="discount_quantity_cnt" id="discount_quantity_cnt" maxlength="10" disabled>번 구매시
                     <input type="text" class="angel__text discount_price" name="discount_price" id="discount_price" maxlength="10" disabled>원 할인
-                </div>
-                <a href="javascript:;" class="guide_txt" id="discount_guide">복수구매할인이란?</a>
-                <div class="g_msgbox blue" id="discount_layer">
-                    <div class="title">복수 구매할인이란?</div>
-                    <div class="cont">
-                        구매자가 분할물품에 구매신청을 할 때, 판매자가 정해놓은 일정 구매수량 조건을<br>
-                        충족할 경우 구매자에게 거래금액을 할인해주는 거래 방식입니다.<br>
-                        복수구매할인 적용 시 물품리스트 제목에 할인마크가 부여되며 묶음당 할인금액은<br>
-                        판매자의 거래금액에서 차감됩니다.<br>
-                        복수구매 할인에 대한 자세한 사항은 홈페이지 > 이용안내를 참고해 주시기 바랍니다.
-                    </div>
-                    <div class="btn">
-                        <a href="/guide/div_trade/index.html?file=02" class="btn_blue4">복수구매할인 이용안내 ></a>
-                    </div>
                 </div>
             </div>
         </td>
@@ -893,7 +879,7 @@ class ManiaController extends BaseController
                             </div>
             <div class="g_left">
                 <input type="text" class="angel__text mode-active rad13" name="user_character" maxlength="30" id="user_character"> 물품을 전달 하실 본인의 캐릭터명
-                <span id="sub_text" class="f_red1"></span>
+                <span id="sub_text" class="text-rock"></span>
             </div>
             <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
         </td>
@@ -903,9 +889,9 @@ class ManiaController extends BaseController
                     $result .= '<tr>
         <th>판매금액</th>
         <td>
-                        <input type="text" name="user_division_unit" id="user_division_unit" maxlength="7" class="angel__text f_right rad13" size="18">
+                        <input type="text" name="user_division_unit" id="user_division_unit" maxlength="7" class="angel__text text_right rad13" size="18">
             <span class="unit"></span> '.$game->alias.' 당
-            <input type="text" name="user_division_price" id="user_division_price" maxlength="10" class="angel__text f_right rad13" size="18"> 원에 판매합니다.
+            <input type="text" name="user_division_price" id="user_division_price" maxlength="10" class="angel__text text_right rad13" size="18"> 원에 판매합니다.
             <span class="f_small f_black1">(100원 이상, 10원 단위 등록 가능)</span>
         </td>
         </tr>
@@ -916,7 +902,7 @@ class ManiaController extends BaseController
                             </div>
             <div class="g_left">
                 <input type="text" class="angel__text mode-active rad13" name="user_character" maxlength="30" id="user_character"> 물품을 전달 하실 본인의 캐릭터명
-                <span id="sub_text" class="f_red1"></span>
+                <span id="sub_text" class="text-rock"></span>
             </div>
             <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
         </td>
@@ -929,11 +915,11 @@ class ManiaController extends BaseController
         <td>
             즉시판매금액 <span class="f_blue3 f_small">(구매자의 흥정 신청 시 해당금액보다 높은 가격으로는 흥정신청이 되지 않습니다.)</span><br>
             <div class="bargain_area">
-                <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text f_right rad13"> 원 (3,000원 이상, 10원 단위 등록 가능)
+                <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text text_right rad13"> 원 (3,000원 이상, 10원 단위 등록 가능)
             </div>
-            <label><input type="checkbox" name="user_deny_use" value="1" id="user_deny_use" class="g_checkbox">최저 흥정가격 설정</label>
+            <label><input type="checkbox" name="user_deny_use" value="1" id="user_deny_use" class="angel_game_sel">최저 흥정가격 설정</label>
             <div id="min_user_bargain" class="min_user_bargain">
-                <input type="text" keyevent="price" name="user_price_limit" maxlength="10" class="angel__text f_right rad13"> 원 미만으로는 흥정신청을 받지 않습니다.
+                <input type="text" keyevent="price" name="user_price_limit" maxlength="10" class="angel__text text_right rad13"> 원 미만으로는 흥정신청을 받지 않습니다.
             </div>
         </td>
         </tr>
@@ -980,7 +966,7 @@ class ManiaController extends BaseController
                             </div>
             <div class="g_left">
                 <input type="text" class="angel__text mode-active rad13" name="user_character" maxlength="30" id="user_character"> 물품을 전달 하실 본인의 캐릭터명
-                <span id="sub_text" class="f_red1"></span>
+                <span id="sub_text" class="text-rock"></span>
             </div>
         </td>
     </tr>';

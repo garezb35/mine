@@ -243,7 +243,7 @@ table tr .left {
     vertical-align: middle;
 }
 
-.g_checkbox {
+.angel_game_sel {
     vertical-align: middle;
 }
 
@@ -334,7 +334,7 @@ table tr .left {
     color: #828282;
 }
 
-.f_red1,g_red1 {
+.text-rock {
     color: #ff2400;
 }
 
@@ -358,7 +358,7 @@ table tr .left {
     color: #00c73c;
 }
 
-.f_right {
+.text_right {
     text-align: right;
 }
 

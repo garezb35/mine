@@ -175,17 +175,17 @@
             <div class="empty-high"></div>
             <div class="highlight_contextual">물품받기 및 인수확인</div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">하나. </span> 판매자와 연락을 하시면서 게임상에서 판매자로부터 물품을 받습니다.
+                <span class="text-rock font-weight-bold">하나. </span> 판매자와 연락을 하시면서 게임상에서 판매자로부터 물품을 받습니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_buyhand_01.png" width="650" alt="">
             <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">둘. </span>물품을 정상적으로 받으셨다면 [인수확인] 버튼을 클릭합니다.
+                <span class="text-rock font-weight-bold">둘. </span>물품을 정상적으로 받으셨다면 [인수확인] 버튼을 클릭합니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_buyhand_02.png" width="820" alt="">
             <div class="empty-high"></div>
             <div class="guide_subtitle">
-                <span class="f_red1 font-weight-bold">셋. </span>현금영수증 정보를 확인 후 [물품인수확인] 버튼을 클릭하세요.<br>
+                <span class="text-rock font-weight-bold">셋. </span>현금영수증 정보를 확인 후 [물품인수확인] 버튼을 클릭하세요.<br>
                 현금영수증 발급을 원하지 않으시면 [미발급] 을 선택해주시기 바랍니다.
             </div>
             <img src="/angel/img/guide/screenshot/img_buyhand_03.png" width="820" alt="">

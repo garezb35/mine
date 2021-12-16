@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link type="text/css" rel="stylesheet" href="/angel/_css/webpack.css">
         <link type="text/css" rel="stylesheet" href="/angel/global_h/css/_head_popup.css">
-        <link type="text/css" rel="stylesheet" href="/angel/_banner/css/banner_module.css">
+        <link type="text/css" rel="stylesheet" href="/angel/carsouel_plugin/css/carsouel_plugin.css">
         <link type="text/css" rel="stylesheet" href="/angel/myroom/cash_receipt/css/cash_receipt_confirm.css">
         <script type="text/javascript" src="/angel/_js/jquery.js"></script>
         <script type="text/javascript" src="/angel/_js/webpack.js"></script>

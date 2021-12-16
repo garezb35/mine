@@ -182,11 +182,11 @@
                 <div class="empty-high"></div>
                 <div class="highlight_contextual">구매자 정보확인</div>
                 <div class="guide_subtitle">
-                    <span class="f_red1 font-weight-bold">하나. </span>구매자의 입금이 확인되면 마이룸 &gt; 판매관련 &gt; 판매중인 물품에서 확인 가능합니다.
+                    <span class="text-rock font-weight-bold">하나. </span>구매자의 입금이 확인되면 마이룸 &gt; 판매관련 &gt; 판매중인 물품에서 확인 가능합니다.
                 </div>
                 <img src="/angel/img/guide/screenshot/img_char_sell3_01.png" width="820" height="" alt="">
                 <div class="guide_subtitle">
-                    <span class="f_red1 font-weight-bold">둘. </span>구매자와 연락이 되셨다면, 구매자로부터 <span class="font-weight-bold"> 입력정보</span>를 반드시 확인하시기 바랍니다.
+                    <span class="text-rock font-weight-bold">둘. </span>구매자와 연락이 되셨다면, 구매자로부터 <span class="font-weight-bold"> 입력정보</span>를 반드시 확인하시기 바랍니다.
                 </div>
                 <img src="/angel/img/guide/screenshot/img_char_sell3_02.png" width="820" height="" alt="">
                 <div class="divi_line"></div>
