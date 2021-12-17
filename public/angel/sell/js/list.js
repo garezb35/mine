@@ -80,7 +80,7 @@ var searchList = {
     }
 };
 
-function elementFromListData(tradeItem, getPremium) {
+function orderGameFromDays(tradeItem, getPremium) {
     if (tradeItem == null) {
         return '';
     }
@@ -176,7 +176,7 @@ $(document).ready(function() {
                     $('.loading').addClass('d-none');
                     if (res.data.p && res.data.p.length > 0) {
                         searchListPremium.html((res.data.p).map(function(e) {
-                            return elementFromListData(e);
+                            return orderGameFromDays(e);
                         }).filter(function(e) {
                             return e !== null;
                         }).join('\n'));
@@ -184,7 +184,7 @@ $(document).ready(function() {
 
                     if (res.data.power && res.data.power.length > 0) {
                         searchListPremium.html((res.data.power).map(function(e) {
-                            return elementFromListData(e);
+                            return orderGameFromDays(e);
                         }).filter(function(e) {
                             return e !== null;
                         }).join('\n') + searchListPremium.html());
@@ -196,7 +196,7 @@ $(document).ready(function() {
 
                     if (res.data.g && res.data.g.length > 0) {
                         searchListNormal.html(searchListNormal.html() + (res.data.g).map(function(e) {
-                            return elementFromListData(e);
+                            return orderGameFromDays(e);
                         }).filter(function(e) {
                             return e !== null;
                         }).join('\n'));

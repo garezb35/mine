@@ -4,7 +4,7 @@ searchList.formSubmit = function() {
     $('#frm_search').submit();
 };
 
-function elementFromListData(tradeItem) {
+function orderGameFromDays(tradeItem) {
     if (tradeItem == null) {
         return '';
     }
@@ -72,7 +72,7 @@ function listOptionClick() {
     searchList.formSubmit();
 }
 
-function fnajax_ag_quotation() {
+function asyncRequestByAJ() {
     $.ajax({
         url: '/_xml/gamemoney_avg.xml',
         dataType: 'xml',
@@ -115,7 +115,7 @@ function addComma(values) {
     return values;
 }
 
-function mySearch_menu_check() {
+function filteredGameMenuPressed() {
     var game_code = $('#filtered_game_id').val();
     var server_code = $('#filtered_child_id').val();
     var goods = $('#filtered_items').val();
@@ -154,8 +154,8 @@ function mySearch_menu_check() {
 }
 
 $(document).ready(function() {
-    mySearch_menu_check();
-    fnajax_ag_quotation();
+    filteredGameMenuPressed();
+    asyncRequestByAJ();
     $('#favorite').on('click', function() {
         var game_code = $('#filtered_game_id').val();
         var game_code_text = $('#filtered_game_alias').val();

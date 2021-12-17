@@ -77,7 +77,7 @@ var searchList = {
     }
 };
 
-function elementFromListData(tradeItem) {
+function orderGameFromDays(tradeItem) {
     if (tradeItem == null) {
         return '';
     }
@@ -166,7 +166,7 @@ $(document).ready(function() {
 
                     if (res.data.p && res.data.p.length > 0) {
                         searchListPremium.html((res.data.p).map(function(e) {
-                            return elementFromListData(e);
+                            return orderGameFromDays(e);
                         }).filter(function(q) {
                             return q !== null;
                         }).join('\n'));
@@ -176,7 +176,7 @@ $(document).ready(function() {
 
                     if (res.data.g && res.data.g.length > 0) {
                         searchListNormal.html(searchListNormal.html() + (res.data.g).map(function(e) {
-                            return elementFromListData(e);
+                            return orderGameFromDays(e);
                         }).filter(function(e) {
                             return e !== null;
                         }).join('\n'));

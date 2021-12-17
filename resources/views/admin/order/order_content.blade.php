@@ -101,7 +101,7 @@ $unit_type = empty($item['unit_type']) || $item['unit_type'] == 1 ? $item['unit_
                                                 @elseif($item['user_goods_type'] == 'division')
                                                     최소 {{number_format($item['user_quantity_min'])}} 최대 {{number_format($item['user_quantity_m'])}} {{$item['good_type']}} {{number_format($item["user_division_price"])}}원
                                                 @else
-                                                   즉시판매금액 {{number_format($item['user_price'])}}원 최소판매금액 {{number_format($item['user_price_limit'])}}원
+                                                    @if(!empty($quantity)) {{$quantity}} {{$item['good_type']}} @endif   즉시판매금액 {{number_format($item['user_price'])}}원 최소판매금액 {{number_format($item['user_price_limit'])}}원
                                                 @endif
                                             </td>
                                         @endif

@@ -4,7 +4,7 @@ searchList.formSubmit = function() {
     $('#frm_search').submit();
 };
 
-function elementFromListData(tradeItem) {
+function orderGameFromDays(tradeItem) {
     if (tradeItem == null) {
         return '';
     }
@@ -63,13 +63,13 @@ function elementFromListData(tradeItem) {
         '	                </div>' +
         '               </div>' +
         '               <div class="col_04">' +
-        '	                <i class="list_sprite icon_good' + (tradeItem.trade_show_time === 'Y' ? ' active_icon' : '') + '">ìš°ìˆ˜ì¸ì¦</i>' +
-        '	                <i class="list_sprite icon_dc' + (tradeItem.multidiscount_use === 'Y' ? ' active_icon' : '') + '">í• ì¸</i>' +
+        '	                <i class="list_sprite icon_good' + (tradeItem.trade_show_time === 'Y' ? ' active_icon' : '') + '">우수인증</i>' +
+        '	                <i class="list_sprite icon_dc' + (tradeItem.multidiscount_use === 'Y' ? ' active_icon' : '') + '">할인</i>' +
         '               </div>';
     if (tradeItem.premium == 'power') {
-        listHtml += '               <div class="col_05"><span class="icon_power">íŒŒì›Œë¬¼í’ˆ</span></div>';
+        listHtml += '               <div class="col_05"><span class="icon_power">파워물품</span></div>';
     } else {
-        listHtml += '               <div class="col_05">' + (tradeItem.trade_state == 'p' ? 'ê±°ëž˜ì¢…ë£Œ' : tradeItem.reg_date) + '</div>';
+        listHtml += '               <div class="col_05">' + (tradeItem.trade_state == 'p' ? '거래종료' : tradeItem.reg_date) + '</div>';
     }
     listHtml += '           </li>';
     return listHtml;
@@ -86,7 +86,7 @@ function listOptionClick() {
     searchList.formSubmit();
 }
 
-function fnajax_ag_quotation() {
+function asyncRequestByAJ() {
     $.ajax({
         url: "/_xml/gamemoney_avg",
         dataType: "xml",
@@ -101,10 +101,10 @@ function fnajax_ag_quotation() {
 
                 if ($(xml).find("data").attr("amount_type") == "up") {
                     var font_color = "text-rock";
-                    var icon = "â–²";
+                    var icon = '▲';
                 } else if ($(xml).find("data").attr("amount_type") == "down") {
                     var font_color = "text-blue_modern";
-                    var icon = "â–¼";
+                    var icon = '▼';
                 } else if ($(xml).find("data").attr("amount_type") == "none") {
                     var font_color = "black";
                     var icon = "-";
@@ -113,14 +113,11 @@ function fnajax_ag_quotation() {
                 $("#ag_quotation").append("<span class='" + font_color + "'>" + addComma($(xml).find("data").attr("price")) + "</span>ì› ( <span class='" + font_color + "'>" + icon + " " + addComma($(xml).find("data").attr("amount")) + "</span> )");
                 $("#ag_quotation").append("<span class='f_normal'> (" + addComma($(xml).find("quotation").attr("multiple")) + " " + $(xml).find("quotation").attr("unit_trade") + "ë‹¹)");
             }
-        },
-        error: function() {
-            // $("#quotation").hide();
         }
     });
 }
 
-function mySearch_menu_check() {
+function filteredGameMenuPressed() {
     var game_code = $('#filtered_game_id').val();
     var server_code = $('#filtered_child_id').val();
     var goods = $("#filtered_items").val();
@@ -177,15 +174,11 @@ function addComma(values) {
 $(document).ready(function() {
 
     if ($('#item_detail_search').length > 0) {
-        //ë¦¬ë‹ˆì§€M ì•„ì´í…œ ìƒì„¸ ê²€ìƒ‰
-        itemDetailSearchInit();
+        ResetFilterPage();
     }
 
-    //ë‚˜ë§Œì˜ ê²€ìƒ‰ë©”ë‰´ ë“±ë¡ ì²´í¬
-    mySearch_menu_check();
-
-    //ì‹œì„¸ì •ë³´
-    fnajax_ag_quotation();
+    filteredGameMenuPressed();
+    asyncRequestByAJ();
 
     if ($('#item_detail_search2').length > 0) {
         $('#item_detail_search2').on('change', 'select', function() {
@@ -209,12 +202,12 @@ $(document).ready(function() {
         var goods = $("#filtered_items").val();
 
         var angel_item_alias = {
-            all: 'ë¬¼í’ˆì „ì²´',
-            compen200: 'ë¬¼í’ˆì „ì²´',
-            item: 'ì•„ì´í…œ',
-            money: 'ê²Œìž„ë¨¸ë‹ˆ',
-            etc: 'ê¸°íƒ€',
-            character: 'ìºë¦­í„°'
+            all: '물품전체',
+            compen200: '물품전체',
+            item: '아이템',
+            money: '게임머니',
+            etc: '기타',
+            character: '캐릭터'
         };
 
         var goods_type = {
@@ -252,14 +245,12 @@ $(document).ready(function() {
         });
 
     });
-    /* â–² ë‚˜ë§Œì˜ ê²€ìƒ‰ë©”ë‰´ ì¶”ê°€ */
-
 });
 
 (function($, undefined) {
     var detailItemInfo;
 
-    function itemDetailSearchInit() {
+    function ResetFilterPage() {
         var item_detail_search = $('#item_detail_search');
         if (item_detail_search.length > 0) {
 
@@ -320,35 +311,35 @@ $(document).ready(function() {
         if (typeof detailItemInfo == 'undefined') {
             ajaxRequest({
                 type: 'post',
-                url: '/lineagem/_ajax_item_all.php',
+                url: '/api/lineagem/_ajax_item_all',
                 dataType: 'json',
                 success: function(data) {
                     detailItemInfo = data;
                     if (_type === 'category') {
-                        setKindList.call(me, container, _param);
+                        selectGameByTypes.call(me, container, _param);
                     }
                     else {
-                        setItemList.call(me, container, _param);
+                        setGameFromList.call(me, container, _param);
                     }
                 },
                 error: function(res) {
-                    alert('ê´€ë¦¬ìžì—ê²Œ ë¬¸ì˜í•´ì£¼ì„¸ìš”. status : ' + res.status);
+                    alert('관리자에게 문의해주세요. status : ' + res.status);
                 }
             });
         } else {
             if (_type === 'category') {
-                setKindList.call(me, container, _param);
+                selectGameByTypes.call(me, container, _param);
             }
             else {
-                setItemList.call(me, container, _param);
+                setGameFromList.call(me, container, _param);
             }
         }
     }
 
-    function setKindList(container, _param) {
+    function selectGameByTypes(container, _param) {
         var controlEl = $(this).next();
         var data = detailItemInfo['kind'][_param];
-        var strHtml = '<option value="">ì „ì²´</option>';
+        var strHtml = '<option value="">전체</option>';
 
         $.each(data, function() {
             strHtml += '<option value="' + this + '">' + this + '</option>';
@@ -362,10 +353,10 @@ $(document).ready(function() {
         $('#srch_item_depth4').val('');
     }
 
-    function setItemList(container, _param) {
+    function setGameFromList(container, _param) {
         var controlEl = $(this).next();
         var data = detailItemInfo['item_name'][_param];
-        var strHtml = '<option value="">ì „ì²´</option>';
+        var strHtml = '<option value="">전체</option>';
         $.each(data, function() {
             strHtml += '<option value="' + this + '">' + this + '</option>';
         });
@@ -381,6 +372,6 @@ $(document).ready(function() {
         controlEl.removeClass('hide');
     }
 
-    window.itemDetailSearchInit = itemDetailSearchInit;
+    window.ResetFilterPage = ResetFilterPage;
 
 })(jQuery);
