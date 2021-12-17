@@ -35,7 +35,10 @@ class MItem extends Model
     }
 
     public function bargain_requests(){
-        return $this->hasMany(MBargainRequest::class,'orderNo','orderNo')->where('status',0);
+        return $this->hasMany(MBargainRequest::class,'orderNo','orderNo')->where(function($query){
+            $query->where('status',0);
+            $query->orWhere("status",1);
+        });
     }
 
     public function bargainByUser(){

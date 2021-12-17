@@ -191,7 +191,7 @@ $category = '> > 기타';
                     @if($value['status'] == 0)
                     <td>&nbsp;</td>
                     <td class="bd_right_non">
-                        <a href="javascript:void(0)"  class="btn-default btn-default-sm btn-secondary" onclick="if(confirm('흥정을 취소하시겠습니까?')) TradeCheck('Y2FuY2Vs', 'OTM3NDQ2NA=='); ">흥정취소</a>
+                        <a href="javascript:void(0)"  class="btn-default btn-default-sm btn-secondary" onclick="if(confirm('흥정을 취소하시겠습니까?')) TradeCheck(0,{{$value['id']}}); ">흥정취소</a>
                     </td>
 
                     @elseif($value['status'] == 1)
@@ -203,9 +203,7 @@ $category = '> > 기타';
 
                     @elseif($value['status'] == 3)
                         <td>흥정거절</td>
-                        <td class="bd_right_non">
-
-                        </td>
+                        <td class="bd_right_non"></td>
                     @endif
                 </tr>
                 @endforeach

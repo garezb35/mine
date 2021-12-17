@@ -199,7 +199,7 @@
                                     <span class="mr-4">등록</span>
                                     <span><a href="/myroom/sell/sell_regist"><span class="text-blue_modern font-weight-bold">{{number_format($top_selling_register)}}</span>건</a></span>
                                     <span class="mr-4" style="margin-left: 4px;">판매중</span>
-                                    <span><a href="/myroom/sell/sell_regist"><span class="text-blue_modern font-weight-bold">{{number_format($top_selling_register)}}</span>건</a></span>
+                                    <span><a href="/myroom/sell/sell_regist"><span class="text-blue_modern font-weight-bold">{{number_format($top_selling_count)}}</span>건</a></span>
                                 </div>
                                 <div>
                                     <span class="mr-4">흥정신청</span>

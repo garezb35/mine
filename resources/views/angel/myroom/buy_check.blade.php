@@ -7,7 +7,16 @@
 @endsection
 
 @section('foot_attach')
+<script>
+    function TradeCheck(process, check_id = '') {
+        var frm = $('#frmCheckView');
+        if(check_id != '')
+            frm.find('input[name="id"]').val(check_id);
+        frm.find('input[name="process"]').val(process);
+        frm.attr('action', "/buy_check_ok").submit();
+    }
 
+</script>
 @endsection
 
 @section('content')
@@ -80,4 +89,10 @@
     </div>
     <div class="empty-high"></div>
 </div>
+<form id="frmCheckView" name="frmCheckView" method="POST">
+    @csrf
+    <input type="hidden" name="id" value="">
+    <input type="hidden" name="process">
+</form>
 @endsection
+

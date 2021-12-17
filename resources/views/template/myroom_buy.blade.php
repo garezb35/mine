@@ -45,9 +45,14 @@
         @endif
         @if($type == 1)
         <td>
-            <a href="javascript:;" onclick="reInsert('{{$v['orderNo']}}');" class="regist_btn09">재흥정</a>
-            <a href="javascript:;" onclick="tradeProcess('deleteSelect', '{{$v['orderNo']}}')" class="regist_btn10">취소</a>
+            @if($v['bargain_requests'][0]['status'] == 0)
+                <a href="javascript:void(0)" class="btn-default btn-default-sm btn-secondary" onclick="if(confirm('흥정을 취소하시겠습니까?')) TradeCheck(0,{{$v['bargain_requests'][0]['id']}}); ">흥정취소</a>
+            @elseif($v['bargain_requests'][0]['status'] == 1)
+                <a href="javascript:void(0)" class="btn-default btn-default-sm btn-green mb-5" onclick="if(confirm('재흥정을 수락하시겠습니까?')) TradeCheck('1', '{{$v['bargain_requests'][0]['id']}}'); ">재흥정 수락</a>
+                <a href="javascript:void(0)" class="btn-default btn-default-sm btn-green" onclick="if(confirm('재흥정을 거부하시겠습니까?')) TradeCheck('0', '{{$v['bargain_requests'][0]['id']}}'); ">재흥정 거부</a>
+            @endif
         </td>
         @endif
     </tr>
+
 @endforeach

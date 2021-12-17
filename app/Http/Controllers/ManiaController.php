@@ -2090,7 +2090,7 @@ class ManiaController extends BaseController
             $item['orderNo'] = date("Ymd").generateRandomString(8);
             $item['status'] = 0;
             MItem::insert($item);
-            $unit = !empty($params['buy_quantity']) ? $params['buy_quantity'] * $item['gamemoney_unit']: 1;
+            $unit = !empty($params['buy_quantity']) ? $params['buy_quantity'] * numberUnit($item['gamemoney_unit']): 1;
         }
         else{
             $unit = $item['user_quantity'] * numberUnit($item['gamemoney_unit']);
@@ -2143,7 +2143,7 @@ class ManiaController extends BaseController
             $item['orderNo'] = date("Ymd").generateRandomString(8);
             $item['status'] = 0;
             MItem::insert($item);
-            $unit = !empty($params['buy_quantity']) ? $params['buy_quantity'] * $item['gamemoney_unit']: 1;
+            $unit = !empty($params['buy_quantity']) ? $params['buy_quantity'] * numberUnit($item['gamemoney_unit']): 1;
         }
         else{
             $unit = $item['user_quantity'] * numberUnit($item['gamemoney_unit']);

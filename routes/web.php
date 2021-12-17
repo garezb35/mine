@@ -256,12 +256,12 @@ Route::middleware('auth')->group(function () {
     Route::post('buy_re_reg_ok',[\App\Http\Controllers\ManiaController::class, 'buy_re_reg_ok'])->name('buy_re_reg_ok');
     Route::post('/sell_re_reg_ok',[\App\Http\Controllers\ManiaController::class, 'sell_re_reg_ok'])->name('sell_re_reg_ok');
     Route::post('/buy_regist',[\App\Http\Controllers\ManiaController::class, 'buy_regist'])->name('buy_regist');
-    Route::post('/sell_regist',[\App\Http\Controllers\ManiaController::class, 'sell_regist'])->name('sell_regist_post');
+    Route::post('/sell_regist',[\App\Http\Controllers\ManiaController::class, 'sell_regist']);
     Route::get('/portal/giftcard', [\App\Http\Controllers\VMainController::class, 'giftcard'])->name('giftcard');
     Route::get('/portal/giftcard/{giftid}', [\App\Http\Controllers\VMainController::class, 'viewGift'])->name('viewGift');
     Route::post('/portal/giftcard/{giftid}', [\App\Http\Controllers\VMainController::class, 'viewGift_Post'])->name('viewGift_Post');
     Route::post('sell_re_reg_auto_ok',[\App\Http\Controllers\ManiaController::class, 'sell_re_reg_auto_ok'])->name('sell_re_reg_auto_ok');
-    Route::post('sell_regist',[\App\Http\Controllers\ManiaController::class, 'sell_regist_post'])->name('sell_regist_post');
+    Route::post('sell_regist_post',[\App\Http\Controllers\ManiaController::class, 'sell_regist_post'])->name('sell_regist_post');
     Route::post('/certify/ini_modi_authcenter/user_certify',[\App\Http\Controllers\ManiaController::class, 'user_certify_myinfo'])->name('user_certify_myinfo');
     Route::get('cash_receipt_confirm',[\App\Http\Controllers\ManiaController::class, 'cash_receipt_confirm'])->name('cash_receipt_confirm');
     Route::get('cash_receipt_confirm2',[\App\Http\Controllers\ManiaController::class, 'cash_receipt_confirm2'])->name('cash_receipt_confirm2');

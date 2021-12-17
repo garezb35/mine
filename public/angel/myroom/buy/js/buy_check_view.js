@@ -34,9 +34,10 @@ function applyCoupon() {
     frm.find('input[name="pay_mileage"]').val(paymentPrice.currency());
 }
 
-function TradeCheck(process, check_id) {
+function TradeCheck(process, check_id = '') {
     var frm = $('#frmCheckView');
-    frm.find('input[name="id"]').val(check_id);
+    if(check_id != '')
+        frm.find('input[name="id"]').val(check_id);
     frm.find('input[name="process"]').val(process);
     frm.attr('action', "/buy_check_ok").submit();
 }

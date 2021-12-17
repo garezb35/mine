@@ -9,6 +9,16 @@ function generateRandomString($length = 10,$characters = '0123456789') {
     return $randomString;
 }
 
+function ordersType($param){
+    if($param == 'general'){
+        return '일반';
+    }
+    if($param == 'division')
+        return '분할';
+    else
+        return '흥정';
+}
+
 function get($id){
     $content = array('alias'=>'','value'=>'');
     switch ($id){

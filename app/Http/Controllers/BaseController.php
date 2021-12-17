@@ -47,6 +47,26 @@ class BaseController extends Controller
                 whereNull('toId')->
                 whereHas('bargain_requests')->
                 whereDoesntHave('payitem')->get()->count();
+                $selling_count = MItem::
+                whereHas('payitem',function($query){
+                    $query->where('status',1);
+                })->
+                where(function($query){
+                    $query->where('userId',$this->user->id);
+                    $query->where('type','sell');
+                    $query->where('status',"!=",0);
+                    $query->where('status',"!=",23);
+                    $query->where('status',"!=",32);
+                    $query->where('status',"!=",-1);
+                })->orWhere(function($query){
+                    $query->where('toId',$this->user->id);
+                    $query->where('type','buy');
+                    $query->where('status',"!=",0);
+                    $query->where('status',"!=",23);
+                    $query->where('status',"!=",32);
+                    $query->where('status',"!=",-1);
+                })->
+                get()->count();
                 $games = MMygame::orderBy('order','ASC')->limit(3)->get();
                 $msg_count = MInbox::where('userId',$this->user->id)->where('readed',0)->get()->count();
                 View::share('top_role',$role);
@@ -56,6 +76,7 @@ class BaseController extends Controller
                 View::share('top_games',$games);
                 View::share ( 'me', $this->user );
                 View::share('msg_count',$msg_count);
+                View::share('top_selling_count',$selling_count);
             }
             return $next($request);
         });

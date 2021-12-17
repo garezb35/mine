@@ -26,9 +26,7 @@ function tradeProcess(flag, tid) {
     frm.submit();
 }
 
-/* ▲ 물품 처리 */
 
-/* ▼ 재등록 */
 function reInsert(tid) {
     if (confirm("재등록 하시겠습니까?")) {
         var frm = $("#reInsertFrm");
@@ -38,4 +36,3 @@ function reInsert(tid) {
     }
 }
 
-/* ▲ 재등록 */
