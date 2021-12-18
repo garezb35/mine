@@ -106,7 +106,7 @@
                                         $buyer = $o_v['user'];
                                     }
                                     $order_state = "";
-                                    if($o_v["state"] == 0){
+                                    if($o_v["status"] == 0){
                                         if(sizeof($o_v['bargain_requests']) > 0){
                                             $order_state = "흥정신청중";
                                         }
@@ -114,7 +114,7 @@
                                             $order_state = "등록물품";
                                         }
                                     }
-                                    if($o_v['state'] == 1){
+                                    if($o_v['status'] == 1){
                                         if($o_v['payitem']['status'] == 0){
                                             $order_state = "입금대기중";
                                         }
@@ -122,16 +122,16 @@
                                             $order_state = "거래중";
                                         }
                                     }
-                                    if($o_v['state'] == 2){
+                                    if($o_v['status'] == 2){
                                         $order_state = "인수 완료";
                                     }
-                                    if($o_v['state'] == 3){
+                                    if($o_v['status'] == 3){
                                         $order_state = "인계 완료";
                                     }
-                                    if($o_v['state'] == 23 || $o_v['state'] == 32){
+                                    if($o_v['status'] == 23 || $o_v['state'] == 32){
                                         $order_state = "거래 완료";
                                     }
-                                    if($o_v['state'] == -1){
+                                    if($o_v['status'] == -1){
                                         $order_state = "거래 취소";
                                     }
                                 @endphp
@@ -183,7 +183,6 @@
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item order-item" href="javascript:void(0)" data-id="{{$o_v['id']}}" data-type="remove">삭제</a>
                                                 <a class="dropdown-item order-item" href="javascript:void(0)" data-id="{{$o_v['id']}}" data-type="cancel">거래취소</a>
                                                 <a class="dropdown-item order-item" href="javascript:void(0)" data-id="{{$o_v['id']}}" data-type="end">거래종료</a>
                                             </div>

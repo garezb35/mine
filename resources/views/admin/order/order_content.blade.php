@@ -77,6 +77,10 @@ $unit_type = empty($item['unit_type']) || $item['unit_type'] == 1 ? $item['unit_
                                             <th>입금대기중</th>
                                             <td>{{number_format($item['payitem']['buy_quantity'])}} {{$item['good_type']}} {{number_format($item['payitem']['price'])}}원</td>
                                         @endif
+                                        @if(!empty($item['payitem']) && $item['payitem']['status'] == 2)
+                                            <th>거래완료</th>
+                                            <td>{{number_format($item['payitem']['buy_quantity'])}} {{$item['good_type']}} {{number_format($item['payitem']['price'])}}원</td>
+                                        @endif
                                         @if($item['status'] == 0)
                                             @php
                                                 $quantity= "";
