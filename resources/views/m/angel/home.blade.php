@@ -1,364 +1,193 @@
-@extends('layouts-angel.app')
+@extends('layouts-angel-mobile.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/angel/home/index.css">
-    <link type="text/css" rel="stylesheet" href="/angel/home/custom.css">
+    <link rel="stylesheet" href="/angel_mobile/home/css/index.css" />
+    <link rel="stylesheet" src="/angel_mobile/notice/css/index.css" />
 @endsection
 
 @section('foot_attach')
-
-    <script type="text/javascript" src="/angel/_js/insomnia.js"></script>
-    <script type="text/javascript" src="/angel/diagram_chart/init.js"></script>
-    <script type="text/javascript" src="/angel/js/home.js"></script>
-    <script>
-        $(document).ready(function() {
-            $(".tab-title").click(function() {
-                var elem = $(this);
-                if (!elem.parent().hasClass("active")) {
-                    $(".tab-title").parent().removeClass("active");
-                    elem.parent().addClass("active")
-                }
-            });
-        });
-        $(".searchbar_tab div").click(function(){
-            if($(this).data('t') == 1){
-                $("#tab_sell").removeClass('d-none');
-                $("#tab_buy").addClass('d-none');
-            }
-            else{
-                $("#tab_buy").removeClass('d-none');
-                $("#tab_sell").addClass('d-none');
-            }
-        })
-    </script>
+    <script src="/angel_mobile/home/js/index.js"></script>
+    <script src="/angel_mobile/notice/js/index.js"></script>
 @endsection
 
 @section('content')
-    <style>
-        #gameChart .gameChart_title_list div {
-            border: solid 1px #3d9fff;
-            border-top: none;
-            border-right: none;
-            width: 136.4px;
-        }
-        #gameChart .gameChart_title_list .game_on {
-            background: initial !important;
-            color: black;
-            border: solid 1px #3d9fff;
-            border-bottom: none;
-        }
-        #gameChart .gameChart_title_list {
-            border: none !important;
-        }
-    </style>
-
-    <input type="hidden" name="new_except" value="">
-    <div class="react___gatsby settings_window" id="settings_window">
-        <div class="inner"> <a href="javascript:;" class="close" id="disableSettings">닫기</a>
-            <div class="title f-15">
-                즐겨찾는 서비스 <span class="f-13">최대 8개를 선택할수 잇습니다.</span>
-                <div class="r_area">
-                    <a href="javascript:;" class="btn_white2 save" id="submit_menus">저장</a>
-                    <a href="javascript:;" class="btn_white2 init" id="reset_menus">초기화</a>
-                </div>
-            </div>
-            <ul class="service_list" id="service_list">
-                <li class="arrange_menus @if(!empty($fav[1])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="1" @if(!empty($fav[1])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite mileage"></span> 내 마일리지 </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[2])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="2" @if(!empty($fav[2])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite counsel"></span> 상담내역보기 </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[3])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="3" @if(!empty($fav[3])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite sell"></span> 판매관련물품 </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[4])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="4" @if(!empty($fav[4])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite buy"></span> 구매관련물품 </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[5])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="5" @if(!empty($fav[5])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite charge"></span> 마일리지충전 </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[6])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="6" @if(!empty($fav[6])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite calc"></span> 수수료 </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[7])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="7" @if(!empty($fav[7])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite credit_rating"></span> 신용등급/수수료 </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[8])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="8" @if(!empty($fav[8])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite guide"></span> 초보자가이드 </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[9])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="9" @if(!empty($fav[9])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite faq"></span> FAQ </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[10])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="10" @if(!empty($fav[10])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite message"></span> 메시지함 </label>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-    <style>
-        .header-brand-logo {
-            width: 1308px;
-        }
-        .search-overlay-wrapper {
-            margin-left: 222px;
-        }
-        .service_wrap, .bg_opacity {
-            height:  38px;
-        }
-        .service_set>ul {
-            padding: 0px 10px 0;
-            padding-left: 40px;
-        }
-        .service_set .setting {
-            top: 12px;
-            left: 10px;
-        }
-
-        ._34Cr45d_reacts .tab>div {
-            height: 40px;
-            line-height: 40px;
-        }
-        .title, .box3 .title {
-            padding: 8px 20px 8px !important;
-        }
-    </style>
-    <div class="content_center">
-        <div class="top_full">
-            <div class="top_area">
-                <div class="carousel_module" data-code="TR0001">
-                    <div class="banner_in center_banner" id="center_banner">
-                        <div class="banner_item" data-idx="0">
-                            <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>
-                        </div>
-                        <div class="banner_item" data-idx="1">
-                            <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>                    </div>
-                        <div class="banner_item" data-idx="2">
-                            <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>                    </div>
-                        <div class="banner_item" data-idx="3">
-                            <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>                    </div>
-                    </div>
-                    <div class='banner_indicate indicate'></div>
-                </div>
-                <script>
-                    var selector = document.querySelector(".carousel_module")
-                    new Carousel(selector, {
-                        "showNavi": false,
-                        "showIndicate": true,
-                        "delay": 3000,
-                        "random": true
-                    });
-                </script>
-                <div class="service_wrap">
-                    <div class="service_set">
-                        <a href="javascript:;" id="enableSettings"><i class="fa fa-cog setting f-18 text-white"></i></a>
-                        <ul>
-                            @foreach($list as $v)
-                                <a href="{{getmyService()[$v['id']]['href']}}" target="_self">
-                                    <li>
-                                        <img style="margin-top:10px" src="{{getmyService()[$v['id']]['img']}}" height="{{getmyService()[$v['id']]['height']}}" width="17">
-                                        <div class="f-16">{{getmyService()[$v['id']]['alias']}}</div>
-                                    </li>
-                                </a>
-                            @endforeach
-                        </ul>
-                    </div>
-                    <div class="bg_opacity"></div>
-                </div>
-            </div>
-        </div>
-        <div class="sec_left realtime_status">
-            <div class="_34Cr45d_reacts">
-                <div class="tab searchbar_tab">
-                    <div class="active" data-t="1">
-                        <a class="f-18 tab-title" href="javascript:void(0);" >실시간 팝니다 목록</a>
-                    </div>
-                    <div data-t="2">
-                        <a class="f-18 tab-title" href="javascript:void(0);" >실시간 삽니다 목록</a>
+    <div class="g_BODY" id="g_BODY">
+        @include('m.angel.aside.nav', ['user' => $user])
+        <div class="container">
+            <div class="main_container">
+                @php
+                    $isLogined = '';
+                    if (Auth::check()) {
+                        $isLogined = 1;
+                    }
+                @endphp
+                <input id="_LOGINCHECK" type="hidden" value="{{$isLogined}}">
+                <input id="main_login_check" type="hidden" value="1">
+                <div class="main_hamburger_wrapper">
+{{--                    <a id="alarm_noti" class="btn_side main_alarm" href="/myroom/goods_alarm/alarm_sell_list.html"> <span class="new"></span> </a>--}}
+                    <a href="javascript:;" class="btn_side main_hamburger" id="btn_menu"></a>
+                    <div class="sns_list">
+{{--                        <a href="" class="facebook">페이스북</a>--}}
+{{--                        <a href="" class="instagram">인스타그램</a>--}}
+{{--                        <a href="" class="youtube">유튜브</a>--}}
                     </div>
                 </div>
-                <div class="tab_content">
-                    <div class="tab_child show">
-                        <table class="f-14 no-border">
-                            <tr>
-                                <td class="realtime_list align-center no-border" >종류</td>
-                                <td class="realtime_game align-center no-border" >게임명/서버명</td>
-                                <td class="realtime_desc align-center no-border" >멘트</td>
-                                <td class="realtime_money align-left no-border" >거래가격</td>
-                            </tr>
-                        </table>
-                        <hr>
-                        <div class="realtime_sell_wrapper" id="tab_sell">
-                            <table class="realtime_sell_table f-14 no-border">
-                                <tbody>
-                                @if(!empty($sells))
-                                    @foreach($sells as $v)
-                                        @php
-                                            $price_alias = "";
-                                            $price = $v['user_price'];
-                                            $game_unit = !empty($v['game_unit']) && $v['game_unit'] !=1 ? $v['game_unit'] : '';
-                                            if(!empty($price)){
-                                                if($v['user_quantity'] > 1 || !empty($v['game_unit']))
-                                                    $price_alias = $v['user_quantity'].$v['game_unit'].'개당 '.number_format($price).'원';
-                                                else
-                                                    $price_alias = number_format($price).'원';
-                                            }
-                                            else{
-                                                $price_alias = $v['user_division_unit'].$v['game_unit'].'개당 '.number_format($v['user_division_price']).'원';
-                                            }
-                                        @endphp
-                                        <tr>
-                                            <td class="realtime_list align-center no-border" >{{$v['good_type']}}</td>
-                                            <td class="realtime_game no-border" >{{$v['game']['game']}} > {{$v['server']['game']}}</td>
-                                            <td class="realtime_desc no-border text-center" >{{$v['user_title']}}</td>
-                                            <td class="realtime_money  no-border align-left" >{{$price_alias}}</td>
-                                        </tr>
-                                    @endforeach
-                                @endif
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="realtime_sell_wrapper d-none" id="tab_buy">
-                            <table class="realtime_sell_table f-14 no-border">
-                                <tbody>
-                                @if(!empty($buys))
-                                    @foreach($buys as $v)
-                                        @php
-                                            $price_alias = "";
-                                            $price = $v['user_price'];
-                                            $game_unit = !empty($v['game_unit']) && $v['game_unit'] !=1 ? $v['game_unit'] : '';
-                                            if(!empty($price)){
-                                                if($v['user_quantity'] > 1 || !empty($v['game_unit']))
-                                                    $price_alias = $v['user_quantity'].$v['game_unit'].'개당 '.number_format($price).'원';
-                                                else
-                                                    $price_alias = number_format($price).'원';
-                                            }
-                                            else{
-                                                $price_alias = $v['user_division_unit'].$v['game_unit'].'개당 '.number_format($v['user_division_price']).'원';
-                                            }
-                                        @endphp
-                                        <tr>
-                                            <td class="realtime_list align-center no-border" >{{$v['good_type']}}</td>
-                                            <td class="realtime_game no-border" >{{$v['game']['game']}} > {{$v['server']['game']}}</td>
-                                            <td class="realtime_desc no-border text-center" >{{$v['user_title']}}</td>
-                                            <td class="realtime_money  no-border align-left" >{{$price_alias}}</td>
-                                        </tr>
-                                    @endforeach
-                                @endif
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="tab_child" data-content="tab_mygame">
-                        <ul class="mysearch_filters"></ul>
+                <div id="main_logo_wrapper"> <a href=""><h2 id="main_logo"></h2></a> </div>
+                <div id="main_search_wrapper">
+                    <div class="srh_inp_wrap" data-hash="searchSell">
+                        <input type="search" class="g_text srh_inp" name="srh_game" placeholder="게임명 또는 서버명을 검색해주세요." readonly>
+                        <button class="btn_srh"></button>
                     </div>
                 </div>
-            </div>
-            <div class="angel__menugames d-none" data-gslist="true"></div>
-        </div>
-        <div class="sec_right">
-            <div class="box3 gamenews">
-                <div class="title f-18 f-normal"> 공지사항 </div>
-                <ul class="g_list news_list f-14">
-                    @foreach($notices as $v)
+                <div class="srh_inp_wrap_scroll" data-hash="searchSell">
+                    <input type="search" class="g_text srh_inp" name="srh_game" placeholder="게임명 또는 서버명을 검색해주세요." readonly>
+                    <button class="btn_srh"></button>
+                </div>
+                <div id="bookmark_list_wrapper">
+                    <ul id="bookmark_list">
+                        @php
+                            $arrUrl = array('#regSell', '#regBuy', '#', '#', route('mileage_payment_charge'), route('mileage_payment_exchange'), route('myroom'), '#');
+                            $arrImgClass = array('regSell', 'regBuy', 'selling', 'buying', 'charge', 'myroom', 'giftmall', 'message');
+                            $arrBtnText = array('판매등록', '구매등록', '판매중', '구매중', '충전', '출금', '마이룸', '상품권사기', '메시지함');
+                        @endphp
+                        @for ($i = 0; $i < 8; $i++)
+                            @if(!empty($fav[$i]))
+                                <li>
+                                    <a href="{{$arrUrl[$i]}}">
+                                        <span class="bookmark_icon {{$arrImgClass[$i]}}"></span>
+                                        <span class="bookmark_title">{{$arrBtnText[$i]}}</span>
+                                    </a>
+                                </li>
+                            @endif
+                        @endfor
                         <li>
-                            <a href="/news/view?seq={{$v['id']}}">
-                                {{$v['title']}}<span class="comp">{{date("Y-m-d H:i:s",strtotime($v['created_at']))}}</span>
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-        <div class="empty-high"></div>
-
-        <div class="sec_left no-border">
-            <div class="title">게임별 시세정보
-            </div>
-            <div id="gameChart" class="border-normal"></div>
-        </div>
-        <div class="sec_right no-border">
-            <div class="title"> 게임순위 </div>
-            <div class="border-normal d-flex">
-                <ul class="rank_list">
-                    @for($i  = 0; $i< 5; $i++)
-                        @if(empty($game_list[$i]))
-                            @php
-                                continue;
-                            @endphp
-                        @endif
-                        <li @if($i < 3)class="top"@endif> <span class="num">{{$game_list[$i]['id']}}</span>
-                            <span class="game_name">{{$game_list[$i]['game']}}</span>
-                            <span class="ranks_orders {{$game_list[$i]['type']}}"></span>
-                        </li>
-                    @endfor
-                </ul>
-                <ul class="rank_list">
-                    @for($i  = 5; $i< 10; $i++)
-                        @if(empty($game_list[$i]))
-                            @php
-                                continue;
-                            @endphp
-                        @endif
-                        <li @if($i < 3)class="top"@endif> <span class="num">{{$game_list[$i]['id']}}</span>
-                            <span class="game_name">{{$game_list[$i]['game']}}</span> <span class="ranks_orders {{$game_list[$i]['type']}}"></span>
-                        </li>
-                    @endfor
-                </ul>
-            </div>
-        </div>
-        <div class="empty-high"></div>
-
-        <div class="d-flex w-100">
-            <div class="w-50 sec_left no-border back-normal " style="margin-right: 10px;height: 188px">
-                <div class="title no-border">
-                    전화 상담안내
-                </div>
-                <div class="d-flex w-100 inquery_part">
-                    <img src="/assets/img/icons/inquery_time.png" height="91" width="97" />
-                    <div class="bottom_info">
-                        <span class="call_num">1532-9945</span>
-                        <span class="call_txt">365일 24시간 연중무휴</span>
-                    </div>
-                </div>
-            </div>
-            <div class="w-50 no-border sec_right" style="    overflow: hidden;
-    box-sizing: border-box;
-    height: 196px;
-    margin-bottom: 10px;
-    border: 1px solid #DEE3EB;
-    background-color: #FFF;
-    float: right;
-">
-                <div class="title">
-                    마일리지 충전
-                </div>
-                <div class="charge_wrap fixed-height" id="bacnked_list_3e9RT">
-                    <ul class="bacnked_list_3e9RT">
-                        <li>
-                            <a href="{{route('my_mileage_index_c')}}">
-                                <span class="c_name">계좌입금</span>
-                                <span class="bank_account_emoticon account"></span>
+                            <a href="{{route('favorite')}}">
+                                <span class="bookmark_icon bookmark_add"></span>
                             </a>
                         </li>
                     </ul>
                 </div>
+                <div class="notice clear_fix"> <span class="noti_icon"></span>
+                    <div class="notice_ct"> <a href="{{route('m_notice')}}">[안내] 패턴인증 서비스 안내</a> </div>
+                    <a href="{{route('m_notice')}}" class="sp_b btn_mr">+</a>
+                </div>
+                <div id="power_zone_part">
+                    <div id="power_zone" style="">
+                        <h4 id="power_list_title">인기물품
+                            <span class="power_list_title_blue">목록</span>
+                        </h4>
+                        <div id="power_list_wrapper">
+                            <div id="power_list" class="clear_fix">
+                                <div class="power_goods_wrapper">
+                                    <a href="#">
+                                        <dl class="power_goods" data-id="2021121608196688"> <dt class="power_goods_title">디아블로2:레저렉션</dt>
+                                            <dd class="power_goods_money">1개당 1,000원</dd>
+                                            <dd class="power_goods_id">노말</dd>
+                                        </dl> <span class="power_goods_title_badge"></span> </a>
+                                </div>
+                                <div class="power_goods_wrapper">
+                                    <a href="#">
+                                        <dl class="power_goods" data-id="2021121605876216"> <dt class="power_goods_title">디아블로2:레저렉션</dt>
+                                            <dd class="power_goods_money">1개당 1,000원</dd>
+                                            <dd class="power_goods_id">기타</dd>
+                                        </dl> <span class="power_goods_title_badge"></span> </a>
+                                </div>
+                                <div class="power_goods_wrapper">
+                                    <a href="#">
+                                        <dl class="power_goods" data-id="2021121608548399"> <dt class="power_goods_title">로스트아크</dt>
+                                            <dd class="power_goods_money">1만당 9,400원</dd>
+                                            <dd class="power_goods_id">루페온</dd>
+                                        </dl> <span class="power_goods_title_badge"></span> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner_module">
+                    <div class="banner_content_wrapper">
+                        <div class="banner_content">
+                            <a href="" target=""> <img class="banner_content_images" src="/angel_mobile/img/banner/slide1.jpg" alt="캐릭터 물품등록 알리미 이벤트 시즌 5" title="캐릭터 물품등록 알리미 이벤트 시즌 5"> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer_bottom_1"></div>
+                <div class="banner_module">
+                    <div class="banner_content_wrapper">
+                        <div class="banner_content">
+                            <a href="" target=""> <img class="banner_content_images" src="/angel_mobile/img/banner/slide1.jpg" alt="로또팟" title="로또팟"> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer_bottom_1"></div>
+                <div class="banner_module">
+                    <div class="banner_content_wrapper">
+                        <div class="banner_content">
+                            <a href="" target=""> <img class="banner_content_images" src="/angel_mobile/img/banner/slide1.jpg" alt="애드팝콘" title="애드팝콘"> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer_bottom_1"></div>
             </div>
         </div>
-        <div class="empty-high"></div>
+        @include('m.angel.aside.footer')
     </div>
-
-
-
+    <div class="g_search_frame g_hidden bkg-white" id="g_search_frame">
+        <form name="g_search_form" id="g_search_form" method="POST">
+            <input type="hidden" name="search_game" value="827">
+            <input type="hidden" name="search_game_text" value="">
+            <input type="hidden" name="search_server" value="5803">
+            <input type="hidden" name="search_server_text" value="">
+            <input type="hidden" name="search_goods" value="">
+            <input type="hidden" name="character_view" value="">
+            <div class="initial_screen" id="initial_screen">
+                <div class="searchbar_tab" id="gs_tab">
+                    <div class="active"> <a href="javascript:;" data-target="tab_lastsearch">최근 검색 게임</a> </div>
+                    <div> <a href="javascript:;" data-target="tab_mygame">나만의 게임</a> </div>
+                </div>
+                <div class="tab_content">
+                    <div class="tab_child show" data-content="tab_lastsearch">
+                        <ul class="last_search"></ul>
+                    </div>
+                    <div class="tab_child" data-content="tab_mygame">
+                        <ul class="g_my_search"></ul>
+                    </div>
+                </div>
+                <div class="popular_game" data-popular="true">
+                    <div class="g_title">인기게임</div>
+                    <ul class="popular_list">
+                        <li data-pgame="4763"> 리니지W </li>
+                        <li data-pgame="4714"> 디아블로2:레저렉션 </li>
+                        <li data-pgame="4696"> 오딘:발할라라이징 </li>
+                        <li data-pgame="2696"> 로스트아크 </li>
+                        <li data-pgame="138"> 메이플스토리 </li>
+                        <li data-pgame="4322"> 바람의나라:연 </li>
+                        <li data-pgame="546"> 아이온 </li>
+                        <li data-pgame="281"> 던전앤파이터 </li>
+                        <li data-pgame="3449"> 리니지M </li>
+                        <li data-pgame="4326"> 리니지2M </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="game_wrap" class="gs_wrap">
+                <div class="header-part" style="">
+                    <h4 class="page_title">즐겨찾는 서비스</h4>
+                    <a href="javascript:history.back()" class="back_btn" id="back_btn"></a>
+                </div>
+                <div class="gs_search">
+                    <select class="search_type" name="search_type">
+                        <option value="sell" selected>팝니다</option>
+                        <option value="buy">삽니다</option>
+                    </select>
+                    <input type="search" name="searchGameServer" id="searchGameServer" placeholder="게임 또는 서버 검색" autocomplete="off" class="search_gs_name">
+                    <span class="btn_srh" id="srhButton">검색</span>
+                </div>
+                <div class="gs_list g_hidden" id="g_gameServerList" data-gslist="true"></div>
+            </div>
+        </form>
+    </div>
+    <div class="g_layer" id="g_layer">
+        <div class="l_container">
+            <div class="l_content" id="l_content"> </div>
+        </div>
+    </div>
 @endsection

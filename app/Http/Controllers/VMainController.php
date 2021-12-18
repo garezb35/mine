@@ -34,11 +34,13 @@ class VMainController extends BaseController
      */
     public function index()
     {
+        $isLogined = 0;
         if(!$this->isLogged){
             $userId = "";
         }
         else{
             $userId = $this->user->id;
+            $isLogined = 1;
         }
         $sells = MItem::with(['game','server'])->where('type','sell')->where('userId',"!=",$userId)->whereNull('toId')->where('status',0)->limit(10)->get();
         $buys = MItem::with(['game','server'])->where('type','buy')->where('userId',"!=",$userId)->whereNull('toId')->where('status',0)->limit(10)->get();
@@ -49,7 +51,7 @@ class VMainController extends BaseController
         foreach($list as $v){
             $params[$v['id']] = 1;
         }
-        return view('angel.home',['sells'=>$sells,'buys'=>$buys,'notices'=>$notices,'game_list'=>$game_list,'fav'=>$params,'list'=>$list]);
+        return view('angel.home',['sells'=>$sells,'buys'=>$buys,'notices'=>$notices,'game_list'=>$game_list,'fav'=>$params,'list'=>$list, 'isLogin'=>$isLogined, 'user'=>$this->user]);
     }
     public function giftcard()
     {
@@ -121,5 +123,18 @@ class VMainController extends BaseController
             return view('aside.box-block');
         }
         return view('aside.box-chatting');
+    }
+
+    /**
+     * for mobile favorite buttons
+     */
+    public function favorite()
+    {
+        return view('angel.favorite');
+    }
+
+    public function notice()
+    {
+        return view('angel.notice', array("user"=>$this->user));
     }
 }

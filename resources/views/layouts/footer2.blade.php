@@ -11,6 +11,11 @@
     .moduler_footer {
         margin-top: 0px;
     }
+    @media only screen and (max-width: 800px) {
+        #footerads {
+            display: none;
+        }
+    }
 </style>
 <div class="moduler_footer" id="footerads">
     <div class="siteFooter">

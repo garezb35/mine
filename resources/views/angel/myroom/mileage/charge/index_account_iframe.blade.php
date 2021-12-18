@@ -180,7 +180,7 @@
                             api_token: a_token
                         },
                         success: function(response) {
-                            if (response == "success") {
+                            if (response.status == "success") {
                                 alert("조작이 성공햇습니다.");
                                 window.parent.location = "{{route('my_mileage_detail_list')}}";
                             }

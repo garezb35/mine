@@ -1390,7 +1390,7 @@ class VMyRoomController extends BaseController
             'status' => 0
         ]);
 
-        echo "success";
+        echo json_encode(array('status'=>"success"));
     }
     /**
      * 마이룸 > 마일리지 > 마일리지 출금
@@ -1422,10 +1422,11 @@ class VMyRoomController extends BaseController
             ]);
 
             User::where("id", $this->user->id)->update(['mileage'=> DB::raw('mileage - '.$price)]);
-            echo "success";
+            echo json_encode(array('status'=>"success"));
             return;
         }
-        echo "fail";
+        json_encode(array('status'=>"fail"));
+        return;
     }
 
 

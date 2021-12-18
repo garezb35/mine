@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
 Route::middleware('auth:api')->group(function(){
 
     Route::prefix('admin')->group(function(){
@@ -61,6 +59,7 @@ Route::middleware('auth:api')->group(function(){
     Route::get('/_xml/serverlist', [\App\Http\Controllers\VAjaxController::class, 'serverlist']);
     Route::get('/angel/_xslt/serverlist.xsl',[\App\Http\Controllers\VAjaxController::class, 'serverlist_xsl']);
 
+    Route::get('/m_angle/bookmark',[\App\Http\Controllers\VAjaxController::class, 'bookmark']);
 
     Route::prefix('admin')->group(function () {
         Route::post('/graphOrdersByYear', [\App\Http\Controllers\AdminController::class, 'graphOrdersByYear']);
