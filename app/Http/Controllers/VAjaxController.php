@@ -876,4 +876,9 @@ class VAjaxController extends BaseController
                             GROUP BY `month`,`day`,`m_item`.`server_code` ");
         }
     }
+
+    public function bookmark()
+    {
+
+    }
 }

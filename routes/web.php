@@ -266,6 +266,13 @@ Route::middleware('auth')->group(function () {
     Route::get('cash_receipt_confirm',[\App\Http\Controllers\ManiaController::class, 'cash_receipt_confirm'])->name('cash_receipt_confirm');
     Route::get('cash_receipt_confirm2',[\App\Http\Controllers\ManiaController::class, 'cash_receipt_confirm2'])->name('cash_receipt_confirm2');
     Route::get('search_update_form',[\App\Http\Controllers\ManiaController::class, 'search_update_form'])->name('search_update_form');
+
+    /**
+     * By Jong
+     */
+    Route::get('/favorite', [\App\Http\Controllers\VMainController::class, 'favorite'])->name('favorite');
+    Route::get('/notice', [\App\Http\Controllers\VMainController::class, 'notice'])->name('m_notice');
+
 });
 
 Route::prefix('game_info')->group(function() {
