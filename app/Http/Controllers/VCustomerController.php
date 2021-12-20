@@ -310,8 +310,11 @@ class VCustomerController extends BaseController
                 ->update(['is_read' => 1]);
 
             $data['askDetail'] = MAsk::where('askid', $request->seq)
-                ->first()->toArray();
+                ->first();
 
+            if (empty($data['askDetail'])) {
+                return redirect(route('myqna_list'));
+            }
             return view('angel.customer.myqna.view', $data);
         }
         else {

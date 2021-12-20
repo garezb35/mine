@@ -1370,10 +1370,11 @@ class VMyRoomController extends BaseController
      */
     public function mileage_payment_charge()
     {
-        $bankInfo = MUserbank::where('id', $this->user->id)->first()->toArray();
+        $bankInfo = MUserbank::where('id', $this->user->id)->first();
         $pageData['userDetail'] = $this->user;
         $pageData['bankDetail'] = $bankInfo;
         $pageData['snzProc'] = "충전";
+
         return view('angel.myroom.mileage.charge.index_account_iframe', $pageData);
     }
     /**
@@ -1398,10 +1399,11 @@ class VMyRoomController extends BaseController
     public function mileage_payment_exchange()
     {
         $pageData['userDetail'] = $this->user;
-        $bankInfo = MUserbank::where('id', $this->user->id)->first()->toArray();
+        $bankInfo = MUserbank::where('id', $this->user->id)->first();
         $pageData['userDetail'] = $this->user;
         $pageData['bankDetail'] = $bankInfo;
         $pageData['snzProc'] = "출금";
+
         return view('angel.myroom.mileage.charge.index_account_iframe', $pageData);
     }
     /**

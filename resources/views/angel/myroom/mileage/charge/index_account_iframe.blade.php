@@ -58,9 +58,9 @@
                 <div id="charge_main">
                     <div class="f-16 f-bold part-border" style="padding: 10px 25px; ">
                         <span>계좌번호:</span>
-                        <span style="padding-left: 30px;">{{$bankDetail['accAlias']}}</span>
-                        <span class="c-light-red f-18">{{$bankDetail['accNumber']}}</span>
-                        <span>{{$bankDetail['accName']}}</span>
+                        <span style="padding-left: 30px;">{{$bankDetail['accAlias'] ?? ''}}</span>
+                        <span class="c-light-red f-18">{{$bankDetail['accNumber'] ?? ''}}</span>
+                        <span>{{$bankDetail['accName'] ?? ''}}</span>
                     </div>
                     <form id="ini" name="ini" action="" method="post">
                         <input type="hidden" name="commission" id="commission" value="0" />

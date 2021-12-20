@@ -1811,25 +1811,27 @@ input[type=submit] {
 .cert_state {
     display: inline-block;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 4px;
     width: 18%;
     min-width: 58px;
-    height: 25px;
+    height: 26px;
     margin-bottom: 7px;
     border: 1px solid #d1d2d4;
     background-color: #FFF;
     font-size: 13px;
-    line-height: 21px;
+    line-height: 25px;
     color: #757575;
     text-align: center;
 }
 
 .cert_state.on {
-    border: 2px solid #ff4e00;
-    background-color: #FFF;
+    /*border: 2px solid #ff4e00;*/
+    background-color: #4dad4d;
     vertical-align: top;
-    color: #ff4e00;
+    /*color: #ff4e00;*/
+    color: white;
     font-weight: bold;
+    border: none;
 }
 
 .certify_info>.credit_wrap {
@@ -2445,6 +2447,14 @@ button.swiper-pagination-bullet {
 
 .fs-16 {
     font-size: 16px;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.d-flex {
+    display: flex;
 }
 
 @-webkit-keyframes swiper-preloader-spin {

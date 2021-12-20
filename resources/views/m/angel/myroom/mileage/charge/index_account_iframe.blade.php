@@ -113,7 +113,7 @@
             <input id="_LOGINCHECK" type="hidden" value="{{$isLogined}}">
             <div class="align-right f-bold fs-16" style="margin-bottom: 14px;">내 마일리지 <span style="color: #ff2323;">{{number_format($userDetail['mileage'])}}</span> 원</div>
             <div class="mileage-part">
-                <div class="payment-info">계좌번호: {{$bankDetail['accAlias']}} <b>{{$bankDetail['accNumber']}}</b> {{$bankDetail['accName']}}</div>
+                <div class="payment-info">계좌번호: {{$bankDetail['accAlias'] ?? ''}} <b>{{$bankDetail['accNumber'] ?? ''}}</b> {{$bankDetail['accName'] ?? ''}}</div>
                 <div class="align-center fs-16" style="padding: 0 12px; margin-bottom: 20px;">{{$snzProc}}금액 선택</div>
                 <form action="#" method="post" >
                     <ul class="pay-mny-option">

@@ -1781,7 +1781,6 @@ function fnSearchHashCheck(g) {
 }
 
 function login(a) {
-    debugger;
     var b = encodeURIComponent(document.URL);
     if (a == "1") {
         alert("로그인 후 이용하실 수 있습니다.")
