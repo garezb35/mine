@@ -179,6 +179,7 @@
                             price: $("#price").val(),
                             api_token: a_token
                         },
+                        dataType:'json',
                         success: function(response) {
                             if (response.status == "success") {
                                 alert("조작이 성공햇습니다.");
