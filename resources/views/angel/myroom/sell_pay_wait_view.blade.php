@@ -114,7 +114,8 @@
                         <p>구매자가 구매신청 후
                             <br/>입금을 준비하고 있습니다.
                             <br/>입금완료 후, 판매중 상태가
-                            <br/>되면 거래를 시작해주세요.</p> <i class="has-sprite arr_mini"></i> </div>
+                            <br/>되면 거래를 시작해주세요.</p> <i class="has-sprite arr_mini"></i>
+                    </div>
                     <div class="guide_set @if(($status == 1) || (!str_contains($status, '3')  && $status != 10 && $status !=32 && $status !=23 && $status != 0)) {{'active'}}@endif"> <span class="has-sprite sell_ing_icon"></span> <span class="state">판매중</span>
                         <p>현재 구매자와 거래중입니다.
                             <br/>구매자와 반드시 전화통화로

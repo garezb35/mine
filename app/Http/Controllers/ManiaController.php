@@ -2229,24 +2229,12 @@ class ManiaController extends BaseController
                 echo '<script>alert("거래즉시취소는 판매자만 가능합니다.");window.history.go(-1);</script>';
                 return;
             }
-//            if(empty($sell_price)){
-//                echo '<script>alert("잘못된 접근입니다.");window.history.go(-1);</script>';
-//                return;
-//            }
+
             if($item['payitem']['status'] == 1){
                 MPremium::where('post_id',$item['id'])->delete();
                 MBargainRequest::where('orderNo',$item['id'])->delete();
 
                 User::where('id',$buy_id)->update(['mileage'=> DB::raw('mileage+'.$item['payitem']['price'])]);
-//                User::where('id',$sell_id)->update(['mileage'=> DB::raw('mileage-'.$item['payitem']['price'])]);
-////                MPayhistory::insert([
-//                    'orderNo'=>$request->id,
-//                    'pay_type'=>20,
-//                    'price'=>$item['payitem']['price'],
-//                    'status'=>1,
-//                    'userId'=>$sell_id,
-//                    'minus'=>1
-//                ]);
                 MPayhistory::insert([
                     'orderNo'=>$request->id,
                     'pay_type'=>21,
@@ -2254,6 +2242,7 @@ class ManiaController extends BaseController
                     'status'=>1,
                     'userId'=>$buy_id
                 ]);
+                MPayitem::where('id',$item['payitem']['id'])->delete();
             }
             MItem::where('orderNo',$request->id)->update(["status"=>-1]);
             MCancelReason::insert([

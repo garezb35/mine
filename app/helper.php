@@ -239,4 +239,18 @@ function getMileageType($type){
 
     return $type_alias;
 }
+
+function requestTypes($param){
+    $r = "";
+    if($param == "login")
+        $r = "로그인";
+    if($param == "other")
+        $r = "기타문의";
+    if($param == "other")
+        $r = "charge";
+    if($param == "faulty")
+        $r = "비거래 물품 신고";
+    if($param == "exchange")
+        $r = "출금문의";
+}
 ?>

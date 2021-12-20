@@ -90,7 +90,6 @@
                                     <th scope="col" class="sort" data-sort="status">판매자</th>
                                     <th scope="col" class="sort" data-sort="status">구매자</th>
                                     <th scope="col" class="sort" data-sort="status">등록일</th>
-                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -128,7 +127,7 @@
                                     if($o_v['status'] == 3){
                                         $order_state = "인계 완료";
                                     }
-                                    if($o_v['status'] == 23 || $o_v['state'] == 32){
+                                    if($o_v['status'] == 23 || $o_v['status'] == 32){
                                         $order_state = "거래 완료";
                                     }
                                     if($o_v['status'] == -1){
@@ -176,17 +175,6 @@
                                     </td>
                                     <td>
                                         {{date("Y-m-d H:i:s",strtotime($o_v['created_at']))}}
-                                    </td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item order-item" href="javascript:void(0)" data-id="{{$o_v['id']}}" data-type="cancel">거래취소</a>
-                                                <a class="dropdown-item order-item" href="javascript:void(0)" data-id="{{$o_v['id']}}" data-type="end">거래종료</a>
-                                            </div>
-                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

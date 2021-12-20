@@ -104,15 +104,16 @@
                 <tr>
                     <th>내용</th>
                     <td colspan="3">
-                        @if ($askDetail['content'] == "") {{$askDetail['subject']}}
-                        @else {{$askDetail['content']}} @endif
+                        @if (empty($askDetail['content']) && empty($askDetail['reason'])) {{$askDetail['subject']}}@endif
+                        @if(!empty($askDetail['reason'])){{$askDetail['reason']}}@endif
+                        @if(!empty($askDetail['content'])) {{$askDetail['content']}} @endif
                     </td>
                 </tr>
             </table>
 
 
             <div class="s_subtitle">문의한 내용 답변보기</div>
-            @if ($askDetail['response'] != '')
+            @if (!empty($askDetail['response']))
                 <table class="g_gray_tb g_sky_table">
                     <colgroup>
                         <col width="120" />
@@ -128,7 +129,7 @@
                     <tr>
                         <th>답변내용</th>
                         <td colspan="3">
-                            {{$askDetail['response']}}
+                            {!! $askDetail['response'] !!}
                         </td>
                     </tr>
                 </table>

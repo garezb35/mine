@@ -19,6 +19,10 @@ Route::middleware('auth:api')->group(function(){
     Route::prefix('admin')->group(function(){
         Route::post('servers',[\App\Http\Controllers\AdminController::class, 'getServers']);
         Route::post('order_control',[\App\Http\Controllers\AdminController::class, 'order_control']);
+        Route::post('controlOrder',[\App\Http\Controllers\AdminController::class, 'controlOrder']);
+        Route::post('deleteOrderRequest',[\App\Http\Controllers\AdminController::class,'deleteOrderRequest'])->name('deleteOrderRequest');
+        Route::post('deleteNotice',[\App\Http\Controllers\AdminController::class,'deleteNotice'])->name('deleteNotice');
+        Route::post('insertPin',[\App\Http\Controllers\AdminController::class,'insertPin'])->name('insertPin');
     });
 
     Route::get('/user', function (Request $request) {

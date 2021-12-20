@@ -15,4 +15,8 @@ class MAsk extends Model
     public function  user(){
         return $this->hasOne(User::class,'id','create_id');
     }
+
+    public function item(){
+        return $this->hasOne(MItem::class,'orderNo','order_no');
+    }
 }

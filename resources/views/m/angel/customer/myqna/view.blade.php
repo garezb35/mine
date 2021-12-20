@@ -128,7 +128,7 @@
                     <tr>
                         <th>답변내용</th>
                         <td colspan="3">
-                            {{$askDetail['response']}}
+                            {!! $askDetail['response'] !!}
                         </td>
                     </tr>
                 </table>

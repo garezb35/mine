@@ -131,12 +131,12 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ active_class( ["admin/order_list"]) }}" href="#orders-lists" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="mileage-lists">
+                    <a class="nav-link {{ active_class( ["admin/order_list","admin/order_list_request"]) }}" href="#orders-lists" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="mileage-lists">
                         <i class="ni ni-tv-2" style="color: #f4645f;"></i>
                         <span class="nav-link-text">{{ __('물품관리') }}</span>
                     </a>
 
-                    <div class="collapse {{ active_class( ["admin/order_list"], 'show') }}" id="orders-lists">
+                    <div class="collapse {{ active_class( ["admin/order_list","admin/order_list_request"], 'show') }}" id="orders-lists">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link {{ active_class( ["admin/order_list"]) }}" href="{{route("order_list")}}">
@@ -144,7 +144,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/">
+                                <a class="nav-link {{ active_class( ["admin/order_list_request"]) }}" href="{{route("order_list_request")}}">
                                     {{ __('주문 종료/취소 요청') }}
                                 </a>
                             </li>
@@ -153,46 +153,58 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Icons') }}
+                    <a class="nav-link {{ active_class( ["admin/use_relative","admin/new_gaming","admin/publish_msg"]) }}" href="#customer-lists" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="mileage-lists">
+                        <i class="ni ni-tv-2" style="color: #f4645f;"></i>
+                        <span class="nav-link-text">{{ __('고객센터관리') }}</span>
                     </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="/">
-                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Maps') }}
-                    </a>
+
+                    <div class="collapse {{ active_class( ["admin/use_relative","admin/new_gaming","admin/publish_msg"], 'show') }}" id="customer-lists">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link {{ active_class( ["admin/use_relative"]) }}" href="{{route("use_relative")}}">
+                                    {{ __('이용관련') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ active_class( ["admin/new_gaming"]) }}" href="{{route("new_gaming")}}">
+                                    {{ __('신규게임/서버 추가') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ active_class( ["admin/publish_msg"]) }}" href="{{route("publish_msg")}}">
+                                    {{ __('공지사항관리') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">
-                      <i class="ni ni-bullet-list-67 text-default"></i>
-                      <span class="nav-link-text">Tables</span>
+                    <a class="nav-link {{ active_class( ["admin/shoppingmal","admin/editShop"]) }}" href="#mall-lists" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="mileage-lists">
+                        <i class="ni ni-tv-2" style="color: #f4645f;"></i>
+                        <span class="nav-link-text">{{ __('상품권샵') }}</span>
+                    </a>
+
+                    <div class="collapse {{ active_class( ["admin/shoppingmal","admin/editShop","admin/shoppingmal_list"], 'show') }}" id="mall-lists">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link {{ active_class( ["admin/shoppingmal"]) }}" href="{{route("shoppingmal")}}">
+                                    {{ __('상품권샵') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ active_class( ["admin/shoppingmal_list"]) }}" href="{{route("shoppingmal_list")}}">
+                                    {{ __('구매목록') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ active_class( ["admin/game_management"]) }}" href="{{route("game_management")}}">
+                        <i class="ni ni-planet text-blue"></i> {{ __('게임관리') }}
                     </a>
                 </li>
-
-
             </ul>
-{{--            --}}
-{{--            <hr class="my-3">--}}
-{{--            --}}
-{{--            <h6 class="navbar-heading text-muted">Documentation</h6>--}}
-{{--            --}}
-{{--            <ul class="navbar-nav mb-md-3">--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/getting-started/overview.html">--}}
-{{--                        <i class="ni ni-spaceship"></i> Getting started--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/foundation/colors.html">--}}
-{{--                        <i class="ni ni-palette"></i> Foundation--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/components/alerts.html">--}}
-{{--                        <i class="ni ni-ui-04"></i> Components--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--            </ul>--}}
         </div>
     </div>
 </nav>
