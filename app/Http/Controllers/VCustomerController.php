@@ -33,9 +33,7 @@ class VCustomerController extends BaseController
         return view('angel.customer.index', $data);
     }
 
-    /**
-     * 1:1 문의하기 > 취소 요청
-     */
+
     public function report(Request $request)
     {
         if ($request->privates != "") {
