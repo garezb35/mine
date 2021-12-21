@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MAdminNotice;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -71,7 +72,6 @@ class VCustomerController extends BaseController
         // To get selling items
         $data['sellingRecord'] = MItem::with(['game','server','payitem'])
             ->whereHas('payitem',function($query) {
-                $query->where('id','>',0);
                 if(!empty($request->search_price_min))
                     $query->where('price','>=',$request->search_price_min);
                 if(!empty($request->search_price_max))
@@ -116,25 +116,6 @@ class VCustomerController extends BaseController
      */
     public function report_end(Request $request)
     {
-        if ($request->privates != "") {
-            $snzReason = $request->privates;
-            if ($request->privates == '기타 사유') {
-                $snzReason = $request->privates_txt;
-            }
-            MAsk::insert([
-                'type' => 'complete',
-                'subject' => '거래 종료 요청합니다.',
-                'reason' => $snzReason,
-                'order_no' => $request->orderNo,
-                'phone' => $request->user_phone1.'-'.$request->user_phone2.'-'.$request->user_phone3,
-                'response' => '',
-                'create_id' => $this->user->id
-            ]);
-
-            MItem::where('orderNo', $request->orderNo)
-                ->update(['accept_flag' => 1]);
-        }
-
         $param1 = 'sell';
         $param2 = 'buy';
         if ($request->type == "buy") {
@@ -221,17 +202,7 @@ class VCustomerController extends BaseController
                 break;
         }
 
-        if ($request->subject != "") {
-            MAsk::insert([
-                'type' => $faqType,
-                'subject' => $request->subject,
-                'order_no' => $request->trade_num,
-                'content' => $request->ask_content,
-                'phone' => sprintf("%s-%s-%s", $request->user_phone1, $request->user_phone2, $request->user_phone3),
-                'create_id' => $this->user->id
-            ]);
-            return redirect(route('customer_report_complete'));
-        }
+
 
         $data['user'] = $this->user;
         $data['faqType'] = $faqType;
@@ -250,36 +221,6 @@ class VCustomerController extends BaseController
      */
     public function newgame(Request $request)
     {
-        if ($request->new_type != "") {
-            $snzSubject = $request->subject;
-            $snzContent = '';
-            switch ($request->new_type) {
-                case 'g':
-                    $snzContent .= '[신규게임]'.PHP_EOL.PHP_EOL;
-                    $snzContent .= '게임명 : '.$request->game_name.PHP_EOL.PHP_EOL;
-                    $snzContent .= 'URL : '.$request->game_url.PHP_EOL;
-                    break;
-                case 's':
-                    $snzContent .= '[신규서버]'.PHP_EOL.PHP_EOL;
-                    $snzContent .= '게임명 : '.$request->game_text.PHP_EOL.PHP_EOL;
-                    $snzContent .= '서버명 : '.$request->server_name.PHP_EOL;
-                    break;
-                case 'e':
-                    $snzContent .= '[기타]'.PHP_EOL.PHP_EOL;
-                    $snzContent .= '제목 : '.$request->gs_subject.PHP_EOL.PHP_EOL;
-                    $snzContent .= '내용 : '.$request->gs_content.PHP_EOL;
-                    break;
-            }
-
-            MAsk::insert([
-                'type' => 'newgame',
-                'subject' => $snzSubject,
-                'content' => $snzContent,
-                'create_id' => $this->user->id
-            ]);
-            return redirect(route('customer_report_complete'));
-        }
-
         return view('angel.customer.newgame');
     }
 
@@ -320,4 +261,131 @@ class VCustomerController extends BaseController
         }
     }
 
+    public function processReportEnd(Request $request){
+
+        if ($request->privates != "") {
+            $snzReason = $request->privates;
+            if ($request->privates == '기타 사유') {
+                $snzReason = $request->privates_txt;
+            }
+            if ($request->types_order == 'end')
+            {
+                $msg = "거래 종료 요청합니다.";
+                $msg_type =  'complete';
+            }
+            else{
+                $msg = "거래 취소 요청합니다.";
+                $msg_type =  'cancel';
+            }
+            MAsk::insert([
+                'type' => $msg_type,
+                'subject' => $msg,
+                'reason' => $snzReason,
+                'order_no' => $request->orderNo,
+                'phone' => $request->user_phone1.'-'.$request->user_phone2.'-'.$request->user_phone3,
+                'response' => '',
+                'create_id' => $this->user->id
+            ]);
+
+            MItem::where('orderNo', $request->orderNo)
+                ->update(['accept_flag' => 1]);
+            $re = 0;
+            if($msg_type == 'complete' && $request->types == 'sell'){
+                $re = 6;
+            }
+            if($msg_type == 'complete' && $request->types == 'buy'){
+                $re = 4;
+            }
+
+            if($msg_type == 'cancel' && $request->types == 'sell'){
+                $re = 5;
+            }
+            if($msg_type == 'cancel' && $request->types == 'buy'){
+                $re = 3;
+            }
+            MAdminNotice::insert([
+                'userId'=>$this->user->id,
+                'type'=>$re,
+                'orderNo'=>$request->orderNo
+            ]);
+            return response()->json(array('status'=>1,'data'=>array('type'=>$re,'orderNo'=>$request->orderNo,'userName'=>$this->user->name)));
+        }
+    }
+
+    public function frm_game(Request $request){
+        $snzSubject = $request->subject;
+        $snzContent = '';
+        switch ($request->new_type) {
+            case 'g':
+                $snzContent .= '[신규게임]'.PHP_EOL.PHP_EOL;
+                $snzContent .= '게임명 : '.$request->game_name.PHP_EOL.PHP_EOL;
+                $snzContent .= 'URL : '.$request->game_url.PHP_EOL;
+                break;
+            case 's':
+                $snzContent .= '[신규서버]'.PHP_EOL.PHP_EOL;
+                $snzContent .= '게임명 : '.$request->game_text.PHP_EOL.PHP_EOL;
+                $snzContent .= '서버명 : '.$request->server_name.PHP_EOL;
+                break;
+            case 'e':
+                $snzContent .= '[기타]'.PHP_EOL.PHP_EOL;
+                $snzContent .= '제목 : '.$request->gs_subject.PHP_EOL.PHP_EOL;
+                $snzContent .= '내용 : '.$request->gs_content.PHP_EOL;
+                break;
+        }
+
+        MAsk::insert([
+            'type' => 'newgame',
+            'subject' => $snzSubject,
+            'content' => $snzContent,
+            'create_id' => $this->user->id
+        ]);
+        MAdminNotice::insert([
+            'type'=>7,
+            'userId'=>$this->user->id,
+            'content'=>$snzContent
+        ]);
+        return response()->json(array("status"=>1,'data'=>array('type'=>7,'content'=>$snzContent,'userName'=>$this->user->name)));
+    }
+    public function processUsing(Request $request){
+        if ($request->subject != "") {
+            $faqType = "normal";
+            switch ($request->type)
+            {
+                case 'login':
+                    $faqType = 'login';
+                    break;
+                case 'charge':
+                    $faqType = 'charge';
+                    break;
+                case 'exchange':
+                    $faqType = 'exchange';
+                    break;
+                case 'other':
+                    $faqType = 'other';
+                    break;
+                case 'report':
+                    $faqType = 'report';
+                    break;
+                case 'faulty':
+                    $faqType = 'faulty';
+                    break;
+                default:
+                    break;
+            }
+            MAsk::insert([
+                'type' => $faqType,
+                'subject' => $request->subject,
+                'order_no' => $request->trade_num,
+                'content' => $request->ask_content,
+                'phone' => sprintf("%s-%s-%s", $request->user_phone1, $request->user_phone2, $request->user_phone3),
+                'create_id' => $this->user->id
+            ]);
+            MAdminNotice::insert([
+                'userId'=>$this->user->id,
+                'type'=>8,
+                'content'=>$request->ask_content
+            ]);
+            return response()->json(array('status'=>1,'data'=>array('type'=>8,'userName'=>$this->user->name,'content'=>$request->ask_content)));
+        }
+    }
 }

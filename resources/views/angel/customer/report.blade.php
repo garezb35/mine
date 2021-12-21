@@ -25,10 +25,10 @@
             });
         });
         function goCloseReqest() {
-            location.href = "{{route('customer_report')}}";
+            location.href = "{{route('customer_report')}}?type={{Request::get('type')}}";
         }
         function goEndReqest() {
-            location.href = "{{route('customer_report_end')}}";
+            location.href = "{{route('customer_report_end')}}?type={{Request::get('type')}}";
         }
     </script>
 @endsection
@@ -213,6 +213,7 @@
             <div id="Form_table" style="display: none">
                 <form name="form_member" id="form_member" method="post" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="api_token" value="{{$me['api_token']}}" />
                     <input type="hidden" name="a_code" value="A1" />
                     <input type="hidden" name="b_code" value="01" />
                     <input type="hidden" name="c_code" value="01" />
@@ -220,6 +221,8 @@
                     <input type="hidden" name="game_code" value="" />
                     <input type="hidden" name="server_code" value="" />
                     <input type="hidden" name="gs_name" value="" />
+                    <input type="hidden" name="types" value="{{Request::get('type') ?? 'sell'}}">
+                    <input type="hidden" name="types_order" value="cancel">
                     <div class="s_subtitle">상담서 작성하기</div>
                     <table id="goods_table" class="g_gray_tb g_sky_table">
                         <colgroup>
@@ -254,7 +257,7 @@
                         <tr class="m_tmp">
                             <th>거래번호</th>
                             <td class="h_auto">
-                                <input type="radio" name="privates" value="상대방과 연락이 안됩니다." class="g_radio">상대방과 연락이 안됩니다.
+                                <input type="radio" name="privates" value="상대방과 연락이 안됩니다." class="g_radio" checked>상대방과 연락이 안됩니다.
                                 <br>
                                 <input type="radio" name="privates" value="이미 팔린 물품 입니다" class="g_radio">이미 팔린 물품 입니다
                                 <br>
@@ -281,7 +284,7 @@
                         </tr>
                     </table>
                     <div class="btn-groups_angel">
-                        <button class="btn-blue-img btn-color-img" type="submit">확인</button>
+                        <a class="btn-blue-img btn-color-img submit-re-btn" onclick="orangeReport()">확인</a>
                         <button class="btn-gray-img btn-color-img" type="button">취소</button>
                     </div>
                 </form>

@@ -17580,16 +17580,14 @@ a.btn-icon-only
 }
 .main-content .navbar-top
 {
-    position: absolute;
+    position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-
     width: 100%;
     padding-right: 0 !important;
     padding-left: 0 !important;
-
-    background-color: transparent;
+    background-color: black;
 }
 @media (min-width: 768px)
 {
@@ -22122,4 +22120,23 @@ table .left>img {
 .g_green_table2 tr td {
     border-left: 1px solid;
     text-align: center;
+}
+
+.mt-100{
+    margin-top: 100px;
+}
+.itemCntBox {
+    position: absolute;
+    top: -11px;
+    left: 12px;
+    background: red;
+    background-size: 25px;
+    color: #fff;
+    z-index: 99;
+    line-height: 19px;
+    text-align: center;
+    border-radius: 50%;
+    padding: 1px;
+    min-width: 22px;
+    min-height: 22px;
 }

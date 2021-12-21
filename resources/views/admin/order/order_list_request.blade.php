@@ -1,15 +1,22 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
 
-    </div>
-    <div class="container-fluid mt--7">
+    <div class="container-fluid mt-100">
         <div class="row">
             <div class="col">
                 <div class="card">
                     <div class="card-header border-0">
                         <h3 class="mb-2">주문 종료/취소 요청</h3>
+                        <form class="form-inline" action="{{route('order_list_request')}}" method="GET" >
+                            <div class="form-group mb-2">
+                                <input type="text" name="usr_alias" value="{{Request::get("usr_alias")}}" class="form-control" placeholder="닉네임 이름 이메일">
+                            </div>
+                            <div class="form-group mb-2 mx-sm-3">
+                                <input type="text" name="orderNo" value="{{Request::get("orderNo")}}" class="form-control" placeholder="주문번호">
+                            </div>
+                            <button type="submit" class="btn btn-primary mb-2">검색</button>
+                        </form>
                     </div>
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">

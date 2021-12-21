@@ -206,7 +206,7 @@
                                 <td>
                                     <ul>
                                         <li>
-                                            <input type="radio" id="content_type" name="ask_content" value="직거래유도 (연락처 기재, 각종 게임 아이디, 메신저 아이디, 캐릭명 등)"> 직거래유도 (연락처 기재, 각종 게임 아이디, 메신저 아이디, 캐릭명 등)
+                                            <input type="radio" id="content_type" name="ask_content" checked value="직거래유도 (연락처 기재, 각종 게임 아이디, 메신저 아이디, 캐릭명 등)"> 직거래유도 (연락처 기재, 각종 게임 아이디, 메신저 아이디, 캐릭명 등)
                                         </li>
                                         <li><input type="radio" id="content_type" name="ask_content" value="불법프로그램 "> 불법프로그램</li>
                                         <li><input type="radio" id="content_type" name="ask_content" value="카테고리 위반 "> 카테고리 위반</li>
@@ -218,7 +218,7 @@
                             </tbody>
                         </table>
                         <div class="btn-groups_angel ">
-                            <button class="btn-color-img btn-blue-img " type="submit ">확인</button>
+                            <a class="btn-color-img btn-blue-img" id="ask_submit">확인</a>
                             <button class="btn-color-img btn-gray-img " type="reset">취소</button>
                         </div>
                     </form>

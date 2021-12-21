@@ -17,14 +17,23 @@
         <link type="text/css" rel="stylesheet" href="/angel/dev/change.css">
         <link type="text/css" rel="stylesheet" href="/angel/carsouel_plugin/css/carsouel.css">
         <script type="text/javascript" src="/angel/carsouel_plugin/js/carsouel_plugin.js"></script>
+        <script type="text/javascript" src="/angel/socket/socket.io.js"></script>
+        <script>
+            var server_domain = '210.112.174.178';
+            var a_token = '';
+            var socket_client = io.connect('http://'+server_domain+':7443/adminWith', {
+                path: '/socket.io',
+                reconnectionAttempts:1,
+                reconnectionDelay:500,
+                reconnectionDelayMax:500,
+                transports: ['websocket']
+            });
+        </script>
         @yield('head_attach')
-
     </head>
-
     <body>
     <script>
-        var server_domain = '210.112.174.178';
-        var a_token = '';
+
         @if(Auth::check())
         a_token = '{{Auth::user()->api_token}}';
 

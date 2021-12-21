@@ -284,7 +284,6 @@
                                             </div>
                                         </td>
                                         <td class="vt">
-                                            <script type="text/javascript" src="/angel/socket/socket.io.js"></script>
                                             <script type="text/javascript" src="/angel/socket/admin_connect.js"></script>
                                             <div id="chat_wrapper" style="display: block;margin: 0px auto;">
                                                 <input id="CHAT_TOKEN" type="hidden" value="{{$item['orderNo']}}">

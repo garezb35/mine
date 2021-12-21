@@ -2,14 +2,31 @@
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/customer/css/customer_common.css" />
-    <link type="text/css" rel="stylesheet" href="/angel/_css/_table.css?190219" />
-    <link type="text/css" rel="stylesheet" href="/angel/customer/css/report.css?210503" />
-    <link type="text/css" rel="stylesheet" href="/angel/customer/css/_report_top.css?210503" />
-    <link type="text/css" rel="stylesheet" href="/angel/customer/report/css/index.css?210503" />
+    <link type="text/css" rel="stylesheet" href="/angel/_css/_table.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/report.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/css/_report_top.css" />
+    <link type="text/css" rel="stylesheet" href="/angel/customer/report/css/index.css" />
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/angel/customer/report/js/index.js?210503"></script>
+    <script type="text/javascript" src="/angel/customer/report/js/index.js"></script>
+    <script>
+        $("#ask_submit").click(function($query){
+            $.ajax({
+                url: '/api/processUsing',
+                dataType: 'json',
+                type: 'post',
+                data: $("#customer_reports").serialize(),
+                success: function (xml) {
+                    alert('처리되었습니다.')
+                    if(xml.status == 1){
+                        socket_client.emit('admin_notice',xml.data);
+                        location.href = "/customer/myqna/list";
+                    }
+                }
+            });
+        })
+    </script>
 @endsection
 
 @section('content')
@@ -115,8 +132,9 @@
             @if ($faqType != 'normal')
                 @if ($faqType != 'faulty')
                     <div class="s_subtitle">상담서작성하기</div>
-                    <form id="customer_report" method="post" enctype="multipart/form-data">
+                    <form id="customer_reports" method="post" enctype="multipart/form-data">
                         @csrf
+                        <input type="hidden" name="api_token" value="{{$me['api_token']}}">
                         <input type="hidden" name="a_code" value="A5">
                         <input type="hidden" name="b_code" value="01">
                         <input type="hidden" name="trade_num" value="">
@@ -139,24 +157,24 @@
                                     <textarea name="ask_content" id="content" placeholder="※ 상담내용을 입력해 주세요." required></textarea>
                                 </td>
                             </tr>
-                            <tr>
-                                <th>첨부파일</th>
-                                <td>
-                                    <div class="screenshot_wrap">
-                                        <div class="screen_guide"> 용량 300KB이하 jpg만 가능(최대 3개) </div>
-                                        <div class="g_screenshot">
-                                            <input type="text" class="angel__text" readonly="">
-                                            <div class="tmp_file"><span class="tmp_btn">찾아보기</span>
-                                                <input type="file" name="user_screen[]">
-                                            </div>
-                                            <div class="ad_btn">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="empty-high"></div>
-                                    <div class="screenshot_sub">* 첨부파일 용량이 초과될 경우  고객센터로 문의바랍니다.</div>
-                                </td>
-                            </tr>
+{{--                            <tr>--}}
+{{--                                <th>첨부파일</th>--}}
+{{--                                <td>--}}
+{{--                                    <div class="screenshot_wrap">--}}
+{{--                                        <div class="screen_guide"> 용량 300KB이하 jpg만 가능(최대 3개) </div>--}}
+{{--                                        <div class="g_screenshot">--}}
+{{--                                            <input type="text" class="angel__text" readonly="">--}}
+{{--                                            <div class="tmp_file"><span class="tmp_btn">찾아보기</span>--}}
+{{--                                                <input type="file" name="user_screen[]">--}}
+{{--                                            </div>--}}
+{{--                                            <div class="ad_btn">--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="empty-high"></div>--}}
+{{--                                    <div class="screenshot_sub">* 첨부파일 용량이 초과될 경우  고객센터로 문의바랍니다.</div>--}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
                             <tr>
                                 <th>통화가능한 번호</th>
                                 <td>
@@ -168,13 +186,14 @@
                             </tbody>
                         </table>
                         <div class="btn-groups_angel">
-                            <button class="btn-color-img btn-blue-img" type="submit">확인</button>
+                            <a class="btn-color-img btn-blue-img" id="ask_submit">확인</a>
                             <button class="btn-color-img btn-gray-img" type="reset">취소</button>
                         </div>
                     </form>
                 @else
-                    <form id="customer_report" method="post" enctype="multipart/form-data">
+                    <form id="customer_reports" method="post" enctype="multipart/form-data">
                         @csrf
+                        <input type="hidden" name="api_token" value="{{$me['api_token']}}">
                         <input type="hidden" name="a_code" value="B1">
                         <input type="hidden" name="b_code" value="01">
                         <input type="hidden" id="strType" value="faulty">
@@ -206,7 +225,7 @@
                                 <td>
                                     <ul>
                                         <li>
-                                            <input type="radio" id="content_type" name="ask_content" value="직거래유도 (연락처 기재, 각종 게임 아이디, 메신저 아이디, 캐릭명 등)"> 직거래유도 (연락처 기재, 각종 게임 아이디, 메신저 아이디, 캐릭명 등)
+                                            <input type="radio" id="content_type" name="ask_content" checked value="직거래유도 (연락처 기재, 각종 게임 아이디, 메신저 아이디, 캐릭명 등)"> 직거래유도 (연락처 기재, 각종 게임 아이디, 메신저 아이디, 캐릭명 등)
                                         </li>
                                         <li><input type="radio" id="content_type" name="ask_content" value="불법프로그램 "> 불법프로그램</li>
                                         <li><input type="radio" id="content_type" name="ask_content" value="카테고리 위반 "> 카테고리 위반</li>
@@ -218,7 +237,7 @@
                             </tbody>
                         </table>
                         <div class="btn-groups_angel ">
-                            <button class="btn-color-img btn-blue-img " type="submit ">확인</button>
+                            <a class="btn-color-img btn-blue-img" id="ask_submit">확인</a>
                             <button class="btn-color-img btn-gray-img " type="reset">취소</button>
                         </div>
                     </form>

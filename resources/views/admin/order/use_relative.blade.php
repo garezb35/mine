@@ -1,16 +1,29 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
 
-    </div>
-    <div class="container-fluid mt--7">
+    <div class="container-fluid mt-100">
         <div class="row">
             <div class="col">
                 <div class="card">
                     <div class="card-header border-0">
                         <h3 class="mb-2">이용관련</h3>
                     </div>
+                    <form class="form-inline" action="{{route('use_relative')}}" method="GET" >
+                        @csrf
+                        <div class="form-group mx-sm-3">
+                            <input type="text" name="usr_alias" value="{{Request::get("usr_alias")}}" class="form-control" placeholder="닉네임 이름 이메일">
+                        </div>
+                        <div class="form-group mb-2 mx-sm-3">
+                            <label for="reply">회답상태</label>
+                            <select class="form-control" name="reply" id="reply">
+                                <option value="">선택하세요</option>
+                                <option value="1" {{Request::get('reply') == 1 ? 'selected' : ""}}>회답전</option>
+                                <option value="2" {{Request::get('reply') == 2 ? 'selected' : ""}}>회답후</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">검색</button>
+                    </form>
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">

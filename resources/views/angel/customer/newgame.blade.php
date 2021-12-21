@@ -9,7 +9,20 @@
 {{--    <script type="text/javascript" src="/angel/_js/_game_server_list.js"></script>--}}
     <script type="text/javascript" src="/angel/customer/newgame/js/index.js"></script>
     <script type='text/javascript'>
-
+        $("#new-game-btn").click(function(){
+            $.ajax({
+                url: '/api/frm_game',
+                dataType: 'json',
+                type: 'post',
+                data: $("#frm_game").serialize(),
+                success: function (xml) {
+                    alert('처리되었습니다.')
+                    if(xml.status == 1){
+                        socket_client.emit('admin_notice',xml.data);
+                    }
+                }
+            });
+        })
 
     </script>
 @endsection
@@ -61,6 +74,7 @@
 
             <form method="post" id="frm_game" action="">
                 @csrf
+                <input type="hidden" name="api_token" value="{{$me['api_token']}}">
                 <input type="hidden" name="a_code" value="A4" />
                 <input type="hidden" name="b_code" value="01" />
                 <input type="hidden" name="subject" value="신규게임/서버 추가요청입니다." />
@@ -100,12 +114,10 @@
                     </table>
                 </div>
                 <div class="btn-groups_angel">
-                    <button type="submit" class="btn-color-img btn-blue-img">확인</button>
+                    <a type="submit" class="btn-color-img btn-blue-img" id="new-game-btn">확인</a>
                 </div>
             </form>
-
         </div>
         <div class="empty-high"></div>
     </div>
-
 @endsection

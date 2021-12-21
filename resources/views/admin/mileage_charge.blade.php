@@ -3,10 +3,8 @@
     $title = "마일리지충환전관리";
 @endphp
 @section('content')
-    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
 
-    </div>
-    <div class="container-fluid mt--7">
+    <div class="container-fluid mt-100">
         <div class="row">
             <div class="col">
                 <div class="card">
@@ -52,7 +50,7 @@
                                 <th scope="col" class="sort" data-sort="status">신청금액</th>
                                 <th scope="col" class="sort" data-sort="status">상태</th>
                                 <th scope="col" class="sort" data-sort="created">등록일</th>
-                                <th scope="col" class="sort" data-sort="updated">갱신일</th>
+                                <th scope="col" class="sort" data-sort="updated"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -82,8 +80,13 @@
                                     <td>
                                         {{date("Y-m-d H:i",strtotime($m["createdByDtm"]))}}
                                     </td>
-                                    <td>
-                                        {{date("Y-m-d H:i",strtotime($m["updatedByDtm"]))}}
+                                    <td class="text-left">
+                                        @if($m['status'] == 0 || $m['status'] == 1)
+                                        <button class="btn btn-primary btn-sm control-re_mi" @if($m['status'] == 1) disabled @endif data-id="{{$m['id']}}" data-type="1" data-mode = "1">대기중</button>
+                                        <button class="btn btn-danger btn-sm control-re_mi" data-id="{{$m['id']}}" data-type="2" data-mode = "1">처리</button>
+                                        <button class="btn btn-info btn-sm control-re_mi" data-id="{{$m['id']}}" data-type="3" data-mode = "1">취소</button>
+                                        @endif
+                                        <button class="btn btn-cyan btn-sm control-re_mi" data-id="{{$m['id']}}" data-type="4" data-mode = "2">삭제</button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -116,6 +119,7 @@
 @endsection
 @section('footer')
 <script type="text/javascript">
+    var submit_type = 0;
     function deleteMileages(){
         $("#mode").val(2);
         $("#mileage_control").submit();
@@ -124,6 +128,19 @@
         @if (\Session::has('message'))
         alert("{{\Session::get('message')}}")
         @endif
+
+        $(".control-re_mi").click(function(){
+            submit_type = 1;
+            var id = $(this).data("id");
+            var type = $(this).data("type");
+            var mode = $(this).data("mode");
+            let mids = new Array();
+            mids.push(id);
+            $("#mids").val(mids.join());
+            $("#state").val(type);
+            $("#mode").val(mode);
+            $("#mileage_control").submit();
+        })
         $("#mileage_control").submit(function(){
             let submit_checked = true;
             let mids = new Array();
@@ -132,12 +149,14 @@
                     mids.push($(ele).val())
                 }
             })
-            if(mids.length == 0){
-                alert("자료들을 선택하세요");
-                submit_checked = false;
-                return false;
+            if(submit_type == 0){
+                if(mids.length == 0){
+                    alert("자료들을 선택하세요");
+                    submit_checked = false;
+                    return false;
+                }
+                $("#mids").val(mids.join());
             }
-            $("#mids").val(mids.join());
             if(confirm('변경하시겠습니까?')){
                 if($("#mode").val() == 1 && $("#state").val() == ""){
                     submit_checked = false;

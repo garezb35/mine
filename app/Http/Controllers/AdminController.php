@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MAdminCash;
+use App\Models\MAdminNotice;
 use App\Models\MAsk;
 use App\Models\MBargainRequest;
 use App\Models\MCancelReason;
@@ -21,6 +22,7 @@ use App\Models\MRole;
 use App\Models\MRoleGift;
 use App\Models\MUserbank;
 use App\Models\User;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -37,21 +39,7 @@ class AdminController extends BaseAdminController
         $user_list = array();
         for($i = 0; $i < 12 ; $i ++)
             $user_list[$i]= 0;
-        $cash = MAdminCash::where('id',1)->first();
-        $users_num = User::where('state','!=' ,2)->where('state','!=' ,3)->where('is_admin',0)->get()->count();
-        $products_num = MItem::whereHas('user',function($query){
-            $query->where('state','!=',2);
-            $query->where('state','!=',3);
-        })->where('status','!=',-1)->get()->count();
-        $request_num = MItem::whereHas('user')
-            ->where('accept_flag',1)
-            ->whereNotNUll('toId')
-            ->where(function($query){
-                $query->where('status',1);
-                $query->orWhere('status',2);
-                $query->orWhere('status',3);
-            })
-            ->get()->count();
+
         $request_orders = MItem::with(['payitem','user','other','game','server','ask.user'])
             ->whereHas('user')
             ->whereHas('ask')
@@ -76,10 +64,6 @@ class AdminController extends BaseAdminController
         }
         $mileage = MMileage::with('user')->where('status',0)->orderBy('createdByDtm','DESC')->limit(5)->get();
         return view('admin.dashboard',[
-            'cash'=>$cash['cash'],
-            'users_num'=>$users_num,
-            'products_num'=>$products_num,
-            'request_num'=>$request_num,
             'user_list'=>json_encode($user_list),
             'mileage'=>$mileage,
             'request_orders'=>$request_orders
@@ -197,9 +181,9 @@ class AdminController extends BaseAdminController
         }
         if(!empty($usr_alias)){
             $member = $member->where(function($query) use($usr_alias){
-                $query->orwhere('name',"LIKE","%".$usr_alias."%");
-                $query->orwhere('email',"LIKE","%".$usr_alias."%");
-                $query->orwhere('nickname',"LIKE","%".$usr_alias."%");
+                $query->where('name',"LIKE","%".$usr_alias."%");
+                $query->orWhere('email',"LIKE","%".$usr_alias."%");
+                $query->orWhere('nickname',"LIKE","%".$usr_alias."%");
             });
         }
         if(!empty($user_rate)){
@@ -244,8 +228,9 @@ class AdminController extends BaseAdminController
         if($type >= 0 ){
             $mileage = $mileage->where('type',$type);
         }
-        $mileage = $mileage->orderby('createdByDtm',"DESC")
-            ->orderby("status","ASC");
+        $mileage = $mileage
+            ->orderby("status","ASC")
+            ->orderby('createdByDtm',"DESC");
         $mileage = $mileage->paginate(15);
         return view('admin.mileage_charge',[
             "mileage"=>$mileage
@@ -263,8 +248,8 @@ class AdminController extends BaseAdminController
         $mileage1 = $mileage1->whereHas('user',function($query) use ($usr_alias){
             if(!empty($usr_alias)){
                 $query->where('name',"LIKE","%".$usr_alias."%");
-                $query->orwhere('email',"LIKE","%".$usr_alias."%");
-                $query->orwhere('nickname',"LIKE","%".$usr_alias."%");
+                $query->orWhere('email',"LIKE","%".$usr_alias."%");
+                $query->orWhere('nickname',"LIKE","%".$usr_alias."%");
             }
         })
             ->where("status",1)
@@ -294,8 +279,8 @@ class AdminController extends BaseAdminController
         $mileage2=  $mileage2->whereHas('user', function($query) use ($usr_alias){
             if(!empty($usr_alias)) {
                 $query->where('name',"LIKE","%".$usr_alias."%");
-                $query->orwhere('email',"LIKE","%".$usr_alias."%");
-                $query->orwhere('nickname',"LIKE","%".$usr_alias."%");
+                $query->orWhere('email',"LIKE","%".$usr_alias."%");
+                $query->orWhere('nickname',"LIKE","%".$usr_alias."%");
             }
         })
             ->where('status',2);
@@ -469,8 +454,8 @@ class AdminController extends BaseAdminController
         if(!empty($username)) {
             $order = $order->whereHas('user',function($query) use ($username){
                 $query->where('name',"LIKE","%".$username."%");
-                $query->where('email',"LIKE","%".$username."%");
-                $query->where('nickname',"LIKE","%".$username."%");
+                $query->orWhere('email',"LIKE","%".$username."%");
+                $query->orWhere('nickname',"LIKE","%".$username."%");
             });
         }
         if(!empty($orderNo)){
@@ -757,6 +742,8 @@ class AdminController extends BaseAdminController
     }
 
     public function order_list_request(Request $request){
+        $username = $request->usr_alias;
+        $orderNo = $request->orderNo;
         $items = MAsk::with(['item','user'])
         ->whereHas('item',function($query){
             $query->where('accept_flag',1);
@@ -764,7 +751,18 @@ class AdminController extends BaseAdminController
         ->where(function($query){
             $query->where('type','cancel');
             $query->orWhere('type','complete');
-        })
+        });
+        if(!empty($username)) {
+            $items = $items->whereHas('user',function($query) use ($username){
+                $query->where('name',"LIKE","%".$username."%");
+                $query->orWhere('email',"LIKE","%".$username."%");
+                $query->orWhere('nickname',"LIKE","%".$username."%");
+            });
+        }
+        if(!empty($orderNo)){
+            $items = $items->where('order_no','LIKE',"%".$orderNo."%");
+        }
+        $items = $items
         ->orderBy('updated_at','DESC')
         ->paginate(15);
         return view('admin.order.order_list_request',[
@@ -901,12 +899,15 @@ class AdminController extends BaseAdminController
         $game_requests = MAsk::with('user')->where('type','newgame');
         if(!empty($user_alias))
             $game_requests = $game_requests->where(function($query) use ($usr_alias){
-                $query->orwhere('name',"LIKE","%".$usr_alias."%");
-                $query->orwhere('email',"LIKE","%".$usr_alias."%");
-                $query->orwhere('nickname',"LIKE","%".$usr_alias."%");
+                $query->where('name',"LIKE","%".$usr_alias."%");
+                $query->orWhere('email',"LIKE","%".$usr_alias."%");
+                $query->orWhere('nickname',"LIKE","%".$usr_alias."%");
             });
         if($response == 1)
-            $game_requests = $game_requests->whereNull('response');
+            $game_requests = $game_requests->where(function($query){
+                $query->whereNull('response');
+                $query->orWhere('response','');
+            });
         if($response == 2)
             $game_requests = $game_requests->whereNotNull('response');
         $game_requests = $game_requests->paginate(15);
@@ -916,11 +917,34 @@ class AdminController extends BaseAdminController
     }
 
     public function use_relative(Request $request){
+        $usr_alias = $request->usr_alias;
+        $reply = $request->reply;
         $game_requests = MAsk::with('user')
             ->where('type','!=','newgame')
             ->where('type','!=','cancel')
-            ->where('type','!=','complete')
-            ->paginate(15);
+            ->where('type','!=','complete');
+
+        if(!empty($usr_alias)){
+            $game_requests = $game_requests->whereHas('user',function($query) use($usr_alias){
+                $query->where('name',"LIKE","%".$usr_alias."%");
+                $query->orWhere('email',"LIKE","%".$usr_alias."%");
+                $query->orWhere('nickname',"LIKE","%".$usr_alias."%");
+            });
+        }
+        if(!empty($reply)){
+            if($reply == 1){
+                $game_requests = $game_requests->where(function($query){
+                    $query->whereNull('response');
+                    $query->orWhere('response','');
+                });
+            }
+            else{
+                $game_requests = $game_requests->where(function($query){
+                    $query->where('response','!=','');
+                });
+            }
+        }
+        $game_requests = $game_requests->paginate(15);
         return view('admin.order.use_relative',[
             'items'=>$game_requests
         ]);
@@ -1011,7 +1035,15 @@ class AdminController extends BaseAdminController
     public function shoppingmal_list(Request $request){
         $serial_number = $request->serial_number;
         $pin = $request->pin;
+        $usr_alias = $request->usr_alias;
         $buy_lists = MMallBuy::with(['user','mall']);
+        if(!empty($usr_alias)){
+            $buy_lists = $buy_lists->whereHas('user',function($query) use($usr_alias){
+                $query->where('name',"LIKE","%".$usr_alias."%");
+                $query->orWhere('email',"LIKE","%".$usr_alias."%");
+                $query->orWhere('nickname',"LIKE","%".$usr_alias."%");
+            });
+        }
         if(empty($serial_number) || $serial_number == 1){
             $buy_lists = $buy_lists->whereNull('serial_number')->orWhere('serial_number',"");
         }
@@ -1020,6 +1052,7 @@ class AdminController extends BaseAdminController
         }
         if(!empty($pin))
             $buy_lists = $buy_lists->where('serial_number','LIKE',"%".$pin."%");
+
         $buy_lists = $buy_lists->orderBy('created_at','DESC')->paginate(15);
         return view('admin.shoppingmal_list',[
             'items'=>$buy_lists
@@ -1038,6 +1071,94 @@ class AdminController extends BaseAdminController
 //        return view('admin.game_management',[
 //            'games'=>$game s
 //        ]);
+    }
+
+    public function notice_list(Request $request){
+        $usr_alias = $request->usr_alias;
+        $isReaded = $request->isReaded;
+        $orderNo = $request->orderNo;
+        $type = $request->type;
+        $notice_list = MAdminNotice::with('user');
+        if(!empty($usr_alias))
+            $notice_list =$notice_list->whereHas('user',function($query) use ($usr_alias){
+                $query->where('name',"LIKE","%".$usr_alias."%");
+                $query->orWhere('email',"LIKE","%".$usr_alias."%");
+                $query->orWhere('nickname',"LIKE","%".$usr_alias."%");
+            });
+        if(empty($isReaded) || $isReaded == 1)
+            $notice_list = $notice_list->where('isReaded',0);
+        else if($isReaded == 2)
+            $notice_list = $notice_list->where('isReaded',1);
+        else
+            $notice_list = $notice_list->where('id','>',0);
+        if(!empty($type)){
+            if($type == 'mileage'){
+                $notice_list = $notice_list->where(function($query){
+                    $query->where('type',1);
+                    $query->orWhere('type',2);
+                });
+            }
+            if($type == 'order'){
+                $notice_list = $notice_list->where(function($query){
+                    $query->where('type',3);
+                    $query->orWhere('type',4);
+                    $query->orWhere('type',5);
+                    $query->orWhere('type',6);
+                });
+            }
+            if($type == 'mileage'){
+                $notice_list = $notice_list->where(function($query){
+                    $query->where('type',1);
+                    $query->orWhere('type',2);
+                });
+            }
+            if($type == 'new'){
+                $notice_list = $notice_list->where('type',7);
+            }
+            if($type == 'using'){
+                $notice_list = $notice_list->where('type',8);
+            }
+
+        }
+
+        if(!empty($orderNo))
+            $notice_list = $notice_list->where('orderNo','LIKE','%'.$orderNo.'%');
+        $notice_list = $notice_list->orderBy('created_at','DESC')->paginate(15);
+        return view('admin.notice_list',[
+            'items'=>$notice_list
+        ]);
+    }
+
+    public function checkNotice(Request $request){
+        $id = $request->id;
+        $notice = MAdminNotice::where('id',$id)->first();
+        if(empty($notice))
+            return response()->json(array("status"=>0));
+        else{
+            if($notice['isReaded'] == 0)
+            {
+                MAdminNotice::where('id',$id)->update(['isReaded'=>1]);
+                return response()->json(array("status"=>1,'dec'=>1));
+            }
+            else
+                return response()->json(array("status"=>1,'dec'=>0));
+        }
+    }
+
+    public function deleteNoticeAdmin(Request $request){
+        $id = $request->id;
+        $notice = MAdminNotice::where('id',$id)->first();
+        $dec = 0;
+        if(empty($notice)){
+            return response()->json(array("status"=>0));
+        }
+        else{
+            if($notice['isReaded'] == 0){
+                $dec = 1;
+            }
+            MAdminNotice::where('id',$id)->delete();
+            return response()->json(array("status"=>1,'dec'=>$dec));
+        }
     }
 }
 

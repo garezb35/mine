@@ -50,6 +50,16 @@ presult.on("connection",(client) => {
     })
 });
 
+let adminWith = io.of('/adminWith');
+
+adminWith.on('connection',(client)=>{
+    client.on('admin_notice',(data)=>{
+        adminWith.emit('admin_notice', data)
+    })
+
+})
+
+
 let public = io.of("/public");
 public.on("connection",(client) => {
 

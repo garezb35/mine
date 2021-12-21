@@ -2,17 +2,27 @@
 
 <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
     <div class="container-fluid">
-
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{route('dashboard')}}">{{ __('대쉬보드') }}</a>
-
-        <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block mr-4" href="{{route('order_list')}}">{{ __('등록물품') }} <span class="text-warning">{{number_format($products_num)}}</span>건</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block mr-4" href="{{route('mileage_charge')}}?state=0">{{ __('마일리지충환전요청') }} <span class="text-warning">{{number_format($mileage_count)}}</span>건</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block mr-4" href="{{route('order_list_request')}}">{{ __('거래취소/종료신청') }} <span class="text-warning">{{number_format($request_num)}}</span>건</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block mr-4" href="{{route('use_relative')}}">{{ __('이용관련') }} <span class="text-warning">{{$game_requests_count}}</span>건</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block mr-4" href="{{route('new_gaming')}}?response=1">{{ __('신규게임/서버 추가요청') }} <span class="text-warning">{{number_format($new_game_count)}}</span>건</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block mr-4" href="{{route('shoppingmal_list')}}">{{ __('상품권몰 구매') }} <span class="text-warning">{{number_format($buy_lists_count)}}</span>건</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block mr-4" href="javascript:;">{{ __('관리자 재고') }} <span class="text-danger">{{number_format($cash)}}</span>원</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block mr-4" href="{{route('notice_list_admin')}}">
+            <div class="position-relative">
+                <img src="/angel/img/icons/bell.png" width="23">
+                <div class="itemCntBox" id="mail-count">{{$notice_count}}</div>
+            </div>
+        </a>
+        <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto" action="{{route("order_list")}}" method="get" >
             @csrf
             <div class="form-group mb-0">
                 <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-search"></i></span>
                     </div>
-                    <input class="form-control" placeholder="주문번호 검색하기" type="text">
+                    <input class="form-control" placeholder="주문번호 검색하기" type="text" name="orderNo" value="{{Request::get("orderNo")}}">
                 </div>
             </div>
         </form>
@@ -37,21 +47,8 @@
                         <i class="ni ni-single-02"></i>
                         <span>{{ __('내 프로필') }}</span>
                     </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="ni ni-settings-gear-65"></i>
-                        <span>{{ __('설정') }}</span>
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="ni ni-calendar-grid-58"></i>
-                        <span>{{ __('로그인 내역') }}</span>
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="ni ni-support-16"></i>
-                        <span>{{ __('Support') }}</span>
-                    </a>
                     <div class="dropdown-divider"></div>
-                    <a href="/" class="dropdown-item" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
+                    <a href="{{route("adminLogout")}}" class="dropdown-item">
                         <i class="ni ni-user-run"></i>
                         <span>{{ __('로그아웃') }}</span>
                     </a>

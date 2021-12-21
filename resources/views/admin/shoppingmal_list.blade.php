@@ -1,10 +1,8 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
 
-    </div>
-    <div class="container-fluid mt--7">
+    <div class="container-fluid mt-100">
         <div class="row">
             <div class="col-8">
                 <div class="card">
@@ -14,7 +12,7 @@
                                 <h3 class="mb-2">구매목록</h3>
                                 <form class="form-inline" action="{{route('shoppingmal_list')}}" method="GET" >
                                     <div class="form-group mb-2">
-                                        <label for="serial_number">핀번호&nbsp;유무</label>
+                                        <label for="serial_number">핀번호&nbsp;유무&nbsp;</label>
                                         <select class="form-control" name="serial_number" id="serial_number">
                                             <option value="3" {{Request::get("serial_number") == 3 ? "selected" : ""}}>선택하세요</option>
                                             <option value="1" {{Request::get("serial_number") == 1 || empty(Request::get("serial_number")) ? "selected" : ""}}>핀번호 없음</option>
@@ -22,8 +20,12 @@
                                         </select>
                                     </div>
                                     <div class="form-group mb-2 mx-sm-3">
-                                        <label for="pin">핀번호</label>
-                                        <input type="text" name="pin" value="{{Request::get("pin")}}" class="form-control">
+                                        <label for="pin">핀번호&nbsp;</label>
+                                        <input type="text" name="pin" value="{{Request::get("pin")}}" class="form-control" id="pin">
+                                    </div>
+                                    <div class="form-group mb-2 mx-sm-3">
+                                        <label for="usr_alias">구매자&nbsp;</label>
+                                        <input type="text" name="usr_alias" value="{{Request::get("usr_alias")}}" class="form-control" id="usr_alias">
                                     </div>
                                     <button type="submit" class="btn btn-primary mb-2">검색</button>
                                 </form>

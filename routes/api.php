@@ -23,12 +23,16 @@ Route::middleware('auth:api')->group(function(){
         Route::post('deleteOrderRequest',[\App\Http\Controllers\AdminController::class,'deleteOrderRequest'])->name('deleteOrderRequest');
         Route::post('deleteNotice',[\App\Http\Controllers\AdminController::class,'deleteNotice'])->name('deleteNotice');
         Route::post('insertPin',[\App\Http\Controllers\AdminController::class,'insertPin'])->name('insertPin');
+        Route::post('checkNotice',[\App\Http\Controllers\AdminController::class,'checkNotice'])->name('checkNotice');
+        Route::post('deleteNoticeAdmin',[\App\Http\Controllers\AdminController::class,'deleteNoticeAdmin'])->name('deleteNoticeAdmin');
     });
 
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-
+    Route::post('processUsing',[\App\Http\Controllers\VCustomerController::class,'processUsing'])->name('processUsing');
+    Route::post('frm_game',[\App\Http\Controllers\VCustomerController::class,'frm_game'])->name('frm_game');
+    Route::post('processReportEnd',[\App\Http\Controllers\VCustomerController::class,'processReportEnd'])->name('processReportEnd');
     Route::post('/_include/_SafetyNumber_Category_Check_AJAX',[\App\Http\Controllers\ManiaController::class,'checkSafety']);
     Route::post('/_include/_get_free_use',[\App\Http\Controllers\ManiaController::class,'getFreeUse']);
     Route::post('/power/_AJAX_power_check',[\App\Http\Controllers\ManiaController::class,'getPowerCheck']);

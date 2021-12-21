@@ -80,7 +80,6 @@ Route::group(['middleware' => ['web', 'admins']], function () {
         Route::post('processOrderRequest',[\App\Http\Controllers\AdminController::class,'processOrderRequest'])->name('processOrderRequest');
         Route::get('use_relative',[\App\Http\Controllers\AdminController::class,'use_relative'])->name('use_relative');
         Route::get('new_gaming',[\App\Http\Controllers\AdminController::class,'new_gaming'])->name('new_gaming');
-        Route::get('use_relative',[\App\Http\Controllers\AdminController::class,'use_relative'])->name('use_relative');
         Route::get('publish_msg',[\App\Http\Controllers\AdminController::class,'publish_msg'])->name('publish_msg');
         Route::get('noticeOpen',[\App\Http\Controllers\AdminController::class,'noticeOpen'])->name('noticeOpen');
         Route::post('updateNotice',[\App\Http\Controllers\AdminController::class,'updateNotice'])->name('updateNotice');
@@ -89,6 +88,7 @@ Route::group(['middleware' => ['web', 'admins']], function () {
         Route::post('shopping_update',[\App\Http\Controllers\AdminController::class,'shopping_update'])->name('shopping_update');
         Route::get("shoppingmal_list",[\App\Http\Controllers\AdminController::class,'shoppingmal_list'])->name('shoppingmal_list');
         Route::get("game_management",[\App\Http\Controllers\AdminController::class,'game_management'])->name('game_management');
+        Route::get('notice_list',[\App\Http\Controllers\AdminController::class,'notice_list'])->name('notice_list_admin');
     });
 
     Route::post('/updateProfile', [\App\Http\Controllers\AdminController::class,'updateProfile'])->name('profile.update');

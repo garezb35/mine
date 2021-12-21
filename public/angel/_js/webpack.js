@@ -3266,3 +3266,24 @@ function loadGlobalItems() {
 function login() {
     var a = encodeURIComponent(document.URL);
 }
+
+
+function orangeReport(){
+    if($("#phone1").val().trim() == "" || $("#phone2").val().trim() == "" || $("#phone3").val().trim() == ""){
+        alert('연락처를 입력해주세요');
+        return false;
+    }
+    $.ajax({
+        url: '/api/processReportEnd',
+        dataType: 'json',
+        type: 'post',
+        data: $("#form_member").serialize(),
+        success: function (xml) {
+            alert('처리되었습니다.')
+            if(xml.status == 1){
+                socket_client.emit('admin_notice',xml.data);
+                location.href = "/customer/myqna/list";
+            }
+        }
+    });
+}
