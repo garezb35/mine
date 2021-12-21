@@ -99,6 +99,7 @@
                     location.href = return_url;
             };
             notice_count++;
+            $("#mail-count").text(notice_count)
         })
 
     </script>
