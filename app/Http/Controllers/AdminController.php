@@ -1187,7 +1187,8 @@ class AdminController extends BaseAdminController
 
     public function stopShops(Request $request){
         $id = $request->id;
-        MMall::where('id',$id)->update(['status'=>0]);
+        $use = $request->use;
+        MMall::where('id',$id)->update(['status'=>$use]);
         return response()->json(array("status"=>1));
     }
 }

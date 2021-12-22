@@ -38,7 +38,8 @@
                                     <td>{{date("Y-m-d H:i:s",strtotime($item['created_at']))}}</td>
                                     <td>
                                         <a href="{{route('editShop')}}?id={{$item['id']}}" class="btn btn-sm btn-primary">편집</a>
-                                        @if($item['status'] == 1) <a href="#" class="btn btn-sm btn-danger deleteRequest" data-id="{{$item['id']}}">중지</a> @endif
+                                        @if($item['status'] == 1) <a href="#" class="btn btn-sm btn-danger deleteRequest" data-id="{{$item['id']}}" data-use="0">중지</a> @endif
+                                        @if($item['status'] == 0) <a href="#" class="btn btn-sm btn-danger deleteRequest" data-id="{{$item['id']}}" data-use="1">사용</a> @endif
                                     </td>
                                 </tr>
                             @endforeach
@@ -58,14 +59,15 @@
         $(".deleteRequest").click(function(){
             if(confirm('삭제하시겠습니까?')){
                 var id = $(this).data("id");
+                var use = $(this).data("use");
                 var cur_tr = $("#tr_"+id);
                 $.ajax({
                         url: '/api/admin/stopShops',
                         dataType: 'json',
                         type: 'post',
-                        data: {id: id, api_token: a_token},
+                        data: {id: id,use:use, api_token: a_token},
                         success: function (data) {
-                            alert(data.msg);
+                            alert('변경되었습니다.')
                             if(data.status == 1){
                                 location.reload()
                             }
