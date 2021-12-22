@@ -37,7 +37,7 @@
                     <div class="col-xl-8 mb-5 mb-xl-0">
                         <div class="card shadow">
                             <div class="card-header bg-transparent">
-                                <div class="row align-items-center">거래내용
+                                <div class="row align-items-center">거래내용@if($item['status'] == -1) (거래취소) @endif
                                 </div>
                             </div>
                             <div class="card-body">
@@ -356,7 +356,7 @@
                                         </div>
                                     </div>
                                 @endif
-                                @if($item['status'] != 23 && $item['stauts'] != 32)
+                                @if($item['status'] != 23 && $item['stauts'] != 32 && $item['stauts'] != -1 && $item['stauts'] != 0)
                                 <div class="mt-4">
                                     <a href="javascript:;" class="btn btn-primary" id="end_order" onclick="controlOrder({{$item['orderNo']}},'end')">
                                         거래종료
