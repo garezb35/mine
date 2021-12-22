@@ -1,231 +1,186 @@
-@extends('layouts-angel.app')
+@extends('layouts-angel-mobile.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/angel/customer/css/customer_common.css" />
-    <link type="text/css" rel="stylesheet" href="/angel/_css/_table.css?190219" />
-    <link type="text/css" rel="stylesheet" href="/angel/customer/css/report.css?210503" />
-    <link type="text/css" rel="stylesheet" href="/angel/customer/css/_report_top.css?210503" />
-    <link type="text/css" rel="stylesheet" href="/angel/customer/report/css/index.css?210503" />
+    <link rel="stylesheet" href="/angel_mobile/customer/css/index.css">
+    <link rel="stylesheet" href="/angel_mobile/customer/css/report.css" />
+    <style>
+        #customer_report {
+            margin-bottom: 12px;
+        }
+        .content_part textarea {
+            height: 70px;
+        }
+        #user_phone1 {
+            width: 50px;
+        }
+        #user_phone2, #user_phone3 {
+            width: 90px;
+        }
+        #trade_num {
+            width: calc(100% - 20px);
+            padding: 3px 5px;
+        }
+    </style>
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/angel/customer/report/js/index.js?210503"></script>
+    <script>
+        window.addEventListener('load', function() {
+            $('.question').click(function() {
+                var _index = $('.question').index($(this));
+                $('.answer').eq(_index).slideToggle('slow');
+            });
+
+            $('#board').click(function() {
+                alert('현재 등록된 자료가 없습니다.');
+            });
+
+            $('#center_call').click(function() {
+                if(confirm('고객센터로\n전화연결을 하시겠습니까 ?')) {
+                    location.href = 'tel:15448278';
+                }
+            })
+        });
+    </script>
 @endsection
 
 @section('content')
-
-    <div class="container_fulids" id="module-teaser-fullscreen">
-        <style>
-            .aside .notice {
-                height: 24px;
-                margin-top: 20px;
-                font-weight: bold;
-                border-bottom: 1px solid #E1E1E1
-            }
-
-            .aside .notice img {
-                margin: 5px 3px 0 0
-            }
-
-            .aside .notice_list {
-                margin: 0 0 30px;
-                padding-top: 10px;
-                background: none;
-                border: 0
-            }
-
-            .aside .notice_list li {
-                margin-left: 10px;
-                margin-bottom: 3px;
-                color: #767676;
-                font-size: 12px
-            }
-
-            .aside .img_wrap {
-                box-sizing: border-box;
-                width: 214px;
-                margin-bottom: 10px;
-                padding: 10px 0;
-                text-align: center;
-                border: 1px solid #E1E1E1
-            }
-        </style>
-        @include('angel.customer.aside', ['group'=>'report', 'part'=>'guide'])
-        <div class="pagecontainer">
-
-            <div class="contextual--title no-border">1:1 상담하기</div>
-
-            <div class="empty-high"></div>
-
-            <div class="s_subtitle">상담 분류 선택</div>
-            <table class="g_sky_table category_tb" id="category_tb">
-                <colgroup>
-                    <col width="130">
-                    <col width="630">
-                </colgroup>
-                <tr>
-                    <th>문의 유형</th>
-                    <td>
-                        <ul class="g_sideway category_etc">
-                            <li>
-                                <input type="radio" name="b_code" value="01" class="g_radio" id="a50100" data-acode="A5" {{$faqType == 'login' ? 'checked' : ''}} data-type="login">
-                                <label for="a50100">로그인문의</label>
-                            </li>
-                            <li>
-                                <input type="radio" name="b_code" value="01" class="g_radio" id="a00100" data-acode="A0" {{$faqType == 'charge' ? 'checked' : ''}} data-type="charge">
-                                <label for="a00100">충전/입금문의</label>
-                            </li>
-                            <li>
-                                <input type="radio" name="b_code" value="02" class="g_radio" id="a00200" data-acode="A0" {{$faqType == 'exchange' ? 'checked' : ''}} data-type="exchange">
-                                <label for="a00200">출금문의</label>
-                            </li>
-                            <li>
-                                <input type="radio" name="b_code" value="04" class="g_radio" id="a50400" data-acode="A5" {{$faqType == 'other' ? 'checked' : ''}} data-type="other">
-                                <label for="a50400">기타문의</label>
-                            </li>
-                            <li>
-                                <input type="radio" name="b_code" value="03" class="g_radio" id="faulty" {{$faqType == 'faulty' ? 'checked' : ''}} data-type="faulty">
-                                <label for="faulty">비거래 물품 신고</label>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
-
-            <div class="empty-high"></div>
-            <div class="s_subtitle">자주하는 질문 TOP</div>
-            <div class="list_wrap" id="top_faq">
-                @foreach ($faqRecord as $rec)
-                <div class="sub_title">
-                    <span class="subject">
-                         <img class="float-left" src="/angel/img/icons/ico_q.png" width="14" height="21" alt="">[{{$rec['type']}}]
-                    </span>
-                    <span>{{$rec['title']}}</span>
-                </div>
-                <div class="gray_box">
-                    <img class="float-left" src="/angel/img/icons/ico_a.png" width="16" height="19" alt="">
-                    <div class="float-left">
-                        {!! $rec['content'] !!}
+    <div class="g_BODY" id="g_BODY" style="opacity: 1;">
+        @include('m.angel.aside.nav', ['user' => $me])
+        <div class="header">
+            <div class="h_tit bkg-white">
+                <a href="javascript:history.back()" class="back_btn" id="back_btn"></a>
+                <h1 class="c-black">이용관련문의</h1>
+                <button class="btn_menu" id="btn_menu"><em>메뉴</em></button>
+            </div>
+        </div>
+        <div class="container">
+            @php
+                $isLogined = '';
+                if (Auth::check()) {
+                    $isLogined = 1;
+                }
+            @endphp
+            <input id="_LOGINCHECK" type="hidden" value="{{$isLogined}}">
+            <div class="content">
+                <div class="g_title mg0 fs-16">상담 분류 선택</div>
+                <div class="mb_tbl_part">
+                    <div class="g_tab2">
+                        <div>
+                            <a href="{{route('customer_ask_guide')}}?type=login">로그인</a>
+                        </div>
+                        <div>
+                            <a href="{{route('customer_ask_guide')}}?type=exchange">출금</a>
+                        </div>
+                        <div>
+                            <a href="{{route('customer_ask_guide')}}?type=charge">충전/입금</a>
+                        </div>
+                        <div>
+                            <a href="{{route('customer_ask_guide')}}?type=other">기타</a>
+                        </div>
+                        <div>
+                            <a href="{{route('customer_ask_guide')}}?type=faulty" id="faulty">비거래신고</a>
+                        </div>
+                        <div></div>
                     </div>
                 </div>
-                <div class="empty-high"></div>
-                @endforeach
-            </div>
-            <div class="empty-high"></div>
-            @if ($faqType != 'normal')
-                @if ($faqType != 'faulty')
-                    <div class="s_subtitle">상담서작성하기</div>
-                    <form id="customer_report" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" name="a_code" value="A5">
-                        <input type="hidden" name="b_code" value="01">
-                        <input type="hidden" name="trade_num" value="">
-                        <input type="hidden" name="type_ask" value="" id="type_ask">
-                        <table class="g_gray_tb g_sky_table" id="report_tb" style="">
-                            <colgroup>
-                                <col width="130">
-                                <col width="630">
-                            </colgroup>
-                            <tbody>
-                            <tr class="report_tr">
-                                <th>제목</th>
-                                <td>
-                                    <input type="text" name="subject" value="" id="title" maxlength="40" class="angel__text" placeholder="※ 제목을 입력해 주세요." required>
-                                </td>
-                            </tr>
-                            <tr class="report_tr">
-                                <th>상담내용</th>
-                                <td class="h_auto">
-                                    <textarea name="ask_content" id="content" placeholder="※ 상담내용을 입력해 주세요." required></textarea>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>첨부파일</th>
-                                <td>
-                                    <div class="screenshot_wrap">
-                                        <div class="screen_guide"> 용량 300KB이하 jpg만 가능(최대 3개) </div>
-                                        <div class="g_screenshot">
-                                            <input type="text" class="angel__text" readonly="">
-                                            <div class="tmp_file"><span class="tmp_btn">찾아보기</span>
-                                                <input type="file" name="user_screen[]">
-                                            </div>
-                                            <div class="ad_btn">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="empty-high"></div>
-                                    <div class="screenshot_sub">* 첨부파일 용량이 초과될 경우  고객센터로 문의바랍니다.</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>통화가능한 번호</th>
-                                <td>
+                <div class="g_title mg0 fs-16">자주하는 질문 TOP</div>
+                <div class="faq_list">
+                    @foreach ($faqRecord as $rec)
+                        <div class="question">
+                            <span class="category">{{$rec['type']}}</span><br>
+                            <div>{{$rec['title']}}</div>
+                        </div>
+                        <div class="answer" style="display: none;">
+                            {!! $rec['content'] !!}
+                        </div>
+                    @endforeach
+                </div>
+                @if ($faqType != 'normal')
+                    @if ($faqType != 'faulty')
+                        <style>
+                            .content_part input,
+                            .content_part textarea {
+                                padding: 6px 6px;
+                                border: solid 1px #bdbdbd;
+                                width: calc(100% - 14px);
+                            }
+                        </style>
+                        <div class="g_title mg0 fs-16" style="margin-top: 6px;">상담서작성하기</div>
+                        <form id="customer_report" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="type_ask" value="" id="type_ask">
+                            <div style="border: solid 1px #d1d1d1;">
+                                <div class="head_part">제목</div>
+                                <div class="content_part">
+                                    <input type="text" name="subject" value="" id="title" maxlength="40" class="angel__text w-100" placeholder="※ 제목을 입력해 주세요." required>
+                                </div>
+                                <div class="head_part">상담내용</div>
+                                <div class="content_part">
+                                    <textarea name="ask_content" id="content" class="" placeholder="※ 상담내용을 입력해 주세요." required></textarea>
+                                </div>
+                                <div class="head_part">통화가능한 번호</div>
+                                <div class="content_part">
                                     <input type="text" placeholder="000" name="user_phone1" id="user_phone1" value="" class="angel__text" maxlength="3" required> -
                                     <input type="text" placeholder="0000" name="user_phone2" id="user_phone2" value="" class="angel__text" maxlength="4" required> -
                                     <input type="text" placeholder="0000" name="user_phone3" id="user_phone3" value="" class="angel__text" maxlength="4" required>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="btn-groups_angel">
-                            <button class="btn-color-img btn-blue-img" type="submit">확인</button>
-                            <button class="btn-color-img btn-gray-img" type="reset">취소</button>
-                        </div>
-                    </form>
-                @else
-                    <form id="customer_report" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" name="a_code" value="B1">
-                        <input type="hidden" name="b_code" value="01">
-                        <input type="hidden" id="strType" value="faulty">
-                        <input type="hidden" name="subject" value="비거래물품">
-                        <input type="hidden" name="content" id="content" value="">
-                        <input type="hidden" name="type_ask" value="" id="type_ask">
-                        <table class="g_gray_tb g_sky_table">
-                            <colgroup>
-                                <col width="130">
-                                <col width="630">
-                            </colgroup>
-                            <tbody>
-                            <tr>
-                                <th>접수분야</th>
-                                <td>비거래 물품 신고</td>
-                            </tr>
-                            <tr>
-                                <th>이름</th>
-                                <td>{{$user['name']}}</td>
-                            </tr>
-                            <tr>
-                                <th>거래번호</th>
-                                <td>#
+                                </div>
+                            </div>
+                            <div class="btn-groups_angel" style="margin: 10px 0;">
+                                <button class="btn-color-img btn-blue-img" type="submit">확인</button>
+                                <button class="btn-color-img btn-gray-img" type="reset">취소</button>
+                            </div>
+                        </form>
+                    @else
+                        <style>
+                            .content_part label {
+                                line-height: 26px;
+                            }
+                        </style>
+                        <form id="customer_report" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" id="strType" value="faulty">
+                            <input type="hidden" name="subject" value="비거래물품">
+                            <input type="hidden" name="content" id="content" value="">
+                            <input type="hidden" name="type_ask" value="" id="type_ask">
+                            <div style="border: solid 1px #d1d1d1;">
+                                <div class="head_part">접수분야</div>
+                                <div class="content_part">비거래 물품 신고</div>
+                                <div class="head_part">이름</div>
+                                <div class="content_part">{{$user['name']}}</div>
+                                <div class="head_part">거래번호</div>
+                                <div class="content_part">#
                                     <input type="text" id="trade_num" name="trade_num" class="angel__text trade_num" value="" required>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>신고사유</th>
-                                <td>
-                                    <ul>
-                                        <li>
-                                            <input type="radio" id="content_type" name="ask_content" value="직거래유도 (연락처 기재, 각종 게임 아이디, 메신저 아이디, 캐릭명 등)"> 직거래유도 (연락처 기재, 각종 게임 아이디, 메신저 아이디, 캐릭명 등)
-                                        </li>
-                                        <li><input type="radio" id="content_type" name="ask_content" value="불법프로그램 "> 불법프로그램</li>
-                                        <li><input type="radio" id="content_type" name="ask_content" value="카테고리 위반 "> 카테고리 위반</li>
-                                        <li><input type="radio" id="content_type" name="ask_content" value="거래와 관련 없는 글(욕설, 대화성글 등) "> 거래와 관련 없는 글(욕설, 대화성글 등)</li>
-                                        <li><input type="radio" id="content_type" name="ask_content" value="그 외 비거래 물품 "> 그 외 비거래 물품</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="btn-groups_angel ">
-                            <button class="btn-color-img btn-blue-img " type="submit ">확인</button>
-                            <button class="btn-color-img btn-gray-img " type="reset">취소</button>
-                        </div>
-                    </form>
+                                </div>
+                                <div class="head_part">신고사유</div>
+                                <div class="content_part">
+                                    <input id="option1" type="radio" id="content_type" name="ask_content" value="직거래유도 (연락처 기재, 각종 게임 아이디, 메신저 아이디, 캐릭명 등)">
+                                    <label for="option1" style="line-height: 22px;">직거래유도 (연락처 기재, 각종 게임 아이디, 메신저 아이디, 캐릭명 등)</label>
+                                    <br>
+                                    <input id="option2" type="radio" id="content_type" name="ask_content" value="불법프로그램 ">
+                                    <label for="option2">불법프로그램</label>
+                                    <br>
+                                    <input id="option3" type="radio" id="content_type" name="ask_content" value="카테고리 위반 ">
+                                    <label for="option3">카테고리 위반</label>
+                                    <br>
+                                    <input id="option4" type="radio" id="content_type" name="ask_content" value="거래와 관련 없는 글(욕설, 대화성글 등) ">
+                                    <label for="option4">거래와 관련 없는 글(욕설, 대화성글 등)</label>
+                                    <br>
+                                    <input id="option5" type="radio" id="content_type" name="ask_content" value="그 외 비거래 물품 ">
+                                    <label for="option5">그 외 비거래 물품</label>
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="btn-groups_angel ">
+                                <button class="btn-color-img btn-blue-img " type="submit ">확인</button>
+                                <button class="btn-color-img btn-gray-img " type="reset">취소</button>
+                            </div>
+                        </form>
+                    @endif
                 @endif
-            @endif
-        </div>
-        <div class="empty-high"></div>
-    </div>
+            </div>
 
+        </div>
+        @include('m.angel.aside.footer')
+    </div>
 @endsection

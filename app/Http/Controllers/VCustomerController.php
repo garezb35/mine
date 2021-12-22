@@ -33,6 +33,20 @@ class VCustomerController extends BaseController
         return view('angel.customer.index', $data);
     }
 
+    public function faq(Request $request)
+    {
+        $data['searchWord'] = "";
+        if (isset($request->searchWord)) {
+            $data['searchWord'] = $request->searchWord;
+            $data['faqRecord'] = MFaq::where('content', 'like', '%'.$data['searchWord'].'%')->get()->toArray();
+        }
+        else {
+            $data['faqRecord'] = MFaq::limit(6)->get()->toArray();
+        }
+
+        return view('angel.customer.faq', $data);
+    }
+
     /**
      * 1:1 문의하기 > 취소 요청
      */

@@ -1,0 +1,130 @@
+.search_bar {
+    width: 85%;
+    margin: 10px auto 0;
+    position: relative;
+}
+
+.search_bar input {
+    padding: 6px 8px;
+    border: solid 1px #b1b1b1;
+}
+
+.search_bar input:focus-visible {
+    outline: none;
+}
+
+.search_img {
+    background-image: url("../../img/icon/search.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.faq_list {
+    position: relative;
+    border: 1px solid #C6C6C6;
+    margin-top: 10px;
+}
+
+.faq_list .question {
+    padding: 10px;
+    border-bottom: 1px solid #C6C6C6;
+    font-size: 13px;
+    cursor: pointer;
+    color: #636363;
+    background: #fafffa;
+}
+
+.faq_list .question div {
+    margin-top: 5px;
+}
+
+.faq_list .question .category {
+    font-size: 12px;
+    font-weight: bold;
+    background: #347cbb;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.faq_list .answer {
+    display: none;
+    overflow: hidden;
+    padding: 8px 14px;
+    background-color: #fffff7;
+    font-size: 13px;
+    border-bottom: solid 1px #c6c6c6;
+}
+
+.custom-menu {
+    padding: 8px 10px;
+    background: #f9f9f9;
+    margin-top: 20px;
+    border: solid 1px #c7c7c7;
+}
+
+.custom-menu .g_title {
+    margin-top: 0;
+    padding: 0;
+    background: initial;
+    min-height: initial;
+    margin-bottom: 6px;
+}
+
+.snb {
+    overflow: hidden;
+    font-size: 0;
+    text-align: center;
+    margin-left: -1%;
+}
+
+.snb li {
+    width: 32%;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 36px;
+    margin: 1% 0 1% 1%;
+    border: 1px solid #bdbdbd;
+    border-radius: 3px;
+    font-size: 13px;
+    text-align: center;
+    line-height: 36px;
+    color: #444;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: white;
+}
+
+.bottom_area {
+    margin: 5px 10px 22px;
+    padding: 18px 10px;
+    border: solid 1px #c7c7c7;
+    background: #f6fdff url(../../img/icon/inquery_time.png) no-repeat 10% center/80px
+}
+
+.call_num {
+    font: initial;
+    font-size: 32px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #FC3353;
+    font-family: "맑은 고딕",Malgun Gothic,"나눔고딕",NanumGothic,"돋움",Dotum,"굴림",Gulim,Helvetica;
+}
+
+.call_txt {
+    display: block;
+    font-size: 15px;
+}
+
+.bottom_info {
+    text-align: right;
+    margin-right: 2%;
+}
