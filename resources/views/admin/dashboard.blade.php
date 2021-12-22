@@ -99,7 +99,7 @@
                                     @endphp
                                     <tr>
                                         <th scope="row">
-                                            <a href="javascript:void(0)" onclick="window.open('{{Request::root()}}/admin/view_order?id={{$ro['orderNo']}}','popUpWindow','height=600,width=800,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes')">#{{$ro['orderNo']}}</a>
+                                            <a href="javascript:void(0)" onclick="openOrder({{$ro['orderNo']}})">#{{$ro['orderNo']}}</a>
                                         </th>
                                         <td>
                                             {{$ro['ask']['user']['nickname']}}
