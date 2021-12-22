@@ -388,4 +388,19 @@ class VCustomerController extends BaseController
             return response()->json(array('status'=>1,'data'=>array('type'=>8,'userName'=>$this->user->name,'content'=>$request->ask_content)));
         }
     }
+
+    public function faq(Request $request)
+    {
+        $data['searchWord'] = "";
+        if (isset($request->searchWord)) {
+            $data['searchWord'] = $request->searchWord;
+            $data['faqRecord'] = MFaq::where('content', 'like', '%'.$data['searchWord'].'%')->get()->toArray();
+        }
+        else {
+            $data['faqRecord'] = MFaq::limit(6)->get()->toArray();
+        }
+
+        return view('angel.customer.faq', $data);
+    }
+
 }
