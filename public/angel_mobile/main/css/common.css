@@ -2445,6 +2445,14 @@ button.swiper-pagination-bullet {
     font-weight: bold;
 }
 
+.fs-14 {
+    font-size: 15px;
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+
 .fs-16 {
     font-size: 16px;
 }
@@ -2453,8 +2461,24 @@ button.swiper-pagination-bullet {
     width: 100% !important;
 }
 
+.c-green {
+    color: #009319 !important;
+}
+
 .d-flex {
     display: flex;
+}
+
+.c-white {
+    color: white;
+}
+
+.f-12 {
+    font-size: 12px;
+}
+
+#angel {
+    height: 100%;
 }
 
 @-webkit-keyframes swiper-preloader-spin {

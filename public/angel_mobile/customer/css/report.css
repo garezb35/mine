@@ -1,0 +1,128 @@
+.g_title {
+    min-height: auto;
+    margin: 0;
+    padding: 10px 0 5px;
+    border-bottom: 2px solid #444;
+    background: transparent;
+}
+
+.g_tab2 {
+    padding-top: 0px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.g_tab2 .selected {
+    background-color: #3AB7D3;
+}
+
+.mb_tbl_part {
+    overflow-x: scroll;
+}
+
+#trade_list {
+    width: 800px;
+    border: solid 1px gray;
+}
+
+#trade_list th {
+    background: #e3f0f3;
+}
+
+#trade_list th, #trade_list td {
+    border: solid 1px #d1d1d1;
+    line-height: 34px;
+    font-size: 14px;
+    padding: 0 2px;
+}
+
+.text-rock {
+    color: #ff0707;
+}
+
+.btn_red1 {
+    background: #ff3f3f;
+    color: white;
+    width: 100%;
+}
+
+.head_part {
+    background: #e3f0f3;
+    padding: 8px 10px;
+    border-bottom: solid 1px #d1d1d1;
+}
+
+.content_part {
+    background: #f9f9f9;
+    padding: 8px 10px;
+    border-bottom: solid 1px #d1d1d1;
+}
+
+.reason_part {
+    line-height: 30px;
+}
+
+.privates_txt {
+    padding: 1px 4px;
+    font-size: 14px;
+}
+
+.privates_txt:focus-visible {
+    outline: none;
+}
+
+#phone1 {
+    width: 40px;
+    text-align: center;
+    padding: 2px 4px;
+}
+
+#phone2,
+#phone3 {
+    width: 60px;
+    text-align: center;
+    padding: 2px 4px;
+}
+
+.btn-blue-img {
+    width: 49%;
+    padding: 10px;
+    background: #1c89bd;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-gray-img {
+    width: 49%;
+    padding: 10px;
+    background: gray;
+    color: white;
+    font-weight: bold;
+}
+
+#Form_table {
+    margin-bottom: 12px;
+}
+
+.g_tab2 div {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 33.3%;
+    margin: 0;
+    border: none;
+    font-size: 13px;
+    line-height: 40px;
+    border: solid 1px #c3c3c3;
+}
+
+.g_tab2 {
+    padding: 0;
+    margin: 10px 0;
+    font-size: 0;
+    color: #444;
+    border: solid 1px #c3c3c3;
+}
+
+.g_tab2 div a {
+    font-size: 14px;
+}

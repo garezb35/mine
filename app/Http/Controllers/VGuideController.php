@@ -219,6 +219,11 @@ class VGuideController extends BaseController
         return view('angel.guide.bar_trade.sell_reg');
     }
 
+    public function bar_sell()
+    {
+        return view('angel.guide.bar_trade.sell');
+    }
+
     public function bar_buyer_req()
     {
         return view('angel.guide.bar_trade.buyer_req');

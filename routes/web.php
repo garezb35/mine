@@ -127,6 +127,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('customer')->group(function () {
         Route::any('/', [\App\Http\Controllers\VCustomerController::class, 'customer'])->name('main_customer');
+        Route::get('/faq', [\App\Http\Controllers\VCustomerController::class, 'faq'])->name('customer_faq');
 
         Route::any('/report', [\App\Http\Controllers\VCustomerController::class, 'report'])->name('customer_report');
         Route::any('/report_end', [\App\Http\Controllers\VCustomerController::class, 'report_end'])->name('customer_report_end');
@@ -335,6 +336,7 @@ Route::prefix('guide')->group(function() {
 
     Route::prefix('bar_trade')->group(function() {
         Route::get('/sell_reg', [\App\Http\Controllers\VGuideController::class, 'bar_sell_reg'])->name('bar_sell_reg');
+        Route::get('/sell', [\App\Http\Controllers\VGuideController::class, 'bar_sell'])->name('bar_sell');
         Route::get('/buyer_req', [\App\Http\Controllers\VGuideController::class, 'bar_buyer_req'])->name('bar_buyer_req');
         Route::get('/seller_app', [\App\Http\Controllers\VGuideController::class, 'bar_seller_app'])->name('bar_seller_app');
         Route::get('/buyer_pay', [\App\Http\Controllers\VGuideController::class, 'bar_buyer_pay'])->name('bar_buyer_pay');
@@ -353,6 +355,8 @@ Route::prefix('guide')->group(function() {
         Route::get('/security_number', [\App\Http\Controllers\VGuideController::class, 'security_number'])->name('security_number');
         Route::get('/security_number_plus', [\App\Http\Controllers\VGuideController::class, 'security_number_plus'])->name('security_number_plus');
     });
+
+
 });
 
 Route::prefix('/portal/user')->group(function() {

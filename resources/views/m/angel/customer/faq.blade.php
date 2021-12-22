@@ -2,6 +2,17 @@
 
 @section('head_attach')
     <link rel="stylesheet" href="/angel_mobile/customer/css/index.css" />
+    <style>
+        .content {
+            padding-top: 0px;
+        }
+        .faq_list {
+            margin-top: 0px;
+        }
+        .custom-menu {
+            margin-top: 10px;
+        }
+    </style>
 @endsection
 
 @section('foot_attach')
@@ -40,7 +51,7 @@
         <div class="header">
             <div class="h_tit bkg-white">
                 <a href="javascript:history.back()" class="back_btn" id="back_btn"></a>
-                <h1 class="c-black">고객센터</h1>
+                <h1 class="c-black">FAQ</h1>
                 <button class="btn_menu" id="btn_menu"><em>메뉴</em></button>
             </div>
         </div>
@@ -52,15 +63,6 @@
                 }
             @endphp
             <input id="_LOGINCHECK" type="hidden" value="{{$isLogined}}">
-            <form name="searchForm" id="searchForm" method="post" action="{{route('main_customer')}}">
-                @csrf
-                <div class="search">
-                    <div class="search_bar">
-                        <input type="text" class="s_text w-100" name="searchWord" placeholder="검색어를 입력해 주세요." value="{{$searchWord}}" style="">
-                        <div class="search_img"></div>
-                    </div>
-                </div>
-            </form>
             <div class="content">
                 <div class="faq_list">
                     @foreach ($faqRecord as $rec)
@@ -74,40 +76,37 @@
                     @endforeach
                 </div>
                 <div class="custom-menu">
-                    <div class="g_title bd_none">고객센터 메뉴</div>
+                    <div class="g_title bd_none">추천검색어</div>
                     <ul class="snb">
                         <li>
-                            <a href="{{route('customer_faq')}}">FAQ</a>
+                            <a href="{{route('customer_faq')}}?searchWord=안전거래">안전거래</a>
                         </li>
                         <li>
-                            <a href="{{route('customer_report')}}">거래취소요청</a>
+                            <a href="{{route('customer_faq')}}?searchWord=거래취소">거래취소</a>
                         </li>
                         <li>
-                            <a href="{{route('customer_report_end')}}">거래종료요청</a>
+                            <a href="{{route('customer_faq')}}?searchWord=충전">충전</a>
                         </li>
                         <li>
-                            <a href="{{route('customer_ask_guide')}}">이용관련문의</a>
+                            <a href="{{route('customer_faq')}}?searchWord=출금">출금</a>
                         </li>
                         <li>
-                            <a href="{{route('myqna_list')}}">나의 질문과답변</a>
+                            <a href="{{route('customer_faq')}}?searchWord=정지">정지</a>
                         </li>
                         <li>
-                            <a href="{{route('customer_newgame')}}">게임/서버 추가요청</a>
+                            <a href="{{route('customer_faq')}}?searchWord=수수료">수수료</a>
                         </li>
                         <li>
-                            <a href="{{route('customer_safety')}}">안전거래</a>
+                            <a href="{{route('customer_faq')}}?searchWord=결제">결제</a>
                         </li>
-
+                        <li>
+                            <a href="{{route('customer_faq')}}?searchWord=신용등급">신용등급</a>
+                        </li>
+                        <li>
+                            <a href="{{route('customer_faq')}}?searchWord=거래방법">거래방법</a>
+                        </li>
                     </ul>
                 </div>
-            </div>
-            <div class="bottom_area">
-                <a href="javascript:;" id="center_call">
-                    <div class="bottom_info">
-                        <span class="call_num">1532-9945</span>
-                        <span class="call_txt">365일 24시간 연중무휴</span>
-                    </div>
-                </a>
             </div>
         </div>
         @include('m.angel.aside.footer')

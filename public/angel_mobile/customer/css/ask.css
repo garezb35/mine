@@ -1,0 +1,17 @@
+.g_title {
+    min-height: auto;
+    margin: 0;
+    padding: 10px 0 5px;
+    border-bottom: 2px solid #444;
+    background: transparent;
+}
+
+.tb_list .tb_head>div {
+    background-color: #e6f5fe;
+    color: #1d1d1d;
+    font-size: 14px;
+}
+
+.tb_head div:first-child {
+    width: 80px !important;
+}

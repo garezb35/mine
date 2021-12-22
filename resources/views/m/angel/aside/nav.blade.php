@@ -40,15 +40,14 @@
                 <li><a href="/myroom/"><span class="menu_icon myroom"></span><span class="menu_title">마이룸</span></a></li>
                 <li><a href="/#regSell"><span class="menu_icon regSell"></span><span class="menu_title">판매등록</span></a></li>
                 <li><a href="/#regBuy"><span class="menu_icon regBuy"></span><span class="menu_title">구매등록</span></a></li>
-                <li><a href="/myroom/mileage/charge/"><span class="menu_icon charge"></span><span class="menu_title">충전</span></a></li>
-                <li><a href="/myroom/mileage/payment/"><span class="menu_icon payment"></span><span class="menu_title">출금</span></a></li>
+                <li><a href="{{route('mileage_payment_charge')}}"><span class="menu_icon charge"></span><span class="menu_title">충전</span></a></li>
+                <li><a href="{{route('mileage_payment_exchange')}}"><span class="menu_icon payment"></span><span class="menu_title">출금</span></a></li>
                 <li><a href="/event/"><span class="menu_icon eventMenu"></span><span class="menu_title">이벤트</span></a></li>
                 <li><a href="/portal/giftcard/"><span class="menu_icon giftmall"></span><span class="menu_title">상품권사기</span></a></li>
                 <li><a href="/charge/free/index.html?type=3"><span class="menu_icon freeCharge"></span><span class="menu_title">무료충전소</span></a></li>
                 <li><a href="/game_info/money/"><span class="menu_icon moneyInfo"></span><span class="menu_title">시세정보</span></a></li>
-                <li><a href="/myroom/myinfo/myinfo_login_record_view.html"><span class="menu_icon loginLog"></span><span class="menu_title">로그인기록</span></a></li>
-                <li><a href="/guide/charge/mileage.html"><span class="menu_icon guide"></span><span class="menu_title">이용안내</span></a></li>
-                <li><a href="/customer/"><span class="menu_icon customer"></span><span class="menu_title">고객센터</span></a></li>
+                <li><a href="{{route('guide_charge')}}"><span class="menu_icon guide"></span><span class="menu_title">이용안내</span></a></li>
+                <li><a href="{{route('main_customer')}}"><span class="menu_icon customer"></span><span class="menu_title">고객센터</span></a></li>
             </ul>
         </div>
     </div>

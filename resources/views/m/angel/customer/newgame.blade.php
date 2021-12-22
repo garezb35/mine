@@ -1,111 +1,75 @@
-@extends('layouts-angel.app')
+@extends('layouts-angel-mobile.app')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/angel/customer/css/customer_common.css" />
-    <link type="text/css" rel="stylesheet" href="/angel/customer/newgame/css/index.css" />
+    <link rel="stylesheet" href="/angel_mobile/customer/css/newgame.css">
 @endsection
 
 @section('foot_attach')
-{{--    <script type="text/javascript" src="/angel/_js/_game_server_list.js"></script>--}}
-    <script type="text/javascript" src="/angel/customer/newgame/js/index.js"></script>
-    <script type='text/javascript'>
-
-
-    </script>
+    <script src="/angel_mobile/customer/js/index.js"></script>
 @endsection
 
 @section('content')
-
-    <div class="container_fulids" id="module-teaser-fullscreen">
-        <style>
-            .aside .notice {
-                height: 24px;
-                margin-top: 20px;
-                font-weight: bold;
-                border-bottom: 1px solid #E1E1E1
-            }
-
-            .aside .notice img {
-                margin: 5px 3px 0 0
-            }
-
-            .aside .notice_list {
-                margin: 0 0 30px;
-                padding-top: 10px;
-                background: none;
-                border: 0
-            }
-
-            .aside .notice_list li {
-                margin-left: 10px;
-                margin-bottom: 3px;
-                color: #767676;
-                font-size: 12px
-            }
-
-            .aside .img_wrap {
-                box-sizing: border-box;
-                width: 214px;
-                margin-bottom: 10px;
-                padding: 10px 0;
-                text-align: center;
-                border: 1px solid #E1E1E1
-            }
-        </style>
-        @include('angel.customer.aside', ['group'=>'newgame', 'part'=>''])
-        <div class="pagecontainer">
-
-            <div class="contextual--title no-border"> 신규게임/서버 추가 </div>
-
-            <div style="height: 80px;"></div>
-
-            <form method="post" id="frm_game" action="">
-                @csrf
-                <input type="hidden" name="a_code" value="A4" />
-                <input type="hidden" name="b_code" value="01" />
-                <input type="hidden" name="subject" value="신규게임/서버 추가요청입니다." />
-                <div class="gray_box">
-                    <div class="highlight_contextual_nodemon">신규게임/서버 추가</div>
-                    <table class="g_gray_tb g_sky_table">
-                        <colgroup>
-                            <col width="150" />
-                            <col width="300" /> </colgroup>
-                        <tr>
-                            <th>분류</th>
-                            <td>
-                                <label for="radio1">
-                                    <input type="radio" id="radio1" class="g_radio first_radio" name="new_type" value="g" checked="checked" />신규게임 </label>
-                                <label for="radio2">
-                                    <input type="radio" id="radio2" class="g_radio" name="new_type" value="s" />신규서버 </label>
-                                <label for="radio3">
-                                    <input type="radio" id="radio3" class="g_radio" name="new_type" value="e" />기타 </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th id="game_th">게임명</th>
-                            <td id="game_td">
-                                <input type="text" class="angel__text" name="game_name" value="게임명을 입력해 주세요." /> </td>
-                        </tr>
-                        <tr>
-                            <th id="server_th">서버명</th>
-                            <td id="server_td">
-                                <input type="text" class="angel__text" name="server_name" style="background:#E0E0E0;" disabled="disabled" /> </td>
-                        </tr>
-                        <tr id="addr_tr">
-                            <th>URL(주소)</th>
-                            <td>http://
-                                <input type="text" class="angel__text" name="game_url" value="주소를 입력해 주세요." />
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="btn-groups_angel">
-                    <button type="submit" class="btn-color-img btn-blue-img">확인</button>
-                </div>
-            </form>
-
+    <div class="g_BODY" id="g_BODY" style="opacity: 1;">
+        @include('m.angel.aside.nav', ['user' => $me])
+        <div class="header">
+            <div class="h_tit bkg-white">
+                <a href="javascript:history.back()" class="back_btn" id="back_btn"></a>
+                <h1 class="c-black">신규게임/서버 추가</h1>
+                <button class="btn_menu" id="btn_menu"><em>메뉴</em></button>
+            </div>
         </div>
-        <div class="empty-high"></div>
+        <div class="container">
+            @php
+                $isLogined = '';
+                if (Auth::check()) {
+                    $isLogined = 1;
+                }
+            @endphp
+            <input id="_LOGINCHECK" type="hidden" value="{{$isLogined}}">
+            <div class="content">
+                <!-- ▼ 신규게임/서버 추가 //-->
+                <form method="post" id="frm_game" action="">
+                    <input type="hidden" name="a_code" value="A4">
+                    <input type="hidden" name="b_code" value="01">
+                    <div class="g_title mg0">요청하실 게임/서버를 입력해주세요.</div>
+                    <ul class="tb_form">
+                        <li>
+                            <label>분류</label>
+                            <div class="new_type">
+                                <label for="radio1">
+                                    <input type="radio" id="radio1" class="g_radio first_radio" name="new_type" value="g" checked="checked">신규게임
+                                </label>
+                                <label for="radio2">
+                                    <input type="radio" id="radio2" class="g_radio" name="new_type" value="s">신규서버
+                                </label>
+                                <label for="radio3">
+                                    <input type="radio" id="radio3" class="g_radio" name="new_type" value="e">기타
+                                </label>
+                            </div>
+                        </li>
+                        <li>
+                            <label id="game_label">게임명</label>
+                            <div id="game_area"><input type="text" class="g_text" name="game_name" id="game_name" placeholder="게임명을 입력해 주세요."></div>
+                        </li>
+                        <li class="h_auto" id="search_game" style="visibility: hidden;"></li>
+                        <li>
+                            <label id="server_label">서버명</label>
+                            <div id="server_area"><input type="text" class="g_text" name="server_name" disabled="disabled"></div>
+                        </li>
+                        <li id="addr_tr" class="addr_tr" style="">
+                            <label>URL(주소)</label>
+                            <div>
+                                <span>http://</span><input type="text" class="g_text" name="game_url" placeholder="주소를 입력해 주세요.">
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="g_btn_wrap">
+                        <button class="box_bu" type="submit">확인</button>
+                    </div>
+                </form>
+                <!-- ▲ 신규게임/서버 추가 //-->
+            </div>
+        </div>
+        @include('m.angel.aside.footer')
     </div>
-
 @endsection

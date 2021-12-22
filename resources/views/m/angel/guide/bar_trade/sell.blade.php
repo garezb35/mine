@@ -26,37 +26,34 @@
             @endphp
             <input id="_LOGINCHECK" type="hidden" value="{{$isLogined}}">
             @include('m.angel.aside.guide')
-            <div class="g_title mg0">판매등록</div>
+            <div class="g_title mg0">판매하기</div>
             <div class="guide_box">
                 <ul>
                     <li>
                         <p class="fs-15">1 단계</p>
-                        판매등록 선택
+                        판매할 물품 검색 및 선택
                     </li>
                     <li>
                         <p class="fs-15">2 단계</p>
-                        판매정보입력
-                        <em>
-                            -게임/서버, 물품종류/수량<br>
-                            -판매금액, 제목, 상세설명
-                        </em>
+                        판매물품 입금확인
                     </li>
                     <li>
                         <p class="fs-15">3 단계</p>
-                        유료등록 서비스 선택
+                        구매자 정보확인<br>
+                        물품전달/인계확인
                     </li>
                     <li>
                         <p class="fs-15">4 단계</p>
-                        판매등록 완료
+                        판매종료
                     </li>
                 </ul>
             </div>
-{{--            <dl class="g_subtxt">--}}
-{{--                <dt>알아두기</dt>--}}
-{{--                <dd>- 판매 등록 시 본인정보(게임/서버/캐릭터명)를 등록 하세요.</dd>--}}
-{{--                <dd>- 등록물품의 문제가 발생할때 민/형사상 책임은 물품 등록자에게 있습니다.</dd>--}}
-{{--                <dd>- 유료 서비스를 이용할 경우 물품리스트 상단에 노출 됩니다.</dd>--}}
-{{--            </dl>--}}
+            {{--            <dl class="g_subtxt">--}}
+            {{--                <dt>알아두기</dt>--}}
+            {{--                <dd>- 판매 등록 시 본인정보(게임/서버/캐릭터명)를 등록 하세요.</dd>--}}
+            {{--                <dd>- 등록물품의 문제가 발생할때 민/형사상 책임은 물품 등록자에게 있습니다.</dd>--}}
+            {{--                <dd>- 유료 서비스를 이용할 경우 물품리스트 상단에 노출 됩니다.</dd>--}}
+            {{--            </dl>--}}
         </div>
         @include('m.angel.aside.footer')
     </div>
