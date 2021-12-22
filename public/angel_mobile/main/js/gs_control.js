@@ -1,2032 +1,2183 @@
-(function(c) {
-    function i(q, p) {
-        for (var n in p) {
-            if (String(p[n]) === "[object Object]") {
-                for (var o in p[n]) {
-                    if (q[n] === undefined) {
-                        q[n] = []
-                    }
-                    q[n][o] = p[n][o]
+(function($) {
+    function extend(obj1, obj2) {
+        for (var key in obj2) {
+            if (typeof (obj2[key]) === 'object') {
+                obj1[key] = [];
+                for (var key2 in obj2[key]) {
+                    obj1[key][key2] = obj2[key][key2];
                 }
             } else {
-                q[n] = p[n]
+                obj1[key] = obj2[key];
             }
         }
-        return q
+        return obj1;
     }
-    var m = {
+
+    var Suggest = {
         hangul: {
-            cho: ["ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"],
-            jung: ["ㅏ", "ㅐ", "ㅑ", "ㅒ", "ㅓ", "ㅔ", "ㅕ", "ㅖ", "ㅗ", "ㅘ", "ㅙ", "ㅚ", "ㅛ", "ㅜ", "ㅝ", "ㅞ", "ㅟ", "ㅠ", "ㅡ", "ㅢ", "ㅣ"],
-            jong: ["", "ㄱ", "ㄲ", "ㄳ", "ㄴ", "ㄵ", "ㄶ", "ㄷ", "ㄹ", "ㄺ", "ㄻ", "ㄼ", "ㄽ", "ㄾ", "ㄿ", "ㅀ", "ㅁ", "ㅂ", "ㅄ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"]
+            rgJaumCode: [0x3131, 0x3132, 0x3134, 0x3137, 0x3138, 0x3139, 0x3141, 0x3142, 0x3143, 0x3145, 0x3146, 0x3147, 0x3148, 0x3149, 0x314a, 0x314b, 0x314c, 0x314d, 0x314e],
+            cho: ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'],
+            jung: ['ㅏ', 'ㅐ', 'ㅑ', 'ㅒ', 'ㅓ', 'ㅔ', 'ㅕ', 'ㅖ', 'ㅗ', 'ㅘ', 'ㅙ', 'ㅚ', 'ㅛ', 'ㅜ', 'ㅝ', 'ㅞ', 'ㅟ', 'ㅠ', 'ㅡ', 'ㅢ', 'ㅣ'],
+            jong: ['', 'ㄱ', 'ㄲ', 'ㄳ', 'ㄴ', 'ㄵ', 'ㄶ', 'ㄷ', 'ㄹ', 'ㄺ', 'ㄻ', 'ㄼ', 'ㄽ', 'ㄾ', 'ㄿ', 'ㅀ', 'ㅁ', 'ㅂ', 'ㅄ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'],
+            _jung: ['ㅏ', '', '', '', 'ㅓ', 'ㅔ', '', '', 'ㅗ', '', '', '', '', 'ㅜ', '', '', '', '', 'ㅡ', 'ㅢ', 'ㅣ'],
+            _jong: ['', 'ㄱ', '', '', 'ㄴ', '', '', 'ㅁ', 'ㄹ', '', '', '', '', '', '', '', '', 'ㅂ', '', '', 'ㅆ', 'ㅇ', '', '', '', '', '', '']
         },
-        unicode: function(p) {
-            var o = [];
-            for (var n = 0; n < p.length; n++) {
-                o[n] = p.substr(n, 1).charCodeAt(0)
+        unicode: function(text) {
+            var code = [];
+            for (var i = 0; i < text.length; i++) {
+                code[i] = text.substr(i, 1).charCodeAt(0);
             }
-            return o
+            return code;
         },
-        trans: function(t) {
-            var s;
-            var n;
-            var v;
-            var w;
-            var p = t.length;
-            var u = [];
-            var o = [];
-            var q = [];
-            for (var r = 0; r < p; r++) {
-                w = t.charCodeAt(r);
-                if (w === 32) {
-                    continue
+        trans: function(text) {
+            var tmp = new Array();
+
+            if ((text >= 0xAC00 && text <= 0xD7A3)) {
+                var unicode = text - 0xAC00;
+                var jongsung = unicode % 0x1C;
+                var jungsung = ((unicode - jongsung) / 0x1C) % 0x15;
+                var chosung = parseInt(((unicode - jongsung) / 0x1C) / 0x15, 10);
+
+                tmp[0] = chosung;
+                tmp[1] = jungsung;
+
+                if (jongsung !== 0) {
+                    tmp[2] = jongsung;
                 }
-                if (w < 44032 || w > 55203) {
-                    u.push(t.charAt(r));
-                    o.push(t.charAt(r));
-                    q.push(t.charAt(r));
-                    continue
-                }
-                w = t.charCodeAt(r) - 44032;
-                v = w % 28;
-                n = (w - v) / 28 % 21;
-                s = ((w - v) / 28 - n) / 21;
-                u.push(this.hangul.cho[s], this.hangul.jung[n]);
-                q.push(String.fromCharCode(t.charCodeAt(r) - v));
-                o.push(this.hangul.cho[s]);
-                if (this.hangul.jong[v] !== "") {
-                    u.push(this.hangul.jong[v])
-                }
+            } else if (text >= 0x3131 && text <= 0x314e) {
+                tmp[0] = $.inArray(text, this.hangul.rgJaumCode);
+            } else {
+                tmp[0] = text;
             }
-            return this.checkChoSung ? o : u
+            return tmp;
         },
-        transCho: function(u) {
-            var s;
-            var n;
-            var p;
-            var o;
-            var r = u.length;
-            var t = [];
-            for (var q = 0; q < r; q++) {
-                o = u.charCodeAt(q);
-                if (o === 32) {
-                    continue
-                }
-                if (o < 44032 || o > 55203) {
-                    t.push(u.charAt(q));
-                    continue
-                }
-                o = u.charCodeAt(q) - 44032;
-                p = o % 28;
-                n = (o - p) / 28 % 21;
-                s = ((o - p) / 28 - n) / 21;
-                t.push(this.hangul.cho[s])
-            }
-            return t
-        },
-        compare: function(q, p) {
-            var t = p.length;
-            var s = this.transCho(q).join("");
-            var n = s.indexOf(this.inWordTrans.join(""));
-            if (n >= 0) {
-                for (var r = 0; r < t; r++) {
-                    var o = this.trans(p.substr(r, 1)).join("");
-                    if (this.trans(q.substr(n + r, 1)).join("").indexOf(o) === -1) {
-                        return false
-                    }
-                }
-                return n
-            }
-            return false
-        },
-        getHangulList: function(r, o, p) {
-            var y = r,
-                u = r.length,
-                s = true,
-                q = 0,
-                v = [];
-            if (r.constructor === Object) {
-                s = false;
-                y = Object.keys(r);
-                u = y.length
-            }
-            o = o.alltrim().toUpperCase();
-            this.inWordTrans = this.transCho(o);
-            for (var t = 0; t < u; t++) {
-                var x = (s === true) ? y[t] : r[y[t]];
-                var w = -1;
-                var n = this.compare(x.N.alltrim().toUpperCase(), o);
-                w = n;
-                if (n === false && x.S !== undefined && x.S.isEmpty() === false) {
-                    n = this.compare(x.S.alltrim().toUpperCase(), o)
-                }
-                if (n !== false) {
-                    v[q++] = Object.assign({}, x, {
-                        matchIndex: w,
-                        idx: t
-                    });
-                    if (p !== undefined && p !== "" && v.length >= p) {
-                        break
+        compare: function(org, tg) {
+            var orgTmp = this.unicode(org);
+            var tgTmp = this.unicode(tg);
+
+            for (var i = 0; i < orgTmp.length; i++) {
+                var inputTmp = this.trans(orgTmp[i]);
+                var listTmp = this.trans(tgTmp[i]);
+
+                for (var j = 0; j < inputTmp.length; j++) {
+                    if (inputTmp[j] !== listTmp[j]) {
+                        return false;
                     }
                 }
             }
-            return v
+            return true;
+        },
+        getHangulList: function(srhList, word) {
+            var len = srhList.length,
+                k = 0, rgResult = [],
+                strSubString;
+
+            for (var i = 0; i < len; i++) {
+                strSubString = (srhList[i].N).substring(0, word.length);
+                if (this.compare(word.toUpperCase(), strSubString.toUpperCase()) === true) {
+                    rgResult[k++] = srhList[i];
+                }
+            }
+            return rgResult;
         }
     };
-    var e = function(o) {
-        var n = o.className.split(" ");
-        var p = "g_hidden";
-        if (n.indexOf(p) === -1) {
-            o.className += " " + p
+
+    var hide = function(el) {
+        var rgClass = el.className.split(' ');
+        var strClass = 'd-none';
+        if (rgClass.indexOf(strClass) === -1) {
+            el.className += ' ' + strClass;
         }
     };
-    var l = function(n) {
-        n.className = n.className.replace(/ g_hidden/g, "")
+
+    var show = function(el) {
+        el.className = el.className.replace(/ d-none/g, '');
     };
-    var j = function(n, q) {
-        var x = {};
-        var p = {};
-        var t = {};
-        var r = {
-            server: {
-                use: true,
-                allView: false
-            },
-            tradeType: {
-                type: "select",
-                selector: '[name="search_type"]'
-            },
-            viewType: "full",
-            formElement: "#g_search_form",
-            containerWrapper: "#g_search_frame",
-            toggleContainer: "#initial_screen"
-        };
-        q = i(r, q);
-        Object.assign(this, b, q);
-        x = i(x, q.game);
-        p = i(p, q.server);
-        t = i(t, q.goods);
-        var o = this;
-        if (n === null || n.length < 1) {
-            return
+
+    var AngelGames = function(container, params) {
+        var game = {};
+        var server = {};
+        var goods = {};
+
+        game = extend(game, params.game);
+        server = extend(server, params.server);
+        goods = extend(goods, params.goods);
+
+        var m = this;
+        m.container = $(container);
+        if (m.container.length === 0) {
+            return;
         }
-        if (n.length > 1) {
-            var v = [];
-            o.container.each(function() {
-                v.push(new j(this, q))
+        if (m.container.length > 1) {
+            var gameserver = [];
+            m.container.each(function() {
+                gameserver.push(new AngelGames(this, params));
             });
-            return v
+            return gameserver;
         }
-        o.container = n;
-        if (n.length === 1) {
-            o.container = n[0]
+
+        m.container[0].gameserver = m;
+        m.container.data('gameserver', m);
+        if (typeof params.listContainer === 'object') {
+            this.listContainer = params.listContainer[0];
         }
-        o.container.gameserver = o;
-        c(o.container).data("gameserver", o);
-        o.searchState = false;
-        if (typeof(o.containerWrapper) === "string") {
-            o.containerWrapper = document.querySelector(o.containerWrapper)
+
+        var gameList = new GameList(m.container, game);
+        gameList.gameserver = this;
+        this.gameList = gameList;
+
+        if (server.use === true) {
+            var serverList = new ServerList(m.container, server);
+            serverList.gameserver = this;
+            this.serverList = serverList;
+        }
+
+        if (goods.use === true) {
+            var goodsList = new GoodsList(m.container, goods);
+            goodsList.gameserver = this;
+            this.goodsList = goodsList;
         } else {
-            if (String(o.containerWrapper).indexOf("object Object") !== -1) {
-                o.containerWrapper = o.containerWrapper[0]
-            }
+            this.serverList.listWrap.classList.add('server_t');
         }
-        if (typeof(o.toggleContainer) === "string") {
-            o.toggleContainer = document.querySelector(o.toggleContainer)
-        } else {
-            if (String(o.toggleContainer).indexOf("object Object") !== -1) {
-                o.toggleContainer = o.toggleContainer[0]
-            }
-        }
-        if (typeof(o.formElement) === "string") {
-            o.formElement = document.querySelector(o.formElement)
-        } else {
-            if (String(o.formElement).indexOf("object Object") !== -1) {
-                o.formElement = o.formElement[0]
-            }
-        }
-        if (o.formElement === null || o.formElement === undefined) {
-            o.formElement = document
-        }
-        if (o.toggleContainer !== undefined) {
-            o.createBeginComponent()
-        }
-        var w = new f(o.container, x);
-        w.gameserver = this;
-        o.gameList = w;
-        if (p.use === true) {
-            var u = new d(o.container, p);
-            u.gameserver = this;
-            o.serverList = u
-        }
-        if (t.use === true) {
-            var s = new g(o.container, t);
-            s.gameserver = this;
-            o.goodsList = s
-        } else {
-            if (o.serverList) {
-                o.serverList.listWrap.classList.add("server_t")
-            }
-        }
-        if (w.gameCode !== "") {
-            o.changeAction = true;
+
+        if (gameList.gameCode !== '') {
+            gameList.changeAction = true;
             window.setTimeout(function() {
-                w.createList.call(w);
-                o.onClose()
-            }, 10)
+                gameList.createList.call(gameList);
+            }, 10);
         }
-        return this
+
+        return this;
     };
-    var b = {
-        createBeginComponent: function() {
-            var n = document.getElementsByClassName("searchbar_tab");
-            var p = n.length;
-            if (p > 0) {
-                for (var o = 0; o < p; o++) {
-                    n[o].addEventListener("click", function(t) {
-                        var v = t.target.getAttribute("data-target");
-                        var s = this.nextElementSibling;
-                        var u = s.querySelector('[data-content="' + v + '"]');
-                        if (u !== null && u.classList.contains("show") === false) {
-                            var r = s.getElementsByClassName("show");
-                            var q = this.getElementsByClassName("active");
-                            if (v === "tab_mygame") {
-                                _myService.makeFavoriteList()
-                            }
-                            if (r[0]) {
-                                r[0].classList.remove("show")
-                            }
-                            if (q[0]) {
-                                q[0].classList.remove("active")
-                            }
-                            u.classList.add("show");
-                            if (t.target.tagName.toUpperCase() === "A") {
-                                t.target.parentElement.classList.add("active")
-                            } else {
-                                t.target.classList.add("active")
-                            }
-                        }
-                    })
+
+    AngelGames.prototype = {
+        onOpen: function(e) {
+            if (this.gameserver && this.gameserver.listContainer.mode === 'open' || this.mode === 'open') {
+                return;
+            }
+
+            if (this.gameserver && this.gameserver.listContainer) {
+                this.gameserver.listContainer.mode = 'open';
+                this.gameserver.listContainer.classList.remove('d-none');
+            } else {
+                this.mode = 'open';
+            }
+
+            show(this.listWrap);
+
+            var m = this;
+            this.tmpBlur = function(e) {
+                m.onBlur.call(m, e);
+            };
+
+            document.addEventListener('click', m.tmpBlur);
+        },
+        onClose: function(e, t) {
+            if (this.gameserver && this.gameserver.listContainer.mode === 'close' || this.mode === 'close') {
+                return;
+            }
+
+            if (this.gameserver && this.gameserver.onCustomCloseBefore) {
+                var closeCheck = this.gameserver.onCustomCloseBefore.call(this.gameserver, e);
+                if (closeCheck === false) {
+                    return;
                 }
             }
-        },
-        setTradeType: function(o) {
-            var p = this.formElement || document;
-            var n = p.querySelector(this.tradeType.selector);
-            if (n !== null) {
-                if (this.tradeType.type === "select") {
-                    n.querySelector('[value="' + o + '"]').selected = true
-                } else {
-                    p.querySelector(this.tradeType.selector + '[value="' + o + '"]').checked = true
+
+            var m = this;
+            if (this.gameserver && this.gameserver.listContainer) {
+                this.gameserver.listContainer.mode = 'close';
+                this.gameserver.listContainer.classList.add('d-none');
+            } else {
+                this.mode = 'close';
+                hide(this.listWrap);
+            }
+
+            document.removeEventListener('click', m.tmpBlur);
+
+            if (t === 'blur') {
+                if (m.blurSetTimeout) {
+                    window.clearTimeout(m.blurSetTimeout);
                 }
-            }
-        },
-        onOpen: function(p) {
-            var n = this.gameserver || this;
-            var o = this;
-            if ((n.containerWrapper && n.containerWrapper.mode === "open") || o.mode === "open") {
-                return
-            }
-            if (n.focusSetTimeout) {
-                window.clearTimeout(n.focusSetTimeout)
-            }
-            if (n.containerWrapper) {
-                n.containerWrapper.mode = "open";
-                n.containerWrapper.classList.remove("g_hidden");
-                if (n.gameList.autoComplete !== false) {
-                    n.focusSetTimeout = setTimeout(function() {
-                        n.gameList.getData();
-                        if (document.activeElement.name !== n.gameList.autoCompleteEl.name) {
-                            n.gameList.autoCompleteEl.focus()
+
+                if (this.blurAction === true) {
+                    this.blurAction = false;
+                    this.changeAction = true;
+
+                    if (this.gameserver && this.gameserver.gameList && this.gameserver.gameList.selectedData) {
+                        if (this.gameserver.serverList) {
+                            hide(this.gameserver.serverList.listWrap);
                         }
-                    });
-                    if (n.toggleContainer && n.container.className.indexOf("g_hidden") === -1 && n.gameList.autoCompleteEl.value.isEmpty() === true) {
-                        n.container.mode = "close";
-                        e(n.container);
-                        if (n.toggleContainer) {
-                            l(n.toggleContainer)
+                        if (this.gameserver.goodsList) {
+                            hide(this.gameserver.goodsList.listWrap);
                         }
+
+                        m.blurSetTimeout = setTimeout(function() {
+                            var resultList = Suggest.getHangulList(m.data, '');
+                            m.createList(resultList);
+                        }, 1);
                     }
                 }
-                if (n.toggleContainer !== undefined) {
-                    if (_myService.lastSearchHandler !== true) {
-                        _myService.makeLastSearch()
+
+                if (m.gameserver && m.gameserver.viewValue && m.gameserver.viewValue !== document.querySelector(m.gameserver.gameList.autoComplete).value) {
+                    document.querySelector(m.gameserver.gameList.autoComplete).value = m.gameserver.viewValue;
+                    document.querySelector(m.gameserver.gameList.autoComplete).classList.remove('placeholder');
+                }
+
+                if (m.gameserver.gameList.autoComplete !== false) {
+                    var me;
+                    var pos = m.gameserver.gameList.position;
+                    if (pos === 'game') {
+                        me = m.gameserver.gameList;
+                    } else if (pos === 'server') {
+                        me = m.gameserver.serverList;
+                    } else if (pos === 'goods') {
+                        me = m.gameserver.goodsList;
+                    }
+
+                    if (me && me.selectedIndex && me.list.children[me.selectedIndex]) {
+                        me.list.children[me.selectedIndex].classList.remove('focus');
+                        delete me.selectedIndex;
                     }
                 }
-            } else {
-                o.mode = "open";
-                l(o.listWrap)
-            }
-            if (n.viewType === "full") {
-                document.body.classList.add("fixed_on")
             }
         },
-        onClose: function(q) {
-            var n = this.gameserver || this;
-            var p = this;
-            if ((n.containerWrapper && n.containerWrapper.mode === "close") || p.mode === "close") {
-                return
+        onBlur: function(e) {
+            var listContainer = this.listWrap;
+            if (this.gameserver && this.gameserver.listContainer) {
+                listContainer = this.gameserver.listContainer;
             }
-            if (n.onCustomCloseBefore) {
-                var o = n.onCustomCloseBefore.call(n, q);
-                if (o === false) {
-                    return
-                }
+
+            extend(document.querySelector(this.autoComplete), _gui);
+            extend(listContainer, _gui);
+            var rgPointer = _event.pointer(e);
+            var rgBound = document.querySelector(this.autoComplete).getBound();
+            var rgBoundList = listContainer.getBound();
+            if ((rgPointer.x >= rgBound.x && rgPointer.x <= (rgBound.x + rgBound.width) && rgPointer.y >= rgBound.y && rgPointer.y <= (rgBound.y + rgBound.height)) || (rgPointer.x >= rgBoundList.x && rgPointer.x <= (rgBoundList.x + rgBoundList.width) && rgPointer.y >= rgBoundList.y && rgPointer.y <= (rgBoundList.y + rgBoundList.height))) {
+                return;
             }
-            if (n.containerWrapper) {
-                n.containerWrapper.mode = "close";
-                n.containerWrapper.classList.add("g_hidden")
-            } else {
-                p.mode = "close"
-            }
-            if (n.viewType === "full") {
-                document.body.classList.remove("fixed_on");
-                if (hashControll.hasHash(n.hashName)) {
-                    location.hash = ""
-                }
-            }
+
+            this.onClose(e, 'blur');
         },
         getValue: function() {
-            var o = {};
-            var n = (this.gameserver && this.gameserver.formElement) ? this.gameserver.formElement : document;
+            var returns = {};
             if (this.hidden_use.code) {
-                o.code = n.querySelector(this.hidden_use.code).value
+                returns.code = document.querySelector(this.hidden_use.code).value;
             }
             if (this.hidden_use.text) {
-                o.text = n.querySelector(this.hidden_use.text).value
+                returns.text = document.querySelector(this.hidden_use.text).value;
             }
-            return o
+
+            return returns;
         },
-        setValue: function(n, r) {
-            var o = this;
-            var v = (o.gameserver && o.gameserver.formElement) ? o.gameserver.formElement : document;
-            if (n !== undefined && o.hidden_use.code) {
-                v.querySelector(o.hidden_use.code).value = n
+        setValue: function(code, txt) {
+
+            var m = this;
+
+            if (code) {
+                document.querySelector(this.hidden_use.code).value = code;
             }
-            if (r !== undefined && o.hidden_use.text) {
-                v.querySelector(o.hidden_use.text).value = r
+
+            if (txt) {
+                document.querySelector(this.hidden_use.text).value = txt;
             }
-            if (n === "" && r === "") {
-                if (o.selected) {
-                    o.selected.classList.remove("sel_on");
-                    delete o.selected
+
+            if (code === '' && txt === '') {
+                if (this.selected) {
+                    this.selected.classList.remove('filter__selected');
+                    this.selected = null;
+                    this.selectedData = null;
                 }
-                if (o.selectedData) {
-                    delete o.selectedData
-                }
-                if (o.type === "game" && o.gameserver && o.gameserver.gameList && o.gameserver.gameList.autoCompleteEl) {
-                    o.searchText = "";
-                    o.gameserver.viewValue = "";
-                    o.gameserver.gameList.autoCompleteEl.value = ""
-                }
-                return
             }
-            if (o.type === "game") {
-                o.gameCode = n;
-                if (_gamedata.json === null) {
-                    o.getData(function() {
-                        o.setValue(n, r)
+
+            if (this.type === 'game' && this.data === null) {
+                this.getData(function() {
+                    m.setValue(code, txt);
+                });
+                return;
+            }
+
+            if (this.type === 'server') {
+                var gameVal = this.gameserver.gameList.getValue();
+                if (gameVal.code !== this.gameCode) {
+                    this.gameCode = gameVal.code;
+                    this.getData(function() {
+                        m.setValue(code, txt);
                     });
-                    return
-                } else {
-                    if (o.data === null) {
-                        o.data = _gamedata.json
-                    }
-                }
-            } else {
-                if (o.type === "server") {
-                    var w = "";
-                    if (o.gameserver && o.gameserver.gameList) {
-                        w = o.gameserver.gameList.getValue().code
-                    }
-                    if (w.isEmpty() === true) {
-                        o.setValue("", "");
-                        return
-                    }
-                    if (String(w) !== String(o.gameCode)) {
-                        delete o.selected;
-                        o.gameCode = w;
-                        o.getData(function() {
-                            o.setValue(n, r)
-                        });
-                        return
-                    }
-                } else {
-                    if (o.type === "goods") {
-                        var p = "";
-                        if (o.gameserver && o.gameserver.serverList) {
-                            p = o.gameserver.serverList.getValue().code
-                        }
-                        if (p.isEmpty() === true) {
-                            o.setValue("", "");
-                            return
-                        }
-                    }
+                    return;
                 }
             }
-            var t = o.data;
-            var s = t.length;
-            var u;
-            for (var q = 0; q < s; q++) {
-                if (String(t[q].C) === String(n)) {
-                    u = Object.assign({}, t[q], {
-                        idx: q
-                    });
-                    o.gameserver.blurAction = true;
-                    break
+
+            var list = this.data;
+            var len = list.length;
+            for (var i = 0; i < len; i++) {
+                if (list[i].C == code) {
+                    if (this.type === 'goods') {
+                        this.selectedData = {idx: i, code: list[i].C, name: list[i].N};
+                    }
+                    this.selectedData = {
+                        idx: i,
+                        code: list[i].C,
+                        name: list[i].N,
+                        unit: list[i].U,
+                        search: list[i].S,
+                        level: list[i].L,
+                        chr_trade: list[i].V
+                    };
+                    this.blurAction = true;
+                    break;
                 }
-            }
-            o.selectedData = u;
-            if (o.selectedData === undefined) {
-                o.setValue("", "")
             }
         }
     };
-    var f = function(o, r) {
-        if (o === null || o.length < 1) {
-            return
+
+    var GameList = function(container, params) {
+        if (container.length === 0) {
+            return;
         }
-        Object.assign(this, h, r);
-        var n = this;
-        n.type = "game";
-        n.searchText = "";
-        o.gameList = this;
-        n.listWrap = document.createElement("div");
-        n.listWrap.className = "game g_hidden";
-        n.list = document.createElement("ul");
-        o.appendChild(n.listWrap);
-        n.listWrap.appendChild(n.list);
-        n.list.innerHTML = '<li class="search_ing">검색중입니다....</li>';
-        var p = (o.gameserver && o.gameserver.formElement) ? o.gameserver.formElement : document;
-        if (n.autoComplete !== null || n.autoComplete !== false) {
-            n.autoCompleteEl = n.autoComplete;
-            if (typeof(n.autoComplete) === "string") {
-                n.autoCompleteEl = p.querySelector(n.autoComplete)
-            }
-            var q = document.createElement("a");
-            q.href = "javascript:;";
-            q.classList.add("delete_btn");
-            q.addEventListener("click", function() {
-                n.autoCompleteEl.value = "";
-                n.searchText = "";
-                n.setValue("", "");
-                if (n.onCustomChange) {
-                    n.onCustomChange.call(n)
-                }
-                if (n.gameserver) {
-                    n.gameserver.viewValue = "";
-                    if (n.gameserver.serverList) {
-                        n.gameserver.serverList.setValue("", "");
-                        if (n.gameserver.serverList.onCustomChange) {
-                            n.gameserver.serverList.onCustomChange.call(n.gameserver.serverList)
-                        }
-                    }
-                    if (n.gameserver.goodsList) {
-                        n.gameserver.goodsList.setValue("", "");
-                        if (n.gameserver.goodsList.onCustomChange) {
-                            n.gameserver.goodsList.onCustomChange.call(n.gameserver.goodsList)
-                        }
-                    }
-                }
-                var s = document.createEvent("HTMLEvents");
-                s.initEvent("keyup", false, true);
-                n.autoCompleteEl.dispatchEvent(s);
-                n.autoCompleteEl.focus()
-            });
-            if (n.autoCompleteEl.nextElementSibling) {
-                n.autoCompleteEl.parentElement.insertBefore(q, n.autoCompleteEl.nextElementSibling)
-            } else {
-                n.autoCompleteEl.parentElement.appendChild(q)
-            }
-            n.setKeyEvent()
+
+        extend(this, params);
+
+        this.type = 'game';
+        this.searchText = '';
+
+        container[0].gameList = this;
+        container.data('gameList', this);
+
+        this.listWrap = document.createElement('div');
+        this.listWrap.className = 'game d-none';
+        if (this.title === true) {
+            var title = document.createElement('div');
+            title.classList.add('title');
+            title.innerHTML = '게임선택';
+            this.listWrap.appendChild(title);
         }
-        if (n.view === true) {
-            n.createList();
-            l(n.listWrap)
+        this.list = document.createElement('ul');
+        container[0].appendChild(this.listWrap);
+        this.listWrap.appendChild(this.list);
+        this.list.innerHTML = '<li class="search_ing">검색중입니다....</li>';
+
+        if (this.hidden_use && document.querySelector(this.hidden_use.code).value.isEmpty() === false) {
+            this.gameCode = document.querySelector(this.hidden_use.code).value;
+        }
+
+        if (this.autoComplete !== null || this.autoComplete !== false) {
+            this.setKeyEvent();
+        }
+
+        if (this.view === true) {
+            this.createList();
+            show(this.listWrap);
         }
     };
-    var h = {
-        autoComplete: "#searchGameServer",
-        allView: false,
+
+    GameList.prototype = {
+        autoComplete: '#searchGameServer',
         view: false,
         data: null,
         request: true,
-        gameCode: "",
-        gameText: "",
-        searchCount: 50,
-        notGames: [45, 216, 512],
+        gameCode: '',
+        notGames: [45, 512],
+        tradeType: '',
         hidden_use: {
-            code: '[name="search_game"]',
-            text: '[name="search_game_text"]'
+            code: '[name="filtered_game_id"]',
+            text: '[name="filtered_game_alias"]'
         },
-        getData: function(p) {
-            var n = this;
-            if (_gamedata.json === null && _serverdata.json === null && _gamedata.state === null) {
-                _gamedata.state = false;
-                if (typeof(gsVersion) === "undefined") {
-                    var o = new Date();
-                    gsVersion = String(o.getFullYear()).substr(-2) + ("0" + (o.getMonth() + 1)).substr(-2) + ("0" + o.getDate()).substr(-2)
-                }
+        getData: function(callback) {
+            var m = this;
+            if (_gameListData === null) {
                 ajaxRequest({
-                    // 수정
-                    // url: "/_json/gameserverlist.json?" + gsVersion,
-                    url: '',
-                    dataType: "json",
-                    cache: true,
-                    success: function(s) {
-                        if (s === null) {
-                            return
-                        }
-                        var t = s.gamelist,
-                            u = {},
-                            q = t.length,
-                            r;
-                        for (r = 0; r < q; r++) {
-                            u[t[r].C] = t[r]
-                        }
-                        _gamedata.json = t;
-                        _gamedata.searchJSON = u;
-                        _gamedata.state = true;
-                        _serverdata.json = s.serverlist;
-                        n.data = _gamedata.json;
-                        if (p) {
-                            p.call(n)
+                    url: '/_json/gamelist.php',
+                    dataType: 'json',
+                    async: false,
+                    success: function(res) {
+                        _gameListData = res;
+                        m.data = res;
+                        if (callback) {
+                            callback.call(m, m.data);
                         }
                     }
-                })
-            } else {
-                if (_gamedata.json === null || _serverdata.json === null) {
-                    setTimeout(function() {
-                        n.getData.call(n, p)
-                    })
-                } else {
-                    if (p) {
-                        p.call(n)
-                    }
-                }
-            }
-        },
-        createList: function(u) {
-            if (u === undefined) {
-                if (_gamedata.json === null) {
-                    this.getData(this.createList);
-                    return
-                } else {
-                    u = _gamedata.json
-                }
-            }
-            var p = this;
-            var t = u.length;
-            var y = document.createDocumentFragment();
-            var o = p.autoCompleteEl.value;
-            var s = o.length;
-            var q;
-            if (p.hidden_use) {
-                var w = (p.gameserver && p.gameserver.formElement) ? p.gameserver.formElement : document;
-                if (p.hidden_use.code) {
-                    w.querySelector(p.hidden_use.code).value = ""
-                }
-                if (p.hidden_use.text) {
-                    w.querySelector(p.hidden_use.text).value = ""
-                }
-            }
-            p.list.innerHTML = "";
-            for (var r = 0; r < t; r++) {
-                if ((String(p.gameCode) !== "" && String(p.gameCode) !== String(u[r].C)) || (String(p.gameText.alltrim()) !== "" && String(p.gameText.alltrim()) !== String(u[r].N.alltrim()))) {
-                    continue
-                }
-                if (p.gameCode !== "" || p.gameText.alltrim() !== "") {
-                    s = 0;
-                    u[r].matchIndex = -1
-                }
-                var n = document.createElement("li");
-                var x = u[r].N.alltrim();
-                var v = u[r].matchIndex;
-                if (s > 0 && v >= 0) {
-                    var z = "";
-                    if (v > 0) {
-                        z += x.substr(0, v)
-                    }
-                    z += ("<span>" + x.substr(v, s) + "</span>" + x.substr(v + s));
-                    x = z
-                }
-                n.innerHTML = x;
-                n.addEventListener("click", function(A) {
-                    p.gameserver.searchState = false;
-                    p.onChange.call(p, this, A)
                 });
-                c.data(n, Object.assign({}, u[r], {
-                    idx: r
-                }));
-                y.appendChild(n);
-                if ((p.gameCode !== "" && String(p.gameCode) === String(u[r].C)) || (String(p.gameText.alltrim()) !== "" && String(p.gameText.alltrim()) === String(u[r].N.alltrim()))) {
-                    q = n;
-                    p.gameCode = "";
-                    p.gameText = "";
-                    break
-                }
-                if (q === undefined && p.selectedData) {
-                    if (p.selectedData.C === u[r].C && p.selectedData.L === u[r].L) {
-                        q = n
-                    }
-                }
-            }
-            p.list.appendChild(y);
-            if (p.listWrap.className.indexOf("g_hidden") !== -1 && p.view !== false) {
-                l(p.listWrap)
-            }
-            if (q) {
-                if (p.gameserver.changeAction === true) {
-                    if (p.gameserver.container.className.indexOf("g_hidden") !== -1 && p.view !== false) {
-                        p.gameserver.container.mode = "open";
-                        l(p.gameserver.container);
-                        if (p.gameserver.toggleContainer) {
-                            e(p.gameserver.toggleContainer)
-                        }
-                    }
-                    p.onChange(q)
+            } else {
+                m.data = _gameListData;
+                if (callback) {
+                    callback.call(m, m.data);
                 }
             }
         },
-        onChange: function(q, r) {
-            var n = this;
-            if (String(q).toLowerCase().indexOf("element") !== -1) {
-                var o = c.data(q)
-            } else {
-                var o = q
-            }
-            if (n.selected) {
-                if (String(o.C) === String(n.getValue().code)) {
-                    return
-                }
-                n.selected.classList.remove("sel_on")
-            }
-            if (String(q).toLowerCase().indexOf("element") !== -1) {
-                n.selected = q;
-                q.classList.add("sel_on")
-            }
-            n.gameserver.searchState = false;
-            n.gameserver.container.classList.add("gs_selection");
-            n.selectedData = o;
-            if (n.autoComplete !== false) {
-                n.gameserver.blurAction = false;
-                if (n.gameserver) {
-                    n.gameserver.viewValue = n.selectedData.N
-                }
-                n.autoCompleteEl.value = n.gameserver.viewValue;
-                n.autoCompleteEl.classList.remove("placeholder");
-                if (n.selectedIndex && n.list.children[n.selectedIndex]) {
-                    n.list.children[n.selectedIndex].classList.remove("focus")
+        createList: function(list) {
+            if (list === undefined) {
+                if (this.data === null) {
+                    this.getData(this.createList);
+                    return;
+                } else {
+                    list = this.data;
                 }
             }
-            if (n.hidden_use) {
-                var p = (n.gameserver && n.gameserver.formElement) ? n.gameserver.formElement : document;
-                if (n.hidden_use.code) {
-                    p.querySelector(n.hidden_use.code).value = n.selectedData.C
+
+            if (this.hidden_use) {
+                if (this.hidden_use.code) {
+                    document.querySelector(this.hidden_use.code).value = '';
                 }
-                if (n.hidden_use.text) {
-                    p.querySelector(n.hidden_use.text).value = n.selectedData.N
+                if (this.hidden_use.text) {
+                    document.querySelector(this.hidden_use.text).value = '';
                 }
             }
-            if (n.onCustomChange) {
-                n.onCustomChange.call(n, q, r)
-            }
-            if (n.gameserver.serverList === undefined && n.onAction) {
-                n.onAction.call(n, q, r)
-            }
-            if (n.gameserver === undefined) {
-                e(n.listWrap)
-            } else {
-                e(n.listWrap);
-                delete n.selectedIndex;
-                if (n.gameserver.serverList) {
-                    n.gameserver.position = "server";
-                    delete n.gameserver.serverList.selectedIndex;
-                    if (r) {
-                        n.gameserver.changeAction = true;
-                        n.gameserver.serverList.setValue("", "")
+
+            var m = this;
+            var len = list.length;
+            var inputVal = document.querySelector(this.autoComplete).value;
+            var selected;
+
+            m.list.innerHTML = '';
+            for (var i = 0; i < len; i++) {
+                var childNode = document.createElement('li');
+                var strInner = list[i].N;
+
+                if (inputVal !== '' && strInner.indexOf(inputVal) !== -1) {
+                    strInner = '<span class="text-rock">' + inputVal + '</span>' + (list[i].N.substr(inputVal.length, list[i].N.length));
+                }
+                childNode.innerHTML = strInner;
+                childNode.addEventListener('click', function(e) {
+                    m.onChange.call(m, this, e);
+                });
+
+                if (list[i].L === 2) {
+                    childNode.className = 'new';
+                } else if (list[i].L === 1) {
+                    childNode.className = 'pop';
+                } else if (list[i].L === 3) {
+                    childNode.className = 'mobile';
+                } else if (list[i].L === 4) {
+                    childNode.className = 'channeling';
+                }
+
+                $.data(childNode, {
+                    idx: i,
+                    code: list[i].C,
+                    name: list[i].N,
+                    unit: list[i].U,
+                    search: list[i].S,
+                    level: list[i].L,
+                    chr_trade: list[i].V
+                });
+                m.list.appendChild(childNode);
+
+                if (selected === undefined && this.selectedData) {
+                    if (this.selectedData.code === list[i].C && this.selectedData.level === list[i].L) {
+                        selected = childNode;
                     }
-                    if (n.gameserver.serverList.request === true) {
-                        if (n.gameserver.serverList.gameCode != n.selectedData.C) {
-                            n.gameserver.serverList.gameCode = n.selectedData.C;
-                            n.gameserver.serverList.data = null
-                        }
-                    }
-                    n.gameserver.serverList.list.scrollTop = 0;
-                    n.gameserver.serverList.view = true;
-                    n.gameserver.serverList.createList()
                 }
-                if (n.gameserver.goodsList) {
-                    delete n.gameserver.goodsList.selectedIndex;
-                    if (r) {
-                        n.gameserver.goodsList.setValue("", "")
-                    }
-                    if (n.selectedData.CV.toUpperCase() === "Y") {
-                        n.gameserver.goodsList.data[3].V = true
-                    } else {
-                        n.gameserver.goodsList.data[3].V = false
-                    }
-                    if (n.notGames.indexOf(Number(n.selectedData.C)) !== -1) {
-                        n.gameserver.goodsList.exceptCode = ["all", "money", "item"]
-                    } else {
-                        n.gameserver.goodsList.exceptCode = [];
-                        n.gameserver.goodsList.data[1].N = n.selectedData.U
-                    }
-                    n.gameserver.goodsList.createList()
+
+                if (m.gameCode !== '' && String(m.gameCode) === String(list[i].C)) {
+                    m.selected = childNode;
+                    m.selected.classList.add('filter__selected');
+                    m.selectedData = $.data(childNode);
+                    m.gameCode = '';
                 }
+            }
+
+            if (selected !== undefined) {
+                this.selected = selected;
+            }
+
+            if (this.selected) {
+                if (m.changeAction === true) {
+                    this.onChange(this.selected);
+                }
+            }
+        },
+        onChange: function(el, e) {
+            var elData = $.data(el);
+            if (this.selected) {
+                if (String(elData.code) === String(this.getValue().code)) {
+                    return;
+                }
+                this.selected.classList.remove('filter__selected');
+            }
+            el.classList.add('filter__selected');
+            this.selected = el;
+            this.selectedData = elData;
+
+            if (this.autoComplete !== false) {
+                this.blurAction = false;
+                if (this.gameserver) {
+                    this.gameserver.viewValue = this.selectedData.name;
+                    if (this.gameserver.serverList.allView === true) {
+                        this.gameserver.viewValue += ' > 서버전체';
+                    }
+                }
+                document.querySelector(this.autoComplete).value = this.gameserver.viewValue;
+                document.querySelector(this.autoComplete).classList.remove('placeholder');
+
+                delete this.position;
+                if (this.selectedIndex && this.list.children[this.selectedIndex]) {
+                    this.list.children[this.selectedIndex].classList.remove('focus');
+                }
+
+            }
+
+            if (this.hidden_use) {
+                if (this.hidden_use.code) {
+                    document.querySelector(this.hidden_use.code).value = this.selectedData.code;
+                }
+                if (this.hidden_use.text) {
+                    document.querySelector(this.hidden_use.text).value = this.selectedData.name;
+                }
+            }
+
+            if (this.gameserver === undefined) {
+                hide(this.listWrap);
+            }
+
+            if (this.gameserver && this.gameserver.serverList) {
+                if (e) {
+                    this.gameserver.serverList.setValue('', '');
+                    if (this.gameserver.goodsList) {
+                        this.gameserver.goodsList.setValue('', '');
+                    }
+                }
+
+                if (this.gameserver.serverList.request === true) {
+                    if (this.gameserver.serverList.gameCode != this.selectedData.code) {
+                        this.gameserver.serverList.gameCode = this.selectedData.code;
+                        this.gameserver.serverList.data = null;
+                    }
+                }
+
+                this.gameserver.serverList.list.scrollTop = 0;
+                this.gameserver.serverList.view = true;
+                this.gameserver.serverList.createList();
+            }
+            if (this.gameserver && this.gameserver.goodsList) {
+
+                /* 캐릭터 거래 */
+                if (this.selectedData.chr_trade.toUpperCase() === 'Y') {
+                    this.gameserver.goodsList.data[3].V = true;
+                } else {
+                    this.gameserver.goodsList.data[3].V = false;
+                }
+
+                /* 비게임 (싸이월드 216, 기타 45, 상품권 512) */
+                if (this.selectedData.code === 216) {
+                    this.gameserver.goodsList.exceptCode = ['item'];
+                    this.gameserver.goodsList.data[1].N = '도토리';
+                    this.gameserver.goodsList.createList();
+                } else if (this.notGames.indexOf(this.selectedData.code) !== -1) {
+                    this.gameserver.goodsList.exceptCode = ['money', 'item'];
+                    this.gameserver.goodsList.createList();
+                } else {
+                    this.gameserver.goodsList.exceptCode = [];
+                    this.gameserver.goodsList.data[1].N = this.selectedData.unit;
+                    this.gameserver.goodsList.createList();
+                }
+            }
+
+            if (this.onCustomChange) {
+                this.onCustomChange.call(this, el, e);
             }
         },
         setKeyEvent: function() {
-            var n = this;
-            if (n.useKeyboard !== false) {
-                document.body.addEventListener("keydown", function(o) {
-                    n.onKeydown.call(o.target, n, o)
-                })
+            var m = this;
+
+            if (m.useKeyboard !== false) {
+                document.body.addEventListener('keydown', function(e) {
+                    m.onKeydown.call(this, m, e);
+                });
             }
-            n.autoCompleteEl.addEventListener("keyup", function(o) {
-                n.onKeyup.call(this, n, o)
+
+            document.querySelector(this.autoComplete).addEventListener('keyup', function(e) {
+                m.onKeyup.call(this, m, e);
             });
-            n.autoCompleteEl.addEventListener("click", function(o) {
-                n.onFocus.call(this, n)
-            })
+
+            document.querySelector(this.autoComplete).addEventListener('focus', function(e) {
+                m.onFocus.call(this, m);
+            });
         },
-        onKeydown: function(r, z) {
-            if (r.gameserver === undefined) {
-                return
+        onKeydown: function(m, e) {
+
+            if (m.mode !== 'open' && m.gameserver.listContainer.mode !== 'open') {
+                return;
             }
-            if (r.mode !== "open" && (r.gameserver && (r.gameserver.containerWrapper.mode !== "open" || r.gameserver.container.mode !== "open"))) {
-                return
+
+            var kc = _event.keycode(e);
+            if (kc == _event.KEY_RETURN || kc == _event.KEY_DOWN || kc == _event.KEY_UP || kc == _event.KEY_LEFT || kc == _event.KEY_RIGHT) {
+                document.querySelector(m.autoComplete).blur();
             }
-            var w = _event.keycode(z);
-            if (w !== _event.KEY_RETURN && w !== _event.KEY_DOWN && w !== _event.KEY_UP && w !== _event.KEY_LEFT && w !== _event.KEY_RIGHT) {
-                return
+
+            if (m.position === undefined) {
+                m.position = 'game';
+                m.gameserver.gameList.selectedIndex = -1;
             }
-            if (w == _event.KEY_LEFT || w == _event.KEY_RIGHT) {
-                this.blur()
+            if (m.position !== 'goods' && m.gameserver.goodsList && m.gameserver.goodsList.listWrap.classList.contains('d-none') === false && m.gameserver.serverList.selected) {
+                m.position = 'goods';
+                m.gameserver.goodsList.selectedIndex = 0;
+            } else if (m.position !== 'goods' && m.position !== 'server' && m.gameserver.serverList && m.gameserver.serverList.list.children.length > 0 && m.gameserver.serverList.listWrap.classList.contains('d-none') === false) {
+                m.position = 'server';
+                delete m.gameserver.serverList.selectedIndex;
             }
-            if (r.gameserver.position === undefined) {
-                if (r.gameserver.searchState === true) {
-                    r.gameserver.position = "game";
-                    delete r.gameserver.gameList.selectedIndex
-                } else {
-                    if (r.gameserver.goodsList && r.gameserver.goodsList.listWrap.classList.contains("g_hidden") === false && r.gameserver.serverList.selected) {
-                        r.gameserver.position = "goods";
-                        delete r.gameserver.goodsList.selectedIndex
-                    } else {
-                        if (r.gameserver.serverList && r.gameserver.serverList.list.children.length > 0 && r.gameserver.gameList.selected) {
-                            r.gameserver.position = "server";
-                            delete r.gameserver.serverList.selectedIndex
-                        } else {
-                            return
+
+            var me;
+            if (m.position === 'game') {
+                me = m.gameserver.gameList;
+            } else if (m.position === 'server') {
+                me = m.gameserver.serverList;
+            } else if (m.position === 'goods') {
+                me = m.gameserver.goodsList;
+            }
+
+            var selectedIndex = me.selectedIndex;
+            var list = me.list;
+            var child = list.children;
+
+            if (selectedIndex == undefined && me.selected) {
+                selectedIndex = Array.prototype.indexOf.call(child, me.selected);
+            }
+
+            if (kc == _event.KEY_RETURN) {
+                _event.stop(e);
+
+                var selectEl;
+
+                if (selectedIndex == undefined) {
+                    var len = child.length;
+                    for (var i = 0; i < len; i++) {
+                        var d = $.data(child[i]);
+                        if (d.name === this.value) {
+                            selectEl = child[i];
+                            break;
                         }
-                    }
-                }
-            }
-            var C;
-            if (r.gameserver.position === "game") {
-                C = r.gameserver.gameList
-            } else {
-                if (r.gameserver.position === "server") {
-                    C = r.gameserver.serverList
-                } else {
-                    if (r.gameserver.position === "goods") {
-                        C = r.gameserver.goodsList
-                    }
-                }
-            }
-            r.gameserver.returnKey = false;
-            var A = C.list;
-            var q = A.children;
-            var t = C.selectedIndex;
-            if (r.gameserver.searchState === false && t == undefined && C.selected) {
-                t = Array.prototype.indexOf.call(q, C.selected)
-            }
-            if (w == _event.KEY_RETURN || (w == _event.KEY_RIGHT && (r.gameserver.position !== "server" || (r.gameserver.position === "server" && (r.gameserver.goodsList !== undefined || r.gameserver.searchState === true))))) {
-                this.blur();
-                _event.stop(z);
-                if (r.gameserver.position === "game") {
-                    if (t === undefined || t === -1) {
-                        var y = q.length;
-                        var x = this.value.alltrim().toUpperCase();
-                        for (var v = 0; v < y; v++) {
-                            var B = c.data(q[v]);
-                            if (B.N.alltrim().toUpperCase() === x) {
-                                t = v;
-                                break
-                            }
-                        }
-                    }
-                    if (r.gameserver.serverList !== undefined) {
-                        r.gameserver.position = "server";
-                        r.gameserver.serverList.selectedIndex = 0
                     }
                 } else {
-                    if (r.gameserver.position === "server" && r.gameserver.goodsList !== undefined) {
-                        r.gameserver.position = "goods";
-                        r.gameserver.goodsList.selectedIndex = 0;
-                        if (r.gameserver.serverList !== undefined) {
-                            C = r.gameserver.serverList
+                    selectEl = child[selectedIndex];
+                }
+
+                if (m.position === 'game' && m.gameserver.serverList !== undefined) {
+                    m.position = 'server';
+                    m.gameserver.serverList.selectedIndex = -1;
+                } else if (m.position === 'server' && m.gameserver.goodsList !== undefined) {
+                    m.position = 'goods';
+                    m.gameserver.goodsList.selectedIndex = 0;
+                }
+
+                me.selectedIndex = selectedIndex;
+
+                if (selectEl != undefined) {
+                    selectEl.classList.remove('focus');
+                    me.onChange(selectEl, e);
+                }
+
+            } else if (kc == _event.KEY_UP || kc == _event.KEY_DOWN || kc == _event.KEY_LEFT || kc == _event.KEY_RIGHT) {
+                _event.stop(e);
+
+                if ((kc == _event.KEY_LEFT || kc == _event.KEY_RIGHT) && me.updownIndex === undefined) {
+                    return;
+                }
+
+                var updownIndex = (me.updownIndex === undefined) ? 1 : me.updownIndex;
+                var maxIndex = child.length - 1;
+                var base = {
+                    index: 1,
+                    offset: -(54 + (child[0].clientHeight * 5))
+                };
+                var el;
+
+                if (selectedIndex == undefined) {
+                    selectedIndex = 0;
+                } else {
+                    if (kc == _event.KEY_RIGHT || kc == _event.KEY_DOWN) {
+                        if (m.position === 'server' && kc == _event.KEY_DOWN) {
+                            base.index = updownIndex;
+                        }
+                    } else if (kc == _event.KEY_LEFT || kc == _event.KEY_UP) {
+                        base.index = -(base.index);
+                        if (m.position === 'server' && kc == _event.KEY_UP) {
+                            base.index = -(updownIndex);
                         }
                     }
+
+                    el = child[selectedIndex];
+
+                    selectedIndex += base.index;
                 }
-                if (t === undefined || t === -1) {
-                    t = 0
+
+                if (selectedIndex < 0 || selectedIndex > maxIndex) {
+                    return;
                 }
-                C.selectedIndex = t;
-                var p = q[C.selectedIndex];
-                p.classList.add("focus");
-                if (C.selected !== undefined) {
-                    C.selected.classList.remove("focus")
+
+                if (el) {
+                    el.classList.remove('focus');
                 }
-                r.gameserver.returnKey = true;
-                C.onChange(p, z)
-            } else {
-                if (w == _event.KEY_UP || w == _event.KEY_DOWN || w == _event.KEY_LEFT || w == _event.KEY_RIGHT) {
-                    _event.stop(z);
-                    if ((w == _event.KEY_LEFT || w == _event.KEY_RIGHT) && C.updownIndex === undefined) {
-                        return
-                    }
-                    var u = (C.updownIndex === undefined) ? 1 : C.updownIndex;
-                    var s = q.length - 1;
-                    var n = {
-                        offset: -(54 + (q[0].clientHeight * 3))
-                    };
-                    var o;
-                    switch (w) {
-                        case _event.KEY_DOWN:
-                            if (r.gameserver.searchState === true) {
-                                n.index = 1
-                            } else {
-                                n.index = u
-                            }
-                            break;
-                        case _event.KEY_UP:
-                            if (r.gameserver.searchState === true) {
-                                n.index = -1
-                            } else {
-                                n.index = -(u)
-                            }
-                            break;
-                        case _event.KEY_LEFT:
-                            n.index = -1;
-                            break;
-                        case _event.KEY_RIGHT:
-                            n.index = 1;
-                            break
-                    }
-                    if (t == undefined) {
-                        t = 0
-                    } else {
-                        o = q[t];
-                        t += n.index
-                    }
-                    if (t < 0 || t > s) {
-                        if (r.gameserver.searchState === true) {
-                            if (r.gameserver.position === "game" && w == _event.KEY_DOWN && t > s && r.gameserver.serverList.list.children.length > 0) {
-                                r.gameserver.position = "server";
-                                C = r.gameserver.serverList;
-                                q = C.list.children;
-                                t = 0
-                            } else {
-                                if (r.gameserver.position === "server" && w == _event.KEY_UP && t < 0 && r.gameserver.gameList.list.children.length > 0) {
-                                    r.gameserver.position = "game";
-                                    C = r.gameserver.gameList;
-                                    q = C.list.children;
-                                    t = q.length - 1
-                                } else {
-                                    return
-                                }
-                            }
-                        } else {
-                            return
-                        }
-                    }
-                    if (o) {
-                        o.classList.remove("focus")
-                    }
-                    C.selectedIndex = t;
-                    o = q[C.selectedIndex];
-                    o.classList.add("focus");
-                    C.list.scrollTop = (o.offsetTop - C.list.offsetTop) + n.offset
-                }
+
+                me.selectedIndex = selectedIndex;
+                el = child[me.selectedIndex];
+                el.classList.add('focus');
+                me.list.scrollTop = el.offsetTop + base.offset;
+
             }
         },
-        onKeyup: function(n, p) {
-            var o = _event.keycode(p);
-            if (o == _event.KEY_RETURN || o == _event.KEY_DOWN || o == _event.KEY_UP || o == _event.KEY_LEFT || o == _event.KEY_RIGHT) {
-                return
+        onKeyup: function(m, e) {
+
+            var kc = _event.keycode(e);
+            if (kc == _event.KEY_RETURN || kc == _event.KEY_DOWN || kc == _event.KEY_UP || kc == _event.KEY_LEFT || kc == _event.KEY_RIGHT) {
+                return;
             }
-            n.onOpen();
-            if (n.keyuupEventQueue) {
-                window.clearTimeout(n.keyuupEventQueue)
-            }
-            n.view = true;
-            n.gameserver.changeAction = false;
-            n.gameserver.blurAction = true;
-            if (this.value.isEmpty() === true) {
-                n.gameserver.container.classList.add("game_empty");
-                n.list.innerHTML = '<li class="search_ing">검색 결과가 없습니다.</li>';
-                n.searchText = "";
-                if (n.gameserver.serverList) {
-                    n.gameserver.serverList.list.innerHTML = "";
-                    e(n.gameserver.serverList.listWrap)
+
+            if (m.searchText !== this.value) {
+
+                delete m.position;
+                m.selectedIndex = -1;
+                m.searchText = this.value;
+
+                if (m.keyuupEventQueue) {
+                    window.clearTimeout(m.keyuupEventQueue);
                 }
-                if (n.gameserver.goodsList) {
-                    e(n.gameserver.goodsList.listWrap)
-                }
-                if (n.gameserver.toggleContainer && n.gameserver.container.className.indexOf("g_hidden") === -1) {
-                    n.gameserver.container.mode = "close";
-                    e(n.gameserver.container);
-                    if (n.gameserver.toggleContainer) {
-                        l(n.gameserver.toggleContainer)
+
+                m.list.innerHTML = '<li class="search_ing">검색중입니다....</li>';
+                m.changeAction = false;
+                m.blurAction = true;
+
+                var val = this.value;
+                m.keyuupEventQueue = window.setTimeout(function() {
+                    if (m.gameserver.serverList) {
+                        hide(m.gameserver.serverList.listWrap);
+                        delete m.gameserver.serverList.selectedIndex;
                     }
-                }
-                return
-            }
-            if (n.searchText !== this.value) {
-                delete n.gameserver.position;
-                delete n.selectedIndex;
-                if (n.gameserver.searchState === false) {
-                    n.gameserver.searchState = true;
-                    n.gameserver.container.classList.remove("gs_selection")
-                }
-                if (n.gameserver.toggleContainer && n.gameserver.container.className.indexOf("g_hidden") !== -1) {
-                    n.gameserver.container.mode = "open";
-                    l(n.gameserver.container);
-                    if (n.gameserver.toggleContainer) {
-                        e(n.gameserver.toggleContainer)
+                    if (m.gameserver.goodsList) {
+                        hide(m.gameserver.goodsList.listWrap);
                     }
-                }
-                n.list.innerHTML = '<li class="search_ing">검색중입니다....</li>';
-                if (n.gameserver.serverList) {
-                    n.gameserver.serverList.list.innerHTML = ""
-                }
-                if (n.gameserver.goodsList) {
-                    e(n.gameserver.goodsList.listWrap)
-                }
-                var q = this.value.alltrim().toUpperCase();
-                n.keyuupEventQueue = window.setTimeout(function() {
-                    if (n.gameserver.serverList && _serverdata.json === null) {
-                        n.getData(function() {
-                            n.onKeyup.call(n.autoCompleteEl, n, p)
-                        });
-                        return
-                    }
-                    n.searchText = q;
-                    n.gameserver.container.classList.remove("game_empty");
-                    if (n.gameserver.serverList) {
-                        delete n.gameserver.serverList.selectedIndex;
-                        delete n.gameserver.serverList.selected;
-                        n.gameserver.serverList.view = true;
-                        var s = m.getHangulList(_serverdata.json, q, n.gameserver.serverList.searchCount);
-                        if (s.length > 0) {
-                            n.gameserver.serverList.createList(s, true);
-                            n.gameserver.serverList.list.scrollTop = 0
-                        } else {
-                            e(n.gameserver.serverList.listWrap)
-                        }
-                    }
-                    if (n.gameserver.goodsList) {
-                        n.gameserver.goodsList.view = true;
-                        delete n.gameserver.goodsList.selectedIndex;
-                        delete n.gameserver.goodsList.selected
-                    }
-                    var r = m.getHangulList(_gamedata.json, q, n.searchCount);
-                    if (s.length < 1 && r.length < 1) {
-                        n.list.innerHTML = '<li class="search_ing">검색 결과가 없습니다.</li>';
-                        return
-                    }
-                    if (s.length < 1 || r.length < 1) {
-                        n.gameserver.container.classList.add("game_empty")
-                    }
-                    if (r.length < 1) {
-                        e(n.listWrap)
-                    } else {
-                        l(n.listWrap);
-                        n.createList(r)
-                    }
-                }, 1)
+                    var resultList = Suggest.getHangulList(m.data, val);
+                    m.createList(resultList);
+                }, 1);
             }
         },
-        onFocus: function(n) {
-            if (n.gameserver) {
-                n.gameserver.changeAction = false
+        onFocus: function(m) {
+            if (m.focusSetTimeout) {
+                window.clearTimeout(m.focusSetTimeout);
             }
-            n.onOpen();
-            if (n.selected) {
-                n.selectedIndex = Array.prototype.indexOf.call(n.list.children, n.selected)
-            } else {
-                n.list.scrollTop = 0
-            }
-            if (n.gameserver.serverList) {
-                if (n.gameserver.serverList.selected) {
-                    var o = n.gameserver.serverList.selected.offsetTop - (n.gameserver.serverList.list.offsetHeight / 2)
-                } else {
-                    var o = 0
+            m.changeAction = false;
+            this.value = '';
+            m.onOpen();
+
+            m.focusSetTimeout = setTimeout(function() {
+                if (m.data === null) {
+                    m.createList();
                 }
-                n.gameserver.serverList.list.scrollTop = o
+            });
+
+
+            if (m.selected) {
+                var scrollTop = m.selected.offsetTop - 184;
+                m.list.scrollTop = scrollTop;
+                if (m.selectedIndex != undefined && m.list.children[m.selectedIndex]) {
+                    m.list.children[m.selectedIndex].classList.remove('focus');
+                }
+                m.selectedIndex = Array.prototype.indexOf.call(m.list.children, m.selected);
+            } else {
+                m.list.scrollTop = 0;
+            }
+
+            if (m.gameserver.serverList) {
+                if (m.gameserver.serverList.selected) {
+                    var scrollTop = m.gameserver.serverList.selected.offsetTop - 184;
+                } else {
+                    var scrollTop = 0;
+                }
+                m.gameserver.serverList.list.scrollTop = scrollTop;
             }
         }
     };
-    i(h, b);
-    var d = function(n, o) {
-        if (n === null || n.length < 1) {
-            return
+
+    extend(GameList.prototype, AngelGames.prototype);
+
+    var ServerList = function(container, params) {
+        if (container.length === 0) {
+            return;
         }
-        Object.assign(this, a, o);
-        this.type = "server";
-        n.serverList = this;
-        this.listWrap = document.createElement("div");
-        this.listWrap.className = "server g_hidden";
-        this.list = document.createElement("ul");
-        n.appendChild(this.listWrap);
+
+        var container = $(container);
+
+        extend(this, params);
+        this.type = 'server';
+        container[0].serverList = this;
+        container.data('serverList', this);
+
+        this.listWrap = document.createElement('div');
+        this.listWrap.className = 'server d-none';
+        if (this.title === true) {
+            var title = document.createElement('div');
+            title.classList.add('title');
+            title.innerHTML = '서버선택';
+            this.listWrap.appendChild(title);
+        }
+        this.list = document.createElement('ul');
+        container[0].appendChild(this.listWrap);
         this.listWrap.appendChild(this.list);
-        if (this.gameCode === "") {
-            return
-        }
-        if (this.autoComplete !== null && this.autoComplete !== false) {
-            this.autoCompleteEl = this.autoComplete;
-            if (typeof(this.autoComplete) === "string") {
-                this.autoCompleteEl = document.querySelector(this.autoComplete)
+
+        if (this.hidden_use) {
+            if (this.hidden_use.code != '' && document.querySelector(this.hidden_use.code).value.isEmpty() === false) {
+                this.serverCode = document.querySelector(this.hidden_use.code).value;
             }
-            this.listWrap.classList.add("gs_list_wrap");
-            this.setKeyEvent()
+            if (this.hidden_use.text != '' && document.querySelector(this.hidden_use.text).value.isEmpty() === false) {
+                this.serverText = document.querySelector(this.hidden_use.text).value;
+            }
         }
+
+        if (this.gameCode === '') {
+            return;
+        }
+
+        if (this.autoComplete !== null && this.autoComplete !== false) {
+            this.listWrap.classList.add('gs_list_wrap');
+            this.setKeyEvent();
+        }
+
         if (this.selected) {
-            this.selected.classList.add("sel_on")
+            this.selected.classList.add('filter__selected');
         }
     };
-    var a = {
+
+    ServerList.prototype = {
         autoComplete: false,
         view: false,
         data: null,
         request: true,
         allView: true,
-        gameCode: "",
-        serverCode: "",
-        serverText: "",
-        searchCount: 50,
+        gameCode: '',
+        serverCode: '',
+        serverText: '',
         exceptCode: [],
         hidden_use: {
-            code: '[name="search_server"]',
-            text: '[name="search_server_text"]'
+            code: '[name="filtered_child_id"]',
+            text: '[name="filtered_child_alias"]'
         },
-        getData: function(s) {
-            var p = this;
-            if (p.gameCode === "") {
-                alert("게임을 선택해주세요.");
-                return
-            }
-            var q = _serverdata.json;
-            if (q === null) {
-                setTimeout(function() {
-                    p.getData(s)
-                });
-                return
-            }
-            var o = q.length;
-            var n = [];
-            if (p.allView === true) {
-                n.push({
-                    BG: 0,
-                    C: "0",
-                    N: "서버전체"
-                })
-            }
-            for (var r = 0; r < o; r++) {
-                if (String(q[r].GC) === String(p.gameCode)) {
-                    n.push(q[r])
+        getData: function(callback) {
+            var m = this;
+            $.ajax({
+                url: '/_xml/serverlist.php',
+                dataType: 'xml',
+                data: 'game=' + m.gameCode,
+                async: false,
+                success: function(res) {
+                    var serverList = res.getElementsByTagName('SERVER');
+                    var len = serverList.length;
+                    var result = [];
+                    for (var i = 0; i < len; i++) {
+                        if (m.allView !== true) {
+                            if (serverList[i].getAttribute('ID') === '0') {
+                                continue;
+                            }
+                        }
+                        result.push({
+                            'C': serverList[i].getAttribute('ID'),
+                            'N': serverList[i].getAttribute('NAME'),
+                            'U': serverList[i].getAttribute('UNIT')
+                        });
+                    }
+                    m.data = JSON.parse(JSON.stringify(result));
+                    if (callback) {
+                        callback.call(m, m.data);
+                    }
                 }
-            }
-            n.sort(function(u, t) {
-                if (Number(u.BG) < Number(t.BG)) {
-                    return -1
-                }
-                if (Number(u.BG) > Number(t.BG)) {
-                    return 1
-                }
-                return 0
             });
-            p.data = JSON.parse(JSON.stringify(n));
-            if (s) {
-                s.call(p, p.data)
-            }
         },
-        createList: function(w) {
-            if (w === undefined) {
+        createList: function(list) {
+            if (this.gameCode === '') {
+                alert('게임을 선택해주세요.');
+                return;
+            }
+
+            if (list === undefined) {
                 if (this.data === null) {
                     this.getData(this.createList);
-                    return
+                    return;
                 } else {
-                    w = this.data
+                    list = this.data;
                 }
             }
-            if (w.length < 1) {
-                console.log("server_not_data");
-                return
-            }
-            var q = this;
-            var v = w.length;
-            var B = document.createDocumentFragment();
-            var o = (q.gameserver && q.gameserver.gameList.autoComplete) ? document.querySelector(q.gameserver.gameList.autoComplete).value : "";
-            var u = o.length || 0;
-            var r;
-            if (q.hidden_use) {
-                var y = (q.gameserver && q.gameserver.formElement) ? q.gameserver.formElement : document;
-                if (q.hidden_use.code) {
-                    y.querySelector(q.hidden_use.code).value = ""
+
+            if (this.hidden_use) {
+                if (this.hidden_use.code) {
+                    document.querySelector(this.hidden_use.code).value = '';
                 }
-                if (q.hidden_use.text) {
-                    y.querySelector(q.hidden_use.text).value = ""
+                if (this.hidden_use.text) {
+                    document.querySelector(this.hidden_use.text).value = '';
                 }
             }
-            q.list.innerHTML = "";
-            for (var t = 0; t < v; t++) {
-                if (q.exceptCode.indexOf(w[t].C) === -1) {
-                    var n = document.createElement("li");
-                    var A = w[t].N;
-                    var x = w[t].matchIndex;
-                    var z = t;
-                    if (u > 0 && x >= 0) {
-                        var C = "";
-                        if (x > 0) {
-                            C += A.substr(0, x)
-                        }
-                        C += ("<span>" + A.substr(x, u) + "</span>" + A.substr(x + u));
-                        A = C
-                    }
-                    if (q.gameserver && q.gameserver.searchState === true) {
-                        var s = _gamedata.searchJSON[w[t].GC];
-                        A = s.N + " > " + A
-                    }
-                    n.innerHTML = A;
-                    n.addEventListener("click", function(D) {
-                        q.onChange.call(q, this, D)
+
+            var m = this;
+            var len = list.length;
+            var selected;
+
+            m.list.innerHTML = '';
+            for (var i = 0; i < len; i++) {
+                if (m.exceptCode.indexOf(list[i].C) === -1) {
+                    var childNode = document.createElement('li');
+                    childNode.innerHTML = list[i].N;
+                    childNode.addEventListener('click', function(e) {
+                        m.onChange.call(m, this, e);
                     });
-                    c.data(n, Object.assign({}, w[t], {
-                        idx: z
-                    }));
-                    B.appendChild(n);
-                    if (q.serverCode !== "" && (String(q.serverCode) === String(w[t].C) || q.serverText.alltrim() === w[t].N.alltrim())) {
-                        r = n;
-                        q.serverCode = "";
-                        q.serverText = ""
+
+                    if (this.allView === true && i === 0) {
+                        childNode.className = 'all';
                     }
-                    if (r === undefined && q.selectedData && (q.selectedData.C === w[t].C)) {
-                        r = n
+
+                    $.data(childNode, {idx: i, code: list[i].C, name: list[i].N, unit: list[i].U});
+                    this.list.appendChild(childNode);
+
+                    if (this.serverCode !== '' && (String(this.serverCode) === String(list[i].C) || this.serverText === list[i].N)) {
+                        this.selected = childNode;
+                        this.serverCode = '';
+                        this.serverText = '';
+                    }
+
+                    if (selected === undefined && this.selectedData) {
+                        if (this.selectedData.code === list[i].C) {
+                            selected = childNode;
+                        }
                     }
                 }
             }
-            q.list.appendChild(B);
-            if (q.listWrap.className.indexOf("g_hidden") !== -1 && q.view !== false) {
-                l(q.listWrap)
+
+            if (this.view === true) {
+                show(this.listWrap);
             }
-            if (q.gameserver && q.gameserver.goodsList && q.gameserver.searchState === false) {
-                l(q.gameserver.goodsList.listWrap)
+
+            if (this.gameserver && this.gameserver.goodsList) {
+                show(this.gameserver.goodsList.listWrap);
             }
-            if (q.gameserver && q.gameserver.returnKey === true && q.gameserver.position === "server") {
-                q.list.children[0].classList.add("focus")
+
+            if (selected !== undefined) {
+                this.selected = selected;
             }
-            if (r === undefined && ((q.allView === true && q.list.childElementCount <= 2) || (q.allView !== true && q.list.childElementCount <= 1))) {
-                r = q.list.children[q.list.childElementCount - 1];
-                q.selectedIndex = q.list.childElementCount - 1
-            }
-            if (r) {
-                var p = r.offsetTop - (q.list.offsetHeight / 2);
-                q.list.scrollTop = p;
-                if (q.gameserver && q.gameserver.changeAction === true) {
-                    q.onChange(r)
+
+            // if(this.allView === true && this.selected == null) {
+            // 	this.list.children[0].classList.add('focus');
+            // 	this.selectedIndex = 0;
+            // }
+
+            if (this.selected) {
+                var scrollTop = m.selected.offsetTop - 184;
+                m.list.scrollTop = scrollTop;
+                if (m.gameserver && m.gameserver.gameList.changeAction === true) {
+                    this.onChange(this.selected);
                 }
             }
         },
-        onChange: function(r, s) {
-            var n = this;
-            var p = c.data(r);
-            if (n.gameserver && n.gameserver.searchState === true) {
-                var o = _gamedata.searchJSON[p.GC];
-                if (o !== undefined) {
-                    n.gameserver.changeAction = true;
-                    n.gameserver.gameList.selectedData = o;
-                    n.gameserver.gameList.setValue(o.C, o.N);
-                    n.gameserver.serverList.setValue(p.C, p.N);
-                    if (s && n.gameserver && n.gameserver.goodsList) {
-                        if (n.gameserver.goodsList.selected) {
-                            n.gameserver.goodsList.selected.classList.remove("sel_on");
-                            n.gameserver.goodsList.setValue("", "")
-                        }
-                    }
-                    n.gameserver.gameList.createList([o]);
-                    if (n.onAction) {
-                        n.onAction.call(n, r, s)
-                    }
-                }
-                return
+        onChange: function(el, e) {
+            var elData = $.data(el);
+            if (this.selected) {
+                this.selected.classList.remove('filter__selected');
             }
-            if (n.selected) {
-                n.selected.classList.remove("sel_on")
-            }
-            r.classList.add("sel_on");
-            n.selected = r;
-            n.selectedData = p;
-            if (n.autoComplete !== false) {
-                n.autoCompleteEl.value = n.selectedData.N
-            } else {
-                if (n.gameserver.gameList.autoComplete !== false) {
-                    if (n.selectedIndex && n.list.children[n.selectedIndex]) {
-                        n.list.children[n.selectedIndex].classList.remove("focus")
-                    }
+            el.classList.add('filter__selected');
+            this.selected = el;
+            this.selectedData = elData;
+
+            if (this.autoComplete !== false) {
+                document.querySelector(this.autoComplete).value = this.selectedData.name;
+            } else if (this.gameserver.gameList.autoComplete !== false) {
+                var gameAutoComplete = this.gameserver.gameList.autoComplete;
+                var inputAutoComplete = document.querySelector(gameAutoComplete);
+                inputAutoComplete.value = this.gameserver.gameList.selectedData.name + ' > ' + this.selectedData.name;
+                inputAutoComplete.classList.remove('placeholder');
+                this.gameserver.viewValue = inputAutoComplete.value;
+
+                delete this.position;
+                if (this.selectedIndex && this.list.children[this.selectedIndex]) {
+                    this.list.children[this.selectedIndex].classList.remove('focus');
                 }
             }
-            if (n.hidden_use) {
-                var q = (n.gameserver && n.gameserver.formElement) ? n.gameserver.formElement : document;
-                if (n.hidden_use.code) {
-                    q.querySelector(n.hidden_use.code).value = n.selectedData.C
+
+            if (this.hidden_use) {
+                if (this.hidden_use.code) {
+                    document.querySelector(this.hidden_use.code).value = this.selectedData.code;
                 }
-                if (n.hidden_use.text) {
-                    q.querySelector(n.hidden_use.text).value = n.selectedData.N
-                }
-            }
-            if ((n.mode === "open" || (this.gameserver.containerWrapper && n.gameserver.containerWrapper.mode === "open")) && n.onCustomChange) {
-                n.onCustomChange.call(n, r, s)
-            }
-            if (n.onAction) {
-                n.onAction.call(n, r, s)
-            }
-            if (n.gameserver === undefined) {
-                e(n.listWrap)
-            } else {
-                delete n.gameserver.position
-            }
-            if (n.gameserver && n.gameserver.returnKey === true && n.gameserver.goodsList) {
-                if (n.gameserver.goodsList.list.childElementCount > 0) {
-                    n.gameserver.goodsList.list.children[0].classList.add("focus")
+                if (this.hidden_use.text) {
+                    document.querySelector(this.hidden_use.text).value = this.selectedData.name;
                 }
             }
-            if (s && n.gameserver && n.gameserver.goodsList) {
-                if (n.gameserver.goodsList.selected) {
-                    n.gameserver.goodsList.selected.classList.remove("sel_on");
-                    n.gameserver.goodsList.setValue("", "")
+
+            if (e && this.onCustomChange) {
+                this.onCustomChange.call(this, el, e);
+            }
+
+            if (this.gameserver === undefined) {
+                hide(this.listWrap);
+            }
+
+            if (e && this.gameserver && this.gameserver.goodsList) {
+                if (this.gameserver.goodsList.selected) {
+                    this.gameserver.goodsList.onChange(this.gameserver.goodsList.selected);
+                } else {
+                    this.gameserver.goodsList.onChange(this.gameserver.goodsList.list.childNodes[0]);
                 }
             }
         },
         setKeyEvent: function() {
-            var n = this;
-            this.autoCompleteEl.addEventListener("keyup", function() {
-                if (n.searchText !== this.value) {
-                    if (n.keyuupEventQueue) {
-                        window.clearTimeout(n.keyuupEventQueue)
+            var m = this;
+            document.querySelector(this.autoComplete).addEventListener('keyup', function() {
+                if (m.searchText !== this.value) {
+                    m.searchText = this.value;
+
+                    if (m.keyuupEventQueue) {
+                        window.clearTimeout(m.keyuupEventQueue);
                     }
-                    if (n.gameserver) {
-                        n.gameserver.changeAction = false
-                    } else {
-                        n.changeAction = false
-                    }
-                    n.searchText = this.value;
-                    n.list.innerHTML = '<li class="search_ing">검색중입니다....</li>';
-                    var o = this.value;
-                    n.keyuupEventQueue = window.setTimeout(function() {
-                        var p = m.getHangulList(n.data, o);
-                        if (p.length < 1) {
-                            n.list.innerHTML = '<li class="search_ing">검색결과가 없습니다.</li>';
-                            return
-                        }
-                        n.createList(p)
-                    }, 1)
+                    m.list.innerHTML = '<li class="search_ing">검색중입니다....</li>';
+                    m.changeAction = false;
+
+                    var val = this.value;
+                    m.keyuupEventQueue = window.setTimeout(function() {
+                        var resultList = Suggest.getHangulList(m.data, val);
+                        m.createList(resultList);
+                    }, 1);
                 }
             });
-            this.autoCompleteEl.addEventListener("focus", function() {
-                if (n.focusSetTimeout) {
-                    window.clearTimeout(n.focusSetTimeout)
+
+            document.querySelector(this.autoComplete).addEventListener('focus', function() {
+                if (m.focusSetTimeout) {
+                    window.clearTimeout(m.focusSetTimeout);
                 }
-                if (n.gameserver) {
-                    n.gameserver.changeAction = false
-                } else {
-                    n.changeAction = false
-                }
-                n.onOpen();
-                n.focusSetTimeout = setTimeout(function() {
-                    if (n.data === null) {
-                        n.createList()
+                m.changeAction = false;
+                m.onOpen();
+
+                m.focusSetTimeout = setTimeout(function() {
+                    if (m.data === null) {
+                        m.createList();
                     }
                 });
-                if (n.selected) {
-                    var o = n.selected.offsetTop - (n.list.offsetHeight / 2);
-                    n.list.scrollTop = o
+
+                if (m.selected) {
+                    var scrollTop = m.selected.offsetTop - 184;
+                    m.list.scrollTop = scrollTop;
                 }
-            })
+            });
         }
     };
-    i(a, b);
-    var g = function(n, o) {
-        if (n === null || n.length < 1) {
-            return
+
+    extend(ServerList.prototype, AngelGames.prototype);
+
+    var GoodsList = function(container, params) {
+        if (container.length === 0) {
+            return;
         }
-        Object.assign(this, k, o);
-        this.type = "goods";
-        n.goodsList = this;
-        c(n).data("goodsList", this);
-        this.listWrap = document.createElement("div");
-        this.listWrap.className = "goods g_hidden";
-        this.list = document.createElement("ul");
-        n.appendChild(this.listWrap);
+
+        extend(this, params);
+        this.type = 'goods';
+        container[0].goodsList = this;
+        container.data('goodsList', this);
+
+        this.listWrap = document.createElement('div');
+        this.listWrap.className = 'goods d-none';
+        if (this.title === true) {
+            var title = document.createElement('div');
+            title.classList.add('title');
+            title.innerHTML = '물품종류';
+            this.listWrap.appendChild(title);
+        }
+        this.list = document.createElement('ul');
+        container[0].appendChild(this.listWrap);
         this.listWrap.appendChild(this.list);
-        if (this.allView === true) {
-            this.data[0].V = true
+
+        if (this.hidden_use && document.querySelector(this.hidden_use.code).value.isEmpty() === false) {
+            this.goodsCode = document.querySelector(this.hidden_use.code).value;
         }
+
+        if (this.allView === true) {
+            this.data[0].V = true;
+        }
+
+        // this.createList();
+
+        // if (this.selected) {
+        // 	this.selected.classList.add('filter__selected');
+        // }
     };
-    var k = {
+
+    GoodsList.prototype = {
         view: false,
         allView: false,
-        goodsCode: "",
-        data: [{
-            C: "all",
-            N: "물품전체",
-            V: false
-        }, {
-            C: "money",
-            N: "게임머니",
-            V: true
-        }, {
-            C: "item",
-            N: "아이템",
-            V: true
-        }, {
-            C: "character",
-            N: "캐릭터",
-            V: false,
-            NI: true
-        }, {
-            C: "etc",
-            N: "기타",
-            V: true
-        }],
+        goodsCode: '',
+        data: [
+            {'C': 'all', 'N': '물품전체', 'V': false},
+            {'C': 'money', 'N': '게임머니', 'V': true},
+            {'C': 'item', 'N': '아이템', 'V': true},
+            {'C': 'character', 'N': '캐릭터', 'V': false, 'NI':true},
+            {'C': 'etc', 'N': '기타', 'V': true}
+        ],
         hidden_use: {
-            code: '[name="search_goods"]',
-            text: ""
+            code: '[name="filtered_items"]',
+            text: ''
         },
         exceptCode: [],
         createList: function() {
-            var o = this;
-            var u = o.data;
-            var n = u.length;
-            var t;
-            if (o.hidden_use) {
-                var s = (o.gameserver && o.gameserver.formElement) ? o.gameserver.formElement : document;
-                if (o.hidden_use.code) {
-                    s.querySelector(o.hidden_use.code).value = ""
-                }
-                if (o.hidden_use.text) {
-                    s.querySelector(o.hidden_use.text).value = ""
-                }
-            }
-            o.list.innerHTML = "";
-            for (var q = 0; q < n; q++) {
-                if (o.exceptCode.indexOf(u[q].C) === -1) {
-                    if (u[q].V === true) {
-                        var p = document.createElement("li");
-                        p.innerHTML = u[q].N;
-                        p.addEventListener("click", function(v) {
-                            o.onChange.call(o, this, v)
+            var m = this;
+            var list = this.data;
+            var len = list.length;
+            var selected;
+
+            m.list.innerHTML = '';
+            for (var i = 0; i < len; i++) {
+                if (this.exceptCode.indexOf(list[i].C) === -1) {
+                    if (list[i].V === true) {
+                        var childNode = document.createElement('li');
+                        childNode.innerHTML = list[i].N;
+                        childNode.addEventListener('click', function(e) {
+                            m.onChange.call(m, this, e);
                         });
-                        if (u[q].NI === true) {
-                            var r = document.createElement("span");
-                            r.classList.add("icon_new");
-                            p.appendChild(r)
+
+                        if(list[i].NI === true) {
+                            var icon = document.createElement('span');
+                            icon.classList.add('icon_new');
+                            childNode.appendChild(icon);
                         }
-                        c.data(p, Object.assign({}, u[q], {
-                            idx: q
-                        }));
-                        o.list.appendChild(p);
-                        if (o.goodsCode !== "" && String(o.goodsCode) === String(u[q].C)) {
-                            t = p;
-                            o.selectedData = c.data(p);
-                            o.goodsCode = ""
+
+                        $.data(childNode, {idx: i, code: list[i].C, name: list[i].N});
+                        m.list.appendChild(childNode);
+
+                        if (m.goodsCode !== '' && String(m.goodsCode) === String(list[i].C)) {
+                            selected = childNode;
+                            m.selectedData = $.data(childNode);
+                            m.goodsCode = '';
                         }
-                        if (t === undefined && o.selectedData) {
-                            if (o.selectedData.C === u[q].C) {
-                                t = p
+
+                        if (selected === undefined && m.selectedData) {
+                            if (m.selectedData.code === list[i].C) {
+                                selected = childNode;
                             }
                         }
                     }
                 }
             }
-            if (o.gameserver.returnKey === true && (o.gameserver.position === "goods" || (o.gameserver.position === "server" && o.gameserver.serverList.list.childElementCount < 2))) {
-                o.gameserver.position = "goods";
-                o.list.children[0].classList.add("focus")
+
+            if (m.view === true) {
+                show(m.listWrap);
             }
-            if (t) {
-                o.onChange(t)
+
+            if (selected !== undefined) {
+                m.selected = selected;
+            }
+
+            if (m.selected) {
+                m.onChange(m.selected);
             }
         },
-        onChange: function(p, q) {
-            if (this.gameserver && this.gameserver.serverList && this.gameserver.serverList.getValue().code == "") {
-                alert("서버 정보가 없습니다.");
-                return
+        onChange: function(el, e) {
+            if (this.gameserver && this.gameserver.serverList && this.gameserver.serverList.getValue().code == '') {
+                alert('서버를 선택해주세요.');
+                return;
             }
+
             if (this.selected) {
-                this.selected.classList.remove("sel_on")
+                this.selected.classList.remove('filter__selected');
             }
-            p.classList.add("sel_on");
-            this.selected = p;
-            this.selectedData = c.data(p);
+            el.classList.add('filter__selected');
+            this.selected = el;
+            this.selectedData = $.data(el);
+
+            if (this.gameserver && this.gameserver.gameList && this.gameserver.gameList.autoComplete !== false) {
+                var gameAutoComplete = this.gameserver.gameList.autoComplete;
+                var inputAutoComplete = document.querySelector(gameAutoComplete);
+                if (this.gameserver.serverList.selectedData) {
+                    inputAutoComplete.value = this.gameserver.gameList.selectedData.name + ' > ' + this.gameserver.serverList.selectedData.name + ' > ' + this.selectedData.name;
+                    inputAutoComplete.classList.remove('placeholder');
+                    this.gameserver.viewValue = inputAutoComplete.value;
+                }
+            }
+
             if (this.hidden_use) {
-                var o = (this.gameserver && this.gameserver.formElement) ? this.gameserver.formElement : document;
                 if (this.hidden_use.code) {
-                    o.querySelector(this.hidden_use.code).value = this.selectedData.C
+                    document.querySelector(this.hidden_use.code).value = this.selectedData.code;
                 }
                 if (this.hidden_use.text) {
-                    o.querySelector(this.hidden_use.text).value = this.selectedData.N
+                    document.querySelector(this.hidden_use.text).value = this.selectedData.name;
                 }
             }
+
             if (this.onCustomChange) {
-                this.onCustomChange.call(this, p, q)
+                this.onCustomChange.call(this, el, e);
             }
-            if (q !== undefined) {
-                var n = this;
+
+            if (e !== undefined) {
+                var m = this;
                 setTimeout(function() {
-                    n.onClose()
-                }, 100)
+                    m.onClose();
+                }, 100);
             }
         }
     };
-    i(k, b);
-    window.Suggest = m;
-    window.GameList = f;
-    window.ServerList = d;
-    window.GoodsList = g;
-    window.GameServerList = j
+
+    extend(GoodsList.prototype, AngelGames.prototype);
+
+    window.Suggest = Suggest;
+    window.GameList = GameList;
+    window.ServerList = ServerList;
+    window.GoodsList = GoodsList;
+    window.AngelGames = AngelGames;
 })(jQuery);
-var _gamedata = {
-    xml: null,
-    xsl: null,
-    json: null,
-    searchJSON: null,
-    state: null
-};
-var _serverdata = {
-    xml: null,
-    xsl: null,
-    json: null,
-    state: null
-};
-var _Suggest = {};
-$.extend(_Suggest, {
-    viewcount: 4,
-    nodeList: null,
-    initialize: function() {
-        var d = $(this),
-            e = d.attr("name"),
-            c = this;
-        this.nodeInput = $(this);
-        d.attr("name", e + "_text").on({
-            keyup: function(f) {
-                c.onKeyUp.call(c, f)
+
+// 게임데이터
+var _gamedata = {xml: null, xsl: null};
+var _serverdata = {xml: null, xsl: null};
+var strkey = '20150813';
+
+/* ▼ SUGGEST */
+var _suggest = $.extend({}, _selectbox);
+$.extend(_suggest, {
+    modeView: 'slide',
+    view_count: 20,
+    widthMargin: 10,
+    initialize: function(nodeList) {
+        $.extend(this, _gui);
+
+        var g_this = this;
+        var thisName = $(this).attr('name');
+
+        $(this).addClass('g_selectbox');
+        var nodeSelected = $(this).find('input').eq(0);
+
+        if ($(this).onchange !== null) {
+            this.OnUpdate = $(this).onchange;
+        }
+
+        var input_obj = $('<input />', {
+            type: 'hidden',
+            name: thisName
+        });
+        this.nodeInput = input_obj.appendTo($(this));
+
+        input_obj = $('<input />', {
+            type: 'text',
+            name: thisName + '_text'
+        }).addClass('g_search_input');
+        $(this).removeAttr('name');
+
+        if ('OnKeyDown' in this) {
+            input_obj.bind('keydown', function(evt) {
+                g_this.OnKeyDown(evt);
+            });
+        }
+        if ('OnKeyUp' in this) {
+            input_obj.bind('keyup', function(evt) {
+                g_this.OnKeyUp(evt);
+            });
+        }
+        if ('OnFocus' in this) {
+            input_obj.bind('focus', function(evt) {
+                g_this.OnFocus(evt);
+            });
+        }
+        if ('OnBlur' in this) {
+            input_obj.bind('blur', function(evt) {
+                g_this.OnBlur(evt);
+            });
+        }
+        this.nodeSearch = input_obj.appendTo($(this));
+
+        // 파이어폭스
+        if (_BROWSER.name === 'FF') {
+            if (typeof (window.instances) === 'undefined') {
+                window.instances = [];
+            }
+
+            var thisClass = this;
+            this.keyEventCheck = null;
+            this.db = null;
+            window.instances[this.nodeSearch.attr('name')] = this;
+
+            var focusFunc = function() {
+                if (!thisClass.keyEventCheck) thisClass.watchInput();
+            };
+
+            var blurFunc = function() {
+                if (thisClass.keyEventCheck) {
+                    window.clearInterval(thisClass.keyEventCheck);
+                    thisClass.keyEventCheck = null;
+                }
+            };
+
+            $(this.nodeSearch).bind('focus', focusFunc);
+            $(this.nodeSearch).bind('blur', blurFunc);
+
+            this.watchInput = function() {
+                if (this.db !== $(this.nodeSearch).val()) {
+                    $(this.nodeSearch).trigger('keyup');
+                }
+                this.db = $(this.nodeSearch).val();
+
+                if (this.keyEventCheck) window.clearInterval(this.keyEventCheck);
+                this.keyEventCheck = window.setInterval("window.instances['" + this.nodeSearch.attr('name') + "'].watchInput()", 100);
+            };
+        }
+
+        if (nodeList) {
+            this.modeView = 'fix';
+            this.nodeList = $.extend(nodeList, _gui);
+            this.nodeList.addClass('g_selectbox_list');
+
+            this.open = function(params) {
+                if ('OnOpen' in this) this.OnOpen(params);
+            };
+            this.close = function(type) {
+                if ('OnClose' in this && type !== 'default') this.OnClose();
+            };
+        } else {
+            this.nodeList = $('<DIV />').addClass('g_selectbox_list').appendTo(rootObj);
+            this.nodeList.css('overflow', 'auto');
+            $.extend(this.nodeList, _gui);
+
+            this.nodeButton = $('<div />').addClass('arrow_img').appendTo($(this));
+            this.nodeButton.click(function() {
+                if (g_this.mode === 'open') {
+                    g_this.close();
+                } else {
+                    g_this.open();
+                }
+            });
+
+            var rgBound = this.getBound();
+            this.changeSize(rgBound.width);
+            this.close();
+        }
+
+        if (this.modeView === 'fix' && this.type === 'gamelist') {
+            if (nodeSelected && nodeSelected.attr('name') === 'selected' && !nodeSelected.val().isEmpty() && ('applyDefault' in this)) {
+                this.status = {type: 'sub', where: nodeSelected.val(), duplicate: true, selected: nodeSelected.val()};
+            }
+            this.open();
+        } else if ('status' in this && $(this).attr('id') !== 'g_SEARCHBAR_GAME' && $(this).attr('id') !== 'dvGame') {
+            this.status = {active: true, type: 'all', where: null, duplicate: false};
+        }
+
+        if (nodeSelected && nodeSelected.attr('name') === 'selected' && !nodeSelected.val().isEmpty() && ('applyDefault' in this)) {
+            if (this.type === 'gamelist') {
+                this.applyDefault(nodeSelected.val());
+            }
+
+            this.selectedValue = nodeSelected.val();
+            nodeSelected.remove();
+        } else if (this.type === 'gamelist') {
+            this.nodeSearch.val('게임검색');
+        } else if (this.type === 'serverlist') {
+            this.nodeSearch.val('서버검색');
+        }
+
+        if (this.type === 'serverlist') {
+            this.applyDefault();
+        }
+    },
+    changeSize: function(w) {
+        var nOuterWidth = this.nodeButton.outerWidth(true);
+        $(this).css('width', w + 'px');
+        this.nodeList.css('width', w + 'px');
+        this.nodeSearch.css('width', w - nOuterWidth - this.widthMargin + 'px');
+    },
+    addOption: function(pos, rgValue, text) {
+        var node = $('<div />');
+        $(node).text(text);
+
+        if (pos === null || this.nodeList.children().length < 1 || this.nodeList.children().length < pos) {
+            this.nodeList.append(node);
+        } else if (pos === 0) {
+            this.nodeList.prepend(node);
+        } else {
+            this.nodeList.append(node);
+        }
+
+        try {
+            return node;
+        } finally {
+            node = null;
+        }
+    },
+    setText: function(text) {
+        this.nodeSearch.val(text);
+    },
+    getText: function() {
+        return this.nodeSearch.val();
+    },
+    fnSelect: function(id) {
+        var rgList = this.nodeList.find('DIV');
+        var length = rgList.length;
+        if (length < 2) {
+            if (length === 1 && this.modeView !== 'slide') {
+                rgList.eq(0).trigger('click');
+            }
+            return;
+        }
+
+        for (var i = 0; i < length; i++) {
+            if (rgList.eq(i).attr('value') === id) {
+                rgList.eq(i).trigger('click');
+                return;
+            }
+        }
+    },
+    hangul: {
+        rgJaumCode: [0x3131, 0x3132, 0x3134, 0x3137, 0x3138, 0x3139, 0x3141, 0x3142, 0x3143, 0x3145, 0x3146, 0x3147, 0x3148, 0x3149, 0x314a, 0x314b, 0x314c, 0x314d, 0x314e],
+        cho: ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'],
+        jung: ['ㅏ', 'ㅐ', 'ㅑ', 'ㅒ', 'ㅓ', 'ㅔ', 'ㅕ', 'ㅖ', 'ㅗ', 'ㅘ', 'ㅙ', 'ㅚ', 'ㅛ', 'ㅜ', 'ㅝ', 'ㅞ', 'ㅟ', 'ㅠ', 'ㅡ', 'ㅢ', 'ㅣ'],
+        jong: ['', 'ㄱ', 'ㄲ', 'ㄳ', 'ㄴ', 'ㄵ', 'ㄶ', 'ㄷ', 'ㄹ', 'ㄺ', 'ㄻ', 'ㄼ', 'ㄽ', 'ㄾ', 'ㄿ', 'ㅀ', 'ㅁ', 'ㅂ', 'ㅄ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'],
+        _jung: ['ㅏ', '', '', '', 'ㅓ', 'ㅔ', '', '', 'ㅗ', '', '', '', '', 'ㅜ', '', '', '', '', 'ㅡ', 'ㅢ', 'ㅣ'],
+        _jong: ['', 'ㄱ', '', '', 'ㄴ', '', '', 'ㅁ', 'ㄹ', '', '', '', '', '', '', '', '', 'ㅂ', '', '', 'ㅆ', 'ㅇ', '', '', '', '', '', '']
+    },
+    unicode: function(text) {
+        var code = new Array();
+        for (var i = 0; i < text.length; i++) {
+            code[i] = text.substr(i, 1).charCodeAt(0);
+        }
+        return code;
+    },
+    trans: function(text) {
+        var tmp = new Array();
+
+        if ((text >= 0xAC00 && text <= 0xD7A3)) {
+            var unicode = text - 0xAC00;
+            var jongsung = unicode % 0x1C;
+            var jungsung = ((unicode - jongsung) / 0x1C) % 0x15;
+            var chosung = parseInt(((unicode - jongsung) / 0x1C) / 0x15);
+
+            tmp[0] = chosung;
+            tmp[1] = jungsung;
+
+            if (jongsung !== 0) {
+                tmp[2] = jongsung;
+            }
+        } else if (text >= 0x3131 && text <= 0x314e) {
+            tmp[0] = $.inArray(text, this.hangul.rgJaumCode);
+        } else {
+            tmp[0] = text;
+        }
+        return tmp;
+    },
+    compare: function(org, tg) {
+        var orgTmp = new Array();
+        var tgTmp = new Array();
+
+        orgTmp = this.unicode(org);
+        tgTmp = this.unicode(tg);
+
+        for (var i = 0; i < orgTmp.length; i++) {
+            var inputTmp = this.trans(orgTmp[i]);
+            var listTmp = this.trans(tgTmp[i]);
+
+            for (var j = 0; j < inputTmp.length; j++) {
+                if (inputTmp[j] !== listTmp[j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    },
+    getHangulList: function(word) {
+        var strType = 'game',
+            getAttr = 'name';
+        if (this.type === 'serverlist') {
+            strType = 'SERVER',
+                getAttr = 'NAME';
+        }
+        var objXml = _xml.getElements(this.xml, strType),
+            k = 0, rgResult = new Array(),
+            strSubString;
+
+        for (var i = 0; i < objXml.length; i++) {
+            strSubString = objXml[i].getAttribute(getAttr).substring(0, word.length);
+            if (this.compare(word, strSubString.toUpperCase()) === true && $.inArray(strSubString, rgResult) === -1) {
+                rgResult[k++] = strSubString;
+            }
+        }
+        return rgResult;
+    }
+});
+/* ▲ SUGGEST */
+
+var _gamelist = $.extend({}, _suggest);
+$.extend(_gamelist, {
+    type: 'gamelist',
+    xml: _gamedata.xml,
+    xsl: _gamedata.xsl,
+    bind: null,
+    template: '',
+    status: {active: true, type: 'all', where: null, duplicate: false, selected: ''},
+    applyDefault: function(strValue) {
+        this.open({type: 'sub', where: strValue});
+        this.close();
+    },
+    OnOpen: function(params) {
+        var g_this = this;
+
+        if (this.nodeSearch.val() === '게임검색' || this.nodeSearch.val() === '서버검색') {
+            this.nodeSearch.val('');
+        }
+        if (!this.status.active && !(this.bind && this.bind.status.type === 'sub')) {
+            return;
+        }
+        if (this.bind && this.bind.mode === 'open') {
+            this.bind.close();
+        }
+        this.nodeMove = null;
+
+        if (params) {
+            if (this.status.type === params.type && this.status.where === params.where) {
+                return;
+            }
+
+            this.status.type = params.type;
+            this.status.where = params.where;
+
+            if ('selected' in params && !params.selected.isEmpty()) {
+                this.status.selected = params.selected;
+            }
+        } else {
+            this.status = {active: true, type: 'all', where: null, duplicate: false};
+        }
+
+        this.nodeList.children().remove();
+        if (this.modeView === 'slide') {
+            this.nodeList.css('height', 'auto');
+        }
+        var loading = this.addOption(null, null, '검색중입니다...');
+        loading.click = _DISABLE;
+        loading.mouseover = _DISABLE;
+        loading.mouseout = _DISABLE;
+
+        this.loadXML();
+    },
+    loadXML: function() {
+        ajaxRequest({
+            scope: this,
+            url: '/_xml/gamelist.xml',
+            dataType: 'xml',
+            cache: 6,
+            success: this.OnLoadXML,
+            error: this.OnError
+        });
+    },
+    OnLoadXML: function(request) {
+        var g_this = this;
+        if (_gamedata.xsl) {
+            this.xsl = _gamedata.xsl;
+        }
+
+        if (this.xml && this.xsl) {
+            this.setMode();
+            this.fnPrint.delay(100, this);
+        } else {
+            this.xml = new Object(request);
+            ajaxRequest({
+                scope: this,
+                url: '/_xslt/gamelist' + this.template + '.xsl',
+                dataType: 'xml',
+                cache: true,
+                success: this.OnLoadXSLT,
+                error: this.OnError
+            });
+        }
+    },
+    OnLoadXSLT: function(request) {
+        if (this.type === 'gamelist') {
+            _gamedata.xsl = request;
+        } else {
+            _serverdata.xsl = request;
+        }
+        this.xsl = request;
+        this.setMode();
+        this.fnPrint();
+    },
+    OnError: function() {
+        this.close();
+        this.nodeList.children().remove();
+        this.open(this.status);
+    },
+    OnChange: function(optionObj) {
+        this.status = {type: 'search', where: optionObj.attr('value')};
+        this.nodeSearch.val($(optionObj).text());
+
+        if (this.bind) {
+            this.bind.setValue('');
+            this.bind.nodeSelect = null;
+            this.bind.nodeSearch.val('');
+            this.bind.status.active = true;
+            this.bind.status.duplicate = false;
+            this.bind.open({type: 'sub', where: optionObj.attr('value')});
+            this.bind.nodeSearch.focus();
+        }
+        this.nodeSearch.blur();
+
+        if ('OnChangeAfter' in this) {
+            this.OnChangeAfter.call(this);
+        }
+    },
+    OnFocus: function() {
+        if (this.nodeSearch.val() === '게임검색') {
+            this.nodeSearch.val('');
+        }
+        this.status.active = true;
+        if (this.bind) {
+            if (this.modeView === 'fix') {
+                this.bind.nodeList.children().remove();
+            }
+            this.bind.nodeSelect = null;
+            this.bind.setValue('');
+            this.bind.nodeSearch.val('');
+            this.bind.close();
+        }
+        this.OnKeyUp();
+    },
+    OnBlur: function() {
+        if (!this.nodeSearch.val().isEmpty()) {
+            var objSelected = null;
+            var strText = this.nodeSearch.val().trim();
+            var objItem = null;
+
+
+            this.nodeList.children().each(function() {
+                if ($(this).get(0).tagName !== 'DIV') {
+                    return false;
+                }
+
+                objItem = $(this).text().trim();
+                if (objItem && objItem.toUpperCase() === strText.toUpperCase()) {
+                    objSelected = $(this);
+                }
+            });
+
+            this.nodeSelect = objSelected;
+        }
+    },
+    OnClose: function() {
+        if (!this.nodeSearch.val().isEmpty()) {
+            var objSelected = null;
+            var strText = this.nodeSearch.val().trim();
+            var objItem = null;
+
+            this.nodeList.children().each(function() {
+                if ($(this).get(0).tagName !== 'DIV') {
+                    return false;
+                }
+
+                objItem = $(this).text().trim();
+                if (objItem && objItem.toUpperCase() === strText.toUpperCase()) {
+                    objSelected = $(this);
+                }
+            });
+
+            if (objSelected) {
+                this.nodeSelect = objSelected;
+                var strValue = this.nodeSelect.attr('value');
+                this.setValue(strValue);
+                this.nodeSearch.val(this.nodeSelect.text());
+                return;
+            }
+        }
+
+        this.setValue('');
+        this.nodeSelect = null;
+        this.nodeSearch.val('');
+        if (this.bind) {
+            if (this.bind.mode === 'open') this.bind.close();
+            this.bind.nodeSelect = null;
+        }
+    },
+    OnMouseOver: function(option) {
+        this.nodeMove = option;
+    },
+    OnKeyUp: function(Event) {
+        var keycode = _event.keycode(Event);
+        if (keycode === _event.KEY_RETURN) {
+            return;
+        }
+        if (this.status.where === this.nodeSearch.val() && this.type === 'serverlist') {
+            return false;
+        }
+        if (keycode === _event.KEY_UP || keycode === _event.KEY_PAGEUP || keycode === _event.KEY_DOWN || keycode === _event.KEY_PAGEDOWN) {
+            return;
+        }
+
+        if (this.status.type !== 'sub' && this.nodeSearch.val().isEmpty()) {
+            this.status = {active: true, type: 'all', where: null};
+            this.close();
+            if (this.modeView === 'fix' && this.type === 'gamelist') {
+                this.open();
+            }
+            if (this.bind) {
+                this.bind.status = {active: true, type: 'all', where: null};
+            }
+        } else if (this.type === 'serverlist') {
+            this.open({type: 'sub', where: this.nodeSearch.val().trim(), duplicate: false});
+        } else {
+            this.open({type: 'search', where: this.nodeSearch.val().trim()});
+        }
+    },
+    OnKeyDown: function(Event) {
+        var keycode = _event.keycode(Event);
+        if (keycode === _event.KEY_RETURN) {
+            if (this.nodeMove) {
+                this.nodeMove.trigger('click');
+            }
+            _event.stop(Event);
+            if (this.type === 'serverlist' && this.modeView === 'slide') {
+                this.nodeSearch.blur();
+            }
+            return false;
+        } else if (keycode === _event.KEY_UP || keycode === _event.KEY_PAGEUP || keycode === _event.KEY_DOWN || keycode === _event.KEY_PAGEDOWN) {
+            if (this.nodeList.children().length < 1) {
+                return;
+            }
+            var flow = (keycode === _event.KEY_UP || keycode === _event.KEY_PAGEUP) ? 'up' : 'down';
+            if (flow === 'up') {
+                if (!this.nodeMove) {
+                    _event.stop(Event);
+                    return;
+                } else if (this.nodeList.children().first().get(0) === this.nodeMove.get(0)) {
+                    if (keycode === _event.KEY_PAGEUP) return;
+                    this.nodeList.scrollTop = '0px';
+                    _event.stop(Event);
+                    return;
+                }
+
+                this.nodeMove.mouseout();
+                if (keycode === _event.KEY_UP) {
+                    this.nodeMove = this.nodeMove.prev();
+                } else {
+                    var node = this.nodeMove;
+                    for (var i = 0; i < this.view_count; i++) {
+                        if (node.prev().length > 0) {
+                            node = node.prev();
+                            if (node === this.nodeList.children().first()) {
+                                break;
+                            }
+                        } else {
+                            break;
+                        }
+                    }
+                    this.nodeMove = node;
+                }
+                this.nodeMove.mouseover();
+
+                if (this.nodeList.scrollTop() > this.nodeMove.offset().top) {
+                    this.nodeList.scrollTop(this.nodeMove.offset().top - 3);
+                }
+            } else {
+                if (!this.nodeMove) {
+                    this.nodeMove = this.nodeList.children().first();
+                    this.nodeMove.mouseover();
+                    this.status.active = false;
+                    return;
+                } else if (this.nodeMove.get(0) === this.nodeList.children().last().get(0)) {
+                    _event.stop(Event);
+                    return;
+                }
+
+                this.nodeMove.mouseout();
+                if (keycode === _event.KEY_DOWN) {
+                    this.nodeMove = this.nodeMove.next();
+                } else {
+                    var node = this.nodeMove;
+                    for (var i = 0; i < this.view_count; i++) {
+                        if (node.next().length) {
+                            node = node.next();
+                            if (node === this.nodeList.children().last()) {
+                                break;
+                            }
+                        } else {
+                            break;
+                        }
+                    }
+                    this.nodeMove = node;
+                }
+                this.nodeMove.mouseover();
+
+                var height = this.nodeList.getBound().height;
+                if (height < this.nodeMove.offset().top - 100) {
+                    this.nodeList.scrollTop(parseInt(this.nodeList.scrollTop() + 20));
+                }
+            }
+        } else {
+            if (this.type === 'serverlist' && this.status.type === 'sub') {
+                this.status.duplicate = true;
+            }
+            this.status.active = true;
+            return true;
+        }
+    },
+    setMode: function() {
+        var tagFor = _xml.getElement(this.xsl, 'xsl:for-each', 0);
+        var tagVar = _xml.getElement(this.xsl, 'xsl:variable', 0);
+        tagVar.setAttribute('select', 0);
+
+        if (this.status.type === 'all') {
+            tagFor.setAttribute('select', '/gamelist/game');
+        } else if (this.status.type === 'sub') {
+            tagFor.setAttribute('select', "/gamelist/game[@id='" + this.status.where + "']");
+        } else if (this.status.type === 'search') {
+            var inputValue = this.status.where.toUpperCase(),
+                rgWord = this.getHangulList(inputValue),
+                inputLen = 0,
+                query = '/gamelist/game[';
+
+            if (rgWord.length < 1) {
+                rgWord[0] = inputValue;
+            }
+
+            if (inputValue.substr(inputValue.length - 1, inputValue.length) === rgWord[0].substr(rgWord[0].length - 1, rgWord[0].length).toUpperCase()) {
+                inputLen = inputValue.length;
+            }
+
+            var rgWordLen = rgWord.length;
+
+            for (var i = 0; i < rgWordLen; i++) {
+                if (i !== 0) query += ' or ';
+                query += "starts-with(@name,'" + rgWord[i] + "')";
+            }
+            query += ']';
+
+
+            tagFor.setAttribute('select', query);
+            tagVar.setAttribute('select', inputLen);
+        }
+    },
+    fnPrint: function() {
+        this.nodeList.children().remove();
+        var g_this = this;
+
+        _xslt.parseXML(this.nodeList, this.xml, this.xsl);
+
+        this.nodeList.children().bind({
+            click: function(e) {
+                g_this.fnClick($(this));
+                e.stopPropagation();
             },
-            focus: function(f) {
-                c.onFocus.call(c, f)
+            mouseover: function() {
+                g_this.fnMouseover($(this));
             },
-            blur: function(f) {
-                c.onBlur.call(c, f)
+            mouseout: function() {
+                g_this.fnMouseout($(this));
             }
         });
-        d.wrap('<div class="g_selectbox"></div>');
-        this.nodeHidden = $("<input>", {
-            type: "hidden",
-            name: e
-        }).insertBefore(d);
-        if (this.nodeList == null) {
-            this.nodeList = $("<div />");
-            $(this).after(this.nodeList)
+
+        if (this.nodeList.children().length < 1) {
+            var result = this.addOption(null, null, '검색결과가 없습니다.');
+            result.click = _DISABLE;
+            result.mouseover = _DISABLE;
+            result.mouseout = _DISABLE;
         }
-        var a = this.nodeList.addClass("gs_list"),
-            b = document.createElement("div");
-        b.id = e + "_scroller";
-        a.after($(b).addClass("gs_wrap"));
-        $(b).append(a);
-        this.scrollNodeWrap = $(b);
-        if (this.mode == "infinite") {
-            a.addClass("infinite_list")
+        //		else if((!this.bind || (this.bind && this.bind.type==='serverlist')) && this.status.type==='sub') {
+        else if ((this.bind && this.bind.type === 'serverlist') && this.status.type === 'sub') {
+            this.nodeSelect = this.nodeList.children().first();
+            var rgInfo = this.nodeSelect;
+
+            this.setValue(rgInfo.attr('value'));
+            this.nodeSearch.val($(rgInfo).text());
         }
-        if (a[0].tagName.toUpperCase() == "UL") {
-            this.childNodeString = "li"
+
+        if ('selected' in this.status && !this.status.selected.isEmpty()) {
+            this.fnSelect(this.status.selected);
+        }
+
+        if (this.modeView === 'fix') {
+        } else if (this.nodeList.children().length > this.view_count) {
+            this.nodeList.css('height', ($.extend(this.nodeList.children().get(0), _gui).getBound().height * this.view_count + 9) + 'px');
+            this.nodeList.css('overflow', 'auto');
         } else {
-            this.childNodeString = "div"
+            this.nodeList.css('height', 'auto');
         }
-        this.onLoad()
-    },
-    rgJaumCode: [12593, 12594, 12596, 12599, 12600, 12601, 12609, 12610, 12611, 12613, 12614, 12615, 12616, 12617, 12618, 12619, 12620, 12621, 12622],
-    unicode: function(a) {
-        var b = [],
-            d = a.length;
-        for (var c = 0; c < d; c++) {
-            b[c] = a[c].charCodeAt(0)
-        }
-        return b
-    },
-    trans: function(b) {
-        var e = [];
-        if ((b >= 44032 && b <= 55203)) {
-            var a = b - 44032,
-                f = a % 28,
-                d = ((a - f) / 28) % 21,
-                c = parseInt(((a - f) / 28) / 21);
-            e[0] = c;
-            e[1] = d;
-            if (f != 0) {
-                e[2] = f
-            }
-        } else {
-            if (b >= 12593 && b <= 12622) {
-                e[0] = this.rgJaumCode.indexOf(b)
-            } else {
-                e[0] = b
-            }
-        }
-        return e
-    },
-    compare: function(k, b) {
-        var h = [],
-            f = [];
-        h = this.unicode(k);
-        f = this.unicode(b);
-        var l = h.length;
-        for (var e = 0; e < l; e++) {
-            var c = this.trans(h[e]),
-                a = this.trans(f[e]),
-                g = c.length;
-            for (var d = 0; d < g; d++) {
-                if (c[d] != a[d]) {
-                    return false
+
+        if ('selectedValue' in this && this.selectedValue.isEmpty() === false) {
+            if (this.type === 'gamelist') {
+                if (this.bind && 'useDefault' in this.bind && $.isFunction(this.bind.useDefault) === true) {
+                    this.bind.useDefault(this.selectedValue);
+                    this.bind.useDefault = null;
                 }
+            } else if (this.type === 'serverlist') {
+                this.fnSelect(this.selectedValue);
             }
-        }
-        return true
-    },
-    open: function() {
-        if (this.showMode != "open") {
-            this.showMode = "open";
-            this.scrollNodeWrap.show()
-        }
-        if ("onOpen" in this) {
-            this.onOpen()
+            this.selectedValue = '';
         }
     },
-    close: function() {
-        if (this.showMode != "close") {
-            this.showMode = "close";
-            this.scrollNodeWrap.hide()
-        }
-        if ("onClose" in this) {
-            this.onClose()
-        }
-    },
-    getValue: function() {
-        return this.nodeHidden.val()
-    }
-});
-var _GameList2 = $.extend({}, _Suggest),
-    _ServerList2 = $.extend({}, _Suggest);
-$.extend(_GameList2, {
-    strType: "game",
-    json: _gamedata.json,
-    filter: {
-        type: "all",
-        where: "",
-        selected: ""
-    },
-    filterCode: null,
-    nodeList: null,
-    mode: "infinite",
-    bind: null,
-    onLoad: function() {
-        if (this.json == null) {
-            ajaxRequest({
-                url: "/_json/gamelist.php",
-                scope: this,
-                mask: false,
-                success: this.onLoadComplete
-            })
-        } else {
-            this.createScroll()
-        }
-    },
-    onLoadComplete: function(g) {
-        var l = this,
-            m = this.json = _gamedata.json = g,
-            f = this.nodeList,
-            c = m.gamelist,
-            k = this.viewcount * 3,
-            n = [];
-        for (var j = 0; j < k; j++) {
-            var e = c[j],
-                h = e.name,
-                a = this.createElHtml(h)[0];
-            $.data(a, {
-                id: e.id
-            });
-            n.push(a)
-        }
-        f.append(n);
-        var o = f.children(),
-            d = o[0].offsetHeight * this.viewcount;
-        if (d > 0) {
-            this.scrollNodeWrap.css("height", d);
-            this.close()
-        } else {
-            var b = o.parents(":hidden").last().show();
-            d = o[0].offsetHeight * this.viewcount;
-            b.hide();
-            this.scrollNodeWrap.css("height", d);
-            this.close()
-        }
-    },
-    onLoadError: function() {
-        alert("Game List Load Fail.[609]")
-    },
-    createScroll: function() {
-        var c = this,
-            a = c.scrollNodeWrap[0].id,
-            b = {
-                me: c,
-                mouseWheel: true,
-                click: true
-            };
-        if (this.mode == "infinite") {
-            b.infiniteElements = c.nodeList.children();
-            b.infiniteLimit = c.json.gamelist.length;
-            b.dataset = c.scrollSetDate;
-            b.dataFiller = c.updateContent;
-            b.cacheSize = 200
-        }
-        this.iscroll = new IScroll("#" + a, b);
-        this.close()
-    },
-    onChange: function(a) {
-        this.filter.type = "search";
-        this.filter.where = $(a).text();
-        this.filter.selected = $.data(a, "id");
-        this.nodeInput.blur();
-        if (this.bind) {
-            this.bind.setValue("");
-            this.bind.nodeSelect = null;
-            this.bind.open();
-            this.bind.nodeInput.focus()
-        }
-        if ("OnUpdate" in this && this.OnUpdate) {
-            this.OnUpdate()
-        }
-    },
-    onKeyUp: function() {
-        if (this.nodeSelect && this.nodeSelect.text() != this.nodeInput.val()) {
-            this.setValue()
-        }
-        this.filter.type = "search";
-        this.filter.where = this.nodeInput.val();
-        this.createList()
-    },
-    onFocus: function() {
-        var a = this;
-        if (this.bind) {
-            this.bind.filter = {
-                type: "all",
-                game: "",
-                where: "",
-                selected: "",
-                list: "all"
-            };
-            this.bind.nodeInput.val("");
-            this.bind.nodeInput.blur();
-            this.bind.close()
-        }
-        if ((this.filter.type == "all" && !this.nodeInput.val().isEmpty()) || (this.filter.type != this.filter.list)) {
-            this.createList()
-        } else {
-            if (this.showMode != "open" && this.scrollNodeWrap.css("height").replace("px", "") != "0") {
-                this.iscroll.scrollTo(0, 0);
-                this.open()
-            }
-        }
-        this._timer = window.setInterval(function() {
-            if (a.nodeSelect && a.nodeSelect.text() != a.nodeInput.val()) {
-                a.setValue()
-            }
-            if (a.nodeInput.val() != a.filter.where) {
-                a.createList()
-            }
-        }, 50)
-    },
-    onBlur: function() {
-        window.clearInterval(this._timer)
-    },
-    scrollSetDate: function(d, a, e) {
-        var b = this.options.me;
-        var c = (b.codeList === undefined) ? null : b.codeList.join(",");
-        ajaxRequest({
-            url: "/_json/gamelist.php",
-            data: {
-                start: d,
-                limit: a,
-                rgCode: c,
-                strType: e
-            },
-            scope: this,
-            mask: false,
-            success: function(l) {
-                var m = this.options.me;
-                if (m.codeList && (l.codelist && l.codelist.length > 0 && l.codelist != m.codeList.join(","))) {
-                    return
-                }
-                var k = l.gamelist,
-                    g = k.length,
-                    f = m.viewcount,
-                    i = f * 3,
-                    h = m.nodeList,
-                    j = false;
-                if (g < 1) {
-                    m.scrollNodeWrap.css("height", "0");
-                    m.close()
-                } else {
-                    m.open();
-                    h.children().show();
-                    this.changePhase = false;
-                    if (e) {
-                        this.scrollTo(0, 0);
-                        this.changePhase = true;
-                        this.infiniteCache = undefined;
-                        if (g < i) {
-                            this.options.infiniteElements = h.children().slice(0, g);
-                            h.children().slice(g).hide();
-                            this._initInfinite()
-                        } else {
-                            this.options.infiniteElements = h.children().show();
-                            this._initInfinite()
-                        }
-                        var n = (g < f) ? g : f;
-                        m.scrollNodeWrap.css("height", h.children()[0].offsetHeight * n);
-                        if (f >= g) {
-                            this.scrollEnable = false
-                        } else {
-                            this.scrollEnable = true
-                        }
-                    }
-                    this.updateCache(d, k);
-                    this.options.infiniteLimit = Object.keys(this.infiniteCache).length;
-                    this.refresh()
-                }
-            },
-            error: function(f) {
-                this.options.me.close()
-            }
-        })
-    },
-    updateContent: function(f, b) {
-        try {
-            var g = this.options.me,
-                d = b.name,
-                a = g.nodeInput.val(),
-                c = a.length;
-            if (d === "empty") {
-                d = "검색 결과가 없습니다";
-                $(f).off("click")
-            } else {
-                if (c > 0 && d.substr(0, c).toUpperCase() == a.toUpperCase()) {
-                    d = '<span class="g_red1">' + (d.substr(0, c)) + "</span>" + (d.substr(c, d.length - c))
-                }
-                $(f).off("click").on("click", function() {
-                    g.selectNode.call(g, this)
-                })
-            }
-            f.innerHTML = d
-        } catch (h) {
-            return
-        }
-    },
-    createElHtml: function(a) {
-        var b = $("<" + this.childNodeString + " />").html(a);
-        return b
-    },
-    createList: function() {
-        var j = this,
-            m = "",
-            k = this.json,
-            b = k.gamelist,
-            d = this.nodeList,
-            g = new Array(),
-            f = b.length,
-            l = this.filter.where = this.nodeInput.val(),
-            a;
-        if (!this.iscroll) {
-            this.open();
-            this.createScroll()
-        }
-        var h = this.iscroll;
-        if (l == "") {
-            this.filter.list = "all";
-            m = "all";
-            delete this.codeList
-        } else {
-            this.filter.list = "search";
-            for (var e = 0; e < f; e++) {
-                var c = b[e];
-                if (this.compare(l.toUpperCase(), c.name.substring(0, l.length).toUpperCase()) == true && $.inArray(c.id, g) == -1) {
-                    if (j.filterCode == null || j.filterCode != null && $.inArray(c.id, j.filterCode) != -1) {
-                        g.push(c.id)
-                    }
-                }
-            }
-            this.codeList = g
-        }
-        h.options.dataset.call(h, 0, h.options.cacheSize, this.filter.list)
-    },
-    selectNode: function(a) {
-        this.nodeSelect = $(a);
-        if ("setText" in this) {
-            this.setText($(a).text())
-        }
-        this.setValue(a);
-        if ("onChange" in this) {
-            this.onChange(a)
-        }
+    fnClick: function(thisObj) {
+        this.nodeSelect = $(thisObj);
+        if ('setText' in this) this.setText($(thisObj).text());
+        this.setValue($(thisObj).attr('value'));
+        if ('OnChange' in this) this.OnChange($(thisObj));
         this.close();
-        return false
     },
-    setText: function(a) {
-        this.nodeInput.val(a)
-    },
-    setValue: function(a) {
-        if (typeof(a) === "object") {
-            this.filter.selected = $.data(a, "id")
-        } else {
-            if (typeof(a) === "string") {
-                this.filter.selected = a
-            } else {
-                this.filter.selected = ""
+    getUnit: function() {
+        if (this.nodeSelect) {
+            try {
+                return this.nodeSelect.find('input[name="unit"]').val();
+            } catch (Err) {
+                return '';
             }
         }
-        this.nodeHidden.val(this.filter.selected)
+        return '';
     }
 });
-$.extend(_ServerList2, _GameList2, {
-    strType: "server",
+
+// 서버리스트
+var _serverlist = {};
+$.extend(_serverlist, _gamelist);
+$.extend(_serverlist, {
+    type: 'serverlist',
     xml: _serverdata.xml,
-    filter: {
-        type: "all",
-        game: "",
-        where: "",
-        selected: ""
+    xsl: _serverdata.xsl,
+    status: {active: true, type: 'sub', where: null, duplicate: false, selected: ''},
+    exceptCode: null,
+    applyDefault: function() {
+        this.useDefault = function(strValue) {
+            this.open({type: 'sub', where: strValue});
+            this.close();
+        };
     },
-    filterCode: null,
-    nodeList: null,
-    mode: "scroll",
-    bind: null,
-    onLoad: function() {
-        var c = this,
-            a = c.scrollNodeWrap[0].id,
-            b = {
-                me: c,
-                mouseWheel: true,
-                click: true
-            };
-        this.iscroll = new IScroll("#" + a, b);
-        if (!this.filter.game.isEmpty()) {
-            this.onLoadXML()
+    OnOpen: function(params) {
+        if (!this.status.active) {
+            return;
         }
+        if (this.bind && this.bind.getValue().isEmpty()) {
+            this.close();
+            alert('게임을 선택해 주세요.');
+            this.bind.nodeSearch.focus();
+            return;
+        }
+
+        this.nodeMove = null;
+
+        if (params) {
+            this.status.type = params.type;
+            this.status.where = params.where;
+        }
+
+        this.nodeList.children().remove();
+        if (this.modeView === 'slide') {
+            this.nodeList.css('height', 'auto');
+        }
+        var loading = this.addOption(null, null, '검색중입니다...');
+        loading.click = _DISABLE;
+        loading.mouseover = _DISABLE;
+        loading.mouseout = _DISABLE;
+
+        this.loadXML();
     },
-    onLoadXML: function() {
+    loadXML: function() {
+        var g_this = this;
+        if (this.status.type === 'search' || this.status.type === 'sub' && this.status.duplicate === true) {
+            this.setMode();
+            this.fnPrint.delay(100, this);
+            return;
+        }
+
         ajaxRequest({
-            url: "/_json/serverlist.php",
-            data: "game=" + this.filter.game,
             scope: this,
-            mask: false,
-            success: this.onLoadComplete,
-            error: this.onLoadError
-        })
+            url: '/_xml/serverlist.php',
+            dataType: 'xml',
+            data: 'game=' + this.status.where,
+            cache: 6,
+            success: this.OnLoadXML,
+            error: this.OnError
+        });
     },
-    onLoadComplete: function(a) {
-        this.json = a;
-        this.createList()
-    },
-    onLoadError: function() {
-        alert("Server List Load Fail.[881]")
-    },
-    createList: function() {
-        var l = this,
-            m = this.json,
-            f = this.nodeList,
-            d = m.serverlist,
-            h = d.length,
-            n = [],
-            o = (this.filter.type == "search") ? this.nodeInput.val() : "";
-        if (!this.iscroll) {
-            this.open();
-            this.createScroll()
+    OnLoadXML: function(request) {
+        var g_this = this;
+        this.xml = new Object(request);
+        if (_serverdata.xsl) {
+            this.xsl = _serverdata.xsl;
         }
-        var k = this.iscroll;
-        this.open();
-        k.scrollTo(0, 0);
-        f.children().remove();
-        for (var g = 0; g < h; g++) {
-            var e = d[g],
-                j = e.name;
-            if (j != "서버전체" && this.compare(o.toUpperCase(), j.substring(0, o.length).toUpperCase()) == true) {
-                if (l.filterCode == null || l.filterCode != null && $.inArray(e.id, l.filterCode) != -1) {
-                    var c = o.length;
-                    if (c > 0 && j.substr(0, c) == o) {
-                        j = '<span class="ft_red">' + (j.substr(0, c)) + "</span>" + (j.substr(c, j.length - c))
-                    }
-                    var a = this.createElHtml(j)[0];
-                    $.data(a, {
-                        id: e.id
-                    });
-                    n.push(a)
-                }
-            }
-        }
-        var p = n.length,
-            b = (l.viewcount < p) ? l.viewcount : p;
-        if (p < 1) {
-            this.close();
-            return
-        }
-        f.append(n).css("height", f.children()[0].offsetHeight * p);
-        this.scrollNodeWrap.css("height", f.children()[0].offsetHeight * b);
-        if (o.isEmpty() && f.children().length < 2) {
-            window.setTimeout(function() {
-                l.selectNode.call(l, f.children()[0])
-            }, 200)
+
+        if (this.xsl) {
+            this.setMode();
+            this.fnPrint.delay(100, this);
         } else {
-            f.children().on("click", function() {
-                l.selectNode.call(l, this)
-            })
+            ajaxRequest({
+                scope: this,
+                url: '/_xslt/serverlist' + this.template + '.xsl',
+                dataType: 'xml',
+                cache: true,
+                success: this.OnLoadXSLT,
+                error: this.OnError
+            });
         }
-        if (b >= p) {
-            k.scrollEnable = false
-        } else {
-            k.scrollEnable = true
-        }
-        k.refresh();
-        window.setTimeout(function() {
-            if (l.showMode == "open" && !l.nodeInput.is(":focus")) {
-                l.nodeInput.focus()
+    },
+    OnChange: function(optionObj) {
+        var rgInfo = optionObj.find("input[name='gamecode']");
+        this.nodeSearch.val($(optionObj).text());
+
+        if (this.status.type !== 'sub') {
+            this.status = {type: 'search', where: optionObj.attr('value')};
+            if (this.bind) {
+                this.bind.status.active = true;
+                this.bind.open({type: 'sub', where: rgInfo.val()});
+                this.bind.close();
+                this.bind.status.active = false;
+                this.status.active = true;
+                this.open({type: 'sub', where: rgInfo.val()});
+                this.status.active = false;
+                this.close();
             }
-        }, 300)
-    },
-    onOpen: function() {
-        if ((this.bind && this.bind.filter.selected.isEmpty()) && this.filter.game.isEmpty()) {
-            this.close();
-            alert("게임을 선택해주세요.");
-            this.bind.nodeInput.focus();
-            return
-        }
-    },
-    onChange: function(a) {
-        this.filter.type = "search";
-        this.filter.where = $(a).text();
-        this.filter.game = this.bind.filter.selected;
-        this.filter.selected = $.data(a, "id");
-        this.nodeInput.blur();
-        if ("OnUpdate" in this && this.OnUpdate) {
-            this.OnUpdate()
-        }
-    },
-    onFocus: function() {
-        var a = this;
-        if ((this.bind && this.bind.filter.selected.isEmpty()) && this.filter.game.isEmpty()) {
-            alert("게임을 선택해주세요.");
-            this.bind.nodeInput.focus();
-            return
-        }
-        if (this.bind && this.bind.showMode == "open") {
-            this.bind.close()
-        }
-        this.filter.type = "all";
-        if (this.bind && this.filter.game == this.bind.filter.selected) {
-            this.createList()
         } else {
             if (this.bind) {
-                this.filter.game = this.bind.filter.selected
+                if (!this.bind.nodeSelect || this.bind.nodeSelect.attr('value') !== rgInfo.val()) {
+                    this.bind.status.active = true;
+                    this.bind.open({type: 'sub', where: rgInfo.val()});
+                    this.bind.close();
+                    this.bind.status.active = false;
+                }
             }
-            this.onLoadXML()
+            this.status.active = false;
+            this.close();
         }
-        this._timer = window.setInterval(function() {
-            if (a.nodeSelect && a.nodeSelect.text() != a.nodeInput.val()) {
-                a.setValue()
-            }
-            if (a.filter.type != "all" && a.nodeInput.val() != a.filter.where) {
-                a.createList()
-            }
-        }, 50)
+
+        if ('OnChangeAfter' in this) {
+            this.OnChangeAfter.call(this);
+        }
     },
-    setValue: function(a) {
-        if (typeof(a) === "object") {
-            this.filter.selected = $.data(a, "ID")
-        } else {
-            if (typeof(a) === "string") {
-                this.filter.selected = a
-            } else {
-                this.filter.selected = ""
+    OnFocus: function() {
+        if (this.nodeSearch.val() === '서버검색') {
+            this.nodeSearch.val('');
+        }
+        if (this.bind && this.bind.getValue().isEmpty()) {
+            this.close();
+            alert('게임을 선택해 주세요.');
+            this.bind.nodeSearch.focus();
+            return;
+        }
+        if (this.bind && this.bind.mode === 'open') {
+            this.bind.close();
+        }
+        if (this.status.type === 'sub') {
+            this.status.active = false;
+            if (this.mode !== 'open') {
+                this.open();
             }
         }
-        this.nodeHidden.val(this.filter.selected)
+    },
+    OnClose: _ENABLE,
+    OnBlur: function() {
+        var objSelected = null;
+        var strText = this.nodeSearch.val().trim();
+        var objItem = null;
+
+        this.nodeList.children().each(function() {
+            if ($(this).get(0).tagName !== 'DIV') {
+                return false;
+            }
+
+            objItem = $(this).text().trim();
+            if (objItem && objItem.toUpperCase() === strText.toUpperCase()) {
+                objSelected = $(this);
+            }
+        });
+
+        if (objSelected && this.nodeSelect !== objSelected) {
+            this.setValue(objSelected.attr('value'));
+        }
+
+        this.nodeSelect = objSelected;
+        if (!this.nodeSelect) {
+            this.setValue('');
+            this.status.active = true;
+        }
+    },
+    setMode: function() {
+        var tagFor = _xml.getElement(this.xsl, 'xsl:for-each', 0);
+        var tagVar = _xml.getElement(this.xsl, 'xsl:variable', 0);
+        tagVar.setAttribute('select', 0);
+
+        if (this.status.type === 'sub' || this.status.type === 'search') {
+            var exceptCode = this.exceptCode;
+            if (this.status.type === 'sub' && !this.status.duplicate) {
+                var query = '/SERVERLIST/SERVER',
+                    subQuery = '', subQuery2 = '';
+
+                if (this.modeView !== 'slide') {
+                    subQuery = "(not(@TYPE) or @TYPE!=='all')";
+                }
+                if (exceptCode !== null && exceptCode.length > 0) {
+                    if (subQuery !== '') {
+                        subQuery2 += ' and ';
+                    }
+
+                    subQuery2 += '(';
+
+                    var exceptLen = exceptCode.length;
+                    for (var i = 0; i < exceptLen; i++) {
+                        if (i !== 0) subQuery2 += ' and ';
+                        subQuery2 += "@ID !== '" + exceptCode[i] + "'";
+                    }
+
+                    subQuery2 += ')';
+                }
+
+                if (subQuery !== '' || subQuery2 !== '') {
+                    query += '[' + subQuery + subQuery2 + ']';
+                }
+
+                tagFor.setAttribute('select', query);
+            } else {
+                var inputValue = ((this.status.type === 'sub') ? this.nodeSearch.val() : this.status.where).toUpperCase(),
+                    rgWord = this.getHangulList(inputValue),
+                    inputLen = 0,
+                    query = '/SERVERLIST/SERVER[(';
+
+                if (rgWord.length < 1) {
+                    rgWord[0] = inputValue;
+                } else if (inputValue.substr(inputValue.length - 1, inputValue.length) === rgWord[0].substr(rgWord[0].length - 1, rgWord[0].length)) {
+                    inputLen = inputValue.length;
+                }
+
+                var rgWordLen = rgWord.length;
+
+                for (var i = 0; i < rgWordLen; i++) {
+                    if (i !== 0) query += ' or ';
+                    query += "starts-with(@NAME,'" + rgWord[i] + "')";
+                }
+
+                if (exceptCode !== null && exceptCode.length > 0) {
+                    query += ' and (';
+                    var exceptLen = exceptCode.length;
+                    for (var i = 0; i < exceptLen; i++) {
+                        if (i !== 0) query += ' and ';
+                        query += "@ID !== '" + exceptCode[i] + "'";
+                    }
+                    query += ')';
+                }
+
+                query += (this.modeView !== 'slide') ? ") and (not(@TYPE) or @TYPE!=='all')" : ')';
+                query += ']';
+
+                tagFor.setAttribute('select', query);
+                tagVar.setAttribute('select', inputLen);
+            }
+        } else {
+            return;
+        }
+    },
+    getMoney: function() {
+        if (this.nodeSelect) {
+            try {
+                return this.nodeSelect.find('input[name="money"]').val();
+            } catch (Err) {
+                return '';
+            }
+        }
+        return '';
+    },
+    getMoneyUnit: function() {
+        if (this.nodeSelect) {
+            try {
+                return this.nodeSelect.find('input[name="money_unit"]').val();
+            } catch (Err) {
+                return '';
+            }
+        }
+        return '';
+    },
+    getUnit: function() {
+        if (this.nodeSelect) {
+            try {
+                return this.nodeSelect.find('input[name="unit"]').val();
+            } catch (Err) {
+                return '';
+            }
+        }
+        return '';
     }
 });
