@@ -12,8 +12,17 @@
         <script type="text/javascript" src="/angel/_js/_gs_control.js?v=200803"></script>
         <link type="text/css" rel="stylesheet" href="/angel/carsouel_plugin/css/carsouel_plugin.css?v=210422">
         <script type="text/javascript" src="/angel/carsouel_plugin/js/carsouel_plugin.js?v=210209"></script>
+        <script type="text/javascript" src="/angel/socket/socket.io.js"></script>
         <script>
+            var server_domain = '210.112.174.178';
             var a_token = '{{Auth::user()->api_token}}';
+            var socket_client = io.connect('http://'+server_domain+':7443/adminWith', {
+                path: '/socket.io',
+                reconnectionAttempts:1,
+                reconnectionDelay:500,
+                reconnectionDelayMax:500,
+                transports: ['websocket']
+            });
         </script>
         <link type="text/css" rel="stylesheet" href="/angel/dev/global.css">
     </head>
@@ -164,12 +173,14 @@
             loadGlobalItems()
 
             $(".mileage_charge").click(function() {
+                var type = 1;
                 if (confirm("{{$snzProc}}하시겟습니까?")) {
                     var hitURL = "";
                     @if ($snzProc == "충전")
                         hitURL = "/api/mileage/charge/proc";
                     @else
                         hitURL = "/api/mileage/exchange/proc";
+                        type = 2;
                     @endif
 
                     ajaxRequest({
@@ -179,9 +190,14 @@
                             price: $("#price").val(),
                             api_token: a_token
                         },
+                        dataType:'json',
                         success: function(response) {
                             if (response.status == "success") {
                                 alert("조작이 성공햇습니다.");
+                                socket_client.emit("admin_notice",{
+                                    type: type,
+                                    userName: "{{$me['name']}}"
+                                })
                                 window.parent.location = "{{route('my_mileage_detail_list')}}";
                             }
                             else

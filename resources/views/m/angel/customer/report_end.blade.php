@@ -284,10 +284,10 @@
             });
         });
         function goCloseReqest() {
-            location.href = "{{route('customer_report')}}";
+            location.href = "{{route('customer_report')}}?type={{Request::get('type')}}";
         }
         function goEndReqest() {
-            location.href = "{{route('customer_report_end')}}";
+            location.href = "{{route('customer_report_end')}}?type={{Request::get('type')}}";
         }
     </script>
 @endsection

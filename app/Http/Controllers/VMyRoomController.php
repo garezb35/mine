@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\MAdminNotice;
 use App\Models\MCashReceipt;
 use App\Models\MGift;
 use App\Models\MInbox;
@@ -1390,6 +1391,10 @@ class VMyRoomController extends BaseController
             'memo' => '마일리지 충전',
             'status' => 0
         ]);
+        MAdminNotice::insert([
+            'userId' => $this->user->id,
+            'type' => 1
+        ]);
 
         echo json_encode(array('status'=>"success"));
     }
@@ -1424,6 +1429,10 @@ class VMyRoomController extends BaseController
             ]);
 
             User::where("id", $this->user->id)->update(['mileage'=> DB::raw('mileage - '.$price)]);
+            MAdminNotice::insert([
+                'userId' => $this->user->id,
+                'type' => 1
+            ]);
             echo json_encode(array('status'=>"success"));
             return;
         }

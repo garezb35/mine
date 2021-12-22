@@ -239,4 +239,45 @@ function getMileageType($type){
 
     return $type_alias;
 }
+
+function requestTypes($param){
+    $r = "";
+    if($param == "login")
+        $r = "로그인";
+    if($param == "other")
+        $r = "기타문의";
+    if($param == "other")
+        $r = "charge";
+    if($param == "faulty")
+        $r = "비거래 물품 신고";
+    if($param == "exchange")
+        $r = "출금문의";
+}
+
+function noticetype($typ){
+    if($typ == 1){
+        return '마일리지 충전 요청';
+    }
+    if($typ == 2){
+        return '마일리지 출금 요청';
+    }
+    if($typ == 3){
+        return '구매취소 요청';
+    }
+    if($typ == 4){
+        return '구매종료 요청';
+    }
+    if($typ == 5){
+        return '판매취소 요청';
+    }
+    if($typ == 6){
+        return '판매종료 요청';
+    }
+    if($typ == 7){
+        return '신규게임추가 요청';
+    }
+    if($typ == 8){
+        return '이용관련 요청';
+    }
+}
 ?>

@@ -79,6 +79,7 @@
                             price: nPrice,
                             api_token: a_token
                         },
+                        dataType:'json',
                         success: function(response) {
                             $(".pay-mny-option input").prop("checked", false);
                             if (response.status == "success")

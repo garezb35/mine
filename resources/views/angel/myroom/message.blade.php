@@ -63,7 +63,7 @@
                     <th>선택</th>
                     <th>상태</th>
                     <th>종류</th>
-                    <th>내용</th>
+                    <th>제목</th>
                     <th>도착일시</th>
                 </tr>
                 @foreach($message as $v)
@@ -84,7 +84,7 @@
                         @endif
                     </td>
                     <td>{{$v['type']}}</td>
-                    <td class="left" onclick="$.fnMessageAjax(this.parentNode,'new');" style="cursor:pointer">{{$v['content']}}</td>
+                    <td class="left" onclick="$.fnMessageAjax(this.parentNode,'new');" style="cursor:pointer">{{$v['title']}}</td>
                     <td>{{date("Y-m-d H:i:s",strtotime($v['created_at']))}}</td>
                 </tr>
                 @endforeach

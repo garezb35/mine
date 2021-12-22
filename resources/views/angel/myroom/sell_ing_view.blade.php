@@ -185,19 +185,13 @@
                 </tr>
                 </tbody>
             </table>
-
-
-
             <link rel="stylesheet" href="/angel/myroom/chat/css/chat.css">
-{{--            <script type="text/javascript" src="../chat/js/socket.io.js"></script>--}}
-{{--            <script type="text/javascript" src="../chat/js/connect.js"></script>--}}
             <table class="noborder mt-15">
                 <colgroup>
                     <col width="50%">
                 </colgroup>
                 <tbody>
                 <td class="vt p-left-0">
-
                     <div class="highlight_contextual_nodemon gray mt-0 p-left-10">상세설명</div>
                     <div class="detail_info">
                         <div class="detail_text">
@@ -213,7 +207,6 @@
                     </div>
                 </td>
                 <td class="vt">
-                    <script type="text/javascript" src="/angel/socket/socket.io.js"></script>
                     <script type="text/javascript" src="/angel/socket/connect.js"></script>
                     <div id="chat_wrapper" style="display: block;margin: 0px auto;">
                         <input id="CHAT_TOKEN" type="hidden" value="{{$orderNo}}">
@@ -237,10 +230,6 @@
                 </td>
                 </tbody>
             </table>
-
-
-
-
             <div class="trade_progress">
                 <div class="highlight_contextual_nodemon">
                     거래 진행 상황
@@ -324,10 +313,6 @@
                         현금영수증
                     </div>
                     <div class="empty-high"></div>
-
-
-
-
                     <table class="table-green1 mt-5">
                         <colgroup>
                             <col width="164">

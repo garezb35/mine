@@ -467,7 +467,7 @@ if(sizeof($split_number) == 3){
                         <tr class="m_tmp">
                             <th>취소이유</th>
                             <td class="h_auto">
-                                <input type="radio" name="privates" value="상대방과 연락이 안됩니다." class="g_radio">상대방과 연락이 안됩니다.
+                                <input type="radio" name="privates" value="상대방과 연락이 안됩니다." class="g_radio" checked>상대방과 연락이 안됩니다.
                                 <br>
                                 <input type="radio" name="privates" value="이미 팔린 물품 입니다" class="g_radio">이미 팔린 물품 입니다
                                 <br>

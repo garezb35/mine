@@ -10,4 +10,10 @@ class MMallBuy extends Model
     use HasFactory;
     protected $table = 'm_mall_buy';
     protected $guarded = [];
+    public function user(){
+        return $this->hasOne(User::class,'id', 'userId');
+    }
+    public function mall(){
+        return $this->hasOne(MMall::class,'alias', 'alias');
+    }
 }

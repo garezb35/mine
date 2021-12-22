@@ -25,10 +25,10 @@
             });
         });
         function goCloseReqest() {
-            location.href = "{{route('customer_report')}}";
+            location.href = "{{route('customer_report')}}?type={{Request::get('type')}}";
         }
         function goEndReqest() {
-            location.href = "{{route('customer_report_end')}}";
+            location.href = "{{route('customer_report_end')}}?type={{Request::get('type')}}";
         }
     </script>
 @endsection
@@ -254,7 +254,7 @@
                         <tr class="m_tmp">
                             <th>거래번호</th>
                             <td class="h_auto">
-                                <input type="radio" name="privates" value="상대방과 연락이 안됩니다." class="g_radio">상대방과 연락이 안됩니다.
+                                <input type="radio" name="privates" value="상대방과 연락이 안됩니다." class="g_radio" checked>상대방과 연락이 안됩니다.
                                 <br>
                                 <input type="radio" name="privates" value="이미 팔린 물품 입니다" class="g_radio">이미 팔린 물품 입니다
                                 <br>

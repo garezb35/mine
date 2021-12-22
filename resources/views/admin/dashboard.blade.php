@@ -1,12 +1,11 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    @include('admin.layouts.headers.cards')
     <script>
         var data = [0,0,0,0,0,0,0,0,0,0,0,0,0];
          var users = {{$user_list}};
     </script>
-    <div class="container-fluid mt--7">
+    <div class="container-fluid mt-100">
         <div class="row">
             <div class="col-xl-8 mb-5 mb-xl-0">
                 <div class="card bg-gradient-default shadow">
@@ -66,7 +65,7 @@
                                 <h3 class="mb-0">구매 취소/종료신청</h3>
                             </div>
                             <div class="col text-right">
-                                <a href="#!" class="btn btn-sm btn-primary">모두 보기</a>
+                                <a href="{{route("order_list_request")}}" class="btn btn-sm btn-primary">모두 보기</a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +82,6 @@
                                     <th scope="col">상태</th>
                                     <th scope="col">구분</th>
                                     <th scope="col">창조일</th>
-                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -101,7 +99,7 @@
                                     @endphp
                                     <tr>
                                         <th scope="row">
-                                            <a href="javascript:void(0)" onclick="window.open('{{Request::root()}}/admin/view_order?id={{$ro['orderNo']}}','popUpWindow','height=600,width=800,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes')">#{{$ro['orderNo']}}</a>
+                                            <a href="javascript:void(0)" onclick="openOrder({{$ro['orderNo']}})">#{{$ro['orderNo']}}</a>
                                         </th>
                                         <td>
                                             {{$ro['ask']['user']['nickname']}}
@@ -123,10 +121,6 @@
                                             {{$ro['ask']['type'] == 'cancel' ? '거래취소':'거래종료'}}
                                         </td>
                                         <td>{{date("Y-m-d H:i:s",strtotime($ro['created_at']))}}</td>
-                                        <td>
-                                            <a href="#!" class="btn btn-sm btn-primary">승인</a>
-                                            <a href="#!" class="btn btn-sm btn-danger">거절</a>
-                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -142,7 +136,7 @@
                                 <h3 class="mb-0">마일리지 입금/출금 신청</h3>
                             </div>
                             <div class="col text-right">
-                                <a href="#!" class="btn btn-sm btn-primary">모두 보기</a>
+                                <a href="{{route("mileage_charge")}}" class="btn btn-sm btn-primary">모두 보기</a>
                             </div>
                         </div>
                     </div>
@@ -155,7 +149,6 @@
                                     <th scope="col">금액</th>
                                     <th scope="col">등록일시</th>
                                     <th scope="col">구분</th>
-                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -177,10 +170,6 @@
 {{--                                                </div>--}}
 {{--                                            </div>--}}
 {{--                                        </div>--}}
-                                    </td>
-                                    <td>
-                                        <a href="#!" class="btn btn-sm btn-primary">승인</a>
-                                        <a href="#!" class="btn btn-sm btn-danger">거절</a>
                                     </td>
                                 </tr>
                                 @endforeach

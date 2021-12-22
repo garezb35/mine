@@ -3,16 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Models\MAdminCash;
+use App\Models\MAdminNotice;
+use App\Models\MAsk;
+use App\Models\MBargainRequest;
+use App\Models\MCancelReason;
 use App\Models\MGame;
+use App\Models\MGift;
+use App\Models\MInbox;
 use App\Models\MItem;
+use App\Models\MMall;
+use App\Models\MMallBuy;
 use App\Models\MMileage;
+use App\Models\MNotice;
 use App\Models\MPayhistory;
 use App\Models\MPayitem;
+use App\Models\MPremium;
 use App\Models\MRole;
+use App\Models\MRoleGift;
 use App\Models\MUserbank;
 use App\Models\User;
+use http\Env\Response;
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends BaseAdminController
@@ -23,25 +35,11 @@ class AdminController extends BaseAdminController
         parent::__construct();
     }
 
-    public function dashboard(){
+    public function dashboard() {
         $user_list = array();
         for($i = 0; $i < 12 ; $i ++)
             $user_list[$i]= 0;
-        $cash = MAdminCash::where('id',1)->first();
-        $users_num = User::where('state','!=' ,2)->where('state','!=' ,3)->where('is_admin',0)->get()->count();
-        $products_num = MItem::whereHas('user',function($query){
-            $query->where('state','!=',2);
-            $query->where('state','!=',3);
-        })->where('status','!=',-1)->get()->count();
-        $request_num = MItem::whereHas('user')
-            ->where('accept_flag',1)
-            ->whereNotNUll('toId')
-            ->where(function($query){
-                $query->where('status',1);
-                $query->orWhere('status',2);
-                $query->orWhere('status',3);
-            })
-            ->get()->count();
+
         $request_orders = MItem::with(['payitem','user','other','game','server','ask.user'])
             ->whereHas('user')
             ->whereHas('ask')
@@ -66,17 +64,13 @@ class AdminController extends BaseAdminController
         }
         $mileage = MMileage::with('user')->where('status',0)->orderBy('createdByDtm','DESC')->limit(5)->get();
         return view('admin.dashboard',[
-            'cash'=>$cash['cash'],
-            'users_num'=>$users_num,
-            'products_num'=>$products_num,
-            'request_num'=>$request_num,
             'user_list'=>json_encode($user_list),
             'mileage'=>$mileage,
             'request_orders'=>$request_orders
 
         ]);
     }
-    public function profile(){
+    public function profile() {
         return view('admin.profile.edit');
     }
     public function updateProfile(){
@@ -187,9 +181,9 @@ class AdminController extends BaseAdminController
         }
         if(!empty($usr_alias)){
             $member = $member->where(function($query) use($usr_alias){
-                $query->orwhere('name',"LIKE","%".$usr_alias."%");
-                $query->orwhere('email',"LIKE","%".$usr_alias."%");
-                $query->orwhere('nickname',"LIKE","%".$usr_alias."%");
+                $query->where('name',"LIKE","%".$usr_alias."%");
+                $query->orWhere('email',"LIKE","%".$usr_alias."%");
+                $query->orWhere('nickname',"LIKE","%".$usr_alias."%");
             });
         }
         if(!empty($user_rate)){
@@ -234,8 +228,9 @@ class AdminController extends BaseAdminController
         if($type >= 0 ){
             $mileage = $mileage->where('type',$type);
         }
-        $mileage = $mileage->orderby('createdByDtm',"DESC")
-            ->orderby("status","ASC");
+        $mileage = $mileage
+            ->orderby("status","ASC")
+            ->orderby('createdByDtm',"DESC");
         $mileage = $mileage->paginate(15);
         return view('admin.mileage_charge',[
             "mileage"=>$mileage
@@ -253,8 +248,8 @@ class AdminController extends BaseAdminController
         $mileage1 = $mileage1->whereHas('user',function($query) use ($usr_alias){
             if(!empty($usr_alias)){
                 $query->where('name',"LIKE","%".$usr_alias."%");
-                $query->orwhere('email',"LIKE","%".$usr_alias."%");
-                $query->orwhere('nickname',"LIKE","%".$usr_alias."%");
+                $query->orWhere('email',"LIKE","%".$usr_alias."%");
+                $query->orWhere('nickname',"LIKE","%".$usr_alias."%");
             }
         })
             ->where("status",1)
@@ -284,8 +279,8 @@ class AdminController extends BaseAdminController
         $mileage2=  $mileage2->whereHas('user', function($query) use ($usr_alias){
             if(!empty($usr_alias)) {
                 $query->where('name',"LIKE","%".$usr_alias."%");
-                $query->orwhere('email',"LIKE","%".$usr_alias."%");
-                $query->orwhere('nickname',"LIKE","%".$usr_alias."%");
+                $query->orWhere('email',"LIKE","%".$usr_alias."%");
+                $query->orWhere('nickname',"LIKE","%".$usr_alias."%");
             }
         })
             ->where('status',2);
@@ -459,8 +454,8 @@ class AdminController extends BaseAdminController
         if(!empty($username)) {
             $order = $order->whereHas('user',function($query) use ($username){
                 $query->where('name',"LIKE","%".$username."%");
-                $query->where('email',"LIKE","%".$username."%");
-                $query->where('nickname',"LIKE","%".$username."%");
+                $query->orWhere('email',"LIKE","%".$username."%");
+                $query->orWhere('nickname',"LIKE","%".$username."%");
             });
         }
         if(!empty($orderNo)){
@@ -495,7 +490,7 @@ class AdminController extends BaseAdminController
     public function getServers(Request $request){
         $id = $request->id;
         $servers = array();
-        if(empty($id)){
+        if (empty($id)){
 
         }
         else{
@@ -521,12 +516,680 @@ class AdminController extends BaseAdminController
     public function orderContent(Request $request){
         $id = $request->id;
         $item = MItem::with(['user','other','game','server','payitem','privateMessage','bargains'])->where('orderNo',$id)->first();
+        $seller =  $buyer = array();
         if(empty($item)){
             echo "<script>alert('존재하지 않는 자료입니다.');self.close();</script>";
         }
+        if($item['type'] == 'sell'){
+            $seller['u'] = $item['user'];
+            $seller['c'] =$item['user_character'];
+            $buyer['c'] = "";
+            $buyer['u'] = $item['other'];
+            if(!empty($item['payitem']))
+                $buyer['c'] = $item['payitem']['character'];
+        }
+        else{
+            $buyer['u'] = $item['user'];
+            $buyer['c'] = $item['user_character'];
+            $seller['u'] = $item['other'];
+            $seller['c'] = "";
+            if(!empty($item['payitem']))
+                $seller['c'] = $item['payitem']['character'];
+
+        }
         return view('admin.order.order_content',[
+            'item'=>$item,
+            'buyer'=>$buyer,
+            'seller'=>$seller
+        ]);
+    }
+
+    public function controlOrder(Request $request){
+        $orderNo = $request->orderNo;
+        $type = $request->type;
+        $buy_id = $sell_id = 0;
+        $item = MItem::with('payitem')->where('orderNo',$orderNo)->first();
+        if(empty($item))
+            return response()->json(array('msg'=>'자료가 존재하지 않습니다.','type'=>2));
+        if($item['type'] == 'sell'){
+            $buy_id = $item['toId'];
+            $sell_id = $item['userId'];
+        }
+        else{
+            $sell_id = $item['toId'];
+            $buy_id = $item['userId'];
+        }
+        if($item['status'] == 23 || $item['status'] ==32){
+            return response()->json(array('msg'=>'이미 거래완료된 물품입니다.','type'=>3));
+        }
+        if($type == 'end'){
+            if(empty($item['toId']) || empty($item['payitem']) || $item['status'] == 0 || $item['payitem']['status'] == 0){
+                return response()->json(array('msg'=>'요청을 수락할수 없습니다.','type'=>3));
+            }
+
+            $r = $this->processPay($buy_id,$sell_id,$orderNo);
+            if($r == 1){
+                MPayitem::where('orderNo', $orderNo)->update(['status' => 2]);
+                MItem::where('orderNO', $orderNo)->update(['status'=>32]);
+                return response()->json(array('msg'=>'거래완료되었습니다.','type'=>1));
+            }
+            else{
+                return response()->json(array('msg'=>'서버오류.','type'=>3));
+            }
+        }
+        if($type == 'cancel'){
+            if( empty($item['toId']) || empty($item['payitem'])) {
+                return response()->json(array('msg'=>'요청을 수락할수 없습니다.','type'=>3));
+            }
+            elseif($item['status'] == 0 || $item['payitem']['status'] == 0){
+                MPremium::where('post_id',$item['id'])->delete();
+                MBargainRequest::where('orderNo',$item['id'])->delete();
+                MItem::where('orderNo',$orderNo)->update(['status'=>-1]);
+            }
+            else{
+
+                MPremium::where('post_id',$item['id'])->delete();
+                MBargainRequest::where('orderNo',$item['id'])->delete();
+                User::where('id',$buy_id)->update(['mileage'=> DB::raw('mileage+'.$item['payitem']['price'])]);
+                MPayhistory::insert([
+                    'orderNo'=>$orderNo,
+                    'pay_type'=>21,
+                    'price'=>$item['payitem']['price'],
+                    'status'=>1,
+                    'userId'=>$buy_id
+                ]);
+                MItem::where('orderNo',$orderNo)->update(["status"=>-1]);
+                MPayitem::where('id',$item['payitem']['id'])->delete();
+                MCancelReason::insert([
+                    'orderNo'=>$orderNo,
+                    'reason'=>'관리자 거래취소',
+                    'content'=>'관리자 거래취소',
+                    'userId'=>$sell_id
+                ]);
+                MInbox::insert([
+                    'orderId'=>$orderNo,
+                    'type'=>'거래',
+                    'title'=>'고객님께서 판매중이신 #'.$orderNo.' 물품이 관리자에 의해 거래취소되었습니다.',
+                    'content'=>'궁금한 점이 있으시면 고겍센터로 문의해주세요',
+                    'userId'=>$sell_id
+                ]);
+                MInbox::insert([
+                    'orderId'=>$orderNo,
+                    'type'=>'거래',
+                    'title'=>'고객님께서 구매중이신 #'.$orderNo.' 물품이 거래취소되었습니다.',
+                    'content'=>'고객님께서 구매중이신 #'.$orderNo.' 물품이 거래취소되었습니다.',
+                    'userId'=>$buy_id
+                ]);
+
+                return response()->json(array('msg'=>'거래취소되었습니다.','type'=>1));
+            }
+        }
+        if($type == 'delete'){
+            if($item['status'] > 0){
+                return response()->json(array('msg'=>'거래취소후 삭제해주세요.','type'=>1));
+            }
+            MItem::where('orderNo',$orderNo)->delete();
+            if(!empty($item['payitem'])){
+                MPayitem::where('id',$item['payitem']['id'])->delete();
+            }
+
+            MPremium::where('post_id',$item['id'])->delete();
+            MBargainRequest::where('orderNo',$item['id'])->delete();
+            MPayhistory::where('orderNo',$orderNo)->delete();
+            return response()->json(array('msg'=>'거래가 삭제되었습니다.','type'=>2));
+        }
+    }
+
+
+    private function processPay($buy_id,$sell_id,$orderNo){
+        $admin_cash = $user_cash = 0;
+        $payItem = MPayitem::where("orderNo", $orderNo)->first();
+        $sell = User::with('roles')->where('id', $sell_id)->first();
+        if($payItem['price'] >= $sell['roles']['until']){
+            $admin_cash = $sell['roles']['fixed_price'];
+            $user_cash = $payItem['price'] - $sell['roles']['fixed_price'];
+        }
+        elseif($payItem['price'] <= $sell['roles']['min_price']){
+            $admin_cash = 1000;
+            $user_cash = $payItem['price'] - 1000;
+        }
+        else{
+            $admin_cash = $payItem['price'] * $sell['roles']['fee'] / 100;
+            $user_cash =  $payItem['price'] - $admin_cash;
+        }
+        if($payItem['status'] == 0){
+            MPayitem::where('id',$payItem['id'])->update([
+                'status'=>1
+            ]);
+        }
+        User::where("id", $sell_id)->update(['mileage'=> \Illuminate\Support\Facades\DB::raw('mileage+'.$user_cash),'point'=>DB::raw('point+1'),'completed_orders'=>DB::raw('completed_orders+1')]);
+        User::where("id", $buy_id)->update(['point'=>DB::raw('point+1'),'completed_orders1'=>DB::raw('completed_orders1+1')]);
+        MAdminCash::where("id", 1)->update(['cash'=> DB::raw('cash+'.$admin_cash)]);
+        MPayhistory::insert([
+            'orderNo'=>$orderNo,
+            'pay_type'=>2,
+            'price'=>$user_cash,
+            'status'=>1,
+            'userId'=>$sell_id,
+        ]);
+        MPayhistory::insert([
+            'orderNo'=>$orderNo,
+            'pay_type'=>6,
+            'price'=>$payItem['price'],
+            'status'=>1,
+            'userId'=>$buy_id,
+            'minus'=>1
+        ]);
+        MPayhistory::insert([
+            'orderNo'=>$orderNo,
+            'pay_type'=>3,
+            'price'=>$admin_cash,
+            'status'=>1,
+            'minus'=>1
+        ]);
+        MInbox::insert([
+            'orderId'=>$orderNo,
+            'type'=>'거래',
+            'title'=>'고객님께서 판매중이신 #'.$orderNo.' 물품이 판매종료되었습니다.',
+            'content'=>'고객님께서 판매중이신 #'.$orderNo.' 물품이 판매종료되었습니다.',
+            'userId'=>$sell_id
+        ]);
+        MInbox::insert([
+            'orderId'=>$orderNo,
+            'type'=>'거래',
+            'title'=>'고객님께서 구매중이신 #'.$orderNo.' 물품이 구매종료되었습니다.',
+            'content'=>'고객님께서 구매중이신 #'.$orderNo.' 물품이 구매종료되었습니다.',
+            'userId'=>$buy_id
+        ]);
+        $this->addGift($buy_id);
+        $this->addGift($sell_id);
+        return 1;
+    }
+    private function addGift($userId){
+        $user = User::with('roles')->where('id',$userId)->first();
+        $role = MRole::where('point','<=',$user['point'])->orderBy('point','DESC')->first();
+        if(!empty($role) && $role['id'] != $user['role']){
+            User::where('id',$userId)->update(['role'=>$role['id']]);
+            MInbox::insert([
+                'type'=>'신용등급',
+                'title'=>'신용등급 갱신',
+                'content'=>'회원님의 신용등급은 '.$role['alias'].'입니다.',
+                'userId'=>$userId
+            ]);
+            $role_gift = MRoleGift::where('role_id',$role['id'])->get();
+            if(!empty($role_gift)){
+                foreach ($role_gift as $value){
+                    $exist_item = MGift::where('userId',$userId)->where('type',$value['type'])->first();
+                    if(!empty($exist_item)){
+                        MGift::where('id',$exist_item['id'])->update(['time'=>DB::raw('time+'.$value['time'])]);
+                    }
+                    else{
+                        MGift::insert([
+                            'userId'=>$userId,
+                            'type'=>$value['type'],
+                            'time'=>$value['time']
+                        ]);
+                    }
+                }
+                MInbox::insert([
+                    'type'=>'무료이용권',
+                    'title'=>'무료이용권 자동지급',
+                    'content'=>'회원님에게 무료이용권이 지급되었습니다.',
+                    'userId'=>$userId
+                ]);
+            }
+        }
+    }
+
+    public function order_list_request(Request $request){
+        $username = $request->usr_alias;
+        $orderNo = $request->orderNo;
+        $items = MAsk::with(['item','user'])
+        ->whereHas('item',function($query){
+            $query->where('accept_flag',1);
+        })
+        ->where(function($query){
+            $query->where('type','cancel');
+            $query->orWhere('type','complete');
+        });
+        if(!empty($username)) {
+            $items = $items->whereHas('user',function($query) use ($username){
+                $query->where('name',"LIKE","%".$username."%");
+                $query->orWhere('email',"LIKE","%".$username."%");
+                $query->orWhere('nickname',"LIKE","%".$username."%");
+            });
+        }
+        if(!empty($orderNo)){
+            $items = $items->where('order_no','LIKE',"%".$orderNo."%");
+        }
+        $items = $items
+        ->orderBy('updated_at','DESC')
+        ->paginate(15);
+        return view('admin.order.order_list_request',[
+            'items'=>$items
+        ]);
+    }
+
+    public function orderRequestContent(Request $request){
+          $id = $request->id;
+          $item = MAsk::where('askid',$id)->first();
+        return view('admin.order.requestOrder',[
             'item'=>$item
         ]);
+    }
+
+    public function processOrderRequest(Request $request){
+        $content = $request->contents;
+        $id = $request->id;
+        $reason = $request->reason;
+        $type = $request->type;
+        $request_item = MAsk::where("askid",$id)->first();
+        $process = $request->process;
+        if(!empty($request_item['order_no'])){
+            $item = MItem::with('payitem')->where('orderNo',$request_item['order_no'])->first();
+            if(empty($item))
+            {
+                echo '<script>alert("자료가 존재하지 않습니다.");self.close();</script>';
+                return;
+            }
+            if($item['type'] == 'sell'){
+                $buy_id = $item['toId'];
+                $sell_id = $item['userId'];
+            }
+            else{
+                $sell_id = $item['toId'];
+                $buy_id = $item['userId'];
+            }
+            if($type == 'cancel'){
+                if( empty($item['toId']) || empty($item['payitem'])) {
+                    echo '<script>alert("요청을 수락할수 없습니다.");self.close();</script>';
+                    return;
+                }
+                elseif(($item['status'] == 0 || $item['payitem']['status'] == 0) && $process == 1){
+                    MPremium::where('post_id',$item['id'])->delete();
+                    MBargainRequest::where('orderNo',$item['id'])->delete();
+                }
+                else if($process == 1){
+                    MPremium::where('post_id',$item['id'])->delete();
+                    MBargainRequest::where('orderNo',$item['id'])->delete();
+                    User::where('id',$buy_id)->update(['mileage'=> DB::raw('mileage+'.$item['payitem']['price'])]);
+                    MPayhistory::insert([
+                        'orderNo'=>$item['orderNo'],
+                        'pay_type'=>21,
+                        'price'=>$item['payitem']['price'],
+                        'status'=>1,
+                        'userId'=>$buy_id
+                    ]);
+
+                    MPayitem::where('id',$item['payitem']['id'])->delete();
+                    MCancelReason::insert([
+                        'orderNo'=>$item['orderNo'],
+                        'reason'=>'관리자 거래취소',
+                        'content'=>'관리자 거래취소',
+                        'userId'=>$sell_id
+                    ]);
+                    MInbox::insert([
+                        'orderId'=>$item['orderNo'],
+                        'type'=>'거래',
+                        'title'=>'고객님께서 판매중이신 #'.$item['orderNo'].' 물품이 관리자에 의해 거래취소되었습니다.',
+                        'content'=>$reason,
+                        'userId'=>$sell_id
+                    ]);
+                    MInbox::insert([
+                        'orderId'=>$item['orderNo'],
+                        'type'=>'거래',
+                        'title'=>'고객님께서 구매중이신 #'.$item['orderNo'].' 물품이 거래취소되었습니다.',
+                        'content'=>$reason,
+                        'userId'=>$buy_id
+                    ]);
+                    MItem::where('orderNo',$item['orderNo'])->update(["status"=>-1,'accept_flag'=>2]);
+                }
+                else{
+                    MItem::where('orderNo',$item['orderNo'])->update(['accept_flag'=>2]);
+                }
+                MAsk::where('askid',$id)->update(['response'=>$reason]);
+                if($process == 1){
+                    echo '<script>alert("거래취소되었습니다.");self.close();</script>';
+                }
+                else{
+                    echo '<script>alert("성공적으로 처리되었습니다.");self.close();</script>';
+                }
+                return;
+            }
+            if($type == 'complete'){
+                if(empty($item['toId']) || empty($item['payitem']) || $item['status'] == 0 || $item['payitem']['status'] == 0){
+                    echo '<script>alert("요청을 수락할수 없습니다.");self.close();</script>';
+                    return;
+                }
+                if($process == 1){
+                    $r = $this->processPay($buy_id,$sell_id,$item['orderNo']);
+                    if($r == 1){
+                        MPayitem::where('orderNo', $item['orderNo'])->update(['status' => 2]);
+                        MItem::where('orderNO', $item['orderNo'])->update(['status'=>23,'accept_flag'=>2]);
+                        $r_msg = "거래가 완료되었습니다.";
+                    }
+                }
+                else{
+                    MItem::where('orderNo', $item['orderNo'])->update(['accept_flag'=>2]);
+                    $r_msg = "성공적으로 처리되었습니다.";
+                }
+                MAsk::where('askid',$id)->update(['response'=>$reason]);
+                echo "<script>alert('{{$r_msg}}');self.close();</script>";
+            }
+        }
+        else{
+            $insert_data = ["type"=>$type,"response"=>$reason];
+            if(empty($id)){
+                if(!empty($content))
+                    $insert_data['response'] = $content;
+                MAsk::insert($insert_data);
+                echo '<script>alert("변경되었습니다.");self.close();</script>';
+            }
+            else{
+                if(!empty($content))
+                    $insert_data['response'] = $content;
+                MAsk::where('askid',$id)->update($insert_data);
+                echo '<script>alert("변경되었습니다.");self.close();</script>';
+            }
+        }
+    }
+
+    public function deleteOrderRequest(Request $request){
+        $id = $request->id;
+        $m_ask = MAsk::where('askid',$id)->first();
+        if(!empty($m_ask['order_no']))
+            MItem::where('orderNo',$m_ask['order_no'])->update(['accept_flag'=>0]);
+        MAsk::where('askid',$id)->delete();
+        return response()->json(array('msg'=>'삭제되었습니다.','status'=>1));
+    }
+
+    public function new_gaming(Request $request){
+        $usr_alias = $request->usr_alias;
+        $response = $request->response;
+        $game_requests = MAsk::with('user')->where('type','newgame');
+        if(!empty($user_alias))
+            $game_requests = $game_requests->where(function($query) use ($usr_alias){
+                $query->where('name',"LIKE","%".$usr_alias."%");
+                $query->orWhere('email',"LIKE","%".$usr_alias."%");
+                $query->orWhere('nickname',"LIKE","%".$usr_alias."%");
+            });
+        if($response == 1)
+            $game_requests = $game_requests->where(function($query){
+                $query->whereNull('response');
+                $query->orWhere('response','');
+            });
+        if($response == 2)
+            $game_requests = $game_requests->whereNotNull('response');
+        $game_requests = $game_requests->paginate(15);
+        return view('admin.order.new_gaming',[
+            'items'=>$game_requests
+        ]);
+    }
+
+    public function use_relative(Request $request){
+        $usr_alias = $request->usr_alias;
+        $reply = $request->reply;
+        $game_requests = MAsk::with('user')
+            ->where('type','!=','newgame')
+            ->where('type','!=','cancel')
+            ->where('type','!=','complete');
+
+        if(!empty($usr_alias)){
+            $game_requests = $game_requests->whereHas('user',function($query) use($usr_alias){
+                $query->where('name',"LIKE","%".$usr_alias."%");
+                $query->orWhere('email',"LIKE","%".$usr_alias."%");
+                $query->orWhere('nickname',"LIKE","%".$usr_alias."%");
+            });
+        }
+        if(!empty($reply)){
+            if($reply == 1){
+                $game_requests = $game_requests->where(function($query){
+                    $query->whereNull('response');
+                    $query->orWhere('response','');
+                });
+            }
+            else{
+                $game_requests = $game_requests->where(function($query){
+                    $query->where('response','!=','');
+                });
+            }
+        }
+        $game_requests = $game_requests->paginate(15);
+        return view('admin.order.use_relative',[
+            'items'=>$game_requests
+        ]);
+    }
+
+    public function publish_msg(Request $request){
+        $notices = MNotice::orderby('created_at','DESC')->paginate(15);
+        return view('admin.notices',[
+            'items'=>$notices
+        ]);
+    }
+
+    public function noticeOpen(Request $request){
+        $notice = MNotice::where('id',$request->id)->first();
+        return view('admin.notice',[
+            'item'=>$notice
+        ]);
+    }
+
+    public function updateNotice(Request $request){
+        $id = $request->id;
+        $title = $request->title;
+        $content = $request->contents;
+        if(empty($id)){
+            MNotice::insert(['title'=>$title,'content'=>$content]);
+        }
+        else{
+            MNotice::where('id',$id)->update(['title'=>$title,'content'=>$content]);
+        }
+        echo "<script>alert('변경되었습니다.');self.close();</script>";
+    }
+
+    public function deleteNotice(Request $request){
+        $id = $request->id;
+        MNotice::where("id",$id)->delete();
+        return response()->json(array('status'=>1,'msg'=>'처리되었습니다.'));
+    }
+
+    public function shoppingmal(Request $request){
+        $shops = MMall::orderby('created_at','DESC')->paginate(15);
+        return view('admin.shops',[
+            'items'=>$shops
+        ]);
+    }
+
+    public function editShop(Request $request){
+        $mall = MMall::where('id',$request->id)->first();
+        return view('admin.shop_view',[
+            'item'=>$mall
+        ]);
+    }
+
+    public function shopping_update(Request $request){
+        $param = $request->all();
+        $id = $param['id'];
+        $param['money'] = json_encode(explode(",",$param['money']));
+        unset($param['img']);
+        unset($param['_token']);
+        unset($param['thumnail']);
+        if(empty($id)){
+            $insert_id = MMall::create($param);
+            $id = $insert_id->id;
+        }
+        else{
+            MMall::where('id',$id)->update($param);
+        }
+        if($id > 0){
+            if ($request->hasFile('img')) {
+                $filenameWithExt = $request->file('img')->getClientOriginalName();
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                $extension = $request->file('img')->getClientOriginalExtension();
+                $bankbook = $filename .'.' . $extension;
+                $request->file('img')->move(public_path('angel/product/'),$bankbook);
+                MMall::where('id',$id)->update(['img'=>'/angel/product/'.$bankbook ]);
+            }
+            if ($request->hasFile('thumnail')) {
+                $filenameWithExt = $request->file('thumnail')->getClientOriginalName();
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                $extension = $request->file('thumnail')->getClientOriginalExtension();
+                $bankbook = $filename .'.' . $extension;
+                $request->file('thumnail')->move(public_path('angel/img/mall/'),$bankbook);
+                MMall::where('id',$id)->update(['thumnail'=>'/angel/img/mall/'.$bankbook ]);
+            }
+        }
+        return redirect("/admin/editShop?id={$id}")->with('message', "변경되었습니다.");
+    }
+
+    public function shoppingmal_list(Request $request){
+        $serial_number = $request->serial_number;
+        $pin = $request->pin;
+        $usr_alias = $request->usr_alias;
+        $buy_lists = MMallBuy::with(['user','mall']);
+        if(!empty($usr_alias)){
+            $buy_lists = $buy_lists->whereHas('user',function($query) use($usr_alias){
+                $query->where('name',"LIKE","%".$usr_alias."%");
+                $query->orWhere('email',"LIKE","%".$usr_alias."%");
+                $query->orWhere('nickname',"LIKE","%".$usr_alias."%");
+            });
+        }
+        if(empty($serial_number) || $serial_number == 1){
+            $buy_lists = $buy_lists->whereNull('serial_number')->orWhere('serial_number',"");
+        }
+        else if($serial_number == 2){
+            $buy_lists = $buy_lists->where('serial_number','<>',"");
+        }
+        if(!empty($pin))
+            $buy_lists = $buy_lists->where('serial_number','LIKE',"%".$pin."%");
+
+        $buy_lists = $buy_lists->orderBy('created_at','DESC')->paginate(15);
+        return view('admin.shoppingmal_list',[
+            'items'=>$buy_lists
+        ]);
+    }
+
+    public function insertPin(Request $request){
+        $value = $request->value;
+        $id = $request->id;
+        MMallBuy::where('id',$id)->update(['serial_number'=>$value]);
+        return response()->json(array("status"=>1));
+    }
+
+    public function game_management(Request $request){
+        $depth = $request->depth;
+        $name = $request->name;
+
+        if(empty($depth)){
+            $games = MGame::where('depth',0);
+        }
+        else{
+            $games = MGame::where('depth',$depth);
+        }
+        if(!empty($name)){
+            $games = $games->where('game','LIKE','%'.$name.'%');
+        }
+
+
+        $games = $games->orderby('depth','ASC')->orderby('order','ASC')->paginate(15);
+        return view('admin.game_management',[
+            'games'=>$games
+        ]);
+    }
+
+    public function notice_list(Request $request){
+        $usr_alias = $request->usr_alias;
+        $isReaded = $request->isReaded;
+        $orderNo = $request->orderNo;
+        $type = $request->type;
+        $notice_list = MAdminNotice::with('user');
+        if(!empty($usr_alias))
+            $notice_list =$notice_list->whereHas('user',function($query) use ($usr_alias){
+                $query->where('name',"LIKE","%".$usr_alias."%");
+                $query->orWhere('email',"LIKE","%".$usr_alias."%");
+                $query->orWhere('nickname',"LIKE","%".$usr_alias."%");
+            });
+        if(empty($isReaded) || $isReaded == 1)
+            $notice_list = $notice_list->where('isReaded',0);
+        else if($isReaded == 2)
+            $notice_list = $notice_list->where('isReaded',1);
+        else
+            $notice_list = $notice_list->where('id','>',0);
+        if(!empty($type)){
+            if($type == 'mileage'){
+                $notice_list = $notice_list->where(function($query){
+                    $query->where('type',1);
+                    $query->orWhere('type',2);
+                });
+            }
+            if($type == 'order'){
+                $notice_list = $notice_list->where(function($query){
+                    $query->where('type',3);
+                    $query->orWhere('type',4);
+                    $query->orWhere('type',5);
+                    $query->orWhere('type',6);
+                });
+            }
+            if($type == 'mileage'){
+                $notice_list = $notice_list->where(function($query){
+                    $query->where('type',1);
+                    $query->orWhere('type',2);
+                });
+            }
+            if($type == 'new'){
+                $notice_list = $notice_list->where('type',7);
+            }
+            if($type == 'using'){
+                $notice_list = $notice_list->where('type',8);
+            }
+
+        }
+
+        if(!empty($orderNo))
+            $notice_list = $notice_list->where('orderNo','LIKE','%'.$orderNo.'%');
+        $notice_list = $notice_list->orderBy('created_at','DESC')->paginate(15);
+        return view('admin.notice_list',[
+            'items'=>$notice_list
+        ]);
+    }
+
+    public function checkNotice(Request $request){
+        $id = $request->id;
+        $notice = MAdminNotice::where('id',$id)->first();
+        if(empty($notice))
+            return response()->json(array("status"=>0));
+        else{
+            if($notice['isReaded'] == 0)
+            {
+                MAdminNotice::where('id',$id)->update(['isReaded'=>1]);
+                return response()->json(array("status"=>1,'dec'=>1));
+            }
+            else
+                return response()->json(array("status"=>1,'dec'=>0));
+        }
+    }
+
+    public function deleteNoticeAdmin(Request $request){
+        $id = $request->id;
+        $notice = MAdminNotice::where('id',$id)->first();
+        $dec = 0;
+        if(empty($notice)){
+            return response()->json(array("status"=>0));
+        }
+        else{
+            if($notice['isReaded'] == 0){
+                $dec = 1;
+            }
+            MAdminNotice::where('id',$id)->delete();
+            return response()->json(array("status"=>1,'dec'=>$dec));
+        }
+    }
+
+    public function stopShops(Request $request){
+        $id = $request->id;
+        $use = $request->use;
+        MMall::where('id',$id)->update(['status'=>$use]);
+        return response()->json(array("status"=>1));
     }
 }
 
