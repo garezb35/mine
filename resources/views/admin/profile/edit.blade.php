@@ -22,7 +22,7 @@
                     </div>
                     <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
                         <div class="d-flex justify-content-between">
-                            <a href="#" class="btn btn-sm btn-info mr-4">{{ __('1:1문의함') }}</a>
+                            <a href="{{route("order_list")}}" class="btn btn-sm btn-info mr-4">{{ __('등록물품') }}</a>
                         </div>
                     </div>
                     <div class="card-body pt-0 pt-md-4">
@@ -30,16 +30,16 @@
                             <div class="col">
                                 <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                                     <div>
-                                        <span class="heading">22</span>
-                                        <span class="description">{{ __('문의요청') }}</span>
+                                        <span class="heading">{{$game_requests_count}}</span>
+                                        <span class="description">{{ __('이용관련') }}</span>
                                     </div>
                                     <div>
-                                        <span class="heading">10</span>
-                                        <span class="description">{{ __('물품접수건') }}</span>
+                                        <span class="heading">{{$request_num}}</span>
+                                        <span class="description">{{ __('거래신청') }}</span>
                                     </div>
                                     <div>
-                                        <span class="heading">89</span>
-                                        <span class="description">{{ __('물품취소건') }}</span>
+                                        <span class="heading">{{number_format($cash)}}원</span>
+                                        <span class="description">{{ __('재고') }}</span>
                                     </div>
                                 </div>
                             </div>

@@ -29,7 +29,7 @@
                             <div class="row align-items-center">거래요청내용
                             </div>
                         </div>
-                        <form action="{{route("processOrderRequest")}}" method="post">
+                        <form action="{{route("processOrderRequest")}}" method="post" id="form_process">
                             @csrf
                             <div class="card-body">
                                 <div>제목 : {{$item['subject']}}</div>
@@ -43,7 +43,14 @@
                                 <textarea id="editor" name="reason">{{$item['response']}}</textarea>
                                 <input type="hidden" name="id" value="{{$item['askid']}}" />
                                 <input type="hidden" name="type" value="{{$item['type']}}">
-                                <input type="submit" value="회답" class="mt-4 btn btn-primary">
+                                <input type="hidden" name="process" value="1" id="process"/>
+                                @if(!empty($item['order_no']))
+                                    <a href="javascript:;" class="mt-4 btn btn-primary acceptBtn" data-process = "1">승인후 회답</a>
+                                    <a href="javascript:;" class="mt-4 btn btn-danger acceptBtn" data-process = "0">거절후 회답</a>
+                                @else
+                                    <input type="submit" value="회답" class="mt-4 btn btn-primary">
+                                @endif
+
                             </div>
                         </form>
                     </div>
@@ -54,5 +61,14 @@
 </body>
 <script>
     initSample();
+    $(".acceptBtn").click(function(){
+        var process = $(this).data('process');
+        $("#process").val(process);
+        if(CKEDITOR.instances.editor.getData().trim() == ""){
+            alert('내용이 비었습니다.');
+            return false;
+        }
+        $("#form_process").submit();
+    })
 </script>
 </html>

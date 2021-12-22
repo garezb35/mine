@@ -784,6 +784,7 @@ class AdminController extends BaseAdminController
         $reason = $request->reason;
         $type = $request->type;
         $request_item = MAsk::where("askid",$id)->first();
+        $process = $request->process;
         if(!empty($request_item['order_no'])){
             $item = MItem::with('payitem')->where('orderNo',$request_item['order_no'])->first();
             if(empty($item))
@@ -804,13 +805,11 @@ class AdminController extends BaseAdminController
                     echo '<script>alert("요청을 수락할수 없습니다.");self.close();</script>';
                     return;
                 }
-                elseif($item['status'] == 0 || $item['payitem']['status'] == 0){
+                elseif(($item['status'] == 0 || $item['payitem']['status'] == 0) && $process == 1){
                     MPremium::where('post_id',$item['id'])->delete();
                     MBargainRequest::where('orderNo',$item['id'])->delete();
-                    MItem::where('orderNo',$item['orderNo'])->update(['status'=>-1]);
                 }
-                else{
-
+                else if($process == 1){
                     MPremium::where('post_id',$item['id'])->delete();
                     MBargainRequest::where('orderNo',$item['id'])->delete();
                     User::where('id',$buy_id)->update(['mileage'=> DB::raw('mileage+'.$item['payitem']['price'])]);
@@ -821,7 +820,7 @@ class AdminController extends BaseAdminController
                         'status'=>1,
                         'userId'=>$buy_id
                     ]);
-                    MItem::where('orderNo',$item['orderNo'])->update(["status"=>-1,'accept_flag'=>2]);
+
                     MPayitem::where('id',$item['payitem']['id'])->delete();
                     MCancelReason::insert([
                         'orderNo'=>$item['orderNo'],
@@ -843,10 +842,18 @@ class AdminController extends BaseAdminController
                         'content'=>$reason,
                         'userId'=>$buy_id
                     ]);
-
+                    MItem::where('orderNo',$item['orderNo'])->update(["status"=>-1,'accept_flag'=>2]);
+                }
+                else{
+                    MItem::where('orderNo',$item['orderNo'])->update(['accept_flag'=>2]);
                 }
                 MAsk::where('askid',$id)->update(['response'=>$reason]);
-                echo '<script>alert("거래취소되었습니다.");self.close();</script>';
+                if($process == 1){
+                    echo '<script>alert("거래취소되었습니다.");self.close();</script>';
+                }
+                else{
+                    echo '<script>alert("성공적으로 처리되었습니다.");self.close();</script>';
+                }
                 return;
             }
             if($type == 'complete'){
@@ -854,17 +861,20 @@ class AdminController extends BaseAdminController
                     echo '<script>alert("요청을 수락할수 없습니다.");self.close();</script>';
                     return;
                 }
-
-                $r = $this->processPay($buy_id,$sell_id,$item['orderNo']);
-                if($r == 1){
-                    MPayitem::where('orderNo', $item['orderNo'])->update(['status' => 2]);
-                    MItem::where('orderNO', $item['orderNo'])->update(['status'=>32,'accept_flag'=>2]);
-                    MAsk::where('askid',$id)->update(['response'=>$reason]);
-                    echo '<script>alert("거래가 완료되었습니다.");self.close();</script>';
+                if($process == 1){
+                    $r = $this->processPay($buy_id,$sell_id,$item['orderNo']);
+                    if($r == 1){
+                        MPayitem::where('orderNo', $item['orderNo'])->update(['status' => 2]);
+                        MItem::where('orderNO', $item['orderNo'])->update(['status'=>23,'accept_flag'=>2]);
+                        $r_msg = "거래가 완료되었습니다.";
+                    }
                 }
                 else{
-                    echo '<script>alert("서버오류.");self.close();</script>';
+                    MItem::where('orderNo', $item['orderNo'])->update(['accept_flag'=>2]);
+                    $r_msg = "성공적으로 처리되었습니다.";
                 }
+                MAsk::where('askid',$id)->update(['response'=>$reason]);
+                echo "<script>alert('{{$r_msg}}');self.close();</script>";
             }
         }
         else{
@@ -878,7 +888,7 @@ class AdminController extends BaseAdminController
             else{
                 if(!empty($content))
                     $insert_data['response'] = $content;
-                MAsk::where('askid',$id)->update($insert_data = ["type"=>$type,"response"=>$reason]);
+                MAsk::where('askid',$id)->update($insert_data);
                 echo '<script>alert("변경되었습니다.");self.close();</script>';
             }
         }
@@ -1067,10 +1077,24 @@ class AdminController extends BaseAdminController
     }
 
     public function game_management(Request $request){
-        $games = MGame::where('depth',0)->orderby('created_at','DESC')->paginate(15);
-//        return view('admin.game_management',[
-//            'games'=>$game s
-//        ]);
+        $depth = $request->depth;
+        $name = $request->name;
+
+        if(empty($depth)){
+            $games = MGame::where('depth',0);
+        }
+        else{
+            $games = MGame::where('depth',$depth);
+        }
+        if(!empty($name)){
+            $games = $games->where('game','LIKE','%'.$name.'%');
+        }
+
+
+        $games = $games->orderby('depth','ASC')->orderby('order','ASC')->paginate(15);
+        return view('admin.game_management',[
+            'games'=>$games
+        ]);
     }
 
     public function notice_list(Request $request){
