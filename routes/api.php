@@ -25,6 +25,7 @@ Route::middleware('auth:api')->group(function(){
         Route::post('insertPin',[\App\Http\Controllers\AdminController::class,'insertPin'])->name('insertPin');
         Route::post('checkNotice',[\App\Http\Controllers\AdminController::class,'checkNotice'])->name('checkNotice');
         Route::post('deleteNoticeAdmin',[\App\Http\Controllers\AdminController::class,'deleteNoticeAdmin'])->name('deleteNoticeAdmin');
+        Route::post('stopShops',[\App\Http\Controllers\AdminController::class,'stopShops'])->name('stopShops');
     });
 
     Route::get('/user', function (Request $request) {

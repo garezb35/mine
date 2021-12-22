@@ -38,7 +38,7 @@
                                     <td>{{date("Y-m-d H:i:s",strtotime($item['created_at']))}}</td>
                                     <td>
                                         <a href="{{route('editShop')}}?id={{$item['id']}}" class="btn btn-sm btn-primary">편집</a>
-                                        <a href="#" class="btn btn-sm btn-danger deleteRequest" data-id="{{$item['id']}}">삭제</a>
+                                        @if($item['status'] == 1) <a href="#" class="btn btn-sm btn-danger deleteRequest" data-id="{{$item['id']}}">중지</a> @endif
                                     </td>
                                 </tr>
                             @endforeach
@@ -60,14 +60,14 @@
                 var id = $(this).data("id");
                 var cur_tr = $("#tr_"+id);
                 $.ajax({
-                        url: '/api/admin/deleteNotice',
+                        url: '/api/admin/stopShops',
                         dataType: 'json',
                         type: 'post',
                         data: {id: id, api_token: a_token},
                         success: function (data) {
                             alert(data.msg);
                             if(data.status == 1){
-                                cur_tr.remove();
+                                location.reload()
                             }
                         }
                     }
