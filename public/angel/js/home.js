@@ -73,11 +73,86 @@ function _init() {
         $('.arrange_menus').removeClass('on');
         $('.arrange_menus').find(':checked').prop('checked', false);
     });
+    var moreBtn = document.querySelectorAll('.goods_more_btn');
+    for(var i=0; i<moreBtn.length; i++) {
+        moreBtn[i].addEventListener('click', function () {
+            var code = this.getAttribute('data-code');
+            var name = this.getAttribute('data-gamename');
+            moreBtnAction(code, name);
+        })
+    }
 })();
 
 
+(function($) {
+    $.fn.noticerolling = function() {
+        var $element = $(this).find('ul');
+        var speed = 3000;
+        var timer = null;
+        var move = $element.children().outerHeight();
+        var first = false;
+        var lastChild;
+        lastChild = $element.children().eq(-1).clone(true);
+        lastChild.prependTo($element);
+        $element.children().eq(-1).remove();
+        if ($element.children().length == 1) {
+            $element.css('top', '0px');
+        } else {
+            $element.css('top', '-' + move + 'px');
+        }
+        timer = setInterval(movenextslide, speed);
+        $element.find('>li').bind({
+            'mouseenter': function() {
+                clearInterval(timer);
+            },
+            'mouseleave': function() {
+                timer = setInterval(movenextslide, speed);
+            }
+        });
+        function movenextslide() {
+            $element.each(function(idx) {
+                var firstChild = $element.children().filter(':first-child').clone(true);
+                firstChild.appendTo($element.eq(idx));
+                $element.children().filter(':first-child').remove();
+                $element.css('top', '0px');
+                $element.eq(idx).animate({
+                    'top': '-' + move + 'px'
+                }, 'normal');
+            });
+        }
+    }
+}(jQuery));
+
+function moreBtnAction(code, name){
+    var form = document.getElementById("search-overlay-container");
+    form.setAttribute("method", "post");
+    form.setAttribute("action", "/sell/list");
+
+    var hiddenField = document.createElement("input");
+    hiddenField.setAttribute("type", "hidden");
+    hiddenField.setAttribute("name", "filtered_game_id");
+    hiddenField.setAttribute("value", code);
+    form.appendChild(hiddenField);
+
+    hiddenField = document.createElement("input");
+    hiddenField.setAttribute("type", "hidden");
+    hiddenField.setAttribute("name", "filtered_game_alias");
+    hiddenField.setAttribute("value", name);
+    form.appendChild(hiddenField);
+
+    hiddenField = document.createElement("input");
+    hiddenField.setAttribute("type", "hidden");
+    hiddenField.setAttribute("name", "filtered_child_id");
+    hiddenField.setAttribute("value", 0);
+    form.appendChild(hiddenField);
+
+    hiddenField = document.createElement("input");
+    hiddenField.setAttribute("type", "hidden");
+    hiddenField.setAttribute("name", "filtered_child_alias");
+    hiddenField.setAttribute("value", '서버전체');
+    form.appendChild(hiddenField);
 
 
-
-
+    form.submit();
+}
 

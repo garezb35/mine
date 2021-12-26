@@ -636,11 +636,11 @@ var _LOAD_MASK = {
     },
     show: function() {
         $("html, body").addClass("fixed_on");
-        $("#g_LOADING").show()
+        $("#preview_ife").show()
     },
     hide: function() {
         $("html, body").removeClass("fixed_on");
-        $("#g_LOADING").hide()
+        $("#preview_ife").hide()
     }
 };
 
@@ -1393,7 +1393,8 @@ var _myService = {
             c.innerHTML = '<li class="empty">LOADING..</li>'
         }
         ajaxRequest({
-            url: "/_include/mySearchList_main_new.php",
+            url: "/api/favoritedgames",
+            data:{api_token: a_token},
             success: function(f) {
                 _myService.mySearch = f;
                 if (e) {
@@ -1480,8 +1481,11 @@ var _myService = {
     },
     deleteFavorite: function(a, b) {
         ajaxRequest({
-            url: "/myroom/customer/search_delete.php",
-            data: "id=" + a,
+            url: "/api/myroom/customer/search_delete",
+            data: {
+                id: a,
+                api_token: a_token
+            },
             type: "POST",
             dataType: "JSON",
             success: function(c) {
@@ -1552,7 +1556,7 @@ var _myService = {
     },
     setLastSearch: function() {
         var j = _WebStorage.localload("last_search") || [],
-            k, b = document.getElementById("g_search_form"),
+            k, b = document.getElementById("juret__react56"),
             h = b.querySelector('[name="search_type"]').value,
             e = b.querySelector('[name="search_game"]').value,
             d = b.querySelector('[name="search_game_text"]').value,
@@ -1691,7 +1695,7 @@ var _myService = {
     },
     getGameServerEl: function(b) {
         var a = b.parentElement;
-        while (a !== null && a.classList.contains("g_search_frame") === false) {
+        while (a !== null && a.classList.contains("hgt34TR") === false) {
             a = a.parentElement
         }
         var c = a.querySelector('[data-gslist="true"]');
@@ -1714,7 +1718,7 @@ function fnSearchHashCheck(g) {
             login(1);
             return
         }
-        if (document.getElementById("btn_menu") !== null && document.getElementById("h_menu").classList.contains("on")) {
+        if (document.getElementById("btn_menu") !== null && document.getElementById("hamburger").classList.contains("on")) {
             document.getElementById("btn_menu").click()
         }
     }
@@ -1768,7 +1772,7 @@ function fnSearchHashCheck(g) {
             }
             if (d === "searchSell" || d === "searchBuy") {
                 var e = this.gameserver.formElement.querySelector(this.gameserver.tradeType.selector).value || "sell";
-                this.gameserver.formElement.action = _DOMAIN + "/" + e + "/list_search.html"
+                this.gameserver.formElement.action = _DOMAIN + "/" + e + "/list_search"
             }
             this.gameserver.formElement.submit()
         };
@@ -1807,7 +1811,7 @@ function _initialize() {
         if (k != -1) {
             g_ajaxLoading.splice(k, 1);
             if (g_ajaxLoading.length < 1) {
-                $("#g_BODY").animate({
+                $("#e4rn34RT").animate({
                     opacity: 1
                 }, 100, function() {})
             }
@@ -1877,8 +1881,8 @@ function _initialize() {
                     p += r.code == "ssadaprice" ? '<a href="javascript:fnSsadapriceGo()">' : '<a href="' + r.link + '">';
                     p += '<span class="menu_icon ' + r.code + '">';
                     if (r.code === "selling" || r.code === "buying") {
-                        var q = k.sell_ing > 0 ? "" : "g_hidden";
-                        var o = k.buy_ing > 0 ? "" : "g_hidden";
+                        var q = k.sell_ing > 0 ? "" : "over__hidden";
+                        var o = k.buy_ing > 0 ? "" : "over__hidden";
                         p += r.code == "selling" ? '<span class="badge ' + q + '" id="sell_badge">' + k.sell_ing + "</span>" : '<span class="badge ' + o + '" id="buy_badge">' + k.buy_ing + "</span>"
                     }
                     p += "</span>";
@@ -1890,21 +1894,21 @@ function _initialize() {
                 m = $("#buy_badge");
             if (k.sell_ing != e.text()) {
                 e.text(k.sell_ing);
-                if (k.sell_ing > 0 && e.hasClass("g_hidden")) {
-                    e.removeClass("g_hidden")
+                if (k.sell_ing > 0 && e.hasClass("over__hidden")) {
+                    e.removeClass("over__hidden")
                 } else {
                     if (k.sell_ing == 0) {
-                        e.addClass("g_hidden")
+                        e.addClass("over__hidden")
                     }
                 }
             } else {
                 if (k.buy_ing != m.text()) {
                     m.text(k.buy_ing);
-                    if (k.buy_ing > 0 && m.hasClass("g_hidden")) {
-                        m.removeClass("g_hidden")
+                    if (k.buy_ing > 0 && m.hasClass("over__hidden")) {
+                        m.removeClass("over__hidden")
                     } else {
                         if (k.buy_ing == 0) {
-                            m.addClass("g_hidden")
+                            m.addClass("over__hidden")
                         }
                     }
                 }
@@ -1923,8 +1927,6 @@ function _initialize() {
             setTimeout(d, 300);
             $("#btn_menu").data("ajaxCheck", true);
             ajaxRequest({
-                // 수정
-                // url: "/_ajax/headMenu.php",
                 url: '',
                 success: function(k) {
                     if (k.result == "FAIL") {
@@ -1947,8 +1949,8 @@ function _initialize() {
     }
 
     function a() {
-        if ($("#h_menu").hasClass("on")) {
-            $("#h_menu").animate({
+        if ($("#hamburger").hasClass("on")) {
+            $("#hamburger").animate({
                 right: "-100%"
             }, 300, function() {
                 $("html, body").removeClass("fixed_on");
@@ -1956,7 +1958,7 @@ function _initialize() {
             })
         } else {
             $("html, body").addClass("fixed_on");
-            $("#h_menu").addClass("on").animate({
+            $("#hamburger").addClass("on").animate({
                 right: "0"
             }, 300);
             $("#btn_m_close").on("click", function() {
@@ -1972,7 +1974,7 @@ function _initialize() {
             return
         }
         location.hash = this.getAttribute("data-hash");
-        if (document.getElementById("btn_menu") !== null && document.getElementById("h_menu").classList.contains("on")) {
+        if (document.getElementById("btn_menu") !== null && document.getElementById("hamburger").classList.contains("on")) {
             document.getElementById("btn_menu").click()
         }
     });

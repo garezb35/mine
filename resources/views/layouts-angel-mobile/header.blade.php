@@ -77,7 +77,6 @@
                                          <li data-pgame="{{$v['game']['id']}}"> <em class="top_rank">{{$rate + 1}}</em>{{$v['game']['game']}} </li>
                                         @endforeach
                                     @endif
-
                                 </ul>
                             </div>
                         </div>

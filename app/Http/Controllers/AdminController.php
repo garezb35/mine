@@ -229,7 +229,6 @@ class AdminController extends BaseAdminController
             $mileage = $mileage->where('type',$type);
         }
         $mileage = $mileage
-            ->orderby("status","ASC")
             ->orderby('createdByDtm',"DESC");
         $mileage = $mileage->paginate(15);
         return view('admin.mileage_charge',[
@@ -1190,6 +1189,84 @@ class AdminController extends BaseAdminController
         $use = $request->use;
         MMall::where('id',$id)->update(['status'=>$use]);
         return response()->json(array("status"=>1));
+    }
+
+    public function msg_content(Request $request){
+
+        $uids = $request->uids;
+        $users = array();
+        if(!empty($uids)){
+            $users = User::whereIn('id',explode(',', $uids))->get();
+        }
+        return view('admin.msg_content',[
+            'users'=>$users
+        ]);
+    }
+
+    public function sendMsg(Request $request){
+        $uids = empty($request->uids) ? array() : explode(',', $request->uids);
+        $reason = $request->reason;
+        $title = $request->title;
+        foreach($uids as $u){
+            MInbox::insert([
+                'userId'=>$u,
+                'content'=>$reason,
+                'type'=>'관리자',
+                'title'=>$title
+            ]);
+        }
+        echo "<script>alert('처리되었습니다');self.close();</script>";
+    }
+
+    public function gamemake(Request $request){
+        $id = $request->id;
+        $game = null;
+        if(!empty($id)){
+            $game = MGame::where('id',$id)->first();
+        }
+        $games = MGame::where('depth', 0)->orderby('order','ASC')->get();
+        return view('admin.gamemake',[
+            'games' => $games,
+            'game_row' => $game
+        ]);
+    }
+
+    public function UpdateMGame(Request $request){
+        $params = $request->all();
+        $id = $params['id'];
+        unset($params['_token']);
+        unset($params['id']);
+        $parent = $params['parent'] ?? 0;
+        if($params['depth'] == 2){
+            if($params['unit'] == 'character')
+            {
+                $params['alias'] = $params['game'];
+                $params['purchase_enable'] = 1;
+            }
+            $params['discount'] = $params['discount'] ?? 0;
+            $params['range'] = $params['range'] ?? 0;
+            $params['options'] = $params['options'] ?? 0;
+            $params['gamemoney_unit'] = $params['gamemoney_unit'] ?? 0;
+        }
+
+        if(!empty($id)){
+            MGame::where('id',$id)->update($params);
+        }
+        else{
+            $insert = MGame::create($params);
+            if($insert->id > 0) $id = $insert->id;
+        }
+        if($id > 0){
+            if($request->hasFile('icon')){
+                $filenameWithExt = $request->file('icon')->getClientOriginalName();
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                $extension = $request->file('icon')->getClientOriginalExtension();
+                $bankbook = $filename .'.' . $extension;
+                $request->file('icon')->move(public_path('angel/mgame/'),$bankbook);
+                MGame::where('id',$id)->update(['icon'=>'/angel/mgame/'.$bankbook ]);
+            }
+        }
+        return redirect('/admin/gamemake?id='.$id);
     }
 }
 

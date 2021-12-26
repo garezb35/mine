@@ -1,12 +1,12 @@
-<div class="g_MASK" id="g_MASK"></div>
-<div class="g_MASK g_LOADING" id="g_LOADING">
+<div class="mk78F_ret" id="mk78F_ret"></div>
+<div class="mk78F_ret preview_ife" id="preview_ife">
     <div class="loading_wrap">
         <div class="loading_ct"> <img src="/angel_mobile/img/icon/spinning-loading.gif" width="100" height="100" alt="loading">
             <br> <span id="loading_txt"></span>
         </div>
     </div>
 </div>
-<div id="h_menu" class="h_menu">
+<div id="hamburger" class="hamburger">
     <div class="container">
         <div id="arrow_wrapper" class="clear_fix">
             <a href="/" class="home"> </a>
@@ -35,8 +35,8 @@
         <div id="menu_list_wrapper" class="clear_fix">
             <ul id="menu_list">
                 <li><a href="/#searchSell"><span class="menu_icon searchSell"></span><span class="menu_title">물품검색</span></a></li>
-                <li><a href="/myroom/sell/sell_ing.html?strRelationType=ing"><span class="menu_icon selling"><span class="badge g_hidden" id="sell_badge">0</span></span><span class="menu_title">판매중</span></a></li>
-                <li><a href="/myroom/buy/buy_ing.html?strRelationType=ing"><span class="menu_icon buying"><span class="badge g_hidden" id="buy_badge">0</span></span><span class="menu_title">구매중</span></a></li>
+                <li><a href="/myroom/sell/sell_ing.html?strRelationType=ing"><span class="menu_icon selling"><span class="badge over__hidden" id="sell_badge">0</span></span><span class="menu_title">판매중</span></a></li>
+                <li><a href="/myroom/buy/buy_ing.html?strRelationType=ing"><span class="menu_icon buying"><span class="badge over__hidden" id="buy_badge">0</span></span><span class="menu_title">구매중</span></a></li>
                 <li><a href="/myroom/"><span class="menu_icon myroom"></span><span class="menu_title">마이룸</span></a></li>
                 <li><a href="/#regSell"><span class="menu_icon regSell"></span><span class="menu_title">판매등록</span></a></li>
                 <li><a href="/#regBuy"><span class="menu_icon regBuy"></span><span class="menu_title">구매등록</span></a></li>

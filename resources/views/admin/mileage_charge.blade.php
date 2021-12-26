@@ -86,6 +86,12 @@
                                         <button class="btn btn-danger btn-sm control-re_mi" data-id="{{$m['id']}}" data-type="2" data-mode = "1">처리</button>
                                         <button class="btn btn-info btn-sm control-re_mi" data-id="{{$m['id']}}" data-type="3" data-mode = "1">취소</button>
                                         @endif
+                                        @if($m['status'] == 2)
+                                                <button class="btn btn-danger btn-sm" disabled>처리됨</button>
+                                        @endif
+                                        @if($m['status'] == 3)
+                                            <button class="btn btn-info btn-sm" disabled>취소됨</button>
+                                        @endif
                                         <button class="btn btn-cyan btn-sm control-re_mi" data-id="{{$m['id']}}" data-type="4" data-mode = "2">삭제</button>
                                     </td>
                                 </tr>

@@ -135,13 +135,13 @@
     };
     var e = function(o) {
         var n = o.className.split(" ");
-        var p = "g_hidden";
+        var p = "over__hidden";
         if (n.indexOf(p) === -1) {
             o.className += " " + p
         }
     };
     var l = function(n) {
-        n.className = n.className.replace(/ g_hidden/g, "")
+        n.className = n.className.replace(/ over__hidden/g, "")
     };
     var j = function(n, q) {
         var x = {};
@@ -157,8 +157,8 @@
                 selector: '[name="search_type"]'
             },
             viewType: "full",
-            formElement: "#g_search_form",
-            containerWrapper: "#g_search_frame",
+            formElement: "#juret__react56",
+            containerWrapper: "#hgt34TR",
             toggleContainer: "#initial_screen"
         };
         q = i(r, q);
@@ -292,7 +292,7 @@
             }
             if (n.containerWrapper) {
                 n.containerWrapper.mode = "open";
-                n.containerWrapper.classList.remove("g_hidden");
+                n.containerWrapper.classList.remove("over__hidden");
                 if (n.gameList.autoComplete !== false) {
                     n.focusSetTimeout = setTimeout(function() {
                         n.gameList.getData();
@@ -300,7 +300,7 @@
                             n.gameList.autoCompleteEl.focus()
                         }
                     });
-                    if (n.toggleContainer && n.container.className.indexOf("g_hidden") === -1 && n.gameList.autoCompleteEl.value.isEmpty() === true) {
+                    if (n.toggleContainer && n.container.className.indexOf("over__hidden") === -1 && n.gameList.autoCompleteEl.value.isEmpty() === true) {
                         n.container.mode = "close";
                         e(n.container);
                         if (n.toggleContainer) {
@@ -335,7 +335,7 @@
             }
             if (n.containerWrapper) {
                 n.containerWrapper.mode = "close";
-                n.containerWrapper.classList.add("g_hidden")
+                n.containerWrapper.classList.add("over__hidden")
             } else {
                 p.mode = "close"
             }
@@ -452,7 +452,7 @@
         n.searchText = "";
         o.gameList = this;
         n.listWrap = document.createElement("div");
-        n.listWrap.className = "game g_hidden";
+        n.listWrap.className = "game over__hidden";
         n.list = document.createElement("ul");
         o.appendChild(n.listWrap);
         n.listWrap.appendChild(n.list);
@@ -528,11 +528,10 @@
                     gsVersion = String(o.getFullYear()).substr(-2) + ("0" + (o.getMonth() + 1)).substr(-2) + ("0" + o.getDate()).substr(-2)
                 }
                 ajaxRequest({
-                    // 수정
-                    // url: "/_json/gameserverlist.json?" + gsVersion,
-                    url: '',
+                   url: "/api/json/gameserverlist.json",
                     dataType: "json",
                     cache: true,
+                    data: {apk_token: a_token},
                     success: function(s) {
                         if (s === null) {
                             return
@@ -632,12 +631,12 @@
                 }
             }
             p.list.appendChild(y);
-            if (p.listWrap.className.indexOf("g_hidden") !== -1 && p.view !== false) {
+            if (p.listWrap.className.indexOf("over__hidden") !== -1 && p.view !== false) {
                 l(p.listWrap)
             }
             if (q) {
                 if (p.gameserver.changeAction === true) {
-                    if (p.gameserver.container.className.indexOf("g_hidden") !== -1 && p.view !== false) {
+                    if (p.gameserver.container.className.indexOf("over__hidden") !== -1 && p.view !== false) {
                         p.gameserver.container.mode = "open";
                         l(p.gameserver.container);
                         if (p.gameserver.toggleContainer) {
@@ -769,7 +768,7 @@
                     r.gameserver.position = "game";
                     delete r.gameserver.gameList.selectedIndex
                 } else {
-                    if (r.gameserver.goodsList && r.gameserver.goodsList.listWrap.classList.contains("g_hidden") === false && r.gameserver.serverList.selected) {
+                    if (r.gameserver.goodsList && r.gameserver.goodsList.listWrap.classList.contains("over__hidden") === false && r.gameserver.serverList.selected) {
                         r.gameserver.position = "goods";
                         delete r.gameserver.goodsList.selectedIndex
                     } else {
@@ -934,7 +933,7 @@
                 if (n.gameserver.goodsList) {
                     e(n.gameserver.goodsList.listWrap)
                 }
-                if (n.gameserver.toggleContainer && n.gameserver.container.className.indexOf("g_hidden") === -1) {
+                if (n.gameserver.toggleContainer && n.gameserver.container.className.indexOf("over__hidden") === -1) {
                     n.gameserver.container.mode = "close";
                     e(n.gameserver.container);
                     if (n.gameserver.toggleContainer) {
@@ -950,7 +949,7 @@
                     n.gameserver.searchState = true;
                     n.gameserver.container.classList.remove("gs_selection")
                 }
-                if (n.gameserver.toggleContainer && n.gameserver.container.className.indexOf("g_hidden") !== -1) {
+                if (n.gameserver.toggleContainer && n.gameserver.container.className.indexOf("over__hidden") !== -1) {
                     n.gameserver.container.mode = "open";
                     l(n.gameserver.container);
                     if (n.gameserver.toggleContainer) {
@@ -1037,7 +1036,7 @@
         this.type = "server";
         n.serverList = this;
         this.listWrap = document.createElement("div");
-        this.listWrap.className = "server g_hidden";
+        this.listWrap.className = "server over__hidden";
         this.list = document.createElement("ul");
         n.appendChild(this.listWrap);
         this.listWrap.appendChild(this.list);
@@ -1178,7 +1177,7 @@
                 }
             }
             q.list.appendChild(B);
-            if (q.listWrap.className.indexOf("g_hidden") !== -1 && q.view !== false) {
+            if (q.listWrap.className.indexOf("over__hidden") !== -1 && q.view !== false) {
                 l(q.listWrap)
             }
             if (q.gameserver && q.gameserver.goodsList && q.gameserver.searchState === false) {
@@ -1326,7 +1325,7 @@
         n.goodsList = this;
         c(n).data("goodsList", this);
         this.listWrap = document.createElement("div");
-        this.listWrap.className = "goods g_hidden";
+        this.listWrap.className = "goods over__hidden";
         this.list = document.createElement("ul");
         n.appendChild(this.listWrap);
         this.listWrap.appendChild(this.list);

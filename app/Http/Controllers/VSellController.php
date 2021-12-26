@@ -264,6 +264,7 @@ class VSellController extends BaseController
         $params = $request->all();
         $params['overlap'] = !empty($params['overlap']) ? $params['overlap'] : '';
         $params['goods_type'] = !empty($params['goods_type']) && $params['goods_type'] !=1  ? $params['goods_type'] : 'all';
+
         return view('angel.sell.sell_list',$params);
     }
 

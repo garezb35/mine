@@ -9,9 +9,9 @@
 @endsection
 
 @section('content')
-    <div class="g_BODY" id="g_BODY">
-        <div class="g_MASK" id="g_MASK"></div>
-        <div class="g_MASK g_LOADING" id="g_LOADING">
+    <div class="e4rn34RT" id="e4rn34RT">
+        <div class="mk78F_ret" id="mk78F_ret"></div>
+        <div class="mk78F_ret preview_ife" id="preview_ife">
             <div class="loading_wrap">
                 <div class="loading_ct"> <img src="/angel_mobile/img/icon/spinning-loading.gif" width="100" height="100" alt="loading">
                     <br> <span id="loading_txt"></span>

@@ -356,7 +356,8 @@
                                         </div>
                                     </div>
                                 @endif
-                                @if($item['status'] != 23 && $item['stauts'] != 32 && $item['stauts'] != -1 && $item['stauts'] != 0)
+
+                                @if($item['status'] != 23 && $item['status'] != 32 && $item['status'] != -1 && $item['status'] != 0)
                                 <div class="mt-4">
                                     <a href="javascript:;" class="btn btn-primary" id="end_order" onclick="controlOrder({{$item['orderNo']}},'end')">
                                         거래종료

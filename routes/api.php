@@ -51,6 +51,7 @@ Route::middleware('auth:api')->group(function(){
     Route::post('/myroom/customer/search_add',[\App\Http\Controllers\ManiaController::class,'search_add']);
     Route::post('/myroom/customer/search_delete',[\App\Http\Controllers\ManiaController::class,'search_delete']);
     Route::get('/mySearch',[\App\Http\Controllers\ManiaController::class,'getMySearch']);
+    Route::get('/favoritedgames',[\App\Http\Controllers\ManiaController::class,'favoritedgames']);
     Route::post('_include/_list_search.ajax',[\App\Http\Controllers\ManiaController::class,'list_search_ajax']);
     Route::post('/ajax_trade_check',[\App\Http\Controllers\ManiaController::class,'ajax_trade_check']);
     Route::post('/myroom/message/view',[\App\Http\Controllers\VAjaxController::class,'message_view']);

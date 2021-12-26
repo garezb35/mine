@@ -8,10 +8,10 @@
 @endsection
 
 @section('content')
-    <div class="g_BODY" id="g_BODY" style="opacity: 1;">
+    <div class="e4rn34RT" id="e4rn34RT" style="opacity: 1;">
         @include('m.angel.aside.nav', ['user' => $me])
         <div class="header">
-            <div class="h_tit bkg-white">
+            <div class="h_tit bg-white">
                 <a href="javascript:history.back()" class="back_btn" id="back_btn"></a>
                 <h1 class="c-black">마이룸</h1>
                 <button class="btn_menu" id="btn_menu"><em>메뉴</em></button>

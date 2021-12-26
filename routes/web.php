@@ -89,6 +89,10 @@ Route::group(['middleware' => ['web', 'admins']], function () {
         Route::get("shoppingmal_list",[\App\Http\Controllers\AdminController::class,'shoppingmal_list'])->name('shoppingmal_list');
         Route::get("game_management",[\App\Http\Controllers\AdminController::class,'game_management'])->name('game_management');
         Route::get('notice_list',[\App\Http\Controllers\AdminController::class,'notice_list'])->name('notice_list_admin');
+        Route::get('msg_content',[\App\Http\Controllers\AdminController::class,'msg_content'])->name('msg_content');
+        Route::post('sendMsg',[\App\Http\Controllers\AdminController::class,'sendMsg'])->name('sendMsg');
+        Route::get('gamemake',[\App\Http\Controllers\AdminController::class,'gamemake'])->name('gamemake');
+        Route::post('UpdateMGame',[\App\Http\Controllers\AdminController::class,'UpdateMGame'])->name('UpdateMGame');
     });
 
     Route::post('/updateProfile', [\App\Http\Controllers\AdminController::class,'updateProfile'])->name('profile.update');
