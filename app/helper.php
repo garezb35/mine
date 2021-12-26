@@ -56,13 +56,13 @@ function getImage($str){
 }
 function getmyService(){
     return array(
-        1=>array('alias'=>"내 마일리지",'href'=>'/myroom/','img'=>'/angel/img/home/mileage.png','height'=>'17'),
-        2=>array('alias'=>"상담내역보기",'href'=>'/customer/myqna/list','img'=>'/angel/img/home/chat_history.png','height'=>'17'),
-        3=>array('alias'=>"판매관련물품",'href'=>'/myroom/sell/sell_regist','img'=>'/angel/img/home/sell.png','height'=>'8'),
-        4=>array('alias'=>"구매관련물품",'href'=>'/myroom/buy/buy_regist','img'=>'/angel/img/home/buy.png','height'=>'14'),
-        5=>array('alias'=>"마일리지충전",'href'=>'/myroom/my_mileage/index_c','img'=>'/angel/img/home/mileage_charge.png','height'=>'14'),
+        1=>array('alias'=>"내마일리지",'href'=>'/myroom/','img'=>'/angel/img/home/mileage.png','height'=>'17'),
+        2=>array('alias'=>"상담내역",'href'=>'/customer/myqna/list','img'=>'/angel/img/home/chat_history.png','height'=>'17'),
+        3=>array('alias'=>"판매관련",'href'=>'/myroom/sell/sell_regist','img'=>'/angel/img/home/sell.png','height'=>'8'),
+        4=>array('alias'=>"구매관련",'href'=>'/myroom/buy/buy_regist','img'=>'/angel/img/home/buy.png','height'=>'14'),
+        5=>array('alias'=>"마일리지",'href'=>'/myroom/my_mileage/index_c','img'=>'/angel/img/home/mileage_charge.png','height'=>'14'),
         6=>array('alias'=>"수수료",'href'=>'','img'=>'/angel/img/home/fee.png','height'=>'14'),
-        7=>array('alias'=>"신용등급/수수료",'href'=>'/myroom/myinfo/credit_rating','img'=>'/angel/img/home/rating.png','height'=>'14'),
+        7=>array('alias'=>"신용등급",'href'=>'/myroom/myinfo/credit_rating','img'=>'/angel/img/home/rating.png','height'=>'14'),
         8=>array('alias'=>"초보가이드",'href'=>'','img'=>'/angel/img/home/beginner.png','height'=>'14'),
         9=>array('alias'=>"FAQ",'href'=>'/customer','img'=>'/angel/img/home/faq.png','height'=>'14'),
         10=>array('alias'=>"메시지함",'href'=>'/myroom/message/','img'=>'/angel/img/home/message.png','height'=>'16')

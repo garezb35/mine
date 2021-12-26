@@ -21,6 +21,7 @@
                                 <input type="text" name="name" value="{{Request::get("name")}}" class="form-control" placeholder="네임">
                             </div>
                             <button type="submit" class="btn btn-primary mb-2">검색</button>
+                            <a href="{{route('gamemake')}}" class="btn btn-danger mb-2">등록하기</a>
                         </form>
                     </div>
 
@@ -32,9 +33,9 @@
                                 <th scope="col" class="sort" data-sort="name">아이디</th>
                                 <th scope="col" class="sort" data-sort="status">구분</th>
                                 <th scope="col" class="sort" data-sort="budget">네임</th>
-                                <th scope="col" class="sort" data-sort="status">캐릭터 거래</th>
-                                <th scope="col" class="sort" data-sort="status">할인가능</th>
-                                <th scope="col" class="sort" data-sort="status">게임머니 단위</th>
+                                <th scope="col" class="sort" data-sort="character">캐릭터 거래</th>
+                                <th scope="col" class="sort" data-sort="balin">할인가능</th>
+                                <th scope="col" class="sort" data-sort="game">게임머니 단위</th>
                                 <th>아이콘</th>
                                 <th>등록일</th>
                                 <th scope="col"></th>
@@ -52,7 +53,7 @@
                                         @if($game['depth'] == 2) 속성 @endif
                                     </td>
                                     <td class="budget">
-                                        <a href="/admin/game_management?depth={{$game['depth']}}&name={{$game['game']}}">{{$game['game']}}</a>
+                                        <a href="/admin/gamemake?id={{$game['id']}}">{{$game['game']}}</a>
                                     </td>
                                     <td>
                                         {{$game['character_enabled'] == 1 ? "캐릭터 거래 가능" : ""}}

@@ -138,4 +138,5 @@
         width: 60px;
     }
 </style>
+    @yield('foot_attach')
 </html>

@@ -51,7 +51,18 @@ class VMainController extends BaseController
         foreach($list as $v){
             $params[$v['id']] = 1;
         }
-        return view('angel.home',['sells'=>$sells,'buys'=>$buys,'notices'=>$notices,'game_list'=>$game_list,'fav'=>$params,'list'=>$list, 'isLogin'=>$isLogined, 'user'=>$this->user]);
+
+        $completed_orders = MItem::with('payitem','game','server')
+            ->whereHas('payitem')
+            ->where(function($query){
+                $query->where('status',23);
+                $query->orWhere('status',32);
+            })
+            ->whereBetween('updated_at',[date("Y-m-d", strtotime("-7 days")), date("Y-m-d", strtotime("+1 day"))])
+            ->orderby('updated_at','DESC')
+            ->limit(10)->get();
+        $games = MGame::where('status',1)->where('depth',0)->orderby('order','ASC')->limit(12)->get();
+        return view('angel.home',['sells'=>$sells,'buys'=>$buys,'notices'=>$notices,'game_list'=>$game_list,'fav'=>$params,'list'=>$list, 'isLogin'=>$isLogined, 'user'=>$this->user,'completed_orders'=>$completed_orders,'games'=>$games]);
     }
     public function giftcard()
     {

@@ -30,6 +30,7 @@
                 $("#tab_sell").addClass('d-none');
             }
         })
+        $(".list-box").noticerolling()
     </script>
 @endsection
 
@@ -162,23 +163,73 @@
                 </script>
                 <div class="service_wrap">
                     <div class="service_set">
-                        <a href="javascript:;" id="enableSettings"><i class="fa fa-cog setting f-18 text-white"></i></a>
+{{--                        <a href="javascript:;" id="enableSettings"><i class="fa fa-cog setting f-18 text-white"></i></a>--}}
                         <ul>
-                            @foreach($list as $v)
-                                <a href="{{getmyService()[$v['id']]['href']}}" target="_self">
-                                    <li>
-                                        <img style="margin-top:10px" src="{{getmyService()[$v['id']]['img']}}" height="{{getmyService()[$v['id']]['height']}}" width="17">
-                                        <div class="f-16">{{getmyService()[$v['id']]['alias']}}</div>
-                                    </li>
-                                </a>
-                            @endforeach
+{{--                            @foreach($list as $v)--}}
+{{--                                <a href="{{getmyService()[$v['id']]['href']}}" target="_self">--}}
+{{--                                    <li>--}}
+{{--                                        <img style="margin-top:10px" src="{{getmyService()[$v['id']]['img']}}" height="{{getmyService()[$v['id']]['height']}}" width="17">--}}
+{{--                                        <div class="f-16">{{getmyService()[$v['id']]['alias']}}</div>--}}
+{{--                                    </li>--}}
+{{--                                </a>--}}
+{{--                            @endforeach--}}
                         </ul>
                     </div>
                     <div class="bg_opacity"></div>
                 </div>
+
             </div>
         </div>
-        <div class="sec_left realtime_status">
+
+        <div class="sec_left realtime_status" style="height: 995px">
+            <div class="neworder-box clearfix">
+                <p class="key">
+                    최근거래
+                </p>
+                <div class="list-box">
+                    <ul class="clearfix" style="top: 0px;" id="list-box_illl">
+                        @foreach($completed_orders as $compled)
+                            <li>
+                                <a class="link"><span class="game con red">[{{$compled['type'] == 'sell' ? '팝니다':'삽니다'}}]</span>
+                                    <span class="detail con">[ {{$compled['game']['game']}} > {{$compled['server']['game']}} > {{$compled['good_type']}} ] {{$compled['user_title']}}</span>
+                                    <span class="price con">거래가격：<span class="red">{{number_format($compled['payitem']['price'])}}원</span></span>
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            <div class="module-gamelist" id="gameList">
+                <div class="inner-border border-right">
+                    <div class="inner-border border-bottom">
+                        <div class="tab-wrap">
+                            <div class="tab-box">
+                                <ul class="tab-type clearfix tab" data-tab="hotgame">
+                                    <li class="hotgame current" data-tab="hotgame">
+                                        <span >인기게임</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="gamelist-wrap">
+                            <ul class="gamelist-ul clearfix hotgame-hotspell">
+                                @foreach($games as $gg)
+                                    <li data-code="{{$gg['id']}}" data-gamename="{{$gg['game']}}" class="goods_more_btn">
+                                        <a class="link-all" href="javascript:;" target="_self">
+                                            <img class="lazyload" src="{{$gg['icon']}}"  alt="{{$gg['game']}}" style="display: block;">
+                                            <p class="name">{{$gg['game']}}</p>
+                                        </a>
+                                    </li>
+                                @endforeach
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="title">게임별 시세정보
+            </div>
+            <div id="gameChart" class="border-normal"></div>
             <div class="_34Cr45d_reacts">
                 <div class="tab searchbar_tab">
                     <div class="active" data-t="1">
@@ -268,7 +319,7 @@
             <div class="angel__menugames d-none" data-gslist="true"></div>
         </div>
         <div class="sec_right">
-            <div class="box3 gamenews">
+            <div class="box3 gamenews" style="height: 215px">
                 <div class="title f-18 f-normal"> 공지사항 </div>
                 <ul class="g_list news_list f-14">
                     @foreach($notices as $v)
@@ -280,15 +331,6 @@
                     @endforeach
                 </ul>
             </div>
-        </div>
-        <div class="empty-high"></div>
-
-        <div class="sec_left no-border">
-            <div class="title">게임별 시세정보
-            </div>
-            <div id="gameChart" class="border-normal"></div>
-        </div>
-        <div class="sec_right no-border">
             <div class="title"> 게임순위 </div>
             <div class="border-normal d-flex">
                 <ul class="rank_list">
@@ -317,10 +359,19 @@
                     @endfor
                 </ul>
             </div>
-        </div>
-        <div class="empty-high"></div>
-
-        <div class="d-flex w-100">
+            <div class="title">
+                마일리지 충전
+            </div>
+            <div class="charge_wrap fixed-height" id="bacnked_list_3e9RT">
+                <ul class="bacnked_list_3e9RT">
+                    <li>
+                        <a href="{{route('my_mileage_index_c')}}">
+                            <span class="c_name">계좌입금</span>
+                            <span class="bank_account_emoticon account"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <div class="w-50 sec_left no-border back-normal " style="margin-right: 10px;height: 188px">
                 <div class="title no-border">
                     전화 상담안내
@@ -333,32 +384,8 @@
                     </div>
                 </div>
             </div>
-            <div class="w-50  no-border sec_right" style="    overflow: hidden;
-    box-sizing: border-box;
-    height: 196px;
-    margin-bottom: 10px;
-    border: 1px solid #DEE3EB;
-    background-color: #FFF;
-    float: right;
-">
-                <div class="title">
-                    마일리지 충전
-                </div>
-                <div class="charge_wrap fixed-height" id="bacnked_list_3e9RT">
-                    <ul class="bacnked_list_3e9RT">
-                        <li>
-                            <a href="{{route('my_mileage_index_c')}}">
-                                <span class="c_name">계좌입금</span>
-                                <span class="bank_account_emoticon account"></span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
+
         <div class="empty-high"></div>
     </div>
-
-
-
 @endsection

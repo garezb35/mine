@@ -183,6 +183,20 @@ if(Request::get('state') == '3-2'){
             $("#exit_cancel").val(2);
             $("#member_control").submit();
         }
+        function sendMemo(){
+            let uids = new Array();
+            $('input[name="uids[]"]').each(function(index,ele){
+                if ($(ele).prop("checked")) {
+                    uids.push($(ele).val())
+                }
+            })
+            if(uids.length == 0){
+                alert("회원들을 선택하세요");
+                submit_checked = false;
+                return false;
+            }
+            window.open('{{route('msg_content')}}?uids='+uids.join(','),'popup','width=800, height=600, status=no, menubar=no, toolbar=no, resizable=no,left=400,top=100');
+        }
         $(document).ready(function(){
             @if (\Session::has('message'))
                 alert("{{\Session::get('message')}}")

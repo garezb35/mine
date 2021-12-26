@@ -48,7 +48,7 @@
         <script type="text/javascript" src="/angel/_js/webpack.js"></script>
         <script type="text/javascript" src="/angel/_js/angelic-global.js"></script>
         <script type="text/javascript" src="/angel/_js/loader.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/packery/1.4.3/packery.pkgd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/packery/1.4.3/packery.pkgd.min.js"></script>F
         <script type="text/javascript" src="/angel/photoswipe/js/jquery.photoswipe-global.js"></script>
 
     @yield('foot_attach')

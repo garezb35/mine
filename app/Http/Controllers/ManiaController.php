@@ -650,6 +650,30 @@ class ManiaController extends BaseController
         echo '<mysearch result="item_filtered">'.$content.'</mysearch>';
     }
 
+    public function favoritedgames(Request $request){
+        $content = "";
+        $userId = $this->user->id;
+        $mygame = MMygame::where('userId',$userId)->orderBy('order','ASC')->get();
+        $result = "success";
+        $list = array();
+        if(!empty($mygame)){
+            foreach($mygame as $v){
+                array_push($list,array(
+                      "id"=> $v['id'],
+                      "type"=> $v['type'],
+                      "gameCode"=> $v['game'],
+                      "gameName"=> $v['game_text'],
+                      "serverCode"=> $v['server'],
+                      "serverName"=>  $v['server_text'],
+                      "goodsCode"=> itemAlias($v['goods_text']),
+                      "goodsName"=> $v['goods_text']
+                ));
+            }
+        }
+
+        return response()->json(array('result'=> $result, "list"=>$list));
+    }
+
     public function getPowerCheck(Request $request){
         echo 0;
     }
@@ -729,12 +753,12 @@ class ManiaController extends BaseController
             <div class="prc_area">
                 <div id="item_suc"><a href="javascript:;" class="btn_blue4" id="suc_btn">정보입력 완료</a>
                     <span class="f_org1">* 아이템정보 서비스를 이용 하시면 판매에 도움이 됩니다.</span></div>
-                <div id="item_can" class="item__ajax_item_all.phpcan g_hidden"> 아이템정보 :
+                <div id="item_can" class="item__ajax_item_all.phpcan over__hidden"> 아이템정보 :
                     <strong class="text-rock" id="item_info_txt"></strong><a href="javascript:;" class="btn_gray1" id="can_btn">취소</a>
                 </div>
             </div>
         </div>
-        <div class="item_guide_txt g_hidden" id="item_guide_txt">* 아이템정보 서비스를 이용 하시면 판매에 도움이 됩니다.</div>
+        <div class="item_guide_txt over__hidden" id="item_guide_txt">* 아이템정보 서비스를 이용 하시면 판매에 도움이 됩니다.</div>
     </td>
 </tr>';
             }

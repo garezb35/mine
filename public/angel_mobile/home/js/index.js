@@ -51,14 +51,14 @@ function _init() {
         });
         // If there are existing banner
         if($(b).find('.swiper-slide').length > 0) {
-            $('.g_MASK').eq(i).show();
+            $('.mk78F_ret').eq(i).show();
 
             // Closing
             $(b).find('.close').on({
                 click : function() {
                     $(this).parents('.main_floating_banner').hide();
                     if($('#main_floating_banner2').length < 1 || ($('#main_floating_banner2').length > 0 && $(this).parents('.main_floating_banner')[0].id == 'main_floating_banner2')) {
-                        $('.g_MASK').eq(i).hide();
+                        $('.mk78F_ret').eq(i).hide();
                     }
                 }
             });
@@ -89,7 +89,7 @@ function _init() {
             }
             _GameServerController.setSubmitType('serverSearch');
             _GameServerController.serverlist[0].onChange = function() {
-                $('#g_search_form').attr('action', 'search_index.html').submit();
+                $('#juret__react56').attr('action', 'search_index.html').submit();
             };
             _GameServerController.gamelist[0].close();
             _GameServerController.gamelist[0].setValue(this);
