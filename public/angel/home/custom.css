@@ -71,7 +71,7 @@
 }
 
 .top_full {
-    margin-bottom: 14px;
+    margin-bottom: 5px;
 }
 .top_full,
 .top_area,
@@ -166,14 +166,13 @@
 .rank_list {
     float: initial;
     width: 50%;
-    height: 264px;
-    padding-top: 6px;
+    height: 180px;
 }
 .rank_list li {
-    margin-top: 27px;
+    margin-top: 15px;
 }
 .fixed-height {
-    height: 145px;
+    height: 114px;
 }
 .inquery_part {
     margin-top: 40px;

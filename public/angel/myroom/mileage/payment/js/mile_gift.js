@@ -5,10 +5,6 @@ function fnMileGift(type, money, code) {
         strParam = '/portal/giftcard_touchpay/touchpay_form.html',
         bTouchpay = false;
 
-//	if (obj.val() == 0 || obj.val() == undefined) {
-//		alert('êµ¬ë§¤ ê°œìˆ˜ë¥¼ ì„ íƒí•˜ì—¬ ì£¼ì„¸ìš”.');
-//		return;
-//	}
 
     if (nMoney == undefined) {
         nMoney = 1000;
@@ -28,24 +24,7 @@ function fnMileGift(type, money, code) {
         case 'googlegift':
             strParam = 'googlegift/googlegift_form.html?';
             break;
-        /*
-    case 'book':
-        strParam = 'book/book_form.html?';
-        break;
-    case 'game':
-        strParam = 'game_culture/kspay.html?pMode=P&';
-        break;
-    case 'bitcoin':
-        bTouchpay	= true;
-//			strParam = 'bitcoin/bitcoin_form.html?';
-        break;
-    case 'teen':
-        strParam = 'teen/teen_form.html?';
-        break;
-    case 'funny':
-        bTouchpay	= true;
-        break;
-         */
+
     }
 
     giftMoney = nMoney * obj.val();

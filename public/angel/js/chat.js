@@ -1400,7 +1400,7 @@ function printChatMsg(level,sex,mark,useridKey,nickname,msg,item,winFixCnt,image
 function windowResize()
 {
     var msgBoxHeight = $('body').height();
-    $('#msgBox').height(360);
+    $('#msgBox').height(410);
     // $('#connectList').height(msgBoxHeight-160);
     // $('#roomList').height(msgBoxHeight-185);
     // $('#ruleBox').height(msgBoxHeight-203);

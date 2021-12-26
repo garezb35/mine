@@ -31,6 +31,65 @@
             }
         })
         $(".list-box").noticerolling()
+        function selectedPrice(v) {
+            var fillRealMileage = $("#spnPrice");
+            if($("#priceD:checked").val() != 0) {
+                $("#price_custom").val("직접입력");
+            }
+            if(v == "0" || v.length < 1) {
+                $("#priceD").prop('checked', true);
+                if($("#price_custom").val() == "직접입력") {
+                    $("#price_custom").val("");
+                }
+                if($("#price_custom").val() == "") {
+                    fillRealMileage.html("0");
+                } else {
+                    var price = parseInt($("#price_custom").val()) + rgRate;
+                    fillRealMileage.html(Number(price).currency());
+                }
+            } else {
+                if(v < 0 || v < 1000) {
+                    return;
+                }
+                // if(v >= 25000) {
+                //     fillRealMileage.html(Number(Number(v) - parseInt((Number(Number(v) / 100) * $("#charge_rate").val()))).currency());
+                // } else {
+                //     fillRealMileage.html(Number(Number(v) - Number($('#commission').val())).currency());
+                // }
+                fillRealMileage.html(Number(Number(v) - Number($('#commission').val())).currency());
+            }
+            $('input[name="price"]').val(v);
+        }
+        $(".mileage_charge").click(function() {
+            var type = 1;
+            if (confirm("충전하시겟습니까?")) {
+                var hitURL = "";
+                hitURL = "/api/mileage/charge/proc";
+                type = 2;
+                ajaxRequest({
+                    url:  hitURL,
+                    type: "POST",
+                    data: {
+                        price: $("#price").val(),
+                        api_token: a_token
+                    },
+                    dataType:'json',
+                    success: function(response) {
+                        if (response.status == "success") {
+                            alert("조작이 성공햇습니다.");
+                            socket_client.emit("admin_notice",{
+                                type: type,
+                                userName: "{{$me['name']}}"
+                            })
+                            window.parent.location = "{{route('my_mileage_detail_list')}}";
+                        }
+                        else
+                            alert("조작이 실패햇습니다.");
+
+                    }
+                });
+            }
+        });
     </script>
 @endsection
 
@@ -181,7 +240,7 @@
             </div>
         </div>
 
-        <div class="sec_left realtime_status" style="height: 995px">
+        <div class="sec_left realtime_status">
             <div class="neworder-box clearfix">
                 <p class="key">
                     최근거래
@@ -227,99 +286,120 @@
                     </div>
                 </div>
             </div>
-            <div class="title">게임별 시세정보
-            </div>
-            <div id="gameChart" class="border-normal"></div>
-            <div class="_34Cr45d_reacts">
-                <div class="tab searchbar_tab">
-                    <div class="active" data-t="1">
-                        <a class="f-18 tab-title" href="javascript:void(0);" >실시간 팝니다 목록</a>
+{{--            <div class="title">게임별 시세정보--}}
+{{--            </div>--}}
+{{--            <div id="gameChart" class="border-normal"></div>--}}
+{{--            <div class="_34Cr45d_reacts">--}}
+{{--                <div class="tab searchbar_tab">--}}
+{{--                    <div class="active" data-t="1">--}}
+{{--                        <a class="f-18 tab-title" href="javascript:void(0);" >실시간 팝니다 목록</a>--}}
+{{--                    </div>--}}
+{{--                    <div data-t="2">--}}
+{{--                        <a class="f-18 tab-title" href="javascript:void(0);" >실시간 삽니다 목록</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="tab_content">--}}
+{{--                    <div class="tab_child show">--}}
+{{--                        <table class="f-14 no-border">--}}
+{{--                            <tr>--}}
+{{--                                <td class="realtime_list align-center no-border" >종류</td>--}}
+{{--                                <td class="realtime_game align-center no-border" >게임명/서버명</td>--}}
+{{--                                <td class="realtime_desc align-center no-border" >멘트</td>--}}
+{{--                                <td class="realtime_money align-left no-border" >거래가격</td>--}}
+{{--                            </tr>--}}
+{{--                        </table>--}}
+{{--                        <hr>--}}
+{{--                        <div class="realtime_sell_wrapper" id="tab_sell">--}}
+{{--                            <table class="realtime_sell_table f-14 no-border">--}}
+{{--                                <tbody>--}}
+{{--                                @if(!empty($sells))--}}
+{{--                                    @foreach($sells as $v)--}}
+{{--                                        @php--}}
+{{--                                            $price_alias = "";--}}
+{{--                                            $price = $v['user_price'];--}}
+{{--                                            $game_unit = !empty($v['game_unit']) && $v['game_unit'] !=1 ? $v['game_unit'] : '';--}}
+{{--                                            if(!empty($price)){--}}
+{{--                                                if($v['user_quantity'] > 1 || !empty($v['game_unit']))--}}
+{{--                                                    $price_alias = $v['user_quantity'].$v['game_unit'].'개당 '.number_format($price).'원';--}}
+{{--                                                else--}}
+{{--                                                    $price_alias = number_format($price).'원';--}}
+{{--                                            }--}}
+{{--                                            else{--}}
+{{--                                                $price_alias = $v['user_division_unit'].$v['game_unit'].'개당 '.number_format($v['user_division_price']).'원';--}}
+{{--                                            }--}}
+{{--                                        @endphp--}}
+{{--                                        <tr>--}}
+{{--                                            <td class="realtime_list align-center no-border" >{{$v['good_type']}}</td>--}}
+{{--                                            <td class="realtime_game no-border" >{{$v['game']['game']}} > {{$v['server']['game']}}</td>--}}
+{{--                                            <td class="realtime_desc no-border text-center" >{{$v['user_title']}}</td>--}}
+{{--                                            <td class="realtime_money  no-border align-left" >{{$price_alias}}</td>--}}
+{{--                                        </tr>--}}
+{{--                                    @endforeach--}}
+{{--                                @endif--}}
+{{--                                </tbody>--}}
+{{--                            </table>--}}
+{{--                        </div>--}}
+{{--                        <div class="realtime_sell_wrapper d-none" id="tab_buy">--}}
+{{--                            <table class="realtime_sell_table f-14 no-border">--}}
+{{--                                <tbody>--}}
+{{--                                @if(!empty($buys))--}}
+{{--                                    @foreach($buys as $v)--}}
+{{--                                        @php--}}
+{{--                                            $price_alias = "";--}}
+{{--                                            $price = $v['user_price'];--}}
+{{--                                            $game_unit = !empty($v['game_unit']) && $v['game_unit'] !=1 ? $v['game_unit'] : '';--}}
+{{--                                            if(!empty($price)){--}}
+{{--                                                if($v['user_quantity'] > 1 || !empty($v['game_unit']))--}}
+{{--                                                    $price_alias = $v['user_quantity'].$v['game_unit'].'개당 '.number_format($price).'원';--}}
+{{--                                                else--}}
+{{--                                                    $price_alias = number_format($price).'원';--}}
+{{--                                            }--}}
+{{--                                            else{--}}
+{{--                                                $price_alias = $v['user_division_unit'].$v['game_unit'].'개당 '.number_format($v['user_division_price']).'원';--}}
+{{--                                            }--}}
+{{--                                        @endphp--}}
+{{--                                        <tr>--}}
+{{--                                            <td class="realtime_list align-center no-border" >{{$v['good_type']}}</td>--}}
+{{--                                            <td class="realtime_game no-border" >{{$v['game']['game']}} > {{$v['server']['game']}}</td>--}}
+{{--                                            <td class="realtime_desc no-border text-center" >{{$v['user_title']}}</td>--}}
+{{--                                            <td class="realtime_money  no-border align-left" >{{$price_alias}}</td>--}}
+{{--                                        </tr>--}}
+{{--                                    @endforeach--}}
+{{--                                @endif--}}
+{{--                                </tbody>--}}
+{{--                            </table>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="tab_child" data-content="tab_mygame">--}}
+{{--                        <ul class="mysearch_filters"></ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+            <div style="display:flex">
+                <div class="w-50 no-border back-normal " style="margin-right: 10px;height: 188px;padding-top: 33px">
+                    <div class="title no-border">
+                        전화 상담안내
                     </div>
-                    <div data-t="2">
-                        <a class="f-18 tab-title" href="javascript:void(0);" >실시간 삽니다 목록</a>
+                    <div class="d-flex w-100 inquery_part">
+                        <img src="/assets/img/icons/inquery_time.png" height="91" width="97" />
+                        <div class="bottom_info">
+                            <span class="call_num">1532-9945</span>
+                            <span class="call_txt">365일 24시간 연중무휴</span>
+                        </div>
                     </div>
                 </div>
-                <div class="tab_content">
-                    <div class="tab_child show">
-                        <table class="f-14 no-border">
-                            <tr>
-                                <td class="realtime_list align-center no-border" >종류</td>
-                                <td class="realtime_game align-center no-border" >게임명/서버명</td>
-                                <td class="realtime_desc align-center no-border" >멘트</td>
-                                <td class="realtime_money align-left no-border" >거래가격</td>
-                            </tr>
-                        </table>
-                        <hr>
-                        <div class="realtime_sell_wrapper" id="tab_sell">
-                            <table class="realtime_sell_table f-14 no-border">
-                                <tbody>
-                                @if(!empty($sells))
-                                    @foreach($sells as $v)
-                                        @php
-                                            $price_alias = "";
-                                            $price = $v['user_price'];
-                                            $game_unit = !empty($v['game_unit']) && $v['game_unit'] !=1 ? $v['game_unit'] : '';
-                                            if(!empty($price)){
-                                                if($v['user_quantity'] > 1 || !empty($v['game_unit']))
-                                                    $price_alias = $v['user_quantity'].$v['game_unit'].'개당 '.number_format($price).'원';
-                                                else
-                                                    $price_alias = number_format($price).'원';
-                                            }
-                                            else{
-                                                $price_alias = $v['user_division_unit'].$v['game_unit'].'개당 '.number_format($v['user_division_price']).'원';
-                                            }
-                                        @endphp
-                                        <tr>
-                                            <td class="realtime_list align-center no-border" >{{$v['good_type']}}</td>
-                                            <td class="realtime_game no-border" >{{$v['game']['game']}} > {{$v['server']['game']}}</td>
-                                            <td class="realtime_desc no-border text-center" >{{$v['user_title']}}</td>
-                                            <td class="realtime_money  no-border align-left" >{{$price_alias}}</td>
-                                        </tr>
-                                    @endforeach
-                                @endif
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="realtime_sell_wrapper d-none" id="tab_buy">
-                            <table class="realtime_sell_table f-14 no-border">
-                                <tbody>
-                                @if(!empty($buys))
-                                    @foreach($buys as $v)
-                                        @php
-                                            $price_alias = "";
-                                            $price = $v['user_price'];
-                                            $game_unit = !empty($v['game_unit']) && $v['game_unit'] !=1 ? $v['game_unit'] : '';
-                                            if(!empty($price)){
-                                                if($v['user_quantity'] > 1 || !empty($v['game_unit']))
-                                                    $price_alias = $v['user_quantity'].$v['game_unit'].'개당 '.number_format($price).'원';
-                                                else
-                                                    $price_alias = number_format($price).'원';
-                                            }
-                                            else{
-                                                $price_alias = $v['user_division_unit'].$v['game_unit'].'개당 '.number_format($v['user_division_price']).'원';
-                                            }
-                                        @endphp
-                                        <tr>
-                                            <td class="realtime_list align-center no-border" >{{$v['good_type']}}</td>
-                                            <td class="realtime_game no-border" >{{$v['game']['game']}} > {{$v['server']['game']}}</td>
-                                            <td class="realtime_desc no-border text-center" >{{$v['user_title']}}</td>
-                                            <td class="realtime_money  no-border align-left" >{{$price_alias}}</td>
-                                        </tr>
-                                    @endforeach
-                                @endif
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="tab_child" data-content="tab_mygame">
-                        <ul class="mysearch_filters"></ul>
-                    </div>
+                <div class="w-50  no-border back-normal" style="    height: 125px;
+    text-align: right;
+    margin-right: 11px;
+    padding-top: 51px;">
+                    <a href="/customer/report"><img src="/assets/img/button/btn_using_inquery.png" width="160px"></a>
+                    <a href="/customer"><img src="/assets/img/button/btn_24_time.png" width="160px"></a>
                 </div>
             </div>
             <div class="angel__menugames d-none" data-gslist="true"></div>
         </div>
         <div class="sec_right">
-            <div class="box3 gamenews" style="height: 215px">
+            <div class="box3 gamenews" style="height: 144px">
                 <div class="title f-18 f-normal"> 공지사항 </div>
                 <ul class="g_list news_list f-14">
                     @foreach($notices as $v)
@@ -359,31 +439,66 @@
                     @endfor
                 </ul>
             </div>
-            <div class="title">
-                마일리지 충전
-            </div>
-            <div class="charge_wrap fixed-height" id="bacnked_list_3e9RT">
-                <ul class="bacnked_list_3e9RT">
-                    <li>
-                        <a href="{{route('my_mileage_index_c')}}">
-                            <span class="c_name">계좌입금</span>
-                            <span class="bank_account_emoticon account"></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="w-50 sec_left no-border back-normal " style="margin-right: 10px;height: 188px">
-                <div class="title no-border">
-                    전화 상담안내
-                </div>
-                <div class="d-flex w-100 inquery_part">
-                    <img src="/assets/img/icons/inquery_time.png" height="91" width="97" />
-                    <div class="bottom_info">
-                        <span class="call_num">1532-9945</span>
-                        <span class="call_txt">365일 24시간 연중무휴</span>
+            <div id="charge_main">
+                <form id="ini" name="ini" action="" method="post">
+                    <input type="hidden" name="commission" id="commission" value="0" />
+                    <input type="hidden" name="charge_rate" id="charge_rate" value="2" />
+                    <input type="hidden" name="ITEM_OID" value="" />
+                    <input type="hidden" name="price" id="price" />
+                    <div id="" class="highlight_contextual_nodemon">충전금액 선택</div>
+                    <div class="f-bold" style="background: #e4eef0; padding: 24px;">
+                        <div class="d-flex m-auto">
+                            <div class="align-center" style="width: 33.33%">
+                                <input type="radio" name="selectPrice" id="selectPrice10000" value="10000" class="g_radio" onclick="selectedPrice(this.value);" />
+                                <label for="selectPrice10000">10,000 원</label>
+                            </div>
+                            <div class="align-center" style="width: 33.33%">
+                                <input type="radio" name="selectPrice" id="selectPrice20000" value="20000" class="g_radio" onclick="selectedPrice(this.value);" />
+                                <label for="selectPrice20000">20,000 원</label>
+                            </div>
+                            <div class="align-center" style="width: 33.33%">
+                                <input type="radio" name="selectPrice" id="selectPrice30000" value="30000" class="g_radio" onclick="selectedPrice(this.value);" />
+                                <label for="selectPrice30000">30,000 원</label>
+                            </div>
+                        </div>
+                        <div class="d-flex m-auto" style=" margin-top: 10px; margin-bottom: 10px;">
+                            <div class="align-center" style="width: 33.33%">
+                                <input type="radio" name="selectPrice" id="selectPrice100000" value="100000" class="g_radio" onclick="selectedPrice(this.value);" />
+                                <label for="selectPrice100000">100,000 원</label>
+                            </div>
+                            <div class="align-center" style="width: 33.33%">
+                                <input type="radio" name="selectPrice" id="selectPrice300000" value="300000" class="g_radio" onclick="selectedPrice(this.value);" />
+                                <label for="selectPrice300000">300,000 원</label>
+                            </div>
+                            <div class="align-center" style="width: 33.33%">
+                                <input type="radio" name="selectPrice" id="selectPrice500000" value="500000" class="g_radio" onclick="selectedPrice(this.value);" />
+                                <label for="selectPrice500000">500,000 원</label>
+                            </div>
+                        </div>
+                        <hr style="width: 60%;">
+                        <div class="m-auto align-center" style="width: 60%;">
+                            <input type="radio" name="selectPrice" id="priceD" value="0" class="g_radio" onclick="selectedPrice(this.value)" />
+                            <input type="text" name="price_custom" id="price_custom" maxlength="6" class="angel__text" onclick="selectedPrice(0)" onblur="fnCustomOut()" onkeyup="onlynum(this.value);selectedPrice(this.value)" maxlength="5" />원
+                        </div>
                     </div>
-                </div>
+
+                    <div class="empty-high"></div>
+                    <div class="m_button" style="text-align: center">
+                        <a href="javascript:void(0)" class="mileage_charge btn-color-img btn-blue-img" style="" >충전하기</a>
+                    </div>
+                </form>
             </div>
+
+{{--            <div class="charge_wrap fixed-height" id="bacnked_list_3e9RT">--}}
+{{--                <ul class="bacnked_list_3e9RT">--}}
+{{--                    <li>--}}
+{{--                        <a href="{{route('my_mileage_index_c')}}">--}}
+{{--                            <span class="bank_account_emoticon account"></span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+
         </div>
 
         <div class="empty-high"></div>

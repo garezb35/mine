@@ -1110,6 +1110,7 @@ table tr .left {
     position: relative;
     width: 1080px;
     margin-left: calc((100% - 1087px) / 2 + 60px);
+    min-height: 780px;
 }
 
 .aside {

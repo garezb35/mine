@@ -286,7 +286,7 @@
             </form>
             @endif
         </div>
-        <iframe scrolling="no" frameborder="0" width="100%" height="450" src="/box_chatting" id="chatFrame"></iframe>
+        <iframe scrolling="no" frameborder="0" width="100%" height="500" src="/box_chatting" id="chatFrame"></iframe>
     </div>
 </html>
 
@@ -309,19 +309,7 @@
         }
     }
 
-    .well--tooltip::before,
-    .well--tooltip::after {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        margin-left: -14px;
-        width: 0;
-        height: 0;
-        border-left: 14px solid transparent;
-        border-right: 14px solid transparent;
-        border-top: 14px solid #cccccc;
-    }
+
     .well--tooltip::after {
         border-top-color: #f5f5f5;
         margin-top:  -1px;
@@ -352,16 +340,7 @@
             $("#topbar-left").css("left",pos_left.left - 325 + "px")
             $("#topbar-left").css("top",171 + "px")
         @endif
-        if ($(window).width() < 1694){
-            $("#toolbar-btn").show();
-            $("#topbar-left").css("display","none")
-            $("#topbar-left").css("position","fixed")
-            $("#topbar-left").css("top","45px")
-            $("#topbar-left").css("left","15px")
-        }
-        else{
-            $("#toolbar-btn").hide();
-        }
+
     })
 </script>
 

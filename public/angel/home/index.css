@@ -179,8 +179,8 @@
 .sec_right {
     overflow: hidden;
     box-sizing: border-box;
-    border: 1px solid #DEE3EB;
-    background-color: #FFF;
+    /*border: 1px solid #DEE3EB;*/
+    /*background-color: #FFF;*/
 }
 
 .sec_left {
@@ -272,7 +272,7 @@
     box-sizing: border-box;
     float: left;
     width: 126px;
-    height: 148px;
+    height: 110px;
     color: #767676
 }
 
@@ -280,7 +280,7 @@
     display: block;
     box-sizing: border-box;
     width: 126px;
-    height: 148px;
+    height: 110px;
     padding-top: 15px;
     border-right: 1px solid #DEE3EB;
     text-align: center
@@ -929,7 +929,7 @@
 
 .neworder-box {
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     height: 38px;
     line-height: 38px;
     color: #333;
@@ -1060,7 +1060,7 @@
 }
 
 .module-gamelist .gamelist-wrap {
-    height: 314px;
+    height: 284px;
 }
 .module-gamelist .gamelist-wrap {
     background-color: #fff;
@@ -1078,7 +1078,7 @@
     position: relative;
     float: left;
     width: 136px;
-    height: 153px;
+    height: 138px;
     border-right: 1px solid #fff;
     border-bottom: 1px solid #fff;
 }
@@ -1092,7 +1092,7 @@
     margin-top: 22px;
 }
 .module-gamelist .gamelist-wrap img {
-    margin: 26px auto 0;
+    margin: 10px auto 0;
     width: 90px;
     height: 90px;
     border-radius: 10px;
