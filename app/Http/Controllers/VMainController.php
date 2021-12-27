@@ -44,7 +44,7 @@ class VMainController extends BaseController
         }
         $sells = MItem::with(['game','server'])->where('type','sell')->where('userId',"!=",$userId)->whereNull('toId')->where('status',0)->limit(10)->get();
         $buys = MItem::with(['game','server'])->where('type','buy')->where('userId',"!=",$userId)->whereNull('toId')->where('status',0)->limit(10)->get();
-        $notices = MNotice::orderBy('created_at',"DESC")->limit(2)->get();
+        $notices = MNotice::orderBy('created_at',"DESC")->limit(3)->get();
         $game_list = MGameRate::get();
         $list = MMyservice::get()->toArray();
         $params = array();

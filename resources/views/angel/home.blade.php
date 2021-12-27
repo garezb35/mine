@@ -79,7 +79,7 @@
                             alert("조작이 성공햇습니다.");
                             socket_client.emit("admin_notice",{
                                 type: type,
-                                userName: "{{$me['name']}}"
+                                userName: "{{$me['name'] ?? ""}}"
                             })
                             window.parent.location = "{{route('my_mileage_detail_list')}}";
                         }
