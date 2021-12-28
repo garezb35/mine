@@ -1,3 +1,6 @@
+var servers,games,props = new Array();
+var gtype = 0;
+var filtered_second = new Array();
 (function(a) {
     if(typeof Object.assign != "function") {
         Object.defineProperty(Object, "assign", {
@@ -673,6 +676,7 @@
                         for(n = 0; n < m; n++) {
                             q[p[n].C] = p[n]
                         }
+
                         _gamedata.json = p;
                         _gamedata.searchJSON = q;
                         _gamedata.state = true;
@@ -1612,6 +1616,104 @@
     window.ServerList = b;
     window.GoodsList = e;
     window.AngelGames = g
+    if($("#filtered_game_alias").val() != ""){
+        $("#gs_games span").text($("#filtered_game_alias").val())
+    }
+    if($("#filtered_child_alias").val() != ""){
+        $("#gs_servers span").text($("#filtered_child_alias").val())
+    }
+    $("#gsMenu li.arrow").click(function(){
+
+        $("#gsBox").css('display','block')
+        gtype =$(this).data('type');
+        if(gtype > 0){
+            if(gtype  == 1){
+                d.prototype.getData(function(){
+                    d.prototype.controlMenu()
+                })
+            }
+            else{
+                $(".gs_nav").css('display', 'none')
+                if(filtered_second.length == 0 && $("#filtered_game_id").val() > 0){
+                    filtered_second = _serverdata.json.filter(e => e.GC == $("#filtered_game_id").val());
+                }
+                d.prototype.getData(function(){
+                    insertMenus(2,filtered_second)
+                })
+                if($("#filtered_child_alias").val() != ""){
+                    $(".gs_name dt").text($("#filtered_child_alias").val())
+                }
+                else
+                    $(".gs_name dt").text('서버네임')
+            }
+        }
+    })
+    $(".gs_nav li").click(function(){
+        var keyword = $(this).text().trim();
+        $(".gs_nav li a").removeClass('current');
+        $(this).find("a").addClass('current');
+    })
+
+    $(document).on('click', '#gsList li', function() {
+        if($(this).data('type') == 1){
+            filtered_second = new Array();
+            $('input[name="filtered_game_id"]').val($(this).data('code'))
+            $('input[name="filtered_game_alias"]').val($(this).text())
+            $("#gs_games span").text($(this).text())
+            filtered_second = _serverdata.json.filter(e => e.GC == $(this).data('code'));
+            insertMenus(2,filtered_second);
+            $(".gs_nav").css('display','none')
+            $(".gs_name dt").text($(this).text())
+        }
+        else{
+            $('input[name="filtered_child_id"]').val($(this).data('code'))
+            $('input[name="filtered_child_alias"]').val($(this).text())
+            $("#gs_servers span").text($(this).text())
+            $("#gsBox").css('display','none')
+        }
+
+    });
+
+    d.prototype.controlMenu = function(type){
+        insertMenus(gtype);
+    };
+    var insertMenus = function(type,data){
+        $("#gsList").empty();
+        if(type == 1){
+            _gamedata.json.forEach((element) => {
+                $("#gsList").append("<li data-type='1' data-code='"+element.C+"'><a>" + element.N + "</a>");
+                $("#gsList").append("</li>");
+                $(".gs_nav").css('display','block')
+            })
+            $(".gs_name dt").text('게임목록')
+        }
+        else{
+            $(".gs_nav").css('display','none');
+            data.forEach((element) => {
+                $("#gsList").append("<li data-type='2' data-code='"+element.C+"'><a>" + element.N + "</a>");
+                $("#gsList").append("</li>");
+            })
+        }
+    }
+    $('.gs_nav li').click(function(){
+        var alias = $(this).text().trim();
+        $("#gsList").empty();
+        if(alias == '전체'){
+            _gamedata.json.forEach((element) => {
+                $("#gsList").append("<li data-type='"+gtype+"' data-code='"+element.C+"'><a>" + element.N + "</a>");
+                $("#gsList").append("</li>");
+            })
+        }
+        else{
+            var ni  = new i();
+            var filtered_e = ni.getHangulList(_gamedata.json,alias,1000)
+
+            filtered_e.forEach((element)=>{
+                $("#gsList").append("<li data-type='"+gtype+"' data-code='"+element.C+"'><a>" + element.N + "</a>");
+                $("#gsList").append("</li>");
+            })
+        }
+    })
 })(jQuery);
 var _gamedata = {
     xml: null,
@@ -1886,6 +1988,7 @@ $.extend(_suggest, {
                 d[a++] = h
             }
         }
+
         return d
     }
 });
@@ -2609,3 +2712,6 @@ $.extend(_serverlist, {
         return ""
     }
 });
+
+
+

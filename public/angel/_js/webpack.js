@@ -332,6 +332,9 @@
         }
     };
     window.FileStyle = a
+    $(".close_btn").click(function(){
+        $("#gsBox").css('display','none');
+    })
 })(jQuery);
 (function() {
     var a = function(d, e) {

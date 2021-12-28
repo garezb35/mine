@@ -108,7 +108,7 @@
                                     </div>
                                     <i class="fa fa-star favorite_icon" onclick="bookmarkAdd()"></i>
                                     <button type="button" class="search__submit text-center" title="검색">
-                                        <i class="fa fa-search" style="color: #fff;font-size: 23px;"></i>
+                                        <i class="fa fa-search" style="color: #fff;font-size: 16px;"></i>
                                     </button>
                                 </div>
                                 <div class="gameWindowPopup d-none reg_gameserver" id="reg_gameserver">
@@ -129,18 +129,18 @@
                                                 <ul class="mysearch_filters"></ul>
                                             </div>
                                         </div>
-                                        <div class="tradecan_top" data-popular="true">
-                                            <div class="tradecan_h89eC">거래가능게임</div>
-                                            <ul class="top__gamelist">
-                                                @if(!empty($popular))
-                                                    @foreach($popular as $key=>$v)
-                                                        <li data-pgame="{{$v['game_code']}}">
-                                                            <em class="top_rank">{{$key + 1}}</em>{{$v['game']['game']}}
-                                                        </li>
-                                                    @endforeach
-                                                @endif
-                                            </ul>
-                                        </div>
+{{--                                        <div class="tradecan_top" data-popular="true">--}}
+{{--                                            <div class="tradecan_h89eC">거래가능게임</div>--}}
+{{--                                            <ul class="top__gamelist">--}}
+{{--                                                @if(!empty($popular))--}}
+{{--                                                    @foreach($popular as $key=>$v)--}}
+{{--                                                        <li data-pgame="{{$v['game_code']}}">--}}
+{{--                                                            <em class="top_rank">{{$key + 1}}</em>{{$v['game']['game']}}--}}
+{{--                                                        </li>--}}
+{{--                                                    @endforeach--}}
+{{--                                                @endif--}}
+{{--                                            </ul>--}}
+{{--                                        </div>--}}
                                     </div>
                                     <div class="angel__menugames d-none" data-gslist="true" id="reg_gameserver_list"></div>
                                 </div>

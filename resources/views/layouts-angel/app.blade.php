@@ -5,6 +5,7 @@
         <title>아이템천사</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=1920, initial-scale=1">
         <meta name="keywords" content="">
         <meta name="description" content="">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -48,7 +49,7 @@
         <div id="global_root" class="mainEntity d-none">
             <div id="thirdys" class="fluid-div"></div>
         </div>
-        <div class="roots" id="angel">
+        <div class="roots" id="angel" style="min-width: 1902px">
             @include('layouts-angel.header')
             @yield('content')
             @include('layouts-angel.footer')
@@ -59,7 +60,7 @@
         <script type="text/javascript" src="/angel/_js/loader.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/packery/1.4.3/packery.pkgd.min.js"></script>
         <script type="text/javascript" src="/angel/photoswipe/js/jquery.photoswipe-global.js"></script>
-
+        <script type="text/javascript" src="/angel/_js/fed.min.js"></script>
     @yield('foot_attach')
 
         <script type="text/javascript">
@@ -295,7 +296,7 @@
         padding: 0;
     }
     .container_fulids{
-        min-height: 730px;
+        min-height: 802px;
     }
     .well--tooltip {
         min-width: 300px;

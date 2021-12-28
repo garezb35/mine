@@ -30,9 +30,7 @@
 .search-overlay-wrapper {
     margin-left: 88px;
     top: 22px;
-    padding: 4px 0;
-    border: 2px solid #d3d3d3;
-    border-radius: 24px;
+    border: 1px solid #d3d3d3;
 }
 .search_area {
     padding: 0;
@@ -63,12 +61,12 @@
 }
 .search_gs_name ~ .topsearchbar__close {
     top: 11px;
-    right: 4px;
+    right: -22px;
 }
 .gameWindowPopup {
     border: 1px solid #d3d3d3;
     border-top: 1px solid #d3d3d3;
-    top: 54px;
+    top: 39px;
 }
 .gameTypePopup {
     padding: 2px 0 12px;
@@ -114,6 +112,9 @@
 .nav_wrap .nav li {
     padding: 0 58px;
 }
+.nav_wrap .nav li:hover{
+    background: #176ba5;
+}
 .nav_wrap .nav li a {
     height: 50px;
     line-height: 48px;
@@ -121,14 +122,14 @@
 .nav_wrap .nav .highlight {
     padding: 0 58px;
 }
-.nav_wrap .nav_menu_nodemon li a:after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    content: "|";
-    font-size: 13px;
-    color: #6ac2ff;
-}
+/*.nav_wrap .nav_menu_nodemon li a:after {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    right: 0;*/
+/*    content: "|";*/
+/*    font-size: 13px;*/
+/*    color: #6ac2ff;*/
+/*}*/
 .nav_wrap .nav_menu_nodemon li:last-child a:after {
     content: "";
 }

@@ -1399,7 +1399,7 @@ table tr .left {
     position: relative;
     display: inline-block;
     box-sizing: border-box;
-    width: 650px;
+    width: 365px;
     height: 46px;
     padding: 0 40px 0 200px;
     border: 3px solid #159efd;
@@ -1525,9 +1525,6 @@ table tr .left {
     background-position: -10px -10px;
 }
 
-.top_game_searchbar {
-    position: relative;
-}
 
 .gameWindowPopup {
     z-index: 99;
@@ -1565,7 +1562,6 @@ table tr .left {
     overflow: hidden;
     box-sizing: border-box;
     height: 100%;
-    padding-right: 226px;
 }
 
 ._34Cr45d_reacts .tab {
@@ -1833,6 +1829,11 @@ table tr .left {
     text-overflow: ellipsis;
     cursor: pointer;
     line-height: 27px;
+    border-bottom: 1px solid #c1c1c1;
+    background-image: linear-gradient(
+        180deg, #fbfbfb, #efecec);
+    margin-bottom: 10px;
+    border-top: 1px solid #c1c1c1;
 }
 
 .angel__menugames>div>ul>li>span {
