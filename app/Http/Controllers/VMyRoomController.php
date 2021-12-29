@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\MAdminNotice;
+use App\Models\MBank;
 use App\Models\MCashReceipt;
 use App\Models\MGift;
 use App\Models\MInbox;
@@ -17,6 +18,7 @@ use App\Models\MUserbank;
 use App\Models\User;
 use App\Models\MMileage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 
@@ -1874,5 +1876,39 @@ class VMyRoomController extends BaseController
 
 
         return view('angel.myroom.credit_rating',['user'=>$user,'gift'=>$gift,'roles'=>$roles,'sell_list'=>$sell_list,'buy_list'=>$buy_list,'buy_all'=>$buy_all,'sell_all'=>$sell_all]);
+    }
+
+    public function myinfo_passwd_modify (Request $request){
+        return view('angel.myroom.myinfo_passwd_modify');
+    }
+
+    public function myinfo_alter(Request $request){
+        if(!Hash::check($request->old,$this->user->password)){
+            return redirect()->back()->with(['message' => '비밀번호를 다시 확인해주세요']);
+        }
+        else{
+            if($request->password !=  $request->passwordConfirmation){
+                return redirect()->back()->with(['message' => '비밀번호가 동일하지 않습니다.']);
+            }
+            $this->user->password = Hash::make($request->password);
+            return redirect()->back()->with(['message' => '변경되었습니다.']);
+        }
+    }
+
+    public function myinfo_bank(Request $request){
+        $userbank = MUserbank::where('id',$this->user->id)->first();
+        $banks = MBank::where('status',1)->get();
+        return view('angel.myroom.myinfo_bank',['bank'=>$userbank,'banks'=>$banks]);
+    }
+
+    public function updatebank(Request $request){
+        $id = $request->id;
+        $params = $request->all();
+        unset($params['id']);
+
+        MUserbank::updateOrCreate([
+            'id'=>$this->user->id
+        ],$params);
+        echo '<script>alert("변경되었습니다");self.close()</script>';
     }
 }

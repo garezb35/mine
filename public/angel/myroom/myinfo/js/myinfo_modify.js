@@ -39,7 +39,6 @@ function _init() {
                 }
             }
 
-            // 연락처(휴대폰)
             if(frm.find('[name=user_mobile_type]').val() != 'N') {
                 if($('#user_mobileB').val().trim().length < 3) {
                     alert('잘못된 연락처입니다');
@@ -83,7 +82,10 @@ function _init() {
     _form.autotab($('#user_contactB'), $('#user_contactC'));
     _form.autotab($('#user_mobileB'), $('#user_mobileC'));
 
-    /* ▼ 휴대폰 인증 */
+    $("#putbank").click(function(){
+        _window.open('출금계좌', '/myinfo_bank', 430, 300);
+    })
+
     $('#cellphone_auth_pop').click(function(){
         if(frm.find('[name=user_mobile_type]').val().isEmpty() || frm.find('[name=user_mobile_type]').val() == 'N') {
             alert('이동통신사를 선택하세요.');
@@ -129,7 +131,7 @@ function _init() {
             action: link
         });
     });
-    /* ▲ 휴대폰 인증 */
+
 
     $('#bankmodify_btn').click(function () {
         _window.open('bankaccount_modify', 'https://'+ document.domain +'/myroom/mileage/payment/popup/bankaccount_modify_ssl', 660, 400);
@@ -145,7 +147,7 @@ function _init() {
 
     $('#user_mobileA').width(55);
 
-    /* 광고 정보 수신 동의 */
+
     $('#sms_agree').on('click', function(e){
         e.preventDefault();
 
@@ -157,9 +159,9 @@ function _init() {
             //$('#bSmsAccept').val(1);
         }
     });
-    /* 광고 정보 수신 동의 */
 
-    // ajax이메일 인증
+
+
     $('.email_auth_btn').on({
         click:function() {
             if (confirm($('#user_emai_check').val() + '에 인증메일 발송 하시겠습니까?')) {
@@ -222,7 +224,7 @@ function setContactMode(value){
     }
 }
 
-/* ▼ 연락처 중복체크 */
+
 function fnCheckContact() {
     var slctContact		= $('#user_contactA')[0].getValue(),
         slctMobileType	= $('#slctMobile_type')[0].getValue(),
@@ -280,10 +282,7 @@ function fnCheckContact() {
         }
     });
 }
-/* ▲ 연락처 중복체크 */
 
-
-/* 광고 정보 수신 동의 */
 
 function fnAllAgree(states){
     if(states == 1){ //모두 수신 거부
@@ -295,20 +294,17 @@ function fnAllAgree(states){
         $('#bSmsAccept').val("");
     }
     else if(states == 2){ //모두 수신 허용
-
-        // if($('[name="sms_agree"]').prop('checked') == false && $('#cell_auth').val() == "0"){ //sms 인증 미동의 + 휴대폰 인증 미완료
         _window.open('certify', '/certify/payment/user_certify2?wis=SM', 500, 500);
 
 
         fnAgreeStateChange(1);
         $('[name="email_agree"]').prop('checked', true);
         $('[name="naver_smart_alarm"]').prop('checked', true);
-        //$('#bSmsAccept').val(1);
+
 
     }
 }
 
-//광고 정보 수신 동의 버튼 상태 변경 함수
 function fnAgreeStateChange(states){
     if(states == 1) {
         $('#agreeState').attr({
@@ -325,10 +321,6 @@ function fnAgreeStateChange(states){
     }
 }
 
-/* 광고 정보 수신 동의 */
-
-
-/* SMS 수신 처리 */
 function fnSMSProcess(tp){
     if(tp == 1) {
         var frm = document.frmInfo;
@@ -354,7 +346,7 @@ function fnSMSProcess(tp){
     }
 }
 
-/* SMS 수신 상태 변경 */
+
 function fnSMSStateChange(tp){
     if(tp == 1) {
         $('#sms_agree').prop('checked', true);

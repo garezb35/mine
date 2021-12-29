@@ -36,8 +36,9 @@
         </div>
         <div class="search-overlay-wrapper ">
             <ul class="gs_menu" id="gsMenu">
+                <li id="gs_gametype" class="gs_gametype arrow" title="팝니다"  style="width: 42px" data-type="-1"><span>@if(empty($_POST['search_type']) || $_POST['search_type'] != 'buy')팝니다@else삽니다@endif</span><i class="fa fa-caret-down down-down" aria-hidden="true"></i></li>
                 <li id="gs_games" class="gs_games arrow" title="选择游戏平台" data-type="1"><span>게임</span><i class="fa fa-caret-down down-down" aria-hidden="true"></i></li>
-                <li id="gs_servers" class="gs_servers arrow" title="选择游戏服务器" data-type="2" style="width: 112px"><span>서버</span><i class="fa fa-caret-down down-down" aria-hidden="true"></i></li>
+                <li id="gs_servers" class="gs_servers arrow" title="选择游戏服务器" data-type="2" style="width: 89px"><span>서버</span><i class="fa fa-caret-down down-down" aria-hidden="true"></i></li>
                 <li class="gs_search_item">
                     <form id="search-overlay-container" method="post" action="" onsubmit="return searchbarSubmit();">
                         @csrf
@@ -53,10 +54,9 @@
                             <button type="submit" class="search__submit" id="search__submit" title="검색"> <i class="fa fa-search" style="font-size: 19px"></i> </button>
                             <div class="gameWindowPopup d-none">
                                 <div class="gameTypePopup align-center">
-                                    <label class="radiocontainer text-blue_modern"> 팝니다
-                                        <input type="radio" name="search_type" value="sell" @if(empty($_POST['search_type']) || $_POST['search_type'] != 'buy') checked @endif> <span class="checkmark"></span> </label>
-                                    <label class="radiocontainer text-green_modern"> 삽니다
-                                        <input type="radio" name="search_type" value="buy" @if(!empty($_POST['search_type']) && $_POST['search_type'] == 'buy') checked @endif> <span class="checkmark"></span> </label>
+                                        <input type="radio" id="search_type1" name="search_type" value="sell" @if(empty($_POST['search_type']) || $_POST['search_type'] != 'buy') checked @endif style="display: none">
+                                    <input type="radio" id="search_type2" name="search_type" value="buy" @if(!empty($_POST['search_type']) && $_POST['search_type'] == 'buy') checked @endif style="display: none">
+
                                 </div>
                                 <div class="_34Cr45d_reacts">
                                     <div class="tab searchbar_tab">
@@ -89,10 +89,17 @@
                             </div>
                         </div>
                     </form>
+                    <div class="gsgametypes">
+                        <ul id="g_type_sel">
+                            <li data-type="sell">팝니다</li>
+                            <li data-type="buy">삽니다</li>
+                        </ul>
+                    </div>
                     <div class="gs_box" id="gsBox">
                         <div class="gs_box_inner">
                             <div class="gs_head clearfix">
-                                <dl class="gs_name" style="display: block;"><dt></dt></dl>
+                                <dl class="gs_name" style="display: block;"><dt></dt>
+                                </dl>
                                 <a target="_self" class="close_btn" title="关闭窗口" href="javascript:;">关闭窗口</a>
                             </div>
                             <ul id="gsNav" class="gs_nav">

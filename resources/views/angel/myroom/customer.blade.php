@@ -13,8 +13,6 @@
         </div>
         @include('aside.myroom',['group'=>'settings'])
         <div class="pagecontainer">
-
-
             <div class="contextual--title noborder">
                 환경설정
             </div>

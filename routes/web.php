@@ -125,6 +125,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/myroom/buy/buy_pay_wait_ok' ,  [\App\Http\Controllers\ManiaController::class,'buy_pay_wait_ok']);
     Route::post('/sell_check_ok',[\App\Http\Controllers\ManiaController::class,'sell_check_ok']);
     Route::post('/buy_check_ok',[\App\Http\Controllers\ManiaController::class,'buy_check_ok']);
+    Route::get('myinfo_bank', [\App\Http\Controllers\VMyRoomController::class,'myinfo_bank'])->name('myinfo_bank');
+    Route::post('updatebank', [\App\Http\Controllers\VMyRoomController::class,'updatebank'])->name('updatebank');
     /**
      * By Jong
      */
@@ -231,6 +233,7 @@ Route::middleware('auth')->group(function () {
 
         Route::prefix('myinfo')->group(function  (){
             Route::get('/myinfo_check', [\App\Http\Controllers\VMyRoomController::class, 'myinfo_check'])->name('myinfo_check');
+            Route::post('/myinfo_alter', [\App\Http\Controllers\VMyRoomController::class, 'myinfo_alter'])->name('myinfo_alter');
             Route::get('/myinfo_passwd_modify', [\App\Http\Controllers\VMyRoomController::class, 'myinfo_passwd_modify'])->name('myinfo_passwd_modify');
             Route::get('/credit_rating', [\App\Http\Controllers\VMyRoomController::class, 'credit_rating'])->name('credit_rating');
 

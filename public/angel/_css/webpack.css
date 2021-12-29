@@ -1399,7 +1399,7 @@ table tr .left {
     position: relative;
     display: inline-block;
     box-sizing: border-box;
-    width: 365px;
+    width: 327px;
     height: 46px;
     padding: 0 40px 0 200px;
     border: 3px solid #159efd;
@@ -1828,11 +1828,9 @@ table tr .left {
     white-space: nowrap;
     text-overflow: ellipsis;
     cursor: pointer;
-    line-height: 27px;
-    border-bottom: 1px solid #c1c1c1;
+    line-height: 33px;
     background-image: linear-gradient(
         180deg, #fbfbfb, #efecec);
-    margin-bottom: 10px;
     border-top: 1px solid #c1c1c1;
 }
 

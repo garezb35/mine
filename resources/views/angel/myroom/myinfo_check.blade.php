@@ -41,6 +41,7 @@ $user_contactC = !empty($splited_mobile[2]) ? $splited_mobile[2] : "";
             <div class="contextual--title noborder">
                 개인정보 <span>수정</span>
             </div>
+            @include('tab.member',['group'=>'check'])
             <form id="frmInfo" name="frmInfo" method="post" action="/myroom/myinfo/myinfo_modify_ok">
                 @csrf
                 <input type="hidden" name="user_Mobile_auth" value="{{$mobile_verified ==1 ? 'Y': 'N'}}">
@@ -49,7 +50,6 @@ $user_contactC = !empty($splited_mobile[2]) ? $splited_mobile[2] : "";
                 <input type="hidden" name="before_user_mobileC" value="{{$user_mobileC}}">
                 <input type="hidden" id="bTalkCheck" value="">
                 <input type="hidden" id="user_emai_check" value="{{$email}}">
-                <div class="highlight_contextual_nodemon">개인 정보</div>
                 <table class="table-primary">
                     <colgroup>
                         <col width="140">
@@ -122,30 +122,16 @@ $user_contactC = !empty($splited_mobile[2]) ? $splited_mobile[2] : "";
                             <div>
                                 <input type="checkbox" class="angel_game_sel" name="sms_agree" id="sms_agree" value="Y" checked=""> <label for="sms_agree">SMS 수신동의</label>
                                 <input type="checkbox" class="angel_game_sel" name="email_agree" id="email_agree" value="Y" checked=""> <label for="email_agree">이메일 수신동의</label>
-                                <input type="checkbox" class="angel_game_sel" name="naver_smart_alarm" id="naver_smart_alarm" value="Y"> <label for="naver_smart_alarm">네이버 스마트 알림톡 서비스 수신동의</label>
                             </div>
-                            <div class="empty-high"></div>
-                            <div class="text-orange">
-                                * 거래정보와 관련된 내용은 고객님의 거래안전을 위하여 수신동의 여부와 관계없이 SMS 발송 될 수 있습니다.<br>
-                                * 광고 알림건에 대해서는 '수신거부'로 변경하여도 수정 전에 예약발송 SMS가 설정되어 있어 약 5일 동안은 SMS가 발송될 수 있습니다.
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th rowspan="2">주소</th>
-                        <td class="myinfo_address">
-                            <input type="text" name="user_zipcode" id="user_zipcode" class="angel__text" readonly="" value="{{$ZIP}}">
-                            <a href="javascript:" id="find_address" class="btn btn-secondary btn-sm">우편번호 찾기</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="myinfo_address_detail">
-                            <input type="text" name="user_addressA" id="user_addressA" class="angel__text" readonly="" value="{{$address}}">
                         </td>
                     </tr>
                     <tr>
                         <th>은행명</th>
-                        <td>{{$bank_information['accAlias'] ?? ""}}</td>
+                        <td>
+                            {{$bank_information['accAlias'] ?? ""}}
+                            <a href="javascript:;" class="btn btn-sm btn-secondary"
+                               style="position: absolute;top: 4px;right: 10px;" id="putbank">출금계좌 수정하기</a>
+                        </td>
                     </tr>
                     <tr>
                         <th>계좌번호</th>
@@ -157,7 +143,6 @@ $user_contactC = !empty($splited_mobile[2]) ? $splited_mobile[2] : "";
                     </tr>
                     </tbody>
                 </table>
-                <div class="tb_bt_txt">※ <span class="f_small">고객님의 소중한 개인정보가 노출되지 않도록 모든 작업을 마치셨다면 반드시 다른 페이지로 이동하여 주시기 바랍니다.</span></div>
                 <div class="btn-groups_angel">
                     <input type="submit" value="정보 수정하기" class="btn-default btn-suc">
                     <a href="/myroom/myinfo/myinfo_check" class="btn-default btn-cancel">취소 하기</a>

@@ -1624,29 +1624,54 @@ var filtered_second = new Array();
     }
     $("#gsMenu li.arrow").click(function(){
 
-        $("#gsBox").css('display','block')
+
         gtype =$(this).data('type');
         if(gtype > 0){
+            $("#gsBox").css('display','block')
             if(gtype  == 1){
                 d.prototype.getData(function(){
                     d.prototype.controlMenu()
                 })
             }
             else{
-                $(".gs_nav").css('display', 'none')
-                if(filtered_second.length == 0 && $("#filtered_game_id").val() > 0){
-                    filtered_second = _serverdata.json.filter(e => e.GC == $("#filtered_game_id").val());
-                }
                 d.prototype.getData(function(){
-                    insertMenus(2,filtered_second)
+                    $(".gs_nav").css('display', 'none')
+                    if(filtered_second.length == 0 && $("#filtered_game_id").val() > 0){
+                        filtered_second = _serverdata.json.filter(e => e.GC == $("#filtered_game_id").val());
+                    }
+                    d.prototype.getData(function(){
+                        insertMenus(2,filtered_second)
+                    })
+                    if($("#filtered_child_alias").val() != ""){
+                        $(".gs_name dt").text($("#filtered_child_alias").val())
+                    }
+                    else
+                        $(".gs_name dt").text('서버네임')``
                 })
-                if($("#filtered_child_alias").val() != ""){
-                    $(".gs_name dt").text($("#filtered_child_alias").val())
-                }
-                else
-                    $(".gs_name dt").text('서버네임')
+
             }
         }
+        if(gtype == -1){
+            if($(".gsgametypes").css('display') == 'none'){
+                $(".gsgametypes").css('display','block')
+            }
+            else{
+                $(".gsgametypes").css('display','none')
+            }
+        }
+    })
+
+    $("#g_type_sel li").click(function(){
+        let typ = $(this).data('type');
+        if(typ == 'sell'){
+            $("#gs_gametype span").text('팝니다');
+            $("#search_type1").prop("checked",true)
+        }
+        else{
+            $("#gs_gametype span").text('삽니다');
+            $("#search_type2").prop("checked",true)
+        }
+        $(".gsgametypes").css('display','none')
     })
     $(".gs_nav li").click(function(){
         var keyword = $(this).text().trim();
@@ -1689,6 +1714,7 @@ var filtered_second = new Array();
         }
         else{
             $(".gs_nav").css('display','none');
+            $("#gsList").append("<li data-type='2' data-code='0'><a>서버전체</a></li>")
             data.forEach((element) => {
                 $("#gsList").append("<li data-type='2' data-code='"+element.C+"'><a>" + element.N + "</a>");
                 $("#gsList").append("</li>");

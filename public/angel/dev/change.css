@@ -115,6 +115,11 @@
 .nav_wrap .nav li:hover{
     background: #176ba5;
 }
+
+/*.nav_wrap .nav li:nth-child(1):hover{*/
+/*    color: #2879bf;*/
+/*}*/
+
 .nav_wrap .nav li a {
     height: 50px;
     line-height: 48px;
