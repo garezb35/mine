@@ -36,7 +36,7 @@
         </div>
         <div class="search-overlay-wrapper ">
             <ul class="gs_menu" id="gsMenu">
-                <li id="gs_gametype" class="gs_gametype arrow" title="팝니다"  style="width: 42px" data-type="-1"><span>@if(empty($_POST['search_type']) || $_POST['search_type'] != 'buy')팝니다@else삽니다@endif</span><i class="fa fa-caret-down down-down" aria-hidden="true"></i></li>
+                <li id="gs_gametype" class="gs_gametype arrow" title="팝니다"  style="width: 42px" data-type="-1">@if(empty($_POST['search_type']) || $_POST['search_type'] != 'buy')<span style="color: rgb(21, 158, 253); font-weight: bold;">팝니다</span>@else<span style="color: rgb(36, 158, 30); font-weight: bold;">삽니다</span>@endif<i class="fa fa-caret-down down-down" aria-hidden="true"></i></li>
                 <li id="gs_games" class="gs_games arrow" title="选择游戏平台" data-type="1"><span>게임</span><i class="fa fa-caret-down down-down" aria-hidden="true"></i></li>
                 <li id="gs_servers" class="gs_servers arrow" title="选择游戏服务器" data-type="2" style="width: 89px"><span>서버</span><i class="fa fa-caret-down down-down" aria-hidden="true"></i></li>
                 <li class="gs_search_item">

@@ -1616,12 +1616,29 @@ var filtered_second = new Array();
     window.ServerList = b;
     window.GoodsList = e;
     window.AngelGames = g
+
+    $(document).mouseup(function(e)
+    {
+        var container = $("#gsBox");
+        if (!container.is(e.target) && container.has(e.target).length === 0 && $("#gsBox").css('display') == 'block')
+        {
+            container.css('display','none');
+        }
+
+        var container = $(".gsgametypes");
+        if (!container.is(e.target) && container.has(e.target).length === 0 && $(".gsgametypes").css('display') == 'block')
+        {
+            container.css('display','none');
+        }
+    });
+
     if($("#filtered_game_alias").val() != ""){
         $("#gs_games span").text($("#filtered_game_alias").val())
     }
     if($("#filtered_child_alias").val() != ""){
         $("#gs_servers span").text($("#filtered_child_alias").val())
     }
+
     $("#gsMenu li.arrow").click(function(){
 
 
@@ -1665,10 +1682,14 @@ var filtered_second = new Array();
         let typ = $(this).data('type');
         if(typ == 'sell'){
             $("#gs_gametype span").text('팝니다');
+            $("#gs_gametype span").css('color','#159efd')
+            $("#gs_gametype span").css('font-weight','bold')
             $("#search_type1").prop("checked",true)
         }
         else{
             $("#gs_gametype span").text('삽니다');
+            $("#gs_gametype span").css('color','#249e1e')
+            $("#gs_gametype span").css('font-weight','bold')
             $("#search_type2").prop("checked",true)
         }
         $(".gsgametypes").css('display','none')

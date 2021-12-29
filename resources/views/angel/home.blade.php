@@ -168,12 +168,6 @@
         </div>
     </div>
     <style>
-        .header-brand-logo {
-            width: 1308px;
-        }
-        .search-overlay-wrapper {
-            margin-left: 222px;
-        }
         .service_wrap, .bg_opacity {
             height:  38px;
         }
