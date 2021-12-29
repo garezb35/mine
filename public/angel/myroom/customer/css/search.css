@@ -50,11 +50,19 @@
     height: 43px;
 }
 
+.box .search_gs_name ~ .topsearchbar__close{
+    right: -4px;
+}
+
+.box .custom_search_wrapper .gameTypePopup{
+    left: 10px;
+}
+
 
 .custom_search_wrapper .search__submit {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 24px;
+    right: 14px;
     width: 62px;
     height: 41px;
     background: url(/angel/img/button/search_add.png);
@@ -71,4 +79,5 @@
 .custom_gameserver {
     left: 180px;
     width: calc(100% - 180px);
+    top: 75px;
 }

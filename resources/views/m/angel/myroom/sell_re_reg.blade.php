@@ -364,7 +364,6 @@
                                     </div>
                                     <div class="exp">
                                         <span id="charge_apply" style="display: none">게임머니 팝니다.</span>
-                                        제목 굵기/<strong class="text-green">색</strong> 효과 적용
                                     </div>
                                     <a class="free_view btn-goods" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=highlight',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>
                                 </dd>

@@ -21,7 +21,7 @@
             </div>
             @include('tab.g_tab_customer',['group'=>'search'])
             <div class="sms_alias">설정하기</div>
-            <div class="box">
+            <div class="box" style="position: relative">
                 <form id="frm_search" method="post" action="/myroom/customer/search_add">
                     @csrf
                     <input type="hidden" name="game" value="">
@@ -68,18 +68,18 @@
                                         <ul class="mysearch_filters"></ul>
                                     </div>
                                 </div>
-                                <div class="tradecan_top" data-popular="true">
-                                    <div class="tradecan_h89eC">거래가능게임</div>
-                                    <ul class="top__gamelist">
-                                        @if(!empty($popular))
-                                            @foreach($popular as $key=>$v)
-                                                <li data-pgame="{{$v['game_code']}}">
-                                                    <em class="top_rank">{{$key + 1}}</em>{{$v['game']['game']}}
-                                                </li>
-                                            @endforeach
-                                        @endif
-                                    </ul>
-                                </div>
+{{--                                <div class="tradecan_top" data-popular="true">--}}
+{{--                                    <div class="tradecan_h89eC">거래가능게임</div>--}}
+{{--                                    <ul class="top__gamelist">--}}
+{{--                                        @if(!empty($popular))--}}
+{{--                                            @foreach($popular as $key=>$v)--}}
+{{--                                                <li data-pgame="{{$v['game_code']}}">--}}
+{{--                                                    <em class="top_rank">{{$key + 1}}</em>{{$v['game']['game']}}--}}
+{{--                                                </li>--}}
+{{--                                            @endforeach--}}
+{{--                                        @endif--}}
+{{--                                    </ul>--}}
+{{--                                </div>--}}
                             </div>
                             <div class="angel__menugames d-none game_empty" data-gslist="true" id="custom_gameserver_list">
                                 <div class="game d-none">

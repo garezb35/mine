@@ -2132,7 +2132,7 @@ label>input,.g_check.charge_service .total_charge,.g_radio {
     text-align: center;
     background: #718CCF;
     text-align: center;
-    height: 216px;
+    height: 115px;
     padding-top: 20px;
 }
 
@@ -2949,4 +2949,13 @@ fieldset:disabled a.btn
 
 .submit-re-btn{
     cursor: pointer;
+}
+
+.charge_service dl>div{
+    padding-top: 10px;
+}
+
+.charge_price{
+    margin-bottom: 5px;
+    text-align: center;
 }

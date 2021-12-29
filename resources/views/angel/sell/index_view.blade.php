@@ -42,15 +42,6 @@
             <div class="menu_know">
                 <p class="heads">판매물품 등록 방법</p>
                 <img src="/angel/img/new_images/sell_left_know.png" width="210"  alt="팝니다 쉽게 등록하기">
-                <p class="m-t-40 font-weight-bold p-left-15">판매등록 알아두기</p>
-                <ul class="g_list p-left-15">
-                    <li>* 물품등록 본인은 물품의 문제 발생시 민/형사사상의
-                        모든 책임을 질 것에 동의을 한것으로 간주됩니다
-                    </li>
-                    <li>* 열락처는 현제 사용중인 열락처로 필히 입력해주세요
-                        열락처가 불분명시 거래에 불이익이 발생할수있습니다
-                    </li>
-                </ul>
             </div>
         </div>
         <div class="pagecontainer">

@@ -236,72 +236,94 @@ if(!empty($cuser['home'])){
                     <div class="charge_service">
                         <dl>
                             <div>
-                                <div class="text-center m-t-5 m-b-5">
-                                    <img src="/angel/img/charge_service/01.png" />
-                                </div>
                                 <p class="text-center">프리미엄등록</p>
                                 <dt class="border-bottom-2 border-yellow"></dt>
                                 <dd>
-                                    <div class="charge_price">
-                                        <strong> 100원 / 1시간</strong>
-                                    </div>
-                                    <select id="user_premium_time" name="user_premium_time">
-                                        <option value="">미설정</option>
-                                        <option value="1">1시간</option><option value="2">2시간</option><option value="3">3시간</option><option value="4">4시간</option><option value="5">5시간</option><option value="6">6시간</option><option value="7">7시간</option><option value="8">8시간</option><option value="9">9시간</option><option value="10">10시간</option><option value="11">11시간</option><option value="12">12시간</option><option value="13">13시간</option><option value="14">14시간</option><option value="15">15시간</option><option value="16">16시간</option><option value="17">17시간</option><option value="18">18시간</option><option value="19">19시간</option><option value="20">20시간</option><option value="21">21시간</option><option value="22">22시간</option><option value="23">23시간</option><option value="24">24시간</option>                        </select>
-                                    <div class="sub_txt m-t-35">
-                                        프리미엄 잔여시간이 많을수록<br>물품리스트 상단에 노출됩니다.
-                                    </div>
-                                    <a class="free_view btn-premium" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=premium',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i> </a>
+                                    <table class="noborder">
+                                        <colgroup>
+                                            <col width="50%"/>
+                                        </colgroup>
+                                        <tr>
+                                            <td style="vertical-align: top">
+                                                <div>
+                                                    <div class="charge_price">
+                                                        <strong> 100원 / 1시간</strong>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <select id="user_premium_time" name="user_premium_time">
+                                                            <option value="">미설정</option>
+                                                            <option value="1">1시간</option><option value="2">2시간</option><option value="3">3시간</option><option value="4">4시간</option><option value="5">5시간</option><option value="6">6시간</option><option value="7">7시간</option><option value="8">8시간</option><option value="9">9시간</option><option value="10">10시간</option><option value="11">11시간</option><option value="12">12시간</option><option value="13">13시간</option><option value="14">14시간</option><option value="15">15시간</option><option value="16">16시간</option><option value="17">17시간</option><option value="18">18시간</option><option value="19">19시간</option><option value="20">20시간</option><option value="21">21시간</option><option value="22">22시간</option><option value="23">23시간</option><option value="24">24시간</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td style="vertical-align: top">
+                                                <div>
+                                                    <div class="sub_txt">
+                                                        프리미엄 잔여시간이 많을수록<br>물품리스트 상단에 노출됩니다.
+                                                    </div>
+                                                    <a class="free_view btn-premium" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=premium',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <i class="fa fa-chevron-circle-right text-white"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </dd>
                             </div>
                         </dl>
                         <dl>
                             <div>
-                                <div class="text-center m-t-5 m-b-5">
-                                    <img src="/angel/img/charge_service/02.png" />
-                                </div>
                                 <p class="text-center">물품강조</p>
                                 <dt class="border-bottom-2 border-blue"></dt>
                                 <dd>
-                                    <div class="charge_price">
-                                        <strong> 100원 / 12시간</strong>
-                                    </div>
-                                    <div class="goods_emphasis">
-                                        <label for="user_icon_use" class="font-weight-bold">굵은체</label>
-                                        <select name="user_icon_use" id="user_icon_use">
-                                            <option value="">미설정</option>
-                                            <option value="12">12시간</option><option value="24">24시간</option><option value="36">36시간</option><option value="48">48시간</option><option value="60">60시간</option><option value="72">72시간</option>
-                                        </select>
-                                        <span id="charge_apply" style="display: none">게임머니 삽니다.</span>
-                                        <div class="mailbox__list blue" id="premium_layer" style="display: none !important;">
-                                            <div class="cont">
-                                                ※ 유료등록 서비스는 선불로 부과되며 거래성사여부, 취소여부, 삭제여부, 이용정지여부 등과<br>
-                                                관계 없이 환불, 취소, 교환, 반환 등이 되지 않으니 신중하게 구매해 주시기 바랍니다.
-                                            </div>
-                                            <div class="btn">
-                                                <a href="javascript:;" id="premium_close" class="close btn_blue4">확인</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div  class="goods_emphasis">
-                                        <label for="user_bluepen_use" class="text-green_modern">녹색펜</label>
-                                        <select name="user_bluepen_use" id="user_bluepen_use">
-                                            <option value="">미설정</option>
-                                            <option value="12">12시간</option><option value="24">24시간</option><option value="36">36시간</option><option value="48">48시간</option><option value="60">60시간</option><option value="72">72시간</option>
-                                        </select>
-                                    </div>
-                                    <div class="exp">
-                                        제목 굵기/<strong class="text-green">색</strong> 효과 적용
-                                    </div>
-                                    <a class="free_view btn-goods" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=highlight',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>
+                                    <table class="noborder">
+                                        <colgroup>
+                                            <col width="50%"/>
+                                        </colgroup>
+                                        <tr>
+                                            <td>
+                                                <div class="charge_price">
+                                                    <strong> 100원 / 12시간</strong>
+                                                </div>
+                                                <div class="goods_emphasis">
+                                                    <label for="user_icon_use" class="font-weight-bold">굵은체</label>
+                                                    <select name="user_icon_use" id="user_icon_use">
+                                                        <option value="">미설정</option>
+                                                        <option value="12">12시간</option><option value="24">24시간</option><option value="36">36시간</option><option value="48">48시간</option><option value="60">60시간</option><option value="72">72시간</option>
+                                                    </select>
+                                                    <span id="charge_apply" style="display: none">게임머니 삽니다.</span>
+                                                    <div class="mailbox__list blue" id="premium_layer" style="display: none !important;">
+                                                        <div class="cont">
+                                                            ※ 유료등록 서비스는 선불로 부과되며 거래성사여부, 취소여부, 삭제여부, 이용정지여부 등과<br>
+                                                            관계 없이 환불, 취소, 교환, 반환 등이 되지 않으니 신중하게 구매해 주시기 바랍니다.
+                                                        </div>
+                                                        <div class="btn">
+                                                            <a href="javascript:;" id="premium_close" class="close btn_blue4">확인</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div  class="goods_emphasis">
+                                                    <label for="user_bluepen_use" class="text-green_modern">녹색펜</label>
+                                                    <select name="user_bluepen_use" id="user_bluepen_use">
+                                                        <option value="">미설정</option>
+                                                        <option value="12">12시간</option><option value="24">24시간</option><option value="36">36시간</option><option value="48">48시간</option><option value="60">60시간</option><option value="72">72시간</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a class="free_view btn-goods" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=highlight',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>
+                                                <div style="margin-top:10px">(게임머니 <span style="color: #00c73c">팝니다</span>)</div>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+
                                 </dd>
                             </div>
                         </dl>
                         <dl>
                             <div>
-                                <div class="text-center m-t-5 m-b-5">
-                                    <img src="/angel/img/charge_service/04.png" />
-                                </div>
                                 <p class="text-center">스피드 거래</p>
                                 <dt class="border-bottom-2 border-gray"></dt>
                                 <dd>
@@ -320,9 +342,6 @@ if(!empty($cuser['home'])){
                         </dl>
                         <dl>
                             <div>
-                                <div class="text-center m-t-5 m-b-5">
-                                    <img src="/angel/img/charge_service/03.png" />
-                                </div>
                                 <p class="text-center">자동재등록</p>
                                 <dt class="border-bottom-2 border-green"></dt>
                                 <dd class="rere">

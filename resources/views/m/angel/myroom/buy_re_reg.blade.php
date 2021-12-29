@@ -290,9 +290,6 @@ if(!empty($cuser['home'])){
                                             <option value="12">12시간</option><option value="24">24시간</option><option value="36">36시간</option><option value="48">48시간</option><option value="60">60시간</option><option value="72">72시간</option>
                                         </select>
                                     </div>
-                                    <div class="exp">
-                                        제목 굵기/<strong class="text-green">색</strong> 효과 적용
-                                    </div>
                                     <a class="free_view btn-goods" href="javascript:_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=highlight',440,450)">무료이용권 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-circle-right text-white"></i></a>
                                 </dd>
                             </div>

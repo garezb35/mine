@@ -409,13 +409,13 @@
     width: 100%;
 }
 .charge_service dl{
-    float:left;
     box-sizing:border-box;
-    width:25%;
+    width:50%;
+    float: left;
 }
-.charge_service dl:first-child{
-    margin-left:0;
-}
+/*.charge_service dl:first-child{*/
+/*    margin-left:0;*/
+/*}*/
 
 .charge_service dl:first-child>div{
     border-color: #FDB416;
@@ -444,7 +444,7 @@
     border: 1px solid;
     border-radius: 15px;
     background: white;
-    height: 354px;
+    height: 139px;
     position: relative;
 }
 .charge_service dd{
@@ -456,11 +456,8 @@
 .charge_service dd > div{
     text-align:center;
 }
-.charge_service .charge_price{
-    margin-bottom:10px;
-}
+
 .charge_service .sub_txt{
-    margin:7px 0 15px;
     font-size:12px;
 }
 .charge_service .exp{
@@ -478,15 +475,12 @@
     margin-top:10px;
 }
 .charge_service .free_view{
-    padding: 10px 20px 10px 20px;
+    padding: 4px 19px 4px 18px;
     border-radius: 18px;
     display: block;
-    width: 140px;
+    width: 106px;
     text-align: center;
-    margin: auto;
-    position: absolute;
-    bottom: 20px;
-    left: 10px;
+    margin-top: 5px;
 }
 .charge_service label{
     display:inline-block;
@@ -918,7 +912,7 @@
 .euro-service{
     overflow: hidden;
     position: relative;
-    height: 428px;
+    height: 223px;
 }
 
 

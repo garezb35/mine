@@ -17,14 +17,17 @@
     <div class="container_fulids" id="module-teaser-fullscreen" style="text-align: center">
         <div class="recommend_e34rf">
         </div>
-        @include('tab.member',['group'=>'change'])
-        <form id="certifyForm" method="post" action="{{route('myinfo_alter')}}">
-            @csrf
-            <table class="g_gray_tb g_sky_table p-00" id="report_tb" style="width: 600px;margin: auto">
-                <colgroup>
-                    <col width="200">
-                </colgroup>
-                <tbody>
+        @include('aside.myroom',['group'=>'person'])
+
+        <div class="pagecontainer" style="text-align: center;">
+            @include('tab.member',['group'=>'change'])
+            <form id="certifyForm" method="post" action="{{route('myinfo_alter')}}">
+                @csrf
+                <table class="g_gray_tb g_sky_table p-00" id="report_tb" style="width: 600px;margin: auto">
+                    <colgroup>
+                        <col width="200">
+                    </colgroup>
+                    <tbody>
                     <tr class="report_tr">
                         <th>현재 비밀번호</th>
                         <td>
@@ -43,10 +46,12 @@
                             <input type="password" name="passwordConfirmation" value="" id="new" maxlength="40" class="pass_ele"  required="">
                         </td>
                     </tr>
-                </tbody>
-            </table>
-            <input type="submit" class="btn-default btn-suc" value="변경하기" style="margin-top: 15px;text-align: center">
-        </form>
+                    </tbody>
+                </table>
+                <input type="submit" class="btn-default btn-suc" value="변경하기" style="margin-top: 15px;text-align: center">
+            </form>
+        </div>
+
     </div>
 @endsection
 <style>
