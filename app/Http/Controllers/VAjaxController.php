@@ -881,4 +881,9 @@ class VAjaxController extends BaseController
     {
 
     }
+
+    public function third_category(Request $request){
+        $game_code = $request->game_code;
+        return response()->json(array('status'=>true,'list'=>MGame::where('parent',$game_code)->where('depth',2)->get()->toArray()));
+    }
 }

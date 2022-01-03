@@ -18,7 +18,7 @@
                 <ul class="trade_sub_title">
                     <li>판매</li>
                     <li class="game_name">
-                        <span>리스트</span>
+                        <span>{{$filtered_game_alias ?? ""}}</span>
                     </li>
                 </ul>
             </div>
@@ -29,16 +29,16 @@
             <div  value="item" @if(!empty($filtered_items) && $filtered_items =='item') class="selected" @endif>아이템</div>
             <div  value="character" @if(!empty($filtered_items) && $filtered_items =='character') class="selected" @endif>캐릭터</div>
             <div  value="etc" @if(!empty($filtered_items) && $filtered_items =='etc') class="selected" @endif>기타</div>
-            <div class="side">
-                <ul class="search_word">
-                    <li>
-                        <input type="text" class="angel__text angel__text_par" name="word" id="word" value="{{$search_word ?? ""}}" placeholder="물품제목" maxlength="5">
-                    </li>
-                    <li>
-                        <span class="btn_search"><i class="fa fa-search"></i></span>
-                    </li>
-                </ul>
-            </div>
+{{--            <div class="side">--}}
+{{--                <ul class="search_word">--}}
+{{--                    <li>--}}
+{{--                        <input type="text" class="angel__text angel__text_par" name="word" id="word" value="{{$search_word ?? ""}}" placeholder="물품제목" maxlength="5">--}}
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <span class="btn_search"><i class="fa fa-search"></i></span>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
         </div>
         <div class="empty-high"></div>
 
@@ -65,7 +65,7 @@
                 <input type="hidden" name="srch_char_alarm" id="srch_char_alarm" value="">
                 <input type="hidden" name="overlap" id="overlap" value="{{$overlap}}">
                 <div class="navtabs__react">
-                    <div class="search_reset">초기화</div>
+{{--                    <div class="search_reset">초기화</div>--}}
                     <div class="search_row">
                         <div class="search_tit">물품유형</div>
                         <ul id="goods">
@@ -82,49 +82,49 @@
                                 <label><input type="radio" name="goods_type" value="bargain" class="g_btn_white2_radio" @if($goods_type == 'bargain') checked @endif>흥정</label>
                             </li>
                         </ul>
-                        <div class="search_tit">거래상태</div>
-                        <ul id="state">
-                            <li>
-                                <label><input type="radio" name="trade_state" value="1" class="g_btn_white2_radio" @if($trade_state == 1 || empty($trade_state))checked @endif>전체</label>
-                            </li>
-                            <li>
-                                <label><input type="radio" name="trade_state" value="2" class="g_btn_white2_radio" @if($trade_state == 2)checked @endif>거래대기</label>
-                            </li>
-                            <li>
-                                <label><input type="radio" name="trade_state" value="3" class="g_btn_white2_radio" @if($trade_state == 3)checked @endif>거래종료</label>
-                            </li>
-                        </ul>
+{{--                        <div class="search_tit">거래상태</div>--}}
+{{--                        <ul id="state">--}}
+{{--                            <li>--}}
+{{--                                <label><input type="radio" name="trade_state" value="1" class="g_btn_white2_radio" @if($trade_state == 1 || empty($trade_state))checked @endif>전체</label>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <label><input type="radio" name="trade_state" value="2" class="g_btn_white2_radio" @if($trade_state == 2)checked @endif>거래대기</label>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <label><input type="radio" name="trade_state" value="3" class="g_btn_white2_radio" @if($trade_state == 3)checked @endif>거래종료</label>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
                     </div>
                     <div class="search_row">
-                        <div class="search_tit">신용등급</div>
-                        <ul id="credit">
-                            <li>
-                                <label><input type="radio" name="credit_type" value="0" class="g_btn_white2_radio" @if($credit_type == 0) checked @endif>전체</label>
-                            </li>
-                        @if(!empty($roles))
-                            @foreach($roles as $v)
-                            <li>
-                                <label><input type="radio" name="credit_type" value="{{$v['level']}}" class="g_btn_white2_radio" @if($credit_type == $v['level']) checked @endif>{{$v['alias']}} 이상</label>
-                            </li>
-                            @endforeach
-                            @endif
-                        </ul>
-                        <div class="search_tit">기타조건</div>
-                        <ul id="etc">
-                            <li>
-                                <label><input type="checkbox" name="excellent" id="excellent" class="angel_game_sel" @if(!empty($excellent)) checked @endif>우수인증 회원</label>
-                            </li>
-                            <li>
-                                <label><input type="checkbox" name="overlap_tmp" id="overlap_tmp" class="angel_game_sel" @if($overlap == 'on') checked @endif> 중복물품제외</label>
-                            </li>
-                            <li>
-                                <label><input type="checkbox" name="speed" id="speed" class="angel_game_sel" value="1" @if(!empty($speed)) checked @endif> 스피드거래</label>
-                            </li>
-                            <li>
-                                <label><input type="checkbox" name="discont" id="discont" class="angel_game_sel" @if(!empty($discont)) checked @endif>할인물품</label>
-                            </li>
+{{--                        <div class="search_tit">신용등급</div>--}}
+{{--                        <ul id="credit">--}}
+{{--                            <li>--}}
+{{--                                <label><input type="radio" name="credit_type" value="0" class="g_btn_white2_radio" @if($credit_type == 0) checked @endif>전체</label>--}}
+{{--                            </li>--}}
+{{--                        @if(!empty($roles))--}}
+{{--                            @foreach($roles as $v)--}}
+{{--                            <li>--}}
+{{--                                <label><input type="radio" name="credit_type" value="{{$v['level']}}" class="g_btn_white2_radio" @if($credit_type == $v['level']) checked @endif>{{$v['alias']}} 이상</label>--}}
+{{--                            </li>--}}
+{{--                            @endforeach--}}
+{{--                            @endif--}}
+{{--                        </ul>--}}
+{{--                        <div class="search_tit">기타조건</div>--}}
+{{--                        <ul id="etc">--}}
+{{--                            <li>--}}
+{{--                                <label><input type="checkbox" name="excellent" id="excellent" class="angel_game_sel" @if(!empty($excellent)) checked @endif>우수인증 회원</label>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <label><input type="checkbox" name="overlap_tmp" id="overlap_tmp" class="angel_game_sel" @if($overlap == 'on') checked @endif> 중복물품제외</label>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <label><input type="checkbox" name="speed" id="speed" class="angel_game_sel" value="1" @if(!empty($speed)) checked @endif> 스피드거래</label>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <label><input type="checkbox" name="discont" id="discont" class="angel_game_sel" @if(!empty($discont)) checked @endif>할인물품</label>--}}
+{{--                            </li>--}}
 
-                        </ul>
+{{--                        </ul>--}}
                     </div>
                     @if($filtered_items == 'item')
                     <div class="search_row">

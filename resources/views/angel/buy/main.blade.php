@@ -88,9 +88,8 @@
                                     <div class="input_area">
                                         <input type="text" class="angel__text search_gs_name" id="searchRegGameServer" placeholder="게임명 또는 서버명을 입력해주세요." autocomplete="off" data-gameserver="true">
                                     </div>
-                                    <i class="fa fa-star favorite_icon" onclick="bookmarkAdd()"></i>
                                     <button type="button" class="search__submit text-center" title="검색">
-                                        <i class="fa fa-search" style="color: #fff;font-size: 16px;"></i>
+                                        <i class="fa fa-search" style="font-size: 16px;"></i>
                                     </button>
                                 </div>
                                 <div class="gameWindowPopup d-none reg_gameserver" id="reg_gameserver">
@@ -127,9 +126,9 @@
                                     <div class="angel__menugames d-none" data-gslist="true" id="reg_gameserver_list"></div>
                                 </div>
                             </div>
-                            <div class="mygame">
+                            <div class="mygame" style="display: none">
                                 <div class="th">
-                                    나만의 검색메뉴
+
                                     <div class="mailbox__list blue" id="lastList" style="margin-top: 10px;">
                                         <div class="title">
                                             최근 등록한 물품
@@ -165,7 +164,7 @@
                                 <div class="mygame_list">
                                     <ul id="mygame_info">
                                         @if(empty($mygame) || sizeof($mygame) == 0)
-                                            <li class="empty">게임서버 검색 후 우측 ★표를 클릭하시면 해당물품이 나만의검색메뉴로 등록됩니다.</li>
+{{--                                            <li class="empty">게임서버 검색 후 우측 ★표를 클릭하시면 해당물품이 나만의검색메뉴로 등록됩니다.</li>--}}
                                         @else
                                             @foreach($mygame as $v)
                                                 <li id="mygame_{{$v['id']}}"><a href="javascript:fnSearchSelect('{{$v['game']}}','{{$v['game_text']}}','{{$v['server']}}','{{$v['server_text']}}','{{$v['goods']}}')">{{$v['game_text']}} &gt; {{$v['server_text']}} &gt; @if($v['goods'] == 3) 게임머니 @endif @if($v['goods'] == 1) 아이템 @endif @if($v['goods'] == 4) 기타 @endif @if($v['goods'] == 6) 캐릭터 @endif</a><span class="del_btn" onclick="fnSearchDel('{{$v['id']}}')"></span></li>

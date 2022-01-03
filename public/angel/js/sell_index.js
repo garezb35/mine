@@ -48,6 +48,7 @@ var tagList;
 function _init() {
 
     var bargain = $('#bargain');
+    bargain.css('display','none')
 
     var existedAngelGames = document.getElementById('reg_gameserver');
     existedAngelGameServer = new AngelGames(document.getElementById('reg_gameserver_list'), {
@@ -117,7 +118,7 @@ function _init() {
                         document.querySelectorAll('[name="user_goods_type"]')[0].checked = true;
                     }
                 }
-
+                debugger
                 alterConstructor();
 
                 if (g_compensation == 'Y') {
@@ -296,6 +297,7 @@ function getFreeUse() {
 }
 
 function alterConstructor() {
+    debugger
     if (existedAngelGameServer.serverList.selected) {
         angel_item_unit = existedAngelGameServer.serverList.selectedData.U;
     }
@@ -957,7 +959,6 @@ function createLayerContent(b) {
 
 function fnSearchSelect(game, gname, server, sname, goods, self) {
     var strGoods;
-
     switch (goods) {
         case '1' :
             strGoods = 'item';

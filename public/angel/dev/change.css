@@ -7,10 +7,10 @@
 .siteHeader .js-nav-menu a {
     cursor: pointer;
 }
-.siteHeader .js-nav-menu {
-    height: 32px;
-    padding: 8px 0;
-}
+/*.siteHeader .js-nav-menu {*/
+/*    height: 32px;*/
+/*    padding: 8px 0;*/
+/*}*/
 .siteHeader .js-nav-menu .js-nav-justicy-right > li:before {
     content: "";
 }
@@ -30,7 +30,6 @@
 .search-overlay-wrapper {
     margin-left: 88px;
     top: 22px;
-    border: 1px solid #978f8f;
 }
 .search_area {
     padding: 0;
@@ -66,11 +65,11 @@
 .gameWindowPopup {
     border: 1px solid #d3d3d3;
     border-top: 1px solid #d3d3d3;
-    top: 39px;
+    top: 43px;
 }
-.gameTypePopup {
-    padding: 2px 0 12px;
-}
+/*.gameTypePopup {*/
+/*    padding: 2px 0 12px;*/
+/*}*/
 .gameTypePopup .radiocontainer {
     padding-left: 26px;
     padding-top: 3px;

@@ -15,7 +15,7 @@
 .toobar-content .user_name {
     font-size: 16px;
     padding-top: 3px;
-    color: #159efd !important;
+    color: #ffa300 !important;
 }
 .toobar-content .rank {
     font-size: 14px;
@@ -141,7 +141,6 @@
     padding: 7px;
 }
 .title {
-    background: #f2f4f7;
     border: none;
     padding-top: 14px !important;
 }

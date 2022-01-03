@@ -440,38 +440,38 @@
                     <input type="hidden" name="ITEM_OID" value="" />
                     <input type="hidden" name="price" id="price" />
                     <div id="" class="highlight_contextual_nodemon">충전금액 선택</div>
-                    <div class="f-bold" style="background: #e4eef0; padding: 24px;">
+                    <div class="f-bold" style="padding: 24px;margin-bottom: 10px;border:1px solid #b3b3b3 ">
                         <div class="d-flex m-auto">
                             <div class="align-center" style="width: 33.33%">
-                                <input type="radio" name="selectPrice" id="selectPrice10000" value="10000" class="g_radio" onclick="selectedPrice(this.value);" />
+                                <input type="radio" class="form-check-input" name="selectPrice" id="selectPrice10000" value="10000" class="g_radio" onclick="selectedPrice(this.value);" />
                                 <label for="selectPrice10000">10,000 원</label>
                             </div>
                             <div class="align-center" style="width: 33.33%">
-                                <input type="radio" name="selectPrice" id="selectPrice20000" value="20000" class="g_radio" onclick="selectedPrice(this.value);" />
+                                <input type="radio" class="form-check-input" name="selectPrice" id="selectPrice20000" value="20000" class="g_radio" onclick="selectedPrice(this.value);" />
                                 <label for="selectPrice20000">20,000 원</label>
                             </div>
                             <div class="align-center" style="width: 33.33%">
-                                <input type="radio" name="selectPrice" id="selectPrice30000" value="30000" class="g_radio" onclick="selectedPrice(this.value);" />
+                                <input type="radio" class="form-check-input" name="selectPrice" id="selectPrice30000" value="30000" class="g_radio" onclick="selectedPrice(this.value);" />
                                 <label for="selectPrice30000">30,000 원</label>
                             </div>
                         </div>
                         <div class="d-flex m-auto" style=" margin-top: 10px; margin-bottom: 10px;">
                             <div class="align-center" style="width: 33.33%">
-                                <input type="radio" name="selectPrice" id="selectPrice100000" value="100000" class="g_radio" onclick="selectedPrice(this.value);" />
+                                <input type="radio" class="form-check-input" name="selectPrice" id="selectPrice100000" value="100000" class="g_radio" onclick="selectedPrice(this.value);" />
                                 <label for="selectPrice100000">100,000 원</label>
                             </div>
                             <div class="align-center" style="width: 33.33%">
-                                <input type="radio" name="selectPrice" id="selectPrice300000" value="300000" class="g_radio" onclick="selectedPrice(this.value);" />
+                                <input type="radio" class="form-check-input" name="selectPrice" id="selectPrice300000" value="300000" class="g_radio" onclick="selectedPrice(this.value);" />
                                 <label for="selectPrice300000">300,000 원</label>
                             </div>
                             <div class="align-center" style="width: 33.33%">
-                                <input type="radio" name="selectPrice" id="selectPrice500000" value="500000" class="g_radio" onclick="selectedPrice(this.value);" />
+                                <input type="radio" class="form-check-input" name="selectPrice" id="selectPrice500000" value="500000" class="g_radio" onclick="selectedPrice(this.value);" />
                                 <label for="selectPrice500000">500,000 원</label>
                             </div>
                         </div>
                         <hr style="width: 60%;">
                         <div class="m-auto align-center" style="width: 60%;">
-                            <input type="radio" name="selectPrice" id="priceD" value="0" class="g_radio" onclick="selectedPrice(this.value)" />
+                            <input type="radio" class="form-check-input" name="selectPrice" id="priceD" value="0" class="g_radio" onclick="selectedPrice(this.value)" />
                             <input type="text" name="price_custom" id="price_custom" maxlength="6" class="angel__text" onclick="selectedPrice(0)" onblur="fnCustomOut()" onkeyup="onlynum(this.value);selectedPrice(this.value)" maxlength="5" />원
                         </div>
                     </div>
@@ -482,17 +482,6 @@
                     </div>
                 </form>
             </div>
-
-{{--            <div class="charge_wrap fixed-height" id="bacnked_list_3e9RT">--}}
-{{--                <ul class="bacnked_list_3e9RT">--}}
-{{--                    <li>--}}
-{{--                        <a href="{{route('my_mileage_index_c')}}">--}}
-{{--                            <span class="bank_account_emoticon account"></span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-
         </div>
 
         <div class="empty-high"></div>

@@ -92,16 +92,33 @@
                     <tr>
                         <th>게임선택</th>
                         <td>
-                            <div class="top_game_searchbar">
-                                <div class="search_wrap">
-                                    <div class="input_area">
-                                        <input type="text" class="angel__text search_gs_name" id="searchRegGameServer" placeholder="게임명 또는 서버명을 입력해주세요." autocomplete="off" data-gameserver="true">
+                            <div class="top_game_searchbar top_game_searchbar_cc">
+                            <ul class="gs_menu" id="gsMenu">
+                                <li id="gs_games" class="gs_games arrow" title="选择游戏平台" data-type="1" data-reg="1">
+                                    <span>게임네임</span><i class="fa fa-caret-down down-down" aria-hidden="true"></i>
+                                    <div class="border-half"></div>
+                                </li>
+                                <li id="gs_servers" class="gs_servers arrow" title="选择游戏服务器" data-type="2" style="width: 89px" data-reg="1">
+                                    <span>서버네임</span><i class="fa fa-caret-down down-down" aria-hidden="true"></i>
+                                    <div class="border-half"></div>
+                                 </li>
+{{--                                 <li id="gs_servers" class="gs_servers arrow" title="选择游戏服务器" data-type="2" style="width: 50px">--}}
+{{--                                    <span>속성</span><i class="fa fa-caret-down down-down" aria-hidden="true"></i>--}}
+{{--                                 </li>--}}
+                                <li>
+                                    <div class="search_wrap">
+                                        <div class="input_area">
+                                            <input type="text" class="angel__text search_gs_name" id="searchRegGameServer" placeholder="게임명 또는 서버명을 입력해주세요." autocomplete="off" data-gameserver="true">
+                                        </div>
+
+                                        <button type="button" class="search__submit text-center" title="검색">
+                                            <i class="fa fa-search" style="font-size: 16px;"></i>
+                                        </button>
                                     </div>
-                                    <i class="fa fa-star favorite_icon" onclick="bookmarkAdd()"></i>
-                                    <button type="button" class="search__submit text-center" title="검색">
-                                        <i class="fa fa-search" style="color: #fff;font-size: 16px;"></i>
-                                    </button>
-                                </div>
+                                </li>
+                            </ul>
+
+
                                 <div class="gameWindowPopup d-none reg_gameserver" id="reg_gameserver">
                                     <div class="_34Cr45d_reacts">
                                         <div class="tab searchbar_tab">
@@ -136,9 +153,9 @@
                                     <div class="angel__menugames d-none" data-gslist="true" id="reg_gameserver_list"></div>
                                 </div>
                             </div>
-                            <div class="mygame">
+                            <div class="mygame" style="display: none">
                                 <div class="th">
-                                    나만의 검색메뉴
+
                                     <div class="mailbox__list blue" id="lastList" style="margin-top: 10px;">
                                         <div class="title">
                                             최근 등록한 물품
@@ -174,7 +191,7 @@
                                 <div class="mygame_list">
                                     <ul id="mygame_info">
                                         @if(empty($mygame) || sizeof($mygame) == 0)
-                                            <li class="empty">게임서버 검색 후 우측 ★표를 클릭하시면 해당물품이 나만의검색메뉴로 등록됩니다.</li>
+{{--                                            <li class="empty">게임서버 검색 후 우측 ★표를 클릭하시면 해당물품이 나만의검색메뉴로 등록됩니다.</li>--}}
                                         @else
                                             @foreach($mygame as $v)
                                                 <li id="mygame_{{$v['id']}}"><a href="javascript:fnSearchSelect('{{$v['game']}}','{{$v['game_text']}}','{{$v['server']}}','{{$v['server_text']}}','{{$v['goods']}}')">{{$v['game_text']}} &gt; {{$v['server_text']}} &gt; @if($v['goods'] == 3) 게임머니 @endif @if($v['goods'] == 1) 아이템 @endif @if($v['goods'] == 4) 기타 @endif @if($v['goods'] == 6) 캐릭터 @endif</a><span class="del_btn" onclick="fnSearchDel('{{$v['id']}}')"></span></li>
