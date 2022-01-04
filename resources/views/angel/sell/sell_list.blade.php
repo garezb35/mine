@@ -26,20 +26,18 @@
             <div  value="item" @if(!empty($filtered_items) && $filtered_items =='item') class="selected" @endif>아이템</div>
             <div  value="character" @if(!empty($filtered_items) && $filtered_items =='character') class="selected" @endif>캐릭터</div>
             <div  value="etc" @if(!empty($filtered_items) && $filtered_items =='etc') class="selected" @endif>기타</div>
+            <div class="side">
+                <ul class="search_word">
+                    <li>
+                        <input type="text" class="angel__text angel__text_par" name="word" id="word" value="{{$search_word ?? ""}}" placeholder="물품제목" maxlength="5">
+                    </li>
+                    <li>
+                        <span class="btn_search"><i class="fa fa-search"></i></span>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="empty-high"></div>
-{{--        <div>--}}
-{{--            <div class="side">--}}
-{{--                <ul class="search_word">--}}
-{{--                    <li>--}}
-{{--                        <input type="text" class="angel__text angel__text_par" name="word" id="word" value="{{$search_word ?? ""}}" placeholder="물품제목" maxlength="5">--}}
-{{--                    </li>--}}
-{{--                    <li>--}}
-{{--                        <span class="btn_search"><i class="fa fa-search"></i></span>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </div>--}}
         <div id="detail_search" class="detail_search">
             <form id="frm_search" name="frm_search" method="POST">
                 @csrf
@@ -108,7 +106,6 @@
                 </div>
             </div>
         </div>
-
         <div class="empty-high"></div>
         <div class="item_filtered__all">
             <ul class="item_filtered list_head">

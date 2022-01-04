@@ -15,21 +15,22 @@
         .box-chatting .nav-item {
             width: 33%;
             text-align: center;
-            border-right: 1px solid #b3b3b3;
+            border-right: 1px solid #cecece;
         }
         .box-chatting .nav-tabs .nav-link {
             border-radius: 0px;
-            border-top: 1px solid #b3b3b3;
-            border-bottom: 1px solid #b3b3b3;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #1592fd;
+            background: #fff;
             padding-top: 2px;
             padding-bottom: 2px;
             font-size: 15px;
-            /*color: #919394;*/
+            color: #919394;
             text-align: center;
         }
         .box-chatting .nav-item.show .nav-link, .box-chatting .nav-link.active{
-            /*color: #495057;*/
-            border-color: #b3b3b3;
+            color: #495057;
+            border-color: #ddd #ddd #ededed;
         }
         .box-chatting .nav {
             display: -ms-flexbox;
@@ -41,12 +42,15 @@
             list-style: none;
         }
         .box-chatting .nav-tabs .nav-item.show .nav-link, .box-chatting .nav-tabs .nav-link.active {
+            border-top: #1592fd 1px solid;
+            border-right: #1592fd 1px solid;
+            border-left: #1592fd 1px solid !important;
             font-weight: 700;
-            background: #303b54;
+            background: #ededed;
         }
         #msgBox .msg-guide {
-            background-color: #ffa300;
-            border: 1px solid #b3b3b3;
+            background-color: #1592fd;
+            border: 1px solid #1592fd;
             min-height: 22px;
             line-height: 22px;
             color: #fff;
@@ -78,8 +82,7 @@
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
             outline: none !important;
-            border-top: 1px solid #b3b3b3;
-            background: #1f2635;
+            border-top: 1px solid #e9ecef;
         }
         .box-chatting .input-chatting .input-2 {
             position: absolute;
@@ -97,13 +100,13 @@
         .box-chatting .btn-etc {
             position: relative;
             z-index: 10;
+            background: #efefef;
             border-top-left-radius: 6px;
             border-top-right-radius: 6px;
-            border-top: 1px solid #b3b3b3;
         }
-        /*.box-chatting .btn-etc .cnt {*/
-        /*    color: #4c4c4c;*/
-        /*}*/
+        .box-chatting .btn-etc .cnt {
+            color: #4c4c4c;
+        }
         .sp-bl_pp {
             width: 25px;
             height: 25px;
@@ -142,7 +145,7 @@
         }
         .box-chatting .btn-etc ul.ul-1 li {
             float: left;
-            border-left: 1px solid #b3b3b3;
+            border-left: 1px solid #cecece;
         }
         .box-chatting .btn-etc ul.ul-1 {
             position: absolute;
@@ -178,7 +181,7 @@
             margin: 3px 0;
         }
         #ruleBox .borderBox {
-            /*background-color: #F5F5F5;*/
+            background-color: #F5F5F5;
             margin: 5px;
             padding: 10px;
         }
@@ -201,28 +204,6 @@
         }
         .uname {
             color: #1592fd;
-        }
-
-        /* width */
-        ::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        /* Track */
-        ::-webkit-scrollbar-track {
-            box-shadow: inset 0 0 5px grey;
-            border-radius: 4px;
-        }
-
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: #767676;
-            border-radius: 4px;
-        }
-
-        /* Handle on hover */
-        ::-webkit-scrollbar-thumb:hover {
-            background: #767676;
         }
     </style>
         <script>
@@ -255,16 +236,16 @@
                     <li>
                         <a href="#" onclick="chatManager('popupChat');return false;" title="새창" class="sp-btn_chat1"></a>
                     </li>
-                    <li >
+                    <li style="background-color: rgb(243, 243, 243);">
                         <a href="#" onclick="fontZoom(1);return false;" title="글씨크게" class="sp-btn_chat2"></a>
                     </li>
-                    <li >
+                    <li style="background-color: rgb(243, 243, 243);">
                         <a href="#" onclick="fontZoom(-1);return false;" title="글씨작게" class="sp-btn_chat3"></a>
                     </li>
-                    <li >
+                    <li style="background-color: rgb(243, 243, 243);">
                         <a href="#" onclick="chatManager('clearChat');return false;" title="채팅창 지우기" class="sp-btn_chat4"></a>
                     </li>
-                    <li >
+                    <li style="background-color: rgb(243, 243, 243);">
                         <a href="#" onclick="chatManager('refresh');return false;" title="새로고침" class="sp-btn_chat5"></a>
                     </li>
                     <li>

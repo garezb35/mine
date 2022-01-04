@@ -40,11 +40,10 @@ body {
     border: none !important;
 }
 .border-bottom {
-    border-bottom: solid 1.2px #b3b3b3  !important;
+    border-bottom: solid 1.2px #d3d3d3 !important;
 }
 .border-normal {
-    border: solid 1.2px #b3b3b3;
-    border-top: none;
+    border: solid 1.2px #d3d3d3 !important;
 }
 
 .c-white {
@@ -57,7 +56,7 @@ body {
     color: #ff1c0b !important;
 }
 .text-nodemon {
-    color: #fff  !important;
+    color: dodgerblue !important;
 }
 
 .f-30 {
@@ -108,12 +107,12 @@ body {
 .f-bold {
     font-weight: bold !important;
 }
-/*.back-normal {*/
-/*    background-color: #f2f4f7 !important;*/
-/*}*/
-/*.btn-blue-img {*/
-/*    background-image: url('../img/button/btn-charge.png')*/
-/*}*/
+.back-normal {
+    background-color: #f2f4f7 !important;
+}
+.btn-blue-img {
+    background-image: url('../img/button/btn-charge.png')
+}
 .btn-gray-img {
     background-image: url('../img/button/btn-cancel.png')
 }
@@ -125,11 +124,8 @@ body {
     text-align: center;
     line-height: 32px;
     font-size: 14px;
-    background: rgba(81,89,105,.18);
-}
-
-.btn-color-img:hover{
-    background: rgba(81,89,105,.35);
+    background-size: 100% 100%;
+    background-color: transparent;
 }
 .g_sky_table {
     border-left: solid 1px #89c1ce;

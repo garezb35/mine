@@ -15,7 +15,7 @@
 .toobar-content .user_name {
     font-size: 16px;
     padding-top: 3px;
-    color: #ffa300 !important;
+    color: #159efd !important;
 }
 .toobar-content .rank {
     font-size: 14px;
@@ -72,13 +72,15 @@
 
 .top_full {
     margin-bottom: 5px;
+    margin-top: 158px;
 }
 .top_full,
 .top_area,
 .bg_opacity,
 .service_wrap,
 .carousel_module > .banner_in > .banner_item .carousel_images {
-    height: 200px;
+    height: auto;
+    width: 100%;
 }
 .service_wrap,
 .bg_opacity {
@@ -141,6 +143,7 @@
     padding: 7px;
 }
 .title {
+    background: #f2f4f7;
     border: none;
     padding-top: 14px !important;
 }

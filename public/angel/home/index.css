@@ -1,4 +1,6 @@
-
+.roots {
+    background-color: #F2F4F7;
+}
 
 .bank_account_emoticon,
 .power {
@@ -196,10 +198,10 @@
 .box3 .title {
     position: relative;
     padding: 8px 20px 10px;
-    border-bottom: 1px solid #b3b3b3 ;
+    border-bottom: 1px solid #DEE3EB;
     font-size: 16px;
     font-weight: bold;
-    /*color: #767676;*/
+    color: #767676;
 }
 
 .recom_game {
@@ -930,8 +932,8 @@
     margin-bottom: 5px;
     height: 38px;
     line-height: 38px;
-    /*color: #333;*/
-    border: 1px solid #b3b3b3;
+    color: #333;
+    border: 1px solid #ddd;
     overflow: hidden;
     zoom: 1;
 }
@@ -941,7 +943,7 @@
     text-align: center;
     font-size: 14px;
     font-weight: 700;
-    /*background-color: #fbfbfb;*/
+    background-color: #fbfbfb;
 }
 .neworder-box .list-box {
     position: relative;
@@ -959,7 +961,7 @@
     font-size: 12px;
 }
 .neworder-box .list-box .link {
-    /*color: #333;*/
+    color: #333;
     display: block;
     cursor: default;
 }
@@ -990,9 +992,8 @@
 }
 
 .module-gamelist {
-    border-top: 1px solid #b3b3b3 ;
-    border-left: 1px solid #b3b3b3 ;
-    /*border-bottom: 0;*/
+    /*border-top: 1px solid #ddd;*/
+    border-bottom: 0;
 }
 /*.module-gamelist .border-right {*/
 /*    background: url(https://images001.5173cdn.com/view/images/v0/common/line_ddd.gif) right top repeat-y;*/
@@ -1009,7 +1010,8 @@
 .module-gamelist .tab-type {
     padding: 0;
     border-bottom-width: 2px;
-    border-right: 1px solid #b3b3b3 ;
+    background-color: #fbfbfb;
+    border-right: 1px solid #ddd;
 }
 
 .module-gamelist .tab-type li {
@@ -1025,14 +1027,14 @@
 .module-gamelist .tab-type li.current span {
     height: auto;
     color: #fff;
-    background-color: #303b54;
+    background-color: #3e86e8;
 }
 .module-gamelist .tab-box li.current span {
     position: relative;
-    height: 33px;
-    /*color: #3e86e8;*/
+    height: 34px;
+    color: #3e86e8;
     font-weight: 700;
-    border-color: #b3b3b3 ;
+    border-color: #3e86e8;
 }
 
 .module-gamelist .tab-type li span {
@@ -1040,7 +1042,7 @@
     height: 33px;
     line-height: 33px;
     text-align: center;
-    /*color: #666;*/
+    color: #666;
     font-size: 14px;
     background-color: #fbfbfb;
     border: 1px solid #e8e8e8;
@@ -1051,17 +1053,18 @@
     transition: all .2s ease-in-out 0s;
 }
 
-/*.module-gamelist .tab-type li.current span {*/
-/*    height: auto;*/
-/*    !*color: #fff;*!*/
-/*    background-color: #ffa300;*/
-/*}*/
+.module-gamelist .tab-type li.current span {
+    height: auto;
+    color: #fff;
+    background-color: #3e86e8;
+}
 
 .module-gamelist .gamelist-wrap {
     height: 284px;
 }
 .module-gamelist .gamelist-wrap {
-    border-right: 1px solid #b3b3b3 ;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
     overflow: hidden;
 }
 .module-gamelist .gamelist-wrap ul {
@@ -1076,8 +1079,8 @@
     float: left;
     width: 136px;
     height: 138px;
-    /*border-right: 1px solid #ffa300;*/
-    /*border-bottom: 1px solid #ffa300;*/
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
 }
 .module-gamelist .gamelist-wrap .link-all {
     width: 100%;
@@ -1106,7 +1109,7 @@
     height: 14px;
     line-height: 14px;
     text-align: center;
-    /*color: #333;*/
+    color: #333;
     font-size: 12px;
     display: block;
     overflow: hidden;
@@ -1118,7 +1121,7 @@
 }
 
 .module-gamelist .tab-type {
-    border-bottom: 1px solid #b3b3b3 ;
+    border-bottom: 1px solid #3e86e8;
 }
 
 .module-gamelist .gamelist-wrap .link-all:hover img {
@@ -1129,4 +1132,75 @@
 }
 .module-gamelist .gamelist-wrap .link-all:hover .name {
     color: #f60;
+}
+
+
+.gold-with {
+    margin-bottom: 15px;
+}
+.goldtop {
+    width: 100%;
+    overflow: hidden;
+}
+
+.goldtoplf {
+    float: left;
+    width: 15%;
+    border-bottom: 3px solid #ffa824;
+    font-size: 18px;
+    color: #ff9900;
+    line-height: 36px;
+}
+.goldtoplf img {
+    padding-right: 5px;
+}
+
+.goldtoprg {
+    float: left;
+    width: 85%;
+    border-bottom: 3px solid #e6e6e6;
+    height: 36px;
+}
+.goldmid {
+     border: 1px solid #cfcfcf;
+     border-top: none;
+     overflow: hidden;
+ }
+
+
+.hotgame-li {
+    width: 25%;
+    float: left;
+    text-align: center !important;
+    padding: 10px 0;
+}
+
+.hotgame-li a {
+    color: #FFF;
+    text-decoration: none;
+}
+.hotgame-liimg img {
+    border-radius: 8px 8px 0 0;
+    width: 151px;
+    height: 173px;
+    object-fit: cover;
+}
+
+.hotgame-x img {
+    width: 151px;
+    height: 7px;
+}
+.hotgame-keysbt {
+    text-align: center;
+    margin: auto;
+    width: 151px;
+    line-height: 27px;
+    height: 27px;
+    color: #000000;
+    background: #d8d8d8;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
 }

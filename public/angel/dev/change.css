@@ -6,17 +6,21 @@
 }
 .siteHeader .js-nav-menu a {
     cursor: pointer;
+    color: #ffa722;
+    font-size: 13px;
+    position: relative;
 }
-/*.siteHeader .js-nav-menu {*/
-/*    height: 32px;*/
-/*    padding: 8px 0;*/
-/*}*/
+.siteHeader .js-nav-menu a:hover{
+    color: #f66d1c;
+}
+.siteHeader .js-nav-menu {
+    height: 32px;
+    padding: 8px 0;
+}
 .siteHeader .js-nav-menu .js-nav-justicy-right > li:before {
     content: "";
 }
-.siteHeader .top_bg {
-    background: #fdfdfd;
-}
+
 .header-brand-logo {
     height: 80px !important;
     min-height: 80px !important;
@@ -30,6 +34,8 @@
 .search-overlay-wrapper {
     margin-left: 88px;
     top: 22px;
+    border: 1px solid #978f8f;
+    background: #4d4d4d;
 }
 .search_area {
     padding: 0;
@@ -41,9 +47,10 @@
     color: lightgrey;
     height: 30px;
     text-align: center;
-    margin-top: 5px;
-    background: transparent;
+    margin-top: 4px;
+    margin-left: 3px;
 }
+
 .search__submit .icon_search {
     background-image: url("../img/icons/icon_search.png");
     background-position: initial;
@@ -65,7 +72,7 @@
 .gameWindowPopup {
     border: 1px solid #d3d3d3;
     border-top: 1px solid #d3d3d3;
-    top: 43px;
+    top: 39px;
 }
 /*.gameTypePopup {*/
 /*    padding: 2px 0 12px;*/
@@ -97,35 +104,45 @@
 ._34Cr45d_reacts .tradecan_top>.top__gamelist {
     font-size: 14px;
 }
-.siteHeader .nav_wrap {
-    background-color: #159efd;
-    height: 50px;
-}
+/*.siteHeader .nav_wrap {*/
+/*    background-color: #159efd;*/
+/*    height: 50px;*/
+/*}*/
 .siteHeader .nav_wrap .nav_menu_nodemon {
     display: block;
-    margin-left: 0;
+    margin-left: 142px;
 }
 .siteHeader .nav_wrap .topmenu_right {
     left: 720px;
 }
 .nav_wrap .nav li {
-    padding: 0 58px;
+    padding: 0 41px;
+    border-right: 1px solid #333;
 }
-.nav_wrap .nav li:hover{
-    background: #176ba5;
+.nav_wrap .nav li:nth-child(1):hover a{
+    color: #3295d3;
+}
+.nav_wrap .nav li:nth-child(2):hover a{
+    color: #edb528;
+}
+.nav_wrap .nav li:nth-child(3):hover a{
+    color: #ea70a5;
+}
+.nav_wrap .nav li:nth-child(4):hover a{
+    color: #1b9fa2;
 }
 
 /*.nav_wrap .nav li:nth-child(1):hover{*/
 /*    color: #2879bf;*/
 /*}*/
 
-.nav_wrap .nav li a {
-    height: 50px;
-    line-height: 48px;
-}
-.nav_wrap .nav .highlight {
-    padding: 0 58px;
-}
+/*.nav_wrap .nav li a {*/
+/*    height: 50px;*/
+/*    line-height: 48px;*/
+/*}*/
+/*.nav_wrap .nav .highlight {*/
+/*    padding: 0 58px;*/
+/*}*/
 /*.nav_wrap .nav_menu_nodemon li a:after {*/
 /*    position: absolute;*/
 /*    top: 0;*/

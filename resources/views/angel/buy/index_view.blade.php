@@ -46,7 +46,7 @@
             </div>
             <div class="menu_know">
                 <p class="heads">구매물품 등록 방법</p>
-                <img src="/angel/img/new_images/buy_left_know.png" width="210"  alt="팝니다 쉽게 등록하기">
+                <img src="/angel/img/new_images/buy_left_know.png" width="198"  alt="팝니다 쉽게 등록하기">
             </div>
         </div>
         <div class="pagecontainer">

@@ -68,103 +68,94 @@
             text-align: center;
             font-size: 14px;
             border: solid 1px #55a1ff;
-            top: 6px;
+            top: 16px;
         }
         .content_box_wrap {
+            vertical-align: top;
+            border: 1px solid #89c1ce;
+            border-left: none;
+            width: 439px;
             padding-top: 12px;
-            padding-bottom: 46px;
-            border: solid 1px #89c1ce;
-            margin-top: 12px;
         }
     </style>
 
     <div class="container_fulids" id="module-teaser-fullscreen">
         @include("aside.myroom",['group'=>''])
         <div class="pagecontainer">
+            <div class="fileright">
+                <div class="filerighttop">
+                    <div class="filerightlf">
+                        <div class="filerightlfimg">
+                            <a href="/myroom/myinfo/credit_rating"></a>
+                            <img src="/angel/img/level/{{$role['icon']}}">
+                        </div>
+                    </div>
+                    <div class="filerightrg">
+                        <h3>안녕하세요, 아이템천사에 오신 것을 환영합니다!</h3>
+                        <dl><dt>내 이메일: </dt><dd class="clc3">{{$me['email']}}</dd></dl>
+                        <dl><dt>등급정보: </dt><dd class="clc3">{{$role['alias']}} 회원</dd></dl>
+                        <dl><dt>거래점수:</dt><dd class="clc3">{{number_format($user['point'])}}</dd></dl>
+                        <dl><dt>총 마일리지: </dt><dd class="clc3">{{number_format($user['mileage'])}}원</dd></dl>
+                        <dl><dt>나의 쿠폰: </dt><dd class="clc3">프리미엄 <span style="color: dodgerblue;font-weight: bold ">{{$coupon[1]}}</span>, 물품강조 <span style="color: dodgerblue;font-weight: bold">{{$coupon[2]}}</span></dd></dl>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+
             <div class="content_area content_coupon">
-                <div class="myroom_status_part">
-                    <div class="user-info-part">
-                        <img class="position-abs" style="top: 24px; left: 15px;" src="/angel/img/level/{{$role['icon']}}" />
-                        <div class="position-abs f-18 text-nodemon align-center f-bold" style="top: 28px; left: 82px; width: 98px;">{{$role['alias']}} 회원</div>
-                        <div class="position-abs f-20 align-right" style="top: 24px; left: 251px; width: 34px;">{{number_format($user['point'])}}</div>
-                        <div class="position-abs f-16 align-center" style="top: 64px; left: 90px; width: 85px;">
-                            <a class="" href="/myroom/myinfo/credit_rating">혜택보기</a>
-                        </div>
-{{--                        <div class="position-abs f-16 align-center" style="top: 64px; left: 190px; width: 85px;">--}}
-{{--                            <a href="#">승급조건</a>--}}
-{{--                        </div>--}}
-                    </div>
-                    <div class="user-money-info position-abs f-17" style="width:330px; left:350px;">
-{{--                        <div class="d-flex w-100" style="margin-top: 12px">--}}
-{{--                            <div class="align-left" style="width: 60%; padding-top: 2px;">사용가능 마일리지</div>--}}
-{{--                            <div class="text-nodemon align-right" style="width: 40%"><b class="f-20">128,126</b>원</div>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex w-100" style="margin-top: 5px">--}}
-{{--                            <div class="align-left" style="width: 60%; padding-top: 1px;">구매전용 마일리지</div>--}}
-{{--                            <div class="align-right " style="width: 40%"><span class="f-18">128,126</span>원</div>--}}
-{{--                        </div>--}}
-                        <div class="d-flex w-100" style="margin-top: 25px">
-                            <div class="align-left" style="width: 60%; padding-top: 1px;">총 마일리지</div>
-                            <div class="align-right " style="width: 40%"><span class="f-18">{{number_format($user['mileage'])}}</span>원</div>
-                        </div>
-                        <div class="position-abs f-16 align-center" style="top: 22px; left: 358px; width: 82px;">
-                            <a href="#">충전하기</a>
-                        </div>
-                        <div class="position-abs f-16 align-center" style="top: 64px; left: 358px; width: 82px;">
-                            <a href="#">출금하기</a>
-                        </div>
-                    </div>
-                    <div class="user-coupon-info position-abs f-15" style="top: 160px; padding-left: 15px; padding-top: 10px;">
-                        <div class="d-flex w-100">
-                            <div class="each-part">
-                                <div class="align-center" style="padding-top:2px;">프리미엄</div>
-                                <div class="align-center f-20 text-nodemon">{{$coupon[1]}}</div>
-                            </div>
-                            <div class="each-part">
-                                <div class="align-center" style="padding-top:2px;">물품강조</div>
-                                <div class="align-center f-20 text-nodemon">{{$coupon[2]}}</div>
-                            </div>
-                            <div class="each-part">
-                                <div class="align-center" style="padding-top:2px;">스피드 거래</div>
-                                <div class="align-center f-20 text-nodemon">{{$coupon[3]}}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="user-market-status f-28">
-
-                        <div class="position-abs align-center " style="top: 298px; left: 235px; width: 50px;" title="판매등록">
-                            <a class="c-white" href="/myroom/sell/sell_regist?strRelationType=regist">{{$selling_register}}</a>
-                        </div>
-                        <div class="position-abs align-center" style="top: 355px; left: 235px; width: 50px;" title="흥정신청">
-                            <a class="c-white" href="/myroom/sell/sell_check?strRelationType=check">{{$bargain_request_selling}}</a>
-                        </div>
-                        <div class="position-abs align-center" style="top: 374px; left: 360px; width: 50px;" title="입금대기">
-                            <a class="c-white" href="/myroom/sell/sell_pay_wait?strRelationType=pay">{{$pay_pending_selling}}</a>
-                        </div>
-                        <div class="position-abs align-center" style="top: 374px; left: 520px; width: 50px;" title="판매중">
-                            <a class="c-white" href="/myroom/sell/sell_ing?strRelationType=ing">{{$selling_count}}</a>
-                        </div>
-                        <div class="position-abs align-center f-14" style="top: 380px; left: 685px; width: 86px; padding: 4px 0; background-color: #87c4de;">
-                            <a class="c-black" href="/myroom/complete/sell" >자세히보기</a>
-                        </div>
-
-                        <div class="position-abs align-center " style="top: 450px; left: 235px; width: 50px;" title="구매등록">
-                            <a class="c-white" href="/myroom/buy/buy_regist?strRelationType=regist">{{$buying_register}}</a>
-                        </div>
-                        <div class="position-abs align-center" style="top: 507px; left: 235px; width: 50px;" title="흥정신청">
-                            <a class="c-white" href="/myroom/buy/buy_check?strRelationType=check">{{$bargain_request}}</a>
-                        </div>
-                        <div class="position-abs align-center" style="top: 526px; left: 360px; width: 50px;" title="입금예정">
-                            <a class="c-white" href="/myroom/buy/buy_pay_wait?strRelationType=pay">{{$pay_pending}}</a>
-                        </div>
-                        <div class="position-abs align-center" style="top: 526px; left: 520px; width: 50px;" title="구매중">
-                            <a class="c-white" href="/myroom/buy/buy_ing?strRelationType=ing">{{$buying_count}}</a>
-                        </div>
-                        <div class="position-abs align-center f-14" style="top: 532px; left: 685px; width: 86px; padding: 4px 0; background-color: #87c4de;">
-                            <a class="c-black" href="/myroom/complete/buy" >자세히보기</a>
+                <table class="table-primary g_sky_table" style="width: 50%;display: inline-table;">
+                    <tbody>
+                        <tr>
+                            <th>판매등록</th>
+                            <td><a class="font-weight-bold" href="/myroom/sell/sell_regist?strRelationType=regist">{{$selling_register}}건</a> </td>
+                            <th>구매등록</th>
+                            <td><a class="font-weight-bold" href="/myroom/buy/buy_regist?strRelationType=regist">{{$buying_register}}건</a> </td>
+                        <tr>
+                            <th>입금대기</th>
+                            <td><a class="font-weight-bold" href="/myroom/sell/sell_pay_wait?strRelationType=pay">{{$pay_pending_selling}}건</a></td>
+                            <th>입금예정</th>
+                            <td><a class="font-weight-bold" href="/myroom/buy/buy_pay_wait?strRelationType=pay">{{$pay_pending}}건</a> </td>
+                        </tr>
+                        <tr>
+                            <th>판매중</th>
+                            <td><a class="font-weight-bold" href="/myroom/sell/sell_ing?strRelationType=ing">{{$selling_count}}건</a></td>
+                            <th>구매중</th>
+                            <td><a class="font-weight-bold" href="/myroom/buy/buy_ing?strRelationType=ing">{{$buying_count}}건</a></td>
+                        </tr>
+                        <tr>
+                            <th>판매종료</th>
+                            <td><a style="display: block;width: 86px;background: #87c4de;padding: 5px" class="c-black" href="/myroom/complete/sell" >자세히보기</a></td>
+                            <th>구매종료</th>
+                            <td><a style="display: block;width: 86px;background: #87c4de;padding: 5px" class="c-black" href="/myroom/complete/buy" >자세히보기</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="content_box_wrap">
+                    <div class="align-center">
+                        <img src="/assets/img/bkg/myroom_menu.jpg" />
+                        <div class="position-ref">
+                            <a class="position-abs btn-favorite-service" href="/myroom/customer/" style="left: 24px;">바로가기</a>
+                            <a class="position-abs btn-favorite-service" href="/myroom/customer/search" style="left: 194px;">바로가기</a>
+                            <a class="position-abs btn-favorite-service" href="/myroom/customer/" style="left: 336px;">바로가기</a>
                         </div>
                     </div>
                 </div>
+{{--                <table class="table-modern-primary tb_list" style="width: 50%">--}}
+{{--                    <tbody>--}}
+{{--                        <tr>--}}
+{{--                            <th>구매등록</th>--}}
+{{--                            <th>입금예정</th>--}}
+{{--                            <th>구매중</th>--}}
+{{--                            <th>구매종료</th>--}}
+{{--                        </tr>--}}
+{{--                        <tr>--}}
+{{--                            <td>{{$buying_register}}</td>--}}
+{{--                            <td>{{$pay_pending}}</td>--}}
+{{--                            <td>{{$buying_count}}</td>--}}
+{{--                            <td><a style="display: block;width: 86px;background: #87c4de" class="c-black" href="/myroom/complete/buy" >자세히보기</a></td>--}}
+{{--                        </tr>--}}
+{{--                    </tbody>--}}
+{{--                </table>--}}
             </div>
             <div class="content_area content_recent_trade">
                 <div class="highlight_contextual_nodemon f-16">최근 거래내역</div>
@@ -246,19 +237,6 @@
                                     <span class="verify-status @if(!empty($user['email_verified_at'])) on @endif">이메일</span>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="content_area ">
-                <div class="highlight_contextual_nodemon f-16 align-center">즐겨찾기 설정</div>
-                <div class="content_box_wrap">
-                    <div class="align-center">
-                        <img src="/assets/img/bkg/myroom_menu.jpg" />
-                        <div class="position-ref">
-                            <a class="position-abs btn-favorite-service" href="/myroom/customer/" style="left: 218px;">바로가기</a>
-                            <a class="position-abs btn-favorite-service" href="/myroom/customer/search" style="left: 385px;">바로가기</a>
-                            <a class="position-abs btn-favorite-service" href="/myroom/customer/" style="left: 532px;">바로가기</a>
                         </div>
                     </div>
                 </div>

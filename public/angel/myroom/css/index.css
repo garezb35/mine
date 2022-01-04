@@ -179,12 +179,12 @@
 
 
 .pagecontainer {
-    width: 820px
+    width: 880px
 }
 
 
 .pagecontainer>.content_coupon {
-    margin-top: -15px;
+    margin-top: 5px;
 }
 
 .pagecontainer>.content_area {
@@ -210,10 +210,7 @@
 
 .pagecontainer>.content_coupon>div {
     display: inline-block;
-    width: 98px;
-    height: 100px;
-    margin-right: 10px;
-    background-color: #F9F9FA;
+    height: 150px;
     font-size: 12px;
 }
 
@@ -698,4 +695,58 @@
     height: 584px !important;
     margin-top: 14px;
     position: relative;
+}
+
+.fileright {
+    border: 1px solid #d6d6d6;
+    background: #FFF;
+}
+
+.filerighttop {
+    padding: 25px;
+    overflow: hidden;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.filerightlf {
+    width: 28%;
+    float: left;
+    margin-right: 2%;
+}
+
+.filerightlfimg {
+    width: 100%;
+    text-align: center;
+}
+
+.filerightlfimg img {
+    border: 1px solid #ebeaea;
+    padding: 3px 15px;
+}
+
+.filerightrg {
+    float: left;
+}
+
+.filerightrg h3 {
+    font-size: 24px;
+    line-height: 36px;
+    color: #000;
+}
+
+.filerightrg dl {
+    float: left;
+    width: 100%;
+    line-height: 36px;
+}
+.filerightrg dt {
+    float: left;
+    color: #444444;
+    margin-right: 5px;
+}
+.filerightrg dd {
+    font-size: 14px;
+}
+.clc3 {
+    color: #ff6100;
 }

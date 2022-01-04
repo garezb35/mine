@@ -1,7 +1,6 @@
 var servers,games,props = new Array();
 var gtype = 0;
-var regg = 0;
-var filtered_second,filtered_thrid = new Array();
+var filtered_second = new Array();
 (function(a) {
     if(typeof Object.assign != "function") {
         Object.defineProperty(Object, "assign", {
@@ -507,6 +506,7 @@ var filtered_second,filtered_thrid = new Array();
             }
             if(k === "" && p === "") {
                 if(l.selected) {
+
                     l.selected.classList.remove("filter__selected");
                     delete l.selected
                 }
@@ -606,36 +606,36 @@ var filtered_second,filtered_thrid = new Array();
             if(typeof(k.autoComplete) === "string") {
                 k.autoCompleteEl = n.querySelector(k.autoComplete)
             }
-            // var o = document.createElement("a");
-            // o.href = "javascript:;";
+            var o = document.createElement("a");
+            o.href = "javascript:;";
             // o.classList.add("topsearchbar__close");
-            // o.addEventListener("click", function() {
-            //     k.autoCompleteEl.value = "";
-            //     k.searchText = "";
-            //     k.setValue("", "");
-            //     if(k.onCustomChange) {
-            //         k.onCustomChange.call(k)
-            //     }
-            //     if(k.gameserver) {
-            //         k.gameserver.viewValue = "";
-            //         if(k.gameserver.serverList) {
-            //             k.gameserver.serverList.setValue("", "");
-            //             if(k.gameserver.serverList.onCustomChange) {
-            //                 k.gameserver.serverList.onCustomChange.call(k.gameserver.serverList)
-            //             }
-            //         }
-            //         if(k.gameserver.goodsList) {
-            //             k.gameserver.goodsList.setValue("", "");
-            //             if(k.gameserver.goodsList.onCustomChange) {
-            //                 k.gameserver.goodsList.onCustomChange.call(k.gameserver.goodsList)
-            //             }
-            //         }
-            //     }
-            //     var m = document.createEvent("HTMLEvents");
-            //     m.initEvent("keyup", false, true);
-            //     k.autoCompleteEl.dispatchEvent(m);
-            //     k.autoCompleteEl.focus()
-            // });
+            o.addEventListener("click", function() {
+                k.autoCompleteEl.value = "";
+                k.searchText = "";
+                k.setValue("", "");
+                if(k.onCustomChange) {
+                    k.onCustomChange.call(k)
+                }
+                if(k.gameserver) {
+                    k.gameserver.viewValue = "";
+                    if(k.gameserver.serverList) {
+                        k.gameserver.serverList.setValue("", "");
+                        if(k.gameserver.serverList.onCustomChange) {
+                            k.gameserver.serverList.onCustomChange.call(k.gameserver.serverList)
+                        }
+                    }
+                    if(k.gameserver.goodsList) {
+                        k.gameserver.goodsList.setValue("", "");
+                        if(k.gameserver.goodsList.onCustomChange) {
+                            k.gameserver.goodsList.onCustomChange.call(k.gameserver.goodsList)
+                        }
+                    }
+                }
+                var m = document.createEvent("HTMLEvents");
+                m.initEvent("keyup", false, true);
+                k.autoCompleteEl.dispatchEvent(m);
+                k.autoCompleteEl.focus()
+            });
             if(k.autoCompleteEl.nextElementSibling) {
                 k.autoCompleteEl.parentElement.insertBefore(o, k.autoCompleteEl.nextElementSibling)
             } else {
@@ -748,6 +748,7 @@ var filtered_second,filtered_thrid = new Array();
                 k.addEventListener("click", function(m) {
                     n.gameserver.searchState = false;
                     n.onChange.call(n, this, m)
+                    $("#search-overlay-container").submit()
                 });
                 a.data(k, Object.assign({}, s[p], {
                     idx: p
@@ -797,6 +798,7 @@ var filtered_second,filtered_thrid = new Array();
             }
             if(String(o).toLowerCase().indexOf("element") !== -1) {
                 k.selected = o;
+
                 o.classList.add("filter__selected")
             }
             k.gameserver.searchState = false;
@@ -822,6 +824,7 @@ var filtered_second,filtered_thrid = new Array();
                     n.querySelector(k.hidden_use.text).value = k.selectedData.N
                 }
             }
+
             if(k.gameserver === undefined) {
                 c(k.listWrap)
             } else {
@@ -1199,6 +1202,7 @@ var filtered_second,filtered_thrid = new Array();
             this.setKeyEvent()
         }
         if(this.selected) {
+
             this.selected.classList.add("filter__selected")
         }
     };
@@ -1371,6 +1375,7 @@ var filtered_second,filtered_thrid = new Array();
             if(k.selected) {
                 k.selected.classList.remove("filter__selected")
             }
+
             q.classList.add("filter__selected");
             k.selected = q;
             k.selectedData = o;
@@ -1580,6 +1585,7 @@ var filtered_second,filtered_thrid = new Array();
             }
             if(this.selected) {
                 this.selected.classList.remove("filter__selected")
+
             }
             n.classList.add("filter__selected");
             this.selected = n;
@@ -1641,16 +1647,9 @@ var filtered_second,filtered_thrid = new Array();
     }
 
     $("#gsMenu li.arrow").click(function(){
+
+
         gtype =$(this).data('type');
-        regg = $(this).data('reg') ?? 0;
-        if(regg == 0){
-            $("#gsBox").css('right',0)
-            $("#gsBox").css('top','47px')
-        }
-        else{
-            $("#gsBox").css('right',-63)
-            $("#gsBox").css('top','247px')
-        }
         if(gtype > 0){
             $("#gsBox").css('display','block')
             if(gtype  == 1){
@@ -1684,7 +1683,6 @@ var filtered_second,filtered_thrid = new Array();
                 $(".gsgametypes").css('display','none')
             }
         }
-
     })
 
     $("#g_type_sel li").click(function(){
@@ -1710,83 +1708,22 @@ var filtered_second,filtered_thrid = new Array();
     })
 
     $(document).on('click', '#gsList li', function() {
-        var re = $(this).data('regg');
-        if(re == 0){
-            if($(this).data('type') == 1){
-                filtered_second = new Array();
-                $('input[name="filtered_game_id"]').val($(this).data('code'))
-                $('input[name="filtered_game_alias"]').val($(this).text())
-                $("#gs_games span").text($(this).text())
-                filtered_second = _serverdata.json.filter(e => e.GC == $(this).data('code'));
-                insertMenus(2,filtered_second);
-                $(".gs_nav").css('display','none')
-                $(".gs_name dt").text($(this).text())
-            }
-            else {
-                $('input[name="filtered_child_id"]').val($(this).data('code'))
-                $('input[name="filtered_child_alias"]').val($(this).text())
-                $("#gs_servers span").text($(this).text())
-                $("#gsBox").css('display','none')
-            }
+
+        if($(this).data('type') == 1){
+            filtered_second = new Array();
+            $('input[name="filtered_game_id"]').val($(this).data('code'))
+            $('input[name="filtered_game_alias"]').val($(this).text())
+            $("#gs_games span").text($(this).text())
+            filtered_second = _serverdata.json.filter(e => e.GC == $(this).data('code'));
+            insertMenus(2,filtered_second);
+            $(".gs_nav").css('display','none')
+            $(".gs_name dt").text($(this).text())
         }
         else{
-            var searchGameServer = $("#searchRegGameServer").val().split('>')
-            if($(this).data('type') == 1){
-                $(".top_game_searchbar_cc #gs_games span").text($(this).text())
-                filtered_second = new Array();
-                $("#game_code").val($(this).data('code'))
-                $("#game_code_text").val($(this).text())
-                filtered_second = _serverdata.json.filter(e => e.GC == $(this).data('code'));
-                insertMenus(2,filtered_second);
-                $(".gs_nav").css('display','none')
-                searchGameServer[0] = $(this).text();
-                $("#searchRegGameServer").val(searchGameServer.join('>'))
-            }
-            if($(this).data('type') == 2){
-                var sec_text = $(this).text();
-                $(".top_game_searchbar_cc #gs_servers span").text($(this).text())
-                $("#server_code").val($(this).data('code'))
-                $("#server_code_text").val($(this).text());
-                filtered_thrid = new Array();
-                $.ajax({
-                    url : '/api/third_category',
-                    type : 'post',
-                    data : {
-                        game_code: $("#game_code").val(),
-                        api_token: a_token
-                    },
-                    dataType:'json',
-                    success : function(data) {
-                        if(data.status == true){
-                            data.list.forEach((element)=>{
-                                filtered_thrid.push({N:element.game,C:element.unit,alias:element.alias});
-                            })
-                            insertMenus(3,filtered_thrid);
-                            $(".gs_nav").css('display','none')
-                            searchGameServer[1] = sec_text;
-                            $("#searchRegGameServer").val(searchGameServer.join('>'))
-                        }
-                    },
-                });
-
-            }
-            if($(this).data('type') == 3){
-                $("#good_type").val($(this).data('alias'))
-                $("#user_goods").val($(this).data('code'))
-                if($(".goods").find(".filter__selected").length == 0){
-                    $(".goods").append("<span class='filter__selected' style='display: none'>"+$(this).text()+"</span>>")
-                }
-                else{
-                    $(".goods").find(".filter__selected").text($(this).text())
-                }
-                existedAngelGameServer.serverList.selected = true;
-                existedAngelGameServer.serverList.selectedData = {};
-                existedAngelGameServer.serverList.selectedData.U = $(this).text()
-                $("#gsBox").css('display','none')
-                searchGameServer[2] = $(this).text();
-                $("#searchRegGameServer").val(searchGameServer.join('>'))
-                alterConstructor()
-            }
+            $('input[name="filtered_child_id"]').val($(this).data('code'))
+            $('input[name="filtered_child_alias"]').val($(this).text())
+            $("#gs_servers span").text($(this).text())
+            $("#gsBox").css('display','none')
         }
 
     });
@@ -1798,25 +1735,17 @@ var filtered_second,filtered_thrid = new Array();
         $("#gsList").empty();
         if(type == 1){
             _gamedata.json.forEach((element) => {
-                $("#gsList").append("<li data-type='1' data-regg='"+regg+"' data-code='"+element.C+"'><a>" + element.N + "</a>");
+                $("#gsList").append("<li data-type='1' data-code='"+element.C+"'><a>" + element.N + "</a>");
                 $("#gsList").append("</li>");
                 $(".gs_nav").css('display','block')
             })
             $(".gs_name dt").text('게임목록')
         }
-        else if(type == 2){
-            if(regg == 0){
-                $(".gs_nav").css('display','none');
-            }
-            data.forEach((element) => {
-                $("#gsList").append("<li data-type='2' data-regg='"+regg+"' data-code='"+element.C+"'><a>" + element.N + "</a>");
-                $("#gsList").append("</li>");
-            })
-        }
         else{
             $(".gs_nav").css('display','none');
+            $("#gsList").append("<li data-type='2' data-code='0'><a>서버전체</a></li>")
             data.forEach((element) => {
-                $("#gsList").append("<li data-type='3' data-alias ='"+element.alias+"' data-regg='"+regg+"' data-code='"+element.C+"'><a>" + element.N + "</a>");
+                $("#gsList").append("<li data-type='2' data-code='"+element.C+"'><a>" + element.N + "</a>");
                 $("#gsList").append("</li>");
             })
         }
@@ -1826,7 +1755,7 @@ var filtered_second,filtered_thrid = new Array();
         $("#gsList").empty();
         if(alias == '전체'){
             _gamedata.json.forEach((element) => {
-                $("#gsList").append("<li data-type='"+gtype+"' data-regg='"+regg+"' data-code='"+element.C+"'><a>" + element.N + "</a>");
+                $("#gsList").append("<li data-type='"+gtype+"' data-code='"+element.C+"'><a>" + element.N + "</a>");
                 $("#gsList").append("</li>");
             })
         }
@@ -1835,7 +1764,7 @@ var filtered_second,filtered_thrid = new Array();
             var filtered_e = ni.getHangulList(_gamedata.json,alias,1000)
 
             filtered_e.forEach((element)=>{
-                $("#gsList").append("<li data-type='"+gtype+"' data-regg='"+regg+"' data-code='"+element.C+"'><a>" + element.N + "</a>");
+                $("#gsList").append("<li data-type='"+gtype+"' data-code='"+element.C+"'><a>" + element.N + "</a>");
                 $("#gsList").append("</li>");
             })
         }
@@ -2544,6 +2473,7 @@ $.extend(_gamelist, {
         }
     },
     fnClick: function(a) {
+
         this.nodeSelect = $(a);
         if("setText" in this) {
             this.setText($(a).text())
