@@ -47,7 +47,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="goldtoplf"><img src="/angel/img/icons/midico04.png">인기게임</div>
+                <div class="goldtoplf"><img src="/angel/img/icons/midico04.png">게임순위</div>
                 <div class="border-normal d-flex">
                     <ul class="rank_list">
                         @for($i  = 0; $i< 5; $i++)
