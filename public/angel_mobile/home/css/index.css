@@ -66,15 +66,15 @@ body {
     padding: 5px 0;
 }
 
-.srh_inp_wrap {
-    position: relative;
-    box-sizing: border-box;
-    width: 100%;
-    height: 40px;
-    padding: 6px 45px 0 0;
-    border: 1px solid #4584F6;
-    border-radius: 5px;
-}
+/*.srh_inp_wrap {*/
+/*    position: relative;*/
+/*    box-sizing: border-box;*/
+/*    width: 100%;*/
+/*    height: 40px;*/
+/*    padding: 6px 45px 0 0;*/
+/*    border: 1px solid #4584F6;*/
+/*    border-radius: 5px;*/
+/*}*/
 
 .srh_inp_wrap .srh_inp {
     height: 25px;
@@ -242,20 +242,20 @@ body {
     background-size: 100%;
 }
 
-#main_search_wrapper {
-    margin: 0 20px;
-}
+/*#main_search_wrapper {*/
+/*    margin: 0 20px;*/
+/*}*/
 
-#main_search_wrapper .srh_inp_wrap {
-    position: relative;
-    box-sizing: border-box;
-    width: 100%;
-    height: 42px;
-    padding: 6px 35px 0 0;
-    border: 2px solid #b4b515;
-    border-radius: 5px;
-    background-color: #FFF;
-}
+/*#main_search_wrapper .srh_inp_wrap {*/
+/*    position: relative;*/
+/*    box-sizing: border-box;*/
+/*    width: 100%;*/
+/*    height: 42px;*/
+/*    padding: 6px 35px 0 0;*/
+/*    border: 2px solid #b4b515;*/
+/*    border-radius: 5px;*/
+/*    background-color: #FFF;*/
+/*}*/
 
 #main_search_wrapper .srh_inp {
     border: 0;
@@ -564,7 +564,7 @@ body {
     width: 100%;
     height: 40px;
     margin: 0 auto 0px;
-    background-color: #1a84a7;
+    background-color: #02c6bc;
     position: relative;
     border-radius: 3px;
     color: #fff;
@@ -873,6 +873,94 @@ body {
     font-size: 16px;
 }
 
+.gold-with {
+    margin-bottom: 15px;
+}
+.goldtop {
+    width: 100%;
+    overflow: hidden;
+}
+.goldtoplf {
+    float: left;
+    width: 29%;
+    border-bottom: 3px solid #ffa824;
+    font-size: 18px;
+    color: #ff9900;
+    line-height: 36px;
+}
+.goldtoplf img {
+    padding-right: 5px;
+}
+.goldtoprg {
+    float: left;
+    width: 71%;
+    border-bottom: 3px solid #e6e6e6;
+    height: 36px;
+}
+.goldmid {
+    border: 1px solid #cfcfcf;
+    border-top: none;
+    overflow: hidden;
+}
+.hotgame-li {
+    width: 25%;
+    float: left;
+    text-align: center;
+    padding: 10px 0;
+}
+.hotgame-li a {
+    color: #FFF;
+    text-decoration: none;
+}
+.hotgame-keysbt {
+    text-align: center;
+    margin: auto;
+    width: 151px;
+    line-height: 27px;
+    height: 27px;
+    color: #000000;
+    background: #d8d8d8;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+.hotgame-x img {
+    width: 151px;
+    height: 7px;
+}
+.hotgame-liimg img {
+    border-radius: 8px 8px 0 0;
+    width: 151px;
+}
+@media only screen and (max-width: 1300px){
+    .goldtoplf {
+        width: 35%;
+    }
+    .goldtoprg {
+        width: 65%;
+    }
+    .hotgame-keysbt {
+        width: 90%;
+    }
+    .hotgame-x img {
+        width: 100%;
+    }
+    .hotgame-liimg img {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 568px){
+    .goldtoplf {
+        width: 40%;
+    }
+    .goldtoprg {
+        width: 60%;
+    }
+}
+
 @media screen and (min-width:500px) {
     .appSetupBanner {
         font-size: 22px;
@@ -883,3 +971,23 @@ body {
         font-size: 20px;
     }
 }
+
+@media only screen and (max-width: 479px){
+    .goldtoplf {
+        width: 100%;
+    }
+    .goldtoprg {
+        display: none;
+    }
+    .hotgame-li {
+        width: 50%;
+    }
+}
+
+.rank_list {
+    float: initial;
+    width: 50%;
+    height: 180px;
+    color: #767676;
+}
+

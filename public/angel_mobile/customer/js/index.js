@@ -50,7 +50,7 @@ function _init() {
                 $('#game_area').html('<input type="text" class="g_text" name="game_name" id="game_name" placeholder="게임명을 입력해 주세요." />');
                 $('#server_label').text('서버명');
                 $('#server_area').html('<input type="text" class="g_text" name="server_name" disabled="disabled" />');
-                $('#search_game').html('').css('visibility', 'hidden');
+                $('#filtered_game_id').html('').css('visibility', 'hidden');
                 $('#addr_tr').show();
                 $('input[name=\'game_url\']').prop('disabled', false);
                 fnReset();
@@ -60,14 +60,14 @@ function _init() {
                 $('#game_area').html('<input type="text" class="g_text" name="game_name" id="game_name" placeholder="게임명을 입력해 주세요." />');
                 $('#server_label').text('서버명');
                 $('#server_area').html('<input type="text" class="g_text" name="server_name" placeholder="서버명을 입력해 주세요." />');
-                $('#search_game').html('<div><div id="searchgame_list"></div></div>');
+                $('#filtered_game_id').html('<div><div id="searchgame_list"></div></div>');
                 var objGamelist = $.extend($('#game_name')[0], _GameList2, {
                     nodeList: $('#searchgame_list'),
                     onOpen: function() {
-                        $('#search_game').css('visibility', 'visible');
+                        $('#filtered_game_id').css('visibility', 'visible');
                     },
                     onClose: function() {
-                        $('#search_game').css('visibility', 'hidden');
+                        $('#filtered_game_id').css('visibility', 'hidden');
                     }
                 });
                 // objGamelist.initialize();
@@ -83,7 +83,7 @@ function _init() {
                 $('#game_area').html('<input type="text" class="g_text subject" name="gs_subject" />');
                 $('#server_label').text('내용');
                 $('#server_area').html('<textarea name="gs_content" class="g_textarea"></textarea>');
-                $('#search_game').html('').css('visibility', 'hidden');
+                $('#filtered_game_id').html('').css('visibility', 'hidden');
                 $('#addr_tr').hide();
                 $('input[name=\'game_url\']').prop('disabled', true);
             }

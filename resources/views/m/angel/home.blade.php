@@ -15,58 +15,66 @@
         @include('m.angel.aside.nav', ['user' => $user])
         <div class="container">
             <div class="main_container">
-                @php
-                    $isLogined = '';
-                    if (Auth::check()) {
-                        $isLogined = 1;
-                    }
-                @endphp
-                <input id="_LOGINCHECK" type="hidden" value="{{$isLogined}}">
-                <input id="main_login_check" type="hidden" value="1">
-                <div class="main_hamburger_wrapper">
-                    <a href="javascript:;" class="btn_side main_hamburger" id="btn_menu"></a>
-                </div>
-                <div id="main_logo_wrapper"> <a href=""><h2 id="main_logo"></h2></a> </div>
-                <div id="main_search_wrapper">
-                    <div class="srh_inp_wrap" data-hash="searchSell">
-                        <input type="search" class="g_text srh_inp" name="srh_game" placeholder="게임명 또는 서버명을 검색해주세요." readonly>
-                        <button class="btn_srh"></button>
-                    </div>
-                </div>
-                <div class="srh_inp_wrap_scroll" data-hash="searchSell">
-                    <input type="search" class="g_text srh_inp" name="srh_game" placeholder="게임명 또는 서버명을 검색해주세요." readonly>
-                    <button class="btn_srh"></button>
-                </div>
-                <div id="bookmark_list_wrapper">
-                    <ul id="bookmark_list">
-                        @php
-                            $arrUrl = array('#regSell', '#regBuy', '#', '#', route('mileage_payment_charge'), route('mileage_payment_exchange'), route('myroom'), '#');
-                            $arrImgClass = array('regSell', 'regBuy', 'selling', 'buying', 'charge', 'myroom', 'giftmall', 'message');
-                            $arrBtnText = array('판매등록', '구매등록', '판매중', '구매중', '충전', '출금', '마이룸', '상품권사기', '메시지함');
-                        @endphp
-                        @for ($i = 0; $i < 8; $i++)
-                            @if(!empty($fav[$i]))
-                                <li>
-                                    <a href="{{$arrUrl[$i]}}">
-                                        <span class="bookmark_icon {{$arrImgClass[$i]}}"></span>
-                                        <span class="bookmark_title">{{$arrBtnText[$i]}}</span>
-                                    </a>
-                                </li>
-                            @endif
-                        @endfor
-                    </ul>
+                <div class="banner_item" data-idx="3">
+                    <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg"> </a>
                 </div>
                 <div class="notice clear_fix"> <span class="noti_icon"></span>
                     <div class="notice_ct">
                         @if(!empty($notices))
-                        <a href="{{route('view')}}?seq={{$notices[0]['id']}}">
-                            [공지]  {{$notices[0]['title']}}
-                        </a>
+                            <a href="{{route('view')}}?seq={{$notices[0]['id']}}">
+                                [공지]  {{$notices[0]['title']}}
+                            </a>
                         @endif
                     </div>
                     <a href="{{route('m_notice')}}" class="sp_b btn_mr" style="font-weight: bold">+</a>
                 </div>
-
+                <div class="gold-with">
+                    <div class="goldtop">
+                        <div class="goldtoplf"><img src="/angel/img/icons/midico04.png">인기게임</div>
+                        <div class="goldtoprg"></div>
+                    </div>
+                    <div class="goldmid">
+                        @foreach($games_home as $key=>$gg)
+                            @php
+                                if($key == 8) break;
+                            @endphp
+                            <div class="hotgame-li" style="text-align: center">
+                                <ul>
+                                    <li class="hotgame-liimg" style="text-align: center"><a href="javascript:;" onclick="enterSearchList({{$gg['id']}},'{{$gg['game']}}')"><img src="{{$gg['icon']}}" alt="{{$gg['game']}}" title="{{$gg['game']}}"></a></li>
+                                    <a href="javascript:;" onclick="enterSearchList({{$gg['id']}},'{{$gg['game']}}')" class="hotgame-x"><li class="hotgame-keysbt">{{$gg['game']}}</li><img src="/angel/img/icons/index_08.jpg"></a>
+                                </ul>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="goldtoplf"><img src="/angel/img/icons/midico04.png">인기게임</div>
+                <div class="border-normal d-flex">
+                    <ul class="rank_list">
+                        @for($i  = 0; $i< 5; $i++)
+                            @if(empty($game_list[$i]))
+                                @php
+                                    continue;
+                                @endphp
+                            @endif
+                            <li @if($i < 3)class="top"@endif> <span class="num">{{$game_list[$i]['id']}}</span>
+                                <span class="game_name">{{$game_list[$i]['game']}}</span>
+                                <span class="ranks_orders {{$game_list[$i]['type']}}"></span>
+                            </li>
+                        @endfor
+                    </ul>
+                    <ul class="rank_list">
+                        @for($i  = 5; $i< 10; $i++)
+                            @if(empty($game_list[$i]))
+                                @php
+                                    continue;
+                                @endphp
+                            @endif
+                            <li @if($i < 3)class="top"@endif> <span class="num">{{$game_list[$i]['id']}}</span>
+                                <span class="game_name">{{$game_list[$i]['game']}}</span> <span class="ranks_orders {{$game_list[$i]['type']}}"></span>
+                            </li>
+                        @endfor
+                    </ul>
+                </div>
             </div>
         </div>
         @include('m.angel.aside.footer')
@@ -74,10 +82,10 @@
     <div class="hgt34TR over__hidden bg-white" id="hgt34TR">
         <form name="juret__react56" id="juret__react56" method="POST">
             @csrf
-            <input type="hidden" name="search_game" value="">
-            <input type="hidden" name="search_game_text" value="">
-            <input type="hidden" name="search_server" value="">
-            <input type="hidden" name="search_server_text" value="">
+            <input type="hidden" name="filtered_game_id" value="">
+            <input type="hidden" name="filtered_game_alias" value="">
+            <input type="hidden" name="filtered_child_id" value="">
+            <input type="hidden" name="filtered_child_alias" value="">
             <input type="hidden" name="search_goods" value="">
             <input type="hidden" name="character_view" value="">
             <div class="initial_screen" id="initial_screen">
@@ -129,3 +137,4 @@
         </div>
     </div>
 @endsection
+

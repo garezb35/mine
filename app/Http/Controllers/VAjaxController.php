@@ -881,4 +881,9 @@ class VAjaxController extends BaseController
     {
 
     }
+
+    public function getGamesByAjax(Request $request){
+        $games = MGame::where('depth',0)->where('status',1)->orderby('order','ASC')->get()->toArray();
+        echo json_encode($games);
+    }
 }

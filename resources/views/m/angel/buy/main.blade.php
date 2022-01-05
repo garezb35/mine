@@ -249,9 +249,9 @@
                                     <select name="direct_condition_credit" disabled>
                                         @if(!empty($role))
                                             <option value="0">조건없음</option>
-                                        @foreach($role as $v)
+                                            @foreach($role as $v)
                                                 <option value="{{$v['level']}}">{{$v['alias']}} 이상</option>
-                                        @endforeach
+                                            @endforeach
                                         @endif
 
                                     </select>

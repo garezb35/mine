@@ -35,17 +35,17 @@
         <div id="menu_list_wrapper" class="clear_fix">
             <ul id="menu_list">
                 <li><a href="/#searchSell"><span class="menu_icon searchSell"></span><span class="menu_title">물품검색</span></a></li>
-                <li><a href="/myroom/sell/sell_ing.html?strRelationType=ing"><span class="menu_icon selling"><span class="badge over__hidden" id="sell_badge">0</span></span><span class="menu_title">판매중</span></a></li>
-                <li><a href="/myroom/buy/buy_ing.html?strRelationType=ing"><span class="menu_icon buying"><span class="badge over__hidden" id="buy_badge">0</span></span><span class="menu_title">구매중</span></a></li>
+                <li><a href="/myroom/sell/sell_ing?strRelationType=ing"><span class="menu_icon selling"><span class="badge over__hidden" id="sell_badge">0</span></span><span class="menu_title">판매중</span></a></li>
+                <li><a href="/myroom/buy/buy_ing?strRelationType=ing"><span class="menu_icon buying"><span class="badge over__hidden" id="buy_badge">0</span></span><span class="menu_title">구매중</span></a></li>
                 <li><a href="/myroom/"><span class="menu_icon myroom"></span><span class="menu_title">마이룸</span></a></li>
                 <li><a href="/#regSell"><span class="menu_icon regSell"></span><span class="menu_title">판매등록</span></a></li>
                 <li><a href="/#regBuy"><span class="menu_icon regBuy"></span><span class="menu_title">구매등록</span></a></li>
                 <li><a href="{{route('mileage_payment_charge')}}"><span class="menu_icon charge"></span><span class="menu_title">충전</span></a></li>
                 <li><a href="{{route('mileage_payment_exchange')}}"><span class="menu_icon payment"></span><span class="menu_title">출금</span></a></li>
-                <li><a href="/event/"><span class="menu_icon eventMenu"></span><span class="menu_title">이벤트</span></a></li>
-                <li><a href="/portal/giftcard/"><span class="menu_icon giftmall"></span><span class="menu_title">상품권사기</span></a></li>
-                <li><a href="/charge/free/index.html?type=3"><span class="menu_icon freeCharge"></span><span class="menu_title">무료충전소</span></a></li>
-                <li><a href="/game_info/money/"><span class="menu_icon moneyInfo"></span><span class="menu_title">시세정보</span></a></li>
+{{--                <li><a href="/event/"><span class="menu_icon eventMenu"></span><span class="menu_title">이벤트</span></a></li>--}}
+{{--                <li><a href="/portal/giftcard/"><span class="menu_icon giftmall"></span><span class="menu_title">상품권사기</span></a></li>--}}
+{{--                <li><a href="/charge/free/index.html?type=3"><span class="menu_icon freeCharge"></span><span class="menu_title">무료충전소</span></a></li>--}}
+{{--                <li><a href="/game_info/money/"><span class="menu_icon moneyInfo"></span><span class="menu_title">시세정보</span></a></li>--}}
                 <li><a href="{{route('guide_charge')}}"><span class="menu_icon guide"></span><span class="menu_title">이용안내</span></a></li>
                 <li><a href="{{route('main_customer')}}"><span class="menu_icon customer"></span><span class="menu_title">고객센터</span></a></li>
             </ul>

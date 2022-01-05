@@ -86,5 +86,4 @@ Route::get("/json/gameserverlist.json",[\App\Http\Controllers\ManiaController::c
 Route::post('/quicklinkuser', [\App\Http\Controllers\VAjaxController::class, 'quicklinkuser']);
 Route::get('/character', [\App\Http\Controllers\VAjaxController::class, 'character']);
 Route::get('_xml/gamemoney_avg.xml' ,[\App\Http\Controllers\VAjaxController::class, 'gamemoney_avg']);
-
-
+Route::post('getGamesByAjax',[\App\Http\Controllers\VAjaxController::class, 'getGamesByAjax']);

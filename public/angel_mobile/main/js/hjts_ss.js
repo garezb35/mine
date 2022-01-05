@@ -1,3 +1,72 @@
+var game_lists = new Array();
+$(document).on('click', '#keyword', function () {
+    if (game_lists.length == 0) {
+        $.ajax({
+            url: '/api/getGamesByAjax',
+            error: function () {
+                // $('#info').html('<p>An error has occurred</p>');
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data) {
+                    data.forEach((item) => {
+                        game_lists.push({id: item.id, game: item.game})
+                    })
+                    game_lists.forEach(function (item) {
+                        var dis = Hangul.disassemble(item.game, true);
+                        var cho = dis.reduce(function (prev, elem) {
+                            elem = elem[0] ? elem[0] : elem;
+                            return prev + elem;
+                        }, "");
+                        item.diassembled = cho;
+                    });
+                }
+
+            },
+            type: 'POST'
+        });
+    }
+})
+
+
+
+
+// $("#keyword").bind("propertychange change click keyup input paste", function(event) {
+//     debugger
+//     var keyword  = $(this).val();
+//     if(!keyword){
+//         $("#searchs").empty();
+//         $("#searchs").attr('hidden')
+//     }
+// });
+
+
+$(document).on('keyup', '#keyword', function () {
+    var keyword  = $(this).val();
+    if(keyword && game_lists.length > 0){
+        var search1 = Hangul.disassemble(keyword).join("");  // ㄺ=>ㄹㄱ
+        var filters_str = game_lists
+            // 문자열 검색 || 초성검색
+            .filter(function (item) {
+                return item.game.includes(keyword) || item.diassembled.includes(search1);
+            });
+        if(filters_str.length > 0){
+            $("#searchs").removeAttr('hidden');
+            $("#searchs").empty();
+            filters_str.forEach(function (item) {
+                var li = document.createElement('li');
+                li.innerHTML = item.game;
+
+                $("#searchs").append("<li><a href='' data-id='"+ item.id +"' data-game='" + item.game + "'>"+item.game+"</a></li>")
+            });
+        }
+    }
+    else{
+        $("#searchs").empty();
+        $("#searchs").attr('hidden')
+    }
+})
+
 var IMG_DOMAIN1 = "/public/angel_mobile/";
 
 var _DEBUG = false,
@@ -1558,10 +1627,10 @@ var _myService = {
         var j = _WebStorage.localload("last_search") || [],
             k, b = document.getElementById("juret__react56"),
             h = b.querySelector('[name="search_type"]').value,
-            e = b.querySelector('[name="search_game"]').value,
-            d = b.querySelector('[name="search_game_text"]').value,
-            c = b.querySelector('[name="search_server"]').value,
-            a = b.querySelector('[name="search_server_text"]').value;
+            e = b.querySelector('[name="filtered_game_id"]').value,
+            d = b.querySelector('[name="filtered_game_alias"]').value,
+            c = b.querySelector('[name="filtered_child_id"]').value,
+            a = b.querySelector('[name="filtered_child_alias"]').value;
         if (e.isEmpty() === false) {
             if (j.length > 0) {
                 var j = JSON.parse(j),

@@ -1,14 +1,4 @@
 <div class="footer_wrap">
-    <div class="footer">
-        <a href="{{route('index')}}" class="home">홈</a>
-        {{--                <a href="">불법촬영물신고</a> --}}
-        {{--                <a href="javascript:fnChangeVersion()">PC버전</a> --}}
-        @if (Auth::check())
-            <a href="{{route('logout')}}">로그아웃</a>
-        @else
-            <a href="{{route('login')}}">로그인</a>
-        @endif
-    </div>
     <div class="copyright">
         <ul class="f_menu">
             <li><a href="">이용약관</a></li>

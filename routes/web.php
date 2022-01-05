@@ -243,7 +243,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('sell')->group(function () {
-        Route::get('/', [\App\Http\Controllers\VSellController::class, 'index'])->name('sell');
+        Route::any('/', [\App\Http\Controllers\VSellController::class, 'index'])->name('sell');
         Route::get('/index_view', [\App\Http\Controllers\VSellController::class, 'index_view'])->name('sell_index_view');
         Route::get('/view', [\App\Http\Controllers\VSellController::class, 'sell_view'])->name('sell_view');
         Route::get('/application', [\App\Http\Controllers\VSellController::class, 'sell_application'])->name('sell_application');
@@ -255,7 +255,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('buy')->group(function (){
-        Route::get('/', [\App\Http\Controllers\VBuyController::class, 'index'])->name('buy');
+        Route::any('/', [\App\Http\Controllers\VBuyController::class, 'index'])->name('buy');
         Route::get('/index_view', [\App\Http\Controllers\VBuyController::class, 'index_view'])->name('buy_index_view');
         Route::post('/list', [\App\Http\Controllers\VBuyController::class, 'buy_list'])->name('buy_list');
         Route::post('/list_search', [\App\Http\Controllers\VBuyController::class, 'list_search'])->name('buy_list_search');
