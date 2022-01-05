@@ -991,3 +991,53 @@ body {
     color: #767676;
 }
 
+.rank_list li {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    position: relative;
+    width: 160px;
+    padding: 0 18px 0 44px;
+    margin: 13px 0 0 20px;
+}
+.rank_list li {
+    margin-top: 15px;
+}
+.rank_list .num {
+    box-sizing: border-box;
+    position: absolute;
+    top: 2px;
+    left: 20px;
+    display: block;
+    width: 11px;
+    height: 18px;
+    color: #000;
+    font-size: 15px;
+    text-align: center;
+    line-height: 14px;
+}
+.rank_list .top .num {
+    font-weight: bold;
+    color: #FF4747;
+}
+.rank_list .ranks_orders {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    display: block;
+    width: 7px;
+    height: 9px;
+}
+.rank_list .down {
+    background: url(/angel/img/button/btn-down.png);
+    background-size: 8px 17px;
+    width: 8px;
+    height: 17px;
+}
+
+.rank_list .up {
+    background: url(/angel/img/button/btn-up.png);
+    background-size: 8px 17px;
+    width: 8px;
+    height: 17px;
+}
