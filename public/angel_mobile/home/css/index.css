@@ -999,6 +999,7 @@ body {
     width: 160px;
     padding: 0 18px 0 44px;
     margin: 13px 0 0 20px;
+    overflow: hidden;
 }
 .rank_list li {
     margin-top: 15px;
