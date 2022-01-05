@@ -2766,9 +2766,7 @@ body {
     top: -9px;
 }
 
-.d-flex {
-    display: flex;
-}
+
 .border-normal {
     border: solid 1.2px #d3d3d3 !important;
 }

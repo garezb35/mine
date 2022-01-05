@@ -51,7 +51,7 @@
                     <div class="goldtoplf"><img src="/angel/img/icons/midico04.png">게임순위</div>
                 </div>
 
-                <div class="border-normal">
+                <div class="border-normal d-flex">
                     <ul class="rank_list">
                         @for($i  = 0; $i< 5; $i++)
                             @if(empty($game_list[$i]))
