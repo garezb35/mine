@@ -1185,7 +1185,7 @@
 
 
 .hotgame-li {
-    width: 25%;
+    width: 20%;
     float: left;
     text-align: center !important;
     padding: 10px 0;
@@ -1197,7 +1197,7 @@
 }
 .hotgame-liimg img {
     width: 100%;
-    height: 143px;
+    height: 118px;
     object-fit: cover;
 }
 
