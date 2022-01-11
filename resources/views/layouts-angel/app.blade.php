@@ -291,13 +291,13 @@
 
             @if(request()->route()->getName() == "index")
             if($(document).width() > 1313)
-                $("#home__content").css('margin-left',($(document).width()-1313) / 2 + 320);
+                $("#home__content").css('margin-left',($(document).width()-1305) / 2 + 320);
             var pos_left = $("#home__content").offset();
             $("#topbar-left").css("left",pos_left.left - 325 + "px")
             $("#topbar-left").css("top",pos_left.top + "px")
             @else
             if($(document).width() > 1313)
-                $(".container_fulids").css('margin-left',($(document).width()-1313) / 2 + 320);
+                $(".container_fulids").css('margin-left',($(document).width()-1305) / 2 + 320);
             var pos_left = $(".container_fulids").offset();
             $("#topbar-left").css("left",pos_left.left - 325 + "px")
             $("#topbar-left").css("top",10 + "px")
