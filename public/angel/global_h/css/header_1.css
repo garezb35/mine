@@ -551,9 +551,7 @@ table.nobordertable{
 
 
 .siteHeader{
-    position: fixed;
     width: 100%;
-    top: 0;
     z-index: 1000;
 }
 .siteHeader .top_bg{
@@ -793,10 +791,9 @@ table.nobordertable{
     background-size:2560px auto;
 }
 .fixed__banner{
-    position: fixed;
-    top: 30px;
     width: 100%;
     min-height: 450px;
+    height: 450px;
     background: url(/angel/img/header/banner.png)
 }
 
@@ -1448,7 +1445,7 @@ width: 112px;
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 50px;
+    top: 41px;
     left: 0px;
     background: #fefefe;
     width: 824px;

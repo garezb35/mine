@@ -47,7 +47,6 @@
             popupWindow = window.open(url,'popUpWindow','height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
         }
     </script>
-        <div class="fixed__banner"></div>
         <div id="global_root" class="mainEntity d-none">
             <div id="thirdys" class="fluid-div"></div>
         </div>
@@ -295,7 +294,7 @@
                 $("#home__content").css('margin-left',($(document).width()-1400) / 2 + 320);
             var pos_left = $("#home__content").offset();
             $("#topbar-left").css("left",pos_left.left - 325 + "px")
-            $("#topbar-left").css("top",1 + "px")
+            $("#topbar-left").css("top",pos_left.top + "px")
             @else
             if($(document).width() > 1400)
                 $(".container_fulids").css('margin-left',($(document).width()-1400) / 2 + 320);
@@ -324,18 +323,6 @@
             $('#search-overlay-container').submit()
         })
 
-        $(window).scroll(function() {
-            var scroll = getCurrentScroll();
-            if ( scroll >= 10 ) {
-                $('.header__banner').addClass('roll');
-            }
-            else {
-                $('.header__banner').removeClass('roll');
-            }
-        });
-        function getCurrentScroll() {
-            return window.pageYOffset || document.documentElement.scrollTop;
-        }
     })
 </script>
 

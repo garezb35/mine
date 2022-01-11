@@ -3,7 +3,7 @@
 }
 
 #home__content{
-    margin-top: 188px;
+    margin-top: -327px;
     min-height: 1086px;
 }
 
@@ -35,9 +35,9 @@
 .banner_in>.banner_item.banner_on {
     display: block;
 }
-.topbar-left {
-    top: 184px;
-}
+/*.topbar-left {*/
+/*    top: 184px;*/
+/*}*/
 .service_wrap {
     position: absolute;
     top: 0;
