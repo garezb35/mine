@@ -50,7 +50,7 @@
                         {{--                    <b class="sjx-lb"></b>--}}
                         <div class="dropdown">
                             <a href="javascript:void(0);" rel="nofollow" id="dropdown-wz">전체 게임
-                                {{--                            <img src="https://www.5mmo.com/templates/game/images/topicojg.png">--}}
+                                <img src="https://www.5mmo.com/templates/game/images/topicojg.png">
                                 <div class="border-half"></div>
                             </a>
                             <div class="dropdown-menu" style="display: none;">
