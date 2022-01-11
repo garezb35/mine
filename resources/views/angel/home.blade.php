@@ -374,29 +374,7 @@
                     <div @class('notice__content')>{!! $notices[0]['content'] !!}</div>
                     @endif
                 </div>
-{{--                <ul class="g_list news_list f-14">--}}
-
-{{--                    @foreach($notices as $v)--}}
-{{--                        <li>--}}
-{{--                            <a href="/news/view?seq={{$v['id']}}">--}}
-{{--                                {{$v['title']}}<span class="comp">{{date("Y-m-d H:i:s",strtotime($v['created_at']))}}</span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                    @endforeach--}}
-{{--                </ul>--}}
             </div>
-
-
-{{--            <div class="charge_wrap fixed-height" id="bacnked_list_3e9RT">--}}
-{{--                <ul class="bacnked_list_3e9RT">--}}
-{{--                    <li>--}}
-{{--                        <a href="{{route('my_mileage_index_c')}}">--}}
-{{--                            <span class="bank_account_emoticon account"></span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-
         </div>
         <div class="module-gamelist" id="gameList">
             <div class="inner-border border-right">
@@ -437,6 +415,44 @@
                 </div>
             </div>
         </div>
+        <table @class('noborder')>
+            <colgroup>
+                <col width="50%"/>
+            </colgroup>
+            <tr>
+                <td>
+                    <div class="title"> 게임순위 </div>
+                    <div class="border-normal d-flex bg-white">
+                        <ul class="rank_list">
+                            @for($i  = 0; $i< 5; $i++)
+                                @if(empty($game_list[$i]))
+                                    @php
+                                        continue;
+                                    @endphp
+                                @endif
+                                <li @if($i < 3)class="top"@endif> <span class="num">{{$game_list[$i]['id']}}</span>
+                                    <span class="game_name">{{$game_list[$i]['game']}}</span>
+                                    <span class="ranks_orders {{$game_list[$i]['type']}}"></span>
+                                </li>
+                            @endfor
+                        </ul>
+                        <ul class="rank_list">
+                            @for($i  = 5; $i< 10; $i++)
+                                @if(empty($game_list[$i]))
+                                    @php
+                                        continue;
+                                    @endphp
+                                @endif
+                                <li @if($i < 3)class="top"@endif> <span class="num">{{$game_list[$i]['id']}}</span>
+                                    <span class="game_name">{{$game_list[$i]['game']}}</span> <span class="ranks_orders {{$game_list[$i]['type']}}"></span>
+                                </li>
+                            @endfor
+                        </ul>
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+        </table>
         <div class="empty-high"></div>
     </div>
 @endsection

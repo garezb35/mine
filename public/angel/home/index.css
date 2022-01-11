@@ -4,6 +4,7 @@
 
 #home__content{
     margin-top: 188px;
+    min-height: 1086px;
 }
 
 .bank_account_emoticon,
@@ -1239,3 +1240,4 @@ li.hotgame-liimg{
     padding-right: 10px;
     padding-bottom: 10px;
 }
+

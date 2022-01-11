@@ -201,9 +201,14 @@
             <div @class('phone__contact')>
                 <p @class('ph__title')>전화 상담안내</p>
                 <div @class('ph__content')>
-                    <p @class('ph__title')>1532-9945</p>
-                    <p @class('rest__part')>365일 24시간 연중무휴</p>
+                    <div>
+                        <p @class('ph__title')>1532-9945</p>
+                        <p @class('rest__part')>365일 24시간 연중무휴</p>
+                    </div>
                 </div>
+            </div>
+            <div @class('private__00')>
+                <a href="/customer/report" @class('big_private__btn') >1:1이용문의</a>
             </div>
         </div>
         <div class="roots" id="angel" style="min-width: 1428px;">
@@ -241,7 +246,7 @@
         padding: 0;
     }
     .container_fulids{
-        min-height: 802px;
+        min-height: 1086px;
     }
     .well--tooltip {
         min-width: 300px;
