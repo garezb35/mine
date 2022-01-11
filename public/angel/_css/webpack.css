@@ -1156,12 +1156,11 @@ padding-left: 7px;
 
 .container_fulids {
     position: relative;
-    width: 1087px;
+    width: 980px;
     min-height: 300px;
     margin: 0 auto;
     padding-top: 9px;
-    margin-left: calc((100% - 1080px) / 2);
-    margin-top: 180px;
+    margin-top: -327px;
 }
 
 .content_center {
@@ -1178,7 +1177,7 @@ padding-left: 7px;
 
 .pagecontainer {
     float: right;
-    width: 880px;
+    width: 767px;
 }
 
 .react___gatsby .close {
