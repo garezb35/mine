@@ -392,7 +392,11 @@
                                 @endphp
                                 <div class="hotgame-li" style="text-align: center">
                                     <ul>
-                                        <li class="hotgame-liimg" style="text-align: center"><a href="javascript:;" onclick="enterSearchList({{$gg['id']}},'{{$gg['game']}}')"><img src="{{$gg['icon']}}" alt="{{$gg['game']}}" title="{{$gg['game']}}"></a></li>
+                                        <li class="hotgame-liimg" style="text-align: center">
+                                            <a href="javascript:;" onclick="enterSearchList({{$gg['id']}},'{{$gg['game']}}')">
+                                                <img src="{{$gg['icon']}}" alt="{{$gg['game']}}" title="{{$gg['game']}}">
+                                            </a>
+                                        </li>
                                         <a href="javascript:;" onclick="enterSearchList({{$gg['id']}},'{{$gg['game']}}')" class="hotgame-x"><li class="hotgame-keysbt">{{$gg['game']}}</li></a>
                                     </ul>
                                 </div>
