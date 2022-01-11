@@ -812,9 +812,10 @@ table.nobordertable{
     margin:0 auto;
 }
 .header-brand-logo .logo a{
-    display:block;
+    display: initial;
     width:221px;
     height:140px;
+    margin-left: 110px;
 }
 
 .border-half {
@@ -836,7 +837,7 @@ table.nobordertable{
 .search-overlay-wrapper{
     position:absolute;
     top:36px;
-    left:306px;
+    left:396px;
     width:419px;
 }
 
