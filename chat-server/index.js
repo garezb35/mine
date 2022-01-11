@@ -97,8 +97,10 @@ public.on("connection",(client) => {
                                 if(token == individual.id && individual.ip == client.handshake.address && l=="channel1" && individual.lobby == "channel1"){
                                     logout = 0;
                                 }
-                                public.sockets.get(individual.clientId).emit("receive",{header:{type:"LOGIN"},body:{cmd:"ERROR",type:"DUPLICATE",logout:logout}});
-                                public.sockets.get(individual.clientId).disconnect();
+                                if(public.sockets.get(individual.clientId) != null && public.sockets.get(individual.clientId)){
+                                    public.sockets.get(individual.clientId).emit("receive",{header:{type:"LOGIN"},body:{cmd:"ERROR",type:"DUPLICATE",logout:logout}});
+                                    public.sockets.get(individual.clientId).disconnect();
+                                }
                             }
                             listUsers.deleteUserByClientId(individual.clientId)
                         });
