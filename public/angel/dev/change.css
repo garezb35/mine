@@ -1,18 +1,16 @@
-.siteHeader .top_bg {
-    height: initial !important;
-}
+
 .siteHeader .js-nav-menu {
     font-size: 14px;
 }
 .siteHeader .js-nav-menu a {
     cursor: pointer;
-    color: #ffa722;
     font-size: 13px;
     position: relative;
+    color: #000;
 }
-.siteHeader .js-nav-menu a:hover{
-    color: #f66d1c;
-}
+/*.siteHeader .js-nav-menu a:hover{*/
+/*    color: #f66d1c;*/
+/*}*/
 .siteHeader .js-nav-menu {
     height: 32px;
     padding: 8px 0;
@@ -21,34 +19,37 @@
     content: "";
 }
 
-.header-brand-logo {
-    height: 80px !important;
-    min-height: 80px !important;
-}
+/*.header-brand-logo {*/
+/*    height: 80px !important;*/
+/*    min-height: 80px !important;*/
+/*}*/
 .header-brand-logo .logo {
-    padding-top: 17px;
+    padding-top: 40px;
 }
 .header-brand-logo .logo a {
     display: initial;
 }
 .search-overlay-wrapper {
-    margin-left: 88px;
-    top: 22px;
-    border: 1px solid #978f8f;
-    background: #4d4d4d;
+    /*margin-left: 88px;*/
+    top: 49px;
+    /*border: 1px solid #978f8f;*/
+    /*background: #4d4d4d;*/
 }
 .search_area {
     padding: 0;
     background: transparent;
-    height: 37px;
+    height: 42px;
 }
 .search_area .angel__text {
     font-size: 16px;
-    color: lightgrey;
-    height: 30px;
-    text-align: center;
-    margin-top: 4px;
-    margin-left: 3px;
+    color: #948888;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 18px;
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+    padding-left: 14px;
+    padding-right: 33px;
 }
 
 .search__submit .icon_search {
@@ -60,11 +61,9 @@
     width: 28px;
     height: 30px;
 }
-.search-overlay-wrapper .search__submit {
-    background-color: initial;
-    right: 6px;
-    text-align: center;
-}
+/*.search-overlay-wrapper .search__submit {*/
+/*    */
+/*}*/
 .search_gs_name ~ .topsearchbar__close {
     top: 11px;
     right: -22px;
@@ -72,7 +71,7 @@
 .gameWindowPopup {
     border: 1px solid #d3d3d3;
     border-top: 1px solid #d3d3d3;
-    top: 39px;
+    top: 43px;
 }
 /*.gameTypePopup {*/
 /*    padding: 2px 0 12px;*/
@@ -87,13 +86,14 @@
 }
 ._34Cr45d_reacts .tab>div {
     font-size: 15px;
-    border: 1px solid #32b5ff;
-    border-right: 0;
-    border-top: 0;
+    /*border: 1px solid #32b5ff;*/
+    /*border-right: 0;*/
+    /*border-top: 0;*/
+    background: #dcdcdc;
 }
-._34Cr45d_reacts .tab>.active {
-    border-top: 1px solid #32b5ff;
-}
+/*._34Cr45d_reacts .tab>.active {*/
+/*    border-top: 1px solid #32b5ff;*/
+/*}*/
 ._34Cr45d_reacts .tradecan_top>.tradecan_h89eC {
     background-color: transparent;
     color: black;
@@ -110,27 +110,27 @@
 /*}*/
 .siteHeader .nav_wrap .nav_menu_nodemon {
     display: block;
-    margin-left: 142px;
+    margin-left: 132px;
 }
 .siteHeader .nav_wrap .topmenu_right {
     left: 720px;
 }
 .nav_wrap .nav li {
-    padding: 0 41px;
-    border-right: 1px solid #333;
+    padding: 0 31px;
+    /*border-right: 1px solid #333;*/
 }
-.nav_wrap .nav li:nth-child(1):hover a{
-    color: #3295d3;
-}
-.nav_wrap .nav li:nth-child(2):hover a{
-    color: #edb528;
-}
-.nav_wrap .nav li:nth-child(3):hover a{
-    color: #ea70a5;
-}
-.nav_wrap .nav li:nth-child(4):hover a{
-    color: #1b9fa2;
-}
+/*.nav_wrap .nav li:nth-child(1):hover a{*/
+/*    color: #3295d3;*/
+/*}*/
+/*.nav_wrap .nav li:nth-child(2):hover a{*/
+/*    color: #edb528;*/
+/*}*/
+/*.nav_wrap .nav li:nth-child(3):hover a{*/
+/*    color: #ea70a5;*/
+/*}*/
+/*.nav_wrap .nav li:nth-child(4):hover a{*/
+/*    color: #1b9fa2;*/
+/*}*/
 
 /*.nav_wrap .nav li:nth-child(1):hover{*/
 /*    color: #2879bf;*/

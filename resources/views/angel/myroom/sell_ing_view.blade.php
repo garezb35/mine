@@ -16,6 +16,7 @@
     if(!empty($good_type)){
         $category .= $good_type;
     }
+
 @endphp
 @extends('layouts-angel.app')
 
@@ -114,12 +115,12 @@
                 <tbody>
                 <tr>
                     <th>이름</th>
-                    <td>{{$user['name']}}</td>
+                    <td>{{$user__1['name']}}</td>
                 </tr>
                 <tr>
                     <th>연락처</th>
                     <td>
-                        {{$user['home']}} / {{$user['number']}}</span>
+                        {{$user__1['home']}} / {{$user__1['number']}}</span>
                     </td>
                 </tr>
                 <tr>
@@ -136,25 +137,25 @@
                             <dd>
                                 <span class="w80 cert_state">인증상태</span>
                                 <span class="con w80 btn_state">
-                                        @if($user['mobile_verified'] == 1)
+                                        @if($user__1['mobile_verified'] == 1)
                                         <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
                                         <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif휴대폰</span>
                                 <span class="on w80 btn_state">
-                                        @if($user['bank_verified'] == 1)
+                                        @if($user__1['bank_verified'] == 1)
                                         <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
                                         <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif계좌</span>
                                 <span class="on w80 btn_state">
-                                        @if($user['pin'] == 1)
+                                        @if($user__1['pin'] == 1)
                                         <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
                                         <img src="/angel/img/icons/icon_nocheck.png" width="14">
                                     @endif아이핀</span>
                                 <span class="w80 btn_state">
-                                        @if(!empty($user['email_verified_at']))
+                                        @if(!empty($user__1['email_verified_at']))
                                         <img src="/angel/img/icons/icon_check.png" width="14">
                                     @else
                                         <img src="/angel/img/icons/icon_nocheck.png" width="14">

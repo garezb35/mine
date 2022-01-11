@@ -8,6 +8,20 @@
     </head>
     <body>
     <style>
+        #msgBox::-webkit-scrollbar-track {
+            background: #18273e;
+        }
+        #msgBox::-webkit-scrollbar-thumb {
+            background-color: darkgrey;
+            outline: 1px solid slategrey;
+            border-radius: 5px;
+        }
+        #msgBox::-webkit-scrollbar {
+            width: 5PX;
+        }
+        .box-chatting{
+            background: #18273e;
+        }
         .box-chatting .nav-link{
             display: block;
             padding: 0rem  0rem
@@ -15,22 +29,22 @@
         .box-chatting .nav-item {
             width: 33%;
             text-align: center;
-            border-right: 1px solid #cecece;
+            /*border-right: 1px solid #cecece;*/
         }
         .box-chatting .nav-tabs .nav-link {
             border-radius: 0px;
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #1592fd;
-            background: #fff;
-            padding-top: 2px;
-            padding-bottom: 2px;
+            /*border-top: 1px solid #ddd;*/
+            /*border-bottom: 1px solid #1592fd;*/
+            background: #1a273a;
+            padding-top: 10px;
+            padding-bottom: 10px;
             font-size: 15px;
-            color: #919394;
+            color: #fff;
             text-align: center;
         }
         .box-chatting .nav-item.show .nav-link, .box-chatting .nav-link.active{
-            color: #495057;
-            border-color: #ddd #ddd #ededed;
+            /*+*/
+            /*border-color: #ddd #ddd #ededed;*/
         }
         .box-chatting .nav {
             display: -ms-flexbox;
@@ -42,11 +56,11 @@
             list-style: none;
         }
         .box-chatting .nav-tabs .nav-item.show .nav-link, .box-chatting .nav-tabs .nav-link.active {
-            border-top: #1592fd 1px solid;
-            border-right: #1592fd 1px solid;
-            border-left: #1592fd 1px solid !important;
+            /*border-top: #1592fd 1px solid;*/
+            /*border-right: #1592fd 1px solid;*/
+            /*border-left: #1592fd 1px solid !important;*/
             font-weight: 700;
-            background: #ededed;
+            background: #253a59;
         }
         #msgBox .msg-guide {
             background-color: #1592fd;
@@ -77,12 +91,13 @@
             height: 40px;
             line-height: 40px;
             border: none;
-            color: #949494;
+            color: #fff;
             padding: 0 5px;
-            border-bottom-left-radius: 5px;
-            border-bottom-right-radius: 5px;
+            /*border-bottom-left-radius: 5px;*/
+            /*border-bottom-right-radius: 5px;*/
             outline: none !important;
-            border-top: 1px solid #e9ecef;
+            /*border-top: 1px solid #e9ecef;*/
+            background: #3e4f69;
         }
         .box-chatting .input-chatting .input-2 {
             position: absolute;
@@ -100,18 +115,21 @@
         .box-chatting .btn-etc {
             position: relative;
             z-index: 10;
-            background: #efefef;
+            background: #2c3d57;
             border-top-left-radius: 6px;
             border-top-right-radius: 6px;
         }
         .box-chatting .btn-etc .cnt {
-            color: #4c4c4c;
+            color: #fff;
+            margin-left: 10px;
         }
         .sp-bl_pp {
             width: 25px;
             height: 25px;
-            background: url(/assets/images/powerball/sp_chat.png) -608px -139px;
+            background: url(/angel/img/icons/user_cnt.png);
             display: inline-block;
+            background-repeat: no-repeat;
+            margin-top: 8px;
         }
         .sp-btn_chat1 {
             width: 28px;
@@ -181,9 +199,10 @@
             margin: 3px 0;
         }
         #ruleBox .borderBox {
-            background-color: #F5F5F5;
+            color: #fff;
             margin: 5px;
             padding: 10px;
+            font-size: 14px;
         }
         #ruleBox .borderBox .tit {
             color: #C11A20;
@@ -192,7 +211,7 @@
         #ruleBox .borderBox ul {
             margin-top: 5px;
             margin-left: 5px;
-            font-size: 11px;
+            font-size: 13px;
             line-height: 18px;
         }
         .box-chatting .list-connect li {
@@ -203,7 +222,7 @@
             padding: 5px;
         }
         .uname {
-            color: #1592fd;
+            color: #fff;
         }
     </style>
         <script>
@@ -248,9 +267,9 @@
                     <li style="background-color: rgb(243, 243, 243);">
                         <a href="#" onclick="chatManager('refresh');return false;" title="새로고침" class="sp-btn_chat5"></a>
                     </li>
-                    <li>
-                        <a href="#" onclick="return false;" id="soundBtn" title="소리끄기" class="sp-btn_chat_sound on"></a>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a href="#" onclick="return false;" id="soundBtn" title="소리끄기" class="sp-btn_chat_sound on"></a>--}}
+{{--                    </li>--}}
                 </ul>
             </div>
             <div class="table-type-1">
@@ -280,7 +299,7 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="connectTap" role="tabpanel" aria-labelledby="profile-tab">
-                    <div id="connectListBox" style="height: 340px">
+                    <div id="connectListBox" style="height: 450px">
                         <ul class="list-connect" id="connectList">
 
                         </ul>
@@ -290,7 +309,7 @@
 
 
                 <div class="tab-pane fade" id="ruleTap" role="tabpanel" aria-labelledby="contact-tab">
-                    <div id="ruleBox" style="height: 335px; ">
+                    <div id="ruleBox" style="height: 450px; ">
                         <div class="borderBox">
                             <div class="tit">벙어리 사유</div>
                             <ul>

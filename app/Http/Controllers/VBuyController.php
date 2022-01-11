@@ -34,11 +34,12 @@ class VBuyController extends BaseController
     {
         $title_row = MTitle::where('userId',$this->user->id)->first();
         $title = empty($title_row) ? '' : $title_row['title'];
-        $popular = MPopularCharacter::with('game')->get()->toArray();
+//        $popular = MPopularCharacter::with('game')->get()->toArray();
         $role = MRole::orderBy('level',"ASC")->get()->toArray();
-        $mygame  = MMygame::where('type','buy')->where('userId',$this->user->id)->get();
+//        $mygame  = MMygame::where('type','buy')->where('userId',$this->user->id)->get();
         $highlight = $premium = $quickicon = 0;
         $gift = MGift::where('userId',$this->user->id)->get();
+        $depth__0 = MGame::where('status',1)->where('depth',0)->orderby('order','ASC')->get();
         foreach($gift as $value){
             if($value['type'] == 1)
                 $premium = $value['time'];
@@ -48,14 +49,13 @@ class VBuyController extends BaseController
                 $quickicon = $value['time'];
         }
         return view('angel.buy.main',[
-            'popular'=>$popular,
             'user'=>$this->user,
             'title'=>$title,
             'role' =>$role,
-            'mygame'=>$mygame,
             'premium'=>$premium,
             'highlight'=>$highlight,
             'quickicon'=>$quickicon,
+            'depth__0'=>$depth__0
         ]);
     }
 

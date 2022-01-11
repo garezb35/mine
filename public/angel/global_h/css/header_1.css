@@ -26,6 +26,108 @@ body{
     margin-top:-27px;
     background-position:-10px -230px;
 }
+
+table.nobordertable{
+    border: none;
+}
+
+.toobar-content{
+    background: #18273e;
+    padding-top: 15px;
+    /*padding-left: 16px;*/
+    /*padding-right: 20px;*/
+    padding-bottom: 3px;
+    color: #fff;
+}
+
+/*.tbl-myinfo td{*/
+/*    padding-top: 5px;*/
+/*    padding-bottom: 5px;*/
+/*}*/
+
+.tl__first{
+    padding-left: 16px;
+    padding-right: 20px;
+}
+
+.input-group {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    width: 100%;
+}
+
+.input-group-append, .input-group-prepend {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.input-group-prepend {
+    margin-right: -1px;
+}
+
+.input-group-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 0.75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+}
+
+.input-group>.input-group-append:last-child>.btn:not(:last-child):not(.dropdown-toggle), .input-group>.input-group-append:last-child>.input-group-text:not(:last-child), .input-group>.input-group-append:not(:last-child)>.btn, .input-group>.input-group-append:not(:last-child)>.input-group-text, .input-group>.input-group-prepend>.btn, .input-group>.input-group-prepend>.input-group-text {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    /*padding: 0.375rem 0.75rem;*/
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.input-group>.custom-file, .input-group>.custom-select, .input-group>.form-control {
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+}
+
+.input-group>.custom-select:not(:last-child), .input-group>.form-control:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.input-group>.custom-select:not(:first-child), .input-group>.form-control:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
 .qickmenu_on .arrow{
     background-position:-465px -230px;
 }
@@ -140,15 +242,19 @@ body{
     color:#767676;
 }
 
-.head_charge{
-    height: 26px;
-    display: inline-block;
-    border-bottom: 2px solid red;
-}
-.head_give{
-    height: 26px;
-    display: inline-block;
-    border-bottom: 2px solid blue;
+/*.head_charge{*/
+/*    height: 26px;*/
+/*    display: inline-block;*/
+/*    border-bottom: 2px solid red;*/
+/*}*/
+/*.head_give{*/
+/*    height: 26px;*/
+/*    display: inline-block;*/
+/*    border-bottom: 2px solid blue;*/
+/*}*/
+
+.tbl-myinfo{
+    background-color: #253a59;
 }
 .head_myroom{
     background: url(/angel/img/button/head_myroom.png) no-repeat 100%;
@@ -163,10 +269,11 @@ body{
     padding-bottom: 5px;
 }
 .toobar-content .user_name{
-    font-size: 17px;
-    color: #6D6D6D;
+    color: #6bdaff;
     margin-left: 10px;
     font-weight: 600;
+    font-size: 16px;
+    padding-top: 3px;
 }
 .toobar-content .myinfo .status dt{
     font-size:14px;
@@ -223,24 +330,27 @@ body{
 
 .toobar-content .other_link a{
     display:inline-block;
-    height:23px;
     margin-left:4px;
-    background-color:#909299;
+    background-color:#375e99;
     text-align:center;
     line-height:23px;
     margin-top: 2px;
-    background-color: initial;
     margin-left: 8px;
-    height: 30px;
-    line-height: 30px;
+    height: 25px;
+    line-height: 25px;
     font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 .toobar-content .other_link a:first-child{
     margin-left:0;
+    margin-bottom: 6px;
 }
 .toobar-content .trade_list{
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 29px;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 .toobar-content .ing_count{
     overflow:hidden;
@@ -254,7 +364,7 @@ body{
     padding:4px 0 5px;
     font-weight:700;
     text-align:center;
-    background: #ededed;
+    /*background: #ededed;*/
 
 }
 .toobar-content .ing_count .c_txt.sells{
@@ -296,23 +406,21 @@ body{
     white-space:nowrap;
     text-overflow:ellipsis;
 }
-.toobar-content .favorite{
-    margin-top:15px;
-    border:1px solid #C4C4C4;
-    border-left: none;
+.topbar-left .favorite{
+    margin-top:5px;
+    background: #18273e;
     position: relative;
 }
-.toobar-content .favorite .s_title{
+.topbar-left .favorite .s_title{
     position:relative;
-    height:30px;
-    padding-left:12px;
-    background-color:#F3F5FA;
+    height:35px;
+    padding-left:29px;
     font-size:14px;
     font-weight:bold;
-    line-height:27px;
-    color:#000;
+    line-height:35px;
+    color:#fff;
 }
-.toobar-content .s_title .setting{
+.topbar-left .s_title .setting{
     position:absolute;
     top:6px;
     right:8px;
@@ -320,18 +428,18 @@ body{
     height:15px;
     background-position:-142px -10px;
 }
-.toobar-content .my_game .btn_area{
+.topbar-left .my_game .btn_area{
     position:absolute;
     top:5px;
     right:5px;
 }
-.toobar-content .my_game .btn_area a{
+.topbar-left .my_game .btn_area a{
     padding:0 4px 2px;
     background-color:#39C4FF;
     font-size:11px;
     color:#FFF;
 }
-.toobar-content .my_game dd{
+.topbar-left .my_game dd{
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
@@ -343,14 +451,14 @@ body{
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.toobar-content .my_game dd:last-child{
+.topbar-left .my_game dd:last-child{
     border-bottom:0;
 }
-.toobar-content .my_game dd.empty{
+.topbar-left .my_game dd.empty{
     padding-top:16px;
     text-align:center;
 }
-.toobar-content .my_game dd .bedge{
+.topbar-left .my_game dd .bedge{
     position:absolute;
     top:9px;
     left:0;
@@ -358,10 +466,10 @@ body{
     width:35px;
     height:13px;
 }
-.toobar-content .my_game dd .bedge.sell{
+.topbar-left .my_game dd .bedge.sell{
     background-position:-487px -230px;
 }
-.toobar-content .my_game dd .bedge.buy{
+.topbar-left .my_game dd .bedge.buy{
     background-position:-487px -245px;
 }
 .toobar-content .bt_bn_area{
@@ -451,9 +559,10 @@ body{
 .siteHeader .top_bg{
     clear:both;
     height:30px;
-    background-color:#333333;
+    background-color: #fff;
     text-align:center;
     line-height:30px;
+    /*height: initial !important;*/
 }
 .siteHeader .js-nav-menu{
     width:1080px;
@@ -539,7 +648,7 @@ body{
 .siteHeader .nav_wrap{
     position:relative;
     height:45px;
-    background-color:#161616;
+    /*background-color:#161616;*/
     color:#FFF;
 }
 .nav_wrap .content_center{
@@ -683,16 +792,41 @@ body{
     background-position:center 30px;
     background-size:2560px auto;
 }
+.fixed__banner{
+    position: fixed;
+    top: 30px;
+    width: 100%;
+    min-height: 450px;
+    background: url(/angel/img/header/banner.png)
+}
+
+.header__banner{
+    /*background: url(/angel/img/header/banner.png);*/
+    /*height: 450px;*/
+    /*background-size: 100% auto;*/
+}
+.header__banner.roll{
+    background: rgba(0,0,0,0.8);
+}
 .header-brand-logo{
     position:relative;
     width:1080px;
-    min-height:140px;
+    min-height:81px;
     margin:0 auto;
 }
 .header-brand-logo .logo a{
     display:block;
     width:221px;
     height:140px;
+}
+
+.border-half {
+    position: absolute;
+    height: 40%;
+    top: 30%;
+    background-color: #fff;
+    width: 1px;
+    right: 0;
 }
 .nav_wrap_df .header-brand-logo .logo a{
     height:auto;
@@ -706,7 +840,7 @@ body{
     position:absolute;
     top:36px;
     left:306px;
-    width:379px;
+    width:505px;
 }
 
 .moduler_footer{
@@ -1013,13 +1147,12 @@ body{
 
 .topbar-left{
     position: absolute;
-    top: 184px;
+    /*top: 184px;*/
     width: 314px;
-    box-shadow: 0px 0px 3px 2px rgb(0 0 0 / 10%);
-    padding-top: 13px;
-    background: #ededed;
+    /*box-shadow: 0px 0px 3px 2px rgb(0 0 0 / 10%);*/
+    /*padding-top: 13px;*/
+    /*background: #ededed;*/
     z-index: 100;
-    border-radius: 6px;
 }
 
 /*.top_full{*/
@@ -1028,8 +1161,8 @@ body{
 
 .showing_fav {
     position: absolute;
-    top: 6px;
-    right: 10px;
+    top: 8px;
+    right: 24px;
     border-radius: 50%;
     border: 1px solid;
     width: 19px;
@@ -1037,6 +1170,7 @@ body{
     text-align: center;
     line-height: 19px;
     cursor: pointer;
+    color: #fff;
 }
 
 .box-menus i.fa {
@@ -1253,9 +1387,9 @@ width: 112px;
     display: none;
 }
 
-.heads-div{
-    background: #02c6bc;
-}
+/*.heads-div{*/
+/*    background: #02c6bc;*/
+/*}*/
 
 
 
@@ -1282,17 +1416,17 @@ width: 112px;
 
 
 .dropdown {
-    background-color: #f8a80d;
+    /*background-color: #f8a80d;*/
     overflow: hidden;
     border-right: none;
 }
 .dropdown a {
     color: #FFF;
     width: 100%;
-    height: 50px;
+    height: 45px;
     padding-left: 0px;
-    line-height: 50px;
-    font-size: 19px;
+    line-height: 45px;
+    font-size: 16px;
     font-family: 'Futura LT Book';
 }
 
@@ -1306,7 +1440,7 @@ width: 112px;
 
 .top-leftli {
     position: absolute;
-    top: -5px;
+    top: 0px;
     width: 137px;
     float: left;
 }
@@ -1322,6 +1456,7 @@ width: 112px;
     overflow: hidden;
     border: 3px solid #f8a80d;
     padding: 20px 10px 20px 10px;
+    z-index: 1000;
 }
 
 .drop-menu-left {
@@ -1366,7 +1501,7 @@ width: 112px;
 
 .headernav-with ul li {
     float: left;
-    border-right: 1px solid #333;
+    /*border-right: 1px solid #333;*/
 }
 
 .headernav-with ul li a {
@@ -1390,4 +1525,7 @@ width: 112px;
     border-radius: 4px;
 }
 
-
+.input-group-text.cus-gray{
+    background-color: #1a273a;
+    border-color: #0f1722 !important;
+}

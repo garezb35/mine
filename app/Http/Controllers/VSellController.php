@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MGame;
 use App\Models\MGift;
 use App\Models\MItem;
 use App\Models\MMygame;
@@ -27,10 +28,9 @@ class VSellController extends BaseController
     {
         $title_row = MTitle::where('userId',$this->user->id)->first();
         $title = empty($title_row) ? '' : $title_row['title'];
-        $popular = MPopularCharacter::with('game')->get()->toArray();
-        $mygame  = MMygame::where('type','buy')->where('userId',$this->user->id)->get();
         $highlight = $premium = $quickicon = 0;
         $gift = MGift::where('userId',$this->user->id)->get();
+        $depth__0 = MGame::where('status',1)->where('depth',0)->orderby('order','ASC')->get();
         foreach($gift as $value){
             if($value['type'] == 1)
                 $premium = $value['time'];
@@ -40,14 +40,12 @@ class VSellController extends BaseController
                 $quickicon = $value['time'];
         }
         return view('angel.sell.main',[
-            'popular'=>$popular,
             'user'=>$this->user,
             'title'=>$title,
-            'mygame'=>$mygame,
             'premium'=>$premium,
             'highlight'=>$highlight,
             'quickicon'=>$quickicon,
-
+            'depth__0' => $depth__0
         ]);
     }
 

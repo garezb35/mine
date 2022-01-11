@@ -37,6 +37,21 @@
         angel_premiun_items.premium = {{$premium}};
         angel_premiun_items.highlight = {{$highlight}} / 12;
         angel_premiun_items.quickIcon = {{$quickicon}};
+
+        $("#game_combo").select2({
+            dropdownAutoWidth: true,
+            placeholder: '게임명'
+        })
+        $("#server_combo").select2({
+            placeholder: '서버명',
+            dropdownAutoWidth: true,
+            width: '150px'
+        })
+        $("#pro_combo").select2({
+            placeholder: '아이템명',
+            dropdownAutoWidth: true,
+            width: '150px'
+        })
     </script>
 
 @endsection
@@ -92,34 +107,46 @@
                     <tr>
                         <th>게임선택</th>
                         <td>
+                            <select id="game_combo" class="sel2">
+                                <option></option>
+                                @foreach($depth__0 as $d)
+                                <option value="{{$d['id']}}">{{$d['game']}}</option>
+                                @endforeach
+                            </select>
+                            <select id="server_combo" class="sel2">
+                                <option></option>
+                            </select>
+                            <select id="pro_combo" class="sel2">
+                                <option></option>
+                            </select>
                             <div class="top_game_searchbar">
-                                <div class="search_wrap">
-                                    <div class="input_area">
-                                        <input type="text" class="angel__text search_gs_name" id="searchRegGameServer" placeholder="게임명 또는 서버명을 입력해주세요." autocomplete="off" data-gameserver="true">
-                                    </div>
-                                    <i class="fa fa-star favorite_icon" onclick="bookmarkAdd()"></i>
-                                    <button type="button" class="search__submit text-center" title="검색">
-                                        <i class="fa fa-search" style="color: #fff;font-size: 16px;"></i>
-                                    </button>
-                                </div>
+{{--                                <div class="search_wrap">--}}
+{{--                                    <div class="input_area">--}}
+{{--                                        <input type="text" class="angel__text search_gs_name" id="searchRegGameServer" placeholder="게임명 또는 서버명을 입력해주세요." autocomplete="off" data-gameserver="true">--}}
+{{--                                    </div>--}}
+{{--                                    <i class="fa fa-star favorite_icon" onclick="bookmarkAdd()"></i>--}}
+{{--                                    <button type="button" class="search__submit text-center" title="검색">--}}
+{{--                                        <i class="fa fa-search" style="color: #fff;font-size: 16px;"></i>--}}
+{{--                                    </button>--}}
+{{--                                </div>--}}
                                 <div class="gameWindowPopup d-none reg_gameserver" id="reg_gameserver">
-                                    <div class="_34Cr45d_reacts">
-                                        <div class="tab searchbar_tab">
-                                            <div class="active">
-                                                <a href="javascript:;" data-target="tab_lastsearch">최근검색게임</a>
-                                            </div>
-                                            <div>
-                                                <a href="javascript:;" data-target="tab_mygame">나만의 게임</a>
-                                            </div>
-                                        </div>
-                                        <div class="tab_content">
-                                            <div class="tab_child show" data-content="tab_lastsearch">
-                                                <ul class="recent_viewd_games"></ul>
-                                            </div>
-                                            <div class="tab_child" data-content="tab_mygame">
-                                                <ul class="mysearch_filters"></ul>
-                                            </div>
-                                        </div>
+{{--                                    <div class="_34Cr45d_reacts">--}}
+{{--                                        <div class="tab searchbar_tab">--}}
+{{--                                            <div class="active">--}}
+{{--                                                <a href="javascript:;" data-target="tab_lastsearch">최근검색게임</a>--}}
+{{--                                            </div>--}}
+{{--                                            <div>--}}
+{{--                                                <a href="javascript:;" data-target="tab_mygame">나만의 게임</a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="tab_content">--}}
+{{--                                            <div class="tab_child show" data-content="tab_lastsearch">--}}
+{{--                                                <ul class="recent_viewd_games"></ul>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="tab_child" data-content="tab_mygame">--}}
+{{--                                                <ul class="mysearch_filters"></ul>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 {{--                                        <div class="tradecan_top" data-popular="true">--}}
 {{--                                            <div class="tradecan_h89eC">거래가능게임</div>--}}
 {{--                                            <ul class="top__gamelist">--}}
@@ -132,58 +159,58 @@
 {{--                                                @endif--}}
 {{--                                            </ul>--}}
 {{--                                        </div>--}}
-                                    </div>
-                                    <div class="angel__menugames d-none" data-gslist="true" id="reg_gameserver_list"></div>
+{{--                                    </div>--}}
+{{--                                    <div class="angel__menugames d-none" data-gslist="true" id="reg_gameserver_list"></div>--}}
                                 </div>
                             </div>
-                            <div class="mygame">
-                                <div class="th">
-                                    나만의 검색메뉴
-                                    <div class="mailbox__list blue" id="lastList" style="margin-top: 10px;">
-                                        <div class="title">
-                                            최근 등록한 물품
-                                            <a href="javascript:;" class="close"></a>
-                                        </div>
-                                        <div class="cont">
-                                            <table class="table-primary tb_list">
-                                                <colgroup>
-                                                    <col width="100" />
-                                                    <col width="130" />
-                                                    <col />
-                                                    <col width="120" />
-                                                    <col width="80" />
-                                                </colgroup>
-                                                <thead>
-                                                <tr>
-                                                    <th>등록일시</th>
-                                                    <th>게임 & 서버</th>
-                                                    <th>제목 & 수량</th>
-                                                    <th>판매금액</th>
-                                                    <th>200%보상</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody id="lastListTbody"></tbody>
-                                            </table>
-                                            <ul class="text-rock sub_txt">
-                                                <li>※ 최근 등록 물품은 7일 이내 등록했던 물품 중 최대 5개 까지 불러오기가 가능합니다. (흥정물품은 제외)</li>
-                                                <li>※ 해당 표시된 정보로 등록정보를 불러오니, 등록정보 변동 시 체크 수정하시기 바랍니다.</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mygame_list">
-                                    <ul id="mygame_info">
-                                        @if(empty($mygame) || sizeof($mygame) == 0)
-                                            <li class="empty">게임서버 검색 후 우측 ★표를 클릭하시면 해당물품이 나만의검색메뉴로 등록됩니다.</li>
-                                        @else
-                                            @foreach($mygame as $v)
-                                                <li id="mygame_{{$v['id']}}"><a href="javascript:fnSearchSelect('{{$v['game']}}','{{$v['game_text']}}','{{$v['server']}}','{{$v['server_text']}}','{{$v['goods']}}')">{{$v['game_text']}} &gt; {{$v['server_text']}} &gt; @if($v['goods'] == 3) 게임머니 @endif @if($v['goods'] == 1) 아이템 @endif @if($v['goods'] == 4) 기타 @endif @if($v['goods'] == 6) 캐릭터 @endif</a><span class="del_btn" onclick="fnSearchDel('{{$v['id']}}')"></span></li>
-                                            @endforeach
-                                        @endif
+{{--                            <div class="mygame">--}}
+{{--                                <div class="th">--}}
+{{--                                    나만의 검색메뉴--}}
+{{--                                    <div class="mailbox__list blue" id="lastList" style="margin-top: 10px;">--}}
+{{--                                        <div class="title">--}}
+{{--                                            최근 등록한 물품--}}
+{{--                                            <a href="javascript:;" class="close"></a>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="cont">--}}
+{{--                                            <table class="table-primary tb_list">--}}
+{{--                                                <colgroup>--}}
+{{--                                                    <col width="100" />--}}
+{{--                                                    <col width="130" />--}}
+{{--                                                    <col />--}}
+{{--                                                    <col width="120" />--}}
+{{--                                                    <col width="80" />--}}
+{{--                                                </colgroup>--}}
+{{--                                                <thead>--}}
+{{--                                                <tr>--}}
+{{--                                                    <th>등록일시</th>--}}
+{{--                                                    <th>게임 & 서버</th>--}}
+{{--                                                    <th>제목 & 수량</th>--}}
+{{--                                                    <th>판매금액</th>--}}
+{{--                                                    <th>200%보상</th>--}}
+{{--                                                </tr>--}}
+{{--                                                </thead>--}}
+{{--                                                <tbody id="lastListTbody"></tbody>--}}
+{{--                                            </table>--}}
+{{--                                            <ul class="text-rock sub_txt">--}}
+{{--                                                <li>※ 최근 등록 물품은 7일 이내 등록했던 물품 중 최대 5개 까지 불러오기가 가능합니다. (흥정물품은 제외)</li>--}}
+{{--                                                <li>※ 해당 표시된 정보로 등록정보를 불러오니, 등록정보 변동 시 체크 수정하시기 바랍니다.</li>--}}
+{{--                                            </ul>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="mygame_list">--}}
+{{--                                    <ul id="mygame_info">--}}
+{{--                                        @if(empty($mygame) || sizeof($mygame) == 0)--}}
+{{--                                            <li class="empty">게임서버 검색 후 우측 ★표를 클릭하시면 해당물품이 나만의검색메뉴로 등록됩니다.</li>--}}
+{{--                                        @else--}}
+{{--                                            @foreach($mygame as $v)--}}
+{{--                                                <li id="mygame_{{$v['id']}}"><a href="javascript:fnSearchSelect('{{$v['game']}}','{{$v['game_text']}}','{{$v['server']}}','{{$v['server_text']}}','{{$v['goods']}}')">{{$v['game_text']}} &gt; {{$v['server_text']}} &gt; @if($v['goods'] == 3) 게임머니 @endif @if($v['goods'] == 1) 아이템 @endif @if($v['goods'] == 4) 기타 @endif @if($v['goods'] == 6) 캐릭터 @endif</a><span class="del_btn" onclick="fnSearchDel('{{$v['id']}}')"></span></li>--}}
+{{--                                            @endforeach--}}
+{{--                                        @endif--}}
 
-                                    </ul>
-                                </div>
-                            </div>
+{{--                                    </ul>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                         </td>
                     </tr>
                     <tr>

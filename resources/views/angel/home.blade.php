@@ -188,107 +188,71 @@
             padding: 8px 20px 8px !important;
         }
     </style>
-    <div class="top_full">
-        <div class="top_area">
-            <div class="carousel_module" data-code="TR0001">
-                <div class="banner_in center_banner" id="center_banner">
-                    <div class="banner_item" data-idx="0">
-                        <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>
-                    </div>
-                    <div class="banner_item" data-idx="1">
-                        <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>                    </div>
-                    <div class="banner_item" data-idx="2">
-                        <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>                    </div>
-                    <div class="banner_item" data-idx="3">
-                        <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>                    </div>
-                </div>
-                <div class='banner_indicate indicate'></div>
-            </div>
-            <script>
-                var selector = document.querySelector(".carousel_module")
-                new Carousel(selector, {
-                    "showNavi": false,
-                    "showIndicate": true,
-                    "delay": 3000,
-                    "random": true
-                });
-            </script>
-            <div class="service_wrap">
-                <div class="service_set">
-                    {{--                        <a href="javascript:;" id="enableSettings"><i class="fa fa-cog setting f-18 text-white"></i></a>--}}
-                    <ul>
-                        {{--                            @foreach($list as $v)--}}
-                        {{--                                <a href="{{getmyService()[$v['id']]['href']}}" target="_self">--}}
-                        {{--                                    <li>--}}
-                        {{--                                        <img style="margin-top:10px" src="{{getmyService()[$v['id']]['img']}}" height="{{getmyService()[$v['id']]['height']}}" width="17">--}}
-                        {{--                                        <div class="f-16">{{getmyService()[$v['id']]['alias']}}</div>--}}
-                        {{--                                    </li>--}}
-                        {{--                                </a>--}}
-                        {{--                            @endforeach--}}
-                    </ul>
-                </div>
-                <div class="bg_opacity"></div>
-            </div>
 
-        </div>
-    </div>
     <div class="content_center" id="home__content">
         <div class="sec_left realtime_status">
-            <div class="neworder-box clearfix">
-                <p class="key">
-                    최근거래
-                </p>
-                <div class="list-box">
-                    <ul class="clearfix" style="top: 0px;" id="list-box_illl">
-                        @foreach($completed_orders as $compled)
-                            <li>
-                                <a class="link"><span class="game con red">[{{$compled['type'] == 'sell' ? '팝니다':'삽니다'}}]</span>
-                                    <span class="detail con">[ {{$compled['game']['game']}} > {{$compled['server']['game']}} > {{$compled['good_type']}} ] {{$compled['user_title']}}</span>
-                                    <span class="price con">거래가격：<span class="red">{{number_format($compled['payitem']['price'])}}원</span></span>
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-            <div class="module-gamelist" id="gameList">
-                <div class="inner-border border-right">
-                    <div class="inner-border">
-                        <div class="gold-with">
-                            <div class="goldtop">
-                                <div class="goldtoplf"><img src="/angel/img/icons/midico04.png">인기게임</div>
-                                <div class="goldtoprg"></div>
+            <div class="top_full">
+                <div class="top_area">
+                    <div class="carousel_module" data-code="TR0001">
+                        <div class="banner_in center_banner" id="center_banner">
+                            <div class="banner_item" data-idx="0">
+                                <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>
                             </div>
-                            <div class="goldmid">
-                                @foreach($games_home as $key=>$gg)
-                                    @php
-                                    if($key == 8) break;
-                                    @endphp
-                                    <div class="hotgame-li" style="text-align: center">
-                                        <ul>
-                                            <li class="hotgame-liimg" style="text-align: center"><a href="javascript:;" onclick="enterSearchList({{$gg['id']}},'{{$gg['game']}}')"><img src="{{$gg['icon']}}" alt="{{$gg['game']}}" title="{{$gg['game']}}"></a></li>
-                                            <a href="javascript:;" onclick="enterSearchList({{$gg['id']}},'{{$gg['game']}}')" class="hotgame-x"><li class="hotgame-keysbt">{{$gg['game']}}</li><img src="/angel/img/icons/index_08.jpg"></a>
-                                        </ul>
-                                    </div>
-                                @endforeach
-                            </div>
+                            <div class="banner_item" data-idx="1">
+                                <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>                    </div>
+                            <div class="banner_item" data-idx="2">
+                                <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>                    </div>
+                            <div class="banner_item" data-idx="3">
+                                <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>                    </div>
                         </div>
-{{--                        <div class="gamelist-wrap">--}}
-{{--                            <ul class="gamelist-ul clearfix hotgame-hotspell">--}}
-{{--                                @foreach($games_home as $gg)--}}
-{{--                                    <li data-code="{{$gg['id']}}" data-gamename="{{$gg['game']}}" class="goods_more_btn">--}}
-{{--                                        <a class="link-all" href="javascript:;" target="_self">--}}
-{{--                                            <img class="lazyload" src="{{$gg['icon']}}"  alt="{{$gg['game']}}" style="display: block;">--}}
-{{--                                            <p class="name">{{$gg['game']}}</p>--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-{{--                                @endforeach--}}
-
-{{--                            </ul>--}}
-{{--                        </div>--}}
+                        <div class='banner_indicate indicate'></div>
                     </div>
+                    <script>
+                        var selector = document.querySelector(".carousel_module")
+                        new Carousel(selector, {
+                            "showNavi": false,
+                            "showIndicate": true,
+                            "delay": 3000,
+                            "random": true
+                        });
+                    </script>
+                    <div class="service_wrap">
+                        <div class="service_set">
+                            {{--                        <a href="javascript:;" id="enableSettings"><i class="fa fa-cog setting f-18 text-white"></i></a>--}}
+                            <ul>
+                                {{--                            @foreach($list as $v)--}}
+                                {{--                                <a href="{{getmyService()[$v['id']]['href']}}" target="_self">--}}
+                                {{--                                    <li>--}}
+                                {{--                                        <img style="margin-top:10px" src="{{getmyService()[$v['id']]['img']}}" height="{{getmyService()[$v['id']]['height']}}" width="17">--}}
+                                {{--                                        <div class="f-16">{{getmyService()[$v['id']]['alias']}}</div>--}}
+                                {{--                                    </li>--}}
+                                {{--                                </a>--}}
+                                {{--                            @endforeach--}}
+                            </ul>
+                        </div>
+                        <div class="bg_opacity"></div>
+                    </div>
+
                 </div>
             </div>
+{{--            <div class="neworder-box clearfix">--}}
+{{--                <p class="key">--}}
+{{--                    최근거래--}}
+{{--                </p>--}}
+{{--                <div class="list-box">--}}
+{{--                    <ul class="clearfix" style="top: 0px;" id="list-box_illl">--}}
+{{--                        @foreach($completed_orders as $compled)--}}
+{{--                            <li>--}}
+{{--                                <a class="link"><span class="game con red">[{{$compled['type'] == 'sell' ? '팝니다':'삽니다'}}]</span>--}}
+{{--                                    <span class="detail con">[ {{$compled['game']['game']}} > {{$compled['server']['game']}} > {{$compled['good_type']}} ] {{$compled['user_title']}}</span>--}}
+{{--                                    <span class="price con">거래가격：<span class="red">{{number_format($compled['payitem']['price'])}}원</span></span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
 {{--            <div class="title">게임별 시세정보--}}
 {{--            </div>--}}
 {{--            <div id="gameChart" class="border-normal"></div>--}}
@@ -378,119 +342,50 @@
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--            </div>--}}
-            <div style="display:flex">
-                <div class="w-50 no-border back-normal " style="margin-right: 10px;height: 188px;padding-top: 33px">
-                    <div class="title no-border">
-                        전화 상담안내
-                    </div>
-                    <div class="d-flex w-100 inquery_part">
-                        <img src="/assets/img/icons/inquery_time.png" height="91" width="97" />
-                        <div class="bottom_info">
-                            <span class="call_num">1532-9945</span>
-                            <span class="call_txt">365일 24시간 연중무휴</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-50  no-border back-normal" style="    height: 125px;
-    text-align: right;
-    margin-right: 11px;
-    padding-top: 51px;">
-                    <a href="/customer/report"><img src="/assets/img/button/btn_using_inquery.png" width="160px"></a>
-                    <a href="/customer"><img src="/assets/img/button/btn_24_time.png" width="160px"></a>
-                </div>
-            </div>
-            <div class="angel__menugames d-none" data-gslist="true"></div>
+{{--            <div style="display:flex">--}}
+{{--                <div class="w-50 no-border back-normal " style="margin-right: 10px;height: 188px;padding-top: 33px">--}}
+{{--                    <div class="title no-border">--}}
+{{--                        전화 상담안내--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex w-100 inquery_part">--}}
+{{--                        <img src="/assets/img/icons/inquery_time.png" height="91" width="97" />--}}
+{{--                        <div class="bottom_info">--}}
+{{--                            <span class="call_num">1532-9945</span>--}}
+{{--                            <span class="call_txt">365일 24시간 연중무휴</span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="w-50  no-border back-normal" style="    height: 125px;--}}
+{{--    text-align: right;--}}
+{{--    margin-right: 11px;--}}
+{{--    padding-top: 51px;">--}}
+{{--                    <a href="/customer/report"><img src="/assets/img/button/btn_using_inquery.png" width="160px"></a>--}}
+{{--                    <a href="/customer"><img src="/assets/img/button/btn_24_time.png" width="160px"></a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="angel__menugames d-none" data-gslist="true"></div>--}}
         </div>
         <div class="sec_right">
-            <div class="box3 gamenews" style="height: 144px">
+            <div class="box3 gamenews">
                 <div class="title f-18 f-normal"> 공지사항 </div>
-                <ul class="g_list news_list f-14">
-                    @foreach($notices as $v)
-                        <li>
-                            <a href="/news/view?seq={{$v['id']}}">
-                                {{$v['title']}}<span class="comp">{{date("Y-m-d H:i:s",strtotime($v['created_at']))}}</span>
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-            <div class="title"> 게임순위 </div>
-            <div class="border-normal d-flex">
-                <ul class="rank_list">
-                    @for($i  = 0; $i< 5; $i++)
-                        @if(empty($game_list[$i]))
-                            @php
-                                continue;
-                            @endphp
-                        @endif
-                        <li @if($i < 3)class="top"@endif> <span class="num">{{$game_list[$i]['id']}}</span>
-                            <span class="game_name">{{$game_list[$i]['game']}}</span>
-                            <span class="ranks_orders {{$game_list[$i]['type']}}"></span>
-                        </li>
-                    @endfor
-                </ul>
-                <ul class="rank_list">
-                    @for($i  = 5; $i< 10; $i++)
-                        @if(empty($game_list[$i]))
-                            @php
-                                continue;
-                            @endphp
-                        @endif
-                        <li @if($i < 3)class="top"@endif> <span class="num">{{$game_list[$i]['id']}}</span>
-                            <span class="game_name">{{$game_list[$i]['game']}}</span> <span class="ranks_orders {{$game_list[$i]['type']}}"></span>
-                        </li>
-                    @endfor
-                </ul>
-            </div>
-            <div id="charge_main">
-                <form id="ini" name="ini" action="" method="post">
-                    <input type="hidden" name="commission" id="commission" value="0" />
-                    <input type="hidden" name="charge_rate" id="charge_rate" value="2" />
-                    <input type="hidden" name="ITEM_OID" value="" />
-                    <input type="hidden" name="price" id="price" />
-                    <div id="" class="highlight_contextual_nodemon">충전금액 선택</div>
-                    <div class="f-bold" style="background: #e4eef0; padding: 24px;">
-                        <div class="d-flex m-auto">
-                            <div class="align-center" style="width: 33.33%">
-                                <input type="radio" name="selectPrice" id="selectPrice10000" value="10000" class="g_radio" onclick="selectedPrice(this.value);" />
-                                <label for="selectPrice10000">10,000 원</label>
-                            </div>
-                            <div class="align-center" style="width: 33.33%">
-                                <input type="radio" name="selectPrice" id="selectPrice20000" value="20000" class="g_radio" onclick="selectedPrice(this.value);" />
-                                <label for="selectPrice20000">20,000 원</label>
-                            </div>
-                            <div class="align-center" style="width: 33.33%">
-                                <input type="radio" name="selectPrice" id="selectPrice30000" value="30000" class="g_radio" onclick="selectedPrice(this.value);" />
-                                <label for="selectPrice30000">30,000 원</label>
-                            </div>
-                        </div>
-                        <div class="d-flex m-auto" style=" margin-top: 10px; margin-bottom: 10px;">
-                            <div class="align-center" style="width: 33.33%">
-                                <input type="radio" name="selectPrice" id="selectPrice100000" value="100000" class="g_radio" onclick="selectedPrice(this.value);" />
-                                <label for="selectPrice100000">100,000 원</label>
-                            </div>
-                            <div class="align-center" style="width: 33.33%">
-                                <input type="radio" name="selectPrice" id="selectPrice300000" value="300000" class="g_radio" onclick="selectedPrice(this.value);" />
-                                <label for="selectPrice300000">300,000 원</label>
-                            </div>
-                            <div class="align-center" style="width: 33.33%">
-                                <input type="radio" name="selectPrice" id="selectPrice500000" value="500000" class="g_radio" onclick="selectedPrice(this.value);" />
-                                <label for="selectPrice500000">500,000 원</label>
-                            </div>
-                        </div>
-                        <hr style="width: 60%;">
-                        <div class="m-auto align-center" style="width: 60%;">
-                            <input type="radio" name="selectPrice" id="priceD" value="0" class="g_radio" onclick="selectedPrice(this.value)" />
-                            <input type="text" name="price_custom" id="price_custom" maxlength="6" class="angel__text" onclick="selectedPrice(0)" onblur="fnCustomOut()" onkeyup="onlynum(this.value);selectedPrice(this.value)" maxlength="5" />원
-                        </div>
-                    </div>
+                <div>
+                    @if(!empty($notices))
+                    <p @class('notice__title')>{{$notices[0]['title']}}</p>
+                    <div @class('notice__content')>{!! $notices[0]['content'] !!}</div>
+                    @endif
+                </div>
+{{--                <ul class="g_list news_list f-14">--}}
 
-                    <div class="empty-high"></div>
-                    <div class="m_button" style="text-align: center">
-                        <a href="javascript:void(0)" class="mileage_charge btn-color-img btn-blue-img" style="" >충전하기</a>
-                    </div>
-                </form>
+{{--                    @foreach($notices as $v)--}}
+{{--                        <li>--}}
+{{--                            <a href="/news/view?seq={{$v['id']}}">--}}
+{{--                                {{$v['title']}}<span class="comp">{{date("Y-m-d H:i:s",strtotime($v['created_at']))}}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    @endforeach--}}
+{{--                </ul>--}}
             </div>
+
 
 {{--            <div class="charge_wrap fixed-height" id="bacnked_list_3e9RT">--}}
 {{--                <ul class="bacnked_list_3e9RT">--}}
@@ -503,7 +398,127 @@
 {{--            </div>--}}
 
         </div>
+        <div class="module-gamelist" id="gameList">
+            <div class="inner-border border-right">
+                <div class="inner-border">
+                    <div class="gold-with">
+                        <div class="goldtop">
+                            <div class="goldtoplf">인기게임</div>
+                            <div @class('border-bottom')></div>
+                            {{--                                <div class="goldtoprg"></div>--}}
+                        </div>
+                        <div class="goldmid">
+                            @foreach($games_home as $key=>$gg)
+                                @php
+                                    if($key == 8) break;
+                                @endphp
+                                <div class="hotgame-li" style="text-align: center">
+                                    <ul>
+                                        <li class="hotgame-liimg" style="text-align: center"><a href="javascript:;" onclick="enterSearchList({{$gg['id']}},'{{$gg['game']}}')"><img src="{{$gg['icon']}}" alt="{{$gg['game']}}" title="{{$gg['game']}}"></a></li>
+                                        <a href="javascript:;" onclick="enterSearchList({{$gg['id']}},'{{$gg['game']}}')" class="hotgame-x"><li class="hotgame-keysbt">{{$gg['game']}}</li></a>
+                                    </ul>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    {{--                        <div class="gamelist-wrap">--}}
+                    {{--                            <ul class="gamelist-ul clearfix hotgame-hotspell">--}}
+                    {{--                                @foreach($games_home as $gg)--}}
+                    {{--                                    <li data-code="{{$gg['id']}}" data-gamename="{{$gg['game']}}" class="goods_more_btn">--}}
+                    {{--                                        <a class="link-all" href="javascript:;" target="_self">--}}
+                    {{--                                            <img class="lazyload" src="{{$gg['icon']}}"  alt="{{$gg['game']}}" style="display: block;">--}}
+                    {{--                                            <p class="name">{{$gg['game']}}</p>--}}
+                    {{--                                        </a>--}}
+                    {{--                                    </li>--}}
+                    {{--                                @endforeach--}}
 
+                    {{--                            </ul>--}}
+                    {{--                        </div>--}}
+                </div>
+            </div>
+        </div>
         <div class="empty-high"></div>
     </div>
 @endsection
+
+
+
+<!--
+<div class="title"> 게임순위 </div>
+            <div class="border-normal d-flex">
+                <ul class="rank_list">
+                    @for($i  = 0; $i< 5; $i++)
+    @if(empty($game_list[$i]))
+        @php
+            continue;
+        @endphp
+    @endif
+        <li @if($i < 3)class="top"@endif> <span class="num">{{$game_list[$i]['id']}}</span>
+                            <span class="game_name">{{$game_list[$i]['game']}}</span>
+                            <span class="ranks_orders {{$game_list[$i]['type']}}"></span>
+                        </li>
+                    @endfor
+    </ul>
+    <ul class="rank_list">
+@for($i  = 5; $i< 10; $i++)
+    @if(empty($game_list[$i]))
+        @php
+            continue;
+        @endphp
+    @endif
+        <li @if($i < 3)class="top"@endif> <span class="num">{{$game_list[$i]['id']}}</span>
+                            <span class="game_name">{{$game_list[$i]['game']}}</span> <span class="ranks_orders {{$game_list[$i]['type']}}"></span>
+                        </li>
+                    @endfor
+    </ul>
+</div>
+<div id="charge_main">
+    <form id="ini" name="ini" action="" method="post">
+        <input type="hidden" name="commission" id="commission" value="0" />
+        <input type="hidden" name="charge_rate" id="charge_rate" value="2" />
+        <input type="hidden" name="ITEM_OID" value="" />
+        <input type="hidden" name="price" id="price" />
+        <div id="" class="highlight_contextual_nodemon">충전금액 선택</div>
+        <div class="f-bold" style="background: #e4eef0; padding: 24px;">
+            <div class="d-flex m-auto">
+                <div class="align-center" style="width: 33.33%">
+                    <input type="radio" name="selectPrice" id="selectPrice10000" value="10000" class="g_radio" onclick="selectedPrice(this.value);" />
+                    <label for="selectPrice10000">10,000 원</label>
+                </div>
+                <div class="align-center" style="width: 33.33%">
+                    <input type="radio" name="selectPrice" id="selectPrice20000" value="20000" class="g_radio" onclick="selectedPrice(this.value);" />
+                    <label for="selectPrice20000">20,000 원</label>
+                </div>
+                <div class="align-center" style="width: 33.33%">
+                    <input type="radio" name="selectPrice" id="selectPrice30000" value="30000" class="g_radio" onclick="selectedPrice(this.value);" />
+                    <label for="selectPrice30000">30,000 원</label>
+                </div>
+            </div>
+            <div class="d-flex m-auto" style=" margin-top: 10px; margin-bottom: 10px;">
+                <div class="align-center" style="width: 33.33%">
+                    <input type="radio" name="selectPrice" id="selectPrice100000" value="100000" class="g_radio" onclick="selectedPrice(this.value);" />
+                    <label for="selectPrice100000">100,000 원</label>
+                </div>
+                <div class="align-center" style="width: 33.33%">
+                    <input type="radio" name="selectPrice" id="selectPrice300000" value="300000" class="g_radio" onclick="selectedPrice(this.value);" />
+                    <label for="selectPrice300000">300,000 원</label>
+                </div>
+                <div class="align-center" style="width: 33.33%">
+                    <input type="radio" name="selectPrice" id="selectPrice500000" value="500000" class="g_radio" onclick="selectedPrice(this.value);" />
+                    <label for="selectPrice500000">500,000 원</label>
+                </div>
+            </div>
+            <hr style="width: 60%;">
+            <div class="m-auto align-center" style="width: 60%;">
+                <input type="radio" name="selectPrice" id="priceD" value="0" class="g_radio" onclick="selectedPrice(this.value)" />
+                <input type="text" name="price_custom" id="price_custom" maxlength="6" class="angel__text" onclick="selectedPrice(0)" onblur="fnCustomOut()" onkeyup="onlynum(this.value);selectedPrice(this.value)" maxlength="5" />원
+            </div>
+        </div>
+
+        <div class="empty-high"></div>
+        <div class="m_button" style="text-align: center">
+            <a href="javascript:void(0)" class="mileage_charge btn-color-img btn-blue-img" style="" >충전하기</a>
+        </div>
+    </form>
+</div>
+-->

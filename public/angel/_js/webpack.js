@@ -432,6 +432,7 @@
                         y.target.removeAttribute("data-img");
                         y.target.removeAttribute("data-seq")
                     }
+
                     var C = y.target.nextElementSibling;
                     var v = C.getElementsByClassName("tmp_file_info")[0];
                     var z = C.getElementsByClassName("tmp_file_ext")[0];
@@ -459,6 +460,8 @@
                                 o.classList.remove("active");
                                 return
                             }
+                            y.target.parentElement.getElementsByClassName('tmp_file')[0].style.background = "url('"+URL.createObjectURL(x)+"')";
+                            y.target.parentElement.getElementsByClassName('tmp_file')[0].style.backgroundSize = "100% 100%";
                         }
                     }
                     v.innerHTML = u;

@@ -9,7 +9,6 @@
         <meta name="description" content="">
         <link rel="stylesheet" href="/angel_mobile/main/css/component.css" />
         <link rel="stylesheet" href="/angel_mobile/main/css/init.css" />
-
         <script src="/angel_mobile/main/js/jquery.min.js"></script>
         <script src="/angel_mobile/main/js/ut__webpack.js"></script>
         <script src="/angel_mobile/main/js/hjts_ss.js"></script>
@@ -18,6 +17,7 @@
         <script src="/angel_mobile/main/js/hangul.js"></script>
         <script src="/angel_mobile/main/js/modernizr.custom.js"></script>
         <script src="/angel_mobile/main/js/jquery.dlmenu.js"></script>
+
         @yield('head_attach')
         <script>
             @if (Auth::user())
@@ -50,9 +50,17 @@
                             <li class="top-wz">100% Safe &amp; Cheap RS Gold and POE Trade for Sale with Fast Delivery on 5Mmo.com</li>
                         </ul>
                         <ul class="header-top-rt">
+                            @if(!empty($me))
                             <li>
-                                <span><a rel="nofollow" href="https://www.5mmo.com/user_center.html" title="User Center" class="cly"><img src="https://www.5mmo.com/templates/game/images/cusico.png">&nbsp;garezb35@gmail.com</a>&nbsp;&nbsp; <span style="color:red; font-weight:bold">Level 1</span></span>
+                                <span><a rel="nofollow" href="/myroom" title="User Center" class="cly"><img src="/angel/img/icons/cusico.png">{{$me['name']}}</a>님&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; font-weight:bold">{{$top_role['alias']}}</span>회원</span>
                             </li>
+                            @else
+                                <li>
+                                    <a class="cly" rel="nofollow" href="/login" title="SignIn">로그인</a>
+                                    <span>|</span>
+                                    <a class="cly" rel="nofollow" href="/portal/user" title="Register">회원가입</a>
+                                </li>
+                            @endif
                         </ul>
                         <div id="dl-menu" class="dl-menuwrapper">
                             <button id="dl-menu-button">Open Menu</button>
