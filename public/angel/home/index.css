@@ -190,12 +190,12 @@
 
 .sec_left {
     float: left;
-    width: 765px;
+    width: 644px;
 }
 
 .sec_right {
     float: right;
-    width: calc(100% - 765px);
+    width: calc(100% - 644px);
 }
 
 .sec_left .title,
@@ -210,7 +210,7 @@
 }
 
 .gamenews{
-    height: 290px;
+    height: 308px;
     background: #e0e7ed;
 }
 
@@ -1008,8 +1008,8 @@
 }
 
 .module-gamelist {
-    /*border-top: 1px solid #ddd;*/
     border-bottom: 0;
+    margin-top: 25px;
 }
 /*.module-gamelist .border-right {*/
 /*    background: url(https://images001.5173cdn.com/view/images/v0/common/line_ddd.gif) right top repeat-y;*/
@@ -1198,7 +1198,7 @@
 }
 .hotgame-liimg img {
     width: 100%;
-    height: 118px;
+    height: 120px;
     object-fit: cover;
 }
 
@@ -1255,7 +1255,7 @@ li.hotgame-liimg:hover img {
     text-align: center;
     padding-top: 25px;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .notice__content img{

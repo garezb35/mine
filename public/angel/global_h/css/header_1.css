@@ -652,26 +652,31 @@ table.nobordertable{
 .nav_wrap .content_center{
     text-align:center;
 }
+
+.headernav-with{
+    margin-left: calc((100% - 854px) / 2);
+}
+
 .siteHeader .nav_wrap .nav_menu_nodemon{
-    display:inline-block;
-    margin-left:107px;
+display:inline-block;
+margin-left:107px;
 }
 .siteHeader .nav_wrap .topmenu_right{
-    position:absolute;
-    top:0;
-    left:0;
+position:absolute;
+top:0;
+left:0;
 }
 .nav_wrap .nav li{
-    position:relative;
-    float:left;
-    padding:0 31px;
+position:relative;
+float:left;
+padding:0 31px;
 }
 .nav_wrap .nav li a{
-    display:block;
-    height:45px;
-    font-size:17px;
-    text-align:center;
-    line-height:42px;
+display:block;
+height:45px;
+font-size:17px;
+text-align:center;
+line-height:42px;
 }
 
 
@@ -1504,7 +1509,7 @@ width: 112px;
 
 .headernav-with ul li a {
     display: block;
-    padding: 0 22px 0px 31px;
+    padding: 0 14px 0px 19px;
     text-decoration: none;
     color: #FFF;
 }

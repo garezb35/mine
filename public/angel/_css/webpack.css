@@ -1165,8 +1165,8 @@ padding-left: 7px;
 
 .content_center {
     position: relative;
-    width: 980px;
-    margin-left: calc((100% - 980px) / 2);
+    width: 854px;
+    /*margin-left: calc((100% - 980px) / 2);*/
     /*min-height: 586px;*/
 }
 

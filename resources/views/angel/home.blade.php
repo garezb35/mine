@@ -190,189 +190,53 @@
     </style>
 
     <div class="content_center" id="home__content">
-        <div class="sec_left realtime_status">
-            <div class="top_full">
-                <div class="top_area">
-                    <div class="carousel_module" data-code="TR0001">
-                        <div class="banner_in center_banner" id="center_banner">
-                            <div class="banner_item" data-idx="0">
-                                <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>
+        <div style="overflow: auto;">
+            <div class="sec_left realtime_status">
+                <div class="top_full">
+                    <div class="top_area">
+                        <div class="carousel_module" data-code="TR0001">
+                            <div class="banner_in center_banner" id="center_banner">
+                                <div class="banner_item" data-idx="0">
+                                    <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>
+                                </div>
+                                <div class="banner_item" data-idx="1">
+                                    <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>                    </div>
+                                <div class="banner_item" data-idx="2">
+                                    <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>                    </div>
+                                <div class="banner_item" data-idx="3">
+                                    <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>                    </div>
                             </div>
-                            <div class="banner_item" data-idx="1">
-                                <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>                    </div>
-                            <div class="banner_item" data-idx="2">
-                                <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>                    </div>
-                            <div class="banner_item" data-idx="3">
-                                <a href="#" target="_blank"> <img class="carousel_images" src="/assets/img/bkg/main-slide1.jpg" alt="출석이벤트(가을)" title="출석이벤트(가을)"> </a>                    </div>
+                            <div class='banner_indicate indicate'></div>
                         </div>
-                        <div class='banner_indicate indicate'></div>
-                    </div>
-                    <script>
-                        var selector = document.querySelector(".carousel_module")
-                        new Carousel(selector, {
-                            "showNavi": false,
-                            "showIndicate": true,
-                            "delay": 3000,
-                            "random": true
-                        });
-                    </script>
-                    <div class="service_wrap">
-                        <div class="service_set">
-                            {{--                        <a href="javascript:;" id="enableSettings"><i class="fa fa-cog setting f-18 text-white"></i></a>--}}
-                            <ul>
-                                {{--                            @foreach($list as $v)--}}
-                                {{--                                <a href="{{getmyService()[$v['id']]['href']}}" target="_self">--}}
-                                {{--                                    <li>--}}
-                                {{--                                        <img style="margin-top:10px" src="{{getmyService()[$v['id']]['img']}}" height="{{getmyService()[$v['id']]['height']}}" width="17">--}}
-                                {{--                                        <div class="f-16">{{getmyService()[$v['id']]['alias']}}</div>--}}
-                                {{--                                    </li>--}}
-                                {{--                                </a>--}}
-                                {{--                            @endforeach--}}
-                            </ul>
+                        <script>
+                            var selector = document.querySelector(".carousel_module")
+                            new Carousel(selector, {
+                                "showNavi": false,
+                                "showIndicate": true,
+                                "delay": 3000,
+                                "random": true
+                            });
+                        </script>
+                        <div class="service_wrap">
+                            <div class="service_set">
+                                <ul>
+                                </ul>
+                            </div>
+                            <div class="bg_opacity"></div>
                         </div>
-                        <div class="bg_opacity"></div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
-{{--            <div class="neworder-box clearfix">--}}
-{{--                <p class="key">--}}
-{{--                    최근거래--}}
-{{--                </p>--}}
-{{--                <div class="list-box">--}}
-{{--                    <ul class="clearfix" style="top: 0px;" id="list-box_illl">--}}
-{{--                        @foreach($completed_orders as $compled)--}}
-{{--                            <li>--}}
-{{--                                <a class="link"><span class="game con red">[{{$compled['type'] == 'sell' ? '팝니다':'삽니다'}}]</span>--}}
-{{--                                    <span class="detail con">[ {{$compled['game']['game']}} > {{$compled['server']['game']}} > {{$compled['good_type']}} ] {{$compled['user_title']}}</span>--}}
-{{--                                    <span class="price con">거래가격：<span class="red">{{number_format($compled['payitem']['price'])}}원</span></span>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
-{{--                        @endforeach--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--            <div class="title">게임별 시세정보--}}
-{{--            </div>--}}
-{{--            <div id="gameChart" class="border-normal"></div>--}}
-{{--            <div class="_34Cr45d_reacts">--}}
-{{--                <div class="tab searchbar_tab">--}}
-{{--                    <div class="active" data-t="1">--}}
-{{--                        <a class="f-18 tab-title" href="javascript:void(0);" >실시간 팝니다 목록</a>--}}
-{{--                    </div>--}}
-{{--                    <div data-t="2">--}}
-{{--                        <a class="f-18 tab-title" href="javascript:void(0);" >실시간 삽니다 목록</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="tab_content">--}}
-{{--                    <div class="tab_child show">--}}
-{{--                        <table class="f-14 no-border">--}}
-{{--                            <tr>--}}
-{{--                                <td class="realtime_list align-center no-border" >종류</td>--}}
-{{--                                <td class="realtime_game align-center no-border" >게임명/서버명</td>--}}
-{{--                                <td class="realtime_desc align-center no-border" >멘트</td>--}}
-{{--                                <td class="realtime_money align-left no-border" >거래가격</td>--}}
-{{--                            </tr>--}}
-{{--                        </table>--}}
-{{--                        <hr>--}}
-{{--                        <div class="realtime_sell_wrapper" id="tab_sell">--}}
-{{--                            <table class="realtime_sell_table f-14 no-border">--}}
-{{--                                <tbody>--}}
-{{--                                @if(!empty($sells))--}}
-{{--                                    @foreach($sells as $v)--}}
-{{--                                        @php--}}
-{{--                                            $price_alias = "";--}}
-{{--                                            $price = $v['user_price'];--}}
-{{--                                            $game_unit = !empty($v['game_unit']) && $v['game_unit'] !=1 ? $v['game_unit'] : '';--}}
-{{--                                            if(!empty($price)){--}}
-{{--                                                if($v['user_quantity'] > 1 || !empty($v['game_unit']))--}}
-{{--                                                    $price_alias = $v['user_quantity'].$v['game_unit'].'개당 '.number_format($price).'원';--}}
-{{--                                                else--}}
-{{--                                                    $price_alias = number_format($price).'원';--}}
-{{--                                            }--}}
-{{--                                            else{--}}
-{{--                                                $price_alias = $v['user_division_unit'].$v['game_unit'].'개당 '.number_format($v['user_division_price']).'원';--}}
-{{--                                            }--}}
-{{--                                        @endphp--}}
-{{--                                        <tr>--}}
-{{--                                            <td class="realtime_list align-center no-border" >{{$v['good_type']}}</td>--}}
-{{--                                            <td class="realtime_game no-border" >{{$v['game']['game']}} > {{$v['server']['game']}}</td>--}}
-{{--                                            <td class="realtime_desc no-border text-center" >{{$v['user_title']}}</td>--}}
-{{--                                            <td class="realtime_money  no-border align-left" >{{$price_alias}}</td>--}}
-{{--                                        </tr>--}}
-{{--                                    @endforeach--}}
-{{--                                @endif--}}
-{{--                                </tbody>--}}
-{{--                            </table>--}}
-{{--                        </div>--}}
-{{--                        <div class="realtime_sell_wrapper d-none" id="tab_buy">--}}
-{{--                            <table class="realtime_sell_table f-14 no-border">--}}
-{{--                                <tbody>--}}
-{{--                                @if(!empty($buys))--}}
-{{--                                    @foreach($buys as $v)--}}
-{{--                                        @php--}}
-{{--                                            $price_alias = "";--}}
-{{--                                            $price = $v['user_price'];--}}
-{{--                                            $game_unit = !empty($v['game_unit']) && $v['game_unit'] !=1 ? $v['game_unit'] : '';--}}
-{{--                                            if(!empty($price)){--}}
-{{--                                                if($v['user_quantity'] > 1 || !empty($v['game_unit']))--}}
-{{--                                                    $price_alias = $v['user_quantity'].$v['game_unit'].'개당 '.number_format($price).'원';--}}
-{{--                                                else--}}
-{{--                                                    $price_alias = number_format($price).'원';--}}
-{{--                                            }--}}
-{{--                                            else{--}}
-{{--                                                $price_alias = $v['user_division_unit'].$v['game_unit'].'개당 '.number_format($v['user_division_price']).'원';--}}
-{{--                                            }--}}
-{{--                                        @endphp--}}
-{{--                                        <tr>--}}
-{{--                                            <td class="realtime_list align-center no-border" >{{$v['good_type']}}</td>--}}
-{{--                                            <td class="realtime_game no-border" >{{$v['game']['game']}} > {{$v['server']['game']}}</td>--}}
-{{--                                            <td class="realtime_desc no-border text-center" >{{$v['user_title']}}</td>--}}
-{{--                                            <td class="realtime_money  no-border align-left" >{{$price_alias}}</td>--}}
-{{--                                        </tr>--}}
-{{--                                    @endforeach--}}
-{{--                                @endif--}}
-{{--                                </tbody>--}}
-{{--                            </table>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="tab_child" data-content="tab_mygame">--}}
-{{--                        <ul class="mysearch_filters"></ul>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div style="display:flex">--}}
-{{--                <div class="w-50 no-border back-normal " style="margin-right: 10px;height: 188px;padding-top: 33px">--}}
-{{--                    <div class="title no-border">--}}
-{{--                        전화 상담안내--}}
-{{--                    </div>--}}
-{{--                    <div class="d-flex w-100 inquery_part">--}}
-{{--                        <img src="/assets/img/icons/inquery_time.png" height="91" width="97" />--}}
-{{--                        <div class="bottom_info">--}}
-{{--                            <span class="call_num">1532-9945</span>--}}
-{{--                            <span class="call_txt">365일 24시간 연중무휴</span>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="w-50  no-border back-normal" style="    height: 125px;--}}
-{{--    text-align: right;--}}
-{{--    margin-right: 11px;--}}
-{{--    padding-top: 51px;">--}}
-{{--                    <a href="/customer/report"><img src="/assets/img/button/btn_using_inquery.png" width="160px"></a>--}}
-{{--                    <a href="/customer"><img src="/assets/img/button/btn_24_time.png" width="160px"></a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="angel__menugames d-none" data-gslist="true"></div>--}}
-        </div>
-        <div class="sec_right">
-            <div class="box3 gamenews">
-                <div class="title f-18 f-normal"> 공지사항 </div>
-                <div>
-                    @if(!empty($notices))
-                    <p @class('notice__title')>{{$notices[0]['title']}}</p>
-                    <div @class('notice__content')>{!! $notices[0]['content'] !!}</div>
-                    @endif
+            <div class="sec_right">
+                <div class="box3 gamenews">
+                    <div class="title f-18 f-normal"> 공지사항 </div>
+                    <div>
+                        @if(!empty($notices))
+                            <p @class('notice__title')>{{$notices[0]['title']}}</p>
+                            <div @class('notice__content')>{!! $notices[0]['content'] !!}</div>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
