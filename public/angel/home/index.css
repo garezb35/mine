@@ -1233,6 +1233,10 @@ li.hotgame-liimg{
     font-size: 15px;
 }
 
+.notice__content img{
+    display: none;
+}
+
 
 .notice__content{
     margin-top: 20px;
