@@ -106,7 +106,9 @@
                                         <div class="search_area no-border">
                                             <input type="text" class="angel__text search_gs_name" name="searchGameServer" id="searchGameServer" title="게임검색" style="ime-mode:active" placeholder="게임명을 입력해주세요." autocomplete="off" data-gameserver="true">
                                         </div>
-                                        <button type="submit" class="search__submit" id="search__submit" title="검색">검색</button>
+                                        <button type="submit" class="search__submit" id="search__submit" title="검색">
+                                            <i @class('fa fa-search')></i>
+                                        </button>
                                         <div class="gameWindowPopup d-none">
                                             <div class="gameTypePopup align-center">
                                                 <input type="radio" id="search_type1" name="search_type" value="sell" @if(empty($_POST['search_type']) || $_POST['search_type'] != 'buy') checked @endif style="display: none">

@@ -210,7 +210,7 @@
                 <a href="/customer/report" @class('big_private__btn') >1:1이용문의</a>
             </div>
         </div>
-        <div class="roots" id="angel" style="min-width: 1428px;">
+        <div class="roots" id="angel" style="min-width: 1315px;">
             @include('layouts-angel.header')
             @yield('content')
             @include('layouts-angel.footer')
@@ -290,14 +290,14 @@
     $(document).ready(function(){
 
             @if(request()->route()->getName() == "index")
-            if($(document).width() > 1400)
-                $("#home__content").css('margin-left',($(document).width()-1400) / 2 + 320);
+            if($(document).width() > 1313)
+                $("#home__content").css('margin-left',($(document).width()-1313) / 2 + 320);
             var pos_left = $("#home__content").offset();
             $("#topbar-left").css("left",pos_left.left - 325 + "px")
             $("#topbar-left").css("top",pos_left.top + "px")
             @else
-            if($(document).width() > 1400)
-                $(".container_fulids").css('margin-left',($(document).width()-1400) / 2 + 320);
+            if($(document).width() > 1313)
+                $(".container_fulids").css('margin-left',($(document).width()-1313) / 2 + 320);
             var pos_left = $(".container_fulids").offset();
             $("#topbar-left").css("left",pos_left.left - 325 + "px")
             $("#topbar-left").css("top",10 + "px")
