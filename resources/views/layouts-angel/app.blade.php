@@ -210,7 +210,7 @@
                 <a href="/customer/report" @class('big_private__btn') >1:1이용문의</a>
             </div>
         </div>
-        <div class="roots" id="angel" style="min-width: 1315px;">
+        <div class="roots" id="angel" style="min-width: 1200px;">
             @include('layouts-angel.header')
             @yield('content')
             @include('layouts-angel.footer')
@@ -268,13 +268,17 @@
 
 </style>
 <script>
-
+    var width = $(window).width();
     function enterSearchList(id,game){
         $('input[name="filtered_game_id"]').val(id);
         $('input[name="filtered_game_alias"]').val(game);
         $("#search-overlay-container").submit()
     }
 
+    function changePosL(){
+        $(".siteHeader .nav_wrap .nav_menu_nodemon").css('margin-left',($(document).width()-895) / 2 + 50);
+        $(".top-leftli").css("left",$(".highlight__first").offset().left - 180 + "px")
+    }
     function controlFavorite() {
         $(".showing_fav").find("i").removeClass('fa-plus')
         $(".showing_fav").find("i").removeClass('fa-minus')
@@ -287,22 +291,25 @@
             $(".showing_fav").find("i").addClass('fa-plus')
         }
     }
+
+    function fixChattingPos(){
+        @if(request()->route()->getName() == "index")
+        if($(document).width() > 1105)
+            $("#home__content").css('margin-left',($(document).width()-1200) / 2 + 347);
+        var pos_left = $("#home__content").offset();
+        $("#topbar-left").css("left",pos_left.left - 345 + "px")
+        $("#topbar-left").css("top",pos_left.top + "px")
+        @else
+        if($(document).width() > 1105)
+            $(".container_fulids").css('margin-left',($(document).width()-1200) / 2 + 347);
+        var pos_left = $(".container_fulids").offset();
+        $("#topbar-left").css("left",pos_left.left - 345 + "px")
+        $("#topbar-left").css("top",pos_left.top + "px")
+        @endif
+    }
     $(document).ready(function(){
-
-            @if(request()->route()->getName() == "index")
-            if($(document).width() > 1313)
-                $("#home__content").css('margin-left',($(document).width()-1305) / 2 + 320);
-            var pos_left = $("#home__content").offset();
-            $("#topbar-left").css("left",pos_left.left - 325 + "px")
-            $("#topbar-left").css("top",pos_left.top + "px")
-            @else
-            if($(document).width() > 1313)
-                $(".container_fulids").css('margin-left',($(document).width()-1305) / 2 + 320);
-            var pos_left = $(".container_fulids").offset();
-            $("#topbar-left").css("left",pos_left.left - 325 + "px")
-            $("#topbar-left").css("top",pos_left.top + "px")
-            @endif
-
+        fixChattingPos();
+        changePosL();
 
         $(".dropdown").hover(
             function() {
@@ -322,7 +329,14 @@
             $('input[name="filtered_game_alias"]').val(name);
             $('#search-overlay-container').submit()
         })
-
     })
+    $(window).on('resize', function() {
+        if ($(this).width() !== width) {
+            width = $(this).width();
+            fixChattingPos();
+            changePosL()
+        }
+    });
+
 </script>
 

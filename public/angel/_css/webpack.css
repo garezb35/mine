@@ -1160,14 +1160,12 @@ padding-left: 7px;
     min-height: 300px;
     margin: 0 auto;
     padding-top: 9px;
-    margin-top: -327px;
+    margin-top: -320px;
 }
 
 .content_center {
     position: relative;
     width: 854px;
-    /*margin-left: calc((100% - 980px) / 2);*/
-    /*min-height: 586px;*/
 }
 
 .aside {

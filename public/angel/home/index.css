@@ -1,9 +1,13 @@
 .roots {
-    background-color: #F2F4F7;
+    background-color: #ffffff;
 }
 
+/*body{*/
+/*    background: url(/assets/img/bkg/login.png);*/
+/*}*/
+
 #home__content{
-    margin-top: -327px;
+    margin-top: -320px;
     min-height: 1086px;
 }
 
@@ -1010,6 +1014,7 @@
 .module-gamelist {
     border-bottom: 0;
     margin-top: 25px;
+    margin-left: -9px;
 }
 /*.module-gamelist .border-right {*/
 /*    background: url(https://images001.5173cdn.com/view/images/v0/common/line_ddd.gif) right top repeat-y;*/
@@ -1157,6 +1162,7 @@
 .goldtop {
     width: 100%;
     overflow: hidden;
+    padding-left: 10px;
 }
 
 .goldtoplf {
@@ -1185,7 +1191,7 @@
 
 
 .hotgame-li {
-    width: 20%;
+    width: 25%;
     float: left;
     text-align: center !important;
     padding: 10px 0;
@@ -1203,12 +1209,10 @@
 }
 
 li.hotgame-liimg{
-    padding-left: 6px;
-    padding-right: 6px;
+    margin-left: 8px;
+    margin-right: 8px;
     overflow: hidden;
 }
-
-
 
 li.hotgame-liimg img{
     -webkit-transform:scale(1);
@@ -1245,8 +1249,8 @@ li.hotgame-liimg:hover img {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    margin-left: 6px;
-    margin-right: 6px;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 

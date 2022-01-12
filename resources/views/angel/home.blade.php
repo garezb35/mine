@@ -51,11 +51,6 @@
                 if(v < 0 || v < 1000) {
                     return;
                 }
-                // if(v >= 25000) {
-                //     fillRealMileage.html(Number(Number(v) - parseInt((Number(Number(v) / 100) * $("#charge_rate").val()))).currency());
-                // } else {
-                //     fillRealMileage.html(Number(Number(v) - Number($('#commission').val())).currency());
-                // }
                 fillRealMileage.html(Number(Number(v) - Number($('#commission').val())).currency());
             }
             $('input[name="price"]').val(v);
@@ -252,7 +247,7 @@
                         <div class="goldmid">
                             @foreach($games_home as $key=>$gg)
                                 @php
-                                    if($key == 10) break;
+                                    if($key == 8) break;
                                 @endphp
                                 <div class="hotgame-li" style="text-align: center">
                                     <ul>
@@ -267,19 +262,6 @@
                             @endforeach
                         </div>
                     </div>
-                    {{--                        <div class="gamelist-wrap">--}}
-                    {{--                            <ul class="gamelist-ul clearfix hotgame-hotspell">--}}
-                    {{--                                @foreach($games_home as $gg)--}}
-                    {{--                                    <li data-code="{{$gg['id']}}" data-gamename="{{$gg['game']}}" class="goods_more_btn">--}}
-                    {{--                                        <a class="link-all" href="javascript:;" target="_self">--}}
-                    {{--                                            <img class="lazyload" src="{{$gg['icon']}}"  alt="{{$gg['game']}}" style="display: block;">--}}
-                    {{--                                            <p class="name">{{$gg['game']}}</p>--}}
-                    {{--                                        </a>--}}
-                    {{--                                    </li>--}}
-                    {{--                                @endforeach--}}
-
-                    {{--                            </ul>--}}
-                    {{--                        </div>--}}
                 </div>
             </div>
         </div>
@@ -324,85 +306,3 @@
         <div class="empty-high"></div>
     </div>
 @endsection
-
-
-
-<!--
-<div class="title"> 게임순위 </div>
-            <div class="border-normal d-flex">
-                <ul class="rank_list">
-                    @for($i  = 0; $i< 5; $i++)
-    @if(empty($game_list[$i]))
-        @php
-            continue;
-        @endphp
-    @endif
-        <li @if($i < 3)class="top"@endif> <span class="num">{{$game_list[$i]['id']}}</span>
-                            <span class="game_name">{{$game_list[$i]['game']}}</span>
-                            <span class="ranks_orders {{$game_list[$i]['type']}}"></span>
-                        </li>
-                    @endfor
-    </ul>
-    <ul class="rank_list">
-@for($i  = 5; $i< 10; $i++)
-    @if(empty($game_list[$i]))
-        @php
-            continue;
-        @endphp
-    @endif
-        <li @if($i < 3)class="top"@endif> <span class="num">{{$game_list[$i]['id']}}</span>
-                            <span class="game_name">{{$game_list[$i]['game']}}</span> <span class="ranks_orders {{$game_list[$i]['type']}}"></span>
-                        </li>
-                    @endfor
-    </ul>
-</div>
-<div id="charge_main">
-    <form id="ini" name="ini" action="" method="post">
-        <input type="hidden" name="commission" id="commission" value="0" />
-        <input type="hidden" name="charge_rate" id="charge_rate" value="2" />
-        <input type="hidden" name="ITEM_OID" value="" />
-        <input type="hidden" name="price" id="price" />
-        <div id="" class="highlight_contextual_nodemon">충전금액 선택</div>
-        <div class="f-bold" style="background: #e4eef0; padding: 24px;">
-            <div class="d-flex m-auto">
-                <div class="align-center" style="width: 33.33%">
-                    <input type="radio" name="selectPrice" id="selectPrice10000" value="10000" class="g_radio" onclick="selectedPrice(this.value);" />
-                    <label for="selectPrice10000">10,000 원</label>
-                </div>
-                <div class="align-center" style="width: 33.33%">
-                    <input type="radio" name="selectPrice" id="selectPrice20000" value="20000" class="g_radio" onclick="selectedPrice(this.value);" />
-                    <label for="selectPrice20000">20,000 원</label>
-                </div>
-                <div class="align-center" style="width: 33.33%">
-                    <input type="radio" name="selectPrice" id="selectPrice30000" value="30000" class="g_radio" onclick="selectedPrice(this.value);" />
-                    <label for="selectPrice30000">30,000 원</label>
-                </div>
-            </div>
-            <div class="d-flex m-auto" style=" margin-top: 10px; margin-bottom: 10px;">
-                <div class="align-center" style="width: 33.33%">
-                    <input type="radio" name="selectPrice" id="selectPrice100000" value="100000" class="g_radio" onclick="selectedPrice(this.value);" />
-                    <label for="selectPrice100000">100,000 원</label>
-                </div>
-                <div class="align-center" style="width: 33.33%">
-                    <input type="radio" name="selectPrice" id="selectPrice300000" value="300000" class="g_radio" onclick="selectedPrice(this.value);" />
-                    <label for="selectPrice300000">300,000 원</label>
-                </div>
-                <div class="align-center" style="width: 33.33%">
-                    <input type="radio" name="selectPrice" id="selectPrice500000" value="500000" class="g_radio" onclick="selectedPrice(this.value);" />
-                    <label for="selectPrice500000">500,000 원</label>
-                </div>
-            </div>
-            <hr style="width: 60%;">
-            <div class="m-auto align-center" style="width: 60%;">
-                <input type="radio" name="selectPrice" id="priceD" value="0" class="g_radio" onclick="selectedPrice(this.value)" />
-                <input type="text" name="price_custom" id="price_custom" maxlength="6" class="angel__text" onclick="selectedPrice(0)" onblur="fnCustomOut()" onkeyup="onlynum(this.value);selectedPrice(this.value)" maxlength="5" />원
-            </div>
-        </div>
-
-        <div class="empty-high"></div>
-        <div class="m_button" style="text-align: center">
-            <a href="javascript:void(0)" class="mileage_charge btn-color-img btn-blue-img" style="" >충전하기</a>
-        </div>
-    </form>
-</div>
--->

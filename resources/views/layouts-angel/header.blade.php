@@ -44,7 +44,7 @@
     <div class="fixed__banner">
         <div class="header__banner">
             <div class="nav_wrap">
-                <div class="content_center headernav-with">
+                <div class="headernav-with">
                     <div class="top-leftli">
                         {{--                    <b class="sjx-rb"></b>--}}
                         {{--                    <b class="sjx-lb"></b>--}}
@@ -54,16 +54,6 @@
                                 <div class="border-half"></div>
                             </a>
                             <div class="dropdown-menu" style="display: none;">
-                                {{--                        <div class="drop-menu-left">--}}
-                                {{--                            <ul style="position: relative;">--}}
-                                {{--                                <li><a href="https://www.5mmo.com/mut-22-coins/"><img src="https://www.5mmo.com/upload/202108311712076410.jpg" alt="MUT 22"></a></li>--}}
-                                {{--                                <li><a href="https://www.5mmo.com/new-world-coins/"><img src="https://www.5mmo.com/upload/202110091510114061.jpg" alt="New World"></a></li>--}}
-                                {{--                                <li><a href="https://www.5mmo.com/nba-2k22-mt/"><img src="https://www.5mmo.com/upload/202109091732131573.jpg" alt="NBA 2K22"></a></li>--}}
-                                {{--                                <li><a href="https://www.5mmo.com/fut-22-comfort-trade/"><img src="https://www.5mmo.com/upload/202109241802341702.jpg" alt="FUT 22"></a></li>--}}
-                                {{--                                <li><a href="https://www.5mmo.com/wow-tbc-classic-gold/"><img src="https://www.5mmo.com/upload/202105201806179542.jpg" alt="WOW Classic TBC"></a></li>--}}
-                                {{--                                <li><a href="https://www.5mmo.com/r6-credits/"><img src="https://www.5mmo.com/upload/202109091118505761.jpg" alt="Rainbow Six Siege (R6)"></a></li>--}}
-                                {{--                            </ul>--}}
-                                {{--                        </div>--}}
                                 <div class="drop-menu-right">
                                     <ul>
                                         @foreach($games_home as $homes)
@@ -80,7 +70,7 @@
                         </div>
                     </div>
                     <ul class="nav nav_menu_nodemon">
-                        <li class="highlight" ><a @if(Route::getCurrentRoute()->getName() == 'sell') style="color: #3295d3" @endif  href="/sell">판매등록 <div class="border-half"></div></a></li>
+                        <li class="highlight highlight__first" ><a @if(Route::getCurrentRoute()->getName() == 'sell') style="color: #3295d3" @endif  href="/sell">판매등록 <div class="border-half"></div></a></li>
                         <li class="highlight" ><a @if(Route::getCurrentRoute()->getName() == 'buy') style="color: #edb528" @endif  href="/buy">구매등록 <div class="border-half"></div></a></li>
                         <li ><a @if(str_contains(Request::url(),'/myroom/my_mileage/index_c')) style="color: #ea70a5" @endif href="/myroom/my_mileage/index_c" >마일리지 충전 <div class="border-half"></div></a></li>
                         <li ><a @if(str_contains(Request::url(),'myroom') && !str_contains(Request::url(),'/myroom/my_mileage')) style="color: #1b9fa2" @endif href="/myroom">마이페이지</a></li>
@@ -106,9 +96,7 @@
                                         <div class="search_area no-border">
                                             <input type="text" class="angel__text search_gs_name" name="searchGameServer" id="searchGameServer" title="게임검색" style="ime-mode:active" placeholder="게임명을 입력해주세요." autocomplete="off" data-gameserver="true">
                                         </div>
-                                        <button type="submit" class="search__submit" id="search__submit" title="검색">
-                                            <i @class('fa fa-search')></i>
-                                        </button>
+                                        <button type="submit" class="search__submit" id="search__submit" title="검색">검색</button>
                                         <div class="gameWindowPopup d-none">
                                             <div class="gameTypePopup align-center">
                                                 <input type="radio" id="search_type1" name="search_type" value="sell" @if(empty($_POST['search_type']) || $_POST['search_type'] != 'buy') checked @endif style="display: none">
