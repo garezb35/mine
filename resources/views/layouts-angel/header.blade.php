@@ -1,4 +1,3 @@
-
 <div class="react___gatsby outterWrapper" id="outterWrapper">
     <div class="inner"> <a href="javascript:;" class="close_r" id="menu_close">닫기</a> </div>
 </div>
@@ -136,6 +135,65 @@
                                 </form>
                             </li>
                         </ul>
+                    </div>
+                    <div id="dl-menu" class="dl-menuwrapper">
+                        <button id="dl-menu-button">Open Menu</button>
+                        <ul class="dl-menu">
+                            <li><a href="{{route('index')}}">홈페이지</a></li>
+                            <li><a href="{{route('index')}}">판매등록</a></li>
+                            <li><a href="{{route('index')}}">구매등록</a></li>
+                            <li>
+                                <a href="javascript:void(0);" rel="nofollow">마이페이지</a>
+                                <ul class="dl-submenu">
+                                    <li class="dl-back"><a href="javascript:void(0);" rel="nofollow">마이페이지</a></li>
+                                    <li><a href="https://www.5mmo.com/wow-tbc-classic-gold/">메세지함</a></li>
+                                    <li><a href="https://www.5mmo.com/wow-tbc-classic-gold/">판매관련</a></li>
+                                    <li><a href="https://www.5mmo.com/wow-classic-gold/">구매관련</a></li>
+                                    <li><a href="https://www.5mmo.com/cheap-wow-gold-us/">종료내역</a></li>
+                                    <li><a href="https://www.5mmo.com/cheap-wow-gold-eu/">취소내역</a></li>
+                                    <li><a href="https://www.5mmo.com/cheap-wow-gold-eu/">마일리지</a></li>
+                                    <li><a href="https://www.5mmo.com/cheap-wow-gold-eu/">개인정보</a></li>
+                                    <li><a href="https://www.5mmo.com/cheap-wow-gold-eu/">현금영수증</a></li>
+                                    <li><a href="https://www.5mmo.com/cheap-wow-gold-eu/">환경설정</a></li>
+                                    <li><a href="https://www.5mmo.com/cheap-wow-gold-eu/">회원탈퇴</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" rel="nofollow">고객센터</a>
+                                <ul class="dl-submenu">
+                                    <li class="dl-back"><a href="javascript:void(0);" rel="nofollow">고객센터</a></li>
+                                    <li><a href="https://www.5mmo.com/wow-tbc-classic-gold/">FAQ</a></li>
+                                    <li><a href="https://www.5mmo.com/wow-tbc-classic-gold/">거래취소/종료</a></li>
+                                    <li><a href="https://www.5mmo.com/wow-classic-gold/">이용관련</a></li>
+                                    <li><a href="https://www.5mmo.com/cheap-wow-gold-us/">나의 질문과 답변</a></li>
+                                    <li><a href="https://www.5mmo.com/cheap-wow-gold-eu/">신규게임/서버 추가</a></li>
+                                    <li><a href="https://www.5mmo.com/cheap-wow-gold-eu/">안전거래</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{{route('index')}}">이용안내</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div @class('zopim')>
+    <div @class('jx_ui_Widget meshim_widget_components_ChatButton br')>
+        <div @class('meshim_widget_components_chatButton_Button ltr')>
+            <div @class('meshim_widget_components_chatButton_ButtonBar button_bar')>
+                <div @class('meshim_widget_widgets_Favicon favicon')>
+                    <div class="meshim_widget_widgets_IconFont icon_font default_icon default_icon_online" __jx__id="___$_30__icon ___$_30__icon" style="user-select: none;">💬</div>
+                </div>
+                <div class="button_text jx_ui_Widget" __jx__id="___$_32">
+                    <div class="blinds blinds_top jx_ui_Widget" __jx__id="___$_33">
+                        <label class="status jx_ui_Label" __jx__id="___$_29__button_bar__status_text_wrapper" style="user-select: none; display: none;">
+                            <label class="jx_ui_Label" __jx__id="___$_29__button_bar__status_text" style="user-select: none;">Online</label>
+                            <label class="jx_ui_Label" __jx__id="___$_34" style="user-select: none;"> - </label>
+                        </label>
+                        <label class="greeting jx_ui_Label" __jx__id="___$_29__button_bar__greeting" style="user-select: none;">채팅창 열기</label>
+                    </div><div class="blinds blinds_bottom jx_ui_Widget" __jx__id="___$_35">
+                        <label class="jx_ui_Label" __jx__id="___$_29__button_bar__unread" style="user-select: none;">XX new messages</label>
                     </div>
                 </div>
             </div>

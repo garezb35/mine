@@ -6,6 +6,14 @@
     margin-left: 30px;
 }
 
+.visible--mobile,.chatting__close,.zopim{
+ display: none;
+}
+
+.roots{
+    min-width: 1200px;
+}
+
 body {
     position: relative;
     height: 100%;
@@ -3020,5 +3028,94 @@ fieldset:disabled a.btn
     text-align: center;
 }
 
+@media screen and (max-width: 1216px) {
+    .nav_wrap{
+        display: none;
+    }
+    .topbar-left{
+        display: none;
+    }
+    .sec_right,#toobar-content,#topbar-left .favorite,.phone__contact,.private__00{
+        display: none;
+    }
 
+    .roots{
+        min-width: 300px;
+    }
+    .siteHeader .js-nav-menu{
+        width: 100% !important;
+    }
+    .moduler_footer .article-copyright{
+        width: 100% !important;
+    }
+    .content_center,.header-brand-logo,.sec_left{
+        width: 100% !important;
+    }
 
+    #home__content{
+        min-height: unset !important;
+    }
+
+    .search-overlay-wrapper{
+        position: relative !important;
+        left: unset !important;
+        width: 310px !important;
+    }
+    .search_area{
+        width: 231px;
+    }
+
+    .search-overlay-wrapper{
+        margin: auto;
+    }
+    .header-brand-logo .logo a{
+        display: block !important;
+        height: auto !important;
+        margin: auto !important;
+    }
+    .gameWindowPopup{
+        width: 283px;
+    }
+    .fixed__banner{
+        height: unset !important;
+        min-height: 220px !important;
+    }
+
+    .well--tooltip{
+        width: 100% !important;
+        height: 100vh;
+        z-index: 20000 !important;
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.8);
+        min-width:unset !important;
+        max-width:unset !important;
+    }
+
+    #chatFrame{
+        width: 310px;
+        position: absolute;
+        left: calc((100% - 310px) / 2);
+        top: 35px;
+    }
+    .chatting__close{
+        display: block;
+        width: 34px;
+        position: absolute;
+        right: 2px;
+        top: 3px;
+    }
+    .zopim{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .visible--pc{
+        display: none;
+    }
+    .visible--mobile{
+        display: block;
+    }
+}

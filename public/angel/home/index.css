@@ -6,6 +6,26 @@
 /*    background: url(/assets/img/bkg/login.png);*/
 /*}*/
 
+.service_wrap, .bg_opacity {
+    height:  38px;
+}
+.service_set>ul {
+    padding: 0px 10px 0;
+    padding-left: 40px;
+}
+.service_set .setting {
+    top: 12px;
+    left: 10px;
+}
+
+._34Cr45d_reacts .tab>div {
+    height: 40px;
+    line-height: 40px;
+}
+.title, .box3 .title {
+    padding: 8px 20px 8px;
+}
+
 #home__content{
     margin-top: -320px;
     min-height: 1086px;
@@ -1160,7 +1180,6 @@
     margin-bottom: 5px;
 }
 .goldtop {
-    width: 100%;
     overflow: hidden;
     padding-left: 10px;
 }
@@ -1274,3 +1293,41 @@ li.hotgame-liimg:hover img {
     padding-bottom: 10px;
 }
 
+@media screen and (max-width: 1216px) {
+    .module-gamelist{
+        margin-left: 0px !important;
+    }
+    /*.goldtop{*/
+    /*    padding-left: 0px !important;*/
+    /*}*/
+
+
+    .title, .box3 .title {
+        padding: 8px 8px 8px !important;
+    }
+    #home__content{
+        margin-top: -93px;
+    }
+}
+
+@media screen and (max-width: 1216px) and (min-width: 820px){
+    .top_full, .top_area, .bg_opacity, .service_wrap, .carousel_module > .banner_in > .banner_item .carousel_images{
+        height: 264px !important;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .top_full, .top_area, .bg_opacity, .service_wrap, .carousel_module > .banner_in > .banner_item .carousel_images{
+        height: 170px !important;
+    }
+}
+
+@media only screen and (max-width: 630px){
+    .hotgame-li {
+        width: 50% !important;
+    }
+    .hotgame-liimg img{
+        height: 140px;
+    }
+
+}

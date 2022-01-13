@@ -162,27 +162,6 @@
             </ul>
         </div>
     </div>
-    <style>
-        .service_wrap, .bg_opacity {
-            height:  38px;
-        }
-        .service_set>ul {
-            padding: 0px 10px 0;
-            padding-left: 40px;
-        }
-        .service_set .setting {
-            top: 12px;
-            left: 10px;
-        }
-
-        ._34Cr45d_reacts .tab>div {
-            height: 40px;
-            line-height: 40px;
-        }
-        .title, .box3 .title {
-            padding: 8px 20px 8px !important;
-        }
-    </style>
 
     <div class="content_center" id="home__content">
         <div style="overflow: auto;">
@@ -265,7 +244,7 @@
                 </div>
             </div>
         </div>
-        <table @class('noborder')>
+        <table @class('noborder visible--pc')>
             <colgroup>
                 <col width="50%"/>
             </colgroup>
@@ -303,6 +282,48 @@
                 <td></td>
             </tr>
         </table>
+        <div @class('visible--mobile p-1')>
+            <div class="title"> 게임순위 </div>
+            <div class="border-normal d-flex bg-white">
+                <ul class="rank_list">
+                    @for($i  = 0; $i< 5; $i++)
+                        @if(empty($game_list[$i]))
+                            @php
+                                continue;
+                            @endphp
+                        @endif
+                        <li @if($i < 3)class="top"@endif> <span class="num">{{$game_list[$i]['id']}}</span>
+                            <span class="game_name">{{$game_list[$i]['game']}}</span>
+                            <span class="ranks_orders {{$game_list[$i]['type']}}"></span>
+                        </li>
+                    @endfor
+                </ul>
+                <ul class="rank_list">
+                    @for($i  = 5; $i< 10; $i++)
+                        @if(empty($game_list[$i]))
+                            @php
+                                continue;
+                            @endphp
+                        @endif
+                        <li @if($i < 3)class="top"@endif> <span class="num">{{$game_list[$i]['id']}}</span>
+                            <span class="game_name">{{$game_list[$i]['game']}}</span> <span class="ranks_orders {{$game_list[$i]['type']}}"></span>
+                        </li>
+                    @endfor
+                </ul>
+            </div>
+            <div class="phone__contact m-t-5">
+                <p class="ph__title">전화 상담안내</p>
+                <div class="ph__content">
+                    <div>
+                        <p class="ph__title">1532-9945</p>
+                        <p class="rest__part">365일 24시간 연중무휴</p>
+                    </div>
+                </div>
+            </div>
+            <div class="private__00">
+                <a href="/customer/report" class="big_private__btn">1:1이용문의</a>
+            </div>
+        </div>
         <div class="empty-high"></div>
     </div>
 @endsection

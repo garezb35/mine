@@ -1,8 +1,4 @@
 
-body{
-    min-width:1100px;
-}
-
 .toolbar-btn{
     z-index:50;
     position:fixed;
@@ -563,7 +559,7 @@ table.nobordertable{
     /*height: initial !important;*/
 }
 .siteHeader .js-nav-menu{
-    width:1080px;
+    width:1145px;
     margin:0 auto;
     font-size:12px;
     color:#767676;
@@ -1533,4 +1529,130 @@ width: 112px;
 
 .heads-div{
     margin-top: 10px;
+}
+
+.zopim{
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding: 0px;
+    border: 0px;
+    background: transparent;
+    overflow: hidden;
+    position: fixed;
+    z-index: 16000002;
+    width: 157px;
+    height: 30px;
+    right: 10px;
+    bottom: 0px;
+}
+
+.meshim_widget_Widget * {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.meshim_widget_components_chatButton_Button {
+    cursor: pointer;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.meshim_widget_components_chatButton_Button * {
+    cursor: pointer;
+}
+
+.meshim_widget_components_chatButton_ButtonBar {
+    position: relative;
+    padding-left: 36px;
+    overflow: hidden;
+}
+
+.meshim_widget_components_ChatButton.br .button_bar {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.meshim_widget_components_chatButton_Button .button_bar {
+    min-width: 120px;
+    height: 30px;
+    color: #ffffff;
+    background: #3db2de;
+    box-shadow: chatButtonShadow;
+}
+
+.meshim_widget_components_ChatButton.br .favicon{
+    border-top-left-radius: 5px;
+}
+
+.meshim_widget_components_chatButton_ButtonBar .favicon {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    vertical-align: text-top;
+    text-align: center;
+    padding-top: 8px;
+    width: 36px;
+    background: #27a5d0;
+    color: #ffffff;
+}
+
+.meshim_widget_components_chatButton_ButtonBar .border_overlay {
+    border-width: 0;
+    border-style: solid;
+    border-color: #808080;
+}
+.meshim_widget_widgets_BorderOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.meshim_widget_widgets_IconFont {
+    font-family: zopim, "Segoe UI Symbol", "Arial Unicode MS", "Lucida Sans Unicode", sans-serif;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+.meshim_widget_widgets_Favicon .default_icon {
+    font-size: 16px;
+    width: 16px;
+    display: inline-block;
+}
+
+.meshim_widget_widgets_Favicon .default_icon.default_icon_online {
+    line-height: 20px;
+    vertical-align: top;
+}
+
+.meshim_widget_components_chatButton_ButtonBar .button_text {
+    position: relative;
+    overflow: hidden;
+    vertical-align: text-top;
+    width: 100%;
+    bottom: 0;
+    transition: bottom 0.3s ease-in-out;
+    font-weight: bold;
+    line-height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.meshim_widget_components_chatButton_ButtonBar .blinds {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.meshim_widget_components_chatButton_ButtonBar .button_text .status {
+    font-weight: bold;
 }
