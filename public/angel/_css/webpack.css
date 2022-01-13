@@ -3035,7 +3035,7 @@ fieldset:disabled a.btn
     .topbar-left{
         display: none;
     }
-    .sec_right,#toobar-content,#topbar-left .favorite,.phone__contact,.private__00{
+    .sec_right,#toobar-content,#topbar-left .favorite,.topbar-left .phone__contact,.topbar-left .private__00{
         display: none;
     }
 

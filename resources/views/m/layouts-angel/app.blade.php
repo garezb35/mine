@@ -353,6 +353,10 @@
         else{
             $("#toolbar-btn").hide();
         }
+
+        $(".zopim").click(function(){
+            $(".topbar-left").css('display','block')
+        })
     })
 </script>
 
