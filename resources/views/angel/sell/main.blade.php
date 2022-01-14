@@ -59,22 +59,24 @@
 @section('content')
 
     <div class="container_fulids" id="module-teaser-fullscreen">
-
-
-        <div class="aside">
-            <div class="title_blue">
-                <img src="/angel/img/icons/exclamation-mark-png-exclamation-mark-icon-11563006763v9utxg8tnp 1.png" />
-                판매등록 알아보기
-            </div>
-            <div class="menu_know">
-                <p class="heads">판매물품 등록 방법</p>
-                <img src="/angel/img/new_images/sell_left_know.png" width="200"  alt="팝니다 쉽게 등록하기">
-            </div>
-        </div>
-        <div class="pagecontainer">
+        <div class="pagecontainer_full">
             <div class="g_title_noborder">
                 팝니다
                 <span>등록</span>
+            </div>
+            <div class="registration_info">
+                <span>판매등록 알아보기</span> <img src="/angel/img/icons/info.png">
+                <div class="info_display">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+
+                </div>
             </div>
             <form name="frmSell" id="frmSell" method="post" enctype="multipart/form-data" action="/addService">
                 @csrf

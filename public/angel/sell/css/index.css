@@ -915,4 +915,30 @@
     height: 223px;
 }
 
+.registration_info img{
+    vertical-align: inherit;
+}
 
+
+.registration_info span{
+    font-size: 15px;
+    margin-left: 30px;
+    color: #229492;
+}
+
+
+.info_display{
+    margin : 10px 15px 0px 15px;
+    height: 65px;
+    line-height: 65px;
+    border: 1px solid #b7b7b7;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.info_display > div {
+
+}

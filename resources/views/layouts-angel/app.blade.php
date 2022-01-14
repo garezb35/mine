@@ -248,14 +248,10 @@
     .siteHeader .js-nav-menu {
         padding: 0;
     }
-    .container_fulids{
-        min-height: 1086px;
-    }
-    .well--tooltip {
-        min-width: 300px;
-        max-width: 300px;
-        margin: 0;
-    }
+    /*.container_fulids{*/
+    /*    min-height: 1086px;*/
+    /*}*/
+
 
     /*@media (min-width: 500px) {*/
     /*    .well--tooltip {*/
