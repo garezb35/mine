@@ -507,12 +507,12 @@ function alterConstructorAddCheck() {
         formCheck.add({name: 'user_goods_type', msg: '판매유형을 선택해주세요.'});
 
         if (userGoodsType.value === 'division') {
-            KeepAlivesRaw({
-                el: document.getElementById('discount_guide'),
-                layer: document.getElementById('discount_layer'),
-                mask: false,
-                type: 'style'
-            });
+            // KeepAlivesRaw({
+            //     el: document.getElementById('discount_guide'),
+            //     layer: document.getElementById('discount_layer'),
+            //     mask: false,
+            //     type: 'style'
+            // });
 
             formCheck.add({name: 'user_quantity_min', msg: '최소 판매 수량을 입력해주세요.', type: 'price', protect: true});
             formCheck.add({name: 'user_quantity_max', msg: '최대 판매 수량을 입력해주세요.', type: 'price', protect: true});
