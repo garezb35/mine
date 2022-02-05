@@ -31,6 +31,7 @@ Route::middleware('auth:api')->group(function(){
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+    Route::post('servers',[\App\Http\Controllers\AdminController::class, 'getServers']);
     Route::post('third_category',[\App\Http\Controllers\VAjaxController::class,'third_category'])->name('third_category');
     Route::post('processUsing',[\App\Http\Controllers\VCustomerController::class,'processUsing'])->name('processUsing');
     Route::post('frm_game',[\App\Http\Controllers\VCustomerController::class,'frm_game'])->name('frm_game');

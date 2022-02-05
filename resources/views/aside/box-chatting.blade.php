@@ -116,8 +116,6 @@
             position: relative;
             z-index: 10;
             background: #2c3d57;
-            border-top-left-radius: 6px;
-            border-top-right-radius: 6px;
         }
         .box-chatting .btn-etc .cnt {
             color: #fff;
@@ -129,41 +127,41 @@
             background: url(/angel/img/icons/user_cnt.png);
             display: inline-block;
             background-repeat: no-repeat;
-            margin-top: 8px;
+            margin-top: 6px;
         }
-        .sp-btn_chat1 {
-            width: 28px;
-            height: 25px;
-            background: url(/assets/images/powerball/sp_chat.png) -154px -490px;
+        .sp-btn_chat1,.sp-btn_chat4,.sp-btn_chat5  {
             display: block;
+            font-size: 15px;
+            color: #fff;
+            width: 23px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+        }
+        .sp-btn_chat1 i,.sp-btn_chat4 i,.sp-btn_chat5 i{
+            line-height: 32px;
         }
         .sp-btn_chat2 {
-            width: 28px;
-            height: 25px;
-            background: url(/assets/images/powerball/sp_chat.png) -106px -490px;
             display: block;
+            width: 23px;
+            height: 32px;
+            color: #fff;
+            text-align: center;
+            line-height: 32px;
+            font-weight: bold;
         }
         .sp-btn_chat3 {
-            width: 28px;
-            height: 25px;
-            background: url(/assets/images/powerball/sp_chat.png) -550px -443px;
             display: block;
-        }
-        .sp-btn_chat4 {
-            width: 28px;
-            height: 25px;
-            background: url(/assets/images/powerball/sp_chat.png) -10px -490px;
-            display: block;
-        }
-        .sp-btn_chat5 {
-            width: 28px;
-            height: 25px;
-            background: url(/assets/images/powerball/sp_chat.png) -463px -430px;
-            display: block;
+            width: 23px;
+            height: 32px;
+            color: #fff;
+            font-size: 10px;
+            text-align: center;
+            line-height: 32px;
         }
         .box-chatting .btn-etc ul.ul-1 li {
             float: left;
-            border-left: 1px solid #cecece;
+            border-left: 1px solid #18273e;
         }
         .box-chatting .btn-etc ul.ul-1 {
             position: absolute;
@@ -253,19 +251,30 @@
                 </span>
                 <ul class="ul-1">
                     <li>
-                        <a href="#" onclick="chatManager('popupChat');return false;" title="새창" class="sp-btn_chat1"></a>
+                        <a href="#" onclick="chatManager('popupChat');return false;" title="새창" class="sp-btn_chat1">
+                            <i class="fa fa-external-link" aria-hidden="true"></i>
+                        </a>
                     </li>
-                    <li style="background-color: rgb(243, 243, 243);">
-                        <a href="#" onclick="fontZoom(1);return false;" title="글씨크게" class="sp-btn_chat2"></a>
+                    <li >
+                        <a href="#" onclick="fontZoom(1);return false;" title="글씨크게" class="sp-btn_chat2">
+                            가
+                        </a>
                     </li>
-                    <li style="background-color: rgb(243, 243, 243);">
-                        <a href="#" onclick="fontZoom(-1);return false;" title="글씨작게" class="sp-btn_chat3"></a>
+                    <li >
+                        <a href="#" onclick="fontZoom(-1);return false;" title="글씨작게" class="sp-btn_chat3">
+                            가
+                        </a>
                     </li>
-                    <li style="background-color: rgb(243, 243, 243);">
-                        <a href="#" onclick="chatManager('clearChat');return false;" title="채팅창 지우기" class="sp-btn_chat4"></a>
+                    <li >
+                        <a href="#" onclick="chatManager('clearChat');return false;" title="채팅창 지우기" class="sp-btn_chat4">
+                            <i class="fa fa-eraser"></i>
+                        </a>
                     </li>
-                    <li style="background-color: rgb(243, 243, 243);">
-                        <a href="#" onclick="chatManager('refresh');return false;" title="새로고침" class="sp-btn_chat5"></a>
+                    <li >
+                        <a href="#" onclick="chatManager('refresh');return false;" title="새로고침" class="sp-btn_chat5">
+                            <i class="fa fa-refresh" aria-hidden="true"></i>
+
+                        </a>
                     </li>
 {{--                    <li>--}}
 {{--                        <a href="#" onclick="return false;" id="soundBtn" title="소리끄기" class="sp-btn_chat_sound on"></a>--}}

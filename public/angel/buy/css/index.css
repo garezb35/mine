@@ -1,3 +1,6 @@
+.visible_sell_buy_on{
+    display: none;
+}
 .aside .title_green {
     padding: 10px 0;
     background-color: #39A742;
@@ -12,7 +15,10 @@
     text-align: center;
 }
 
-
+.g__tab__title {
+    margin-left: 30px;
+    margin-top: 30px;
+}
 
 .aside .menu_know img {
     margin-bottom: 12px;
@@ -182,12 +188,28 @@
 }
 
 .g_txtbtn {
-    display: inline-block;
-    padding: 0px 5px;
+    display: block;
     border: 1px solid #9B9B9B;
-    background-color: #FCFCFC;
+    background: linear-gradient(#e5e5e5,#dadada);
     font-size: 11px;
     cursor: pointer;
+    width: calc(20% - 5px);
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+#trade_sign_txt {
+    background: #229fa3;
+    padding: 5px 10px 5px 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.item_detail_opts a {
+    float: right;
+    color: #236ec0;
+    font-weight: bold;
 }
 
 .g_txtbtn:hover {
@@ -195,9 +217,9 @@
     color: #39A742;
 }
 
-.g_txtbtn.first_btn {
-    margin-left: 10px
-}
+/*.g_txtbtn.first_btn {*/
+/*    margin-left: 10px*/
+/*}*/
 
 .direct_info dt {
     float: left;
@@ -241,8 +263,10 @@
 }
 
 .item_detail_opts {
-    float: left;
-    margin-bottom: 5px;
+    margin-bottom:5px;
+    overflow: auto;
+    height: 26px;
+    line-height: 25px;
 }
 
 .item_detail_opts .btn-light-modern {
@@ -323,8 +347,7 @@
 
 .charge_service dd {
     box-sizing: border-box;
-    height: 153px;
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: center;
 }
 
@@ -339,12 +362,21 @@
 }
 
 .charge_service .exp {
-    margin: 4px 0 7px;
+    /*margin: 4px 0 7px;*/
     font-size: 12px;
+    width: 170px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #bdbdbd;
+    margin: auto;
+}
+
+.charge_service .exp .sub_txt p {
+    padding-left: 12px;
 }
 
 .charge_service select {
-    width: 110px;
+    /*width: 110px;*/
     margin-bottom: 5px;
 }
 
@@ -353,12 +385,15 @@
 }
 
 .charge_service .free_view {
-    padding: 4px 19px 4px 18px;
+    padding: 4px 24px 4px 24px;
     border-radius: 18px;
     display: block;
     width: 106px;
     text-align: center;
+    margin: auto;
     margin-top: 5px;
+    color: #fff;
+    font-size: 14px;
 }
 
 .charge_service label {
@@ -451,7 +486,7 @@
 }
 
 .premium_info .inner {
-    width: 460px;
+    width: 100%
 }
 
 .premium_info .pre_title {
@@ -463,20 +498,20 @@
 .premium_info .middle_text {
     padding: 20px 0;
     text-align: center;
+    border: 1px solid #a5a5a5;
 }
 
 .premium_info .mileage_sea {
     text-align: center;
-    border: 1px
-    solid #C1C1C1;
-    height: 40px;
-    line-height: 40px;
-    width: 438px;
+    border: 1px solid #00bcba;
+    height: 60px;
+    line-height: 60px;
     margin: auto;
+    background: #fff;
+    font-size: 18px;
 }
 
 .premium_info .premiumPart--content {
-    margin-top: 20px;
     background: #F7F7F7;
     border: 1px solid #C1C1C1;
 }
@@ -711,16 +746,16 @@
     font-size: 25px;
 }
 
-.euro-service {
+.euro-service{
     overflow: hidden;
     position: relative;
-    height: 223px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: center;
 }
 
-.charge_service {
-    overflow: hidden;
-    position: absolute;
-    top: 72px;
+.charge_service{
+    overflow:hidden;
     width: 100%;
 }
 
@@ -733,44 +768,70 @@
 }
 
 .charge_service dl>div {
-    margin-left: 5px;
-    margin-right: 5px;
-    border: 1px solid;
-    border-radius: 15px;
+    border: 1px solid #c3c3c3;
     background: white;
-    height: 139px;
+    height: 153px;
     position: relative;
 }
 
-.charge_service dl:first-child>div {
-    border-color: #FDB416;
-}
-.charge_service dl:first-child>div{
-    border-color: #FDB416;
-}
-.charge_service dl:nth-child(2)>div{
-    border-color: #29DF94;
-}
-.charge_service dl:nth-child(3)>div{
-    border-color: #63A7D2;
-}
-.charge_service dl:nth-child(4)>div{
-    border-color: #B195E0;
-}
+/*.charge_service dl:first-child>div {*/
+/*    border-color: #FDB416;*/
+/*}*/
+/*.charge_service dl:first-child>div{*/
+/*    border-color: #FDB416;*/
+/*}*/
+/*.charge_service dl:nth-child(2)>div{*/
+/*    border-color: #29DF94;*/
+/*}*/
+/*.charge_service dl:nth-child(3)>div{*/
+/*    border-color: #63A7D2;*/
+/*}*/
+/*.charge_service dl:nth-child(4)>div{*/
+/*    border-color: #B195E0;*/
+/*}*/
 
 /*.charge_service dl:first-child{*/
 /*    margin-left:0;*/
 /*}*/
 
+.select2-container--default .select2-selection--single{
+    border: 1px solid #229394;
+    border-radius: 0;
+    height: 32px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-width: 8px 6px 0 6px;
+    border-color: #229394 transparent transparent transparent;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 2px;
+    right: 10px;
+}
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: transparent transparent #229394 transparent;
+    border-width: 0 6px 10px 6px;
+}
+
+.charge_service .premiumss .sub_txt {
+    font-size: 12px;
+    width: 170px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #bdbdbd;
+    margin: auto;
+}
+
 .total_charge {
     clear: both;
     padding: 15px 0;
-    border: 1px solid #F3F5FA;
-    border-top: 0;
-    background-color: #F3F5FA;
+    border: 1px solid #e0e0e0;
     font-size: 18px;
     text-align: center;
-    margin-top: 25px;
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
 }
 
 .aside .title_blue {
@@ -793,4 +854,124 @@
     background: #DA9898;
     color: white;
     margin-bottom: 16px;
+}
+
+@media screen and (max-width: 790px) {
+
+    .charge_service dl {
+        width: 100%;
+    }
+
+    .mt-36 {
+        margin-top: 0px;
+    }
+
+    .custom-select__1 {
+        margin: 0 5px !important;
+    }
+
+    .euro-service {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .custom-select__1 {
+        width: 143px !important;
+    }
+
+    .charge_service label.f_black4 {
+        display: none;
+    }
+
+    .m-l-15 {
+        margin-left: unset;
+    }
+
+    .m-r-15 {
+        margin-right: unset;
+    }
+
+    .charge_price.charge_price__more, .charge_price {
+        margin-left: 10px;
+    }
+
+    .visible_sell_buy_off {
+        display: none;
+    }
+
+    .visible_sell_buy_on {
+        display: table-row;
+    }
+
+    .user__contact .excellent {
+        margin-left: 0px;
+    }
+
+    .user__contact .excellent li {
+        width: 61px;
+    }
+
+    .angel__part {
+        padding: 5px;
+    }
+
+    /*.sell__buy__table th{*/
+    /*    min-width:60px;*/
+    /*}*/
+    /*.sell__buy__table td{*/
+    /*    width:calc(100% - 60px)*/
+    /*}*/
+    .info_display > div.info_tap_img {
+        display: none;
+    }
+
+    .info_display {
+        display: block;
+        height: auto;
+        line-height: unset;
+        overflow: auto;
+        padding-bottom: 10px;
+    }
+
+    .info_display > div.infos_tap {
+        width: calc(33% - 11px) !important;
+        float: left;
+        margin-right: 5px;
+        font-size: 11px;
+    }
+    .info_display > div:nth-child(5),.info_display > div:nth-child(11){
+        margin-right: 0px;
+    }
+
+    .screenshot_wrap>div {
+        width: calc(33% - 5px) !important;
+        height: 90px !important;
+    }
+
+    .screenshot_wrap>div img{
+        object-fit: cover;
+    }
+
+}
+@media screen and (max-width: 718px) {
+    .parts__01>div{
+        width: 100%;
+    }
+    .parts__01>div:first-child{
+        border-bottom: 0px;
+    }
+    .total_charge span{
+        display: block;
+        text-align: center;
+    }
+}
+
+
+@media screen and (max-width: 388px) {
+    .mmm.ml-15{
+        margin-left: 0px;
+    }
+    .mmm.mr-15{
+        margin-right: 0px;
+    }
 }

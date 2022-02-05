@@ -306,7 +306,8 @@ Route::prefix('game_info')->group(function() {
 /**
  * By Jong
  */
-Route::get('/index', [\App\Http\Controllers\VMainController::class, 'index'])->name('index');
+Route::get('/index', [\App\Http\Controllers\VMainController::class, 'first'])->name('index');
+Route::get('/homepage', [\App\Http\Controllers\VMainController::class, 'index'])->name('homepage');
 Route::get('/character', [\App\Http\Controllers\VChrController::class, 'index'])->name('character');
 Route::get('/event', [\App\Http\Controllers\VEventController::class, 'index'])->name('event');
 

@@ -1,4 +1,4 @@
-@extends('layouts-angel.app')
+@extends('layouts-angel.app-frame')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/complete/css/report.css?190220">
@@ -10,15 +10,13 @@
 
 @section('content')
 
-<div class="container_fulids" id="module-teaser-fullscreen">
+<div @class('bg-white')>
+        <div>
+            @include("angel.myroom.header")
+        </div>
     @include('aside.myroom',['group'=>'end'])
     <div class="pagecontainer">
-
-        <div class="contextual--title noborder"> 종료 <span>내역</span>
-        </div>
-
-
-        <div class="react_nav_tab navs__pops">
+        <div class="react_nav_tab navs__pops mb-30">
             <div><a href="/myroom/complete/sell">판매종료내역</a></div>
             <div><a href="/myroom/complete/buy">구매종료내역</a></div>
             <div class='selected'><a href="/myroom/complete/report">전체이용내역</a></div>
@@ -27,17 +25,17 @@
 
         <form method="GET">
             <div class="float__right">
-                <select name="selectYear" class="d-none">
+                <select name="selectYear" @class('sely')>
                     @for($i = date("Y") ; $i >=date("Y")-4 ; $i--)
                         <option value="{{$i}}" @if((Request::get('selectYear') == $i) || (empty(Request::get('selectYear')) && $i == date("Y"))) selected @endif>{{$i}}년</option>
                     @endfor
                 </select>
-                <button class="v_middle_img" style="width: 50px;height: 20px;line-height: 20px;text-align: center"><i class="fa fa-search" style="font-size: 14px"></i></button>
+                <button class="btn_sumit_complete">검색</button>
             </div>
         </form>
 
         <div class="empty-high"></div>
-        <table class="table-modern-primary tb_list mt-10">
+        <table class="table-primary tb_list mt-10 thbn tdbn">
             <colgroup>
                 <col width="64">
                 <col width="106">

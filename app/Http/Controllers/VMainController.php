@@ -148,4 +148,8 @@ class VMainController extends BaseController
     {
         return view('angel.notice', array("user"=>$this->user));
     }
+
+    public function first(Request $request){
+        return view('first');
+    }
 }

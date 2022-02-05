@@ -159,17 +159,6 @@ class VMyRoomController extends BaseController
         orderBy('updated_at',"DESC")->
         limit(5)->get()->toArray();
         return view('angel.myroom.main',[
-            'user'=>$this->user,
-            'coupon'=>$user_coupon,
-            'role'=>$role,
-            'buying_register'=>$buying_register,
-            'bargain_request'=>$bargain_request,
-            'pay_pending'=>$pay_pending,
-            'buying_count'=>$buying_count,
-            'selling_register'=>$selling_register,
-            'bargain_request_selling'=>$bargain_request_selling,
-            'pay_pending_selling'=>$pay_pending_selling,
-            'selling_count'=>$selling_count,
             'recent_orders'=>$recent_orders
             ]);
     }
@@ -188,7 +177,11 @@ class VMyRoomController extends BaseController
         $message = $message->orderBy('created_at',"DESC")->paginate(15);
         $order_message_count = MInbox::where('userId',$this->user->id)->where('type','거래')->get()->count();
         $manager_message_count = MInbox::where('userId',$this->user->id)->where('type','관리자')->get()->count();
-        return view('angel.myroom.message',['message'=>$message,'order_message_count'=>$order_message_count,'manager_message_count'=>$manager_message_count]);
+        return view('angel.myroom.message',[
+            'message'=>$message,
+            'order_message_count'=>$order_message_count,
+            'manager_message_count'=>$manager_message_count
+            ]);
     }
 
     public function alarm_sell_list()

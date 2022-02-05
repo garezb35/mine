@@ -357,6 +357,7 @@ class ManiaController extends BaseController
         if(!empty($request->gamemoney_unit)){
             $update['gamemoney_unit'] = $request->gamemoney_unit;
         }
+
         if($user_goods_type == 'general'){
             $update['user_price'] = str_replace(",","",$request->user_price);
             $update['user_character'] = $request->user_character;
@@ -659,14 +660,14 @@ class ManiaController extends BaseController
         if(!empty($mygame)){
             foreach($mygame as $v){
                 array_push($list,array(
-                      "id"=> $v['id'],
-                      "type"=> $v['type'],
-                      "gameCode"=> $v['game'],
-                      "gameName"=> $v['game_text'],
-                      "serverCode"=> $v['server'],
-                      "serverName"=>  $v['server_text'],
-                      "goodsCode"=> itemAlias($v['goods_text']),
-                      "goodsName"=> $v['goods_text']
+                    "id"=> $v['id'],
+                    "type"=> $v['type'],
+                    "gameCode"=> $v['game'],
+                    "gameName"=> $v['game_text'],
+                    "serverCode"=> $v['server'],
+                    "serverName"=>  $v['server_text'],
+                    "goodsCode"=> itemAlias($v['goods_text']),
+                    "goodsName"=> $v['goods_text']
                 ));
             }
         }
@@ -684,42 +685,57 @@ class ManiaController extends BaseController
         $last_alias = $request->last_alias;
         $user_goods_type = $request->user_goods_type;
         $game = MGame::where("parent",$game_code)->where('depth',2)->where("game",$last_alias)->first();
+        $unit =  $item_info = $unit_type = $character_info = $discount = "";
+
         if(!empty($game)){
+            $division_enabled = $game->division_enabled;
+            if($division_enabled == 0)
+                $user_goods_type = 'general';
             $result = '';
             if($game->parent == 265 && $game->unit == 'item'){
-                $result .= '<tr id="item_detail_srh_service">
-    <th>
+//                $item_info = '<tr id="item_detail_srh_service">
+//
+//</tr>';
+                $item_info = '<th class="border-top bg-gradient-wb">
         아이템정보<br>
         <label><input type="checkbox" class="angel_game_sel" name="iteminfo_use" id="iteminfo_use" value="Y" checked="">서비스이용</label>
     </th>
-    <td>
+    <td class="border-top">
         <input type="hidden" name="iteminfo_use_complete" id="iteminfo_use_complete" value="N">
         <div class="item_detail_srh" id="item_detail_srh">
             <div id="item_detail_wrap"><p>1. 기본정보</p>
                 <ul class="item_detail_search" id="item_detail_search">
                     <li>
                         <label for="category">분류</label>
-                        <select name="category" id="category">
-                            <option value="">불러오는중...</option>
-                        </select>
+                        <label for="styledSelect1" class="custom-select height30">
+                            <select name="category" id="category" class="text_select">
+                                <option value="">불러오는중...</option>
+                            </select>
+                        </label>
                     </li>
                     <li>
                         <label for="kind">종류</label>
-                        <select name="kind" id="kind" disabled>
-                            <option value="">선택하세요</option>
-                        </select>
+                        <label for="styledSelect1" class="custom-select height30">
+                            <select name="kind" id="kind" disabled class="text_select">
+                                <option value="">선택하세요</option>
+                            </select>
+                        </label>
                     </li>
                     <li>
                         <label for="item_name">아이템명</label>
-                        <select name="item_name" id="item_name" disabled>
-                            <option value="">선택하세요</option>
-                        </select>
+                        <label for="styledSelect1" class="custom-select height30">
+                            <select name="item_name" id="item_name" disabled class="text_select">
+                                <option value="">선택하세요</option>
+                            </select>
+                        </label>
                     </li>
                     <li>
                         <label for="enchant">인챈트 상태</label>
-                        <select name="enchant" id="enchant" disabled="">
-                            <option value="">선택하세요</option>
-                        </select>
+                        <label for="styledSelect1" class="custom-select height30">
+                            <select name="enchant" id="enchant" disabled="" class="text_select">
+                                <option value="">선택하세요</option>
+                            </select>
+                        </label>
                     </li>
                 </ul>
             </div>
@@ -759,244 +775,175 @@ class ManiaController extends BaseController
             </div>
         </div>
         <div class="item_guide_txt over__hidden" id="item_guide_txt">* 아이템정보 서비스를 이용 하시면 판매에 도움이 됩니다.</div>
-    </td>
-</tr>';
+    </td>';
+            }
+            if($game->purchase_enable == 1){
+                $character_info ='
+                                    <th class="border-top bg-gradient-wb">캐릭터 정보</th>
+                                    <td class="border-top">
+                                        <label for="styledSelect1" class="custom-select height30 mr-2">
+                                            <select name="account_type" id="account_type" class="text_select">
+                                                <option value="">선택하세요.</option>
+                                                <option value="1">Guest</option>
+                                                <option value="2">Google</option>
+                                                <option value="3">FaceBook</option>
+                                                <option value="9">기타</option>
+                                            </select>
+                                        </label>
+                                        <label for="styledSelect1" class="custom-select height30 mr-2">
+                                            <select name="purchase_type" id="purchase_type" disabled class="text_select">
+                                                <option value="">선택하세요.</option>
+                                                <option value="1">본인(1대)</option>
+                                                <option value="9">그 외</option>
+                                            </select>
+                                        </label>
+                                        <label for="styledSelect1" class="custom-select height30 mr-2">
+                                            <select name="payment_existence" id="payment_existence" disabled class="text_select">
+                                                <option value="">선택하세요.</option>
+                                                <option value="1">결제내역 O</option>
+                                                <option value="2">결제내역 x</option>
+                                            </select>
+                                        </label>
+                                        <label for="styledSelect1" class="custom-select height30">
+                                            <select name="multi_access" id="multi_access" disabled class="text_select">
+                                                <option value="">선택하세요.</option>
+                                                <option value="1">이중연동 O</option>
+                                                <option value="2">이중연동 x</option>
+                                            </select>
+                                        </label>
+                                        <input type="text" class="angel__text f-14 text__new__green input__height__30 border__new_green mode-active mt-5" name="character_id" id="character_id" placeholder="게임 ID" size="30" style="width: 270px">
+                                        <div class="character_noti">
+                                            ※ 캐릭터 정보 주의사항<br>
+                                            - 모든 정보 입력 후 물품 등록이 가능합니다.<br>
+                                            - 캐릭터 정보를 허위로 입력 시 , 등록자[판매자]에게 책임이 있으며 거래에 불이익을 받을 수 있습니다.
+                                        </div>
+                                    </td>';
             }
             if($user_goods_type == 'general'){
                 if($game->gamemoney_unit ==1){
-                    $result .=   '<tr>
-                                    <th>판매수량</th>
-                                    <td>
-                                                        <div class="unit_type" id="unit_type">
-                                                                        <label><input type="radio" name="gamemoney_unit" class="g_radio" value="1" checked>없음</label>
-                                                    <label><input type="radio" name="gamemoney_unit" class="g_radio" value="만">만</label>
-                                                    <label><input type="radio" name="gamemoney_unit" class="g_radio" value="억">억</label>
-                                                                        <label class="f_blue1 f_small">(단위)</label>
-                                            </div>
-                                                                <div id="game_money">
-                                                    <input type="text" name="user_quantity" id="user_quantity" maxlength="7" class="angel__text text_right rad13">
-                                                    <span class="unit"></span> '.$game->alias.'
-                                                    <span class="g_txtbtn first_btn radbtn" id="plus10" value="10">+10</span>
-                                                    <span class="g_txtbtn radbtn" id="plus50" value="50">+50</span>
-                                                    <span class="g_txtbtn radbtn" id="plus100" value="100">+100</span>
-                                                    <span class="g_txtbtn radbtn" id="plus500" value="500">+500</span>
-                                                    <span class="g_txtbtn radbtn" id="plus1000" value="1000">+1000</span>
-                                                    <span class="g_txtbtn radbtn" id="initial" value="0">초기화</span>
-                                                </div>
-                                                        </td>
-                                </tr>';
-                }
-                $result .= '<tr>
-                            <th>판매금액</th>
-                            <td>
-                                <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text text_right rad13"> 원 (3,000원 이상, 10원 단위 등록 가능)
-                            </td>
-                        </tr>';
-                if($game->purchase_enable == 1){
-                    $result .='<tr>
-        <th>캐릭터 정보</th>
-        <td>
-            <select name="account_type" id="account_type">
-                <option value="">선택하세요.</option>
-                <option value="1">Guest</option>
-                <option value="2">Google</option>
-                <option value="3">FaceBook</option>
-                <option value="9">기타</option>
-            </select>
-            <select name="purchase_type" id="purchase_type" disabled>
-                <option value="">선택하세요.</option>
-                <option value="1">본인(1대)</option>
-                <option value="9">그 외</option>
-            </select>
-            <select name="payment_existence" id="payment_existence" disabled>
-                <option value="">선택하세요.</option>
-                <option value="1">결제내역 O</option>
-                <option value="2">결제내역 x</option>
-            </select>
-            <select name="multi_access" id="multi_access" disabled>
-                <option value="">선택하세요.</option>
-                <option value="1">이중연동 O</option>
-                <option value="2">이중연동 x</option>
-            </select>
-            <input type="text" class="angel__text mode-active" name="character_id" id="character_id" placeholder="게임 ID" size="30">
-            <div class="character_noti">
-                ※ 캐릭터 정보 주의사항<br>
-                - 모든 정보 입력 후 물품 등록이 가능합니다.<br>
-                - 캐릭터 정보를 허위로 입력 시 , 등록자[판매자]에게 책임이 있으며 거래에 불이익을 받을 수 있습니다.
-            </div>
-        </td>
-    </tr>';
-                }
-                $result .= '<tr>
-                            <th>캐릭터명</th>
-                            <td>
-                                <div class="dfServer" id="dfServer">
-                                                </div>
-                                <div class="g_left">
-                                    <input type="text" class="angel__text mode-active rad13" name="user_character" maxlength="30" id="user_character"> 물품을 전달 하실 본인의 캐릭터명
-                                    <span id="sub_text" class="text-rock"></span>
+                    $unit_type = '<div class="unit_type" id="unit_type">
+                                         <label><input type="radio" name="gamemoney_unit" class="g_radio" value="1" checked>없음</label>
+                                         <label><input type="radio" name="gamemoney_unit" class="g_radio" value="만">만</label>
+                                         <label><input type="radio" name="gamemoney_unit" class="g_radio" value="억">억</label>
+                                         <label class="f_blue1 f_small">(단위)</label>
+                                    </div>';
+                    $result .=   '
+                                 <div>
+                                    <div>
+                                        <p class="fl ml-15 font-weight-bold mt-15">판매수량</p>
+                                        <span class="btn-init fr mr-15 mt-15" id="initial" value="0">초기화</span>
+                                    </div>
+                                    <div class="ml-5 mr-10">
+                                        <input type="text" name="user_quantity" id="user_quantity" maxlength="7" class="angel__text text_right w-100 f-14 text__new__green input__height__30 border__new_green m-t-10">
+                                    </div>
+                                    <div class="mt-10 price__type ml-5 mr-10" id="game_money">
+                                        <span class="g_txtbtn first_btn" id="plus10" value="10">+10</span>
+                                        <span class="g_txtbtn" id="plus50" value="50">+50</span>
+                                        <span class="g_txtbtn" id="plus100" value="100">+100</span>
+                                        <span class="g_txtbtn" id="plus500" value="500">+500</span>
+                                        <span class="g_txtbtn" id="plus1000" value="1000">+1000</span>
+                                    </div>
                                 </div>
-                                <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
-                            </td>
-                        </tr>';
+                                <div>
+                                    <div class="o__auto">
+                                        <p class="fl ml-15 font-weight-bold mt-15">판매금액</p>
+                                    </div>
+                                    <div class="ml-5 mr-10 mt-12">
+                                        <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text text_right f-14 text__new__green input__height__30 border__new_green" placeholder="원">
+                                    </div>
+                                    <div class="mt-15 ml-5 mr-10">
+                                        <span>원 (3,000원 이상, 10원 단위 등록 가능)</span>
+                                    </div>
+                                </div>';
+                }
+
+                else{
+                    $result .= '<div>
+                                    <div class="o__auto">
+                                        <p class="fl ml-15 font-weight-bold mt-15">판매금액</p>
+                                    </div>
+                                    <div class="ml-5 mr-10 mt-12">
+                                        <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text text_right f-14 text__new__green input__height__30 border__new_green" placeholder="원">
+                                    </div>
+                                    <div class="mt-15 ml-5 mr-10">
+                                        <span>원 (3,000원 이상, 10원 단위 등록 가능)</span>
+                                    </div>
+                                </div>';
+                    $result .= "<div></div>";
+                }
+
+//                $result .= '<tr>
+//                            <th>캐릭터명</th>
+//                            <td>
+//                                <div class="dfServer" id="dfServer">
+//                                                </div>
+//                                <div class="g_left">
+//                                    <input type="text" class="angel__text mode-active rad13" name="user_character" maxlength="30" id="user_character"> 물품을 전달 하실 본인의 캐릭터명
+//                                    <span id="sub_text" class="text-rock"></span>
+//                                </div>
+//                                <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
+//                            </td>
+//                        </tr>';
             }
 
             if($user_goods_type == 'division'){
                 if($game->gamemoney_unit == 1){
-                    $result .= '<tr>
-                                        <th>판매수량</th>
-                                        <td>
-                                                            <div class="unit_type" id="unit_type">
-                                                                            <label><input type="radio" name="gamemoney_unit" class="g_radio" value="1" checked>없음</label>
-                                                        <label><input type="radio" name="gamemoney_unit" class="g_radio" value="만">만</label>
-                                                        <label><input type="radio" name="gamemoney_unit" class="g_radio" value="억">억</label>
-                                                                            <label class="f_blue1 f_small">(단위)</label>
-                                                </div>
-                                                                <div id="game_money">
-                                                    최소
-                                                    <input type="text" name="user_quantity_min" id="user_quantity_min" maxlength="7" class="angel__text text_right rad13">
-                                                    <span class="unit"></span> '.$game->alias.' ~
-                                                    최대
-                                                    <input type="text" name="user_quantity_max" id="user_quantity_max" maxlength="7" class="angel__text text_right rad13">
-                                                    <span class="unit"></span> '.$game->alias.'                </div>
-                                                        </td>
-                                    </tr>';
+                    $unit_type = '<div class="unit_type" id="unit_type">
+                                         <label><input type="radio" name="gamemoney_unit" class="g_radio" value="1" checked>없음</label>
+                                         <label><input type="radio" name="gamemoney_unit" class="g_radio" value="만">만</label>
+                                         <label><input type="radio" name="gamemoney_unit" class="g_radio" value="억">억</label>
+                                         <label class="f_blue1 f_small">(단위)</label>
+                                    </div>';
                 }
+                $result .= '<div class="h161">
+                                    <div style="overflow: auto">
+                                        <p class="fl ml-15 font-weight-bold mt-15">판매수량</p>
+                                        <span class="btn-init fr mr-15 mt-15" id="initial" value="0">초기화</span>
+                                    </div>
+                                    <div class="ml-5 mr-10">
+                                        <div id="game_money">
 
-                else{
-                    $result .= '<tr>
-        <th>판매수량</th>
-        <td>
-                            <div id="game_money">
-                    최소
-                    <input type="text" name="user_quantity_min" id="user_quantity_min" maxlength="7" class="angel__text text_right rad13">
-                    <span class="unit"></span> 개 ~
-                    최대
-                    <input type="text" name="user_quantity_max" id="user_quantity_max" maxlength="7" class="angel__text text_right rad13">
-                    <span class="unit"></span> 개                </div>
-                        </td>
-    </tr>';
-                }
-
+                                            <input type="text" name="user_quantity_min" id="user_quantity_min" maxlength="7" class="angel__text text_right f-14 text__new__green input__height__30 border__new_green m-t-10" placeholder="최소 '.$game->alias.'">
+                                            <span class="unit"></span>
+                                            <input type="text" name="user_quantity_max" id="user_quantity_max" maxlength="7" class="angel__text text_right f-14 text__new__green input__height__30 border__new_green m-t-10" placeholder="최대 '.$game->alias.'">
+                                            <span class="unit"></span>
+                                        </div>
+                                    </div>
+                                </div>';
                 if($game->discount == 1){
-                    $result .= '<tr>
-        <th>판매금액</th>
-        <td>
-                        <input type="text" name="user_division_unit" id="user_division_unit" maxlength="7" class="angel__text text_right rad13" size="18">
-            <span class="unit"></span> '.$game->alias.' 당
-            <input type="text" name="user_division_price" id="user_division_price" maxlength="10" class="angel__text text_right rad13" size="18"> 원에 판매합니다.
-            <span class="f_small f_black1">(100원 이상, 10원 단위 등록 가능)</span>
-            <div class="discount">
+                    $discount = '<th class="border-top bg-gradient-wb">복수구매</th>
+                                   <td class="border-top"><div class="discount">
                 <label><input type="checkbox" class="angel_game_sel" name="discount_use" id="discount_use" value="1" onclick="ComplexDiscount();">복수구매 할인적용</label>
                 <div id="reven_discount">
-                    <input type="text" class="angel__text" name="discount_quantity" id="discount_quantity" maxlength="10" disabled readonly onfocus="$(this).blur();"><span class="unit"></span> x
-                    <input type="text" class="angel__text discount_quantity_cnt" name="discount_quantity_cnt" id="discount_quantity_cnt" maxlength="10" disabled>번 구매시
-                    <input type="text" class="angel__text discount_price" name="discount_price" id="discount_price" maxlength="10" disabled>원 할인
-                </div>
-            </div>
-        </td>
-        </tr>
-    <tr>
-        <th>캐릭터명</th>
-        <td>
-            <div class="dfServer" id="dfServer">
-                            </div>
-            <div class="g_left">
-                <input type="text" class="angel__text mode-active rad13" name="user_character" maxlength="30" id="user_character"> 물품을 전달 하실 본인의 캐릭터명
-                <span id="sub_text" class="text-rock"></span>
-            </div>
-            <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
-        </td>
-    </tr>';
+                    <input  type="text" class="w60" name="discount_quantity" id="discount_quantity" maxlength="10" disabled readonly onfocus="$(this).blur();"><span class="unit"></span> x
+                    <input type="text" class="w60 discount_quantity_cnt" name="discount_quantity_cnt" id="discount_quantity_cnt" maxlength="10" disabled>번 구매시
+                    <input  type="text" class="w60 discount_price" name="discount_price" id="discount_price" maxlength="10" disabled>원 할인
+                    </div>
+            </div></td>';
+
                 }
-                else{
-                    $result .= '<tr>
-        <th>판매금액</th>
-        <td>
-                        <input type="text" name="user_division_unit" id="user_division_unit" maxlength="7" class="angel__text text_right rad13" size="18">
-            <span class="unit"></span> '.$game->alias.' 당
-            <input type="text" name="user_division_price" id="user_division_price" maxlength="10" class="angel__text text_right rad13" size="18"> 원에 판매합니다.
-            <span class="f_small f_black1">(100원 이상, 10원 단위 등록 가능)</span>
-        </td>
-        </tr>
-    <tr>
-        <th>캐릭터명</th>
-        <td>
-            <div class="dfServer" id="dfServer">
-                            </div>
-            <div class="g_left">
-                <input type="text" class="angel__text mode-active rad13" name="user_character" maxlength="30" id="user_character"> 물품을 전달 하실 본인의 캐릭터명
-                <span id="sub_text" class="text-rock"></span>
-            </div>
-            <p class="character_noti">* 본인이 사용하는 서버/캐릭터명 미 선택 및 미 기재 시 문제가 발생될 수 있으며, 거래신청자에게 책임이 있습니다.</p>
-        </td>
-    </tr>';
-                }
-            }
-            if($user_goods_type == 'bargain'){
-                $result .='<tr>
-        <th>흥정거래금액</th>
-        <td>
-            즉시판매금액 <span class="f_blue3 f_small">(구매자의 흥정 신청 시 해당금액보다 높은 가격으로는 흥정신청이 되지 않습니다.)</span><br>
-            <div class="bargain_area">
-                <input type="text" name="user_price" id="user_price" maxlength="10" class="angel__text text_right rad13"> 원 (3,000원 이상, 10원 단위 등록 가능)
-            </div>
-            <label><input type="checkbox" name="user_deny_use" value="1" id="user_deny_use" class="angel_game_sel">최저 흥정가격 설정</label>
-            <div id="min_user_bargain" class="min_user_bargain">
-                <input type="text" keyevent="price" name="user_price_limit" maxlength="10" class="angel__text text_right rad13"> 원 미만으로는 흥정신청을 받지 않습니다.
-            </div>
-        </td>
-        </tr>
-    <tr>';
-                if($game->purchase_enable == 1){
-                    $result .='<tr>
-        <th>캐릭터 정보</th>
-        <td>
-            <select name="account_type" id="account_type">
-                <option value="">선택하세요.</option>
-                <option value="1">Guest</option>
-                <option value="2">Google</option>
-                <option value="3">FaceBook</option>
-                <option value="9">기타</option>
-            </select>
-            <select name="purchase_type" id="purchase_type" disabled>
-                <option value="">선택하세요.</option>
-                <option value="1">본인(1대)</option>
-                <option value="9">그 외</option>
-            </select>
-            <select name="payment_existence" id="payment_existence" disabled>
-                <option value="">선택하세요.</option>
-                <option value="1">결제내역 O</option>
-                <option value="2">결제내역 x</option>
-            </select>
-            <select name="multi_access" id="multi_access" disabled>
-                <option value="">선택하세요.</option>
-                <option value="1">이중연동 O</option>
-                <option value="2">이중연동 x</option>
-            </select>
-            <input type="text" class="angel__text mode-active" name="character_id" id="character_id" placeholder="게임 ID" size="30" >
-            <div class="character_noti">
-                ※ 캐릭터 정보 주의사항<br>
-                - 모든 정보 입력 후 물품 등록이 가능합니다.<br>
-                - 캐릭터 정보를 허위로 입력 시 , 등록자[판매자]에게 책임이 있으며 거래에 불이익을 받을 수 있습니다.
-            </div>
-        </td>
-    </tr>';
-                }
-                $result .='<tr>
-        <th>캐릭터명</th>
-        <td>
-            <div class="dfServer" id="dfServer">
-                            </div>
-            <div class="g_left">
-                <input type="text" class="angel__text mode-active rad13" name="user_character" maxlength="30" id="user_character"> 물품을 전달 하실 본인의 캐릭터명
-                <span id="sub_text" class="text-rock"></span>
-            </div>
-        </td>
-    </tr>';
+                $result .= '<div class="h161">
+                                <div class="o__auto">
+                                    <p class="fl ml-15 font-weight-bold mt-15">판매금액</p>
+                                </div>
+                                <div class="ml-5 mr-10 mt-12">
+                                    <input type="text" name="user_division_unit" id="user_division_unit" maxlength="10" class="angel__text text_right f-14 text__new__green input__height__30 border__new_green" placeholder="1'.$game->alias.' 당">
+                                    <input type="text" name="user_division_price" id="user_division_price" maxlength="10" class="angel__text text_right f-14 text__new__green input__height__30 border__new_green m-t-10" size="18" placeholder="원">
+                                </div>
+                                <div class="mt-15 ml-5 mr-10">
+                                    <span>(100원 이상, 10원 단위 등록 가능)</span>
+                                </div>
+                            </div>';
             }
         }
-        echo $result;
+        return response()->json(array(
+            "result"=>$result,
+            'item_info'=>$item_info,
+            'unit_type'=>$unit_type,
+            'character_info'=>$character_info,
+            'discount'=>$discount,
+            'division_enabled'=>$division_enabled
+        ));
     }
 
     public function getAjaxItemAll(){
@@ -1529,7 +1476,7 @@ class ManiaController extends BaseController
                     $query->where('number',$mb);
                     $query->orwhere('home',$hb);
                 })->get()->first();
-            if(!empty($other_user)){
+            if(!empty($othwwwer_user)){
                 echo 'E|이미 사용되었습니다.';
             }
             else{
@@ -1549,7 +1496,7 @@ class ManiaController extends BaseController
             $discount = '<td>    '.$allcount.' 게임머니 당 '.$params->discount_price.'원        </td>';
         }
         if(!empty($params->item_info_txt)){
-            $item_info = '<tr>
+            $item_info = '<tr>d
             <th>아이템정보</th>
             <td colspan="3" class="f_blue3 f_bold">'.$params->item_info_txt.'</td>
         </tr>';
@@ -1628,7 +1575,7 @@ class ManiaController extends BaseController
         </tr>
     </table>
 </div>
-<div class="g_btn_wrap">
+<div class="g_btn_wrap mt-5">
     <a href="javascript:;" id="reg_submit" class="btn-default btn-suc">서명하기</a>
     <a href="javascript:;" id="cancel_submit" class="btn-default btn-cancel">취소</a>
 </div>';
@@ -1886,7 +1833,7 @@ class ManiaController extends BaseController
         </tr>
     </table>
 </div>
-<div class="g_btn_wrap">
+<div class="g_btn_wrap mt-5">
     <a href="javascript:;" id="reg_submit" class="btn-default btn-suc">서명하기</a>
     <a href="javascript:;" id="cancel_submit" class="btn-default btn-cancel">취소</a>
 </div>';
@@ -2322,7 +2269,7 @@ class ManiaController extends BaseController
                 }
                 $this->processPay($buy_id,$sell_id,$request->id);
             }
-           return redirect('/myroom/sell/sell_ing_view?id='.$request->id.'&type='.$item['type']);
+            return redirect('/myroom/sell/sell_ing_view?id='.$request->id.'&type='.$item['type']);
         }
     }
 
@@ -2368,7 +2315,7 @@ class ManiaController extends BaseController
         MBargainRequest::where('id',$request->id)->update([
             'price1'=>$request->re_ba_money,
             'status'=>1
-            ]);
+        ]);
         MItem::where('orderNo',$ba_request['orderNo'])->update([
             'mode'=>1
         ]);
@@ -2384,7 +2331,7 @@ class ManiaController extends BaseController
                 'status'=>10
             ]);
             MItem::where('orderNo',$bargain_request['orderNo'])->update([
-               'toId'=>$this->user->id,
+                'toId'=>$this->user->id,
             ]);
             MPayitem::insert([
                 'userId'=>$this->user->id,

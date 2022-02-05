@@ -57,16 +57,16 @@
 
 .reg_icon {
     display: inline-block;
-    width: 48px;
-    height: 39px;
+    width: 42px;
+    height: 45px;
     background: url(/angel/img/icons/thumb-up.png) no-repeat;
     background-size: 100% 100%;
 }
 
 .box6 .complete_txt {
     margin: 14px 0 24px;
-    color: #00CA85;
-    font-size: 16px;
+    color: #009b04;
+    font-size: 25px;
     font-weight: bold;
     text-align: center;
 }
@@ -86,4 +86,21 @@
 
 .btn_list {
     display: none
+}
+
+
+@media screen and (max-width: 644px){
+    #btn_list a{
+        width: calc(25% - 8px) !important;
+        font-size: 12px !important;
+        margin-right: 0px !important;
+    }
+
+    .pagecontainer_full{
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+    .box6 .complete_txt{
+        font-size: 18px;
+    }
 }

@@ -1,4 +1,4 @@
-@extends('layouts-angel.app')
+@extends('layouts-angel.app-frame')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/user_leave/css/user_leave_form.css">
@@ -9,10 +9,7 @@
 @endsection
 @section('content')
     <style>
-        .tb_cell1 label {
-            margin-left: 32px;
-            font-size: 14px;
-        }
+
         .tb_cell1 {
             padding-top: 10px;
             line-height: 28px;
@@ -27,9 +24,11 @@
             margin-top: 10px;
             margin-bottom: 14px;
             padding: 6px 10px;
-            border: solid 1px #067c97;
-            color: #067c97;
+            border: solid 1px #b6b6b6;
+            color: #000;
             background: transparent;
+            width: 100%;
+            text-align: center;
         }
         .leave-action input {
             padding: 6px 12px;
@@ -42,70 +41,29 @@
             padding-bottom: 15.5px;
         }
     </style>
-    <div class="container_fulids" id="module-teaser-fullscreen">
-        @include('aside.myroom',['group'=>'exit'])
-        <div class="pagecontainer">
-            <div class="contextual--title noborder">
-                회원<span>탈퇴</span>
-            </div>
-
-            <div class="highlight_contextual_nodemon">마일리지 및 포인트 정보</div>
-            <table class="table-primary noborder">
-                <colgroup>
-                    <col width="33%">
-                    <col width="33%">
-                    <col width="*">
-                </colgroup>
-                <tbody>
-                    <tr>
-                        <th class="noborder bg-white">총 마일리지</th>
-                        <th class="noborder bg-white">신용등급</th>
-                        <th class="noborder bg-white">전체거래현황</th>
-                    </tr>
-                    <tr>
-                        <td class="noborder text-center bg-white"><a href="/myroom/mileage/my_mileage/">{{number_format($user['mileage'])}} 원</a></td>
-                        <td class="noborder text-center bg-white">VIP</td>
-                        <td class="noborder text-center bg-white">907 점</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="g_gray_border"></div>
-            <div class="subtitle">메일 수신 및 기타 개인정보 등에 대한 불편으로 회원 탈퇴를 원하신다면, 아래의 방법으로 불편사항을 해결하실 수 있습니다.</div>
-            <div class="d-flex">
-                <div class="cancel_area" style="width: 200px;">
-                    <form id="cancelForm" name="cancelForm" method="post" action="./user_refuse_ok.php">
-                        <div class="tb_cell1">
-                            <label for="email_cancel"><input type="checkbox" class="angel_game_sel" name="email" id="email_cancel"> 이메일 수신거부</label><br>
-                            <label for="sms_cancel"><input type="checkbox" class="angel_game_sel" name="sms" id="sms_cancel"> SMS 수신거부</label><br>
-                            <label for="offer_cancel"><input type="checkbox" class="angel_game_sel" name="offer" id="offer_cancel"> 정보제공동의 철회</label><br>
-                        </div>
-                        <div class="tb_cell2 w-100">
-                            <input type="submit" class="" width="66" height="20" value="신청하기" />
-                        </div>
-                    </form>
-                </div>
-                <div style="width: calc(100% - 212px); margin-left: 12px;">
-                    <form id="signForm" name="signForm" method="post" action="/myroom/user_leave/user_leave_cause">
-                        @csrf
-                        <input type="hidden" name="pMode" value="user_leave">
-                        <table class="table-primary g_sky_table">
-                            <colgroup>
-                                <col width="140">
-                                <col width="240">
-                                <col width="140">
-                            </colgroup>
-                            <tbody>
+    <div @class('bg-white')>
+        <div>
+            @include("angel.myroom.header")
+        </div>
+        <div @class('ml-10')>
+            @include('aside.myroom',['group'=>'exit'])
+            <div class="pagecontainer">
+                <div @class('ext__part')>
+                    <div class="position-relative">
+                        <form id="signForm" name="signForm" method="post" action="/myroom/user_leave/user_leave_cause">
+                            @csrf
+                            <input type="hidden" name="pMode" value="user_leave">
+                            <table class="table-primary">
+                                <colgroup>
+                                    <col width="150"/>
+                                </colgroup>
+                                <tbody>
                                 <tr>
                                     <th>아이디</th>
                                     <td>pej***</td>
-                                    <td rowspan="3" class="leave-action">
-                                        <div class="align-center">
-                                            <input type="submit" value="탈퇴진행">
-                                        </div>
-                                        <div class="align-center">
-                                            <input type="reset" value="취소" style="padding: 6px 25px;margin-top: 12px;">
-                                        </div>
-                                    </td>
+                                    {{--                                    <td rowspan="3" class="leave-action">--}}
+
+                                    {{--                                    </td>--}}
                                 </tr>
                                 <tr>
                                     <th>이름</th>
@@ -113,27 +71,39 @@
                                 </tr>
                                 <tr>
                                     <th>비밀번호</th>
-                                    <td><input type="password" class="angel__text" name="passwd" id="user_passwd" maxlength="30"></td>
+                                    <td><input type="password" class="angel__text" name="passwd" id="user_passwd" maxlength="30" autofocus></td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </form>
+                                </tbody>
+                            </table>
+                            <div @class('ext_cancel')>
+                                <input type="submit" value="탈퇴진행" @class('btn-endsb') style="border: 1px solid #a5a5a5 !important">
+                                <input type="reset" value="취소" @class('btn-endsb')>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="cancel_area">
+                        <form id="cancelForm" name="cancelForm" method="post" action="./user_refuse_ok.php">
+                            <div class="tb_cell1">
+                                <label for="email_cancel"><input type="checkbox" class="angel_game_sel" name="email" id="email_cancel"> 이메일 수신거부</label><br>
+                                <label for="sms_cancel"><input type="checkbox" class="angel_game_sel" name="sms" id="sms_cancel"> SMS 수신거부</label><br>
+                                <label for="offer_cancel"><input type="checkbox" class="angel_game_sel" name="offer" id="offer_cancel"> 정보제공동의 철회</label><br>
+                            </div>
+                            <div class="tb_cell2 w-100">
+                                <input type="submit" class="" width="66" height="20" value="신청하기" />
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
 
-            <div class="highlight_contextual_nodemon f-16"><span class="ft_orange">회원탈퇴</span>안내</div>
-            <div style="border: solid 1px #bbb;padding: 12px 15px;">
-                <p>
-                    회원 탈퇴 시 회원님께서 보유하셨던 마일리지 및 포인트, 쿠폰, 무료이용권은 모두 삭제됩니다.<br>
-                    회원 탈퇴 후 재가입시에는 신규회원으로 가입이 처리되며, 탈퇴 전의 회원정보와 거래정보 및 마일리지,<br>포인트 등 모든 정보는 복구되지 않습니다.
-                </p>
+                <div class="highlight_contextual_nodemon f-16 mt-20"><span>회원탈퇴</span>안내</div>
+                <div>
+                    <p>
+                        회원 탈퇴 시 회원님께서 보유하셨던 마일리지 및 포인트, 쿠폰, 무료이용권은 모두 삭제됩니다.<br>
+                        회원 탈퇴 후 재가입시에는 신규회원으로 가입이 처리되며, 탈퇴 전의 회원정보와 거래정보 및 마일리지,<br>포인트 등 모든 정보는 복구되지 않습니다.
+                    </p>
+                </div>
             </div>
         </div>
         <div class="empty-high"></div>
     </div>
 @endsection
-<style>
-    .g_gray_border{
-        border: 1px solid #C0C0C0;
-    }
-</style>

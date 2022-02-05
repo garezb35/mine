@@ -176,26 +176,26 @@
 
 /* ê±°ëž˜ ì§„í–‰ ìƒí™© */
 
-.detail_info {
-    height: 198px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 20px 5px 20px 20px;
-    border: 1px solid #D7D7D7;
-    background-color: #F7F7F7
-}
+/*.detail_info {*/
+/*    height: 198px;*/
+/*    margin-top: 5px;*/
+/*    margin-bottom: 5px;*/
+/*    padding: 20px 5px 20px 20px;*/
+/*    border: 1px solid #D7D7D7;*/
+/*    background-color: #F7F7F7*/
+/*}*/
 
-.detail_info .detail_text {
-    overflow: auto;
-    height: 200px;
-    scrollbar-face-color: #FFF;
-    scrollbar-highlight-color: #F5F5F5;
-    scrollbar-3dlight-color: #B7B7B7;
-    scrollbar-darkshadow-color: #CCC;
-    scrollbar-shadow-color: #B7B7B7;
-    scrollbar-track-color: #F7F7F7;
-    scrollbar-arrow-color: #000
-}
+/*.detail_info .detail_text {*/
+/*    overflow: auto;*/
+/*    height: 200px;*/
+/*    scrollbar-face-color: #FFF;*/
+/*    scrollbar-highlight-color: #F5F5F5;*/
+/*    scrollbar-3dlight-color: #B7B7B7;*/
+/*    scrollbar-darkshadow-color: #CCC;*/
+/*    scrollbar-shadow-color: #B7B7B7;*/
+/*    scrollbar-track-color: #F7F7F7;*/
+/*    scrollbar-arrow-color: #000*/
+/*}*/
 
 .guide_txt {
     position: absolute;

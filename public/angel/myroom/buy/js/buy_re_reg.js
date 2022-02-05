@@ -388,32 +388,32 @@ function alterConstructorAddCheck() {
         var dfServer = document.getElementById('dfServer');
         var dfServerCode = document.getElementById('dfServerCode');
         var userCharacter = document.getElementById('user_character');
-        if (gameCode === '281') {
-            var dfServerList = new ServerList(document.getElementById('dfServerList'), {
-                autoComplete: '#df_server_code_text',
-                allView: false,
-                gameCode: '281',
-                hidden_use: {
-                    code: '[name="df_server_code"]',
-                    text: ''
-                }
-            });
+        // if (gameCode === '281') {
+        //     var dfServerList = new ServerList(document.getElementById('dfServerList'), {
+        //         autoComplete: '#df_server_code_text',
+        //         allView: false,
+        //         gameCode: '281',
+        //         hidden_use: {
+        //             code: '[name="df_server_code"]',
+        //             text: ''
+        //         }
+        //     });
+        //
+        //     userCharacter.setAttribute('maxlength', 27);
+        //
+        //     formCheck.add({
+        //         custom: function() {
+        //             /* ▼ 던전앤파이터 통합서버 처리 */
+        //             if (document.getElementById('dfServerList').serverList.getValue().code.isEmpty()) {
+        //                 alert('물품을 전달 받으실 서버를 선택 해주세요.');
+        //                 return false;
+        //             }
+        //             return true;
+        //             /* ▲ 던전앤파이터 통합서버 처리 */
+        //         }
+        //     });
+        // }
 
-            userCharacter.setAttribute('maxlength', 27);
-
-            formCheck.add({
-                custom: function() {
-                    /* ▼ 던전앤파이터 통합서버 처리 */
-                    if (document.getElementById('dfServerList').serverList.getValue().code.isEmpty()) {
-                        alert('물품을 전달 받으실 서버를 선택 해주세요.');
-                        return false;
-                    }
-                    return true;
-                    /* ▲ 던전앤파이터 통합서버 처리 */
-                }
-            });
-        }
-        /* ▲ 던전앤파이터 통합서버 처리 */
         formCheck.add({name: 'user_character', msg: '물품을 전달 받으실 캐릭터명을 입력해주세요.'});
     }
 

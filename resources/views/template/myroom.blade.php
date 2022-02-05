@@ -1,4 +1,5 @@
 @foreach($games as $v)
+
     @php
         $href = "";
         if($type == 0){
@@ -24,16 +25,18 @@
     <tr>
         <td class="first"><a href='/sell/list_search?search_type=sell&filtered_items=all&filtered_game_id={{$v['game']['id']}}&filtered_game_alias={{$v['game']['game']}}&filtered_child_id={{$v['Server']['id']}}&filtered_child_alias={{$v['Server']['id']}}'><strong>{{$v['game']['game']}}</strong>  <br />{{$v['Server']['game']}}</a></td>
         <td>{{$v['good_type']}}</td>
-        <td class="left">
+        <td class="text-center">
             <input type="hidden" name="check[]" value="{{$v['orderNo']}}">
             @if($v['status'] == 2 || $v['status'] == 3 || $v['status'] == 1)
-            <span class="attached_noti">거래중</span><br>
+                <div @class('text-right')>
+                    <span class="attached_noti">거래중</span>
+                </div>
             @endif
-            <div class="trade_title">
+            <div class="trade_title text-center">
                 <a href="{{$href}}">{{$v['user_title']}}</a>
             </div>
         </td>
-        <td class="right text-rock">{{$price}}원</td>
+        <td class="center">{{$price}}원</td>
         <td>{{date("Y-m-d H:i:s",strtotime($v['created_at']))}}</td>
         @if($type == 0)
             <td>

@@ -1,4 +1,4 @@
-@extends('layouts-angel.app')
+@extends('layouts-angel.app-frame')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css?210503" />
@@ -9,68 +9,72 @@
 @endsection
 
 @section('content')
-<div class="container_fulids" id="module-teaser-fullscreen">
-    @include('aside.myroom',['group'=>'sell'])
-    <div class="pagecontainer">
-        <div class="contextual--title noborder"> 판매 <span>관련</span></div>
-        @include('tab.bs_content',['group'=>'sell'])
-        @include('tab.g_tab',['group'=>'sell_ing'])
-        <div class="tab_sib">- 구매자가 입금을 완료한 상태입니다. 구매자와 전화통화 또는 1:1대화함으로 거래를 진행해주시기 바랍니다.</div>
-        <table class="table-modern-primary tb_list">
-            <colgroup>
-                <col width="150">
-                <col width="70">
-                <col />
-                <col width="114">
-                <col width="114">
-{{--                <col width="100">--}}
-            </colgroup>
-            <tr>
-                <th>카테고리</th>
-                <th>분류</th>
-                <th>제목</th>
-                <th>거래금액</th>
-                <th>등록일시</th>
-{{--                <th>구분</th>--}}
-            </tr>
-            @include('template.myroom',['game'=>$games,'type'=>3])
-        </table>
-        <div class="pagination__bootstrap">
-            {{$games->links()}}
+    <div @class('bg-white')>
+        <div>
+            @include("angel.myroom.header")
         </div>
-
-        <div class="empty-high"></div>
-
-        <div class="trade_progress">
-            <div class="highlight_contextual_nodemon">판매진행 안내</div>
-            <div class="trade_progress_content">
-                <div class="guide_wrap">
-                    <div class="guide_set"> <span class="has-sprite sell_regist_icon"></span> <span class="state">판매물품 등록</span>
-                        <p>팝니다에
-                            <br/>판매물품이 등록된
-                            <br/>상태입니다.</p>
-                    </div>
-                    <div class="guide_set"> <span class="has-sprite pay_wait_icon"></span> <span class="state">입금대기</span>
-                        <p>구매신청 후 입금 확인 단계,
-                            <br/>입금 확인 즉시 판매자에게
-                            <br/>SMS를 발송합니다.</p> <i class="has-sprite arr_mini"></i> </div>
-                    <div class="guide_set"> <span class="has-sprite sell_ing_icon"></span> <span class="state">판매중</span>
-                        <p>구매자의 정보를 확인 가능,
-                            <br/>게임상에서 거래의
-                            <br/>진행이 가능합니다.</p> <i class="has-sprite arr_mini"></i> </div>
-                    <div class="guide_set"> <span class="has-sprite trade_icon"></span> <span class="state">인계</span>
-                        <p>구매자에게 물품을
-                            <br/>건네주었다면
-                            <br/>인계확인을 완료합니다.</p> <i class="has-sprite arr_mini"></i> </div>
-                    <div class="guide_set"> <span class="has-sprite sell_complete_icon"></span> <span class="state">판매종료</span>
-                        <p>구매자가 인수확인을
-                            <br/>완료하면, 거래는
-                            <br/>즉시 종료됩니다.</p> <i class="has-sprite arr_mini"></i> </div>
+        <div @class('ml-10')>
+            @include('aside.myroom',['group'=>'sell'])
+            <div class="pagecontainer">
+                @include('tab.g_tab',['group'=>'sell_ing'])
+                <div @class('table-responsive brl')>
+                    <table class="table-primary tb_list thbn tdbn min600 btnone">
+                        <colgroup>
+                            <col width="150">
+                            <col width="70">
+                            <col />
+                            <col width="114">
+                            <col width="114">
+                            {{--                <col width="100">--}}
+                        </colgroup>
+                        <tr>
+                            <th>카테고리</th>
+                            <th>분류</th>
+                            <th>제목</th>
+                            <th>거래금액</th>
+                            <th>등록일시</th>
+                            {{--                <th>구분</th>--}}
+                        </tr>
+                        @include('template.myroom',['game'=>$games,'type'=>3])
+                    </table>
                 </div>
+                <div class="pagination__bootstrap">
+                    {{$games->links()}}
+                </div>
+
+                <div class="empty-high"></div>
+
+                <div class="trade_progress">
+                    <div class="highlight_contextual_nodemon">판매진행 안내</div>
+                    <div class="trade_progress_content">
+                        <div class="guide_wrap">
+                            <div class="guide_set"> <span class="has-sprite sell_regist_icon"></span> <span class="state">판매물품 등록</span>
+                                <p>팝니다에
+                                    <br/>판매물품이 등록된
+                                    <br/>상태입니다.</p>
+                            </div>
+                            <div class="guide_set"> <span class="has-sprite pay_wait_icon"></span> <span class="state">입금대기</span>
+                                <p>구매신청 후 입금 확인 단계,
+                                    <br/>입금 확인 즉시 판매자에게
+                                    <br/>SMS를 발송합니다.</p> <i class="has-sprite arr_mini"></i> </div>
+                            <div class="guide_set"> <span class="has-sprite sell_ing_icon"></span> <span class="state">판매중</span>
+                                <p>구매자의 정보를 확인 가능,
+                                    <br/>게임상에서 거래의
+                                    <br/>진행이 가능합니다.</p> <i class="has-sprite arr_mini"></i> </div>
+                            <div class="guide_set"> <span class="has-sprite trade_icon"></span> <span class="state">인계</span>
+                                <p>구매자에게 물품을
+                                    <br/>건네주었다면
+                                    <br/>인계확인을 완료합니다.</p> <i class="has-sprite arr_mini"></i> </div>
+                            <div class="guide_set"> <span class="has-sprite sell_complete_icon"></span> <span class="state">판매종료</span>
+                                <p>구매자가 인수확인을
+                                    <br/>완료하면, 거래는
+                                    <br/>즉시 종료됩니다.</p> <i class="has-sprite arr_mini"></i> </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-
-    </div>
     <ul id="attention_info" class="g_black5_11 d-none">
         <li class="g_blue1_11b">아이템천사가 알려드리는 꼭 지켜야할 안전수칙 !!</li>
         <li>1. 구매자의 <span class="g_org1_11b">연락처를 꼭 확인</span>합니다.

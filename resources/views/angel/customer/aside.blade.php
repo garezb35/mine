@@ -1,51 +1,48 @@
-<style>
-    .aside .nav_subject > a {
-        background: initial !important;
-        text-indent: initial !important;
-        display: block !important;
-        margin-top: 14px
-    }
-    .aside .nav_subject {
-        height: 115px;
-    }
-    .aside .nav > .nav_title {
-        font-size: 16px;
-        height: 50px;
-        line-height: 50px;
-        padding-left: 0px;
-    }
-    .aside .nav a {
-        border-bottom: solid 1px gray;
-        text-align: center;
-    }
-    .aside .nav_subject,
-    .aside .nav {
-        background: white !important;
-        border: solid 1px #3AB7D3;
-    }
-    .g_list li, .g_list dd {
-        padding: 0 5px;
-    }
-    .aside .nav > .activated ~ .nav_sub {
-        padding: 0;
-        margin-top: 0px;
-    }
-    .aside .nav > .nav_sub {
-        line-height: 30px;
-        padding-left: 0px;
-    }
-    .aside .nav > .nav_sub .activated {
-        color: #3ab7d3;
-    }
-</style>
+{{--<style>--}}
+{{--    .aside .nav_subject > a {--}}
+{{--        background: initial !important;--}}
+{{--        text-indent: initial !important;--}}
+{{--        display: block !important;--}}
+{{--        margin-top: 14px--}}
+{{--    }--}}
+{{--    .aside .nav_subject {--}}
+{{--        height: 115px;--}}
+{{--    }--}}
+{{--    .aside .nav > .nav_title {--}}
+{{--        font-size: 13px;--}}
+{{--        height: 40px;--}}
+{{--        line-height: 40px;--}}
+{{--        padding-left: 0px;--}}
+{{--    }--}}
+{{--    .aside .nav a {--}}
+{{--        border-bottom: solid 1px gray;--}}
+{{--        text-align: center;--}}
+{{--    }--}}
+{{--    .aside .nav_subject,--}}
+{{--    .aside .nav {--}}
+{{--        background: white !important;--}}
+{{--        border: solid 1px #3AB7D3;--}}
+{{--    }--}}
+{{--    .g_list li, .g_list dd {--}}
+{{--        padding: 0 5px;--}}
+{{--    }--}}
+{{--    .aside .nav > .activated ~ .nav_sub {--}}
+{{--        padding: 0;--}}
+{{--        margin-top: 0px;--}}
+{{--    }--}}
+{{--    .aside .nav > .nav_sub {--}}
+{{--        line-height: 30px;--}}
+{{--        padding-left: 0px;--}}
+{{--    }--}}
+{{--    .aside .nav > .nav_sub .activated {--}}
+{{--        color: #3ab7d3;--}}
+{{--    }--}}
+{{--</style>--}}
 
 <div class="aside">
     <div class="nav_subject">
         <a href="{{route("main_customer")}}" class="">
-            <p class="f-18 m-0 align-center c-black">고객센터</p>
-            <div class="m-auto align-center" style="margin-top: 10px;">
-                <img src="/assets/img/icons/icon_customer.png" />
-            </div>
+            고객센터
         </a>
     </div>
     <div class="nav">

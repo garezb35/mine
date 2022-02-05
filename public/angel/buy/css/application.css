@@ -113,22 +113,18 @@
     font-weight: normal;
 }
 
-.detail_info {
-    height: 138px;
-    margin-bottom: 5px;
-    padding: 20px 5px 20px 20px;
-    background-color: #FBFBFB;
-    border: 1px solid #E1E1E1;
-}
+/*.detail_info {*/
+/*    height: 138px;*/
+/*    margin-bottom: 5px;*/
+/*    padding: 20px 5px 20px 20px;*/
+/*    background-color: #FBFBFB;*/
+/*    border: 1px solid #E1E1E1;*/
+/*}*/
 
 .detail_info.wide {
     height: 518px;
 }
 
-.detail_info .detail_text {
-    overflow: auto;
-    height: 140px;
-}
 
 .user__contact .guide_txt {
     position: absolute;

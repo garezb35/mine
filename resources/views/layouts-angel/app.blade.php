@@ -117,16 +117,16 @@
                             <tr class="sell">
                                 <td class="c_txt sells align-left" >판매목록</td>
                                 <td>등록</td>
-                                <td><a href="/myroom/sell/sell_regist"><span class="text-blue_modern font-weight-bold">{{number_format($top_selling_register)}}</span>건</a></td>
+                                <td><a href="/myroom/sell/sell_regist"  target="mainFrame"><span class="text-blue_modern font-weight-bold">{{number_format($top_selling_register)}}</span>건</a></td>
                                 <td>판매중</td>
-                                <td><a href="/myroom/sell/sell_regist"><span class="text-blue_modern font-weight-bold">{{number_format($top_selling_count)}}</span>건</a></td>
+                                <td><a href="/myroom/sell/sell_regist"  target="mainFrame"><span class="text-blue_modern font-weight-bold">{{number_format($top_selling_count)}}</span>건</a></td>
                             </tr>
                             <tr class="buy">
                                 <td @class('c_txt buys align-left')>구매목록</td>
                                 <td>등록</td>
-                                <td><a href="/myroom/buy/buy_regist"><span class="text-green_modern font-weight-bold">{{number_format($top_buying_register)}}</span>건</a></td>
+                                <td><a href="/myroom/buy/buy_regist"  target="mainFrame"><span class="text-green_modern font-weight-bold">{{number_format($top_buying_register)}}</span>건</a></td>
                                 <td>구매중</td>
-                                <td><a href="/myroom/buy/buy_regist"><span class="text-green_modern font-weight-bold">{{number_format($top_buying_register)}}</span>건</a></td>
+                                <td><a href="/myroom/buy/buy_regist"  target="mainFrame"><span class="text-green_modern font-weight-bold">{{number_format($top_buying_register)}}</span>건</a></td>
                             </tr>
                         </table>
                     </div>
@@ -178,7 +178,7 @@
             <div class="favorite">
                 <div class="s_title">
                     나만의 검색메뉴
-                    <a href="/myroom/customer/search" style="margin-left: 15px"><i class="fa fa-cog"></i></a>
+                    <a href="/myroom/customer/search" style="margin-left: 15px"  target="mainFrame"><i class="fa fa-cog"></i></a>
                 </div>
 
                 <a class="showing_fav font-weight-bold f_14" href="javascript:controlFavorite()"><i class="fa fa-plus"></i></a>
@@ -189,8 +189,8 @@
                                 <span class="title-{{$t_g['type']}}"><img src="/angel/img/icons/{{$t_g['type']}}-i.png">-{{$t_g['type'] == 'sell' ? '팝니다':'삽니다'}}-</span>
                                 <strong>{{$t_g['game_text']}} &gt; {{$t_g['server_text']}}</strong>
                                 <div class="btn_area">
-                                    <a href="/{{$t_g['type']}}/list_search?search_type={{$t_g['type']}}&amp;filtered_game_id={{$t_g['game']}}&amp;filtered_game_alias={{$t_g['game_text']}}&amp;filtered_child_id={{$t_g['server']}}&amp;filtered_child_alias={{$t_g['server_text']}}&amp;filtered_items={{itemAlias($t_g['goods_text'])}}">검색</a>
-                                    <a href="/{{$t_g['type']}}?game={{$t_g['game']}}&amp;server={{$t_g['server']}}">등록</a>
+                                    <a  target="mainFrame" href="/{{$t_g['type']}}/list_search?search_type={{$t_g['type']}}&amp;filtered_game_id={{$t_g['game']}}&amp;filtered_game_alias={{$t_g['game_text']}}&amp;filtered_child_id={{$t_g['server']}}&amp;filtered_child_alias={{$t_g['server_text']}}&amp;filtered_items={{itemAlias($t_g['goods_text'])}}">검색</a>
+                                    <a  target="mainFrame" href="/{{$t_g['type']}}?game={{$t_g['game']}}&amp;server={{$t_g['server']}}">등록</a>
                                 </div>
                             </dd>
                         @endforeach
@@ -275,10 +275,7 @@
         $("#search-overlay-container").submit()
     }
 
-    function changePosL(){
-        $(".siteHeader .nav_wrap .nav_menu_nodemon").css('margin-left',($(document).width()-895) / 2 + 50);
-        $(".top-leftli").css("left",$(".highlight__first").offset().left - 180 + "px")
-    }
+
     function controlFavorite() {
         $(".showing_fav").find("i").removeClass('fa-plus')
         $(".showing_fav").find("i").removeClass('fa-minus')
@@ -292,37 +289,49 @@
         }
     }
 
+    function changePosL(){
+        $(".siteHeader .nav_wrap .nav_menu_nodemon").css('margin-left',($(document).width()-895) / 2 + 50);
+        $(".siteHeader .nav_wrap .nav_menu_nodemon").css('display','block')
+        $(".top-leftli").css("left",$(".highlight__first").offset().left - 180 + "px")
+
+        $(".top-leftli").css('display','block')
+    }
     function fixChattingPos(){
         var w__s = $(window).width() + 17;
         @if(request()->route()->getName() == "index")
         if(w__s > 1216)
         {
             $("#home__content").css('margin-left',($(document).width()-1200) / 2 + 347);
+            $("#home__content").css('display','block')
             var pos_left = $("#home__content").offset();
             $("#topbar-left").css("left",pos_left.left - 345 + "px")
             $("#topbar-left").css("top",pos_left.top + "px")
+            $("#topbar-left").css('display','block')
         }
         else{
             $("#home__content").css('margin-left',0);
+            $("#home__content").css('display','block')
         }
         @else
         if(w__s > 1216)
         {
             $(".container_fulids").css('margin-left',($(document).width()-1200) / 2 + 347);
+            $(".container_fulids").css('display','block')
             var pos_left = $(".container_fulids").offset();
             $("#topbar-left").css("left",pos_left.left - 345 + "px")
             $("#topbar-left").css("top",pos_left.top + "px")
+            $("#topbar-left").css('display','block')
         }
         else{
             $(".container_fulids").css('margin-left',0);
+            $(".container_fulids").css('display','block')
         }
         @endif
     }
+    fixChattingPos();
+    changePosL();
     $(document).ready(function(){
         $( '#dl-menu' ).dlmenu();
-        fixChattingPos();
-        changePosL();
-
         $(".dropdown").hover(
             function() {
                 $('.dropdown-menu').stop( true, true ).slideDown("fast");
@@ -341,6 +350,7 @@
             $('input[name="filtered_game_alias"]').val(name);
             $('#search-overlay-container').submit()
         })
+
     })
     $(window).on('resize', function() {
         if ($(this).width() !== width) {

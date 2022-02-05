@@ -2,3 +2,17 @@
 .table-primary{margin-top:5px}
 #print_btn{float:right;margin-top:5px}
 #print_btn li{margin-left:5px}
+.btn_sumit_complete{
+    background: linear-gradient(#fff 0, #dddddd 100%);
+    width: 100px;
+    text-align: center;
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid #929292 !important;
+}
+
+
+.sely{
+    height: 32px;
+    vertical-align: top;
+}

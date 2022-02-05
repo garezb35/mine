@@ -131,6 +131,7 @@
 #chat_input_wrapper {
     width: 100%;
     background-color: #fff;
+    position: relative;
 }
 
 #chat_input_wrapper #chat {
@@ -149,7 +150,8 @@
     width: 70px;
     line-height: 54px;
     background-color: #3AB7D3;
-    float: right;
+    position: absolute;
+    right: 0;
 }
 
 #chat_input_wrapper #chat:focus,

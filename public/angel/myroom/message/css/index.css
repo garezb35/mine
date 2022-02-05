@@ -1,24 +1,85 @@
-.tab_sib .f_blue3{ padding-left:2px; }
-.tab_sib .g_icon{ margin-left:10px; }
-/* â–¼ ë©”ì‹œì§€ ë¦¬ìŠ¤íŠ¸ */
-#split_btn{ float:left; width:60px }
-#split_btn_layer{ border:solid 1px #ABABAB; border-top:0; text-align:left }
-#split_btn_layer li{ padding:2px 5px }
-#split_btn_layer li:hover{ background-color:#F7F7F7 }
-#split_btn_options{ margin-left:-5px }
-/* â–² ë©”ì‹œì§€ ë¦¬ìŠ¤íŠ¸ */
-/* â–¼ ë©”ì‹œì§€ ë ˆì´ì–´ */
-#message_view{ width:654px }
-#message_view table{ width:614px; margin-bottom:10px }
-#message_view table tr th, #message_view table tr td{ border-left:0; border-right:0 }
-#message_view table tr td{ padding-left:10px; color:#767676; text-align:left }
-#dvMessage_content{ overflow-y:auto; width:580px; height:200px; padding:15px 10px }
-#message_view .float-left img{ margin-right:175px }
-#dvMessage_move{ margin-top:10px; }
-/* â–² ë©”ì‹œì§€ ë ˆì´ì–´ */
-a.save{
+.tab_sib .f_blue3 {
+    padding-left: 2px;
+}
+
+.tab_sib .g_icon {
+    margin-left: 10px;
+}
+
+#split_btn {
+    float: left;
+    width: 60px
+}
+
+#split_btn_layer {
+    border: solid 1px #ABABAB;
+    border-top: 0;
+    text-align: left
+}
+
+#split_btn_layer li {
+    padding: 2px 5px
+}
+
+#split_btn_layer li:hover {
+    background-color: #F7F7F7
+}
+
+#split_btn_options {
+    margin-left: -5px
+}
+
+#message_view {
+    width: 654px
+}
+
+#message_view table {
+    width: 614px;
+    margin-bottom: 10px
+}
+
+#message_view table tr th, #message_view table tr td {
+    border-left: 0;
+    border-right: 0
+}
+
+#message_view table tr td {
+    padding-left: 10px;
+    color: #767676;
+    text-align: left
+}
+
+#dvMessage_content {
+    overflow-y: auto;
+    width: 580px;
+    height: 200px;
+    padding: 15px 10px
+}
+
+#message_view .float-left img {
+    margin-right: 175px
+}
+
+#dvMessage_move {
+    margin-top: 10px;
+}
+
+button.save {
     border: 1px solid #EC0000;
-    padding: 1px 10px;
     text-align: center;
     color: #EC0000;
+    line-height: 25px;
+    height: 25px;
+}
+
+@media screen and (max-width: 847px){
+    .react_nav_tab>*:last-child{
+        display: none;
+    }
+    .tab_sib li{
+        justify-content: space-around;
+    }
+    .tab_sib li div:nth-child(3),.tab_sib li div:nth-child(4){
+        display: none;
+    }
 }

@@ -28,7 +28,7 @@ class VSellController extends BaseController
     {
         $title_row = MTitle::where('userId',$this->user->id)->first();
         $title = empty($title_row) ? '' : $title_row['title'];
-        $highlight = $premium = $quickicon = 0;
+        $highlight = $premium = $quickicon = $rereg =  0;
         $gift = MGift::where('userId',$this->user->id)->get();
         $depth__0 = MGame::where('status',1)->where('depth',0)->orderby('order','ASC')->get();
         foreach($gift as $value){
@@ -38,6 +38,8 @@ class VSellController extends BaseController
                 $highlight = $value['time'];
             if($value['type'] == 3)
                 $quickicon = $value['time'];
+//            if($value['type'] == 4)
+//                $rereg = $value['time'];
         }
         return view('angel.sell.main',[
             'user'=>$this->user,
@@ -45,6 +47,7 @@ class VSellController extends BaseController
             'premium'=>$premium,
             'highlight'=>$highlight,
             'quickicon'=>$quickicon,
+//            'rereg'=>$rereg,
             'depth__0' => $depth__0
         ]);
     }

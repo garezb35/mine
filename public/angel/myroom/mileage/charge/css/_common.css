@@ -114,40 +114,77 @@ table td .angel__text {
     margin-right: 5px
 }
 
+.mileage__h{
+    display: flex;
+    border: 1px solid #d9dada;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin-top: 30px;
+}
+
 .m_price {
-    height: 17px;
-    padding: 0 0 0 10px;
-    font-family: arial;
-    font-size: 20px;
-    line-height: 17px;
-    font-weight: bold;
-    color: #D40F00;
-    vertical-align: middle
+    font-size: 16px;
 }
 
 .my_mileage {
-    width: 625px;
-    padding: 3px 0 5px;
-    text-align: right
+    width: 222px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-right: 1px solid #d9dada;
 }
 
-.my_mileage img {
-    *margin-top: 2px
+.part-border {
+    font-size: 16px;
+    width: calc(100% - 232px);
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.my_mileage .m_price {
-    height: 20px;
-    line-height: 20px;
-    font-weight: bold
+.mileage_prices_part{
+    background: #99abb7;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
+
+.mileage_prices_part>div{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+
+.mileage_prices_part>div .g_radio{
+    display: none;
+}
+
+.mileage_prices_part>div label{
+    width: 88px;
+    display: block;
+    text-align: center;
+    height: 24px;
+    line-height: 24px;
+    border: 1px solid #99abb7;
+    cursor:pointer;
+    font-size: 14px;
+}
+
+.mileage_prices_part>div label:hover{
+    border:1px solid #000
+}
+
+.mileage_prices_part>div label.selected{
+    background: #000;
+    color: #fff;
+}
+
+
+
 
 #charge_main {
     position: relative;
-    width: 451px;
-    _width: 479px;
-    padding: 14px;
-    border: 1px solid #D6D6D6;
-    border-left: 0 solid
 }
 
 #charge_main .m_box {

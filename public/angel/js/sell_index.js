@@ -1,4 +1,4 @@
-
+var last__i = "";
 var angel_item_s_alias = {
     'general': '일반판매',
     'division': '분할판매',
@@ -44,6 +44,85 @@ var lastListEl = '';
 var existedAngelGameServer;
 
 var tagList;
+
+$(".btn__goods_type").click(function(){
+    var type = $(this).data("type");
+    $(".btn__goods_type").removeClass('selected')
+    $(this).addClass('selected')
+    $("#u_goods_"+type).prop("checked",true);
+    alterConstructor();
+})
+
+$("#game_combo").on("select2:select", function (e) {
+    let game_id = e.params.data.id;
+    let server_combo = $("#server_combo");
+    $("#game_code").val(e.params.data.id);
+    $("#game_code_text").val(e.params.data.text);
+    $("#server_code").val("");
+    $("#server_code_text").val("");
+    $("#user_goods").val("")
+    $("#good_type").val("")
+    last__i = ""
+    $.ajax({
+            url: '/api/servers',
+            dataType: 'json',
+            type: 'post',
+            data: {id: game_id,api_token:a_token,grade:1},
+            success: function (data) {
+                server_combo.html('')
+                server_combo.select2(
+                    {
+                        data:data,
+                        width: 'calc(33% - 3px)',
+                    }
+                )
+            }
+        }
+    );
+});
+
+$("#server_combo").on("select2:select", function (e) {
+    let game_id = e.params.data.id;
+    let pro_combo = $("#pro_combo");
+    $("#server_code").val(e.params.data.id);
+    $("#server_code_text").val(e.params.data.text);
+    $("#user_goods").val("")
+    $("#good_type").val("")
+    last__i = ""
+    $.ajax({
+            url: '/api/servers',
+            dataType: 'json',
+            type: 'post',
+            data: {id: game_id,api_token:a_token, type:'server',grade:1},
+            success: function (data) {
+                pro_combo.html('')
+                pro_combo.select2(
+                    {
+                        data:data,
+                        width: 'calc(33% - 3px)',
+                    }
+                )
+            }
+        }
+    );
+});
+
+$("#pro_combo").on("select2:select", function (e) {
+    let game_id = e.params.data.id;
+    let pro_combo = $("#pro_combo");
+    $("#user_goods").val(e.params.data.id);
+    $("#good_type").val(e.params.data.text);
+    last__i = e.params.data.text
+    if($("#game_code").val().trim() != '' && $('#server_code').val().trim() != '')
+        alterConstructor();
+    else{
+        if($("#game_code").val().trim() == '')
+            alert('게임을 선택하세요');
+        if($("#server_code").val().trim() == '')
+            alert('서버를 선택하세요');
+    }
+});
+
 
 function _init() {
 
@@ -190,8 +269,8 @@ function _init() {
                 setVal[0] = this.value + '회';
                 setVal[1] = document.getElementById('rereg_time').value + '분';
             }
-            document.getElementById('rereg_cnt').innerHTML = setVal[0];
-            document.getElementById('minute').innerHTML = setVal[1];
+            // document.getElementById('rereg_cnt').innerHTML = setVal[0];
+            // document.getElementById('minute').innerHTML = setVal[1];
         }
     });
     document.getElementById('user_icon_use').addEventListener('change', function() {
@@ -296,16 +375,16 @@ function getFreeUse() {
 }
 
 function alterConstructor() {
-    if (existedAngelGameServer.serverList.selected) {
-        angel_item_unit = existedAngelGameServer.serverList.selectedData.U;
-    }
+    // if (existedAngelGameServer.serverList.selected) {
+    //     angel_item_unit = existedAngelGameServer.serverList.selectedData.U;
+    // }
 
     var userGoods = document.querySelector('[name="user_goods"]').value;
     var userGoodsType = document.querySelector('[name="user_goods_type"]:checked').value;
-    var gameCode = existedAngelGameServer.gameList.getValue().code;
-    var serverCode = existedAngelGameServer.serverList.getValue().code;
+    var gameCode = document.querySelector('[name="game_code"]').value;
+    var serverCode = document.querySelector('[name="server_code"]').value;
     var integrationServer = '';
-    var last_alias  = $(".goods").find(".filter__selected").text();
+    var last_alias  = last__i;
     if (document.getElementById('integration_server') !== null) {
         integrationServer = document.getElementById('integration_server').value;
     }
@@ -323,20 +402,62 @@ function alterConstructor() {
         data: {
             user_goods: userGoods,
             user_goods_type: userGoodsType,
-            money: angel_item_unit,
+            // money: angel_item_unit,
             game_code: gameCode,
             server_code: serverCode,
             integration_server: integrationServer,
             api_token: a_token,
             last_alias: last_alias
         },
+        dataType:'json',
         success: function(res) {
             history.pushState({back: true}, '', location.href);
-            $('#sr-template').html(res);
+            // $('#sr-template').html(res);
+
+            if(res.division_enabled == 0 && $("#u_goods_division").prop("checked") == true){
+                $("#u_goods_general").prop("checked",true);
+                $(".btn__goods_type").removeClass('selected')
+                $("#btn__goods_type1").addClass('selected')
+            }
+
+            if(res.result){
+                $('#sr-template').html(res.result);
+            }
+            if(res.item_info){
+                $(".item__part").attr('id','item_detail_srh_service')
+                $(".item__part").html(res.item_info)
+            }
+            else{
+                $(".item__part").html("")
+                $(".item__part").removeAttr('id')
+            }
+
+            if(res.unit_type){
+                $(".unit__part").html(res.unit_type)
+            }
+            else{
+                $(".unit__part").html("")
+            }
+
+            if(res.character_info){
+                $(".character__part").html(res.character_info)
+            }
+            else{
+                $(".character__part").html("")
+            }
+
+            if(res.discount){
+                $(".discount__part").html(res.discount)
+            }
+            else{
+                $(".discount__part").html("")
+            }
+
             alterConstructorAddCheck();
             if (typeof (reRegSet) === 'function') {
                 reRegSet();
             }
+            heightResize()
         },error:function(e){
             console.log(e)
         }
@@ -361,7 +482,7 @@ function setDefaultText() {
         document.getElementById('user_title').value = strFixTag + defaultText;
     }
 
-    if (document.querySelector('[name="text_select"]:checked').value === '0') {
+    if (document.querySelector('[name="text_select"]').value === '0') {
         document.getElementById('user_text').value = defaultText;
         document.getElementById('user_text').readOnly = true;
     }
@@ -376,7 +497,7 @@ function alterConstructorAddCheck() {
         var formCheck = new FormChecker('frmSell');
         var userGoods = document.querySelector('[name="user_goods"]');
         var userGoodsType = document.querySelector('[name="user_goods_type"]:checked');
-        var gameCode = existedAngelGameServer.gameList.getValue().code;
+        var gameCode = document.querySelector('[name="game_code"]').value;
 
         formCheck.add({name: 'game_code', msg: '게임을 선택해주세요.', focus: '#searchRegGameServer'});
         formCheck.add({name: 'server_code', msg: '서버를 선택해주세요.', focus: '#searchRegGameServer'});
@@ -536,7 +657,19 @@ function alterConstructorAddCheck() {
                     }
                 }
             });
-
+            $("#initial").click(function(){
+                var userQuan = frm.user_quantity;
+                var userQuanVal = userQuan.value.numeric();
+                var clickVal = this.innerHTML.numeric();
+                if (this.innerHTML.numeric() === 0) {
+                    userQuan.value = '';
+                } else {
+                    var sellQuantity = parseInt(userQuanVal);
+                    sellQuantity += clickVal;
+                    if (sellQuantity >= 999999) sellQuantity = 999999;
+                    userQuan.value = sellQuantity.currency();
+                }
+            });
             document.getElementById('user_price').addEventListener('keyup', function() {
                 // commissionCalcu.call(this);
             });
@@ -719,42 +852,44 @@ function alterConstructorAddCheck() {
             var dfServer = document.getElementById('dfServer');
             var dfServerCode = document.getElementById('dfServerCode');
             var userCharacter = document.getElementById('user_character');
-            if (gameCode == '204') {
-                if (dfServerCode === null && document.getElementById('integration_server') === null) {
-                    var strHtml = '<div id="dfServerCode" class="df_server_code"><input type="hidden" name="df_server_code"><input type="text" class="angel__text" name="df_server_code_text" id="df_server_code_text" placeholder="서버검색" autocomplete="off"><div class="gs_list_area" id="dfServerList"></div></div> 물품을 전달하실 서버 |';
-                    document.getElementById('dfServer').innerHTML = strHtml;
-                }
-
-                if(document.getElementById('dfServerList') !== null && document.getElementById('dfServerList').gameserver === undefined) {
-                    new ServerList(document.getElementById('dfServerList'), {
-                        autoComplete: '#df_server_code_text',
-                        allView: false,
-                        gameCode: '204',
-                        hidden_use: {
-                            code: '[name="df_server_code"]',
-                            text: ''
-                        }
-                    });
-                }
-
-                dfServer.classList.remove('d-none');
-                userCharacter.setAttribute('maxlength', 27);
-
-                formCheck.add({
-                    custom: function() {
-                        if (document.getElementById('dfServerList').serverList.getValue().code.isEmpty()) {
-                            alert('물품을 전달 하실 서버를 선택 해주세요.');
-                            return false;
-                        }
-                        return true;
-                    }
-                });
-
-                formCheck.add({name: 'user_character', msg: '물품을 전달 하실 캐릭터명을 입력해주세요.'});
-            } else {
-                dfServer.classList.add('d-none');
-                userCharacter.setAttribute('maxlength', 30);
-            }
+            dfServer.classList.add('d-none');
+            userCharacter.setAttribute('maxlength', 30);
+            // if (gameCode == '204') {
+            //     if (dfServerCode === null && document.getElementById('integration_server') === null) {
+            //         var strHtml = '<div id="dfServerCode" class="df_server_code"><input type="hidden" name="df_server_code"><input type="text" class="angel__text" name="df_server_code_text" id="df_server_code_text" placeholder="서버검색" autocomplete="off"><div class="gs_list_area" id="dfServerList"></div></div> 물품을 전달하실 서버 |';
+            //         document.getElementById('dfServer').innerHTML = strHtml;
+            //     }
+            //
+            //     if(document.getElementById('dfServerList') !== null && document.getElementById('dfServerList').gameserver === undefined) {
+            //         new ServerList(document.getElementById('dfServerList'), {
+            //             autoComplete: '#df_server_code_text',
+            //             allView: false,
+            //             gameCode: '204',
+            //             hidden_use: {
+            //                 code: '[name="df_server_code"]',
+            //                 text: ''
+            //             }
+            //         });
+            //     }
+            //
+            //     dfServer.classList.remove('d-none');
+            //     userCharacter.setAttribute('maxlength', 27);
+            //
+            //     formCheck.add({
+            //         custom: function() {
+            //             if (document.getElementById('dfServerList').serverList.getValue().code.isEmpty()) {
+            //                 alert('물품을 전달 하실 서버를 선택 해주세요.');
+            //                 return false;
+            //             }
+            //             return true;
+            //         }
+            //     });
+            //
+            //     formCheck.add({name: 'user_character', msg: '물품을 전달 하실 캐릭터명을 입력해주세요.'});
+            // } else {
+            //     dfServer.classList.add('d-none');
+            //     userCharacter.setAttribute('maxlength', 30);
+            // }
         }
 
         formCheck.add({name: 'user_title', msg: '물품제목을 입력해주세요.'});
@@ -843,6 +978,7 @@ function createLayerContent(b) {
                 KeepAlivesRaw.open({layer: premiumPart});
                 return;
             }
+            debugger;
         }
     }
 

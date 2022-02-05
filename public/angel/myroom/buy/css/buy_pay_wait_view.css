@@ -173,15 +173,13 @@
 
 .add_charge .price_font2 {
     box-sizing: border-box;
-    min-width: 160px;
     height: 30px;
-    margin: 0 3px 0 25px;
+    margin: 0 3px 0 3px;
     padding: 0 10px;
-    border: 1px solid #CCD1D8;
-    background-color: #E7EAED;
+    background-color: transparent;
     text-align: right;
     font: bold 25px Arial;
-    color: #ED1C24
+    color: #ED1C24;
 }
 
 .notice_box {

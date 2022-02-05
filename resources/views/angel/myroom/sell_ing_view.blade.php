@@ -18,7 +18,7 @@
     }
 
 @endphp
-@extends('layouts-angel.app')
+@extends('layouts-angel.app-frame')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css" />
@@ -43,17 +43,16 @@
 @endsection
 
 @section('content')
-    <div class="container_fulids" id="module-teaser-fullscreen">
+    <div class="bg-white">
+        <div>
+            @include("angel.myroom.header")
+        </div>
+        <div class="ml-10">
         @include("aside.myroom",['group'=>'sell'])
         <input type="hidden" id="screenshot_info" value="TiUzQg==">
         <div class="pagecontainer">
             <a name="top"></a>
-
-            <div class="contextual--title noborder">
-                판매중인 <span>물품</span>
-            </div>
             <div class="g_gray_border"></div>
-
             <form id="frmIngView" name="frmIngView" method="post">
                 @csrf
                 <input type="hidden" id="id" name="id" value="{{$orderNo}}">
@@ -64,12 +63,6 @@
 
             <div class="highlight_contextual_nodemon first">물품정보</div>
             <table class="table-striped table-green1">
-                <colgroup>
-                    <col width="160">
-                    <col width="250">
-                    <col width="160">
-                    <col>
-                </colgroup>
                 <tbody>
                 <tr>
                     <th>카테고리</th>
@@ -84,6 +77,10 @@
                 <tr>
                     <th>거래번호</th>
                     <td>#{{$orderNo}}</td>
+                    <th class="visible--table--pc">등록일시</th>
+                    <td class="visible--table--pc">2021-10-25 17:31:04</td>
+                </tr>
+                <tr class="visible--table-m">
                     <th>등록일시</th>
                     <td>2021-10-25 17:31:04</td>
                 </tr>
@@ -99,19 +96,15 @@
                     <td @if($c ==1)colspan="3" @endif>{{number_format($payitem['price'])}} 원 </td>
                 </tr>
                 <tr>
-                    <th>판매자 캐릭터명</th>
+                    <th>캐릭터명</th>
                     <td colspan="3">{{$sell_character}}</td>
                 </tr>
                 </tbody>
             </table>
 
 
-            <div class="highlight_contextual_nodemon">구매자 정보</div>
+            <div class="highlight_contextual_nodemon mt-15">구매자 정보</div>
             <table class="table-striped table-green1">
-                <colgroup>
-                    <col width="160">
-                    <col>
-                </colgroup>
                 <tbody>
                 <tr>
                     <th>이름</th>
@@ -124,42 +117,21 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>구매자 캐릭터명</th>
+                    <th>캐릭터명</th>
                     <td>
                         <form id="frmDiffer" name="frmDiffer" method="post"></form>
                         {{$buy_character}}
                     </td>
                 </tr>
                 <tr>
-                    <th>구매자 거래정보</th>
+                    <th>거래정보</th>
                     <td>
                         <dl class="add_info">
                             <dd>
-                                <span class="w80 cert_state">인증상태</span>
-                                <span class="con w80 btn_state">
-                                        @if($user__1['mobile_verified'] == 1)
-                                        <img src="/angel/img/icons/icon_check.png" width="14">
-                                    @else
-                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
-                                    @endif휴대폰</span>
-                                <span class="on w80 btn_state">
-                                        @if($user__1['bank_verified'] == 1)
-                                        <img src="/angel/img/icons/icon_check.png" width="14">
-                                    @else
-                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
-                                    @endif계좌</span>
-                                <span class="on w80 btn_state">
-                                        @if($user__1['pin'] == 1)
-                                        <img src="/angel/img/icons/icon_check.png" width="14">
-                                    @else
-                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
-                                    @endif아이핀</span>
-                                <span class="w80 btn_state">
-                                        @if(!empty($user__1['email_verified_at']))
-                                        <img src="/angel/img/icons/icon_check.png" width="14">
-                                    @else
-                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
-                                    @endif이메일</span>
+                                <span class="con w60 btn_state @if($user__1['mobile_verified'] == 1) bg-redi text-white @endif">휴대폰</span>
+                                <span class="on w60 btn_state @if($user__1['bank_verified'] == 1) bg-redi text-white @endif">계좌</span>
+                                <span class="on w60 btn_state @if($user__1['pin'] == 1) bg-redi text-white @endif">아이핀</span>
+                                <span class="w60 btn_state @if(!empty($user__1['email_verified_at'])) bg-redi text-white @endif">이메일</span>
                             </dd>
                         </dl>
                     </td>
@@ -167,12 +139,8 @@
                 </tbody>
             </table>
 
-            <div class="highlight_contextual_nodemon">내 거래정보</div>
+            <div class="highlight_contextual_nodemon mt-15">내 거래정보</div>
             <table class="table-striped table-green1">
-                <colgroup>
-                    <col width="160">
-                    <col>
-                </colgroup>
                 <tbody>
                 <tr>
                     <th>이름</th>
@@ -187,13 +155,9 @@
                 </tbody>
             </table>
             <link rel="stylesheet" href="/angel/myroom/chat/css/chat.css">
-            <table class="noborder mt-15">
-                <colgroup>
-                    <col width="50%">
-                </colgroup>
-                <tbody>
-                <td class="vt p-left-0">
-                    <div class="highlight_contextual_nodemon gray mt-0 p-left-10">상세설명</div>
+            <div class="details__explo">
+                <div>
+                    <div class="highlight_contextual_nodemon gray mt-0 p-left-10 pt-5">상세설명</div>
                     <div class="detail_info">
                         <div class="detail_text">
                             <div id="js-gallery" class="mb-5">
@@ -206,8 +170,8 @@
                             {{$user_text}}
                         </div>
                     </div>
-                </td>
-                <td class="vt">
+                </div>
+                <div>
                     <script type="text/javascript" src="/angel/socket/connect.js"></script>
                     <div id="chat_wrapper" style="display: block;margin: 0px auto;">
                         <input id="CHAT_TOKEN" type="hidden" value="{{$orderNo}}">
@@ -228,9 +192,8 @@
                             <button id="send_btn">전송</button>
                         </div>
                     </div>
-                </td>
-                </tbody>
-            </table>
+                </div>
+            </div>
             <div class="trade_progress">
                 <div class="highlight_contextual_nodemon">
                     거래 진행 상황
@@ -278,10 +241,10 @@
 
             <div class="btn-groups_angel">
                 @if(!str_contains($status, 3))
-                    <a  class="first btn-default btn-suc" id="trade_btn" onclick="popLayer_2('dvTradeSellCheck');">물품인계확인</a>
+                    <a  class="button-success" id="trade_btn" onclick="popLayer_2('dvTradeSellCheck');">물품인계확인</a>
                 @endif
                 @if($status != 23 && $status != 32 )
-                        <a   id="cancel_btn" onclick="popLayer('trade_cancel');" class="btn-default btn-cancel">거래취소</a>
+                        <a   id="cancel_btn" onclick="popLayer('trade_cancel');" class="button-cancel">거래취소</a>
                 @endif
             </div>
 
@@ -481,5 +444,6 @@
 
 
         <div class="empty-high"></div>
+    </div>
     </div>
 @endsection

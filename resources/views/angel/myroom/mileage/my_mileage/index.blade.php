@@ -1,12 +1,12 @@
-@extends('layouts-angel.app')
+@extends('layouts-angel.app-frame')
 
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/angel/myroom/mileage/my_mileage/css/index.css?700101" />
+    <link type="text/css" rel="stylesheet" href="/angel/myroom/mileage/my_mileage/css/index.css" />
 @endsection
 
 @section('foot_attach')
 
-    <script type='text/javascript' src='/angel/myroom/mileage/payment/js/mile_gift.js?210323'></script>
+    <script type='text/javascript' src='/angel/myroom/mileage/payment/js/mile_gift.js'></script>
     <script type='text/javascript'>
 
 
@@ -17,17 +17,6 @@
     <style>
         .contextual--title {
             margin-left: 20px;
-        }
-        .react_nav_tab>* {
-            background-color: #e3f0f3;
-            border-bottom: 2px solid #0081b9;
-        }
-        .react_nav_tab>.selected {
-            border: 2px solid #0081b9;
-            border-bottom: 0;
-        }
-        .react_nav_tab>*>a {
-            font-size: 14px;
         }
         .tb_list th {
             font-size: 14px;
@@ -45,26 +34,29 @@
         }
     </style>
 
-    <div class="container_fulids" id="module-teaser-fullscreen">
-        @include('aside.myroom',['group'=>'mileage'])
-        <div class="pagecontainer">
+    <div @class('bg-white')>
+        <div>
+            @include("angel.myroom.header")
+        </div>
+        <div @class('ml-10')>
+            @include('aside.myroom',['group'=>'mileage'])
+            <div class="pagecontainer">
+                <div class="react_nav_tab navs__pops">
+                    <div class="{{$type == 'charge' ? 'selected' : ''}}"><a href="{{route('my_mileage_index_c')}}">마일리지 충전</a></div>
+                    <div class="{{$type == 'exchange' ? 'selected' : ''}}"><a href="{{route('my_mileage_index_e')}}">마일리지 출금</a></div>
+                    <div class=""><a href="{{route('my_mileage_calendar')}}">달력보기</a></div>
+                    <div class=""><a href="{{route('my_mileage_detail_list')}}">상세내역보기</a></div>
+                </div>
 
-            <div class="contextual--title no-border">내 마일리지</div>
-
-
-            <div class="react_nav_tab f-14">
-                <div class="{{$type == 'charge' ? 'selected' : ''}}"><a href="{{route('my_mileage_index_c')}}">마일리지 충전</a></div>
-                <div class="{{$type == 'exchange' ? 'selected' : ''}}"><a href="{{route('my_mileage_index_e')}}">마일리지 출금</a></div>
-                <div class=""><a href="{{route('my_mileage_calendar')}}">마일리지 달력보기</a></div>
-                <div class=""><a href="{{route('my_mileage_detail_list')}}">상세내역보기</a></div>
+                <div @class('brl brb global_milwage')>
+                    @if ($type == 'charge')
+                        <iframe src="{{route('mileage_payment_charge')}}" width="100%"  frameBorder="0" id="mileage_frame"></iframe>
+                    @else
+                        <iframe src="{{route('mileage_payment_exchange')}}" width="100%"  frameBorder="0" id="mileage_frame"></iframe>
+                    @endif
+                </div>
+                <div class="empty-high"></div>
             </div>
-
-            @if ($type == 'charge')
-                <iframe src="{{route('mileage_payment_charge')}}" width="100%" height="500" frameBorder="0"></iframe>
-            @else
-                <iframe src="{{route('mileage_payment_exchange')}}" width="100%" height="500" frameBorder="0"></iframe>
-            @endif
-            <div class="empty-high"></div>
         </div>
         <div class="empty-high"></div>
     </div>

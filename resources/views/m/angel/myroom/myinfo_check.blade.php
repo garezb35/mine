@@ -50,7 +50,7 @@ $user_contactC = !empty($splited_mobile[2]) ? $splited_mobile[2] : "";
                 <input type="hidden" id="bTalkCheck" value="">
                 <input type="hidden" id="user_emai_check" value="{{$email}}">
                 <div class="highlight_contextual_nodemon">개인 정보</div>
-                <table class="table-primary">
+                <table class="table-primary th30">
                     <colgroup>
                         <col width="140">
                         <col>
@@ -117,7 +117,7 @@ $user_contactC = !empty($splited_mobile[2]) ? $splited_mobile[2] : "";
                         </td>
                     </tr>
                     <tr>
-                        <th>광고정보<br>수신동의</th>
+                        <th>광고정보 수신동의</th>
                         <td class="sms_info">
                             <div>
                                 <input type="checkbox" class="angel_game_sel" name="sms_agree" id="sms_agree" value="Y" checked=""> <label for="sms_agree">SMS 수신동의</label>
@@ -159,7 +159,7 @@ $user_contactC = !empty($splited_mobile[2]) ? $splited_mobile[2] : "";
                 </table>
                 <div class="tb_bt_txt">※ <span class="f_small">고객님의 소중한 개인정보가 노출되지 않도록 모든 작업을 마치셨다면 반드시 다른 페이지로 이동하여 주시기 바랍니다.</span></div>
                 <div class="btn-groups_angel">
-                    <input type="submit" value="정보 수정하기" class="btn-default btn-suc">
+                    <input type="submit" value="저장하기" class="btn-default btn-suc">
                     <a href="/myroom/myinfo/myinfo_check" class="btn-default btn-cancel">취소 하기</a>
                 </div>
             </form>

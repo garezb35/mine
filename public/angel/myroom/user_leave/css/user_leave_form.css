@@ -32,27 +32,23 @@
 
 .cancel_area {
     overflow: hidden;
-    zoom:1; width: 820px;
+    zoom: 1;
     margin-bottom: 7px;
     border: 1px solid #D7D7D7;
+    width: 160px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .tb_cell1 {
-    float: left;
-    width: 80%;
     height: 36px;
     padding-top: 17px;
     border-right: 1px solid #D7D7D7;
     background-color: #F7F7F7;
 }
 
-.tb_cell1 label {
-    margin-left: 73px;
-}
 
 .tb_cell2 {
-    float: left;
-    width: 156px;
     text-align: center
 }
 
@@ -193,6 +189,8 @@
     width: 100%
 }
 
+
+
 .g_big_box2 label {
     vertical-align: middle
 }
@@ -204,4 +202,64 @@ textarea {
     padding: 5px;
     resize: none;
     vertical-align: middle
+}
+.ext__part{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.ext__part>div:first-child{
+    width: 379px;
+}
+
+
+.angel__text {
+    width: 100% !important;
+    min-width: unset;
+    height: 100%;
+    outline: unset;
+    border: none !important;
+    background: transparent;
+}
+
+.ext_cancel{
+    position: absolute;
+    bottom: 0;
+}
+
+.ext_cancel input{
+    vertical-align: top;
+}
+
+
+
+.tb_cell1 label {
+    font-size: 14px;
+    line-height: 30px;
+}
+
+
+@media screen and (max-width: 614px){
+    .ext__part{
+        display: block;
+    }
+
+    .ext_cancel{
+        bottom: -35px;
+    }
+    .cancel_area{
+        margin-top: 45px;
+    }
+    .ext__part>div{
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    .tb_cell1 label{
+        padding-left: 10px;
+    }
+
+    .tb_cell2 input{
+        width: 90% !important;
+    }
 }

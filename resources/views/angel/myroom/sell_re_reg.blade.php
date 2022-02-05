@@ -622,7 +622,7 @@
                 <div class="premiumPart--content">
                     <div class="float-left">
                         <strong class="service_title">프리미엄 등록</strong>
-                        <select id="pop_user_premium_time" name="pop_user_premium_time" onchange="fnpremiumSelect($(this), $(this).val());">
+                        <select id="pop_user_premium_time" name="pop_user_premium_time">
                             <option value="">미설정</option>
                             <option value="1">1시간</option>
                             <option value="2">2시간</option>

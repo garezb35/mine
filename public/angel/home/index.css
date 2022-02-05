@@ -1293,14 +1293,10 @@ li.hotgame-liimg:hover img {
     padding-bottom: 10px;
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 853px) {
     .module-gamelist{
         margin-left: 0px !important;
     }
-    /*.goldtop{*/
-    /*    padding-left: 0px !important;*/
-    /*}*/
-
 
     .title, .box3 .title {
         padding: 8px 8px 8px !important;
@@ -1308,22 +1304,25 @@ li.hotgame-liimg:hover img {
     #home__content{
         margin-top: -27px;
     }
-}
-
-@media screen and (max-width: 1216px) and (min-width: 820px){
-    .top_full, .top_area, .bg_opacity, .service_wrap, .carousel_module > .banner_in > .banner_item .carousel_images{
-        height: 264px !important;
-    }
-}
-
-
-@media screen and (max-width: 820px) {
     .top_full, .top_area, .bg_opacity, .service_wrap, .carousel_module > .banner_in > .banner_item .carousel_images{
         height: 170px !important;
     }
 }
 
-@media only screen and (max-width: 630px){
+/*@media screen and (max-width: 1216px) and (min-width: 820px){*/
+/*    .top_full, .top_area, .bg_opacity, .service_wrap, .carousel_module > .banner_in > .banner_item .carousel_images{*/
+/*        height: 264px !important;*/
+/*    }*/
+/*}*/
+
+
+/*@media screen and (max-width: 820px) {*/
+/*    .top_full, .top_area, .bg_opacity, .service_wrap, .carousel_module > .banner_in > .banner_item .carousel_images{*/
+/*        height: 170px !important;*/
+/*    }*/
+/*}*/
+
+@media only screen and (max-width: 640px){
     .hotgame-li {
         width: 50% !important;
     }
@@ -1335,6 +1334,6 @@ li.hotgame-liimg:hover img {
 
 @media screen and (max-width: 360px) {
     .nav-with ul li a{
-        font-size: 11pxny;
+        font-size: 11px;
     }
 }

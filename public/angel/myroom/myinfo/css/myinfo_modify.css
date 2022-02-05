@@ -7,12 +7,15 @@
 }
 
 .cell_num .angel__text {
-    width: 49px
+    width: 49px;
+    height: 24px;
+    line-height: 24px;
+    min-width: unset;
 }
 
 .cell_num .g_selectbox {
     float: left;
-    width: 49px;
+    width: 70px;
     margin-top: 1px
 }
 
@@ -108,6 +111,9 @@
 .email_info .angel__text {
     width: 130px;
     text-align: center;
+    min-width: unset;
+    height: 24px;
+    line-height: 24px;
 }
 
 .email_info .btn_gray3 {

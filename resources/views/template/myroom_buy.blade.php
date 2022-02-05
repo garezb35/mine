@@ -27,13 +27,15 @@
         <td class="left">
             <input type="hidden" name="check[]" value="{{$v['orderNo']}}">
             @if($v['status'] == 2 || $v['status'] == 3 || $v['status'] == 1)
-                <span class="attached_noti">거래중</span><br>
+                <div @class('text-right')>
+                    <span class="attached_noti">거래중</span>
+                </div>
             @endif
-            <div class="trade_title">
+            <div class="trade_title text-center">
                 <a href="{{$href}}">{{$v['user_title']}}</a>
             </div>
         </td>
-        <td class="right text-rock">{{$price}}원</td>
+        <td class="center">{{$price}}원</td>
         <td>{{date("Y-m-d H:i:s",strtotime($v['created_at']))}}</td>
         @if($type == 0)
             <td>

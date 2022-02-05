@@ -28,11 +28,11 @@
                                 @endif
                             </a>
                         </li>
-                        <li><a href="{{route('myroom')}}">마이룸</a></li>
-                        <li><a href="{{route('main_customer')}}">고객센터</a></li>
+                        <li><a href="{{route('myroom')}}"  target="mainFrame">마이룸</a></li>
+                        <li><a href="{{route('main_customer')}}"  target="mainFrame">고객센터</a></li>
                         <li><a href="/logout">로그아웃</a></li>
                     @else
-                        <li><a href="{{route('main_customer')}}">고객센터</a></li>
+                        <li><a href="{{route('main_customer')}}"  target="mainFrame">고객센터</a></li>
                         <li><a href="{{route('user_reg_step1')}}">회원가입</a></li>
                         <li><a href="/login">로그인</a></li>
                     @endif
@@ -50,7 +50,7 @@
                         <div class="dropdown">
                             <a href="javascript:void(0);" rel="nofollow" id="dropdown-wz">전체 게임
                                 <img src="https://www.5mmo.com/templates/game/images/topicojg.png">
-                                <div class="border-half"></div>
+{{--                                <div class="border-half"></div>--}}
                             </a>
                             <div class="dropdown-menu" style="display: none;">
                                 <div class="drop-menu-right">
@@ -62,17 +62,25 @@
                                                 </a>
                                             </li>
                                         @endforeach
-                                        <li class="nobg"><a href="https://www.5mmo.com/allgame.html" rel="nofollow" style="color:#f00 !important;">+ More Games</a></li>
+                                        <li class="nobg"><a href="https://www.5mmo.com/allgame.html" rel="nofollow" style="color:#f00 !important;"  target="mainFrame">+ More Games</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <ul class="nav nav_menu_nodemon">
-                        <li class="highlight highlight__first" ><a @if(Route::getCurrentRoute()->getName() == 'sell') style="color: #3295d3" @endif  href="/sell">판매등록 <div class="border-half"></div></a></li>
-                        <li class="highlight" ><a @if(Route::getCurrentRoute()->getName() == 'buy') style="color: #edb528" @endif  href="/buy">구매등록 <div class="border-half"></div></a></li>
-                        <li ><a @if(str_contains(Request::url(),'/myroom/my_mileage/index_c')) style="color: #ea70a5" @endif href="/myroom/my_mileage/index_c" >마일리지 충전 <div class="border-half"></div></a></li>
-                        <li ><a @if(str_contains(Request::url(),'myroom') && !str_contains(Request::url(),'/myroom/my_mileage')) style="color: #1b9fa2" @endif href="/myroom">마이페이지</a></li>
+                        <li class="highlight highlight__first" >
+                            <a  href="/sell"  target="mainFrame">판매등록</a>
+                        </li>
+                        <li class="highlight" >
+                            <a href="/buy"  target="mainFrame">구매등록</a>
+                        </li>
+                        <li >
+                            <a href="/myroom/my_mileage/index_c"  target="mainFrame">마일리지 충전</a>
+                        </li>
+                        <li >
+                            <a href="/myroom"  target="mainFrame">마이페이지</a>
+                        </li>
                     </ul>
                 </div>
             </div>

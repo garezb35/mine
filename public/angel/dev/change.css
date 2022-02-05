@@ -107,7 +107,7 @@
 /*    height: 50px;*/
 /*}*/
 .siteHeader .nav_wrap .nav_menu_nodemon {
-    display: block;
+    /*display: block;*/
     overflow: auto;
 }
 .siteHeader .nav_wrap .topmenu_right {
@@ -175,6 +175,6 @@
     height: 100px;
     width: 100%;
 }
-.pagecontainer {
-    min-height: 560px;
-}
+/*.pagecontainer {*/
+/*    min-height: 560px;*/
+/*}*/

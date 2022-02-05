@@ -183,9 +183,7 @@
 /*}*/
 
 
-.pagecontainer>.content_coupon {
-    margin-top: 5px;
-}
+
 
 .pagecontainer>.content_area {
     position: relative;
@@ -209,9 +207,19 @@
 }
 
 .pagecontainer>.content_coupon>div {
-    display: inline-block;
     height: 150px;
     font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content_box_wrap>div{
+    width: 50%;
+    text-align: center;
+    padding-top: 27px;
+}
+.content_box_wrap>div:first-child{
+    border-right: 1px solid #999999;
 }
 
 .pagecontainer>.content_coupon :last-child {
@@ -697,56 +705,45 @@
     position: relative;
 }
 
-.fileright {
-    border: 1px solid #d6d6d6;
-    background: #FFF;
+.my_security_state_wrap{
+    display: flex;
+    justify-content: space-between;
 }
 
-.filerighttop {
-    padding: 25px;
-    overflow: hidden;
-    border-bottom: 1px solid #e6e6e6;
+.my_security_state_wrap>div{
+    width: 50%;
+    border: 1px solid #929292;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 184px;
 }
 
-.filerightlf {
-    width: 28%;
-    float: left;
-    margin-right: 2%;
+.my_security_state_wrap>div:first-child{
+    border-right: none;
+}
+.dflex__half{
+    display: flex;
+    justify-content: space-between;
 }
 
-.filerightlfimg {
-    width: 100%;
+.dflex__half>div{
+    width: 50%;
     text-align: center;
 }
 
-.filerightlfimg img {
-    border: 1px solid #ebeaea;
-    padding: 3px 15px;
-}
-
-.filerightrg {
-    float: left;
-}
-
-.filerightrg h3 {
-    font-size: 24px;
-    line-height: 36px;
-    color: #000;
-}
-
-.filerightrg dl {
-    float: left;
-    width: 100%;
-    line-height: 36px;
-}
-.filerightrg dt {
-    float: left;
-    color: #444444;
-    margin-right: 5px;
-}
-.filerightrg dd {
-    font-size: 14px;
-}
-.clc3 {
-    color: #ff6100;
+@media screen and (max-width: 420px) {
+    .my_security_state_wrap{
+        display: block;
+    }
+    .my_security_state_wrap>div{
+        width: 100%;
+    }
+    .my_security_state_wrap>div:first-child{
+        border-right: 1px solid #929292;
+        margin-bottom: 10px;
+    }
+    .myroom__header h3 span{
+        font-size: 20px !important;
+        line-height: 20px !important;
+    }
 }

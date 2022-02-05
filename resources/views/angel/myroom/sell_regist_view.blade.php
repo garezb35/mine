@@ -19,7 +19,7 @@
         $category .= $good_type;
     }
 @endphp
-@extends('layouts-angel.app')
+@extends('layouts-angel.app-frame')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/myroom/css/common_myroom.css?210503" />
@@ -27,25 +27,17 @@
 @endsection
 
 @section('content')
-
-    <div class="container_fulids" id="module-teaser-fullscreen">
+    <div class="bg-white">
+        <div>
+            @include("angel.myroom.header")
+        </div>
+        <div class="ml-10">
         @include('aside.myroom',['group'=>'sell'])
         <div class="pagecontainer">
             <a name="top"></a>
-
-            <div class="g_title_noborder"> 판매등록 <span>물품</span>
-            </div>
-            <div class="g_gray_border"></div>
-
-
             <div class="highlight_contextual_nodemon first">물품정보</div>
             @if($user_goods_type == 'general' || $user_goods_type == 'bargain')
                 <table class="table-striped table-green1">
-                    <colgroup>
-                        <col width="160">
-                        <col width="250">
-                        <col width="160">
-                        <col> </colgroup>
                     <tbody><tr>
                         <th>카테고리</th>
                         <td colspan="3">{{$category}}</td>
@@ -53,11 +45,14 @@
                     <tr>
                         <th>물품제목</th>
                         <td colspan="3">
-                            {{$user_title}} </td>
+                            {{$user_title}}
+                        </td>
                     </tr>
                     <tr>
                         <th>거래번호</th>
                         <td>#{{$orderNo}}</td>
+                    </tr>
+                    <tr class="visible--table-m">
                         <th>등록일시</th>
                         <td>{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                     </tr>
@@ -87,72 +82,69 @@
 {{--            @endif--}}
             @if($user_goods_type == 'division')
                 <table class="table-striped table-green1">
-                    <colgroup>
-                        <col width="160">
-                        <col width="250">
-                        <col width="160">
-                        <col>
-                    </colgroup>
-                    <tbody><tr>
-                        <th>카테고리</th>
-                        <td colspan="3">{{$category}}</td>
-                    </tr>
-                    <tr>
-                        <th>물품제목</th>
-                        <td colspan="3">
+                    <tbody>
+                        <tr>
+                            <th>카테고리</th>
+                            <td colspan="3">{{$category}}</td>
+                        </tr>
+                        <tr>
+                            <th>물품제목</th>
+                            <td colspan="3">
 
-                            {{$user_title}}             </td>
-                    </tr>
+                                {{$user_title}}
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <th>거래번호</th>
-                        <td>#{{$orderNo}}</td>
-                        <th>등록일시</th>
-                        <td>{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
-                    </tr>
-                    <tr>
-                        <th>거래유형</th>
-                        <td colspan="3">{{$selltype}}</td>
-                    </tr>
-                    <tr>
-                        <th>판매금액</th>
-                        <td colspan="3">{{number_format($user_division_unit)}} 개 당 {{number_format($user_division_price)}}원</td>
-                    </tr>
-                    <tr>
-                        <th>최소수량</th>
-                        <td>{{number_format($user_quantity_min)}} 개</td>
-                        <th>최대수량</th>
-                        <td>{{number_format($user_quantity_max)}} 개&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <th>판매자 캐릭터명</th>
-                        <td colspan="3">{{$user_character}}</td>
-                    </tr>
+                        <tr>
+                            <th>거래번호</th>
+                            <td>#{{$orderNo}}</td>
+                            <th class="visible--table--pc">등록일시</th>
+                            <td class="visible--table--pc">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
+                        </tr>
+                        <tr class="visible--table-m">
+                            <th>등록일시</th>
+                            <td>{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
+                        </tr>
+                        <tr>
+                            <th>거래유형</th>
+                            <td colspan="3">{{$selltype}}</td>
+                        </tr>
+                        <tr>
+                            <th>판매금액</th>
+                            <td colspan="3">{{number_format($user_division_unit)}} 개 당 {{number_format($user_division_price)}}원</td>
+                        </tr>
+                        <tr>
+                            <th>최소수량</th>
+                            <td>{{number_format($user_quantity_min)}} 개</td>
+                            <th class="visible--table--pc">최대수량</th>
+                            <td class="visible--table--pc">{{number_format($user_quantity_max)}} 개&nbsp;</td>
+                        </tr>
+                        <tr class="visible--table-m">
+                            <th>최대수량</th>
+                            <td >{{number_format($user_quantity_max)}} 개&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th>판매자 캐릭터명</th>
+                            <td colspan="3">{{$user_character}}</td>
+                        </tr>
                     </tbody>
                 </table>
                 @if($discount_use == 1)
                 <div class="highlight_contextual_nodemon">복수 구매 할인</div>
                 <table class="table-striped table-green1">
-                    <colgroup>
-                        <col width="160">
-                        <col>
-                    </colgroup>
-                    <tbody><tr>
-                        <th>할인적용</th>
-                        <td>{{$discount_quantity * $discount_quantity_cnt}}개 구매 시 마다 {{number_format($discount_price)}}원씩 추가로 할인됨.</td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <th>할인적용</th>
+                            <td>{{$discount_quantity * $discount_quantity_cnt}}개 구매 시 마다 {{number_format($discount_price)}}원씩 추가로 할인됨.</td>
+                        </tr>
                     </tbody>
                 </table>
                 @endif
             @endif
 
 
-            <div class="highlight_contextual_nodemon">내 거래정보</div>
+            <div class="highlight_contextual_nodemon mt-15">내 거래정보</div>
             <table class="table-striped table-green1">
-                <colgroup>
-                    <col width="160">
-                    <col>
-                </colgroup>
                 <tr>
                     <th>이름</th>
                     <td>{{$cuser['name']}}</td>
@@ -161,7 +153,7 @@
                     <td> @if(empty($cuser["home"])){{'자택번호없음'}}@else{{$cuser['home']}}@endif / {{$cuser['number']}} <span class='f_blue3 font-weight-bold'>(SMS수신)</span> </td>
                 </tr>
             </table>
-            <div class="highlight_contextual_nodemon gray" style="padding-left: 6px">상세설명</div>
+            <div class="highlight_contextual_nodemon gray mt-15 pt-5 pl-5">상세설명</div>
             <div class="detail_info mt-0">
                 <div class="detail_text">
                     <div id="js-gallery" class="mb-5">
@@ -226,11 +218,11 @@
                 <input type="hidden" id="process" name="process"> </form>
             <div class="b_input_group">
                 @if($status == 0)
-                    <a href="/myroom/sell/sell_re_reg?id={{$orderNo}}" class="btn-default btn-suc">재등록</a>
-                    <a href="javascript:;" onclick="tradeProcess('@if($hide == 0){{'hideSelect'}}@else{{'showSelect'}}@endif')" class="btn-default btn-cancel">
+                    <a href="/myroom/sell/sell_re_reg?id={{$orderNo}}" class="button-success">재등록</a>
+                    <a href="javascript:;" onclick="tradeProcess('@if($hide == 0){{'hideSelect'}}@else{{'showSelect'}}@endif')" class="button-cancel">
                         @if($hide == 0) 숨기기 @else 보이기 @endif
                     </a>
-                    <a class="btn-default btn-gray" onclick="tradeProcess('deleteSelect');">삭제</a>
+                    <a class="button-cancel" onclick="tradeProcess('deleteSelect');">삭제</a>
                 @endif
             </div>
 
@@ -238,6 +230,7 @@
 
         </div>
         <div class="empty-high"></div>
+    </div>
     </div>
 
 @endsection

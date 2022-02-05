@@ -976,7 +976,7 @@ All this is done for any sub-level being entered.
     content: '';
 }
 
-@media only screen and (max-width:1216px){
+@media only screen and (max-width:1311px){
 
     .dl-menuwrapper	{ display:block;}
 

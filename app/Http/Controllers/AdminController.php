@@ -488,18 +488,36 @@ class AdminController extends BaseAdminController
 
     public function getServers(Request $request){
         $id = $request->id;
+        $type = $request->type;
+        $grade = $request->grade;
         $servers = array();
         if (empty($id)){
 
         }
-        else{
+        else if($type != 'server'){
             $server_games = MGame::where("depth",1)->where("parent",$id)->orderby('order','ASC')->get();
-            array_push($servers,array("id"=>"","text"=>"전체"));
+            if($grade != 1) array_push($servers,array("id"=>"","text"=>"전체"));
+            else    array_push($servers,array("id"=>"","text"=>"선택하세요"));
             foreach($server_games as $s){
                 array_push($servers,array("id"=>$s["id"],"text"=>$s["game"]));
             }
         }
-
+        else{
+            $item = MGame::where('id',$id)->first();
+            if(!empty($item)){
+                $items_ends = MGame::where('parent',$item['parent'])
+                    ->where('depth',2)
+                    ->where('status',1)
+                    ->orderby('order','ASC')
+                    ->get();
+            }
+            if(!empty($items_ends)){
+                array_push($servers,array("id"=>"","text"=>"선택하세요"));
+                foreach($items_ends as $s){
+                    array_push($servers,array("id"=>$s["unit"],"text"=>$s["game"]));
+                }
+            }
+        }
         return response()->json($servers);
     }
 

@@ -1,4 +1,4 @@
-@extends('layouts-angel.app')
+@extends('layouts-angel.app-frame')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/home/index.css">
@@ -89,81 +89,6 @@
 @endsection
 
 @section('content')
-    <style>
-        #gameChart .gameChart_title_list div {
-            border: solid 1px #3d9fff;
-            border-top: none;
-            border-right: none;
-            width: 136.4px;
-        }
-        #gameChart .gameChart_title_list .game_on {
-            background: initial !important;
-            color: black;
-            border: solid 1px #3d9fff;
-            border-bottom: none;
-        }
-        #gameChart .gameChart_title_list {
-            border: none !important;
-        }
-    </style>
-
-    <input type="hidden" name="new_except" value="">
-    <div class="react___gatsby settings_window" id="settings_window">
-        <div class="inner"> <a href="javascript:;" class="close" id="disableSettings">닫기</a>
-            <div class="title f-15">
-                즐겨찾는 서비스 <span class="f-13">최대 8개를 선택할수 잇습니다.</span>
-                <div class="r_area">
-                    <a href="javascript:;" class="btn_white2 save" id="submit_menus">저장</a>
-                    <a href="javascript:;" class="btn_white2 init" id="reset_menus">초기화</a>
-                </div>
-            </div>
-            <ul class="service_list" id="service_list">
-                <li class="arrange_menus @if(!empty($fav[1])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="1" @if(!empty($fav[1])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite mileage"></span> 내 마일리지 </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[2])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="2" @if(!empty($fav[2])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite counsel"></span> 상담내역보기 </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[3])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="3" @if(!empty($fav[3])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite sell"></span> 판매관련물품 </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[4])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="4" @if(!empty($fav[4])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite buy"></span> 구매관련물품 </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[5])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="5" @if(!empty($fav[5])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite charge"></span> 마일리지충전 </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[6])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="6" @if(!empty($fav[6])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite calc"></span> 수수료 </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[7])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="7" @if(!empty($fav[7])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite credit_rating"></span> 신용등급/수수료 </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[8])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="8" @if(!empty($fav[8])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite guide"></span> 초보자가이드 </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[9])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="9" @if(!empty($fav[9])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite faq"></span> FAQ </label>
-                </li>
-                <li class="arrange_menus @if(!empty($fav[10])) on @endif">
-                    <label>
-                        <input type="checkbox" class="cs_checkbox" name="service[]" value="10" @if(!empty($fav[10])) checked @endif> <span class="tmp_checkbox"></span> <span class="has-sprite message"></span> 메시지함 </label>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-
-    <div class="content_center" id="home__content">
         <div style="overflow: auto;">
             <div class="sec_left realtime_status">
                 <div class="top_full">
@@ -325,5 +250,4 @@
             </div>
         </div>
         <div class="empty-high"></div>
-    </div>
 @endsection
