@@ -518,60 +518,10 @@ class VMyRoomController extends BaseController
 
     public function sell_regist()
     {
-        $selling_register = MItem::
-            with('payitem')->
-        where('userId',$this->user->id)->
-        where('type','sell')->
-        where('status',"!=", -1)->
-        whereDoesntHave('bargains')->
-        get()->count();
-        $bargain_request = MItem::
-        where('userId',$this->user->id)->
-        where('type','sell')->
-        where('status',0)->
-        whereNull('toId')->
-        whereHas('bargain_requests')->
-        whereDoesntHave('payitem')->get()->count();
-        $pay_pending = MItem::
-            whereHas('payitem',function($query){
-            $query->where('status',0);
-        })->
-        where(function($query){
-            $query->where(function($query1){
-                $query1->where('userId',$this->user->id);
-                $query1->where('type','sell');
-                $query1->where('toId',">", 0);
-            });
-            $query->orWhere(function($query2){
-                $query2->where('toId',$this->user->id);
-                $query2->where('type','buy');
-                $query2->where('toId',">", 0);
-            });
-        })->
-        where('status',0)->
-        get()->count();
-        $selling_count = MItem::
-            whereHas('payitem',function($query){
-                $query->where('status',1);
-            })->
-            where(function($query){
-            $query->where('userId',$this->user->id);
-            $query->where('type','sell');
-            $query->where('status',"!=",0);
-            $query->where('status',"!=",23);
-            $query->where('status',"!=",32);
-            $query->where('status',"!=",-1);
-        })->orWhere(function($query){
-            $query->where('toId',$this->user->id);
-            $query->where('type','buy');
-            $query->where('status',"!=",0);
-            $query->where('status',"!=",23);
-            $query->where('status',"!=",32);
-            $query->where('status',"!=",-1);
-        })->
-        get()->count();
 
         $games = MItem::with(['game','server'])->
+        whereHas('game')->
+        whereHas('server')->
         where('userId',$this->user->id)->
         where('type','sell')->
         where('status','!=',-1)->
@@ -579,10 +529,6 @@ class VMyRoomController extends BaseController
         orderBy('created_at',"DESC")->paginate(15);
 
         return view('angel.myroom.sell_regist',[
-            'selling_register'=>$selling_register,
-            'bargain_request'=>$bargain_request,
-            'pay_pending'=>$pay_pending,
-            'selling_count'=>$selling_count,
             'games'=>$games
         ]);
     }
