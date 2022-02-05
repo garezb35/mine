@@ -8,6 +8,9 @@
     }
     $coupon = $user_coupon;
     $selling_register = App\Models\MItem::
+        with(['game','server'])->
+        whereHas('game')->
+        whereHas('server')->
         where('userId',$user->id)->
         where('type','sell')->
         where('status',"!=",-1)->
@@ -39,6 +42,9 @@
         where('status',0)->
         get()->count();
         $selling_count = App\Models\MItem::
+        with(['game','server'])->
+        whereHas('game')->
+        whereHas('server')->
         whereHas('payitem',function($query){
             $query->where('status',1);
         })->
@@ -59,6 +65,9 @@
         })->
         get()->count();
         $buying_register = App\Models\MItem::
+        with(['game','server'])->
+        whereHas('game')->
+        whereHas('server')->
         where('userId',$user->id)->
         where('type','buy')->
         where('status','!=',-1)->
@@ -91,6 +100,9 @@
         where('status',0)->
         get()->count();
         $buying_count = App\Models\MItem::
+        with(['game','server'])->
+        whereHas('game')->
+        whereHas('server')->
         whereHas('payitem',function($query){
             $query->where('status',1);
         })->
