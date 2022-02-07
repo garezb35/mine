@@ -62,17 +62,17 @@
                                     <br/>상태입니다.
                                 </p>
                             </div>
-                            <div class="guide_set">
+                            <div class="guide_set active">
                                 <span class="has-sprite pay_wait_icon"></span> <span class="state">입금대기</span>
-                                <p>구매신청 후 입금 확인 단계,
-                                    <br/>입금 확인 즉시 판매자에게
+                                <p>구매신청 후 입금 확,
+                                    <br/>인 단계 입금 확인 즉<br>시 판매자에게
                                     <br/>SMS를 발송합니다.
                                 </p>
                                 <i class="has-sprite arr_mini"></i>
                             </div>
                             <div class="guide_set">
                                 <span class="has-sprite sell_ing_icon"></span> <span class="state">판매중</span>
-                                <p>구매자의 정보를 확인 가능,
+                                <p>구매자의 정보를 <br>확인 가능,
                                     <br/>게임상에서 거래의
                                     <br/>진행이 가능합니다.
                                 </p>
@@ -88,8 +88,8 @@
                             </div>
                             <div class="guide_set">
                                 <span class="has-sprite sell_complete_icon"></span> <span class="state">판매완료</span>
-                                <p>구매자가 인수확인을
-                                    <br/>완료하면, 거래는
+                                <p>구매자가 인수확인
+                                    <br/>을 완료하면, 거래는
                                     <br/>즉시 종료됩니다.
                                 </p>
                                 <i class="has-sprite arr_mini"></i>

@@ -50,17 +50,18 @@ $user  = Auth::user();
             border: solid 1px gray;
             margin-left: 10%;
         }
-        .verify-status:before {
+        /*.verify-status:before {*/
+        /*    */
+        /*}*/
+        .verify-status.on:before{
+            background-image: url("/assets/img/icons/icon_check.png");
+            background-size: 100%;
             display: inline-block;
             width: 14px;
             height: 14px;
             content:"";
             background-repeat: no-repeat;
             margin-right: 5px;
-        }
-        .verify-status.on:before{
-            background-image: url("/assets/img/icons/icon_check.png");
-            background-size: 100%;
         }
         .btn-favorite-service {
             display: block;

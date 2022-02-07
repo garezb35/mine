@@ -36,7 +36,8 @@
                         <col width="125" />
                         <col width="64" />
                         <col width="52" />
-                        <col width="110" /> </colgroup>
+                        <col width="110" />
+                    </colgroup>
                     <tr>
                         <th class="first">No</th>
                         <th>구분</th>

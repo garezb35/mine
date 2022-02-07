@@ -50,11 +50,11 @@
                     </tr>
                     <tr>
                         <th>거래번호</th>
-                        <td>#{{$orderNo}}</td>
+                        <td colspan="3">#{{$orderNo}}</td>
                     </tr>
                     <tr class="visible--table-m">
                         <th>등록일시</th>
-                        <td>{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
+                        <td colspan="3">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                     </tr>
                     <tr>
                         <th>거래유형</th>
@@ -68,9 +68,15 @@
                             <th>판매수량</th>
                             <td ><span class="trade_money1">{{$user_quantity}}{{$gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit:''}}</span> {{$good_type}}</td>
                         @endif
-                        <th>판매금액</th>
-                        <td @if($c ==1)colspan="3" @endif>{{number_format($user_price)}}원</td>
+                        <th @if($c != 1) class="visible--table--pc" @endif>판매금액</th>
+                        <td @if($c ==1)colspan="3" @else class="visible--table--pc" @endif>{{number_format($user_price)}}원</td>
                     </tr>
+                    @if($c != 1)
+                    <tr class="visible--table-m">
+                        <th>판매금액</th>
+                        <td>{{number_format($user_price)}}원</td>
+                    </tr>
+                    @endif
                     <tr>
                         <th>판매자 캐릭터명</th>
                         <td colspan="3">{{$user_character}}</td>
@@ -168,12 +174,10 @@
                 </div>
             </div>
 
-
-
             <div class="trade_progress">
                 <div class="highlight_contextual_nodemon"> 거래 진행 상황 </div>
                 <div class="trade_progress_content">
-                    <div class="guide_wrap">
+                    <div class="guide_wrap ww25">
                         <div class="guide_set @if($status == 0){{'active'}} @endif"> <span class="has-sprite sell_regist_icon"></span> <span class="state">판매등록</span>
                             <p>판매할 물품을 등록해놓은
                                 <br/>[거래대기] 상태입니다.

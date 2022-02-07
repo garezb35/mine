@@ -49,7 +49,7 @@
                             <a href='./?type=관리자&state=1' class="font-weight-bold f-14">관리자 메시지 <span>{{$manager_message_count}}개</span></a>
                         </div>
                         @if(Request::get('type') != 'storage')
-                            <div> <button onclick="$('#procType').val('save');$('#frmDeleteAll').submit();" class="bg-gradient-wb hb25 border__gray text-center pl-5 pr-5">메시지 보관하기</button> <span class="text-orange"></span> </div>
+                            <div> <button onclick="$('#procType').val('save');$('#frmDeleteAll').submit();" class="bg-white hb25 border__gray text-center pl-5 pr-5">메시지 보관하기</button> <span class="text-orange"></span> </div>
                         @endif
                         <div @class('lh25')>
                             <span>

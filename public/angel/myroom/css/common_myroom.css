@@ -311,9 +311,8 @@
 
 .notice_box {
     margin-top: 20px;
-    padding: 17px 51px;
-    border: 1px solid #DDD;
-    background-color: #F6F7F9;
+    padding: 17px 18px;
+    border: 1px solid #000;
     font-size: 12px;
 }
 

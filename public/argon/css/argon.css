@@ -21940,7 +21940,7 @@ table .left>img {
 }
 
 .trade_progress>.trade_progress_content>.guide_wrap {
-    padding: 20px 19px;
+    padding: 13px 8px;
     font-size: 0;
     text-align: center;
 }
@@ -22013,7 +22013,7 @@ table .left>img {
     margin-top: 40px;
     font-size: 12px;
     text-align: center;
-    color: #636363;
+    color: #00b4b4;
 }
 
 .trade_progress>.trade_progress_content>.guide_wrap>.guide_set>.arr_mini {

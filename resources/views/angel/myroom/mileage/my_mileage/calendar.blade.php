@@ -55,69 +55,78 @@
                             <li class="center">{{$DateY}}년</li>
                             <li><img src="/angel/img/icons/btn_next1.gif" width="16" height="26" alt="다음" id="after" class="g_button g_icon"></li>
                         </ul>
-                        <ul id="mile_month" class="float-left g_sideway">
+                        <ul id="mile_month" class="float-left g_sideway mile_month" >
                             @for ($i = 1; $i <= 12; $i++)
                                 <li @if ($i == $DateM) class='selected' @endif name="{{$i}}">{{$i}}월</li>
                             @endfor
                         </ul>
                         <div class="empty-high"></div>
                     </form>
-                    <table id="mile_calendar">
-                        <colgroup>
-                            <col width="109">
-                            <col width="106">
-                            <col width="106">
-                            <col width="106">
-                            <col width="106">
-                            <col width="106">
-                            <col width="113">
-                        </colgroup>
-                        <tr>
-                            <th>일요일</th>
-                            <th>월요일</th>
-                            <th>화요일</th>
-                            <th>수요일</th>
-                            <th>목요일</th>
-                            <th>금요일</th>
-                            <th>토요일</th>
-                        </tr>
-                        @php
-                            for ($i = 0; $i < 42; $i++)
-                            {
-                                $snzDayStyle = "";
-                                if ($i % 7 == 0)
+                    <div class="calendar__part">
+                        <table id="mile_calendar">
+                            <colgroup>
+                                <col width="67">
+                                <col width="67">
+                                <col width="67">
+                                <col width="67">
+                                <col width="67">
+                                <col width="67">
+                                <col width="67">
+                            </colgroup>
+                            <tr>
+                                <th>일요일</th>
+                                <th>월요일</th>
+                                <th>화요일</th>
+                                <th>수요일</th>
+                                <th>목요일</th>
+                                <th>금요일</th>
+                                <th>토요일</th>
+                            </tr>
+                            @php
+                                for ($i = 0; $i < 42; $i++)
                                 {
-                                    if ($i - $DayIndex >= $CountDays)
-                                        break;
-                                    echo '<tr>';
-                                    $snzDayStyle = 'sunday';
-                                }
-                                if ($i % 7 == 6)
-                                    $snzDayStyle = 'saterday';
-                                if ($i < $DayIndex || $i - $DayIndex >= $CountDays)
-                                {
-                                    echo '<td>&nbsp;</td>';
-                                }
-                                else
-                                {
-                                    $nDay = ($i - $DayIndex + 1);
-                                    echo '<td class="'.$snzDayStyle.'">';
-                                    echo '<div class="float__right">'.$nDay.'</div>';
-                                    echo '<div class="empty-high"></div>';
-                                    $index = array_search($nDay, array_column($MileageIn, 'dayNum'));
-                                    if ($index !== false)
-                                        echo '<div class="in">'.number_format($MileageIn[$index]['sum_money']).'</div>';
-                                    $index = array_search($nDay, array_column($MileageOut, 'dayNum'));
-                                    if ($index !== false)
-                                        echo '<div class="out">'.number_format($MileageOut[$index]['sum_money']).'</div>';
-                                    echo '</td>';
-                                }
-                                if ($i % 7 == 6)
-                                    echo '</tr>';
+                                    $snzDayStyle = "";
+                                    if ($i % 7 == 0)
+                                    {
+                                        if ($i - $DayIndex >= $CountDays)
+                                            break;
+                                        echo '<tr>';
+                                        $snzDayStyle = 'sunday';
+                                    }
+                                    if ($i % 7 == 6)
+                                        $snzDayStyle = 'saterday';
+                                    if ($i < $DayIndex || $i - $DayIndex >= $CountDays)
+                                    {
+                                        echo '<td>&nbsp;</td>';
+                                    }
+                                    else
+                                    {
+                                        $nDay = ($i - $DayIndex + 1);
+                                        echo '<td class="'.$snzDayStyle.'">';
+                                        echo '<div class="float__right">'.$nDay.'</div>';
+                                        echo '<div class="empty-high"></div>';
+                                        $index = array_search($nDay, array_column($MileageIn, 'dayNum'));
+                                        if ($index !== false)
+                                            echo '<div class="in">'.number_format($MileageIn[$index]['sum_money']).'</div>';
+                                        $index = array_search($nDay, array_column($MileageOut, 'dayNum'));
+                                        if ($index !== false)
+                                            echo '<div class="out">'.number_format($MileageOut[$index]['sum_money']).'</div>';
+                                        echo '</td>';
+                                    }
+                                    if ($i % 7 == 6)
+                                        echo '</tr>';
 
-                            }
-                        @endphp
-                    </table>
+                                }
+                            @endphp
+                        </table>
+                        <div>
+                            <ul  class="float-left g_sideway mile_month">
+                                @for ($i = 1; $i <= 12; $i++)
+                                    <li @if ($i == $DateM) class='selected' @endif name="{{$i}}">{{$i}}월</li>
+                                @endfor
+                            </ul>
+                        </div>
+                    </div>
                     <div class="float-left g_black3_11">- 조회기간은 전년기준 5년까지 조회 가능합니다.</div>
                     <div class="float__right g_black3_11">(단위:원)</div>
                     <div class="empty-high"></div>

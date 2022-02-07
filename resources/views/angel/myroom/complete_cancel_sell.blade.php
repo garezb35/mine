@@ -20,7 +20,7 @@
             <div class='selected'><a href="/myroom/complete/cancel_sell">판매취소내역</a></div>
             <div><a href="/myroom/complete/cancel_buy">구매취소내역</a></div>
         </div>
-        <div class="navtabs__react">
+        <div class="navtabs__react p-left-0">
             <a href="/myroom/complete/cancel_sell?type=sell" class="btn-endsb @if($type == 'sell') selected @endif"><span >팝니다 취소한 내역</span></a>
             <a href="/myroom/complete/cancel_sell?type=buy" class="btn-endsb @if($type == 'buy') selected @endif"><span>삽니다 취소한 내역</span></a>
         </div>

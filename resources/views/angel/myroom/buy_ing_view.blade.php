@@ -18,7 +18,7 @@ if(sizeof($split_number) == 3){
     $user_phone3 = $split_number[2];
 }
 @endphp
-@extends('layouts-angel.app')
+@extends('layouts-angel.app-frame')
 
 @section('head_attach')
 
@@ -50,8 +50,10 @@ if(sizeof($split_number) == 3){
 @endsection
 
 @section('content')
-
-    <div class="container_fulids" id="module-teaser-fullscreen">
+    <div>
+        @include("angel.myroom.header")
+    </div>
+    <div @class('ml-10')>
         @include('aside.myroom',['group'=>'buy'])
         <div class="pagecontainer">
             <a name="top"></a>
@@ -63,14 +65,8 @@ if(sizeof($split_number) == 3){
                 <input type="hidden" id="id" name="id" value="{{$orderNo}}" />
             </form>
 
-            <div class="highlight_contextual_nodemon first">물품정보</div>
+{{--            <div class="highlight_contextual_nodemon first">물품정보</div>--}}
             <table class="table-striped table-green1">
-                <colgroup>
-                    <col width="160" />
-                    <col width="250" />
-                    <col width="160" />
-                    <col />
-                </colgroup>
                 <tbody>
                 <tr>
                     <th>카테고리</th>
@@ -86,6 +82,10 @@ if(sizeof($split_number) == 3){
                 <tr>
                     <th>거래번호</th>
                     <td>#{{$orderNo}}</td>
+                    <th class="visible--table--pc">등록일시</th>
+                    <td class="visible--table--pc">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
+                </tr>
+                <tr class="visible--table-m">
                     <th>등록일시</th>
                     <td>{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                 </tr>
@@ -106,154 +106,174 @@ if(sizeof($split_number) == 3){
                 </tr>
                 </tbody>
             </table>
-            <div class="highlight_contextual_nodemon">판매자 정보</div>
-            <table class="table-striped table-green1">
-                <colgroup>
-                    <col width="160" />
-                    <col />
-                </colgroup>
-                <tbody>
-                <tr>
-                    <th>이름</th>
-                    <td>{{$user['name']}}</td>
-                </tr>
-                <tr>
-                    <th>연락처</th>
-                    <td>
-                        {{$user['home']}} / {{$user['number']}}
-                    </td>
-                </tr>
-                <tr>
-                    <th>판매자 캐릭터명</th>
-                    <td>
-                        <form id="frmDiffer" name="frmDiffer" method="post"></form>
-                        {{$user_character}}
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-            <table class="table-greenwith">
-                <colgroup>
-                    <col width="310px" />
-                    <col width="*" />
-                </colgroup>
-                <tr>
-                    <th class="p-left-10">
-                        <div>
+            <div class="highlight_contextual_nodemon mt-15">판매자 정보</div>
+
+            <div @class('selling_middle')>
+                <div @class('pr-5')>
+                    <table class="table-striped table-green1">
+                        <tbody>
+                        <tr>
+                            <th>이름</th>
+                            <td>{{$user['name']}}</td>
+                        </tr>
+                        <tr>
+                            <th>연락처</th>
+                            <td>
+                                {{$user['home']}} / {{$user['number']}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>판매자 캐릭터명</th>
+                            <td>
+                                <form id="frmDiffer" name="frmDiffer" method="post"></form>
+                                {{$user_character}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <div @class('border-gray2 pt-17 pl-10 pb-17')>
+                        <div @class('d-flex')>
                             <img src="/angel/img/level/{{$user['roles']['icon']}}" width="37"/>
-                            <span class="f_green4 font-weight-bold">{{$user['roles']['alias']}}회원</span>&nbsp;&nbsp;&nbsp; (거래점수 : {{number_format($user['point'])}}점)
+                            <div @class('mt-5 ml-5')>
+                                <p @class('f-13')>{{$user['roles']['alias']}}회원</p><p @class('f-13')>거래점수 : {{number_format($user['point'])}}점</p>
+                            </div>
                         </div>
-                    </th>
-                    <td>
-                        <dl class="add_info">
+                        <dl class="add_info mt-15">
                             <dd>
-                                <span class="w80 cert_state">인증상태</span>
-                                <span class="con w80 btn_state">
-                                        @if($user['mobile_verified'] == 1)
-                                        <img src="/angel/img/icons/icon_check.png" width="14">
-                                    @else
-                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
-                                    @endif휴대폰</span>
-                                <span class="on w80 btn_state">
-                                        @if($user['bank_verified'] == 1)
-                                        <img src="/angel/img/icons/icon_check.png" width="14">
-                                    @else
-                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
-                                    @endif계좌</span>
-                                <span class="on w80 btn_state">
-                                        @if($user['pin'] == 1)
-                                        <img src="/angel/img/icons/icon_check.png" width="14">
-                                    @else
-                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
-                                    @endif아이핀</span>
-                                <span class="w80 btn_state">
-                                        @if(!empty($user['email_verified_at']))
-                                        <img src="/angel/img/icons/icon_check.png" width="14">
-                                    @else
-                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">
-                                    @endif이메일</span>
-                                </dd>
-                            </dl>
-                        <div class="float__right">
-                            <a href="javascript:fnCreditViewCheck()"></a>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <div class="highlight_contextual_nodemon">내 거래정보</div>
+                                <span class="con w60 btn_state @if($user['mobile_verified'] == 1) bg-redi text-white @endif">휴대폰</span>
+                                <span class="on w60 btn_state @if($user['bank_verified'] == 1) bg-redi text-white @endif">계좌</span>
+                                <span class="on w60 btn_state @if($user['pin'] == 1) bg-redi text-white @endif">아이핀</span>
+                                <span class="w60 btn_state @if(!empty($user['email_verified_at'])) bg-redi text-white @endif">이메일</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+{{--            <table class="table-greenwith">--}}
+{{--                <colgroup>--}}
+{{--                    <col width="310px" />--}}
+{{--                    <col width="*" />--}}
+{{--                </colgroup>--}}
+{{--                <tr>--}}
+{{--                    <th class="p-left-10">--}}
+{{--                        --}}
+{{--                    </th>--}}
+{{--                    <td>--}}
+{{--                        <dl class="add_info">--}}
+{{--                            <dd>--}}
+{{--                                <span class="w80 cert_state">인증상태</span>--}}
+{{--                                <span class="con w80 btn_state">--}}
+{{--                                        @if($user['mobile_verified'] == 1)--}}
+{{--                                        <img src="/angel/img/icons/icon_check.png" width="14">--}}
+{{--                                    @else--}}
+{{--                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">--}}
+{{--                                    @endif휴대폰</span>--}}
+{{--                                <span class="on w80 btn_state">--}}
+{{--                                        @if($user['bank_verified'] == 1)--}}
+{{--                                        <img src="/angel/img/icons/icon_check.png" width="14">--}}
+{{--                                    @else--}}
+{{--                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">--}}
+{{--                                    @endif계좌</span>--}}
+{{--                                <span class="on w80 btn_state">--}}
+{{--                                        @if($user['pin'] == 1)--}}
+{{--                                        <img src="/angel/img/icons/icon_check.png" width="14">--}}
+{{--                                    @else--}}
+{{--                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">--}}
+{{--                                    @endif아이핀</span>--}}
+{{--                                <span class="w80 btn_state">--}}
+{{--                                        @if(!empty($user['email_verified_at']))--}}
+{{--                                        <img src="/angel/img/icons/icon_check.png" width="14">--}}
+{{--                                    @else--}}
+{{--                                        <img src="/angel/img/icons/icon_nocheck.png" width="14">--}}
+{{--                                    @endif이메일</span>--}}
+{{--                                </dd>--}}
+{{--                            </dl>--}}
+{{--                        <div class="float__right">--}}
+{{--                            <a href="javascript:fnCreditViewCheck()"></a>--}}
+{{--                        </div>--}}
+{{--                    </td>--}}
+{{--                </tr>--}}
+{{--            </table>--}}
+            <div class="highlight_contextual_nodemon mt-15">내 거래정보</div>
             <table class="table-striped">
-                <colgroup>
-                    <col width="160" />
-                    <col />
-                </colgroup>
-                <tbody>
-                <tr>
-                    <th>이름</th>
-                    <td>{{$cuser['name']}}</td>
-                </tr>
-                <tr>
-                    <th>연락처</th>
-                    <td>
-                        {{$cuser['home']}} / {{$cuser['number']}}
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-            <link rel="stylesheet" href="/angel/myroom/chat/css/chat.css" />
-            <table class="noborder mt-15">
-                <colgroup>
-                    <col width="50%" />
-                </colgroup>
                 <tbody>
                     <tr>
-                        <td class="vt p-left-0">
-
-                            <div class="highlight_contextual_nodemon gray mt-0 p-left-10">상세설명</div>
-                            <div class="detail_info">
-                                <div class="detail_text">
-                                    <div id="js-gallery" class="mb-5">
-                                        @foreach (\File::glob(public_path('assets/images/angel/'.$id).'/*') as $file)
-                                            <a href="/{{ str_replace(public_path()."\\", '', $file) }}" class="slide">
-                                                <img src="/{{ str_replace(public_path()."\\", '', $file) }}" class="g_top">
-                                            </a>
-                                        @endforeach
-                                    </div>
-                                    {{$user_text}}
-                                </div>
-                            </div>
-                        </td>
-                        <td class="vt">
-
-                            <script type="text/javascript" src="/angel/socket/connect.js"></script>
-                            <div id="chat_wrapper" style="display: block;margin: 0px auto;">
-                                <input id="CHAT_TOKEN" type="hidden" value="{{$orderNo}}">
-                                <input id="CHAT_IMAGE" type="hidden" value="{{$cuser['rimage']}}" />
-                                <input id="CHAT_USER" type="hidden" value="buyer" />
-                                <input id="CHAT_FIRST" type="hidden" value="1" />
-                                <input id="CHAT_FILTER" type="hidden" value="YTo3OntzOjk6InVzZXJfdHlwZSI7czoxOiJTIjtzOjg6InRyYWRlX2lkIjtzOjE2OiIyMDIxMTAyNTA4NDQ0OTQyIjtzOjExOiJ0cmFkZV9tb25leSI7czo0OiI0MDAwIjtzOjg6ImJ1eWVyX2lkIjtzOjk6ImRsd2tkMTY0MCI7czo3OiJnc19uYW1lIjtzOjE5OiJBRkvslYTroIjrgph86riw7YOAIjtzOjk6ImdhbWVfY29kZSI7czo0OiI0NDQyIjtzOjExOiJzZXJ2ZXJfY29kZSI7czo1OiIxNjgxMCI7fQ==">
-                                <div id="chat_notice">
-                                    <span class="">(1:1 채팅) 거래 시 상대방과 통화후 거래 요망!</span>
-                                </div>
-                                <div id="chat_content_wrapper" style="height: 247px">
-                                    <div id="chat_content" class="clear_fix">
-                                        <ul id="chat_list_wrapper"></ul>
-                                    </div>
-                                </div>
-                                <div id="chat_input_wrapper">
-                                    <textarea id="chat" type="text" @if($status == 23 || $status == 32 || $status == -1) disabled @endif></textarea>
-                                    <button id="send_btn">전송</button>
-                                </div>
-                            </div>
+                        <th>이름</th>
+                        <td>{{$cuser['name']}}</td>
+                    </tr>
+                    <tr>
+                        <th>연락처</th>
+                        <td>
+                            {{$cuser['home']}} / {{$cuser['number']}}
                         </td>
                     </tr>
                 </tbody>
             </table>
+            <link rel="stylesheet" href="/angel/myroom/chat/css/chat.css" />
+            <div @class('details__explo')>
+                <div>
+                    <div class="highlight_contextual_nodemon gray mt-0 p-left-10">상세설명</div>
+                    <div class="detail_info">
+                        <div class="detail_text">
+                            <div id="js-gallery" class="mb-5">
+                                @foreach (\File::glob(public_path('assets/images/angel/'.$id).'/*') as $file)
+                                    <a href="/{{ str_replace(public_path()."\\", '', $file) }}" class="slide">
+                                        <img src="/{{ str_replace(public_path()."\\", '', $file) }}" class="g_top">
+                                    </a>
+                                @endforeach
+                            </div>
+                            {{$user_text}}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <script type="text/javascript" src="/angel/socket/connect.js"></script>
+                    <div id="chat_wrapper" style="display: block;margin: 0px auto;">
+                        <input id="CHAT_TOKEN" type="hidden" value="{{$orderNo}}">
+                        <input id="CHAT_IMAGE" type="hidden" value="{{$cuser['rimage']}}" />
+                        <input id="CHAT_USER" type="hidden" value="buyer" />
+                        <input id="CHAT_FIRST" type="hidden" value="1" />
+                        <input id="CHAT_FILTER" type="hidden" value="YTo3OntzOjk6InVzZXJfdHlwZSI7czoxOiJTIjtzOjg6InRyYWRlX2lkIjtzOjE2OiIyMDIxMTAyNTA4NDQ0OTQyIjtzOjExOiJ0cmFkZV9tb25leSI7czo0OiI0MDAwIjtzOjg6ImJ1eWVyX2lkIjtzOjk6ImRsd2tkMTY0MCI7czo3OiJnc19uYW1lIjtzOjE5OiJBRkvslYTroIjrgph86riw7YOAIjtzOjk6ImdhbWVfY29kZSI7czo0OiI0NDQyIjtzOjExOiJzZXJ2ZXJfY29kZSI7czo1OiIxNjgxMCI7fQ==">
+                        <div id="chat_notice">
+                            <span class="">(1:1 채팅) 거래 시 상대방과 통화후 거래 요망!</span>
+                        </div>
+                        <div id="chat_content_wrapper" style="height: 232px">
+                            <div id="chat_content" class="clear_fix">
+                                <ul id="chat_list_wrapper"></ul>
+                            </div>
+                        </div>
+                        <div id="chat_input_wrapper">
+                            <textarea id="chat" type="text" @if($status == 23 || $status == 32 || $status == -1) disabled @endif></textarea>
+                            <button id="send_btn">전송</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{{--            <table class="noborder mt-15">--}}
+{{--                <colgroup>--}}
+{{--                    <col width="50%" />--}}
+{{--                </colgroup>--}}
+{{--                <tbody>--}}
+{{--                    <tr>--}}
+{{--                        <td class="vt p-left-0">--}}
+
+{{--                            --}}
+{{--                        </td>--}}
+{{--                        <td class="vt">--}}
+
+{{--                            --}}
+{{--                        </td>--}}
+{{--                    </tr>--}}
+{{--                </tbody>--}}
+{{--            </table>--}}
             <div class="trade_progress buy">
                 <div class="highlight_contextual_nodemon">
                     거래 진행 상황
                 </div>
                 <div class="trade_progress_content">
-                    <div class="guide_wrap">
+                    <div class="guide_wrap ww25">
                         <div class="guide_set @if($status == 0) {{'active'}}@endif">
                             <span class="has-sprite pay_wait_icon"></span>
                             <span class="state">입금대기</span>

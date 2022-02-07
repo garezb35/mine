@@ -6,10 +6,8 @@
 .trade_progress > .trade_progress_content{
     position: relative;
     box-sizing: border-box;
-    height: 240px;
     margin-bottom: 10px;
-    border: 1px  solid #000000;
-    background-color: #F7F7F7;
+    border: 1px  solid #2fc6c4;
 }
 .trade_progress > .trade_progress_content > .guide_wrap{
     padding:20px 19px;
@@ -29,6 +27,7 @@
 
 .trade_progress > .trade_progress_content > .guide_wrap > .guide_set.active > p{
     font-weight:bold;
+    color: #2fc6c4;
 }
 
 .trade_progress.buy > .trade_progress_content > .guide_wrap > .guide_set.active:before{
@@ -57,12 +56,11 @@
     color:#1D1D1D;
 }
 .trade_progress > .trade_progress_content > .guide_wrap > .guide_set > p{
-    margin-top: 44px;
+    margin-top: 23px;
     font-size: 12px;
-    text-align: left;
+    text-align: center;
     color: #636363;
     padding-top: 20px;
-    border-top: 1px solid #B5B5B5;
     margin-left: 5px;
 }
 .trade_progress > .trade_progress_content > .guide_wrap > .guide_set > .arr_mini{
@@ -152,7 +150,7 @@
 /*}*/
 .detail_info .detail_text{
     overflow:auto;
-    height:200px;
+    height:100px;
     scrollbar-face-color:#FFF;
     scrollbar-highlight-color:#F5F5F5;
     scrollbar-3dlight-color:#B7B7B7;
@@ -197,12 +195,11 @@
 
 .warning{
     border: 1px solid;
-    padding-left: 55px;
-    padding-right: 52px;
+    padding-left: 12px;
+    padding-right: 17px;
     padding-bottom: 20px;
     padding-top: 15px;
     font-size: 14px;
-    background: #E3F0F3;
 }
 
 .warning .warning_title{

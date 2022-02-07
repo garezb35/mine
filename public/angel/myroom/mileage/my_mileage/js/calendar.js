@@ -31,7 +31,7 @@ function _init() {
         frm.submit();
     });
 
-    $("#mile_month li").click(function(){
+    $(".mile_month li").click(function(){
 //		if (Number($("#date_Y").val()) <= t_SearchScope.start.year && Number(parseInt($(this).attr("name"))) <= t_SearchScope.start.month) {
         if (Number($("#date_Y").val()) <= 2008 && Number(parseInt($(this).attr("name"))) < t_SearchScope.start.month) {
             alert("2008년 4월 16일 이전 내역은 이전 마일리지 내역을 통해 확인하실 수 있습니다.")

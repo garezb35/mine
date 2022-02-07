@@ -349,8 +349,12 @@ table tr .left {
 
 .btn-endsb.selected{
     background: linear-gradient(#4e90c8,#336d97);
-    border: none;
+    border: 1px solid #334e90c8;
     color: #fff;
+}
+
+.btn-endsb:last-child{
+    margin-left: -4px;
 }
 
 .bg-transparent{
@@ -3194,14 +3198,20 @@ table.noborder tr td,.noborder{
 }
 
 .pt-10{
-    padding-top: 10px;
+    padding-top: 10px !important;
 }
 
 .pl-5{
     padding-left: 5px;
 }
 
+.pt-17{
+    padding-top: 17px;
+}
 
+.pb-17{
+    padding-bottom: 17px;
+}
 
 .pr-5{
     padding-right: 5px;
@@ -3693,9 +3703,9 @@ fieldset:disabled a.btn
 }
 
 .detail_info {
-    height: 77px;
+    height: 110px;
     margin-bottom: 5px;
-    padding: 5px 5px 20px 7px;
+    padding: 5px 5px 5px 7px;
     background-color: #FBFBFB;
     border: 1px   solid #929292;
     border-top: none;
@@ -3703,7 +3713,7 @@ fieldset:disabled a.btn
 
 .detail_info .detail_text{
     overflow:auto;
-    height:200px;
+    height:115px;
     scrollbar-face-color:#FFF;
     scrollbar-highlight-color:#F5F5F5;
     scrollbar-3dlight-color:#B7B7B7;
@@ -3982,4 +3992,8 @@ table.btnone tr:last-child td{
 .details__explo .highlight_contextual_nodemon.gray{
     height: 50px;
     line-height: 50px;
+}
+
+.trade_progress > .trade_progress_content > .guide_wrap.ww25 > .guide_set{
+    width: 25%;
 }

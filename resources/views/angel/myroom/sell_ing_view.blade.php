@@ -157,7 +157,7 @@
             <link rel="stylesheet" href="/angel/myroom/chat/css/chat.css">
             <div class="details__explo">
                 <div>
-                    <div class="highlight_contextual_nodemon gray mt-0 p-left-10 pt-5">상세설명</div>
+                    <div class="highlight_contextual_nodemon gray mt-0 p-left-10">상세설명</div>
                     <div class="detail_info">
                         <div class="detail_text">
                             <div id="js-gallery" class="mb-5">
@@ -182,7 +182,7 @@
                         <div id="chat_notice">
                             <span>(1:1 채팅) 거래 시 상대방과 통화후 거래 요망!</span>
                         </div>
-                        <div id="chat_content_wrapper" style="height: 247px">
+                        <div id="chat_content_wrapper" style="height: 232px">
                             <div id="chat_content" class="clear_fix">
                                 <ul id="chat_list_wrapper"></ul>
                             </div>
@@ -199,7 +199,7 @@
                     거래 진행 상황
                 </div>
                 <div class="trade_progress_content">
-                    <div class="guide_wrap">
+                    <div class="guide_wrap ww25">
                         <div class="guide_set">
                             <span class="has-sprite pay_wait_icon"></span>
                             <span class="state">입금대기</span>

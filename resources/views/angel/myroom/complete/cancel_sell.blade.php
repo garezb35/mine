@@ -52,10 +52,11 @@
 
 
             <div class="react_nav_tab">
-                <div class='selected'><a href="/myroom/complete/cancel_sell>판매취소내역</a></div>
-                <div><a href="/myroom/complete/cancel_buy>구매취소내역</a></div>
+                <div class='selected'><a href="/myroom/complete/cancel_sell">판매취소내역</a></div>
+                <div><a href="/myroom/complete/cancel_buy">구매취소내역</a></div>
             </div>
-            <div class="navtabs__react"> <a href="?type=sell&continue=YTo3OntzOjQ6ImdhbWUiO3M6MDoiIjtzOjk6ImdhbWVfdGV4dCI7czowOiIiO3M6Njoic2VydmVyIjtzOjA6IiI7czoxMToic2VydmVyX3RleHQiO3M6MDoiIjtzOjEyOiJzZWFyY2hfZ29vZHMiO3M6MDoiIjtzOjE2OiJzZWFyY2hfcHJpY2VfbWluIjtzOjA6IiI7czoxNjoic2VhcmNoX3ByaWNlX21heCI7czowOiIiO30="><span class="f_blue3 font-weight-bold">팝니다 취소한 내역</span></a> | <a href="?type=buy&continue=YTo3OntzOjQ6ImdhbWUiO3M6MDoiIjtzOjk6ImdhbWVfdGV4dCI7czowOiIiO3M6Njoic2VydmVyIjtzOjA6IiI7czoxMToic2VydmVyX3RleHQiO3M6MDoiIjtzOjEyOiJzZWFyY2hfZ29vZHMiO3M6MDoiIjtzOjE2OiJzZWFyY2hfcHJpY2VfbWluIjtzOjA6IiI7czoxNjoic2VhcmNoX3ByaWNlX21heCI7czowOiIiO30="><span class="">삽니다 취소한 내역</span></a> </div>
+            <div class="navtabs__react"> <a href="?type=sell&continue=YTo3OntzOjQ6ImdhbWUiO3M6MDoiIjtzOjk6ImdhbWVfdGV4dCI7czowOiIiO3M6Njoic2VydmVyIjtzOjA6IiI7czoxMToic2VydmVyX3RleHQiO3M6MDoiIjtzOjEyOiJzZWFyY2hfZ29vZHMiO3M6MDoiIjtzOjE2OiJzZWFyY2hfcHJpY2VfbWluIjtzOjA6IiI7czoxNjoic2VhcmNoX3ByaWNlX21heCI7czowOiIiO30=">
+                    <span class="f_blue3 font-weight-bold">팝니다 취소한 내역</span></a> | <a href="?type=buy&continue=YTo3OntzOjQ6ImdhbWUiO3M6MDoiIjtzOjk6ImdhbWVfdGV4dCI7czowOiIiO3M6Njoic2VydmVyIjtzOjA6IiI7czoxMToic2VydmVyX3RleHQiO3M6MDoiIjtzOjEyOiJzZWFyY2hfZ29vZHMiO3M6MDoiIjtzOjE2OiJzZWFyY2hfcHJpY2VfbWluIjtzOjA6IiI7czoxNjoic2VhcmNoX3ByaWNlX21heCI7czowOiIiO30="><span class="">삽니다 취소한 내역</span></a> </div>
 
             <div class="tab_sib f-13">- 최근 24시간 동안 취소된 물품만 확인하실 수 있습니다.</div>
             <table class="table-primary tb_list">

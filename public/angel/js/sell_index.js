@@ -507,107 +507,107 @@ function alterConstructorAddCheck() {
         formCheck.add({name: 'user_goods_type', msg: '판매유형을 선택해주세요.'});
 
         if (userGoodsType.value === 'division') {
-            // KeepAlivesRaw({
-            //     el: document.getElementById('discount_guide'),
-            //     layer: document.getElementById('discount_layer'),
-            //     mask: false,
-            //     type: 'style'
-            // });
+            KeepAlivesRaw({
+                el: document.getElementById('discount_guide'),
+                layer: document.getElementById('discount_layer'),
+                mask: false,
+                type: 'style'
+            });
 
-            // formCheck.add({name: 'user_quantity_min', msg: '최소 판매 수량을 입력해주세요.', type: 'price', protect: true});
-            // formCheck.add({name: 'user_quantity_max', msg: '최대 판매 수량을 입력해주세요.', type: 'price', protect: true});
-            // formCheck.add({name: 'user_division_unit', msg: '분할단위를 입력해 주세요.', type: 'price', protect: true});
-            // formCheck.add({
-            //     name: 'user_division_price',
-            //     msg: '거래금액은 100원 이상으로 입력해 주세요',
-            //     type: 'price',
-            //     protect: true,
-            //     range: {min: 100}
-            // });
-            // formCheck.add({
-            //     custom: function() {
-            //         if (frm.user_division_price.value.numeric() % 10 > 0) {
-            //             alert('거래금액에 일원단위는 0이외의 숫자를 입력할수 없습니다.\n\n거래금액을 다시 기재해 주세요.\n\n예) 12,345(불가능), 12,340(가능)');
-            //             frm.user_division_price.value = '';
-            //             frm.user_division_price.focus();
-            //             return false;
-            //         }
-            //
-            //         var quaMin = document.getElementById('user_quantity_min');
-            //         var quaMax = document.getElementById('user_quantity_max');
-            //         var divUnit = document.getElementById('user_division_unit');
-            //         var divPrice = document.getElementById('user_division_price');
-            //         var discountUse = document.querySelector('[name="discount_use"]');
-            //         var quaMinVal = quaMin.value.numeric();
-            //         var quaMaxVal = quaMax.value.numeric();
-            //         var divUnitVal = divUnit.value.numeric();
-            //         var divPriceVal = divPrice.value.numeric();
-            //
-            //         if (divUnitVal > quaMinVal) {
-            //             alert('분할단위가 최소수량보다 큽니다.');
-            //             quaMin.value = '';
-            //             quaMin.onfocus();
-            //             return false;
-            //         }
-            //
-            //         if (quaMinVal > quaMaxVal) {
-            //             alert('최소수량이 최대수량보다 큽니다.');
-            //             quaMax.value = '';
-            //             quaMax.onfocus();
-            //             return false;
-            //         }
-            //
-            //         if (quaMinVal === quaMaxVal) {
-            //             alert('최소수량과 최대수량이 같습니다.\n수량을 다시 확인해주세요.');
-            //             quaMax.value = '';
-            //             quaMax.onfocus();
-            //             return false;
-            //         }
-            //
-            //         if (quaMinVal / divUnitVal * divPriceVal < 3000) {
-            //             alert('최소 판매금액이 3,000원 미만입니다.');
-            //             divPrice.value = '';
-            //             divPrice.focus();
-            //             return false;
-            //         }
-            //
-            //         if (discountUse.checked === true) {
-            //             var discountQnt = document.getElementById('discount_quantity');
-            //             var disQntCnt = document.getElementById('discount_quantity_cnt');
-            //             var disPrice = document.getElementById('discount_price');
-            //
-            //             if (discountQnt.value.isEmpty()) {
-            //                 alert('할인적용 수량을 입력해 주세요.');
-            //                 discountQnt.onfocus();
-            //                 return false;
-            //             }
-            //             if (disPrice.value.isEmpty()) {
-            //                 alert('할인금액은 100원 이상으로 입력해 주세요.');
-            //                 disPrice.onfocus();
-            //                 return false;
-            //             }
-            //             if (Math.ceil(quaMinVal / divUnitVal) > disQntCnt.value.numeric()) {
-            //                 alert('할인적용은 ' + Math.ceil(quaMinVal / divUnitVal) + '번 이상 가능합니다.');
-            //                 disQntCnt.value = Math.ceil(quaMinVal / divUnitVal);
-            //                 disQntCnt.onfocus();
-            //                 return false;
-            //             }
-            //             if (Math.floor(quaMaxVal / 2) < Number(disQntCnt.value.numeric() * discountQnt.value.numeric())) {
-            //                 alert('할인적용은 ' + Math.floor(quaMaxVal / quaMinVal / 2) + '번 까지 가능합니다.');
-            //                 disQntCnt.value = '';
-            //                 disQntCnt.onfocus();
-            //                 return false;
-            //             }
-            //             if (divPriceVal / 2 < disPrice.value.numeric()) {
-            //                 alert('최대 할인금액을 초과하였습니다.');
-            //                 disPrice.value = '';
-            //                 disPrice.onfocus();
-            //                 return false;
-            //             }
-            //         }
-            //         return true;
-            //     }
-            // });
+            formCheck.add({name: 'user_quantity_min', msg: '최소 판매 수량을 입력해주세요.', type: 'price', protect: true});
+            formCheck.add({name: 'user_quantity_max', msg: '최대 판매 수량을 입력해주세요.', type: 'price', protect: true});
+            formCheck.add({name: 'user_division_unit', msg: '분할단위를 입력해 주세요.', type: 'price', protect: true});
+            formCheck.add({
+                name: 'user_division_price',
+                msg: '거래금액은 100원 이상으로 입력해 주세요',
+                type: 'price',
+                protect: true,
+                range: {min: 100}
+            });
+            formCheck.add({
+                custom: function() {
+                    if (frm.user_division_price.value.numeric() % 10 > 0) {
+                        alert('거래금액에 일원단위는 0이외의 숫자를 입력할수 없습니다.\n\n거래금액을 다시 기재해 주세요.\n\n예) 12,345(불가능), 12,340(가능)');
+                        frm.user_division_price.value = '';
+                        frm.user_division_price.focus();
+                        return false;
+                    }
+
+                    var quaMin = document.getElementById('user_quantity_min');
+                    var quaMax = document.getElementById('user_quantity_max');
+                    var divUnit = document.getElementById('user_division_unit');
+                    var divPrice = document.getElementById('user_division_price');
+                    var discountUse = document.querySelector('[name="discount_use"]');
+                    var quaMinVal = quaMin.value.numeric();
+                    var quaMaxVal = quaMax.value.numeric();
+                    var divUnitVal = divUnit.value.numeric();
+                    var divPriceVal = divPrice.value.numeric();
+
+                    if (divUnitVal > quaMinVal) {
+                        alert('분할단위가 최소수량보다 큽니다.');
+                        quaMin.value = '';
+                        quaMin.onfocus();
+                        return false;
+                    }
+
+                    if (quaMinVal > quaMaxVal) {
+                        alert('최소수량이 최대수량보다 큽니다.');
+                        quaMax.value = '';
+                        quaMax.onfocus();
+                        return false;
+                    }
+
+                    if (quaMinVal === quaMaxVal) {
+                        alert('최소수량과 최대수량이 같습니다.\n수량을 다시 확인해주세요.');
+                        quaMax.value = '';
+                        quaMax.onfocus();
+                        return false;
+                    }
+
+                    if (quaMinVal / divUnitVal * divPriceVal < 3000) {
+                        alert('최소 판매금액이 3,000원 미만입니다.');
+                        divPrice.value = '';
+                        divPrice.focus();
+                        return false;
+                    }
+
+                    if (discountUse.checked === true) {
+                        var discountQnt = document.getElementById('discount_quantity');
+                        var disQntCnt = document.getElementById('discount_quantity_cnt');
+                        var disPrice = document.getElementById('discount_price');
+
+                        if (discountQnt.value.isEmpty()) {
+                            alert('할인적용 수량을 입력해 주세요.');
+                            discountQnt.onfocus();
+                            return false;
+                        }
+                        if (disPrice.value.isEmpty()) {
+                            alert('할인금액은 100원 이상으로 입력해 주세요.');
+                            disPrice.onfocus();
+                            return false;
+                        }
+                        if (Math.ceil(quaMinVal / divUnitVal) > disQntCnt.value.numeric()) {
+                            alert('할인적용은 ' + Math.ceil(quaMinVal / divUnitVal) + '번 이상 가능합니다.');
+                            disQntCnt.value = Math.ceil(quaMinVal / divUnitVal);
+                            disQntCnt.onfocus();
+                            return false;
+                        }
+                        if (Math.floor(quaMaxVal / 2) < Number(disQntCnt.value.numeric() * discountQnt.value.numeric())) {
+                            alert('할인적용은 ' + Math.floor(quaMaxVal / quaMinVal / 2) + '번 까지 가능합니다.');
+                            disQntCnt.value = '';
+                            disQntCnt.onfocus();
+                            return false;
+                        }
+                        if (divPriceVal / 2 < disPrice.value.numeric()) {
+                            alert('최대 할인금액을 초과하였습니다.');
+                            disPrice.value = '';
+                            disPrice.onfocus();
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+            });
 
             frm.user_division_price.onblur = checkPrice;
             frm.user_quantity_min.onkeyup = function() {

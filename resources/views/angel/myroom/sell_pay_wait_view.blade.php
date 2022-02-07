@@ -53,6 +53,10 @@
                 <tr>
                     <th>거래번호</th>
                     <td>#{{$orderNo}}</td>
+                    <th class="visible--table--pc">등록일시</th>
+                    <td class="visible--table--pc">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
+                </tr>
+                <tr class="visible--table-m">
                     <th>등록일시</th>
                     <td>{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                 </tr>
@@ -72,25 +76,31 @@
                     <td colspan="3">{{$seller['character']}}</td>
                 </tr>
             </table>
-
-
             <div class="highlight_contextual_nodemon mt-15">내 거래정보</div>
             <table class="table-striped table-green1">
-                <colgroup>
-                    <col width="160">
-                    <col>
-                </colgroup>
                 <tr>
                     <th>이름</th>
                     <td>{{$seller['name']}}</td>
                 </tr>
                 <tr>
                     <th>연락처</th>
-                    <td>{{$seller['home']}} / {{$seller['number']}} <span class="f_blue3 font-weight-bold">(SMS수신)</span></td>
+                    <td>{{$seller['home']}} / {{$seller['number']}} <span class="f_blue3 font-weight-bold"></span></td>
                 </tr>
             </table>
 
-
+            <div class="highlight_contextual_nodemon gray pl-5 pt-5 mt-15">상세설명</div>
+            <div class="detail_info">
+                <div class="detail_text">
+                    <div id="js-gallery" class="mb-5">
+                        @foreach (\File::glob(public_path('assets/images/angel/'.$id).'/*') as $file)
+                            <a href="/{{ str_replace(public_path()."\\", '', $file) }}" class="slide">
+                                <img src="/{{ str_replace(public_path()."\\", '', $file) }}" class="g_top">
+                            </a>
+                        @endforeach
+                    </div>
+                    {{$user_text}}
+                </div>
+            </div>
 
             <div class="trade_progress">
                 <div class="highlight_contextual_nodemon"> 거래 진행 상황 </div>
@@ -113,20 +123,6 @@
                             <p>거래가 정상적으로 종료되었습니다.문제 발생 시 고객센터로 문의해주세요.</p> <i class="has-sprite arr_mini"></i>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="empty-high"></div>
-            <div class="highlight_contextual_nodemon">상세설명</div>
-            <div class="detail_info">
-                <div class="detail_text">
-                    <div id="js-gallery" class="mb-5">
-                        @foreach (\File::glob(public_path('assets/images/angel/'.$id).'/*') as $file)
-                            <a href="/{{ str_replace(public_path()."\\", '', $file) }}" class="slide">
-                                <img src="/{{ str_replace(public_path()."\\", '', $file) }}" class="g_top">
-                            </a>
-                        @endforeach
-                    </div>
-                    {{$user_text}}
                 </div>
             </div>
         </div>

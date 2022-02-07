@@ -17,14 +17,14 @@
     text-align: center
 }
 
-#mile_month {
+.mile_month {
     width: 100%;
     margin-top: 10px;
     background-color: #F8F8F8;
     border: 1px solid #DCDCDC
 }
 
-#mile_month li {
+.mile_month li {
     width: 8.33%;
     padding: 8px 0;
     background-color: #F8F8F8;
@@ -34,7 +34,7 @@
     cursor: pointer
 }
 
-#mile_month .selected {
+.mile_month .selected {
     background-color: #54b5cb;
     color: #FFF
 }
@@ -55,27 +55,44 @@
 
 #mile_calendar {
     margin: 10px 0;
-    border-top: 2px solid #666;
+    border-top: 1px solid #adadad;
     border-right: 1px solid #DCDCDC;
     border-spacing: 0;
     border-collapse: collapse;
-    color: #444
+    color: #444;
+    width: unset;
+}
+.calendar__part{
+    display: flex;
 }
 
 #mile_calendar th {
     height: 25px;
-    background-color: #F8F8F8;
     text-align: center;
-    border-left: 1px solid #DCDCDC;
-    border-bottom: 1px solid #DCDCDC
+    border-left:none;
+    border-bottom: 1px solid #adadad;
+    border-right: none;
+    background: #fff;
+}
+
+#mile_calendar th:first-child{
+    border-left: 1px solid #adadad;
+}
+
+#mile_calendar th:last-child{
+    border-right: 1px solid #adadad;
 }
 
 #mile_calendar td {
-    height: 70px;
+    height: 40px;
     padding: 5px 10px;
-    border-left: 1px solid #DCDCDC;
-    border-bottom: 1px solid #DCDCDC;
-    vertical-align: top
+    border-left: 1px solid #adadad;
+    border-bottom: 1px solid #e3e3e3;
+    vertical-align: top;
+}
+
+#mile_calendar tr:last-child td{
+    border-bottom: 1px solid #adadad;
 }
 
 #mile_calendar .float__right {
@@ -84,11 +101,11 @@
 
 #mile_calendar .saterday {
     color: #000;
-    background-color: #cdcdcd
+    /*background-color: #cdcdcd*/
 }
 
 #mile_calendar .sunday {
-    background-color: #cdcdcd
+    /*background-color: #cdcdcd*/
 }
 
 #mile_calendar .sunday .float__right {

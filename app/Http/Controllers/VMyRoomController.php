@@ -936,58 +936,7 @@ class VMyRoomController extends BaseController
 
     public function buy_ing()
     {
-        $buying_register = MItem::
-        where('userId',$this->user->id)->
-        where('type','buy')->
-        where('status','!=',-1)->
-        get()->count();
-        $bargain_request = MItem::
-        where('userId','!=',$this->user->id)->
-        where('type','sell')->
-        where('status',0)->
-        whereNull('toId')->
-        whereHas('bargain_requests',function($query){
-            $query->where('userId',$this->user->id);
-        })->
-        whereDoesntHave('payitem')->get()->count();
-        $pay_pending = MItem::
-        whereHas('payitem',function($query){
-            $query->where('status',0);
-        })->
-        where(function($query){
-            $query->where(function($query1){
-                $query1->where('toId',$this->user->id);
-                $query1->where('type','sell');
-                $query1->where('toId',">", 0);
-            });
-            $query->orWhere(function($query2){
-                $query2->where('userId',$this->user->id);
-                $query2->where('type','buy');
-                $query2->where('toId',">", 0);
-            });
-        })->
-        where('status',0)->
-        get()->count();
-        $buying_count = MItem::
-        whereHas('payitem',function($query){
-            $query->where('status',1);
-        })->
-        where(function($query){
-            $query->where('toId',$this->user->id);
-            $query->where('type','sell');
-            $query->where('status',"!=",0);
-            $query->where('status',"!=",23);
-            $query->where('status',"!=",32);
-            $query->where('status',"!=",-1);
-        })->orWhere(function($query){
-            $query->where('userId',$this->user->id);
-            $query->where('type','buy');
-            $query->where('status',"!=",0);
-            $query->where('status',"!=",23);
-            $query->where('status',"!=",32);
-            $query->where('status',"!=",-1);
-        })->
-        get()->count();
+
         $games = MItem::
         whereHas('payitem',function($query){
             $query->where('status',1);
@@ -1009,10 +958,6 @@ class VMyRoomController extends BaseController
         })->paginate(15);
 
         return view('angel.myroom.buy_ing',[
-            'buying_register'=>$buying_register,
-            'bargain_request'=>$bargain_request,
-            'pay_pending'=>$pay_pending,
-            'buying_count'=>$buying_count,
             'games'=>$games
         ]);
     }
