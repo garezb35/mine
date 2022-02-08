@@ -955,16 +955,16 @@ table.nobordertable{
     position: relative;
     box-sizing: border-box;
     height: auto;
-    border: 1px solid #999999;
     display: flex;
-    background: #ccd8dc;
     margin-right: 10px;
     margin-left: 10px;
 }
 .aside .nav a{
-    border-bottom: solid 1px #999999;
     display: block;
     text-align: center;
+    margin-left: 2px;
+    margin-right: 2px;
+    background: #ffe0b9;
 }
 .aside .nav > .nav_title{
     font-size: 12px;
@@ -974,20 +974,22 @@ table.nobordertable{
     width: 100%;
 }
 
-.aside .nav > .nav_title:hover,.aside .nav > .activated{
-    background:#fff;
-}
+/*.aside .nav > .nav_title:hover,.aside .nav > .activated{*/
+/*    background:#fff;*/
+/*}*/
 
 /*.aside .nav > .nav_title:hover a,.aside .nav > .activated a*/
 /*{*/
 /*    border-top: 1px solid rgb(153, 153, 153);*/
 /*}*/
 
-.aside .nav > .nav_title:first-child:hover a,.aside .nav > .nav_title:first-child.activated a
+.aside .nav > .nav_title:hover a,.aside .nav > .nav_title.activated a
 
 {
-    border-top: none;
+    background: #e98c56;
+    color: white;
 }
+
 
 .aside .nav > .nav_title:last-child:hover a,.aside .nav > .nav_title:last-child.activated a{
     border-bottom: none;
