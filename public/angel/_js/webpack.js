@@ -2920,7 +2920,7 @@ var mineGames = {
                     var n = o.getElementsByTagName("game")[0].childNodes[0];
                     var l = o.getElementsByTagName("server")[0].childNodes[0];
                     var b = o.getElementsByTagName("goods")[0].childNodes[0];
-                    var f = n.nodeValue + " > " + l.nodeValue + " > " + b.nodeValue;
+                    var f = n.nodeValue;
                     m.push('<li data-id="' + o.getAttribute("id") + '" data-idx="' + h + '">');
                     m.push('<a href="javascript:;" class="gs_name"><span class="' + o.getAttribute("type") + '">[' + d + "]</span>" + f + "</a>");
                     m.push('<a href="javascript:;" class="topsearchbar__close"></a>');

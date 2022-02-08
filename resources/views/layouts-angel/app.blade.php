@@ -9,7 +9,7 @@
         <meta name="keywords" content="">
         <meta name="description" content="">
         <link rel="stylesheet" href="/angel_mobile/main/css/component.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/angel/_css/font-awesome.min.css">
         <link type="text/css" rel="stylesheet" href="/angel/photoswipe/css/photoswipe.css">
         <link type="text/css" rel="stylesheet" href="/angel/photoswipe/css/default-skin/default-skin.css">
         <link type="text/css" rel="stylesheet" href="/angel/_css/webpack.css">
@@ -221,7 +221,7 @@
         <script type="text/javascript" src="/angel/_js/webpack.js"></script>
         <script type="text/javascript" src="/angel/_js/angelic-global.js"></script>
         <script type="text/javascript" src="/angel/_js/loader.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/packery/1.4.3/packery.pkgd.min.js"></script>
+        <script type="text/javascript" src="/angel/_js/packery.pkgd.min.js"></script>
         <script type="text/javascript" src="/angel/photoswipe/js/jquery.photoswipe-global.js"></script>
         <script type="text/javascript" src="/angel/_js/fed.min.js"></script>
         <script src="/argon/select2/select2.min.js"></script>

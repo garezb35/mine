@@ -50,7 +50,7 @@
                     <table class="table-striped table-green1">
                         <tr>
                             <th>카테고리</th>
-                            <td colspan="3">{{$category}}</td>
+                            <td colspan="3" class="bg-ggray">{{$category}}</td>
                         </tr>
                         <tr>
                             <th>물품제목</th>
@@ -58,19 +58,24 @@
                         </tr>
                         <tr>
                             <th>거래번호</th>
-                            <td>#{{$orderNo}}</td>
+                            <td class="bg-ggray">#{{$orderNo}}</td>
                             <th class="visible--table--pc">등록일시</th>
-                            <td class="visible--table--pc">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
+                            <td class="visible--table--pc bg-ggray">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                         </tr>
                         <tr class="visible--table-m">
                             <th>등록일시</th>
-                            <td>{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
+                            <td colspan="3">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                         </tr>
                         <tr>
                             <th>거래유형</th>
-                            <td colspan="3">일반</td>
+                            <td>일반</td>
+                            <th class="visible--table--pc">구매자 캐릭터명</th>
+                            <td class="visible--table--pc">{{$user_character}}</td>
                         </tr>
-
+                        <tr class="visible--table-m">
+                            <th>구매자 캐릭터명</th>
+                            <td colspan="3">{{$user_character}}</td>
+                        </tr>
                         <tr>
                             @php
                                 $gamemoney_unit = $gamemoney_unit ?? '';
@@ -82,11 +87,7 @@
                                 <td>{{$user_quantity}}{{$gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit : ''}} {{$good_type ?? ''}}</td>
                             @endif
                             <th>구매금액</th>
-                            <td @if($c == 1) colspan='3' @endif>{{number_format($price)}}원</td>
-                        </tr>
-                        <tr>
-                            <th>구매자 캐릭터명</th>
-                            <td colspan="3">{{$user_character}}</td>
+                            <td @if($c == 1) colspan='3' class="bg-ggray" @endif>{{number_format($price)}}원</td>
                         </tr>
                     </table>
                 @endif
@@ -95,7 +96,7 @@
                         <tbody>
                             <tr>
                                 <th>카테고리</th>
-                                <td colspan="3">{{$category}}</td>
+                                <td colspan="3" class="bg-ggray">{{$category}}</td>
                             </tr>
                             <tr>
                                 <th>물품제목</th>
@@ -105,9 +106,9 @@
                             </tr>
                             <tr>
                                 <th>거래번호</th>
-                                <td>#{{$orderNo}}</td>
+                                <td class="bg-ggray">#{{$orderNo}}</td>
                                 <th class="visible--table--pc">등록일시</th>
-                                <td class="visible--table--pc">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
+                                <td class="visible--table--pc bg-ggray">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                             </tr>
                             <tr class="visible--table-m">
                                 <th>등록일시</th>
@@ -116,12 +117,18 @@
                             <tr>
                                 <th>거래유형</th>
                                 <td colspan="3">분할</td>
+                                <th class="visible--table--pc">구매자 캐릭터명</th>
+                                <td class="visible--table--pc">{{$user_character}}</td>
+                            </tr>
+                            <tr class="visible--table-m">
+                                <th>구매자 캐릭터명</th>
+                                <td>{{$user_character}}</td>
                             </tr>
                             <tr>
                                 <th>최소구매수량</th>
-                                <td>{{$user_quantity_min}}{{$unit}} 개</td>
+                                <td class="bg-ggray">{{$user_quantity_min}}{{$unit}} 개</td>
                                 <th class="visible--table--pc">최대구매수량</th>
-                                <td class="visible--table--pc">{{$user_quantity_max}}{{$unit}} 개</td>
+                                <td class="visible--table--pc bg-ggray">{{$user_quantity_max}}{{$unit}} 개</td>
                             </tr>
                             <tr class="visible--table-m">
                                 <th>최대구매수량</th>
@@ -137,63 +144,20 @@
                                     @endif
                                 </td>
                             </tr>
-                            <tr>
-                                <th>구매자 캐릭터명</th>
-                                <td colspan="3">{{$user_character}}</td>
-                            </tr>
                         </tbody>
                     </table>
                 @endif
-                @if($user_goods_type == 'bargain')
-                    <table class="table-striped table-green1">
-                        <tbody>
-                            <tr>
-                                <th>카테고리</th>
-                                <td colspan="3">{{$category}}</td>
-                            </tr>
-                            <tr>
-                                <th>물품제목</th>
-                                <td colspan="3">
-                                    {{$user_title}}
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>거래번호</th>
-                                <td>#{{$orderNo}}</td>
-                                <th class="visible--table--pc">등록일시</th>
-                                <td class="visible--table--pc">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
-                            </tr>
-                            <tr class="visible--table-m">
-                                <th>등록일시</th>
-                                <td>{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
-                            </tr>
-                            <tr>
-                                <th>거래유형</th>
-                                <td colspan="3">할인</td>
-                            </tr>
-                            <tr>
-                                <th>즉시판매금액</th>
-                                <td colspan="3">{{number_format($user_price)}}원</td>
-                            </tr>
-                            <tr>
-                                <th>구매자 캐릭터명</th>
-                                <td colspan="3">{{$user_character}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                @endif
-
-
                 <div class="highlight_contextual_nodemon mt-10">내 거래정보</div>
                 <table class="table-striped table-green1">
                     <tr>
                         <th>이름</th>
                         <td>이장훈</td>
+                        <th class="bd_left visible--table--pc">연락처</th>
+                        <td class="visible--table--pc">자택번호없음 / 010-4797-3690 <span class='f_green2 font-weight-bold'></span></td>
                     </tr>
-                    <tr>
+                    <tr class="visible--table-m">
                         <th class="bd_left">연락처</th>
-                        <td>자택번호없음 / 010-4797-3690 <span class='f_green2 font-weight-bold'></span></td>
+                        <td >자택번호없음 / 010-4797-3690 <span class='f_green2 font-weight-bold'></span></td>
                     </tr>
                 </table>
                 <div class="highlight_contextual_nodemon gray mt-15 pt-5 pl-5">상세설명</div>
@@ -210,14 +174,6 @@
                         {{$user_text}}
                     </div>
                 </div>
-{{--                <table class="table-striped table-green1">--}}
-{{--                    <tr>--}}
-{{--                        <td style="border-left: 1px solid #e1e1e1">상세설명</td>--}}
-{{--                    </tr>--}}
-{{--                    <tr>--}}
-{{--                        <td class="vt" style="border-left: 1px solid #e1e1e1;height: 200px;overflow-y: scroll">{{$user_text}}</td>--}}
-{{--                    </tr>--}}
-{{--                </table>--}}
 
                 <div class="trade_progress buy">
                     <div class="highlight_contextual_nodemon"> 거래 진행 상황 </div>

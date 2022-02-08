@@ -75,13 +75,10 @@
 /*    padding: 2px 0 12px;*/
 /*}*/
 .gameTypePopup .radiocontainer {
-    padding-left: 26px;
-    padding-top: 3px;
     font-size: 14px;
+    display: inline-flex;
 }
-.gameTypePopup .text-green_modern {
-    margin-left: 40px;
-}
+
 ._34Cr45d_reacts .tab>div {
     font-size: 15px;
     /*border: 1px solid #32b5ff;*/

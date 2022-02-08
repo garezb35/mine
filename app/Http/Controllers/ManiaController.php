@@ -635,15 +635,15 @@ class ManiaController extends BaseController
     public function getMySearch(Request $request){
         $content = "";
         $userId = $this->user->id;
-        $mygame = MMygame::where('userId',$userId)->orderBy('order','ASC')->get();
+        $mygame = MMygame::with('fgame')->whereHas('fgame')->where('userId',$userId)->orderBy('order','ASC')->get();
 
         if(!empty($mygame)){
             foreach ($mygame as $v){
                 $content .='<item id="'.$v['id'].'" type="'.$v['type'].'">
-                                <game id="'.$v['game'].'"><![CDATA['.$v['game_text'].']]></game>
-                                <server id="'.$v['server'].'"><![CDATA['.$v['server_text'].']]></server>
-                                <goods id="'.$v['goods'].'"><![CDATA['.$v['goods_text'].']]></goods>
-                                <goods_type id="'.get($v['goods'])['alias'].'"><![CDATA['.get($v['goods'])['alias'].']]></goods_type>
+                                <game id="'.$v['game'].'"><![CDATA['.$v['fgame']['game'].']]></game>
+                                <server id="'.$v['server'].'"></server>
+                                <goods id="'.$v['goods'].'"></goods>
+                                <goods_type id="'.get($v['goods'])['alias'].'"></goods_type>
                             </item>';
             }
         }

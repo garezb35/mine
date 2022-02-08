@@ -38,49 +38,56 @@
             <div class="highlight_contextual_nodemon first">물품정보</div>
             @if($user_goods_type == 'general' || $user_goods_type == 'bargain')
                 <table class="table-striped table-green1">
-                    <tbody><tr>
-                        <th>카테고리</th>
-                        <td colspan="3">{{$category}}</td>
-                    </tr>
-                    <tr>
-                        <th>물품제목</th>
-                        <td colspan="3">
-                            {{$user_title}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>거래번호</th>
-                        <td colspan="3">#{{$orderNo}}</td>
-                    </tr>
-                    <tr class="visible--table-m">
-                        <th>등록일시</th>
-                        <td colspan="3">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
-                    </tr>
-                    <tr>
-                        <th>거래유형</th>
-                        <td colspan="3">{{$selltype}}</td>
-                    </tr>
-                    <tr>
-                        @php
-                        $c = str_replace(" ","",$user_quantity.($gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit:''));
-                        @endphp
+                    <colgroup>
+                        <col width="110px"/>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>카테고리</th>
+                            <td colspan="3" class="bg-ggray">{{$category}}</td>
+                        </tr>
+                        <tr>
+                            <th>물품제목</th>
+                            <td colspan="3">
+                                {{$user_title}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>거래번호</th>
+                            <td colspan="3" class="bg-ggray">#{{$orderNo}}</td>
+                        </tr>
+                        <tr class="visible--table-m">
+                            <th>등록일시</th>
+                            <td colspan="3">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
+                        </tr>
+                        <tr>
+                            <th>거래유형</th>
+                            <td>{{$selltype}}</td>
+                            <th class="visible--table--pc" style="width: 110px">판매자 캐릭터명</th>
+                            <td class="visible--table--pc">{{$user_character}}</td>
+                        </tr>
+                        <tr class="visible--table-m">
+                            <th>판매자 캐릭터명</th>
+                            <td colspan="3">{{$user_character}}</td>
+                        </tr>
+                        <tr>
+                            @php
+                            $c = str_replace(" ","",$user_quantity.($gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit:''));
+                            @endphp
+                            @if($c != 1)
+                                <th>판매수량</th>
+                                <td ><span class="trade_money1">{{$user_quantity}}{{$gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit:''}}</span> {{$good_type}}</td>
+                            @endif
+                            <th @if($c != 1) class="visible--table--pc" @endif>판매금액</th>
+                            <td @if($c ==1)colspan="3" class="bg-ggray" @else class="visible--table--pc bg-ggray" @endif>{{number_format($user_price)}}원</td>
+                        </tr>
                         @if($c != 1)
-                            <th>판매수량</th>
-                            <td ><span class="trade_money1">{{$user_quantity}}{{$gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit:''}}</span> {{$good_type}}</td>
+                        <tr class="visible--table-m">
+                            <th>판매금액</th>
+                            <td class="bg-ggray" colspan="3">{{number_format($user_price)}}원</td>
+                        </tr>
                         @endif
-                        <th @if($c != 1) class="visible--table--pc" @endif>판매금액</th>
-                        <td @if($c ==1)colspan="3" @else class="visible--table--pc" @endif>{{number_format($user_price)}}원</td>
-                    </tr>
-                    @if($c != 1)
-                    <tr class="visible--table-m">
-                        <th>판매금액</th>
-                        <td>{{number_format($user_price)}}원</td>
-                    </tr>
-                    @endif
-                    <tr>
-                        <th>판매자 캐릭터명</th>
-                        <td colspan="3">{{$user_character}}</td>
-                    </tr>
+
                     </tbody>
                 </table>
             @endif
@@ -91,21 +98,20 @@
                     <tbody>
                         <tr>
                             <th>카테고리</th>
-                            <td colspan="3">{{$category}}</td>
+                            <td colspan="3" class="bg-ggray">{{$category}}</td>
                         </tr>
                         <tr>
                             <th>물품제목</th>
                             <td colspan="3">
-
                                 {{$user_title}}
                             </td>
                         </tr>
 
                         <tr>
                             <th>거래번호</th>
-                            <td>#{{$orderNo}}</td>
+                            <td class="bg-ggray">#{{$orderNo}}</td>
                             <th class="visible--table--pc">등록일시</th>
-                            <td class="visible--table--pc">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
+                            <td class="visible--table--pc bg-ggray">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                         </tr>
                         <tr class="visible--table-m">
                             <th>등록일시</th>
@@ -117,7 +123,13 @@
                         </tr>
                         <tr>
                             <th>판매금액</th>
-                            <td colspan="3">{{number_format($user_division_unit)}} 개 당 {{number_format($user_division_price)}}원</td>
+                            <td class="bg-ggray">{{number_format($user_division_unit)}} 개 당 {{number_format($user_division_price)}}원</td>
+                            <th class="visible--table--pc">판매자 캐릭터명</th>
+                            <td class="visible--table--pc bg-ggray">{{$user_character}}</td>
+                        </tr>
+                        <tr class="visible--table-m">
+                            <th>판매자 캐릭터명</th>
+                            <td colspan="3">{{$user_character}}</td>
                         </tr>
                         <tr>
                             <th>최소수량</th>
@@ -129,10 +141,7 @@
                             <th>최대수량</th>
                             <td >{{number_format($user_quantity_max)}} 개&nbsp;</td>
                         </tr>
-                        <tr>
-                            <th>판매자 캐릭터명</th>
-                            <td colspan="3">{{$user_character}}</td>
-                        </tr>
+
                     </tbody>
                 </table>
                 @if($discount_use == 1)
@@ -154,9 +163,11 @@
                 <tr>
                     <th>이름</th>
                     <td>{{$cuser['name']}}</td>
-                <tr>
+                    <th class="visible--table--pc">연락처</th>
+                    <td class="visible--table--pc"> @if(empty($cuser["home"])){{'자택번호없음'}}@else{{$cuser['home']}}@endif / {{$cuser['number']}} <span class='f_blue3 font-weight-bold'></span> </td>
+                <tr class="visible--table-m">
                     <th>연락처</th>
-                    <td> @if(empty($cuser["home"])){{'자택번호없음'}}@else{{$cuser['home']}}@endif / {{$cuser['number']}} <span class='f_blue3 font-weight-bold'>(SMS수신)</span> </td>
+                    <td colspan="2"> @if(empty($cuser["home"])){{'자택번호없음'}}@else{{$cuser['home']}}@endif / {{$cuser['number']}} <span class='f_blue3 font-weight-bold'></span> </td>
                 </tr>
             </table>
             <div class="highlight_contextual_nodemon gray mt-15 pt-5 pl-5">상세설명</div>

@@ -1,35 +1,137 @@
+.onetab {
+    width: 25%;
+    margin-bottom: 0;
+}
 
-.onetab{ width:25%; margin-bottom:0; }
+.g_big_box1 {
+    height: 30px;
+    margin: 7px 0px 20px;
+    padding: 5px 10px 5px 0px;
+    border: 1px solid #D7D7D7;
+    background-color: #F7F7F7;
+}
 
-.g_big_box1{ height:30px; margin:7px 0px 20px; padding:10px 10px 4px; border:1px solid #D7D7D7; background-color:#F7F7F7; }
-.g_big_box1 #dvGame, .g_big_box1 #dvServer{ float:left; width:150px; margin-right:5px }
-.g_big_box1 #dvGoods{ float:left }
-.g_big_box1 .g_search_input{ width:100px }
+.g_big_box1 #dvGame,
+.g_big_box1 #dvServer {
+    float: left;
+    width: 150px;
+    margin-right: 5px
+}
 
-.best_faq{ float:left; margin-bottom:20px; border-top:2px solid #ACACAC }
-.best_faq li{ float:left; padding:7px 0px 7px 10px; border-bottom:1px solid #E2E2E2 }
-.best_faq .category{ clear:both; width:130px; background-color:#ECECEC; font-weight:bold }
-.best_faq .subject{ width:670px; cursor:pointer; }
-.best_faq .detail_content{ display:none; width:750px }
+.g_big_box1 #dvGoods {
+    float: left
+}
 
-#trade_subtab{ float:left }
-#trade_subtab li{ margin-right:10px }
+.g_big_box1 .g_search_input {
+    width: 100px
+}
 
-.g_gray_tb td #subject{ width:98% }
-.g_gray_tb td #content{ width:98%; height:100px; padding:5px; overflow-y:auto; font-size:12px }
+.best_faq {
+    float: left;
+    margin-bottom: 20px;
+    border-top: 2px solid #ACACAC
+}
 
-.g_gray_tb tr .screenshot_sub{ border-top:0px; font-size:12px }
-.g_gray_tb tr #screenshot .g_screenshot .angel__text{ width:210px !important }
+.best_faq li {
+    float: left;
+    padding: 7px 0px 7px 10px;
+    border-bottom: 1px solid #E2E2E2
+}
 
-#trade_list td .btn_red1{ display:inline-block; padding:1px 4px 3px; border:1px solid #A80000; background-color:#E50000; color:#FFF; text-align:center; font-size:12px; cursor:pointer; }
+.best_faq .category {
+    clear: both;
+    width: 130px;
+    background-color: #ECECEC;
+    font-weight: bold
+}
 
-.modal_dialog{ width:448px }
-.modal_dialog .state_box{ width:402px; padding:10px 0px; border:2px solid #D4DEE6; text-align:center }
-.modal_dialog .state_box li{ margin-top:27px; text-align:center }
-.modal_dialog .state_box .last{ margin-bottom:27px }
-.modal_dialog .table-primary{ margin-top:10px }
-.modal_dialog .table-primary td{ height:20px }
-.modal_dialog .command{ margin-top:10px; font-size:12px; }
-.modal_dialog .command img{ margin-right:3px }
-.cancel_box{ font-size:11px }
+.best_faq .subject {
+    width: 670px;
+    cursor: pointer;
+}
 
+.best_faq .detail_content {
+    display: none;
+    width: 750px
+}
+
+#trade_subtab {
+    float: left
+}
+
+#trade_subtab li {
+    margin-right: 10px
+}
+
+.g_gray_tb td #subject {
+    width: 98%
+}
+
+.g_gray_tb td #content {
+    width: 98%;
+    height: 100px;
+    padding: 5px;
+    overflow-y: auto;
+    font-size: 12px
+}
+
+.g_gray_tb tr .screenshot_sub {
+    border-top: 0px;
+    font-size: 12px
+}
+
+.g_gray_tb tr #screenshot .g_screenshot .angel__text {
+    width: 210px !important
+}
+
+#trade_list td .btn_red1 {
+    display: inline-block;
+    padding: 1px 4px 3px;
+    border: 1px solid #A80000;
+    background-color: #E50000;
+    color: #FFF;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.modal_dialog {
+    width: 448px
+}
+
+.modal_dialog .state_box {
+    width: 402px;
+    padding: 10px 0px;
+    border: 2px solid #D4DEE6;
+    text-align: center
+}
+
+.modal_dialog .state_box li {
+    margin-top: 27px;
+    text-align: center
+}
+
+.modal_dialog .state_box .last {
+    margin-bottom: 27px
+}
+
+.modal_dialog .table-primary {
+    margin-top: 10px
+}
+
+.modal_dialog .table-primary td {
+    height: 20px
+}
+
+.modal_dialog .command {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.modal_dialog .command img {
+    margin-right: 3px
+}
+
+.cancel_box {
+    font-size: 11px
+}

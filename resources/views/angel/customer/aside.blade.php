@@ -40,22 +40,9 @@
 {{--</style>--}}
 
 <div class="aside">
-    <div class="nav_subject">
-        <a href="{{route("main_customer")}}" class="">
-            고객센터
-        </a>
-    </div>
     <div class="nav">
         <div class="nav_title {{$group == "faq" ? "activated" : ""}}"><a href="{{route("main_customer")}}">FAQ</a></div>
         <div class="nav_title {{$group == "report" ? "activated" : ""}}"><a href="{{route('customer_report')}}">1:1 이용문의</a></div>
-        <ul class="nav_sub g_list">
-            <li class="">
-                <a class="{{$part == "close" ? "activated" : ""}}" href="{{route('customer_report')}}">거래취소 / 종료</a>
-            </li>
-            <li class="">
-                <a class="{{$part == "guide" ? "activated" : ""}}" href="{{route('customer_ask_guide')}}">이용관련</a>
-            </li>
-        </ul>
         <div class="nav_title {{$group == "myqna" ? "activated" : ""}}"><a href="{{route('myqna_list')}}">나의 질문과 답변</a></div>
         <div class="nav_title {{$group == "newgame" ? "activated" : ""}}"><a href="{{route('customer_newgame')}}">신규게임/서버 추가</a></div>
         <div class="nav_title {{$group == "safety" ? "activated" : ""}}"><a href="{{route('customer_safety')}}">안전거래</a></div>

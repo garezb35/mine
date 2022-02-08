@@ -77,6 +77,9 @@ body {
 .bg-trans{
     background: transparent;
 }
+.bg-ggray{
+    background: #f5f5f5;
+}
 
 .h--15{
     height: 5px;
@@ -334,7 +337,6 @@ table tr .left {
 .bg-gradient-pa{
     background: linear-gradient(#4e90c8,#336d97);
 }
-
 
 .btn-endsb{
     height: 30px;
@@ -1336,13 +1338,14 @@ padding-left: 7px;
 
 .aside {
     float: left;
-    width: 200px;
+    width: 100px;
+    margin-top: 15px;
 }
 
 .pagecontainer {
     float: right;
-    width: 623px;
-    margin-top: 33px;
+    width: 723px;
+    margin-top: 15px;
     padding-right:10px
 }
 
@@ -1685,7 +1688,6 @@ padding-left: 7px;
 
 .gameTypePopup .radiocontainer {
     position: relative;
-    padding-left: 25px;
     -moz-user-select: none;
     -ms-user-select: none;
     -webkit-user-select: none;
@@ -1694,6 +1696,7 @@ padding-left: 7px;
     font-weight: bold;
     cursor: pointer;
     color: #636363;
+    margin-left: 0px;
 }
 
 .gameTypePopup .radiocontainer input {
@@ -1704,13 +1707,12 @@ padding-left: 7px;
 }
 
 .gameTypePopup .radiocontainer .checkmark {
-    position: absolute;
-    top: 2px;
-    left: 0;
-    width: 18px;
-    height: 18px;
-    border: 2px solid #159efd;
-    border-radius: 50%;
+    display: block;
+    border: 1px solid #009169;
+    width: 65px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
 }
 
 .gameTypePopup .radiocontainer .checkmark:after {
@@ -1727,7 +1729,6 @@ padding-left: 7px;
 }
 
 .gameTypePopup .text-green_modern {
-    margin-left: 13px;
     color: #00c73c;
 }
 
@@ -2295,7 +2296,7 @@ label>input,.g_check.charge_service .total_charge,.g_radio {
 }
 
 .toolbar-btn .drawer-content-menu li:not(.on):hover div,.radiocontainer input:checked ~ .checkmark:after {
-    display: block;
+    display: none;
 }
 
 /*.toobar-content .sell .c_txt,.toobar-content .other_menu li:hover:before {*/
@@ -2648,7 +2649,7 @@ label>input,.g_check.charge_service .total_charge,.g_radio {
 }
 
 /*.table-striped tbody tr:nth-of-type(odd) {*/
-/*    background-color: #F7F7F7;*/
+/*    background-color: #f5f5f5;*/
 /*}*/
 
 /*.table-striped tbody tr:nth-of-type(even) th {*/
@@ -2656,7 +2657,7 @@ label>input,.g_check.charge_service .total_charge,.g_radio {
 /*}*/
 
 .table-striped tbody th{
-    background: linear-gradient(#ededed,#dddddd);
+    background: #dddddd;
 }
 
 .border-left-1{
@@ -2666,18 +2667,18 @@ label>input,.g_check.charge_service .total_charge,.g_radio {
 
 
 table.table-green1{
-    border-top-color: #CACACA;
+    border-top-color: #b7b7b7;
 }
 
 .table-green1 td{
-    border-bottom-color: #CACACA;
-    border-right-color: #CACACA;
+    border-bottom-color: #b7b7b7;
+    border-right-color: #b7b7b7;
 }
 
 .table-green1 th{
-    border-right-color: #CACACA;
-    border-left-color: #CACACA;
-    border-bottom-color: #CACACA;
+    border-right-color: #b7b7b7;
+    border-left-color: #b7b7b7;
+    border-bottom-color: #b7b7b7;
 }
 
 
@@ -2757,6 +2758,13 @@ table.table-greenwith td{
     width: 80px;
 }
 
+.mt-8{
+    margin-top: 8px;
+}
+
+.m-t-6{
+    margin-top: 6px;
+}
 
 .mt-6{
     margin-right: 6px;
@@ -3726,6 +3734,16 @@ fieldset:disabled a.btn
 
 .selling_middle>div{
     width: 50%;
+}
+
+.f_control_txt{
+    width: 125px;
+    height: 24px;
+}
+
+.f_control_txt_cus{
+    width: 170px;
+    height: 24px;
 }
 
 @media screen and (max-width: 847px) {

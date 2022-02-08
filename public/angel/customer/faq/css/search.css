@@ -45,8 +45,8 @@
 }
 
 .item_filtered li {
-    display: inline;
-    word-spacing: 15px;
+    display: inline-block;
+    margin-right: 10px;
 }
 
 .gray_table {

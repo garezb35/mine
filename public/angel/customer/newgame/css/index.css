@@ -1,15 +1,11 @@
 
 
 div.gray_box {
-    border: 5px solid #F4F4F4;
-    padding: 0 70px 21px;
-    width: 460px;
+    border: 1px solid #F4F4F4;
+    padding: 10px 10px 21px;
     margin: 0 auto
 }
 
-div.gray_box table tr th {
-    border-left: none
-}
 
 div.gray_box table tr td {
     text-align: left;

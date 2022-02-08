@@ -67,43 +67,46 @@ if(sizeof($split_number) == 3){
 
 {{--            <div class="highlight_contextual_nodemon first">물품정보</div>--}}
             <table class="table-striped table-green1">
+                <colgroup>
+                    <col width="110px"/>
+                </colgroup>
                 <tbody>
-                <tr>
-                    <th>카테고리</th>
-                    <td colspan="3">{{$category}}</td>
-                </tr>
-                <tr>
-                    <th>물품제목</th>
-                    <td colspan="3">
-                        {{$user_text}}
-                    </td>
-                </tr>
+                    <tr>
+                        <th>카테고리</th>
+                        <td colspan="3" class="bg-ggray">{{$category}}</td>
+                    </tr>
+                    <tr>
+                        <th>물품제목</th>
+                        <td colspan="3">
+                            {{$user_text}}
+                        </td>
+                    </tr>
 
-                <tr>
-                    <th>거래번호</th>
-                    <td>#{{$orderNo}}</td>
-                    <th class="visible--table--pc">등록일시</th>
-                    <td class="visible--table--pc">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
-                </tr>
-                <tr class="visible--table-m">
-                    <th>등록일시</th>
-                    <td>{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
-                </tr>
-                <tr>
-                    @php
-                        $c = str_replace(" ","",$user_quantity.($gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit:''));
-                    @endphp
-                    @if($c != 1)
-                        <th>구매수량</th>
-                        <td ><span class="trade_money1">{{$user_quantity}}{{$gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit:''}}</span> {{$good_type}}</td>
-                    @endif
-                    <th>구매금액</th>
-                    <td @if($c ==1) colspan="3" @endif>{{number_format($payitem['price'])}} 원</td>
-                </tr>
-                <tr>
-                    <th>구매자 캐릭터명</th>
-                    <td colspan="3">{{$payitem['character']}}</td>
-                </tr>
+                    <tr>
+                        <th>거래번호</th>
+                        <td class="bg-ggray">#{{$orderNo}}</td>
+                        <th class="visible--table--pc">등록일시</th>
+                        <td class="visible--table--pc bg-ggray">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
+                    </tr>
+                    <tr class="visible--table-m">
+                        <th>등록일시</th>
+                        <td colspan="3">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
+                    </tr>
+                    <tr>
+                        @php
+                            $c = str_replace(" ","",$user_quantity.($gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit:''));
+                        @endphp
+                        @if($c != 1)
+                            <th>구매수량</th>
+                            <td ><span class="trade_money1">{{$user_quantity}}{{$gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit:''}}</span> {{$good_type}}</td>
+                        @endif
+                        <th>구매금액</th>
+                        <td @if($c ==1) colspan="3" @endif>{{number_format($payitem['price'])}} 원</td>
+                    </tr>
+                    <tr>
+                        <th>구매자 캐릭터명</th>
+                        <td colspan="3" class="bg-ggray">{{$payitem['character']}}</td>
+                    </tr>
                 </tbody>
             </table>
             <div class="highlight_contextual_nodemon mt-15">판매자 정보</div>
@@ -111,24 +114,27 @@ if(sizeof($split_number) == 3){
             <div @class('selling_middle')>
                 <div @class('pr-5')>
                     <table class="table-striped table-green1">
+                        <colgroup>
+                            <col width="110px"/>
+                        </colgroup>
                         <tbody>
-                        <tr>
-                            <th>이름</th>
-                            <td>{{$user['name']}}</td>
-                        </tr>
-                        <tr>
-                            <th>연락처</th>
-                            <td>
-                                {{$user['home']}} / {{$user['number']}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>판매자 캐릭터명</th>
-                            <td>
-                                <form id="frmDiffer" name="frmDiffer" method="post"></form>
-                                {{$user_character}}
-                            </td>
-                        </tr>
+                            <tr>
+                                <th>이름</th>
+                                <td>{{$user['name']}}</td>
+                            </tr>
+                            <tr>
+                                <th>연락처</th>
+                                <td>
+                                    {{$user['home']}} / {{$user['number']}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>판매자 캐릭터명</th>
+                                <td>
+                                    <form id="frmDiffer" name="frmDiffer" method="post"></form>
+                                    {{$user_character}}
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -202,8 +208,12 @@ if(sizeof($split_number) == 3){
                     <tr>
                         <th>이름</th>
                         <td>{{$cuser['name']}}</td>
+                        <th class="visible--table--pc">연락처</th>
+                        <td class="visible--table--pc">
+                            {{$cuser['home']}} / {{$cuser['number']}}
+                        </td>
                     </tr>
-                    <tr>
+                    <tr class="visible--table-m">
                         <th>연락처</th>
                         <td>
                             {{$cuser['home']}} / {{$cuser['number']}}

@@ -42,9 +42,12 @@
             <a name="top"></a>
             <div class="contextual--title noborder">구매자의 입금을 기다리는 물품</span> </div>
             <table class="table-striped table-green1">
+                <colgroup>
+                    <col width="110px"/>
+                </colgroup>
                 <tr>
                     <th>카테고리</th>
-                    <td colspan="3">{{$category}}</td>
+                    <td colspan="3" class="bg-ggray">{{$category}}</td>
                 </tr>
                 <tr>
                     <th>물품제목</th>
@@ -52,9 +55,9 @@
                 </tr>
                 <tr>
                     <th>거래번호</th>
-                    <td>#{{$orderNo}}</td>
+                    <td class="bg-ggray">#{{$orderNo}}</td>
                     <th class="visible--table--pc">등록일시</th>
-                    <td class="visible--table--pc">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
+                    <td class="visible--table--pc bg-ggray">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                 </tr>
                 <tr class="visible--table-m">
                     <th>등록일시</th>
@@ -73,7 +76,7 @@
                 </tr>
                 <tr>
                     <th>판매자 캐릭터명</th>
-                    <td colspan="3">{{$seller['character']}}</td>
+                    <td colspan="3" class="bg-ggray">{{$seller['character']}}</td>
                 </tr>
             </table>
             <div class="highlight_contextual_nodemon mt-15">내 거래정보</div>
@@ -81,10 +84,12 @@
                 <tr>
                     <th>이름</th>
                     <td>{{$seller['name']}}</td>
+                    <th class="visible--table--pc">연락처</th>
+                    <td class="visible--table--pc">{{$seller['home']}} / {{$seller['number']}} <span class="f_blue3 font-weight-bold"></span></td>
                 </tr>
-                <tr>
+                <tr class="visible--table-m">
                     <th>연락처</th>
-                    <td>{{$seller['home']}} / {{$seller['number']}} <span class="f_blue3 font-weight-bold"></span></td>
+                    <td colspan="2">{{$seller['home']}} / {{$seller['number']}} <span class="f_blue3 font-weight-bold"></span></td>
                 </tr>
             </table>
 

@@ -10,4 +10,8 @@ class MMygame extends Model
     use HasFactory;
     protected $table = 'm_mygame';
     protected $guarded = [];
+
+    public function fgame(){
+        return $this->hasOne(MGame::class,'id','game');
+    }
 }

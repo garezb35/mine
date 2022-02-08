@@ -21,8 +21,16 @@
 
 .report_top .float-left .bg_icon {}
 
-.category_tb {
-    border-top: 2px solid #636363;
+.category_tb,.category_tb th,.category_tb td {
+    background: transparent;
+    border: none !important;
+    text-align: left;
+    vertical-align: top;
+    padding-top: 0px !important;
+}
+
+.category_tb th{
+    width: 100px;
 }
 
 .category_tb td {
@@ -31,8 +39,7 @@
 }
 
 .category_tb ul li {
-    width: 115px;
-    line-height: 180%
+    width: 90px;
 }
 
 .category_tb .category_etc {
@@ -46,4 +53,37 @@
 .table_angel_secondary tr th {
     background-color: #f5f7f8;
     border-bottom: 1px solid #E0E0E0;
+}
+
+
+.report_btns{
+    display: flex;
+    justify-content: space-between;
+}
+
+.report_btns .report_btn{
+    display: block;
+    width: 162px;
+    height: 30px;
+    background: linear-gradient(#ededed,#dfdfdf);
+    line-height: 30px;
+    text-align: center;
+}
+
+.report_btns .report_btn.selected{
+    background: #229fa3;
+    color: #fff;
+}
+
+
+
+.f_search{
+    width: 129px;
+    background: #229fa3;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    color: #fff;
+    float: right;
+    margin-top: 3px;
 }

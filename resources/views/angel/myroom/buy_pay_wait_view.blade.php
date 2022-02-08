@@ -61,7 +61,7 @@ else
                     <tbody>
                         <tr>
                             <th>카테고리</th>
-                            <td colspan="3">{{$category}}</td>
+                            <td colspan="3" class="bg-ggray">{{$category}}</td>
                         </tr>
                         <tr>
                             <th>물품제목</th>
@@ -71,9 +71,9 @@ else
                         </tr>
                         <tr>
                             <th>거래번호</th>
-                            <td>#{{$orderNo}}</td>
+                            <td class="bg-ggray">#{{$orderNo}}</td>
                             <th class="visible--table--pc">등록일시</th>
-                            <td class="visible--table--pc">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
+                            <td class="visible--table--pc bg-ggray">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                         </tr>
                         <tr>
                             @php
@@ -92,7 +92,7 @@ else
                         </tr>
                         <tr>
                             <th>구매자 캐릭터명</th>
-                            <td colspan="3">{{$buyer['character']}}</td>
+                            <td colspan="3" class="bg-ggray">{{$buyer['character']}}</td>
                         </tr>
                         <tr class="visible--table-m">
                             <th>등록일시</th>
@@ -154,16 +154,18 @@ else
                     </div>
                 </div>
                 <div class="highlight_contextual_nodemon mt-20">내 거래정보</div>
-                <table class="table-primary">
+                <table class="table-striped">
                     <tbody>
-                    <tr>
-                        <th>이름</th>
-                        <td>{{$buyer['name']}}</td>
-                    </tr>
-                    <tr>
-                        <th>연락처</th>
-                        <td>{{$buyer['home']}} / {{$buyer['number']}}</td>
-                    </tr>
+                        <tr>
+                            <th>이름</th>
+                            <td>{{$buyer['name']}}</td>
+                            <th class="visible--table--pc">연락처</th>
+                            <td class="visible--table--pc">{{$buyer['home']}} / {{$buyer['number']}}</td>
+                        </tr>
+                        <tr class="visible--table-m">
+                            <th>연락처</th>
+                            <td colspan="2">{{$buyer['home']}} / {{$buyer['number']}}</td>
+                        </tr>
                     </tbody>
                 </table>
                 <form id="frmPayment" name="frmPayment" action="buy_pay_wait_ok" method="post">
