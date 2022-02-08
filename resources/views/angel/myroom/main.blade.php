@@ -82,7 +82,7 @@ $user  = Auth::user();
         <div>
             @include("angel.myroom.header")
         </div>
-        <div @class('ml-10')>
+        <div>
             @include("aside.myroom",['group'=>''])
             <div class="pagecontainer">
                 <div class="content_area content_coupon">

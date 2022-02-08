@@ -952,12 +952,14 @@ table.nobordertable{
     background-position:-422px -10px;
 }
 .aside .nav{
-    position:relative;
-    box-sizing:border-box;
-    width:100%;
-    height:auto;
-    border:1px solid #999999;
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    border: 1px solid #999999;
+    display: flex;
     background: #ccd8dc;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 .aside .nav a{
     border-bottom: solid 1px #999999;
@@ -969,16 +971,17 @@ table.nobordertable{
     height: 40px;
     line-height: 40px;
     padding-left: 0px;
+    width: 100%;
 }
 
 .aside .nav > .nav_title:hover,.aside .nav > .activated{
     background:#fff;
 }
 
-.aside .nav > .nav_title:hover a,.aside .nav > .activated a
-{
-    border-top: 1px solid rgb(153, 153, 153);
-}
+/*.aside .nav > .nav_title:hover a,.aside .nav > .activated a*/
+/*{*/
+/*    border-top: 1px solid rgb(153, 153, 153);*/
+/*}*/
 
 .aside .nav > .nav_title:first-child:hover a,.aside .nav > .nav_title:first-child.activated a
 

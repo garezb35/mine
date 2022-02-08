@@ -49,7 +49,7 @@ else
         <div>
             @include("angel.myroom.header")
         </div>
-        <div class="ml-10">
+        <div >
             @include('aside.myroom',['group'=>'buy'])
             <input type="hidden" id="screenshot_info" value="TiUzQg==">
             <div class="pagecontainer">

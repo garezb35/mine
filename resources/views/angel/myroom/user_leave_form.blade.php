@@ -45,7 +45,7 @@
         <div>
             @include("angel.myroom.header")
         </div>
-        <div @class('ml-10')>
+        <div >
             @include('aside.myroom',['group'=>'exit'])
             <div class="pagecontainer">
                 <div @class('ext__part')>

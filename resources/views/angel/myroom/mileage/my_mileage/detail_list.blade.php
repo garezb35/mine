@@ -50,7 +50,7 @@
             border-radius: 2px;
         }
         #btn_search {
-            background-color: #216574;
+            background-color: #586175;
             color: white;
             padding: 3px 8px;
             font-size: 12px;
@@ -61,7 +61,7 @@
         <div>
             @include("angel.myroom.header")
         </div>
-        <div class="ml-10">
+        <div>
             @include('aside.myroom',['group'=>'mileage'])
             <div class="pagecontainer">
                 <div class="react_nav_tab navs__pops">
@@ -74,24 +74,19 @@
                 <div class="brl brb global_milwage pt-10">
                     <form id="frmPeriod" name="frmPeriod" action="" method="post">
                         @csrf
-                            <table class="table-primary" id="search_table">
+                            <table class="table-primary thbn tdbn noborder btnone" id="search_table">
                                 <colgroup>
                                     <col width="80">
                                     <col>
                                 </colgroup>
                                 <tr>
-                                    <th rowspan="2">조회기간</th>
+                                    <th style="border-bottom: none">조회기간</th>
                                     <td id="search_date" style="padding-left: 5px">
                                         <div class="float-left">
                                             <input type="text" name="date_start" class="datepicker" value="{{$date_start}}"> ~
                                             <input type="text" name="date_end" class="datepicker" value="{{$date_end}}">
                                         </div>
-                                        <div class="float__right"></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding-left: 5px">
-                                        <div class="float-left">
+                                        <div class="float-left finding__2">
                                             <input type="radio" name="search_select" id="search_select1" value="0" class="g_radio"
                                                    {{ $search_type == 0 ? 'checked' : '' }} onclick="document.frmPeriod.submit();">
                                             <label for="search_select1">전체</label>
@@ -103,9 +98,6 @@
                                             <label for="search_select3">감소된 마일리지</label>
                                             <input type="submit" id="btn_search" width="64" height="18" value="조회하기" alt="조회하기">
                                         </div>
-                                        {{--                                <div class="float__right">--}}
-                                        {{--                                    <input type="submit" id="btn_search" width="64" height="18" value="조회하기" alt="조회하기">--}}
-                                        {{--                                </div>--}}
                                     </td>
                                 </tr>
                             </table>

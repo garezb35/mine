@@ -22,7 +22,7 @@
         <div>
             @include("angel.myroom.header")
         </div>
-        <div class="ml-10">
+        <div>
             @include('aside.myroom',['group'=>'settings'])
             <div class="pagecontainer">
                 <div class="box" style="position: relative">

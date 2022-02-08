@@ -37,7 +37,7 @@ $user_contactC = !empty($splited_mobile[2]) ? $splited_mobile[2] : "";
             <input type="hidden" name="user_mobileB">
             <input type="hidden" name="user_mobileC">
         </form>
-        <div @class('ml-10')>
+        <div >
             @include("aside.myroom",['group'=>'person'])
             <div class="pagecontainer">
                 <div @class('mb-30')>

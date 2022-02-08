@@ -20,7 +20,7 @@
         <div>
             @include("angel.myroom.header")
         </div>
-        <div class="ml-10">
+        <div >
             <style>
                 .tb_list th {
                     font-size: 14px;
@@ -119,13 +119,6 @@
                                 }
                             @endphp
                         </table>
-                        <div>
-                            <ul  class="float-left g_sideway mile_month">
-                                @for ($i = 1; $i <= 12; $i++)
-                                    <li @if ($i == $DateM) class='selected' @endif name="{{$i}}">{{$i}}월</li>
-                                @endfor
-                            </ul>
-                        </div>
                     </div>
                     <div class="float-left g_black3_11">- 조회기간은 전년기준 5년까지 조회 가능합니다.</div>
                     <div class="float__right g_black3_11">(단위:원)</div>

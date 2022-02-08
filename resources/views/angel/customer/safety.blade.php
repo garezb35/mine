@@ -21,7 +21,7 @@
 @section('content')
     <div @class('bg-white')>
         <div></div>
-        <div class="ml-10">
+        <div>
             <style>
                 .bg-white{
                     overflow: auto;

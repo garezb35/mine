@@ -27,7 +27,7 @@
     <div>
         @include("angel.myroom.header")
     </div>
-    <div @class('ml-10')>
+    <div >
         @include("aside.myroom",['group'=>'message'])
         <div @class('pagecontainer')>
             <ul class="react_nav_tab navs__pops">

@@ -11,7 +11,7 @@
         <div>
             @include("angel.myroom.header")
         </div>
-        <div @class('ml-10')>
+        <div >
             @include('aside.myroom',['group'=>'sell'])
             <div class="pagecontainer">
                 @include('tab.g_tab',['group'=>'sell_pay_wait'])

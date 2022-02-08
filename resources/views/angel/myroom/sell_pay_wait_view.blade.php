@@ -36,7 +36,7 @@
     <div>
         @include("angel.myroom.header")
     </div>
-    <div @class('ml-10')>
+    <div >
         @include("aside.myroom",['group'=>'buy'])
         <div class="pagecontainer">
             <a name="top"></a>

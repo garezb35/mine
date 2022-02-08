@@ -60,7 +60,7 @@
     border-spacing: 0;
     border-collapse: collapse;
     color: #444;
-    width: unset;
+    width: 100%;
 }
 .calendar__part{
     display: flex;

@@ -18,7 +18,7 @@
     <div class="bg-white">
         <div>
         </div>
-        <div class="ml-10" >
+        <div >
             <style>
                 .aside .notice {
                     height: 24px;

@@ -26,12 +26,12 @@
             $("#dvGames").select2({
                 dropdownAutoWidth: true,
                 placeholder: '게임명',
-                width: '170px'
+                width: 'calc(100% - 10px)'
             })
             $("#dvServers").select2({
                 dropdownAutoWidth: true,
                 placeholder: '서버명',
-                width: '170px'
+                width: 'calc(100% - 10px)'
             })
         });
         function goCloseReqest() {
@@ -47,7 +47,7 @@
     <div class="bg-white">
         <div>
         </div>
-        <div class="ml-10" >
+        <div >
             <style>
                 .select__div>div:first-child{
                     margin-top: 1px;
@@ -96,7 +96,7 @@
                 }
                 .g_big_box1 {
                     height: 64px;
-                    padding: 5px 10px 0px 0px;
+                    padding: 5px 10px 0px 10px;
                     border: 1px solid #c8c8c8;
                 }
                 .btn_search {

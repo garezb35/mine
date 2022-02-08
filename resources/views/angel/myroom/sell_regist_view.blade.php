@@ -31,15 +31,16 @@
         <div>
             @include("angel.myroom.header")
         </div>
-        <div class="ml-10">
+        <div >
         @include('aside.myroom',['group'=>'sell'])
         <div class="pagecontainer">
             <a name="top"></a>
             <div class="highlight_contextual_nodemon first">물품정보</div>
-            @if($user_goods_type == 'general' || $user_goods_type == 'bargain')
+            @if($user_goods_type == 'general')
                 <table class="table-striped table-green1">
                     <colgroup>
                         <col width="110px"/>
+                        <col width="*"/>
                     </colgroup>
                     <tbody>
                         <tr>
@@ -95,6 +96,10 @@
 {{--            @endif--}}
             @if($user_goods_type == 'division')
                 <table class="table-striped table-green1">
+                    <colgroup>
+                        <col width="110px"/>
+                        <col width="*"/>
+                    </colgroup>
                     <tbody>
                         <tr>
                             <th>카테고리</th>
@@ -115,7 +120,7 @@
                         </tr>
                         <tr class="visible--table-m">
                             <th>등록일시</th>
-                            <td>{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
+                            <td colspan="3">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                         </tr>
                         <tr>
                             <th>거래유형</th>
@@ -139,7 +144,7 @@
                         </tr>
                         <tr class="visible--table-m">
                             <th>최대수량</th>
-                            <td >{{number_format($user_quantity_max)}} 개&nbsp;</td>
+                            <td colspan="3">{{number_format($user_quantity_max)}} 개&nbsp;</td>
                         </tr>
 
                     </tbody>

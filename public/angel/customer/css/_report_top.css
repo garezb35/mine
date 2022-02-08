@@ -61,9 +61,13 @@
     justify-content: space-between;
 }
 
+.report_btns>div{
+    width: 100%;
+}
+
 .report_btns .report_btn{
     display: block;
-    width: 162px;
+    width: calc(100% - 10px);
     height: 30px;
     background: linear-gradient(#ededed,#dfdfdf);
     line-height: 30px;
@@ -78,7 +82,7 @@
 
 
 .f_search{
-    width: 129px;
+    width: 113px;
     background: #229fa3;
     height: 26px;
     text-align: center;
