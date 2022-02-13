@@ -2911,7 +2911,7 @@ var mineGames = {
         } else {
             var g = _xml.getElements(this.mySearchXml, "item");
             if (g.length < 1) {
-                m.push('<li class="empty">등록된 나만의 게임이 없습니다.<br>나만의 게임을 등록하시면 보다 쉽게 검색 가능합니다.<br><br><a href="/myroom/customer/search" class="search_add_btn">등록하기 +</a></li>')
+                m.push('<li class="empty">등록된 나만의 게임이 없습니다.<br>나만의 게임을 등록하시면 보다 쉽게 검색 가능합니다.<br><br><a href="/myroom/customer/search" target="mainFrame" class="search_add_btn">등록하기 +</a></li>')
             } else {
                 var a = g.length;
                 for (var h = 0; h < a; h++) {

@@ -886,4 +886,33 @@ class VAjaxController extends BaseController
         $games = MGame::where('depth',0)->where('status',1)->orderby('order','ASC')->get()->toArray();
         echo json_encode($games);
     }
+
+    public function game_list(Request $request){
+        $game = $request->game;
+        $alias = $request->alias;
+        $servers = $items = array();
+        if(!empty($game)){
+            $items = MGame::where('depth',1)->where('parent',$game)->orderby('order','ASC')->get();
+        }
+        else{
+            $items = MGame::where('depth',0)->orderby('order','ASC')->get();
+        }
+
+        if(!empty($items)){
+            array_push($servers,array("id"=>"","text"=>"선택하세요"));
+            if($alias == 1){
+                foreach($items as $val){
+                    array_push($servers,array("id"=>$val["game"],"text"=>$val["game"]));
+                }
+            }
+            else{
+                foreach($items as $val){
+                    array_push($servers,array("id"=>$val["id"],"text"=>$val["game"]));
+                }
+            }
+
+        }
+
+        return response()->json($servers);
+    }
 }

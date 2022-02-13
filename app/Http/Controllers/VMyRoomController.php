@@ -1290,7 +1290,7 @@ class VMyRoomController extends BaseController
         $data = array();
         $data['user'] = $this->user;
         $type = $request->get('type') ?? 'sell';
-        $list = MMygame::with('fgame')->where('type',$type)->orderBy('order','ASC')->get();
+        $list = MMygame::with('fgame')->whereHas('fgame')->where('type',$type)->where('userId',$this->user->id)->orderBy('order','ASC')->get();
         $data['list'] = $list;
         $data['depth__0'] = MGame::where('status',1)->where('depth',0)->orderby('order','ASC')->get();
         return view('angel.myroom.search',$data);
@@ -1379,9 +1379,11 @@ class VMyRoomController extends BaseController
     public function search_add(Request $request){
         $params = $request->all();
         unset($params['_token']);
-        if(empty($params['game']) || $params['game']['type']){
+
+        if(empty($params['game']) || empty($params['type'])){
             return redirect('/myroom/customer/search?type='.$params['type']);
         }
+
         $params['userId'] = $this->user->id;
         $game = MMygame::where('created_at',"!=","");
         $insertId = 0;

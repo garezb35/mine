@@ -122,7 +122,7 @@
             <div id="btn_list" class="b_input_group btn_list" style="display: block;">
                 <a href="/myroom/sell/sell_regist_view?id={{$orderNo ?? ''}}" class="btn-default btn-suc" >등록 물품보기</a>
                 <a href="/sell/list_search?pinit=1" class="btn-default btn-suc" style="font-size: 16px">등록 물품알아보기</a>
-                <a href="/index" class="btn-default btn-cancel">메인으로 가기</a>
+                <a href="/homepage" class="btn-default btn-cancel">메인으로 가기</a>
                 <a href="/myroom/sell/sell_regist"class="btn-default btn-cancel">마이룸으로 가기</a>
             </div>
         </div>

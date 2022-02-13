@@ -271,8 +271,7 @@ class VSellController extends BaseController
 
     public function gamemoney_avg(){
         echo '<?xml version="1.0" encoding="UTF-8" ?>
-<quotation result="fail" result_descript="이용에 불편을 드려 죄송합니다.
-
-더이상 정보를 제공하지 않는 게임입니다." time="'.date("H").'시  '.date("i").'분" />';
+                <quotation result="fail" result_descript="이용에 불편을 드려 죄송합니다.
+                    더이상 정보를 제공하지 않는 게임입니다." time="'.date("H").'시  '.date("i").'분" />';
     }
 }

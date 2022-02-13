@@ -636,8 +636,8 @@
                         }
                     };
                 </script>                        <div class="b_input_group">
-                    <button type="submit" href="javascript:;" class="sell_reg" id="ok_btn">판매등록</button>
-                    <a href="/index" class="cancel_reg">등록 취소</a>
+                    <button type="submit" href="javascript:;" class="button-success" id="ok_btn">판매등록</button>
+                    <a href="/homepage" class="button-cancel">등록 취소</a>
                 </div>
             </form>
             <div class="class__j7uy7ssd" id="class__j7uy7ssd"></div>

@@ -67,7 +67,7 @@ var searchList = {
         location.href = 'application?id=' + tid + '&pinit=' + $('#pinit').val() + $('#continue').val();
     },
     formSubmit: function() {
-        $('#frm_search').attr('action', '/sell/list');
+        $('#frm_search').attr('action', '/sell/list_search');
         $('#frm_search').submit();
     },
     serverSearch: function(server, sever_name, kind) {

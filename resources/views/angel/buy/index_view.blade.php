@@ -20,7 +20,7 @@
         $category .= $good_type;
     }
 @endphp
-@extends('layouts-angel.app')
+@extends('layouts-angel.app-frame')
 
 @section('head_attach')
 
@@ -38,25 +38,16 @@
 
 @section('content')
 
-    <div class="container_fulids" id="module-teaser-fullscreen">
-        <div class="aside">
-            <div class="title_blue">
-                <img src="/angel/img/icons/exclamation-mark-png-exclamation-mark-icon-11563006763v9utxg8tnp 2.png" />
-                구매등록 알아보기
-            </div>
-            <div class="menu_know">
-                <p class="heads">구매물품 등록 방법</p>
-                <img src="/angel/img/new_images/buy_left_know.png" width="198"  alt="팝니다 쉽게 등록하기">
-            </div>
-        </div>
-        <div class="pagecontainer">
-            <div class="g_title_gree nobordern"> 삽니다 <span>등록</span>
-            </div>
-            <div class="box6"> <span class="reg_icon"></span>
+    <div>
+        <div class="pagecontainer_full">
+            <div class="box6 text-center bg-reg pt-45">
+                <span class="reg_icon"></span>
                 @if(!empty($user_goods_type))
                     <p class="complete_txt">축하합니다<br>물품이 정상적으로 등록되었습니다.</p> 현재 연락처로 꼭 수정해주세요!
-                    <br> 연락처가 불분명 시 거래에 불이익을 받을 수 있습니다. </div>
-            @endif
+                    <br> 연락처가 불분명 시 거래에 불이익을 받을 수 있습니다.
+                @endif
+            </div>
+
             <div class="highlight_contextual_nodemon">물품정보</div>
             <table class="table-green1 table-striped">
                 <colgroup>
@@ -115,10 +106,9 @@
                 @endif
             </table>
             <div id="btn_list" class="b_input_group btn_list">
-                <a href="/myroom/buy/buy_regist_view?id={{$orderNo ?? ''}}" class="btn-default btn-suc" >등록 물품보기</a>
-{{--                <a href="/buy/list_search?pinit=1" class="btn-default btn-suc" style="font-size: 16px">등록 물품알아보기</a>--}}
-                <a href="/index" class="btn-default btn-cancel">메인으로 가기</a>
-                <a href="/myroom/buy/buy_regist"class="btn-default btn-cancel">마이룸으로 가기</a>
+                <a href="/myroom/buy/buy_regist_view?id={{$orderNo ?? ''}}" class="btn-default btn-rok" >등록 물품보기</a>
+                <a href="/homepage" class="btn-default btn-rok">메인으로 가기</a>
+                <a href="/myroom/buy/buy_regist"class="btn-default btn-rok">마이룸으로 가기</a>
             </div>
         </div>
         <div class="empty-high"></div>

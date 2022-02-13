@@ -36,9 +36,10 @@
         <div class="box6 text-center bg-reg pt-45">
             <span class="reg_icon"></span>
             @if(!empty($user_goods_type))
-                <p class="complete_txt">축하합니다<br>물품이 정상적으로 등록되었습니다.</p> 현재 연락처로 꼭 수정해주세요!
-                <br> 연락처가 불분명 시 거래에 불이익을 받을 수 있습니다. </div>
-        @endif
+            <p class="complete_txt">축하합니다<br>물품이 정상적으로 등록되었습니다.</p> 현재 연락처로 꼭 수정해주세요!
+            <br> 연락처가 불분명 시 거래에 불이익을 받을 수 있습니다.
+            @endif
+        </div>
         <div class="highlight_contextual_nodemon">물품정보</div>
         <table class="table-primary">
             <colgroup>

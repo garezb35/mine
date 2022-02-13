@@ -15,6 +15,9 @@
         $price = $user_price;
     if($user_goods_type == 'division')
         $price = $user_division_price;
+    $goods_label = '게임머니';
+    if($good_type != '기타')
+        $goods_label = $good_type;
 @endphp
 @extends('layouts-angel.app-frame')
 
@@ -83,7 +86,7 @@
                                 $c = str_replace(" ","",$user_quantity.($gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit:''));
                             @endphp
                             @if($c != 1)
-                                <th class="bg-white">구매수량</th>
+                                <th>구매수량</th>
                                 <td>{{$user_quantity}}{{$gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit : ''}} {{$good_type ?? ''}}</td>
                             @endif
                             <th>구매금액</th>
@@ -116,7 +119,7 @@
                             </tr>
                             <tr>
                                 <th>거래유형</th>
-                                <td colspan="3">분할</td>
+                                <td>분할</td>
                                 <th class="visible--table--pc">구매자 캐릭터명</th>
                                 <td class="visible--table--pc">{{$user_character}}</td>
                             </tr>
@@ -126,13 +129,13 @@
                             </tr>
                             <tr>
                                 <th>최소구매수량</th>
-                                <td class="bg-ggray">{{$user_quantity_min}}{{$unit}} 개</td>
+                                <td class="bg-ggray">{{$user_quantity_min}}{{$goods_label}}</td>
                                 <th class="visible--table--pc">최대구매수량</th>
-                                <td class="visible--table--pc bg-ggray">{{$user_quantity_max}}{{$unit}} 개</td>
+                                <td class="visible--table--pc bg-ggray">{{$user_quantity_max}}{{$goods_label}}</td>
                             </tr>
                             <tr class="visible--table-m">
                                 <th>최대구매수량</th>
-                                <td>{{$user_quantity_max}}{{$unit}} 개</td>
+                                <td>{{$user_quantity_max}}{{$goods_label}}</td>
                             </tr>
                             <tr>
                                 <th>단위금액</th>

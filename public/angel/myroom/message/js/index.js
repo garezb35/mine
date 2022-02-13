@@ -20,7 +20,7 @@ function _init() {
             }
 
             if (procType == 'delete') {
-                frm.attr('action', 'delete_all');
+                frm.attr('action', '/myroom/message/delete_all');
                 msg = '삭제';
             }
             else if (procType == 'save') {
@@ -344,7 +344,7 @@ function switchForm(processType) {
         msg = '';
 
     if (processType == 'delete') {
-        frm.action	= 'delete_all';
+        frm.action	= '/myroom/message/delete_all';
         msg			= '삭제';
     }
     else if (processType == 'save') {

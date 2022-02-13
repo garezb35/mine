@@ -50,22 +50,26 @@ function _init() {
         click: function() {
             if ($(this).val() == 'g') {
                 $('#game_th').text('게임명');
-                $('#game_td').html('<input type="text" class="f_control_txt_cus" name="game_name" value="게임명을 입력해 주세요." />');
+                $('#game_td').html('<input type="text" class="f_control_txt_cus" name="game_name" placeholder="게임명" />');
                 $('#server_th').text('서버명');
                 $('#server_td').html('<input type="text" class="f_control_txt_cus" name="server_name" disabled="disabled" />');
                 $('#addr_tr').remove();
-                $('table[class="table-primary"]').append('<tr id="addr_tr"><th>URL(주소)</th><td><input type="text" class="f_control_txt_cus" name="game_url" value="주소를 입력해 주세요." /></td></tr>');
+                $('#list__server_table').find('tbody').append('<tr id="addr_tr"><th>URL(주소)</th><td><input type="text" class="f_control_txt_cus" name="game_url" placeholder="주소" /></td></tr>');
                 fnReset();
             }
             if ($(this).val() == 's') {
                 $('#game_th').text('게임명');
-                $('#game_td').html('<div id="dvGame" name="game"></div>');
+                $('#game_td').html('<select name="game_text" id="game_text_combo"></select>');
                 $('#server_th').text('서버명');
-                $('#server_td').html('<input type="text" class="f_control_txt_cus" name="server_name" value="서버명을 입력해 주세요." />');
+                $('#server_td').html('<input type="text" class="f_control_txt_cus" name="server_name" placeholder="서버명" />');
                 $('#addr_tr').remove();
-                $('table[class="table-primary"]').append('<tr id="addr_tr"><th>URL(주소)</th><td><input type="text" class="f_control_txt_cus" name="game_url" disabled="disabled" /></td></tr>');
-                var objGamelist = $.extend($('#dvGame'), _gamelist);
-                objGamelist.initialize();
+                $('#list__server_table').append('<tr id="addr_tr"><th>URL(주소)</th><td><input type="text" class="f_control_txt_cus" name="game_url" disabled="disabled" /></td></tr>');
+                $("#game_text_combo").select2({
+                    dropdownAutoWidth: true,
+                    placeholder: '게임명',
+                    width: '200px',
+                    data: games_select2
+                })
                 fnReset();
             }
             if ($(this).val() == 'e') {
@@ -81,22 +85,22 @@ function _init() {
 }
 
 function fnReset() {
-    $('table').find('input[class="angel__text"]').bind({
-        blur: function() {
-            if ($(this).attr('value') == '') {
-                if ($(this).attr('name') == 'game_name') {
-                    $(this).val('게임명을 입력해 주세요.');
-                } else if ($(this).attr('name') == 'server_name') {
-                    $(this).val('서버명을 입력해 주세요.');
-                } else if ($(this).attr('name') == 'game_url') {
-                    $(this).val('주소를 입력해 주세요.');
-                }
-            }
-        },
-        click: function() {
-            if ($(this).val() == '' || $(this).val() == '게임명을 입력해 주세요.' || $(this).val() == '서버명을 입력해 주세요.' || $(this).val() == '주소를 입력해 주세요.') {
-                $(this).val('');
-            }
-        }
-    });
+    // $('table').find('input[class="angel__text"]').bind({
+    //     blur: function() {
+    //         if ($(this).attr('value') == '') {
+    //             if ($(this).attr('name') == 'game_name') {
+    //                 $(this).val('게임명을 입력해 주세요.');
+    //             } else if ($(this).attr('name') == 'server_name') {
+    //                 $(this).val('서버명을 입력해 주세요.');
+    //             } else if ($(this).attr('name') == 'game_url') {
+    //                 $(this).val('주소를 입력해 주세요.');
+    //             }
+    //         }
+    //     },
+    //     click: function() {
+    //         if ($(this).val() == '' || $(this).val() == '게임명을 입력해 주세요.' || $(this).val() == '서버명을 입력해 주세요.' || $(this).val() == '주소를 입력해 주세요.') {
+    //             $(this).val('');
+    //         }
+    //     }
+    // });
 }

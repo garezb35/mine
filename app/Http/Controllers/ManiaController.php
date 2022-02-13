@@ -382,15 +382,7 @@ class ManiaController extends BaseController
             $update['user_title'] = $request->user_title;
             $update['user_text'] = $request->user_text;
         }
-        if($user_goods_type == 'bargain'){
-            $update['user_price'] = str_replace(",","",$request->user_price);
-            if(!empty($request->user_deny_use)){
-                $update['user_price_limit'] = str_replace(",","",$request->user_price_limit);
-            }
-            $update['user_character'] = $request->user_character;
-            $update['user_title'] = $request->user_title;
-            $update['user_text'] = $request->user_text;
-        }
+
         if(!empty($update)){
             $update['created_at'] = date('Y-m-d H:i:s');
             MItem::where("orderNo",$id)->update($update);
@@ -686,7 +678,7 @@ class ManiaController extends BaseController
         $user_goods_type = $request->user_goods_type;
         $game = MGame::where("parent",$game_code)->where('depth',2)->where("game",$last_alias)->first();
         $unit =  $item_info = $unit_type = $character_info = $discount = "";
-
+        $division_enabled = 0;
         if(!empty($game)){
             $division_enabled = $game->division_enabled;
             if($division_enabled == 0)
@@ -910,8 +902,11 @@ class ManiaController extends BaseController
                                         </div>
                                     </div>
                                 </div>';
-                if($game->discount == 1){
-                    $discount = '<th class="border-top bg-gradient-wb">복수구매</th>
+//                if($game->discount == 1){
+//
+//
+//                }
+                $discount = '<th class="border-top bg-gradient-wb">복수구매</th>
                                    <td class="border-top"><div class="discount">
                 <label><input type="checkbox" class="angel_game_sel" name="discount_use" id="discount_use" value="1" onclick="ComplexDiscount();">복수구매 할인적용</label>
                 <div id="reven_discount">
@@ -920,8 +915,6 @@ class ManiaController extends BaseController
                     <input  type="text" class="w60 discount_price" name="discount_price" id="discount_price" maxlength="10" disabled>원 할인
                     </div>
             </div></td>';
-
-                }
                 $result .= '<div class="h161">
                                 <div class="o__auto">
                                     <p class="fl ml-15 font-weight-bold mt-15">판매금액</p>

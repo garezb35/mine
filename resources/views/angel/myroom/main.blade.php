@@ -94,9 +94,9 @@ $user  = Auth::user();
                             </a>
                         </div>
                         <div>
-                            <a href="{{route("customer_myroom")}}">
+                            <a href="{{route("search")}}">
                                 <img src="/angel/img/icons/mine_person.png">
-                                <p @class('text-center mt-10 f-14')>게인 환경설정</p>
+                                <p @class('text-center mt-10 f-14')>개인 환경설정</p>
                             </a>
                         </div>
                     </div>

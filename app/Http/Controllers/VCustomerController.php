@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\MAdminNotice;
+use App\Models\MGame;
+use App\Models\MMygame;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -37,6 +39,7 @@ class VCustomerController extends BaseController
 
     public function report(Request $request)
     {
+        $datas = array();
         if ($request->privates != "") {
             $snzReason = $request->privates;
             if ($request->privates == '기타 사유') {
@@ -62,15 +65,14 @@ class VCustomerController extends BaseController
             $param1 = 'buy';
             $param2 = 'sell';
         }
-        $data['user'] = $this->user;
-        $data['typeTxt'] = $param1;
-        $data['game_text'] = $request->game;
-        $data['server_text'] = $request->gserver;
-        $data['search_price_min'] = $request->search_price_min;
-        $data['search_price_max'] = $request->search_price_max;
-        $data['filtered_items'] = $request->filtered_items;
-        // To get selling items
-        $data['sellingRecord'] = MItem::with(['game','server','payitem'])
+        $datas['user'] = $this->user;
+        $datas['typeTxt'] = $param1;
+        $datas['game_text'] = $request->game;
+        $datas['server_text'] = $request->server__g;
+        $datas['search_price_min'] = $request->search_price_min;
+        $datas['search_price_max'] = $request->search_price_max;
+        $datas['filtered_items'] = $request->filtered_items;
+        $rr_filtered = MItem::with(['game','server','payitem'])
             ->whereHas('payitem',function($query) {
                 if(!empty($request->search_price_min))
                     $query->where('price','>=',$request->search_price_min);
@@ -79,11 +81,9 @@ class VCustomerController extends BaseController
             })
             ->where('accept_flag', 0)
             ->where('status','!=', -1)
-            ->where('status','!=', 0) // initial status > 거래대상이 없을때
-            ->where('status','!=', 23) // 거래종료 > 2이면 받을때
-            ->where('status','!=', 32) // 거래종료 > 3이면 줄때
-                // 1이면 거래상대가 돈 넣엇을때 > 거래중
-                // [2, 3]이면 종료예정
+            ->where('status','!=', 0)
+            ->where('status','!=', 23)
+            ->where('status','!=', 32)
             ->where(function($query) use ($param1,$param2){
                 $query->where(function($query1) use ($param1){
                     $query1->where('type', $param1);
@@ -95,20 +95,26 @@ class VCustomerController extends BaseController
                 });
             });
 
-        if(!empty($data['game_text'])) {
-            $data['sellingRecord'] = $data['sellingRecord']->where('game_code', $data['game_text']);
-            if(!empty($data['server_text']))
-                $data['sellingRecord'] = $data['sellingRecord']->where('server_code',$data['server_text']);
-        }
-        if(!empty($data['filtered_items'])) {
-            $snzGoodType = getItemNameType($data['filtered_items']);
+        if(!empty($request->game))
+            $rr_filtered = $rr_filtered->where('game_code', "{$request->game}");
+        if(!empty($request->server__g))
+            $rr_filtered = $rr_filtered->where('server_code',"{$request->server__g}");
+
+
+        if(!empty($datas['filtered_items'])) {
+            $snzGoodType = getItemNameType($datas['filtered_items']);
             if ($snzGoodType != "") {
-                $data['sellingRecord'] = $data['sellingRecord']->where('good_type', $snzGoodType);
+                $rr_filtered = $rr_filtered->where('good_type', $snzGoodType);
             }
         }
 
-        $data['sellingRecord'] = $data['sellingRecord']->orderByDesc("created_at")->paginate(15);
-        return view('angel.customer.report', $data);
+        $rr_filtered = $rr_filtered->orderByDesc("created_at")->paginate(15);
+        $datas['sellingRecord'] = $rr_filtered;
+        $datas['games_list'] = MGame::where('depth',0)->orderby('order','ASC')->get();
+        if(!empty($request->game)){
+            $datas['servers_list'] = MGame::where('depth',1)->where('parent',$request->game)->orderby('order','ASC')->get();
+        }
+        return view('angel.customer.report', $datas);
     }
 
     /**
@@ -168,6 +174,11 @@ class VCustomerController extends BaseController
         }
 
         $data['sellingRecord'] = $data['sellingRecord']->orderByDesc("created_at")->paginate(15);
+        $data['games_list'] = MGame::where('depth',0)->orderby('order','ASC')->get();
+        if(!empty($request->game)){
+            $data['servers_list'] = MGame::where('depth',1)->where('parent',$request->game)->orderby('order','ASC')->get();
+        }
+
         return view('angel.customer.report_end', $data);
     }
 
@@ -221,6 +232,7 @@ class VCustomerController extends BaseController
      */
     public function newgame(Request $request)
     {
+
         return view('angel.customer.newgame');
     }
 

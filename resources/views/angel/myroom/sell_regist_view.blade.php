@@ -77,7 +77,7 @@
                             @endphp
                             @if($c != 1)
                                 <th>판매수량</th>
-                                <td ><span class="trade_money1">{{$user_quantity}}{{$gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit:''}}</span> {{$good_type}}</td>
+                                <td ><span class="trade_money1">{{number_format($user_quantity)}}{{$gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit:''}}</span> {{$good_type}}</td>
                             @endif
                             <th @if($c != 1) class="visible--table--pc" @endif>판매금액</th>
                             <td @if($c ==1)colspan="3" class="bg-ggray" @else class="visible--table--pc bg-ggray" @endif>{{number_format($user_price)}}원</td>

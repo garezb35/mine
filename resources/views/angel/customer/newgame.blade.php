@@ -6,30 +6,68 @@
 @endsection
 
 @section('foot_attach')
-    <script type="text/javascript" src="/angel/customer/newgame/js/index.js"></script>
+
     <script type='text/javascript'>
+        var games_select2 = new Array();
+        ajaxRequest({
+            url: '/api/game_list',
+            type: 'POST',
+            data: {api_token: a_token, alias: 1},
+            dataType:'json',
+            success: function(res) {
+                games_select2 = res;
+            }
+        })
         $("#new-game-btn").click(function(){
+            if($("#radio1").prop('checked')){
+                if($('input[name="game_name"]').val().trim() == '' ) {
+                    alert('게임명을 입력해주세요');
+                    $('input[name="game_name"]').focus();
+                    return false;
+                }
+            }
+            if($("#radio2").prop('checked')){
+                if($("#game_text_combo").val().trim() == ''){
+                    alert('게임을 선택해주세요');
+                    return false;
+                }
+                if($('input[name="server_name"]').val().trim() == '' ) {
+                    alert('서버명 입력해주세요');
+                    $('input[name="server_name"]').focus();
+                    return false;
+                }
+            }
+            if($("#radio3").prop('checked')){
+                if($('input[name="gs_subject"]').val().trim() == '' ) {
+                    alert('제목을 입력해주세요');
+                    $('input[name="gs_subject"]').focus();
+                    return false;
+                }
+                if($('textarea[name="gs_content"]').val().trim() == '' ) {
+                    alert('내용을 입력해주세요');
+                    $('textarea[name="gs_content"]').focus();
+                    return false;
+                }
+            }
             $.ajax({
                 url: '/api/frm_game',
                 dataType: 'json',
                 type: 'post',
                 data: $("#frm_game").serialize(),
                 success: function (xml) {
-                    alert('처리되었습니다.')
                     if(xml.status == 1){
                         socket_client.emit('admin_notice',xml.data);
+                        location.href="/customer/myqna/list"
+                    }
+                    else{
+                        alert('서버오류')
                     }
                 }
             });
         })
 
     </script>
-    <style>
-        .angel__text{
-            width: 170px;
-            height: 24px;
-        }
-    </style>
+    <script type="text/javascript" src="/angel/customer/newgame/js/index.js"></script>
 @endsection
 
 @section('content')
@@ -82,7 +120,10 @@
                     <input type="hidden" name="subject" value="신규게임/서버 추가요청입니다." />
                     <div class="gray_box">
                         <div class="highlight_contextual_nodemon">신규게임/서버 추가</div>
-                        <table class="table-primary tb_list">
+                        <table class="table-primary tb_list" id="list__server_table">
+                            <colgroup>
+                                <col width="104"/>
+                            </colgroup>
                             <tr>
                                 <th>분류</th>
                                 <td>
@@ -97,7 +138,7 @@
                             <tr>
                                 <th id="game_th">게임명</th>
                                 <td id="game_td">
-                                    <input type="text" class="f_control_txt_cus" name="game_name" value="게임명을 입력해 주세요." /> </td>
+                                    <input type="text" class="f_control_txt_cus" name="game_name" placeholder="게임명"/> </td>
                             </tr>
                             <tr>
                                 <th id="server_th">서버명</th>
@@ -107,7 +148,7 @@
                             <tr id="addr_tr">
                                 <th>URL(주소)</th>
                                 <td>
-                                    <input type="text" class="f_control_txt_cus" name="game_url" value="주소를 입력해 주세요." />
+                                    <input type="text" class="f_control_txt_cus" name="game_url" placeholder="주소" />
                                 </td>
                             </tr>
                         </table>

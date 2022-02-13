@@ -12,6 +12,7 @@
     <script type="text/javascript" src="/angel/_js/_screenshot.js"></script>
     <script type="text/javascript" src="/angel/customer/trade/js/trade_common.js"></script>
     <script type="text/javascript">
+        var games_select2 = new Array();
         function __init() {
             strThisCode = 'A101';
             fnCreateDom('ACS', '01');
@@ -22,12 +23,14 @@
                 $("#tradeNum").text(orderNo);
                 $("#tradeNum2").val(orderNo);
                 $("#Form_table").show();
+                heightResize()
             });
-            $("#dvGames").select2({
+
+            $('#dvGames').select2({
                 dropdownAutoWidth: true,
                 placeholder: '게임명',
                 width: 'calc(100% - 10px)'
-            })
+            });
             $("#dvServers").select2({
                 dropdownAutoWidth: true,
                 placeholder: '서버명',
@@ -40,6 +43,30 @@
         function goEndReqest() {
             location.href = "{{route('customer_report_end')}}?type={{Request::get('type')}}";
         }
+
+
+        $("#dvGames").on("select2:select", function (e) {
+            let game_id = e.params.data.id;
+            if(game_id == 0 || game_id == '' || game_id == null){
+                return false
+            }
+            let dvServers = $('#dvServers');
+            ajaxRequest({
+                url: '/api/game_list',
+                type: 'POST',
+                data: {api_token: a_token, game: game_id},
+                dataType:'json',
+                success: function(res) {
+                    dvServers.html('')
+                    dvServers.select2({
+                        dropdownAutoWidth: true,
+                        placeholder: '서버명',
+                        width: 'calc(100% - 10px)',
+                        data: res
+                    });
+                }
+            })
+        })
     </script>
 @endsection
 
@@ -135,24 +162,35 @@
 
                 <div class="empty-high"></div>
                 <div class="g_big_box1">
-                    <form id="frmSearch" action="" method="post">
+                    <form id="frmSearch" action="{{route('customer_report')}}" method="get">
                         @csrf
-                        <input type="hidden" name="a_code" value="A1" />
-                        <input type="hidden" name="b_code" value="01" />
-                        <input type="hidden" name="c_code" value="01" />
-                        <input type="hidden" name="t_type" value="ti" />
-                        <input type="hidden" name="m_type" value="sell" />
-                        <input type="hidden" name="standard_code" value="A101" />
-                        <input type="hidden" name="retry" value="" />
-                        <input type="hidden" name="reflag" value="" />
+                        <input type="hidden" name="type" value="{{Request::get('type') ?? 'sell'}}" />
                         <div @class('report_btns')>
                             <div>
                                 <a class="f-14 report_btn {{$typeTxt == 'sell' ? 'selected' : ''}}" href="{{route("customer_report")}}?type=sell">판매중 물품 </a>
                                 <a class="f-14 report_btn {{$typeTxt == 'buy' ? 'selected ' : ''}}" href="{{route("customer_report")}}?type=buy">구매중 물품 </a>
                             </div>
                             <div @class('select__div')>
-                                <div><select id="dvGames" name="game" @class('sel2 game_sel')></select></div>
-                                <div><select id="dvServers" name="server" @class('sel2 game_sel')></select></div>
+                                <div>
+                                    <select id="dvGames" name="game" @class('sel2 game_sel')>
+                                        @if(!empty($games_list))
+                                        <option value="0">선택하세요</option>
+                                        @foreach($games_list as $g)
+                                        <option value="{{$g['id']}}" @if($g['id'] == Request::get('game')) selected @endif>{{$g['game']}}</option>
+                                        @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                <div>
+                                    <select id="dvServers" name="server__g" @class('sel2 game_sel')>
+                                        @if(!empty($servers_list))
+                                            <option value="0">선택하세요</option>
+                                            @foreach($servers_list as $g)
+                                                <option value="{{$g['id']}}" @if($g['id'] == Request::get('server__g')) selected @endif>{{$g['game']}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
                             </div>
                             <div>
                                 <div>
@@ -249,10 +287,7 @@
                         <input type="hidden" name="types" value="{{Request::get('type') ?? 'sell'}}">
                         <input type="hidden" name="types_order" value="cancel">
                         <div class="s_subtitle">상담서 작성하기</div>
-                        <table id="goods_table" class="g_gray_tb g_sky_table">
-                            <colgroup>
-                                <col width="130" />
-                                <col width="690" /> </colgroup>
+                        <table id="goods_table" class="table-striped table-green1">
                             <tr>
                                 <th>접수분야</th>
                                 <td>
@@ -294,23 +329,23 @@
                                     <br>
                                     <input type="radio" name="privates" value="상대방이 가격 흥정을 합니다" class="g_radio">상대방이 가격 흥정을 합니다
                                     <br>
-                                    <input type="radio" name="privates" value="기타 사유" class="g_radio">기타 사유 &nbsp; <input type="text" name="privates_txt" />
+                                    <input type="radio" name="privates" value="기타 사유" class="g_radio">기타 사유 &nbsp; <input type="text" name="privates_txt" class="mw-200 angel__text mode-active text__new__green input__height__30 border__new_green"/>
                                     <br>
                                 </td>
                             </tr>
                             <tr>
                                 <th>통화가능번호</th>
                                 <td>
-                                    <input type="text" name="user_phone1" class="angel__text" id="phone1" maxlength="3" /> -
-                                    <input type="text" name="user_phone2" class="angel__text" id="phone2" maxlength="4" /> -
-                                    <input type="text" name="user_phone3" class="angel__text" id="phone3" maxlength="4" />
+                                    <input type="text" name="user_phone1" class="w60 angel__text mode-active text__new__green input__height__30 border__new_green" id="phone1" maxlength="3" /> -
+                                    <input type="text" name="user_phone2" class="w60 angel__text mode-active text__new__green input__height__30 border__new_green" id="phone2" maxlength="4" /> -
+                                    <input type="text" name="user_phone3" class="w60 angel__text mode-active text__new__green input__height__30 border__new_green" id="phone3" maxlength="4" />
                                     <span class="g_black3_11">현재 통화 가능한 연락처를 남겨주세요.</span>
                                 </td>
                             </tr>
                         </table>
                         <div class="btn-groups_angel">
-                            <a class="btn-blue-img btn-color-img submit-re-btn" onclick="orangeReport()">확인</a>
-                            <button class="btn-gray-img btn-color-img" type="button">취소</button>
+                            <a class='button-success' onclick="orangeReport()">확인</a>
+                            <button class="button-cancel" type="button">취소</button>
                         </div>
                     </form>
                 </div>

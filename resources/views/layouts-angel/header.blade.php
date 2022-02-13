@@ -92,7 +92,7 @@
                     <div class="search-overlay-wrapper ">
                         <ul class="gs_menu" id="gsMenu">
                             <li class="gs_search_item">
-                                <form id="search-overlay-container" method="post" action="" onsubmit="return searchbarSubmit();">
+                                <form id="search-overlay-container" method="post" action="" onsubmit="return searchbarSubmit();" target="mainFrame">
                                     @csrf
                                     <input type="hidden" name="filtered_game_id" value="{{$filtered_game_id ?? ''}}">
                                     <input type="hidden" name="filtered_game_alias" value="{{$filtered_game_alias ?? ''}}">

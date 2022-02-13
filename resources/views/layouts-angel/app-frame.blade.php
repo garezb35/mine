@@ -36,7 +36,7 @@
         @yield('head_attach')
 
 </head>
-<body style="min-height: 350px;background: #fff">
+<body style="min-height: 500px;background: #fff">
 <div id="global_root" class="mainEntity d-none ">
     <div id="thirdys" class="fluid-div"></div>
 </div>

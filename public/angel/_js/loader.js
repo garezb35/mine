@@ -144,7 +144,7 @@ function searchbarSubmit() {
     var a = h.value;
     var g = c.value;
     var b = f.querySelector('[name="search_type"]:checked').value;
-    var d = (g === "0" || g === "") ? "list" : "list_search";
+    var d = "list_search";
     var e = "/" + b + "/" + d;
     if(a.isEmpty()) {
         alert("게임을 선택해주세요.");
@@ -153,6 +153,7 @@ function searchbarSubmit() {
         mineGames.saveRecentGameFilter()
     }
     f.action = e;
+    $(".gameWindowPopup").addClass('d-none')
     return true
 }
 

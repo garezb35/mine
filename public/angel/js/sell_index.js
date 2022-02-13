@@ -1,4 +1,5 @@
 var last__i = "";
+var fixed_trade_subject = true;
 var angel_item_s_alias = {
     'general': '일반판매',
     'division': '분할판매',
@@ -219,21 +220,22 @@ function _init() {
 
 
     $('[name="user_goods_type"]').on('click', alterConstructor);
-    document.getElementById('fixed_trade_subject').addEventListener('click', function() {
+    document.getElementById('trade_sign_txt').addEventListener('click', function() {
         var strFixTag = document.getElementById('trade_sign_txt').innerHTML;
         if (strFixTag.isEmpty() === true) {
             if (confirm('물품제목 기본값으로 설정된 값이 없습니다.\n물품 제목 기본값을 설정하시겠습니까?')) {
                 _window.open('fixed_title', '/sell/fixed_trade_subject', 500, 300);
             }
-            this.checked = false;
+            fixed_trade_subject = false;
             return;
         }
         strFixTag += ' ';
-        if (this.checked === true) {
+        if (fixed_trade_subject === true) {
             document.getElementById('user_title').value = strFixTag + document.getElementById('user_title').value;
         } else {
             document.getElementById('user_title').value = document.getElementById('user_title').value.replace(strFixTag, '');
         }
+        fixed_trade_subject = !fixed_trade_subject;
     });
     $("[name='text_select']").on('click', function() {
         var userTextObj = document.getElementById('user_text');
@@ -507,12 +509,12 @@ function alterConstructorAddCheck() {
         formCheck.add({name: 'user_goods_type', msg: '판매유형을 선택해주세요.'});
 
         if (userGoodsType.value === 'division') {
-            KeepAlivesRaw({
-                el: document.getElementById('discount_guide'),
-                layer: document.getElementById('discount_layer'),
-                mask: false,
-                type: 'style'
-            });
+            // KeepAlivesRaw({
+            //     el: document.getElementById('discount_guide'),
+            //     layer: document.getElementById('discount_layer'),
+            //     mask: false,
+            //     type: 'style'
+            // });
 
             formCheck.add({name: 'user_quantity_min', msg: '최소 판매 수량을 입력해주세요.', type: 'price', protect: true});
             formCheck.add({name: 'user_quantity_max', msg: '최대 판매 수량을 입력해주세요.', type: 'price', protect: true});
@@ -611,15 +613,19 @@ function alterConstructorAddCheck() {
 
             frm.user_division_price.onblur = checkPrice;
             frm.user_quantity_min.onkeyup = function() {
-                if (frm.discount_use.checked == true) {
-                    frm.discount_use.checked = false;
-                    ComplexDiscount();
+                if(frm.discount_use){
+                    if (frm.discount_use.checked == true) {
+                        frm.discount_use.checked = false;
+                        ComplexDiscount();
+                    }
                 }
             };
             frm.user_division_unit.onkeyup = function() {
-                if (frm.discount_use.checked == true) {
-                    frm.discount_use.checked = false;
-                    ComplexDiscount();
+                if(frm.discount_use) {
+                    if (frm.discount_use.checked == true) {
+                        frm.discount_use.checked = false;
+                        ComplexDiscount();
+                    }
                 }
             };
 
@@ -674,35 +680,6 @@ function alterConstructorAddCheck() {
                 // commissionCalcu.call(this);
             });
 
-            if (userGoodsType.value === 'bargain') {
-                formCheck.add({
-                    custom: function() {
-                        var userDenyUse = document.getElementById('user_deny_use');
-                        if (userDenyUse.checked === true && frm.user_price_limit.value.isEmpty()) {
-                            alert('최저 흥정 가격 설정금액을 입력해주세요.');
-                            frm.user_price_limit.focus();
-                            return false;
-                        }
-                        return true;
-                    }
-                });
-
-                document.getElementById('user_deny_use').addEventListener('click', function() {
-                    if (this.checked === true) {
-                        document.getElementById('min_user_bargain').style.display = 'block';
-                    } else {
-                        document.getElementById('min_user_bargain').style.display = 'none';
-                        frm.user_price_limit.value = '';
-                    }
-                });
-                frm.user_price_limit.addEventListener('keyup', function() {
-                    commissionCalcu.call(this, '2');
-                });
-
-                Form.protect.price(frm.user_price_limit);
-                frm.user_price_limit.onblur = getPriceLimit;
-
-            }
         }
 
 

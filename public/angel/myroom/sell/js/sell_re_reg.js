@@ -1,4 +1,5 @@
 // 판매유형
+var fixed_trade_subject = true;
 var angel_item_s_alias = {
     'general': '일반판매',
     'division': '분할판매',
@@ -35,21 +36,22 @@ function _init() {
     var bargain = $('#bargain');
 
     // 물품기본값적용
-    document.getElementById('fixed_trade_subject').addEventListener('click', function() {
+    document.getElementById('trade_sign_txt').addEventListener('click', function() {
         var strFixTag = document.getElementById('trade_sign_txt').innerHTML;
         if (strFixTag.isEmpty() === true) {
             if (confirm('물품제목 기본값으로 설정된 값이 없습니다.\n물품 제목 기본값을 설정하시겠습니까?')) {
                 _window.open('fixed_title', 'fixed_trade_subject.html', 500, 300);
             }
-            this.checked = false;
+            fixed_trade_subject = false;
             return;
         }
         strFixTag += ' ';
-        if (this.checked === true) {
+        if (fixed_trade_subject === true) {
             document.getElementById('user_title').value = strFixTag + document.getElementById('user_title').value;
         } else {
             document.getElementById('user_title').value = document.getElementById('user_title').value.replace(strFixTag, '');
         }
+        fixed_trade_subject = !fixed_trade_subject;
     });
 
     document.getElementById('sr-template').addEventListener('click', function(e) {
@@ -255,12 +257,12 @@ function alterConstructorAddCheck() {
     var userGoodsType = document.querySelector('[name="user_goods_type"]');
     var gameCode = document.querySelector('[name="game_code"]').value;
     if (userGoodsType.value === 'division') {
-        KeepAlivesRaw({
-            el: document.getElementById('discount_guide'),
-            layer: document.getElementById('discount_layer'),
-            mask: false,
-            type: 'style'
-        });
+        // KeepAlivesRaw({
+        //     el: document.getElementById('discount_guide'),
+        //     layer: document.getElementById('discount_layer'),
+        //     mask: false,
+        //     type: 'style'
+        // });
 
         formCheck.add({name: 'user_quantity_min', msg: '최소 판매 수량을 입력해주세요.', type: 'price', protect: true});
         formCheck.add({name: 'user_quantity_max', msg: '최대 판매 수량을 입력해주세요.', type: 'price', protect: true});
@@ -1348,4 +1350,8 @@ function SafetyNumber(){
 
         }
     });
+}
+
+function setTit(title){
+    $("#trade_sign_txt").text(title);
 }

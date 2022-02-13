@@ -1,4 +1,5 @@
 // 판매유형
+var fixed_trade_subject = true;
 var angel_item_s_alias = {
     'general': '일반판매',
     'division': '분할판매'
@@ -33,21 +34,22 @@ var premiumService = false;
 function _init() {
 
     // 물품기본값적용
-    document.getElementById('fixed_trade_subject').addEventListener('click', function() {
+    document.getElementById('trade_sign_txt').addEventListener('click', function() {
         var strFixTag = document.getElementById('trade_sign_txt').innerHTML;
         if (strFixTag.isEmpty() === true) {
             if (confirm('물품제목 기본값으로 설정된 값이 없습니다. \r물품 제목 기본값을 설정하시겠습니까?')) {
                 _window.open('fixed_title', 'fixed_trade_subject.html', 500, 300);
             }
-            this.checked = false;
+            fixed_trade_subject = false;
             return;
         }
         strFixTag += ' ';
-        if (this.checked === true) {
+        if (fixed_trade_subject === true) {
             document.getElementById('user_title').value = strFixTag + document.getElementById('user_title').value;
         } else {
             document.getElementById('user_title').value = document.getElementById('user_title').value.replace(strFixTag, '');
         }
+        fixed_trade_subject = !fixed_trade_subject;
     });
 
     document.getElementById('sr-template').addEventListener('click', function(e) {

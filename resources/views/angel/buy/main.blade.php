@@ -643,53 +643,63 @@
                 };
             </script>
             <div class="b_input_group">
-                <button type="submit" href="javascript:;" class="btn-suc btn-default" id="ok_btn">구매 등록</button>
-                <a href="/" class="btn-default btn-cancel">등록 취소</a> </div>
+                <button type="submit" href="javascript:;" class="button-success" id="ok_btn">구매 등록</button>
+                <a href="/homepage" class="button-cancel">등록 취소</a> </div>
         </form>
         <div class="class__j7uy7ssd" id="class__j7uy7ssd"></div>
     </div>
     <div id="premiumPart" class="react___gatsby green premium_info">
         <div class="inner">
-            <div class="title">프리미엄 등록안내</div>
-            <div class="middle_text">프리미엄 물품 등록을 하시면 물품 리스트 상단에 판매 물품 노출이 가능합니다.
-                <br/>빠른 거래를 원하신다면 프리미엄 등록서비스를 이용하시기 바랍니다. </div>
-            <div class="mileage_sea">(내 사용가능한 마일리지 : <span id="alias__mileage_span" class="text-orange">{{number_format($user->mileage)}}</span> 원) </div>
-            <div class="mt-40 text-center">
-                <a href="javascript:;_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=premium',440,450)" class="btn_gray">프리미엄 무료이용권 보기</a>
-            </div>
-            <div class="premiumPart--content">
-                <div class="float-left"> <strong class="service_title">프리미엄 등록</strong>
-                    <select id="pop_user_premium_time" name="pop_user_premium_time">
-                        <option value="">미설정</option>
-                        <option value="1">1시간</option>
-                        <option value="2">2시간</option>
-                        <option value="3">3시간</option>
-                        <option value="4">4시간</option>
-                        <option value="5">5시간</option>
-                        <option value="6">6시간</option>
-                        <option value="7">7시간</option>
-                        <option value="8">8시간</option>
-                        <option value="9">9시간</option>
-                        <option value="10">10시간</option>
-                        <option value="11">11시간</option>
-                        <option value="12">12시간</option>
-                        <option value="13">13시간</option>
-                        <option value="14">14시간</option>
-                        <option value="15">15시간</option>
-                        <option value="16">16시간</option>
-                        <option value="17">17시간</option>
-                        <option value="18">18시간</option>
-                        <option value="19">19시간</option>
-                        <option value="20">20시간</option>
-                        <option value="21">21시간</option>
-                        <option value="22">22시간</option>
-                        <option value="23">23시간</option>
-                        <option value="24">24시간</option>
-                    </select> 이용료<strong class="text-customgray"> 100원 </strong> / 1시간 </div>
-                <div class="clearfix">※ 프리미엄 잔여시간이 많을수록 물품리스트 상단에 노출됩니다.</div>
-            </div>
-            <div class="b_input_group">
-                <a href="javascript:;" id="actionPremium" class="btn-default btn-suc">확인</a>
+            <div class="w__500">
+                <div class="title">프리미엄 등록안내</div>
+                <div class="middle_text">프리미엄 물품 등록을 하시면 물품 리스트 상단에 판매 물품 노출이 가능합니다.
+                    <br/>빠른 거래를 원하신다면 프리미엄 등록서비스를 이용하시기 바랍니다.
+                </div>
+                <div class="clearfix mt-10 mb-10 text-center">프리미엄 잔여시간이 많을수록 물품리스트 상단에 노출됩니다.</div>
+                <div class="mileage_sea">(내 사용가능한 마일리지 : <span id="alias__mileage_span" class="text-orange">{{number_format($user->mileage)}}</span> 원) </div>
+                <div class="mt-40 text-center premium__footer">
+                    <div>
+                        <a href="javascript:;_window.open('FREE_REMAINDER_LIST','/myroom/coupon/free_remainder_list?free_use_item=premium',440,450)" class="btn_gray">프리미엄 무료이용권 보기</a>
+                    </div>
+                    <div class="premiumPart--content">
+                        <div>
+                            <strong class="service_title">프리미엄 등록</strong>
+                            <br>이용료<strong class="text-customgray"> 100원 </strong> / 1시간
+                        </div>
+                    </div>
+                    <div>
+                        <select id="pop_user_premium_time" name="pop_user_premium_time" class="height30 bg-gradient-gray">
+                            <option value="">미설정</option>
+                            <option value="1">1시간</option>
+                            <option value="2">2시간</option>
+                            <option value="3">3시간</option>
+                            <option value="4">4시간</option>
+                            <option value="5">5시간</option>
+                            <option value="6">6시간</option>
+                            <option value="7">7시간</option>
+                            <option value="8">8시간</option>
+                            <option value="9">9시간</option>
+                            <option value="10">10시간</option>
+                            <option value="11">11시간</option>
+                            <option value="12">12시간</option>
+                            <option value="13">13시간</option>
+                            <option value="14">14시간</option>
+                            <option value="15">15시간</option>
+                            <option value="16">16시간</option>
+                            <option value="17">17시간</option>
+                            <option value="18">18시간</option>
+                            <option value="19">19시간</option>
+                            <option value="20">20시간</option>
+                            <option value="21">21시간</option>
+                            <option value="22">22시간</option>
+                            <option value="23">23시간</option>
+                            <option value="24">24시간</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="b_input_group">
+                    <a href="javascript:;" id="actionPremium" class="btn-default btn-suc">확인</a>
+                </div>
             </div>
         </div>
     </div>

@@ -126,7 +126,7 @@ function _init() {
 function moreBtnAction(code, name){
     var form = document.getElementById("search-overlay-container");
     form.setAttribute("method", "post");
-    form.setAttribute("action", "/sell/list");
+    form.setAttribute("action", "/sell/list_search");
 
     var hiddenField = document.createElement("input");
     hiddenField.setAttribute("type", "hidden");

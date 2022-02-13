@@ -1205,7 +1205,8 @@
 }
 .goldmid {
      overflow: hidden;
-      background-image:linear-gradient(#ffffff, #c4c4c4); ;
+     background-image:linear-gradient(#ffffff, #c4c4c4);
+    padding-left: 10px;
  }
 
 

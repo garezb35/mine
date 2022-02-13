@@ -240,6 +240,7 @@ class VBuyController extends BaseController
         $user_goods_type = $request->user_goods_type;
         $game = MGame::where("parent",$game_code)->where('depth',2)->where("game",$last_alias)->first();
         $character_info = $unit_type =  $discount = "";
+        $division_enabled = 0;
         if(!empty($game)){
             $result = '';
             $division_enabled = $game->division_enabled;

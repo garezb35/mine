@@ -688,14 +688,12 @@
     line-height:normal;
 }
 
-.reg_info .inner{
-    width:670px;
-}
+
 .reg_info .attention{
     bottom: -6px;
-    background: #fff;
+    background: #f3f3f3;
     font-size: 14px;
-    left: 249px;
+    left: calc(50% - 70px);
     padding-left: 10px;
     padding-right: 10px;
 }
