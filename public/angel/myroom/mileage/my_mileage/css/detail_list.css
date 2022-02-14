@@ -1,11 +1,60 @@
-#search_table .g_selectbox{ display:inline; float:left }
-#search_year, #search_year_end{ width:55px }
-#search_month, #search_month_end, #search_day, #search_day_end{ width:43px }
-#search_date .date_text{ margin:2px 3px 0 }
-#search_date .float__right{ width:190px; margin-top:1px; }
-.tb_list{ margin-top:10px; }
+#search_table .g_selectbox {
+    display: inline;
+    float: left
+}
 
+#search_year,
+#search_year_end {
+    width: 55px
+}
 
-.finding__2{
+#search_month,
+#search_month_end,
+#search_day,
+#search_day_end {
+    width: 43px
+}
+
+#search_date .date_text {
+    margin: 2px 3px 0
+}
+
+#search_date .float__right {
+    width: 190px;
+    margin-top: 1px;
+}
+
+.tb_list {
+    margin-top: 10px;
+}
+
+.finding__2 {
     margin-left: 6px;
+}
+
+@media only screen and (max-width: 785px){
+    #search_date .float-left{
+        float: none;
+        text-align: center;
+    }
+
+    .finding__2{
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 510px){
+    #btn_search{
+        display: block;
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    #search_table th{
+        display: none;
+    }
+    input+label{
+        margin-right: 4px;
+    }
 }

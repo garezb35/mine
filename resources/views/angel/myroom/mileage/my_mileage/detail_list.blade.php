@@ -76,7 +76,7 @@
                         @csrf
                             <table class="table-primary thbn tdbn noborder btnone" id="search_table">
                                 <colgroup>
-                                    <col width="80">
+                                    <col width="60">
                                     <col>
                                 </colgroup>
                                 <tr>
@@ -102,63 +102,64 @@
                                 </tr>
                             </table>
                     </form>
-                    <table class="table-primary tb_list">
-                        <tr>
-                            <th class="first">일자</th>
-                            <th>분류</th>
-                            <th>내용</th>
-                            <th>증가된 마일리지</th>
-                            <th>감소된 마일리지</th>
-                            <th>현재 마일리지</th>
-                            <th>상태</th>
-                        </tr>
-                        @if($payRecord->total() == 0)
-                        <tr>
-                            <td colspan="7">자료가 비었습니다.</td>
-                        </tr>
-                        @endif
-                        @foreach ($payRecord as $record)
+                    <div class="table-responsive">
+                        <table class="table-primary tb_list min600">
                             <tr>
-                                <td class="first">{{$record['createdByDtm']}}</td>
-                                <td>
-                                    @switch ($record['type'])
-                                        @case(0)
-                                        충전
-                                        @break
-                                        @case(1)
-                                        출금
-                                        @break
-                                        @case(2)
-                                        ...
-                                        @break
-                                    @endswitch
-                                </td>
-                                <td>{{$record['memo']}}</td>
-                                <td class="s_right">{{$record['type'] == 0 ? number_format($record['money']) : 0}}</td>
-                                <td class="s_right">{{$record['type'] == 1 ? number_format($record['money']) : 0}}</td>
-                                <td class="s_right">{{number_format($record['keep_money'])}}</td>
-                                <td class="align-center f-13">
-                                    @switch ($record['status'])
-                                        @case(0)
-                                        요청중
-                                        @break
-                                        @case(1)
-                                        대기중
-                                        @break
-                                        @case(2)
-                                        완료
-                                        @break
-                                        @case(3)
-                                        취소
-                                        @break
-                                    @endswitch
-                                </td>
+                                <th class="first">일자</th>
+                                <th>분류</th>
+                                <th>내용</th>
+                                <th>증가된 마일리지</th>
+                                <th>감소된 마일리지</th>
+                                <th>현재 마일리지</th>
+                                <th>상태</th>
                             </tr>
-                        @endforeach
-                    </table>
+                            @if($payRecord->total() == 0)
+                                <tr>
+                                    <td colspan="7">자료가 비었습니다.</td>
+                                </tr>
+                            @endif
+                            @foreach ($payRecord as $record)
+                                <tr>
+                                    <td class="first">{{$record['createdByDtm']}}</td>
+                                    <td>
+                                        @switch ($record['type'])
+                                            @case(0)
+                                            충전
+                                            @break
+                                            @case(1)
+                                            출금
+                                            @break
+                                            @case(2)
+                                            ...
+                                            @break
+                                        @endswitch
+                                    </td>
+                                    <td>{{$record['memo']}}</td>
+                                    <td class="s_right">{{$record['type'] == 0 ? number_format($record['money']) : 0}}</td>
+                                    <td class="s_right">{{$record['type'] == 1 ? number_format($record['money']) : 0}}</td>
+                                    <td class="s_right">{{number_format($record['keep_money'])}}</td>
+                                    <td class="align-center f-13">
+                                        @switch ($record['status'])
+                                            @case(0)
+                                            요청중
+                                            @break
+                                            @case(1)
+                                            대기중
+                                            @break
+                                            @case(2)
+                                            완료
+                                            @break
+                                            @case(3)
+                                            취소
+                                            @break
+                                        @endswitch
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>
+                    </div>
 
                     <div class="empty-high"></div>
-
                     <div class="pagination__bootstrap">
                         <ul class="g_paging">
                             {{$payRecord->withQueryString()->links()}}

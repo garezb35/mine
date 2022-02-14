@@ -136,6 +136,7 @@ class VAjaxController extends BaseController
 
         $game = $game->skip(($request->pinit -1) * 50)->take(50)->get()->toArray();
         foreach($game as $value){
+            $gunit = $value['gamemoney_unit'] != 1 && !empty($value['gamemoney_unit']) ? $value['gamemoney_unit']: '';
             $premium_check = false;
             $unit = !empty($value['gamemoney_unit']) && $value['gamemoney_unit'] != 1 ? $value['gamemoney_unit'] : '';
             $temp_object = new \stdClass();
@@ -156,7 +157,7 @@ class VAjaxController extends BaseController
             $temp_object->character_subject = '';
             $temp_object->ea_range = '';
             $temp_object->trade_kind = '';
-
+            $temp_object->ea_trade_money = '';
             if($value['user_goods'] == 'character'){
                 $temp_object->trade_kind = '6';
             }
@@ -197,7 +198,10 @@ class VAjaxController extends BaseController
                 $temp_object->trade_show_time = 'Y';
             else
                 $temp_object->trade_show_time = 'N';
-            $temp_object->ea_trade_money = number_format($value['user_price']).'원';
+            if($value['user_quantity'] > 1 || !empty($gunit)){
+                $temp_object->ea_trade_money =number_format($value['user_quantity']).$gunit.'당 '. number_format($value['user_price']).'원';
+            }
+
             if($value['user_division_unit'] > 0 && $value['user_division_price'] > 0){
                 $temp_object->ea_trade_money = number_format($value['user_division_unit']).$unit.'당 '.number_format($value['user_division_price']);
                 $temp_object->min_trade_money ='최소 '.number_format((int)$value['user_quantity_min'] / $value['user_division_unit'] * $value['user_division_price']);
