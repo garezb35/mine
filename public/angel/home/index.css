@@ -214,12 +214,12 @@
 
 .sec_left {
     float: left;
-    width: 644px;
+    width: 730px;
 }
 
 .sec_right {
     float: right;
-    width: calc(100% - 644px);
+    width: calc(100% - 730px);
 }
 
 .sec_left .title,
@@ -1211,7 +1211,7 @@
 
 
 .hotgame-li {
-    width: 25%;
+    width: 20%;
     float: left;
     text-align: center !important;
     padding: 10px 0;

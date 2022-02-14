@@ -201,12 +201,10 @@ table tr td {
 /*}*/
 
 .toobar-content{
-    background: #18273e;
+    background: #f6f6f6;
     padding-top: 15px;
-    /*padding-left: 16px;*/
-    /*padding-right: 20px;*/
     padding-bottom: 3px;
-    color: #fff;
+    color: #000;
 }
 
 /*.tbl-myinfo td{*/
@@ -510,6 +508,7 @@ table tr td {
     font-weight: bold;
     padding-left: 17px;
     padding-right: 17px;
+    color: #fff;
 }
 .toobar-content .other_link a:first-child{
     margin-left:0;
@@ -577,17 +576,19 @@ table tr td {
 }
 .topbar-left .favorite{
     margin-top:5px;
-    background: #18273e;
+    background: #f9f9f9;
     position: relative;
+    margin-bottom: 5px;
+    border: 1px solid #9d9d9d;
 }
 .topbar-left .favorite .s_title{
     position:relative;
-    height:35px;
+    height:47px;
     padding-left:29px;
     font-size:14px;
     font-weight:bold;
-    line-height:35px;
-    color:#fff;
+    line-height:47px;
+    color:#000;
 }
 .topbar-left .s_title .setting{
     position:absolute;
@@ -1390,7 +1391,7 @@ table tr td {
 
 .showing_fav {
     position: absolute;
-    top: 8px;
+    top: 15px;
     right: 24px;
     border-radius: 50%;
     border: 1px solid;
@@ -1399,7 +1400,7 @@ table tr td {
     text-align: center;
     line-height: 19px;
     cursor: pointer;
-    color: #fff;
+    color: #000;
 }
 
 
@@ -1757,7 +1758,7 @@ table tr td {
 #container__fluilds__h{
     margin-top: -320px;
     position: relative;
-    width: 854px;
+    width: 1024px;
     min-height: 1091px;
 }
 
@@ -1782,15 +1783,15 @@ table tr td {
 }
 
 .ph__content{
-    background: #253650;
-    color: #fff;
+    background: #fff;
+    color: #6c4df4;
     height: 144px;
     text-align: center;
 }
 
 .phone__contact>.ph__title{
-    background: #142134;
-    color: #fff;
+    background: #e8e8e8;
+    color: #000;
     padding: 10px 15px 10px 15px;
     font-size: 15px;
 }
@@ -1808,15 +1809,21 @@ table tr td {
 .ph__content .rest__part{
     font-size: 15px;
     text-align: center;
+    color: #000;
 }
 
 .private__00{
-    background: #253650;
+    background: #fff;
     height: 118px;
     line-height: 118px;
     text-align: center;
     color: #fff;
     margin-top: 15px;
+    border: 1px solid #9d9d9d;
+}
+
+.phone__contact{
+    border: 1px solid #9d9d9d;
 }
 
 .private__00 .big_private__btn{
@@ -1875,10 +1882,14 @@ table tr td {
 
 .dropdown-menu li a {
     color: #000000 !important;
-    font-size: 12px !important;
+    font-size: 14px !important;
     padding: 0px 0px 0px 5% !important;
     padding-left: 10px !important;
     font-family: Tahoma, Geneva, sans-serif;
+}
+
+.dropdown-menu li a img{
+    padding-right: 10px;
 }
 
 .drop-menu-left li {

@@ -156,7 +156,7 @@
                         <div class="goldmid">
                             @foreach($games_home as $key=>$gg)
                                 @php
-                                    if($key == 8) break;
+                                    if($key == 10) break;
                                 @endphp
                                 <div class="hotgame-li" style="text-align: center">
                                     <ul>

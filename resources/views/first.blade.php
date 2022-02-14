@@ -61,6 +61,9 @@
                     <div class='d-flex w-100'>
                         <div>
                             <style>
+                                .tbl-myinfo{
+                                    background: #e8e8e8;
+                                }
                                 .tbl-myinfo,
                                 .tbl-myinfo tr,
                                 .tbl-myinfo td {
@@ -80,10 +83,10 @@
                     </colgroup>
                     <tr>
                         <td>
-                            <div class="text-white f-15 f-bold" style='margin-left: 16px;'>총 마일리지 </div>
+                            <div class="f-15 f-bold" style='margin-left: 16px;'>총 마일리지 </div>
                         </td>
                         <td>
-                            <div class="text-white f-15"><span class='f-16' style='color: #6bdaff; margin-left: 5px;'>{{number_format($me['mileage'])}}</span> 원</div>
+                            <div class="f-15"><span class='f-16' style='color: #6bdaff; margin-left: 5px;'>{{number_format($me['mileage'])}}</span> 원</div>
                         </td>
                     </tr>
                 </table>
@@ -94,7 +97,7 @@
                 }
             </style>
             <div class="trade_list">
-                <table class="ing_count noborder text-white">
+                <table class="ing_count noborder">
                     <colgroup>
                         <col width="80px"/>
                     </colgroup>
@@ -286,9 +289,9 @@
     function fixChattingPos(){
         var w__s = $(window).width() + 17;
         @if(request()->route()->getName() == "index")
-        if(w__s > 1310)
+        if(w__s > 1375)
         {
-            $("#container__fluilds__h").css('margin-left',($(document).width()-1200) / 2 + 347);
+            $("#container__fluilds__h").css('margin-left',($(document).width()-1372) / 2 + 347);
             $("#container__fluilds__h").css('display','block')
             var pos_left = $("#container__fluilds__h").offset();
             $("#topbar-left").css("left",pos_left.left - 345 + "px")

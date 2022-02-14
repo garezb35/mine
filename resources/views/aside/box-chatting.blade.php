@@ -9,10 +9,10 @@
     <body>
     <style>
         #msgBox::-webkit-scrollbar-track {
-            background: #18273e;
+            background: #cccccc;
         }
         #msgBox::-webkit-scrollbar-thumb {
-            background-color: darkgrey;
+            background-color: #7a7575;
             outline: 1px solid slategrey;
             border-radius: 5px;
         }
@@ -20,26 +20,25 @@
             width: 5PX;
         }
         .box-chatting{
-            background: #18273e;
+            background: #fff;
+            border: 1px solid #9d9d9d;
         }
         .box-chatting .nav-link{
             display: block;
             padding: 0rem  0rem
         }
         .box-chatting .nav-item {
-            width: 33%;
+            width: 33.3%;
             text-align: center;
             /*border-right: 1px solid #cecece;*/
         }
         .box-chatting .nav-tabs .nav-link {
             border-radius: 0px;
-            /*border-top: 1px solid #ddd;*/
-            /*border-bottom: 1px solid #1592fd;*/
-            background: #1a273a;
+            background: #cccccc;
             padding-top: 10px;
             padding-bottom: 10px;
             font-size: 15px;
-            color: #fff;
+            color: #000;
             text-align: center;
         }
         .box-chatting .nav-item.show .nav-link, .box-chatting .nav-link.active{
@@ -56,11 +55,9 @@
             list-style: none;
         }
         .box-chatting .nav-tabs .nav-item.show .nav-link, .box-chatting .nav-tabs .nav-link.active {
-            /*border-top: #1592fd 1px solid;*/
-            /*border-right: #1592fd 1px solid;*/
-            /*border-left: #1592fd 1px solid !important;*/
             font-weight: 700;
-            background: #253a59;
+            background: #5371bc;
+            color: #fff;
         }
         #msgBox .msg-guide {
             background-color: #1592fd;
@@ -91,13 +88,11 @@
             height: 40px;
             line-height: 40px;
             border: none;
-            color: #fff;
+            color: #000;
             padding: 0 5px;
-            /*border-bottom-left-radius: 5px;*/
-            /*border-bottom-right-radius: 5px;*/
             outline: none !important;
-            /*border-top: 1px solid #e9ecef;*/
-            background: #3e4f69;
+            background: #fff;
+            border-top: 1px solid #919191;
         }
         .box-chatting .input-chatting .input-2 {
             position: absolute;
@@ -115,10 +110,10 @@
         .box-chatting .btn-etc {
             position: relative;
             z-index: 10;
-            background: #2c3d57;
+            background: #e0e0e0;
         }
         .box-chatting .btn-etc .cnt {
-            color: #fff;
+            color: #000;
             margin-left: 10px;
         }
         .sp-bl_pp {
@@ -132,10 +127,10 @@
         .sp-btn_chat1,.sp-btn_chat4,.sp-btn_chat5  {
             display: block;
             font-size: 15px;
-            color: #fff;
+            color: #000;
             width: 23px;
-            height: 32px;
-            line-height: 32px;
+            height: 31px;
+            line-height: 31px;
             text-align: center;
         }
         .sp-btn_chat1 i,.sp-btn_chat4 i,.sp-btn_chat5 i{
@@ -144,24 +139,24 @@
         .sp-btn_chat2 {
             display: block;
             width: 23px;
-            height: 32px;
-            color: #fff;
+            height: 31px;
+            color: #000;
             text-align: center;
-            line-height: 32px;
+            line-height: 31px;
             font-weight: bold;
         }
         .sp-btn_chat3 {
             display: block;
             width: 23px;
-            height: 32px;
-            color: #fff;
+            height: 31px;
+            color: #000;
             font-size: 10px;
             text-align: center;
-            line-height: 32px;
+            line-height: 31px;
         }
         .box-chatting .btn-etc ul.ul-1 li {
             float: left;
-            border-left: 1px solid #18273e;
+            border-left: 1px solid #5f8cc7;
         }
         .box-chatting .btn-etc ul.ul-1 {
             position: absolute;
@@ -197,7 +192,7 @@
             margin: 3px 0;
         }
         #ruleBox .borderBox {
-            color: #fff;
+            color: #000;
             margin: 5px;
             padding: 10px;
             font-size: 14px;
@@ -220,7 +215,7 @@
             padding: 5px;
         }
         .uname {
-            color: #fff;
+            color: #727272;
         }
     </style>
         <script>
