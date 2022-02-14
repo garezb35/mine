@@ -25,8 +25,6 @@
         a_token = '{{Auth::user()->api_token}}';
 
     @else
-    var a_token = '';
-
     @endif
     function basicPopup(url) {
         popupWindow = window.open(url,'popUpWindow','height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
@@ -174,7 +172,7 @@
                 @foreach($top_games as $t_g)
                     <dd title="{{$t_g['game_text']}}">
                         <span class="title-{{$t_g['type']}}"><img src="/angel/img/icons/{{$t_g['type']}}-i.png">-{{$t_g['type'] == 'sell' ? '팝니다':'삽니다'}}-</span>
-                        <strong>{{$t_g['game_text']}} &gt; {{$t_g['server_text']}}</strong>
+                        <strong>{{$t_g['fgame']['game']}} &gt;</strong>
                         <div class="btn_area">
                             <a href="/{{$t_g['type']}}/list_search?search_type={{$t_g['type']}}&amp;filtered_game_id={{$t_g['game']}}&amp;filtered_game_alias={{$t_g['game_text']}}&amp;filtered_child_id={{$t_g['server']}}&amp;filtered_child_alias={{$t_g['server_text']}}&amp;filtered_items={{itemAlias($t_g['goods_text'])}}"  target="mainFrame">검색</a>
                             <a href="/{{$t_g['type']}}?game={{$t_g['game']}}&amp;server={{$t_g['server']}}"  target="mainFrame">등록</a>

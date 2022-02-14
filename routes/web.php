@@ -260,6 +260,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/index_view', [\App\Http\Controllers\VBuyController::class, 'index_view'])->name('buy_index_view');
         Route::post('/list', [\App\Http\Controllers\VBuyController::class, 'buy_list'])->name('buy_list');
         Route::post('/list_search', [\App\Http\Controllers\VBuyController::class, 'list_search'])->name('buy_list_search');
+        Route::get('/list_search', [\App\Http\Controllers\VBuyController::class, 'list_search'])->name('buy_list_search');
         Route::get('/application', [\App\Http\Controllers\VBuyController::class, 'buy_application'])->name('buy_application');
         Route::get('/trade_cancel',[\App\Http\Controllers\VBuyController::class, 'trade_cancel'])->name('trade_cancel');
         Route::post('/include/index_template',[\App\Http\Controllers\VBuyController::class, 'index_template']);

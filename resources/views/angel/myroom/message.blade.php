@@ -119,31 +119,36 @@
             <div class="modal__close" onclick="nodemonPopup.disable();"></div>
         </div>
         <div class="modal--content">
-            <table class="table-primary">
+            <table class="table-striped table-green1 P__r">
                 <colgroup>
-                    <col width="120">
-                    <col width="187">
-                    <col width="120">
-                    <col width="187">
+                    <col width="90px"/>
                 </colgroup>
                 <tr>
                     <th>종류</th>
-                    <td><span id="dvMessage_type"></span></td>
+                    <td class="e--pc"><span id="dvMessage_type"></span></td>
+                    <th class="visible--table--pc">날짜</th>
+                    <td class="visible--table--pc"><span id="dvMessage_date"></span></td>
+                </tr>
+                <tr class="visible--table-m">
                     <th>날짜</th>
-                    <td><span id="dvMessage_date"></span></td>
+                    <td colspan="3"><span id="dvMessage_date"></span></td>
                 </tr>
                 <tr id="tr_none">
                     <th>거래번호</th>
-                    <td><span id="dvMessage_id"></span></td>
+                    <td class="e--pc"><span id="dvMessage_id"></span></td>
+                    <th class="continue visible--table--pc">거래금액</th>
+                    <td class="visible--table--pc"><span id="dvMessage_price"></span></td>
+                </tr>
+                <tr class="visible--table-m">
                     <th class="continue">거래금액</th>
-                    <td><span id="dvMessage_price"></span></td>
+                    <td colspan="3"><span id="dvMessage_price"></span></td>
                 </tr>
                 <tr>
                     <th>제목</th>
                     <td colspan="3"><span id="dvMessage_title"></span></td>
                 </tr>
                 <tr>
-                    <td colspan="4">
+                    <td colspan="4" style="border-left: 1px solid #b7b7b7">
                         <div id="dvMessage_content"></div>
                     </td>
                 </tr>
@@ -151,9 +156,8 @@
             <div class="float-left">
                 <a href="../../customer/" class="btn-default btn-suc">1:1 문의하기</a>
             </div>
-{{--            <div class="float-left" id="dvMessage_move"><span class="bold_txt"><a href="#">이전</a> | <a href="#">다음</a></span></div>--}}
             <div class="float__right">
-                <a href="#" onclick="$.fnDelete();" class="btn-default btn-gray">삭제</a>
+                <a href="#" onclick="$.fnDelete();" class="btn-default btn-cancel">삭제</a>
             </div>
         </div>
     </div>

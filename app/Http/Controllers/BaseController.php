@@ -69,7 +69,7 @@ class BaseController extends Controller
                     $query->where('status',"!=",-1);
                 })->
                 get()->count();
-                $games = MMygame::orderBy('order','ASC')->limit(3)->get();
+                $games = MMygame::with('fgame')->whereHas('fgame')->orderBy('order','ASC')->limit(3)->get();
                 $msg_count = MInbox::where('userId',$this->user->id)->where('readed',0)->get()->count();
                 View::share('top_role',$role);
                 View::share('top_buying_register',$buying_register);

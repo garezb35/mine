@@ -657,7 +657,7 @@ i.icon_refresh {
 
 .regInfo_subcontent_in {
     box-sizing: border-box;
-    width: 232px;
+    width: calc(100% - 75px);
     padding: 0 15px;
 }
 

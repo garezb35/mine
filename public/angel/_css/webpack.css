@@ -1247,7 +1247,7 @@ padding-left: 7px;
 }
 
 .react___gatsby .cont {
-    padding: 20px;
+    padding: 10px;
 }
 
 .react___gatsby:after {
@@ -2852,6 +2852,7 @@ table.noborder tr td,.noborder{
     font-size: 16px;
     line-height: 32px;
     cursor: pointer;
+    border: 1px solid #000;
 }
 
 .btn-default-medium_w{
@@ -3777,6 +3778,12 @@ fieldset:disabled a.btn
 
     .details__explo>div{
         width: 100% !important;
+    }
+    .b_input_group{
+        display: flex;
+    }
+    .b_input_group a{
+        width: 100%;
     }
 }
 
