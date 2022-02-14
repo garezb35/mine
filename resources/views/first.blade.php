@@ -86,7 +86,7 @@
                             <div class="f-15 f-bold" style='margin-left: 16px;'>총 마일리지 </div>
                         </td>
                         <td>
-                            <div class="f-15"><span class='f-16' style='color: #6bdaff; margin-left: 5px;'>{{number_format($me['mileage'])}}</span> 원</div>
+                            <div class="f-15"><span class='f-16' style='color: #ff0000; margin-left: 5px;'>{{number_format($me['mileage'])}}</span> 원</div>
                         </td>
                     </tr>
                 </table>
