@@ -110,17 +110,20 @@ table td .angel__text {
     width: 55px
 }
 
+#angel{
+    display: flex;
+}
+
 #coupon_tb th img {
     margin-right: 5px
 }
 
 .mileage__h{
-    display: flex;
+    display: block;
     border: 1px solid #d9dada;
-    margin-bottom: 30px;
     padding-bottom: 15px;
-    padding-top: 15px;
-    margin-top: 30px;
+    padding-top: 28px;
+    width: 100%;
 }
 
 .m_price {
@@ -128,7 +131,6 @@ table td .angel__text {
 }
 
 .my_mileage {
-    width: 222px;
     padding-left: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -137,10 +139,10 @@ table td .angel__text {
 
 .part-border {
     font-size: 16px;
-    width: calc(100% - 232px);
-    text-align: center;
+    text-align: left;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-left: 10px;
 }
 
 .mileage_prices_part{
@@ -185,6 +187,7 @@ table td .angel__text {
 
 #charge_main {
     position: relative;
+    width: 100%;
 }
 
 #charge_main .m_box {
@@ -693,4 +696,14 @@ table td .angel__text {
     border: 1px solid lightgray;
     font-size: 11px;
     letter-spacing: 0px
+}
+
+@media screen and (max-width: 847px) {
+    #angel {
+        display: block;
+    }
+
+    .mileage__h{
+        width: unset;
+    }
 }

@@ -349,7 +349,9 @@ table tr .left {
     border: 1px solid #a5a5a5;
 }
 
-.btn-endsb.selected{
+
+
+.btn-endsb.selected,.btn-endsb:hover{
     background: linear-gradient(#4e90c8,#336d97);
     border: 1px solid #334e90c8;
     color: #fff;
@@ -2916,6 +2918,10 @@ table.noborder tr td,.noborder{
     color: #fff;
     border: 1px solid #000 !important;
 }
+
+.btn-yes:hover{
+    background: linear-gradient(#556c03,#6d9416);
+}
 .btn-no{
     background: #000;
     color: #fff;
@@ -3701,6 +3707,11 @@ fieldset:disabled a.btn
     min-width:unset;
 }
 
+.w100x{
+    width: 100px;
+    min-width: unset;
+}
+
 .w__500{
     width: 530px;
     margin: auto;
@@ -3742,7 +3753,7 @@ fieldset:disabled a.btn
 }
 
 .f_control_txt{
-    width: 108px;
+    width: 136px;
     height: 24px;
 }
 

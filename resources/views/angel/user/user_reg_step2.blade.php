@@ -1,10 +1,10 @@
-@extends('layouts-angel.app')
+@extends('layouts-angel.app-frame')
 
 @section('head_attach')
     <link type="text/css" rel="stylesheet" href="/angel/user/join_agreement.css">
     <link type="text/css" rel="stylesheet" href="/angel/user/_join_title.css">
 
-    <script type="text/javascript" src="/angel/carsouel_plugin/js/carsouel_plugin.js?v=210209"></script>
+    <script type="text/javascript" src="/angel/carsouel_plugin/js/carsouel_plugin.js"></script>
 @endsection
 
 @section('foot_attach')
@@ -12,144 +12,146 @@
 @endsection
 
 @section('content')
-    <div class="container_fulids" id="module-teaser-fullscreen">
-        <div class="recommend_e34rf">
-        </div>
-        <script type="text/javascript">
-            var USER_TYPE = "general";
-            window.name = 'joinAtFrm';	// 중요 아이핀 인증 시 꼭 필요
-        </script>
-        <style>
-            .g_title_txt {
-                font-size: 36px;
-                font-weight: bold;
-                padding-top: 28px;
-                padding-bottom: 14px;
-            }
-            .g_title_txt span {
-                color: #0073DD;
-            }
-            .part-reg-step .div-each {
-                width: 25%;
-            }
-            .part-reg-step {
-                padding-bottom: 30px;
-            }
-            .part-reg-step .div-each {
-                background-color: #C4C4C4;
-                height: 140px;
-            }
-            .part-reg-step .active {
-                background-color: #3A79B4;
-            }
-            .part-reg-detail .part-text div {
-                color: white;
-                padding-top: 4px;
-            }
-            .part-reg-detail {
-                padding-left: 45px;
-                padding-top: 30px;
-            }
-            .part-reg-detail .part-text {
-                padding-top: 12px;
-                padding-left: 14px;
-                letter-spacing: 0px;
-            }
-            .part-reg-detail .img-part img {
-                display: inline-block;
-                height: 100%;
-                object-fit: contain;
-            }
-            .verify-type {
-                padding-top: 12px;
-            }
-            .verify-detail {
-                padding-top: 10px;
-            }
-            .user-verify-part {
-                padding-top: 40px;
-                margin-top: 20px;
-                margin-bottom: 60px;
-                border-top: solid 1px #a5a5a5;
-            }
-            #verify-phone, #verify-pin {
-                cursor: pointer;
-            }
-        </style>
+    <div @class('bg-white')>
+        <div></div>
+        <div @class('ml-10 mr-10')>
+            <div class="recommend_e34rf">
+            </div>
+            <script type="text/javascript">
+                var USER_TYPE = "general";
+                window.name = 'joinAtFrm';	// 중요 아이핀 인증 시 꼭 필요
+            </script>
+            <style>
+                .g_title_txt {
+                    font-size: 24px;
+                    font-weight: bold;
+                    padding-top: 28px;
+                    padding-bottom: 14px;
+                }
+                .g_title_txt span {
+                    color: #0073DD;
+                }
+                .part-reg-step .div-each {
+                    width: 25%;
+                }
+                .part-reg-step {
+                    padding-bottom: 30px;
+                }
+                .part-reg-step .div-each {
+                    background-color: #C4C4C4;
+                    height: 140px;
+                }
+                .part-reg-step .active {
+                    background-color: #3A79B4;
+                }
+                .part-reg-detail .part-text div {
+                    color: white;
+                    padding-top: 4px;
+                }
+                .part-reg-detail {
+                    padding-left: 45px;
+                    padding-top: 30px;
+                }
+                .part-reg-detail .part-text {
+                    padding-top: 12px;
+                    padding-left: 14px;
+                    letter-spacing: 0px;
+                }
+                .part-reg-detail .img-part img {
+                    display: inline-block;
+                    height: 100%;
+                    object-fit: contain;
+                }
+                .verify-type {
+                    padding-top: 12px;
+                }
+                .verify-detail {
+                    padding-top: 10px;
+                }
+                .user-verify-part {
+                    padding-top: 40px;
+                    margin-top: 20px;
+                    margin-bottom: 60px;
+                    border-top: solid 1px #a5a5a5;
+                }
+                #verify-phone, #verify-pin {
+                    cursor: pointer;
+                }
+            </style>
 
-        <div class="g_title_txt">
-            <span>회원가입</span> 서비스
-        </div>
-        <div class="d-flex w-100 part-reg-step">
-            <div class="div-each w-100 ">
-                <div class="d-flex part-reg-detail">
-                    <div class="img-part">
-                        <img src="/angel/img/icons/reg_step1.png" height="77" width="77" />
+            <div class="g_title_txt">
+                <span>회원가입</span> 서비스
+            </div>
+            <div class="d-flex w-100 part-reg-step">
+                <div class="div-each w-100 ">
+                    <div class="d-flex part-reg-detail">
+                        <div class="img-part">
+                            <img src="/angel/img/icons/reg_step1.png" height="77" width="77" />
+                        </div>
+                        <div class="part-text">
+                            <div class="f-15">STEP 01</div>
+                            <div class="f-16">회원유형선택</div>
+                        </div>
                     </div>
-                    <div class="part-text">
-                        <div class="f-15">STEP 01</div>
-                        <div class="f-16">회원유형선택</div>
+                </div>
+                <div class="div-each w-100 active">
+                    <div class="d-flex part-reg-detail">
+                        <div class="img-part">
+                            <img src="/angel/img/icons/reg_step2.png" height="63" width="74" styl />
+                        </div>
+                        <div class="part-text">
+                            <div class="f-15">STEP 02</div>
+                            <div class="f-16">약관동의</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="div-each w-100">
+                    <div class="d-flex part-reg-detail">
+                        <div class="img-part">
+                            <img src="/angel/img/icons/reg_step3.png" height="63" width="66" />
+                        </div>
+                        <div class="part-text">
+                            <div class="f-15">STEP 03</div>
+                            <div class="f-16">정보입력</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="div-each w-100">
+                    <div class="d-flex part-reg-detail">
+                        <div class="img-part">
+                            <img src="/angel/img/icons/reg_step4.png" height="70" width="85" />
+                        </div>
+                        <div class="part-text">
+                            <div class="f-15">STEP 04</div>
+                            <div class="f-16">회원가입완료</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="div-each w-100 active">
-                <div class="d-flex part-reg-detail">
-                    <div class="img-part">
-                        <img src="/angel/img/icons/reg_step2.png" height="63" width="74" styl />
-                    </div>
-                    <div class="part-text">
-                        <div class="f-15">STEP 02</div>
-                        <div class="f-16">약관동의</div>
-                    </div>
-                </div>
-            </div>
-            <div class="div-each w-100">
-                <div class="d-flex part-reg-detail">
-                    <div class="img-part">
-                        <img src="/angel/img/icons/reg_step3.png" height="63" width="66" />
-                    </div>
-                    <div class="part-text">
-                        <div class="f-15">STEP 03</div>
-                        <div class="f-16">정보입력</div>
-                    </div>
-                </div>
-            </div>
-            <div class="div-each w-100">
-                <div class="d-flex part-reg-detail">
-                    <div class="img-part">
-                        <img src="/angel/img/icons/reg_step4.png" height="70" width="85" />
-                    </div>
-                    <div class="part-text">
-                        <div class="f-15">STEP 04</div>
-                        <div class="f-16">회원가입완료</div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="agree_check">
-            <input type="checkbox" id="agreement_all" name="agreement_all">
-            <label for="agreement_all">모든 약관을 확인하고 전체동의 합니다.<span>(전체 동의 시 선택항목도 포함됩니다.)</span></label>
-        </div>
+            <div class="agree_check">
+                <input type="checkbox" id="agreement_all" name="agreement_all">
+                <label for="agreement_all">모든 약관을 확인하고 전체동의 합니다.<span>(전체 동의 시 선택항목도 포함됩니다.)</span></label>
+            </div>
 
-        <div class="agree_check_s">
-            <input type="checkbox" id="user_agreement1" name="user_agreement1" value="1">
-            <label for="user_agreement1">아이템천사 서비스 이용약관 및 아이템거래 서비스 이용약관에 동의합니다.
-                <span class="f_blue3">(필수)</span>
-            </label>
-        </div>
+            <div class="agree_check_s">
+                <input type="checkbox" id="user_agreement1" name="user_agreement1" value="1">
+                <label for="user_agreement1">아이템천사 서비스 이용약관 및 아이템거래 서비스 이용약관에 동의합니다.
+                    <span class="f_blue3">(필수)</span>
+                </label>
+            </div>
 
-        <div class="clause_box">
-            <ul class="sub_tab">
-                <li>
-                    <a href="javascript:;" class="on" id="portal_tab">아이템천사 서비스 이용약관</a>
-                </li>
-                <li class="gb">|</li>
-                <li>
-                    <a href="javascript:;" id="trade_tab">아이템거래 서비스 이용약관</a>
-                </li>
-            </ul>
-            <pre><div id="portal_yak">
+            <div class="clause_box">
+                <ul class="sub_tab">
+                    <li>
+                        <a href="javascript:;" class="on" id="portal_tab">아이템천사 서비스 이용약관</a>
+                    </li>
+                    <li class="gb">|</li>
+                    <li>
+                        <a href="javascript:;" id="trade_tab">아이템거래 서비스 이용약관</a>
+                    </li>
+                </ul>
+                <pre><div id="portal_yak">
 제 1 장 총칙
 
 제 1조 (목적)
@@ -684,15 +686,15 @@
 1. 이 약관은 2020년 5월 1일부터 적용됩니다.
 2. 2018년 10월 15일부터 시행되던 종전의 약관은 본 약관으로 대체됩니다.</div>
 </pre>
-        </div>
-        ※ 약관 중 이벤트 등 광고 알림 수신 동의 내용이 포함되어 있습니다.
+            </div>
+            ※ 약관 중 이벤트 등 광고 알림 수신 동의 내용이 포함되어 있습니다.
 
-        <div class="agree_check_s">
-            <input type="checkbox" id="user_agreement2" name="user_agreement2" value="1">
-            <label for="user_agreement2">개인정보 수집 및 이용에 동의합니다.
-                <span class="f_blue3">(필수)</span></label>
-        </div>
-        <div class="clause_box">
+            <div class="agree_check_s">
+                <input type="checkbox" id="user_agreement2" name="user_agreement2" value="1">
+                <label for="user_agreement2">개인정보 수집 및 이용에 동의합니다.
+                    <span class="f_blue3">(필수)</span></label>
+            </div>
+            <div class="clause_box">
 <pre> 개인정보 수집이용 등에 대한 이용자 동의사항
 
 1. 수집하는 개인정보의 항목 및 수집방법
@@ -721,26 +723,26 @@
 - 회사는 동일한 계정으로 중복 가입하는 경우를 방지하기 위하여 회원 탈퇴 후에도 해당 아이디는 삭제하지 아니합니다.
 - 로또추천번호 : 적중내역 확인일로부터 1년 보관
 				</pre>
-        </div>
+            </div>
 
-        <div class="agree_check_s">
-            <input type="checkbox" id="user_agreement10" name="user_agreement10" value="10">
-            <label for="user_agreement10">광고 정보 수신동의
-                <span class="black">(선택)</span></label>
-        </div>
-        <div class="clause_box clause_box2">
+            <div class="agree_check_s">
+                <input type="checkbox" id="user_agreement10" name="user_agreement10" value="10">
+                <label for="user_agreement10">광고 정보 수신동의
+                    <span class="black">(선택)</span></label>
+            </div>
+            <div class="clause_box clause_box2">
 <pre>고객이 수집 및 이용에 동의한 개인정보를 활용하여 전자적 전송매체(SMS, LMS, 네이버 알림, 앱 푸시 등 다양한 전송매체)를 통해,
 아이템천사 및 제 3자의 상품 또는 서비스에 대한 개인 맞춤형 광고 정보를 전송할수 있습니다.
 </pre>
-        </div>
+            </div>
 
-        <div class="agree_check_s">
-            <input type="checkbox" id="user_agreement3" name="user_agreement3" value="1">
-            <label for="user_agreement3">개인정보 제 3자 마케팅 활용에 동의합니다.
-                <span class="black">(선택)</span></label>
+            <div class="agree_check_s">
+                <input type="checkbox" id="user_agreement3" name="user_agreement3" value="1">
+                <label for="user_agreement3">개인정보 제 3자 마케팅 활용에 동의합니다.
+                    <span class="black">(선택)</span></label>
 
-        </div>
-        <div class="clause_box">
+            </div>
+            <div class="clause_box">
 <pre>목적
 (주)아이템천사는 고객들에게 보다 다양한 정보를 제공하고, 서비스의 질을 향상시키기 위하여 당사의 비즈니스 파트너에게 본 활용동의서에 동의한 회원의 개인정보를 제공합니다.
 
@@ -860,44 +862,44 @@
 이미 제공된 회원정보를 철회하는 데는 일정 시간이 소요됩니다. 활용동의 철회를 요청하시더라도 위와 같은 이유로 마케팅에 활용될 수 있음을 알려드립니다.
 (주)아이템천사는 회원님의 소중한 정보를 보호하기 신속하게 처리되도록 최선에 노력을 다하겠습니다.
 </pre>
-        </div>
-
-
-        <div class="agree_check_s">
-            <input type="checkbox" name="user_service_use_agree" id="user_service_use_agree" value="1">
-            <label for="user_service_use_agree">
-                개인정보를 파기 또는 분리 저장 ∙ 관리하여야 하는 서비스 미 이용 기간을 회원 탈퇴 시 까지로 요청합니다.
-                <span class="black">(선택)</span><br>
-                <span class="normal">※ 다만, 별도의 요청이 없을 경우 서비스 미이용 기간은 1년으로 합니다.</span>
-            </label>
-        </div>
-
-
-        <div class="d-flex user-verify-part" >
-            <div class="w-50 align-center" style="border-right: solid 1px #d5d5d5;">
-                <img id="verify-phone" src="/angel/img/reg/phone_icon.png" width="153" height="153" onclick="verifyPhone()" />
-                <div class="verify-type f-16 f-bold align-center" style="color: #0E8BFF">휴대폰</div>
-                <div class="verify-detail f-15 align-center">본인 명의의 휴대폰으로 인증번호를 받은 후<br>가입하실수 있습니다.</div>
             </div>
-            <div class="w-50 align-center">
-                <img id="verify-pin" src="/angel/img/reg/pin_icon.png" width="153" height="153" onclick="verifyPin()" />
-                <div class="verify-type f-16 f-bold align-center" style="color: #0E8BFF">아이핀 (I-PIN)</div>
-                <div class="verify-detail f-15 align-center">인터넷상 개인 식별번호로 본인임을<br>확인할 수 있는 개인정보보호 서비스</div>
+
+
+            <div class="agree_check_s">
+                <input type="checkbox" name="user_service_use_agree" id="user_service_use_agree" value="1">
+                <label for="user_service_use_agree">
+                    개인정보를 파기 또는 분리 저장 ∙ 관리하여야 하는 서비스 미 이용 기간을 회원 탈퇴 시 까지로 요청합니다.
+                    <span class="black">(선택)</span><br>
+                    <span class="normal">※ 다만, 별도의 요청이 없을 경우 서비스 미이용 기간은 1년으로 합니다.</span>
+                </label>
             </div>
+
+
+            <div class="d-flex user-verify-part" >
+                <div class="w-50 align-center" style="border-right: solid 1px #d5d5d5;">
+                    <img id="verify-phone" src="/angel/img/reg/phone_icon.png" width="153" height="153" onclick="verifyPhone()" />
+                    <div class="verify-type f-16 f-bold align-center" style="color: #0E8BFF">휴대폰</div>
+                    <div class="verify-detail f-15 align-center">본인 명의의 휴대폰으로 인증번호를 받은 후<br>가입하실수 있습니다.</div>
+                </div>
+                <div class="w-50 align-center">
+                    <img id="verify-pin" src="/angel/img/reg/pin_icon.png" width="153" height="153" onclick="verifyPin()" />
+                    <div class="verify-type f-16 f-bold align-center" style="color: #0E8BFF">아이핀 (I-PIN)</div>
+                    <div class="verify-detail f-15 align-center">인터넷상 개인 식별번호로 본인임을<br>확인할 수 있는 개인정보보호 서비스</div>
+                </div>
+            </div>
+            <form id="form-next-step" method="post" action="{{route('user_reg_step3')}}">
+                @csrf
+                <input type="hidden" name="userName" value="" id="userName" />
+                <input type="hidden" name="userBirth" value="" id="userBirth" />
+                <input type="hidden" name="userType" value="{{$userType}}" />
+                <input type="hidden" name="phoneType" id="phoneType" value="" />
+                <input type="hidden" name="phoneNum1" id="phoneNum1" value="" />
+                <input type="hidden" name="phoneNum2" id="phoneNum2" value="" />
+                <input type="hidden" name="phoneNum3" id="phoneNum3" value="" />
+            </form>
+            <div class="empty-high"></div>
         </div>
-        <form id="form-next-step" method="post" action="{{route('user_reg_step3')}}">
-            @csrf
-            <input type="hidden" name="userName" value="" id="userName" />
-            <input type="hidden" name="userBirth" value="" id="userBirth" />
-            <input type="hidden" name="userType" value="{{$userType}}" />
-            <input type="hidden" name="phoneType" id="phoneType" value="" />
-            <input type="hidden" name="phoneNum1" id="phoneNum1" value="" />
-            <input type="hidden" name="phoneNum2" id="phoneNum2" value="" />
-            <input type="hidden" name="phoneNum3" id="phoneNum3" value="" />
-        </form>
-        <div class="empty-high"></div>
     </div>
-
     <script>
         function verifyPhone() {
             if (document.getElementById("agreement_all").checked) {

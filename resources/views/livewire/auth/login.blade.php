@@ -10,31 +10,10 @@
             min-height: 814px;
             background: white !important;
         }
+
     </style>
 
-    <section class="pb-6 bg-soft bg-white">
-        <div class="warning-19-part mb-lg-5">
-            <div class="row justify-content-center py-lg-2 bg-gray-50 border-bottom border-2">
-                <div class="col-12">
-                    <div class="w-100 fmxw-700 d-flex align-items-center justify-content-center m-auto">
-                        <div style="width: 130px;">
-                            <img src="/assets/img/19red.png" width="129" height="129" alt="">
-                        </div>
-                        <div style="width: calc(100% - 130px)">
-                            <div class="fs-6 ps-3 fw-bold">
-                                <div>본 정보내용은 청소년유해매체물로서</div>
-                                <div>[정보통신만 이용촉진 및 정보보호 등에 관한 법률] 및 [청소년 보호법]의</div>
-                                <div>규정에 의하여 19세미만의 청소년은 사용할수 없습니다.</div>
-                                <div class="mb-2 mt-3">
-                                    <a href="{{route('index')}}" class="bg-gray-500 link-light p-2">19세 미만 나가기</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+    <section class="pb-6 bg-soft bg-white pt-6">
         <div class="container">
             <div wire:ignore.self class="row justify-content-center">
                 <div class="col-12 d-flex align-items-center justify-content-center">

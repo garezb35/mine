@@ -146,13 +146,13 @@
                             <td class="p-1">
                                 <div class="input-group mb-1">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text cus-gray">$</span>
+                                        <span class="input-group-text cus-gray"><i @class('fa fa-user')></i></span>
                                     </div>
                                     {!! Form::text('loginId', '', ["required"=>true,'class' => 'input-green form-control b-left-n text-white','autocomplete'=>"off"]) !!}
                                 </div>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text cus-gray">$</span>
+                                        <span class="input-group-text cus-gray"><i @class('fa fa-user')></i></span>
                                     </div>
                                     {!! Form::password('password', ["required"=>true,'class'=>'input-green form-control b-left-n text-white']) !!}
                                 </div>
@@ -169,7 +169,7 @@
                                     </div>
                                 @endif
 
-                                <a class="text-white mr-2 f-12" href="{{ route('user_reg_step1') }}">회원가입</a>&nbsp;
+                                <a class="text-white mr-2 f-12" href="{{ route('user_reg_step1') }}" target="mainFrame">회원가입</a>&nbsp;
                                 <a class="text-white f-12" href="{{ route('user_lose_id') }}" target="mainFrame">아이디 찾기</a>&nbsp;
                                 <a class="text-white f-12" href="{{ route('user_lose_pwd') }}" target="mainFrame">비밀번호 찾기</a>
                             </td>

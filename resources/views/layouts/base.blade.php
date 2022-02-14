@@ -134,5 +134,9 @@
     {{ $slot }}
 
 </body>
-
+<style>
+    body{
+        background: #fff;
+    }
+</style>
 </html>

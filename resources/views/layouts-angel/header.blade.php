@@ -30,11 +30,11 @@
                         </li>
                         <li><a href="{{route('myroom')}}"  target="mainFrame">마이룸</a></li>
                         <li><a href="{{route('main_customer')}}"  target="mainFrame">고객센터</a></li>
-                        <li><a href="/logout">로그아웃</a></li>
+                        <li><a href="/logout" >로그아웃</a></li>
                     @else
                         <li><a href="{{route('main_customer')}}"  target="mainFrame">고객센터</a></li>
-                        <li><a href="{{route('user_reg_step1')}}">회원가입</a></li>
-                        <li><a href="/login">로그인</a></li>
+                        <li><a href="{{route('user_reg_step1')}}" target="mainFrame">회원가입</a></li>
+                        <li><a href="/login" target="mainFrame">로그인</a></li>
                     @endif
                 </ul>
             </div>

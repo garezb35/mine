@@ -76,11 +76,9 @@ table {
     border-left: unset !important;
 }
 .input-green {
-    border-color: #0f1722 !important;
     line-height: 30px;
     height: 31px;
     border-width: 1px;
-    background-color: #1a273a !important;
 }
 .form-control {
     display: block;
@@ -1856,7 +1854,7 @@ table tr td {
     width: 824px;
     height: 230px;
     overflow: hidden;
-    border: 3px solid #f8a80d;
+    border: 2px solid #9d9d9d;
     padding: 20px 10px 20px 10px;
     z-index: 1000;
 }
@@ -1932,10 +1930,10 @@ table tr td {
     border-radius: 4px;
 }
 
-.input-group-text.cus-gray{
-    background-color: #1a273a;
-    border-color: #0f1722 !important;
-}
+/*.input-group-text.cus-gray{*/
+/*    background-color: #1a273a;*/
+/*    border-color: #0f1722 !important;*/
+/*}*/
 
 .heads-div{
     margin-top: 10px;
@@ -2097,7 +2095,7 @@ table tr td {
 }
 
 
-@media screen and (max-width: 1311px)
+@media screen and (max-width: 1398px)
 {
     #container__fluilds__h, .header-brand-logo, .sec_left {
         width: 100% !important;

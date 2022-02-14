@@ -50,9 +50,9 @@
 
                 <div @class('brl brb global_milwage')>
                     @if ($type == 'charge')
-                        <iframe src="{{route('mileage_payment_charge')}}" width="100%"  frameBorder="0" id="mileage_frame" height="390px"></iframe>
+                        <iframe src="{{route('mileage_payment_charge')}}" width="100%"  frameBorder="0" scrolling="0" id="mileage_frame" height="440px"></iframe>
                     @else
-                        <iframe src="{{route('mileage_payment_exchange')}}" width="100%"  frameBorder="0" id="mileage_frame" height="390px"></iframe>
+                        <iframe src="{{route('mileage_payment_exchange')}}" width="100%"  frameBorder="0" scrolling="0" id="mileage_frame" height="440px"></iframe>
                     @endif
                 </div>
                 <div class="empty-high"></div>

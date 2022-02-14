@@ -30,6 +30,7 @@
         <div id="global_root" class="mainEntity d-none ">
             <div id="thirdys" class="fluid-div"></div>
         </div>
+        <div class="highlight_contextual_nodemon mt-15">{{$snzProc}}금액 선택</div>
         <div id="angel">
             <div @class('mileage__h')>
                 <div class="my_mileage">
@@ -50,13 +51,12 @@
                     $('charge_menu_event').style.display = "block";
                 }
             </script>
-            <div id="charge_main" @class('w-100')>
+            <div id="charge_main">
                 <form id="ini" name="ini" action="" method="post">
                     <input type="hidden" name="commission" id="commission" value="0" />
                     <input type="hidden" name="charge_rate" id="charge_rate" value="2" />
                     <input type="hidden" name="ITEM_OID" value="" />
                     <input type="hidden" name="price" id="price" />
-                    <div id="" class="highlight_contextual_nodemon">{{$snzProc}}금액 선택</div>
                     <div @class('mileage_prices_part')>
                         <div>
                             <div class="align-center" >
@@ -142,6 +142,9 @@
             }
         </script>
         <script>
+            $(window).on('resize', function() {
+                heightResize()
+            })
             $(document).ready(function (){
                 heightResize();
             })
