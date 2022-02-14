@@ -304,7 +304,14 @@
     }
     fixChattingPos();
     changePosL();
-
+    $(document).click(function (event) {
+        var $target = $(event.target);
+        if (!$target.closest('.dropdown-menu').length && $('.dropdown-menu').is(":visible") && !$target.closest('#dropdown-wzs').length && $('#dropdown-wzs').is(":visible") ){
+            $('.dropdown-menu').css('display','none');
+            $(this).toggleClass('close');
+            hidden_menu = false;
+        }
+    })
     $(document).ready(function(){
         $(".moduler_footer").css('display','block')
         $( '#dl-menu' ).dlmenu();
