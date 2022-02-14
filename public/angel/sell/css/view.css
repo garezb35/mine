@@ -42,9 +42,6 @@
 .wideview {
     float: right;
     padding: 0 4px 2px;
-    border: 1px solid #696969;
-    background-color: #8E8E8E;
-    color: #F5F4F4;
     font-size: 11px;
     line-height: 15px;
     font-weight: normal;
@@ -78,10 +75,10 @@
 .trade_fraud>div {
     position: relative;
     box-sizing: border-box;
-    line-height: 56px;
-    background: #E3F0F3;
-    border: 1px solid #89C1CE;
-    height: 56px;
+    line-height: 45px;
+    background: #f9f9f9;
+    border: 1px solid #c7c7c7;
+    height: 45px;
 }
 
 .trade_fraud .direct {
@@ -102,11 +99,13 @@
     display: inline-block;
     width: 103px;
     height: 29px;
-    margin-left: 6px;
-    background-color: #1CA8D4;
+    background-color: #229fa3;
     text-align: center;
-    line-height: 25px;
+    line-height: 29px;
     color: #FFF;
+    float: right;
+    margin-right: 10px;
+    margin-top: 7px;
 }
 
 .trade_fraud .angel__text {

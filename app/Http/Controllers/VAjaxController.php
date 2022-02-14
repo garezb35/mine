@@ -44,9 +44,10 @@ class VAjaxController extends BaseController
             ::with(['premiums','game','server','user.roles'])
             ->where('game_code',$filtered_game_id)
             ->where('status',"!=",-1)
-            ->where('server_code',$filtered_child_id)
             ->where('type',$request->search_type);
-
+        if(!empty($filtered_child_id)){
+            $game = $game->where('server_code',$filtered_child_id);
+        }
         if(!empty($request->filtered_items) && $request->filtered_items != 'all')
             $game = $game->where('user_goods',$request->filtered_items);
 
@@ -129,7 +130,6 @@ class VAjaxController extends BaseController
         if($request->order ==1){
             $game = $game->orderBy('user_price',"ASC");
         }
-
 
         if($request->overlap == 'on')
             $game = $game->groupBy('game_code','server_code');

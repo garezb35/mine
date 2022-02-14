@@ -11,6 +11,11 @@
     <script type="text/javascript" src="/angel/diagram_chart/init.js"></script>
     <script type="text/javascript" src="/angel/js/home.js"></script>
     <script>
+        function enterSearchList(id,game){
+            $('input[name="filtered_game_id"]').val(id);
+            $('input[name="filtered_game_alias"]').val(game);
+            $("#search-overlay-container").submit()
+        }
         $(document).ready(function() {
             $(".tab-title").click(function() {
                 var elem = $(this);
@@ -250,4 +255,42 @@
             </div>
         </div>
         <div class="empty-high"></div>
+
+
+        <form id="search-overlay-container" method="post" action="" onsubmit="return searchbarSubmit();" target="mainFrame" class="d-none">
+            @csrf
+            <input type="hidden" name="filtered_game_id" value="{{$filtered_game_id ?? ''}}">
+            <input type="hidden" name="filtered_game_alias" value="{{$filtered_game_alias ?? ''}}">
+            <input type="hidden" name="filtered_child_id" value="{{$filtered_child_id ?? ''}}">
+            <input type="hidden" name="filtered_child_alias" value="{{$filtered_child_alias ?? ''}}">
+            <input type="hidden" name="filtered_items" value="{{$filtered_items ?? ''}}">
+            <div class="top_game_searchbar">
+                <div class="search_area no-border">
+                    <input type="text" class="angel__text search_gs_name" name="searchGameServer" id="searchGameServer" title="게임검색" style="ime-mode:active" placeholder="게임명을 입력해주세요." autocomplete="off" data-gameserver="true">
+                </div>
+                <button type="submit" class="search__submit" id="search__submit" title="검색"><i @class('fa fa-search')></i></button>
+                <div class="gameWindowPopup d-none">
+                    <div class="gameTypePopup align-center">
+                        <input type="radio" id="search_type1" name="search_type" value="sell" @if(empty($_POST['search_type']) || $_POST['search_type'] != 'buy') checked @endif style="display: none">
+                        <input type="radio" id="search_type2" name="search_type" value="buy" @if(!empty($_POST['search_type']) && $_POST['search_type'] == 'buy') checked @endif style="display: none">
+
+                    </div>
+                    <div class="_34Cr45d_reacts">
+                        <div class="tab searchbar_tab">
+                            <div class="active"> <a href="javascript:;" data-target="tab_lastsearch">최근검색게임</a> </div>
+                            <div> <a href="javascript:;" data-target="tab_mygame">즐겨찾는 게임</a> </div>
+                        </div>
+                        <div class="tab_content">
+                            <div class="tab_child show" data-content="tab_lastsearch">
+                                <ul class="recent_viewd_games"></ul>
+                            </div>
+                            <div class="tab_child" data-content="tab_mygame">
+                                <ul class="mysearch_filters"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="angel__menugames d-none" data-gslist="true"></div>
+                </div>
+            </div>
+        </form>
 @endsection

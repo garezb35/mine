@@ -61,7 +61,7 @@
                         </tr>
                         <tr>
                             <th>거래번호</th>
-                            <td class="bg-ggray">#{{$orderNo}}</td>
+                            <td class="bg-ggray e--pc">#{{$orderNo}}</td>
                             <th class="visible--table--pc">등록일시</th>
                             <td class="visible--table--pc bg-ggray">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                         </tr>
@@ -71,7 +71,7 @@
                         </tr>
                         <tr>
                             <th>거래유형</th>
-                            <td>일반</td>
+                            <td class="e--pc">일반</td>
                             <th class="visible--table--pc">구매자 캐릭터명</th>
                             <td class="visible--table--pc">{{$user_character}}</td>
                         </tr>
@@ -109,39 +109,47 @@
                             </tr>
                             <tr>
                                 <th>거래번호</th>
-                                <td class="bg-ggray">#{{$orderNo}}</td>
+                                <td class="bg-ggray e--pc">#{{$orderNo}}</td>
                                 <th class="visible--table--pc">등록일시</th>
                                 <td class="visible--table--pc bg-ggray">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                             </tr>
                             <tr class="visible--table-m">
                                 <th>등록일시</th>
-                                <td>{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
+                                <td colspan="3">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                             </tr>
                             <tr>
                                 <th>거래유형</th>
-                                <td>분할</td>
+                                <td class="e--pc">분할</td>
                                 <th class="visible--table--pc">구매자 캐릭터명</th>
                                 <td class="visible--table--pc">{{$user_character}}</td>
                             </tr>
                             <tr class="visible--table-m">
                                 <th>구매자 캐릭터명</th>
-                                <td>{{$user_character}}</td>
+                                <td colspan="3">{{$user_character}}</td>
                             </tr>
                             <tr>
                                 <th>최소구매수량</th>
-                                <td class="bg-ggray">{{$user_quantity_min}}{{$goods_label}}</td>
+                                <td class="bg-ggray e--pc">{{$user_quantity_min}}{{$goods_label}}</td>
                                 <th class="visible--table--pc">최대구매수량</th>
                                 <td class="visible--table--pc bg-ggray">{{$user_quantity_max}}{{$goods_label}}</td>
                             </tr>
                             <tr class="visible--table-m">
                                 <th>최대구매수량</th>
-                                <td>{{$user_quantity_max}}{{$goods_label}}</td>
+                                <td colspan="3">{{$user_quantity_max}}{{$goods_label}}</td>
                             </tr>
                             <tr>
                                 <th>단위금액</th>
-                                <td>{{$user_division_unit}}개당 {{number_format($user_division_price)}}원</td>
+                                <td class="e--pc">{{$user_division_unit}}개당 {{number_format($user_division_price)}}원</td>
+                                <th class="visible--table--pc">구매할인</th>
+                                <td class="visible--table--pc">
+                                    @if($discount_use == 1)
+                                        {{$discount_quantity_cnt * $user_division_unit}}개 당 {{number_format($discount_price)}}원 할인
+                                    @endif
+                                </td>
+                            </tr>
+                            <tr class="visible--table-m">
                                 <th>구매할인</th>
-                                <td>
+                                <td colspan="3">
                                     @if($discount_use == 1)
                                         {{$discount_quantity_cnt * $user_division_unit}}개 당 {{number_format($discount_price)}}원 할인
                                     @endif
@@ -154,7 +162,7 @@
                 <table class="table-striped table-green1">
                     <tr>
                         <th>이름</th>
-                        <td>이장훈</td>
+                        <td class="e--pc">이장훈</td>
                         <th class="bd_left visible--table--pc">연락처</th>
                         <td class="visible--table--pc">자택번호없음 / 010-4797-3690 <span class='f_green2 font-weight-bold'></span></td>
                     </tr>

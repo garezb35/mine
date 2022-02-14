@@ -582,11 +582,11 @@ function receiveProcess(data)
                 // break;
 
             case 'CONNECTUSER':
-                if(roomIdx == 'channel1')
+                if(roomIdx == 'channel1' && bPacket.connectUserCnt)
                 {
                     $('#connectUserCnt').attr('rel',bPacket.connectUserCnt).text($.number(bPacket.connectUserCnt));
                 }
-                else if(roomIdx == 'channel2')
+                else if(roomIdx == 'channel2' && bPacket.connectUserCnt)
                 {
                     $('#connectUserCnt').attr('rel',bPacket.connectUserCnt).text($.number(bPacket.connectUserCnt));
                 }

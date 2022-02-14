@@ -1202,7 +1202,7 @@ padding-left: 7px;
 }
 
 .react___gatsby .title {
-    padding: 30px  0px  30px;
+    padding: 20px  0px  20px;
     font-size: 18px;
     font-weight: 700;
     text-align: center;
@@ -1594,7 +1594,7 @@ padding-left: 7px;
     font-weight: bold;
 }
 
-.cert_staten.on {
+.cert_state.on {
     border: 1px solid #ff4e00;
     color: #ff4e00;
 }
@@ -2126,9 +2126,7 @@ padding-left: 7px;
     background-color: #FFF;
 }
 
-.modal_dialog.green {
-    border-color: #29ac0b;
-}
+
 
 .modal_dialog .modal__title {
     clear: both;
@@ -2147,7 +2145,7 @@ padding-left: 7px;
 }
 
 .modal_dialog.green .modal__title {
-    background-color: #29ac0b;
+    background-color: #3ab7d3;
     text-align: center;
 }
 
@@ -2163,7 +2161,6 @@ padding-left: 7px;
 }
 
 .modal_dialog .modal--content,.modal_dialog__gtf .modal--content {
-    float: left;
     clear: both;
     padding: 20px 20px 25px;
 }
@@ -2883,10 +2880,10 @@ table.noborder tr td,.noborder{
     color: #fff;
 }
 .btn-suc-rect{
-    background: url(/angel/img/button/change_btn.png) no-repeat 100%;
+    background: linear-gradient(#6d9416,#556c03);
 }
 .btn-cancel-rect{
-    background: url(/angel/img/button/cancel_btn.png) no-repeat 100%;
+    background: linear-gradient(#6d9416,#556c03);
 }
 .btn-submit-rect{
     background: url(/angel/img/button/submit.png) no-repeat 100%;
@@ -3057,7 +3054,7 @@ table.noborder tr td,.noborder{
 }
 
 .height90{
-    height: 90px;
+    height: 40px;
 }
 
 .height30{
@@ -3936,6 +3933,8 @@ fieldset:disabled a.btn
 .pagecontainer_full{
     background: #fff;
     padding-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .global_milwage{

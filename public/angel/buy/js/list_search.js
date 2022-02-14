@@ -4,6 +4,13 @@ searchList.formSubmit = function() {
     $('#frm_search').submit();
 };
 
+$(".search__head_btn").click(function(){
+    var v = $(this).data('value');
+    $("#filtered_items").val(v);
+    $("#frm_search").attr('src','/buy/list_search');
+    $("#frm_search").submit()
+})
+
 function orderGameFromDays(tradeItem) {
     if (tradeItem == null) {
         return '';
@@ -73,36 +80,36 @@ function listOptionClick() {
 }
 
 function asyncRequestByAJ() {
-    $.ajax({
-        url: '/_xml/gamemoney_avg.xml',
-        dataType: 'xml',
-        type: 'GET',
-        timeout: 3000,
-        data: 'gamecode=' + $('#filtered_game_id').val() + '&servercode=' + $('#filtered_child_id').val() + '&count=2',
-        success: function(xml) {
-            if ($(xml).find('quotation').attr('result') !== 'fail') {
-
-                $('#quotation').show();
-
-                if ($(xml).find('data').attr('amount_type') == 'up') {
-                    var font_color = 'text-rock';
-                    var icon = '▲';
-                } else if ($(xml).find('data').attr('amount_type') == 'down') {
-                    var font_color = 'text-blue_modern';
-                    var icon = '▼';
-                } else if ($(xml).find('data').attr('amount_type') == 'none') {
-                    var font_color = 'black';
-                    var icon = '-';
-                }
-
-                $('#ag_quotation').append('평균시세 <span class=\'' + font_color + '\'>' + addComma($(xml).find('data').attr('price')) + '</span>원 ( <span class=\'' + font_color + '\'>' + icon + ' ' + addComma($(xml).find('data').attr('amount')) + '</span> )');
-                $('#ag_quotation').append('<span class=\'f_normal\'> (전일기준/' + addComma($(xml).find('quotation').attr('multiple')) + ' ' + $(xml).find('quotation').attr('unit_trade') + '당)');
-            }
-        },
-        error: function() {
-            $('#quotation').hide();
-        }
-    });
+    // $.ajax({
+    //     url: '/_xml/gamemoney_avg.xml',
+    //     dataType: 'xml',
+    //     type: 'GET',
+    //     timeout: 3000,
+    //     data: 'gamecode=' + $('#filtered_game_id').val() + '&servercode=' + $('#filtered_child_id').val() + '&count=2',
+    //     success: function(xml) {
+    //         if ($(xml).find('quotation').attr('result') !== 'fail') {
+    //
+    //             $('#quotation').show();
+    //
+    //             if ($(xml).find('data').attr('amount_type') == 'up') {
+    //                 var font_color = 'text-rock';
+    //                 var icon = '▲';
+    //             } else if ($(xml).find('data').attr('amount_type') == 'down') {
+    //                 var font_color = 'text-blue_modern';
+    //                 var icon = '▼';
+    //             } else if ($(xml).find('data').attr('amount_type') == 'none') {
+    //                 var font_color = 'black';
+    //                 var icon = '-';
+    //             }
+    //
+    //             $('#ag_quotation').append('평균시세 <span class=\'' + font_color + '\'>' + addComma($(xml).find('data').attr('price')) + '</span>원 ( <span class=\'' + font_color + '\'>' + icon + ' ' + addComma($(xml).find('data').attr('amount')) + '</span> )');
+    //             $('#ag_quotation').append('<span class=\'f_normal\'> (전일기준/' + addComma($(xml).find('quotation').attr('multiple')) + ' ' + $(xml).find('quotation').attr('unit_trade') + '당)');
+    //         }
+    //     },
+    //     error: function() {
+    //         $('#quotation').hide();
+    //     }
+    // });
 }
 
 function addComma(values) {
@@ -131,26 +138,27 @@ function filteredGameMenuPressed() {
         type: 'buy',
         game: game_code,
         server: server_code,
-        goods: goods_type[goods]
+        goods: goods_type[goods],
+        api_token: a_token
     };
 
-    ajaxRequest({
-        url: '/myroom/customer/mySearchGame',
-        type: 'POST',
-        dataType: 'json',
-        data: rgData,
-        success: function(res) {
-            if (res.result == 'SUCCESS') {
-                if (res.status == 'on') {
-                    $('#favorite').removeClass('offfav').addClass('onfav');
-                } else if (res.status == 'off') {
-                    $('#favorite').removeClass('onfav').addClass('offfav');
-                }
-            } else {
-                alert(res.msg);
-            }
-        }
-    });
+    // ajaxRequest({
+    //     url: '/api/myroom/customer/mySearchGame',
+    //     type: 'POST',
+    //     dataType: 'json',
+    //     data: rgData,
+    //     success: function(res) {
+    //         if (res.result == 'SUCCESS') {
+    //             if (res.status == 'on') {
+    //                 $('#favorite').removeClass('offfav').addClass('onfav');
+    //             } else if (res.status == 'off') {
+    //                 $('#favorite').removeClass('onfav').addClass('offfav');
+    //             }
+    //         } else {
+    //             alert(res.msg);
+    //         }
+    //     }
+    // });
 }
 
 $(document).ready(function() {

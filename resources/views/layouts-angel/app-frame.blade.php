@@ -150,6 +150,13 @@
     {{--changePosL();--}}
     $(document).ready(function(){
         heightResize();
+        var w = $(document).width();
+        if(w < 853){
+            $(".e--pc").attr('colspan',3)
+        }
+        else{
+            $(".e--pc").attr('colspan',1)
+        }
     //     $( '#dl-menu' ).dlmenu();
     //     $(".dropdown").hover(
     //         function() {
@@ -171,6 +178,13 @@
     //     })
     // })
         $(window).on('resize', function() {
+            var w = $(document).width();
+            if(w < 853){
+                $(".e--pc").attr('colspan',3)
+            }
+            else{
+                $(".e--pc").attr('colspan',1)
+            }
             heightResize()
         })
 

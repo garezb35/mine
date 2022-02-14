@@ -71,7 +71,7 @@ else
                         </tr>
                         <tr>
                             <th>거래번호</th>
-                            <td class="bg-ggray">#{{$orderNo}}</td>
+                            <td class="bg-ggray e--pc">#{{$orderNo}}</td>
                             <th class="visible--table--pc">등록일시</th>
                             <td class="visible--table--pc bg-ggray">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                         </tr>
@@ -86,7 +86,7 @@ else
                         </tr>
                         <tr>
                             <th>구매금액</th>
-                            <td><span class="clc3">{{number_format($payitem['price'])}}</span> 원 </td>
+                            <td class="e--pc"><span class="clc3">{{number_format($payitem['price'])}}</span> 원 </td>
                             <th class="visible--table--pc">단위금액</th>
                             <td class="visible--table--pc">-</td>
                         </tr>
@@ -158,7 +158,7 @@ else
                     <tbody>
                         <tr>
                             <th>이름</th>
-                            <td>{{$buyer['name']}}</td>
+                            <td class="e--pc">{{$buyer['name']}}</td>
                             <th class="visible--table--pc">연락처</th>
                             <td class="visible--table--pc">{{$buyer['home']}} / {{$buyer['number']}}</td>
                         </tr>

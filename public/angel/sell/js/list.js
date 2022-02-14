@@ -140,7 +140,6 @@ function orderGameFromDays(tradeItem, getPremium) {
         '               </div>' +
         '               <div class="col_04">' +
         '	                <i class="list_sprite icon_good' + (tradeItem.trade_show_time === 'Y' ? ' active_icon' : '') + '">우수인증</i>' +
-        '	                <i class="list_sprite icon_dc' + (tradeItem.multidiscount_use === 'Y' ? ' active_icon' : '') + '">할인</i>' +
         '               </div>' +
         '               <div class="col_05">' + (tradeItem.trade_state == 'p' ? '거래종료' : tradeItem.reg_date) + '</div>' +
         '           </li>';
@@ -177,6 +176,7 @@ $(document).ready(function() {
                     if (res.data.p && res.data.p.length > 0) {
                         searchListPremium.html((res.data.p).map(function(e) {
                             return orderGameFromDays(e);
+                            heightResize()
                         }).filter(function(e) {
                             return e !== null;
                         }).join('\n'));
@@ -185,6 +185,7 @@ $(document).ready(function() {
                     if (res.data.power && res.data.power.length > 0) {
                         searchListPremium.html((res.data.power).map(function(e) {
                             return orderGameFromDays(e);
+                            heightResize()
                         }).filter(function(e) {
                             return e !== null;
                         }).join('\n') + searchListPremium.html());
@@ -197,6 +198,7 @@ $(document).ready(function() {
                     if (res.data.g && res.data.g.length > 0) {
                         searchListNormal.html(searchListNormal.html() + (res.data.g).map(function(e) {
                             return orderGameFromDays(e);
+                            heightResize()
                         }).filter(function(e) {
                             return e !== null;
                         }).join('\n'));

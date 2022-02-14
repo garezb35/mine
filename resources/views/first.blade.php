@@ -254,6 +254,7 @@
 
 </style>
 <script>
+    var hidden_menu = false;
     var width = $(window).width();
     function enterSearchList(id,game){
         $('input[name="filtered_game_id"]').val(id);
@@ -307,16 +308,17 @@
     $(document).ready(function(){
         $(".moduler_footer").css('display','block')
         $( '#dl-menu' ).dlmenu();
-        $(".dropdown").hover(
-            function() {
+        $("#dropdown-wzs").click(function(){
+            if(!hidden_menu){
                 $('.dropdown-menu').stop( true, true ).slideDown("fast");
                 $(this).toggleClass('open');
-            },
-            function() {
-                $('.dropdown-menu').stop( true, true ).slideUp("fast");
-                $(this).toggleClass('open');
             }
-        );
+            else{
+                $('.dropdown-menu').css('display','none');
+                $(this).toggleClass('close');
+            }
+            hidden_menu = !hidden_menu;
+        })
 
         $(".drop-menu-right li a").click(function(){
             var id = $(this).data('id');

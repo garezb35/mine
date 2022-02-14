@@ -24,7 +24,7 @@
 @endphp
 @extends('layouts-angel.app-frame')
 @section('head_attach')
-    <link type="text/css" rel="stylesheet" href="/angel/sell/css/index_view.css?v=190220">
+    <link type="text/css" rel="stylesheet" href="/angel/sell/css/index_view.css">
 @endsection
 
 @section('foot_attach')

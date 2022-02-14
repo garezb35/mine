@@ -56,25 +56,29 @@
                 </colgroup>
                 <tr>
                     <th>카테고리</th>
-                    <td colspan="1">{{$category}}</td>
+                    <td colspan="3">{{$category}}</td>
                 </tr>
                 <tr>
                     <th>제목</th>
-                    <td colspan="1">{{$user_title ?? ''}}</td>
+                    <td colspan="3">{{$user_title ?? ''}}</td>
                 </tr>
                 <tr>
                     <th>거래번호</th>
-                    <td>#{{$orderNo ?? '#'}}</td>
+                    <td class="e--pc">#{{$orderNo ?? '#'}}</td>
+                    <th class="visible--table--pc">등록일시</th>
+                    <td class="visible--table--pc">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                 </tr>
-                <tr>
+                <tr class="visible--table-m">
                     <th>등록일시</th>
-                    <td>{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
+                    <td colspan="3">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                 </tr>
                 <tr>
                     <th>물품종류</th>
-                    <td>{{$good_type ?? ''}}</td>
+                    <td class="e--pc">{{$good_type ?? ''}}</td>
+                    <th class="visible--table--pc">거래유형</th>
+                    <td class="visible--table--pc">{{$selltype ?? '일반'}}판매</td>
                 </tr>
-                <tr>
+                <tr class="visible--table-m">
                     <th>거래유형</th>
                     <td>{{$selltype ?? '일반'}}판매</td>
                 </tr>
@@ -87,21 +91,25 @@
                     @if($c != 1)
                         <tr>
                             <th>구매수량</th>
-                            <td>{{$user_quantity}}{{$gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit : ''}} {{$good_type ?? ''}}</td>
+                            <td class="e--pc">{{$user_quantity}}{{$gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit : ''}} {{$good_type ?? ''}}</td>
+                            <th class="visible--table--pc">구매금액</th>
+                            <td class="visible--table--pc">{{number_format($price)}}원</td>
                         </tr>
                     @endif
-                    <tr>
+                    <tr @if($c != 1) class="visible--table-m" @endif>
                         <th>구매금액</th>
-                        <td>{{number_format($price)}}원</td>
+                        <td colspan="3">{{number_format($price)}}원</td>
                     </tr>
                 @else
                     <tr>
                         <th>구매수량</th>
-                        <td>{{number_format($user_quantity_max)}} (최소 {{number_format($user_quantity_min)}})</td>
+                        <td class="e--pc">{{number_format($user_quantity_max)}} (최소 {{number_format($user_quantity_min)}})</td>
+                        <th class="visible--table--pc">구매금액</th>
+                        <td class="visible--table--pc">{{number_format($user_division_unit)}}당 {{number_format($user_division_price)}}원</td>
                     </tr>
-                    <tr>
+                    <tr class="visible--table-m">
                         <th>구매금액</th>
-                        <td>{{number_format($user_division_unit)}}당 {{number_format($user_division_price)}}원</td>
+                        <td colspan="3">{{number_format($user_division_unit)}}당 {{number_format($user_division_price)}}원</td>
                     </tr>
                 @endif
             </table>

@@ -84,7 +84,7 @@ if(sizeof($split_number) == 3){
 
                     <tr>
                         <th>거래번호</th>
-                        <td class="bg-ggray">#{{$orderNo}}</td>
+                        <td class="bg-ggray e--pc">#{{$orderNo}}</td>
                         <th class="visible--table--pc">등록일시</th>
                         <td class="visible--table--pc bg-ggray">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                     </tr>
@@ -207,7 +207,7 @@ if(sizeof($split_number) == 3){
                 <tbody>
                     <tr>
                         <th>이름</th>
-                        <td>{{$cuser['name']}}</td>
+                        <td class="e--pc">{{$cuser['name']}}</td>
                         <th class="visible--table--pc">연락처</th>
                         <td class="visible--table--pc">
                             {{$cuser['home']}} / {{$cuser['number']}}

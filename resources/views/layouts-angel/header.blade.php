@@ -47,7 +47,7 @@
                     <div class="top-leftli">
                         {{--                    <b class="sjx-rb"></b>--}}
                         {{--                    <b class="sjx-lb"></b>--}}
-                        <div class="dropdown">
+                        <div class="dropdown" id="dropdown-wzs">
                             <a href="javascript:void(0);" rel="nofollow" id="dropdown-wz">전체 게임
                                 <img src="https://www.5mmo.com/templates/game/images/topicojg.png">
 {{--                                <div class="border-half"></div>--}}
@@ -123,19 +123,6 @@
                                                         <ul class="mysearch_filters"></ul>
                                                     </div>
                                                 </div>
-                                                {{--                                    <div class="tradecan_top" data-popular="true">--}}
-                                                {{--                                        <div class="tradecan_h89eC">--}}
-                                                {{--                                            <span>거래가능게임</span>--}}
-                                                {{--                                        </div>--}}
-                                                {{--                                        <ul class="top__gamelist">--}}
-                                                {{--                                            @if(!empty($popular))--}}
-                                                {{--                                                @foreach($popular as $rate=>$v)--}}
-                                                {{--                                                    <li data-pgame="{{$v['game']['id']}}"> <em class="top_rank">{{$rate + 1}}</em>{{$v['game']['game']}} </li>--}}
-                                                {{--                                                @endforeach--}}
-                                                {{--                                            @endif--}}
-
-                                                {{--                                        </ul>--}}
-                                                {{--                                    </div>--}}
                                             </div>
                                             <div class="angel__menugames d-none" data-gslist="true"></div>
                                         </div>

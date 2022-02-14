@@ -269,12 +269,6 @@
 </style>
 <script>
     var width = $(window).width();
-    function enterSearchList(id,game){
-        $('input[name="filtered_game_id"]').val(id);
-        $('input[name="filtered_game_alias"]').val(game);
-        $("#search-overlay-container").submit()
-    }
-
 
     function controlFavorite() {
         $(".showing_fav").find("i").removeClass('fa-plus')

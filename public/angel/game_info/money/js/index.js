@@ -176,226 +176,226 @@ $.extend({
     fnajax_money_all: function(game_code) {
     },
     fnajax_money: function(game_code, servercode, cnt, gs_code_name) {
-        $.ajax({
-            url: '/api/_xml/gamemoney_avg.xml',
-            dataType: 'xml',
-            type: 'GET',
-            data: 'gamecode=' + game_code + '&servercode=' + servercode + '&count=' + cnt,
-            success: function(xml) {
-
-                labelsLength = 5;
-
-                var strUnit = $(xml).find('quotation').attr('multiple') + $(xml).find('quotation').attr('unit_trade') + ' ' + $(xml).find('quotation').attr('denomination');
-
-                if ($(xml).find('quotation').attr('result') == 'fail') {
-                    alert($(xml).find('quotation').attr('result_descript'));
-                    $('#serverlist').val('0');
-                    g_server_code = 0;
-                    btnView(15);
-                    return;
-                }
-
-                var dateStart = $(xml).find('quotation').attr('dateStart');
-                var dateEnd = $(xml).find('quotation').attr('dateEnd');
-                var nCnt = $(xml).find('quotation').attr('count');
-                var nAvgPrice = $(xml).find('quotation').attr('nAvgPrice');
-                var minRlt = $(xml).find('quotation').attr('min_result');
-                var unitTxt = $(xml).find('quotation').attr('denomination');
-                var extra_info = ' <span class=\'text-blue_modern\'> 일 평균 ' + Number(nAvgPrice).currency() + '원</span>';
-
-
-                money_unit = $(xml).find('quotation').attr('unit_trade');
-                money_standard = $(xml).find('quotation').attr('multiple');
-                money_date = $(xml).find('quotation > data').attr('date');
-                money_avg = $(xml).find('quotation > data').attr('price');
-                $('#txtUnitMoney').text(money_unit + ' ' + unitTxt);
-                $('#dvStandard').html('<span>'+ money_standard + money_unit + '당 ' + Number(money_avg).currency() + '원</span><br><span>(' + money_date + ' 기준)</span>');
-                var rgDate = new Array();
-                var rgSrvPrice = new Array();
-                var rgMinSrvPrice = new Array();
-                var i = 0;
-
-                $('#tbl_money_list_01').html('');
-                $('#tbl_money_list_02').html('');
-                $(xml).find('quotation > data').each(function() {
-
-                    var strDate = $(this).attr('date').replace(/\//g, '-');
-                    var tr_row = '<tr><td>' + strDate + '</td><td>' + Number($(this).attr('price')).currency() + '</td>';
-                    if ($(this).attr('amount_type') == 'down') {
-                        tr_row += '<td class=\'g_blue1\'><img src=\'' + IMG_DOMAIN4 + '/images/icon/ico_p_down.gif\'>' + Number($(this).attr('amount')).currency() + '</td>';
-                    } else if ($(this).attr('amount_type') == 'none') {
-                        tr_row += '<td class=\'g_black1\'>-</td>';
-                    } else {
-                        tr_row += '<td class=\'text-rock\'><img src=\'' + IMG_DOMAIN4 + '/images/icon/ico_p_up.gif\'>' + Number($(this).attr('amount')).currency() + '</td>';
-                    }
-                    if (minRlt == 'fail') {
-                        tr_row += '<td>-</td></tr>';
-                    } else {
-                        tr_row += '<td>' + Number($(this).attr('min_price')).currency() + '</td></tr>';
-                        rgMinSrvPrice.push(Number($(this).attr('min_price')));
-                    }
-                    if (i++ < Math.ceil(nCnt / 2)) {
-                        $('#tbl_money_list_01').append(tr_row);
-                    } else {
-                        $('#tbl_money_list_02').append(tr_row);
-                    }
-                    /* ▲ 일자 별 시세 등락 폭 */
-                    rgDate.push(strDate.substr(5));
-                    rgSrvPrice.push(Number($(this).attr('price')));
-                });
-
-                rgDate.reverse();
-                rgSrvPrice.reverse();
-                if (minRlt == 'success') {
-                    rgMinSrvPrice.reverse();
-                }
-
-                function objSetter(y, color) {
-                    this.y = y;
-                    this.color = color;
-                }
-
-                /* ▲ 차트데이터 처리 */
-
-                var chartWidth = 780;
-                var canvas = document.getElementById('container');
-                var ctx = document.getElementById('container').getContext('2d');
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                $('#loading_img').hide();
-                $(canvas).attr({
-                    'width': chartWidth
-                });
-                $('#graph_size_control').css({
-                    'width': chartWidth + 'px'
-                });
-                $('#lbl_graph_title').append('<div class="graph_info">' + extra_info + '(' + strUnit + '당)</div>');
-                $('#avr_range').text('최근 ' + nCnt + '일 제공 : ' + dateStart + ' ~ ' + dateEnd + ' ')
-                var chartData = {
-                    labels: rgDate,
-                    datasets: [{
-                        label: '평균가',
-                        borderColor: '#159EFD',
-                        backgroundColor: '#159EFD',
-                        fill: false,
-                        data: rgSrvPrice,
-                        yAxisID: 'y-axis-1'
-                    }, {
-                        label: '최저가',
-                        borderColor: '#12CFA9',
-                        backgroundColor: '#12CFA9',
-                        fill: false,
-                        data: rgMinSrvPrice,
-                        yAxisID: 'y-axis-1'
-                    }]
-                };
-
-                var options = {
-                    maintainAspectRatio: false,
-                    responsive: true,
-                    hoverMode: 'index',
-                    stacked: false,
-                    legend: {
-                        position: 'top',
-                        align:'start'
-                    },
-                    tooltips: {
-                        mode: 'index',
-                        intersect: false,
-                        callbacks: {
-                            label: function(tooltipItem, data) {
-                                var label = data.datasets[tooltipItem.datasetIndex].label || '';
-
-                                if (label) {
-                                    label += ': ';
-                                }
-
-                                label += tooltipItem.yLabel.currency() + '원';
-                                return label;
-                            }
-                        }
-                    },
-                    layout: {
-                        padding: {
-                            top: 20
-                        }
-                    },
-                    scales: {
-                        xAxes: [{
-                            display: true,
-                            gridLines: {
-                                display: true,
-                                drawBorder: true,
-                                drawOnChartArea: false
-                            },
-                            ticks: {
-                                fontFamily: '맑은고딕, Malgun Gothic, sans-serif',
-                                maxRotation: 0,
-                                padding: 10,
-                                autoSkip: false
-                            }
-                        }],
-                        yAxes: [{
-                            gridLines: {
-                                color: '#EFF0F2',
-                                drawTicks: false
-                            },
-                            display: true,
-                            position: 'left',
-                            id: 'y-axis-1',
-                            ticks: {
-                                fontFamily: '맑은고딕, Malgun Gothic, sans-serif',
-                                position: 'top',
-                                padding: 10,
-                                callback: function(d) {
-                                    return d.currency() + '원';
-                                }
-                            }
-                        }, {
-                            display: false,
-                            id: 'y-axis-2'
-                        }]
-                    }
-                };
-
-                var min = Math.min(rgSrvPrice);
-                var max = Math.max(rgSrvPrice);
-
-                if (max - min < 100) {
-                    options.scales.yAxes[0].ticks.min = rgSrvPrice[0] - 100 - (rgSrvPrice[0] % 100);
-                    options.scales.yAxes[0].ticks.stepSize = 100;
-                }
-
-                if (chart === undefined) {
-                    chart = new Chart(ctx, {
-                        data: chartData,
-                        type: 'line',
-                        options: options
-                    });
-                } else {
-                    if (cnt > 15) {
-                        // options.scales.xAxes[0].ticks.autoSkip = true;
-                        // options.scales.xAxes[0].ticks.autoSkipPadding = 20;
-                        options.scales.xAxes[0].ticks.callback = function(item, index) {
-                            var c = Math.ceil(cnt / 15);
-                            if (!(index % c)) {
-                                return item;
-                            }
-                        };
-                        chartData.datasets[0].pointRadius = 0;
-                        chartData.datasets[1].pointRadius = 0;
-                    }
-                    chart.chart.width = chartWidth;
-                    chart.config.type = 'line';
-                    chart.config.data = chartData;
-                    chart.options = options;
-                    chart.update();
-                }
-            },
-            error: function() {
-
-            }
-        });
+        // $.ajax({
+        //     url: '/api/_xml/gamemoney_avg.xml',
+        //     dataType: 'xml',
+        //     type: 'GET',
+        //     data: 'gamecode=' + game_code + '&servercode=' + servercode + '&count=' + cnt,
+        //     success: function(xml) {
+        //
+        //         labelsLength = 5;
+        //
+        //         var strUnit = $(xml).find('quotation').attr('multiple') + $(xml).find('quotation').attr('unit_trade') + ' ' + $(xml).find('quotation').attr('denomination');
+        //
+        //         if ($(xml).find('quotation').attr('result') == 'fail') {
+        //             alert($(xml).find('quotation').attr('result_descript'));
+        //             $('#serverlist').val('0');
+        //             g_server_code = 0;
+        //             btnView(15);
+        //             return;
+        //         }
+        //
+        //         var dateStart = $(xml).find('quotation').attr('dateStart');
+        //         var dateEnd = $(xml).find('quotation').attr('dateEnd');
+        //         var nCnt = $(xml).find('quotation').attr('count');
+        //         var nAvgPrice = $(xml).find('quotation').attr('nAvgPrice');
+        //         var minRlt = $(xml).find('quotation').attr('min_result');
+        //         var unitTxt = $(xml).find('quotation').attr('denomination');
+        //         var extra_info = ' <span class=\'text-blue_modern\'> 일 평균 ' + Number(nAvgPrice).currency() + '원</span>';
+        //
+        //
+        //         money_unit = $(xml).find('quotation').attr('unit_trade');
+        //         money_standard = $(xml).find('quotation').attr('multiple');
+        //         money_date = $(xml).find('quotation > data').attr('date');
+        //         money_avg = $(xml).find('quotation > data').attr('price');
+        //         $('#txtUnitMoney').text(money_unit + ' ' + unitTxt);
+        //         $('#dvStandard').html('<span>'+ money_standard + money_unit + '당 ' + Number(money_avg).currency() + '원</span><br><span>(' + money_date + ' 기준)</span>');
+        //         var rgDate = new Array();
+        //         var rgSrvPrice = new Array();
+        //         var rgMinSrvPrice = new Array();
+        //         var i = 0;
+        //
+        //         $('#tbl_money_list_01').html('');
+        //         $('#tbl_money_list_02').html('');
+        //         $(xml).find('quotation > data').each(function() {
+        //
+        //             var strDate = $(this).attr('date').replace(/\//g, '-');
+        //             var tr_row = '<tr><td>' + strDate + '</td><td>' + Number($(this).attr('price')).currency() + '</td>';
+        //             if ($(this).attr('amount_type') == 'down') {
+        //                 tr_row += '<td class=\'g_blue1\'><img src=\'' + IMG_DOMAIN4 + '/images/icon/ico_p_down.gif\'>' + Number($(this).attr('amount')).currency() + '</td>';
+        //             } else if ($(this).attr('amount_type') == 'none') {
+        //                 tr_row += '<td class=\'g_black1\'>-</td>';
+        //             } else {
+        //                 tr_row += '<td class=\'text-rock\'><img src=\'' + IMG_DOMAIN4 + '/images/icon/ico_p_up.gif\'>' + Number($(this).attr('amount')).currency() + '</td>';
+        //             }
+        //             if (minRlt == 'fail') {
+        //                 tr_row += '<td>-</td></tr>';
+        //             } else {
+        //                 tr_row += '<td>' + Number($(this).attr('min_price')).currency() + '</td></tr>';
+        //                 rgMinSrvPrice.push(Number($(this).attr('min_price')));
+        //             }
+        //             if (i++ < Math.ceil(nCnt / 2)) {
+        //                 $('#tbl_money_list_01').append(tr_row);
+        //             } else {
+        //                 $('#tbl_money_list_02').append(tr_row);
+        //             }
+        //             /* ▲ 일자 별 시세 등락 폭 */
+        //             rgDate.push(strDate.substr(5));
+        //             rgSrvPrice.push(Number($(this).attr('price')));
+        //         });
+        //
+        //         rgDate.reverse();
+        //         rgSrvPrice.reverse();
+        //         if (minRlt == 'success') {
+        //             rgMinSrvPrice.reverse();
+        //         }
+        //
+        //         function objSetter(y, color) {
+        //             this.y = y;
+        //             this.color = color;
+        //         }
+        //
+        //         /* ▲ 차트데이터 처리 */
+        //
+        //         var chartWidth = 780;
+        //         var canvas = document.getElementById('container');
+        //         var ctx = document.getElementById('container').getContext('2d');
+        //         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        //
+        //         $('#loading_img').hide();
+        //         $(canvas).attr({
+        //             'width': chartWidth
+        //         });
+        //         $('#graph_size_control').css({
+        //             'width': chartWidth + 'px'
+        //         });
+        //         $('#lbl_graph_title').append('<div class="graph_info">' + extra_info + '(' + strUnit + '당)</div>');
+        //         $('#avr_range').text('최근 ' + nCnt + '일 제공 : ' + dateStart + ' ~ ' + dateEnd + ' ')
+        //         var chartData = {
+        //             labels: rgDate,
+        //             datasets: [{
+        //                 label: '평균가',
+        //                 borderColor: '#159EFD',
+        //                 backgroundColor: '#159EFD',
+        //                 fill: false,
+        //                 data: rgSrvPrice,
+        //                 yAxisID: 'y-axis-1'
+        //             }, {
+        //                 label: '최저가',
+        //                 borderColor: '#12CFA9',
+        //                 backgroundColor: '#12CFA9',
+        //                 fill: false,
+        //                 data: rgMinSrvPrice,
+        //                 yAxisID: 'y-axis-1'
+        //             }]
+        //         };
+        //
+        //         var options = {
+        //             maintainAspectRatio: false,
+        //             responsive: true,
+        //             hoverMode: 'index',
+        //             stacked: false,
+        //             legend: {
+        //                 position: 'top',
+        //                 align:'start'
+        //             },
+        //             tooltips: {
+        //                 mode: 'index',
+        //                 intersect: false,
+        //                 callbacks: {
+        //                     label: function(tooltipItem, data) {
+        //                         var label = data.datasets[tooltipItem.datasetIndex].label || '';
+        //
+        //                         if (label) {
+        //                             label += ': ';
+        //                         }
+        //
+        //                         label += tooltipItem.yLabel.currency() + '원';
+        //                         return label;
+        //                     }
+        //                 }
+        //             },
+        //             layout: {
+        //                 padding: {
+        //                     top: 20
+        //                 }
+        //             },
+        //             scales: {
+        //                 xAxes: [{
+        //                     display: true,
+        //                     gridLines: {
+        //                         display: true,
+        //                         drawBorder: true,
+        //                         drawOnChartArea: false
+        //                     },
+        //                     ticks: {
+        //                         fontFamily: '맑은고딕, Malgun Gothic, sans-serif',
+        //                         maxRotation: 0,
+        //                         padding: 10,
+        //                         autoSkip: false
+        //                     }
+        //                 }],
+        //                 yAxes: [{
+        //                     gridLines: {
+        //                         color: '#EFF0F2',
+        //                         drawTicks: false
+        //                     },
+        //                     display: true,
+        //                     position: 'left',
+        //                     id: 'y-axis-1',
+        //                     ticks: {
+        //                         fontFamily: '맑은고딕, Malgun Gothic, sans-serif',
+        //                         position: 'top',
+        //                         padding: 10,
+        //                         callback: function(d) {
+        //                             return d.currency() + '원';
+        //                         }
+        //                     }
+        //                 }, {
+        //                     display: false,
+        //                     id: 'y-axis-2'
+        //                 }]
+        //             }
+        //         };
+        //
+        //         var min = Math.min(rgSrvPrice);
+        //         var max = Math.max(rgSrvPrice);
+        //
+        //         if (max - min < 100) {
+        //             options.scales.yAxes[0].ticks.min = rgSrvPrice[0] - 100 - (rgSrvPrice[0] % 100);
+        //             options.scales.yAxes[0].ticks.stepSize = 100;
+        //         }
+        //
+        //         if (chart === undefined) {
+        //             chart = new Chart(ctx, {
+        //                 data: chartData,
+        //                 type: 'line',
+        //                 options: options
+        //             });
+        //         } else {
+        //             if (cnt > 15) {
+        //                 // options.scales.xAxes[0].ticks.autoSkip = true;
+        //                 // options.scales.xAxes[0].ticks.autoSkipPadding = 20;
+        //                 options.scales.xAxes[0].ticks.callback = function(item, index) {
+        //                     var c = Math.ceil(cnt / 15);
+        //                     if (!(index % c)) {
+        //                         return item;
+        //                     }
+        //                 };
+        //                 chartData.datasets[0].pointRadius = 0;
+        //                 chartData.datasets[1].pointRadius = 0;
+        //             }
+        //             chart.chart.width = chartWidth;
+        //             chart.config.type = 'line';
+        //             chart.config.data = chartData;
+        //             chart.options = options;
+        //             chart.update();
+        //         }
+        //     },
+        //     error: function() {
+        //
+        //     }
+        // });
     },
     fnajax_recom_game: function(game_code, game_code_name) {
         $.ajax({

@@ -55,7 +55,7 @@
                 </tr>
                 <tr>
                     <th>거래번호</th>
-                    <td class="bg-ggray">#{{$orderNo}}</td>
+                    <td class="bg-ggray e--pc">#{{$orderNo}}</td>
                     <th class="visible--table--pc">등록일시</th>
                     <td class="visible--table--pc bg-ggray">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                 </tr>
@@ -83,7 +83,7 @@
             <table class="table-striped table-green1">
                 <tr>
                     <th>이름</th>
-                    <td>{{$seller['name']}}</td>
+                    <td class="e--pc">{{$seller['name']}}</td>
                     <th class="visible--table--pc">연락처</th>
                     <td class="visible--table--pc">{{$seller['home']}} / {{$seller['number']}} <span class="f_blue3 font-weight-bold"></span></td>
                 </tr>

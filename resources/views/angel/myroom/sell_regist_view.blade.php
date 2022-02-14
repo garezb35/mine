@@ -63,7 +63,7 @@
                         </tr>
                         <tr>
                             <th>거래유형</th>
-                            <td>{{$selltype}}</td>
+                            <td class="e--pc">{{$selltype}}</td>
                             <th class="visible--table--pc" style="width: 110px">판매자 캐릭터명</th>
                             <td class="visible--table--pc">{{$user_character}}</td>
                         </tr>
@@ -77,7 +77,7 @@
                             @endphp
                             @if($c != 1)
                                 <th>판매수량</th>
-                                <td ><span class="trade_money1">{{number_format($user_quantity)}}{{$gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit:''}}</span> {{$good_type}}</td>
+                                <td @if($c != 1) class="e--pc"@endif><span class="trade_money1">{{number_format($user_quantity)}}{{$gamemoney_unit != 1 && !empty($gamemoney_unit) ? $gamemoney_unit:''}}</span> {{$good_type}}</td>
                             @endif
                             <th @if($c != 1) class="visible--table--pc" @endif>판매금액</th>
                             <td @if($c ==1)colspan="3" class="bg-ggray" @else class="visible--table--pc bg-ggray" @endif>{{number_format($user_price)}}원</td>
@@ -114,7 +114,7 @@
 
                         <tr>
                             <th>거래번호</th>
-                            <td class="bg-ggray">#{{$orderNo}}</td>
+                            <td class="bg-ggray e--pc">#{{$orderNo}}</td>
                             <th class="visible--table--pc">등록일시</th>
                             <td class="visible--table--pc bg-ggray">{{date("Y-m-d H:i:s",strtotime($created_at))}}</td>
                         </tr>
@@ -128,7 +128,7 @@
                         </tr>
                         <tr>
                             <th>판매금액</th>
-                            <td class="bg-ggray">{{number_format($user_division_unit)}} 개 당 {{number_format($user_division_price)}}원</td>
+                            <td class="bg-ggray e--pc">{{number_format($user_division_unit)}} 개 당 {{number_format($user_division_price)}}원</td>
                             <th class="visible--table--pc">판매자 캐릭터명</th>
                             <td class="visible--table--pc bg-ggray">{{$user_character}}</td>
                         </tr>
@@ -138,7 +138,7 @@
                         </tr>
                         <tr>
                             <th>최소수량</th>
-                            <td>{{number_format($user_quantity_min)}} 개</td>
+                            <td class="e--pc">{{number_format($user_quantity_min)}} 개</td>
                             <th class="visible--table--pc">최대수량</th>
                             <td class="visible--table--pc">{{number_format($user_quantity_max)}} 개&nbsp;</td>
                         </tr>
@@ -167,7 +167,7 @@
             <table class="table-striped table-green1">
                 <tr>
                     <th>이름</th>
-                    <td>{{$cuser['name']}}</td>
+                    <td class="e--pc">{{$cuser['name']}}</td>
                     <th class="visible--table--pc">연락처</th>
                     <td class="visible--table--pc"> @if(empty($cuser["home"])){{'자택번호없음'}}@else{{$cuser['home']}}@endif / {{$cuser['number']}} <span class='f_blue3 font-weight-bold'></span> </td>
                 <tr class="visible--table-m">

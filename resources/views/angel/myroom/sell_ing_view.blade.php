@@ -78,7 +78,7 @@
                     </tr>
                     <tr>
                         <th>거래번호</th>
-                        <td class="bg-ggray">#{{$orderNo}}</td>
+                        <td class="bg-ggray e--pc">#{{$orderNo}}</td>
                         <th class="visible--table--pc">등록일시</th>
                         <td class="visible--table--pc bg-ggray">2021-10-25 17:31:04</td>
                     </tr>
@@ -108,7 +108,7 @@
                     <tbody>
                     <tr>
                         <th>이름</th>
-                        <td class="bg-ggray">{{$user__1['name']}}</td>
+                        <td class="bg-ggray e--pc">{{$user__1['name']}}</td>
                         <th class="visible--table--pc">연락처</th>
                         <td class="visible--table--pc bg-ggray">
                             {{$user__1['home']}} / {{$user__1['number']}}</span>
@@ -122,7 +122,7 @@
                     </tr>
                     <tr>
                         <th>캐릭터명</th>
-                        <td>
+                        <td class="e--pc">
                             <form id="frmDiffer" name="frmDiffer" method="post"></form>
                             {{$buy_character}}
                         </td>
@@ -158,7 +158,7 @@
                     <tbody>
                     <tr>
                         <th>이름</th>
-                        <td>{{$cuser['name']}}</td>
+                        <td class="e--pc">{{$cuser['name']}}</td>
                         <th class="visible--table--pc">연락처</th>
                         <td class="visible--table--pc">
                             {{$cuser['home']}} / {{$cuser['number']}} <span class="f_green2"></span>

@@ -4,6 +4,13 @@ searchList.formSubmit = function() {
     $('#frm_search').submit();
 };
 
+$(".search__head_btn").click(function(){
+    var v = $(this).data('value');
+    $("#filtered_items").val(v);
+    $("#frm_search").attr('src','/sell/list_search');
+    $("#frm_search").submit()
+})
+
 function orderGameFromDays(tradeItem) {
     if (tradeItem == null) {
         return '';
@@ -64,7 +71,6 @@ function orderGameFromDays(tradeItem) {
         '               </div>' +
         '               <div class="col_04">' +
         '	                <i class="list_sprite icon_good' + (tradeItem.trade_show_time === 'Y' ? ' active_icon' : '') + '">우수인증</i>' +
-        '	                <i class="list_sprite icon_dc' + (tradeItem.multidiscount_use === 'Y' ? ' active_icon' : '') + '">할인</i>' +
         '               </div>';
     if (tradeItem.premium == 'power') {
         listHtml += '               <div class="col_05"><span class="icon_power">파워물품</span></div>';
@@ -142,23 +148,23 @@ function filteredGameMenuPressed() {
         return false;
     }
 
-    ajaxRequest({
-        url: '/api/myroom/customer/mySearchGame',
-        type: 'POST',
-        dataType: "json",
-        data: rgData,
-        success: function(res) {
-            if (res.result == "SUCCESS") {
-                if (res.status == "on") {
-                    $('#favorite').removeClass('offfav').addClass('onfav');
-                } else if (res.status == "off") {
-                    $('#favorite').removeClass('onfav').addClass('offfav');
-                }
-            } else {
-                alert(res.msg);
-            }
-        }
-    });
+    // ajaxRequest({
+    //     url: '/api/myroom/customer/mySearchGame',
+    //     type: 'POST',
+    //     dataType: "json",
+    //     data: rgData,
+    //     success: function(res) {
+    //         if (res.result == "SUCCESS") {
+    //             if (res.status == "on") {
+    //                 $('#favorite').removeClass('offfav').addClass('onfav');
+    //             } else if (res.status == "off") {
+    //                 $('#favorite').removeClass('onfav').addClass('offfav');
+    //             }
+    //         } else {
+    //             alert(res.msg);
+    //         }
+    //     }
+    // });
 }
 
 function addComma(values) {

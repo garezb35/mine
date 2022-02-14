@@ -62,34 +62,15 @@
                     }
                     .search {
                         background: #3AB7D3;
-                        padding: 26px 0;
+                        padding: 5px 0;
                         position: relative;
                     }
-                    .search .search_bar {
-                        height: initial;
-                        margin: 0;
-                        padding: 0;
-                        background-color: initial;
-                        width: initial;
-                    }
-                    .search .search_img_wrap {
-                        font-size: 18px;
-                        width: 300px;
-                        height: initial;
-                        margin-top: initial;
-                    }
-                    .search_input_wrap {
-                        width: calc(100% - 300px);
-                        margin-right: 20px;
-                    }
-                    .s_text {
-                        width: calc(100% - 20px);
-                        padding: 14px 10px;
-                        font-size: 14px;
-                    }
+
+
                     .search_bar_wrap .v_middle_img {
                         position: absolute;
-                        right: 10px;
+                        right: 5px;
+                        top: 6px;
 
                     }
                     .item_filtered {
@@ -146,11 +127,11 @@
                         <input type="hidden" name="second_code">
                         <div class="search">
                             <div class="search_bar_wrap">
-                                <button style="background: none" type="submit"  class="v_middle_img float__right"><i class="fa fa-search"></i></button>
-                                <div class="search_bar d-flex">
-                                    <div class="search_img_wrap"> 이용안내에서 궁금한 점을 빠르게 <br>찾아보세요 </div>
+                                <div class="search_bar">
+                                    <div class="search_img_wrap"> 이용안내에서 궁금한 점을 빠르게 찾아보세요 </div>
                                     <div class="search_input_wrap">
                                         <input type="text" class="s_text" name="searchWord" placeholder="검색어를 입력해 주세요." value="{{$searchWord}}">
+                                        <button style="background: none" type="submit"  class="v_middle_img"><i class="fa fa-search"></i></button>
                                     </div>
                                 </div>
                             </div>

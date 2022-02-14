@@ -74,7 +74,8 @@ function init(){
             // 채팅영역 활성화
             setTimeout(function(){
                 this.chatWrapper.style.display = 'block';
-                this.msgBox.style.display = 'none'
+                if(this.msgBox)
+                    this.msgBox.style.display = 'none'
             },1);
 
         }
@@ -270,7 +271,8 @@ function handleError(e){
         case 'connect_failed':
             alert('채팅 서버 연결에 실패했습니다.\n1:1 대화함을 이용해주세요.');
             this.chatWrapper.style.display = 'none';
-            this.msgBox.style.display = 'block';
+            if(this.msgBox)
+                this.msgBox.style.display = 'block';
             break;
         case 'connect_error':
             alert('1:1 채팅 서버와 통신이 원활하지 않습니다.\n접속을 재시도 합니다.');

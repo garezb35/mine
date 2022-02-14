@@ -167,6 +167,7 @@ $(document).ready(function() {
                     if (res.data.p && res.data.p.length > 0) {
                         searchListPremium.html((res.data.p).map(function(e) {
                             return orderGameFromDays(e);
+
                         }).filter(function(q) {
                             return q !== null;
                         }).join('\n'));
@@ -202,6 +203,7 @@ $(document).ready(function() {
             },
             complete: function() {
                 whileReloading = false;
+                heightResize()
             }
         });
     }

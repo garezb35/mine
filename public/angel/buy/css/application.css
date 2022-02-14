@@ -105,9 +105,6 @@
 .wideview {
     float: right;
     padding: 0 4px 2px;
-    border: 1px solid #696969;
-    background-color: #8E8E8E;
-    color: #F5F4F4;
     font-size: 11px;
     line-height: 15px;
     font-weight: normal;
@@ -182,9 +179,7 @@
     color: #767676;
 }
 
-.dvGoodsInfo {
-    width: 680px;
-}
+
 
 .dvGoodsInfo .last_txt {
     margin-top: 10px;
@@ -196,7 +191,9 @@
     padding: 10px 20px;
 }
 
-
+.dvGoodsInfo{
+    width: 100%;
+}
 
 
 /** [ITM-10872] ìºë¦­í„° ê±°ëž˜ ì‹ ê·œ ì„œë¹„ìŠ¤ ì‚½ë‹ˆë‹¤ ì¶”ê°€ by 20200720 KBR */
@@ -302,7 +299,7 @@ ins>div {
     text-align: center;
     z-index: 100;
     bottom: -10px;
-    left: 230px;
+    left: calc(50% - 82px);
     padding-left: 5px;
     padding-right: 5px;
 }
