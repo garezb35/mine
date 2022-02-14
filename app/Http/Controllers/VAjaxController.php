@@ -136,7 +136,6 @@ class VAjaxController extends BaseController
 
         $game = $game->skip(($request->pinit -1) * 50)->take(50)->get()->toArray();
         foreach($game as $value){
-            $gunit = $value['gamemoney_unit'] != 1 && !empty($value['gamemoney_unit']) ? $value['gamemoney_unit']: '';
             $premium_check = false;
             $unit = !empty($value['gamemoney_unit']) && $value['gamemoney_unit'] != 1 ? $value['gamemoney_unit'] : '';
             $temp_object = new \stdClass();
@@ -198,8 +197,8 @@ class VAjaxController extends BaseController
                 $temp_object->trade_show_time = 'Y';
             else
                 $temp_object->trade_show_time = 'N';
-            if($value['user_quantity'] > 1 || !empty($gunit)){
-                $temp_object->ea_trade_money =number_format($value['user_quantity']).$gunit.'당 '. number_format($value['user_price']).'원';
+            if($value['user_quantity'] > 1 || !empty($unit)){
+                $temp_object->ea_trade_money =number_format($value['user_quantity']).$unit.'당 '. number_format($value['user_price']).'원';
             }
 
             if($value['user_division_unit'] > 0 && $value['user_division_price'] > 0){
