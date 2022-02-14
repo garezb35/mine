@@ -212,9 +212,6 @@
                                     <li @if($overlap == 'on') class="selected" @endif>
                                         <label><input type="checkbox" name="overlap_tmp" id="overlap_tmp" class="angel_game_sel" @if($overlap == 'on') checked @endif> 중복물품제외</label>
                                     </li>
-                                    <li @if(!empty($speed)) class="selected" @endif>
-                                        <label><input type="checkbox" name="speed" id="speed" class="angel_game_sel" value="1" @if(!empty($speed)) checked @endif> 스피드거래</label>
-                                    </li>
                                 </td>
                             </tr>
                         </table>

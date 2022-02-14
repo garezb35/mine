@@ -214,13 +214,6 @@
                                     <li>
                                         <label><input type="checkbox" name="overlap_tmp" id="overlap_tmp" class="angel_game_sel" @if($overlap == 'on') checked @endif> 중복물품제외</label>
                                     </li>
-                                    <li>
-                                        <label><input type="checkbox" name="speed" id="speed" class="angel_game_sel" value="1" @if(!empty($speed)) checked @endif> 스피드거래</label>
-                                    </li>
-                                    <li>
-                                        <label><input type="checkbox" name="discont" id="discont" class="angel_game_sel" @if(!empty($discont)) checked @endif>할인물품</label>
-                                    </li>
-
                                 </td>
                             </tr>
                         </table>
