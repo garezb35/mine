@@ -330,9 +330,12 @@
         $(".drop-menu-right li a").click(function(){
             var id = $(this).data('id');
             var name = $(this).data('name');
-            $('input[name="filtered_game_id"]').val(id);
-            $('input[name="filtered_game_alias"]').val(name);
-            $('#search-overlay-container').submit()
+            if(id > 0){
+                $('input[name="filtered_game_id"]').val(id);
+                $('input[name="filtered_game_alias"]').val(name);
+                $('#search-overlay-container').submit()
+            }
+
         })
         $(".nav_wrap .headernav-with .nav li").click(function(){
             $(".nav_wrap .headernav-with .nav li a").css('border-bottom','none');

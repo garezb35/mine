@@ -2531,4 +2531,9 @@ class ManiaController extends BaseController
         }
         return view('angel.myroom.search_update_form',$item);
     }
+
+    public function allgame(Request $request){
+        $hot_games = MMygame::with(['fgame'])->whereHas('fgame')->where('userId',$this->user->id)->groupby('game')->get();
+        return view('angel.allgame',['hot_games'=>$hot_games]);
+    }
 }

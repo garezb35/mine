@@ -127,6 +127,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/buy_check_ok',[\App\Http\Controllers\ManiaController::class,'buy_check_ok']);
     Route::get('myinfo_bank', [\App\Http\Controllers\VMyRoomController::class,'myinfo_bank'])->name('myinfo_bank');
     Route::post('updatebank', [\App\Http\Controllers\VMyRoomController::class,'updatebank'])->name('updatebank');
+    Route::get('allgame',[\App\Http\Controllers\ManiaController::class,'allgame'])->name('allgame');
     /**
      * By Jong
      */

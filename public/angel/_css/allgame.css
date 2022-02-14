@@ -1,0 +1,129 @@
+.wowtop {
+    margin-top: 10px;
+    overflow: hidden;
+}
+.wowlistgj {
+    overflow: hidden;
+    padding: 0px 8px;
+    margin-top: 10px;
+}
+.wowregion {
+    float: none;
+}
+
+.wowlistgj dd a {
+    background-color: #ffffff;
+    float: left;
+    border: 1px solid #e6e6e6;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.wowlistgj dd .action {
+    background-color: #229492;
+    color: #fff;
+    text-decoration: none;
+    border-color: #fff;
+}
+
+.wowlistgj dd a span:hover {
+    background: #229492;
+    color: #FFF;
+}
+
+.wowlistgj dd a span {
+    padding: 5px 10px;
+    float: left;
+}
+
+.wowmidli {
+    border: 1px solid #4f9391;
+    padding: 10px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.wowlistall {
+    border-bottom: 1px dotted #CCCCCC;
+    margin: 10px 0;
+}
+.wowlistall p {
+    font-size: 30px;
+    color: #229492;
+}
+
+.wowlistall a {
+    float: right;
+    font-size: 12px;
+    color: #229492;
+    font-weight: normal;
+}
+
+.wowgamelistz {
+    width: 100%;
+    margin: auto;
+    padding: 10px 0;
+    overflow: hidden;
+    color: #333;
+}
+
+.wowgamelistz a {
+    color: #333;
+    text-align: center;
+    float: none;
+}
+
+.wowgamelistz li {
+    float: left;
+    width: 16%;
+    border: 1px solid #e6e6e6;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 6px;
+    margin: 5px 5px 5px 0px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.wowgamelistz a:hover {
+    color: #FFF;
+}
+.wowgamelistz li:hover {
+    background: #229492;
+    color: #FFF;
+    border: 1px solid #229492;
+}
+
+@media only screen and (max-width: 1300px){
+    .wowgamelistz li {
+        width: 19%;
+    }
+}
+
+
+@media only screen and (max-width: 820px)
+{
+    .wowgamelistz li {
+        width: 23%;
+    }
+    .wowlistall p {
+        font-size: 24px;
+    }
+}
+
+@media only screen and (max-width: 568px)
+{
+    .wowgamelistz li {
+        width: 31%;
+    }
+}
+
+@media only screen and (max-width: 479px)
+{
+    .wowgamelistz li {
+        width: 47%;
+    }
+}

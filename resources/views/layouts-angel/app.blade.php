@@ -22,6 +22,7 @@
         <script type="text/javascript" src="/angel/carsouel_plugin/js/carsouel_plugin.js"></script>
         <script type="text/javascript" src="/angel/socket/socket.io.js"></script>
         <script>
+
             var server_domain = '210.112.174.178';
             var a_token = '';
             var socket_client = io.connect('http://'+server_domain+':7443/adminWith', {
@@ -337,13 +338,7 @@
             }
         );
 
-        $(".drop-menu-right li a").click(function(){
-            var id = $(this).data('id');
-            var name = $(this).data('name');
-            $('input[name="filtered_game_id"]').val(id);
-            $('input[name="filtered_game_alias"]').val(name);
-            $('#search-overlay-container').submit()
-        })
+
 
     })
     $(window).on('resize', function() {

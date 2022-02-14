@@ -62,7 +62,7 @@
                                                 </a>
                                             </li>
                                         @endforeach
-                                        <li class="nobg"><a href="https://www.5mmo.com/allgame.html" rel="nofollow" style="color:#f00 !important;"  target="mainFrame">+ More Games</a></li>
+                                        <li class="nobg"><a href="/allgame" rel="nofollow" style="color:#f00 !important;"  target="mainFrame">+ More Games</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -224,3 +224,4 @@
         </div>
     </div>
 </div>
+
