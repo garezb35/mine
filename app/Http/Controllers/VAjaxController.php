@@ -204,7 +204,7 @@ class VAjaxController extends BaseController
             if($value['user_division_unit'] > 0 && $value['user_division_price'] > 0){
                 $temp_object->ea_trade_money = number_format($value['user_division_unit']).$unit.'당 '.number_format($value['user_division_price']);
                 $temp_object->min_trade_money ='최소 '.number_format((int)$value['user_quantity_min'] / $value['user_division_unit'] * $value['user_division_price']);
-                $temp_object->ea_range = $value['user_quantity_min'].$unit.'~'.$value['user_quantity_max'].$unit;
+                $temp_object->ea_range = number_format($value['user_quantity_min']).$unit.'~'.number_format($value['user_quantity_max']).$unit;
             }
 
             if($value['user_goods_type'] == 'general'){

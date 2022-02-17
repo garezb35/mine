@@ -13,6 +13,19 @@
             $("#frm_search").attr('action','/'+$(this).data('value')+'/list_search')
             $("#frm_search").submit()
         })
+        $("#server_combo").select2({
+            placeholder: '서버명',
+            width: '200px'
+        })
+        $("#server_combo").on("select2:select", function (e) {
+            let game_id = e.params.data.id;
+            if(game_id == 'all'){
+                game_id = "";
+            }
+            $("#filtered_child_id").val(game_id);
+            $("#frm_search").attr('src','/sell/list_search');
+            $("#frm_search").submit()
+        })
     </script>
 @endsection
 
@@ -22,6 +35,19 @@
         <div class="ml-10 mr-10">
             <div class="spacer_bottom_20"></div>
             <a name="search_top"></a>
+            @if(!empty($g_list))
+                <div class="sttl4 default_wrap mt020"><h2><img src="{{$g_list['icon']}}">{{$g_list['game']}}<em></em></h2></div>
+                @if(!empty($s_list))
+                <div @class('mt-10 mb-10')> 선택 : <select id="server_combo">
+                    <option value="all">서버전체</option>
+                    @foreach($s_list as $s)
+                    <option value="{{$s['id']}}" @if($s['id'] == $filtered_child_id) selected @endif>{{$s['game']}}</option>
+                    @endforeach
+                    </select>
+                </div>
+                @endif
+            @endif
+
             <div>
                 <ul class="trade_sub_title mb-10">
                     <li class="btn__goods_type selected" data-value="sell">판매 리스트</li>
@@ -34,22 +60,6 @@
                 <a href="javascript:;" data-value="character" class="search__head_btn @if(!empty($filtered_items) && $filtered_items =='character') selected @endif">캐릭터</a>
                 <a href="javascript:;" data-value="etc" class="search__head_btn @if(!empty($filtered_items) && $filtered_items =='etc') selected @endif">기타</a>
             </div>
-{{--            <div class="react_nav_tab navs__pops_secondary">--}}
-{{--                <div  value="money" @if(!empty($filtered_items) && $filtered_items =='money') class="selected" @endif>게임머니</div>--}}
-{{--                <div  value="item" @if(!empty($filtered_items) && $filtered_items =='item') class="selected" @endif>아이템</div>--}}
-{{--                <div  value="character" @if(!empty($filtered_items) && $filtered_items =='character') class="selected" @endif>캐릭터</div>--}}
-{{--                <div  value="etc" @if(!empty($filtered_items) && $filtered_items =='etc') class="selected" @endif>기타</div>--}}
-{{--                <div class="side">--}}
-{{--                    <ul class="search_word">--}}
-{{--                        <li>--}}
-{{--                            <input type="text" class="angel__text angel__text_par" name="word" id="word" value="{{$search_word ?? ""}}" placeholder="물품제목" maxlength="5">--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <span class="btn_search"><i class="fa fa-search"></i></span>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
-{{--            </div>--}}
             <div class="empty-high"></div>
 
 

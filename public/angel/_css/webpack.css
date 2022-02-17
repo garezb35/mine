@@ -4044,3 +4044,15 @@ table.btnone tr:last-child td{
 .g_btn_wrap{
     text-align: center;
 }
+
+.mt020{
+    margin-bottom: 15px;
+}
+
+.sttl4 h2 img {
+    height: 35px;
+    margin-top: -5px;
+    margin-right: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 0px 2px #ddd;
+}

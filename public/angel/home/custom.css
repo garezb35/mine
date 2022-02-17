@@ -79,7 +79,7 @@
 .bg_opacity,
 .service_wrap,
 .carousel_module > .banner_in > .banner_item .carousel_images {
-    height: 310px;
+    height: 343px;
     width: 100%;
     object-fit: cover;
 }

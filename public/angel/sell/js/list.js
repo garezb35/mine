@@ -224,6 +224,7 @@ $(document).ready(function() {
             },
             complete: function() {
                 whileReloading = false;
+                heightResize()
             }
         });
     }

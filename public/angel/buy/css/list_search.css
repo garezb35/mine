@@ -282,6 +282,10 @@
     width: 100%;
 }
 
+.list_head{
+    background: #dbdbdb;
+}
+
 .item_filtered>li {
     display: table-row;
 }

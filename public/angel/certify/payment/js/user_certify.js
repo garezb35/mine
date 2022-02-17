@@ -34,17 +34,17 @@ function fnOpenerCheck() {
     }
     return true;
 }
-/* â–² ì˜¤í”„ë„ˆ ì²´í¬ */
+
 
 function fnCertifyCheck(t) {
+
     var mobileA = $('#mobile_numberA');
     var mobileB = $('#mobile_numberB');
     var mobileC = $('#mobile_numberC');
     fnOpenerCheck();
     fnOpenerSubmit();
-    //$('#ini_hpp').attr('action', '/certify/ini_hpp_certify/user_certify_form_v2_request').submit();
 }
-/* â–¼ íœ´ëŒ€í° ì¸ì¦ */
+
 //user_certify2
 function fnINIhpp2() {
     fnOpenerCheck();
@@ -52,9 +52,7 @@ function fnINIhpp2() {
     f.attr('action', '/certify/ini_modi_authcenter/user_certify_form.html');
     f.submit();
 }
-/* â–² íœ´ëŒ€í° ì¸ì¦ */
 
-/* â–¼ ê³µì¸ì¸ì¦ì„œ ì¸ì¦ */
 //user_certify2
 function cardauth2() {
     fnOpenerCheck();

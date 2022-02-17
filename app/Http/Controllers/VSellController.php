@@ -224,6 +224,7 @@ class VSellController extends BaseController
         $params['goods_type'] = !empty($params['goods_type']) && $params['goods_type'] !=1  ? $params['goods_type'] : 'all';
         $params['excellent'] = !empty($params['excellent']) ? $params['excellent'] : '';
         $params['discont'] = !empty($params['discont']) ? $params['discont'] : '';
+        $params['filtered_game_id'] = !empty($params['filtered_game_id']) ? $params['filtered_game_id'] : '';
         $params['filtered_child_id'] = !empty($params['filtered_child_id']) ? $params['filtered_child_id'] : '';
         $params['filtered_game_alias'] = !empty($params['filtered_game_alias']) ? $params['filtered_game_alias'] : '';
         $params['filtered_child_alias'] = !empty($params['filtered_child_alias']) ? $params['filtered_child_alias'] : '';
@@ -231,6 +232,8 @@ class VSellController extends BaseController
         $params['speed'] = !empty($params['speed']) ? $params['speed'] : '';
         $roles = MRole::orderBy('level',"ASC")->get()->toArray();
         $params['roles'] = $roles;
+        $params['g_list'] = MGame::where('id',$params['filtered_game_id'])->first();
+        $params['s_list'] = MGame::where('parent',$params['filtered_game_id'])->where('depth',1)->orderby('order','ASC')->get();
         return view('angel.sell.list_search',$params);
     }
 

@@ -83,6 +83,7 @@ function Payment() {
 }
 
 function fnSubmit() {
+    debugger
     var frm = $('#frmPayment');
     var securityType = $('#security_type').val();
 

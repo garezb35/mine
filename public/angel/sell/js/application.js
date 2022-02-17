@@ -802,6 +802,7 @@ function fnApplication(defType) {
 }
 
 function fnSubmit() {
+    debugger
     var frm = $('#frmSell');
     var payType = $('[name="payment_type"]');
 
