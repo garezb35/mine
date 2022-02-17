@@ -983,13 +983,17 @@ table.nobordertable{
 /*    border-top: 1px solid rgb(153, 153, 153);*/
 /*}*/
 
-.aside .nav > .nav_title:hover a,.aside .nav > .nav_title.activated a
+.aside .nav > .nav_title.activated a
 
 {
     background: #e98c56;
     color: white;
 }
 
+.aside .nav > .nav_title:hover a{
+    color: white;
+    background: #a37b64;
+}
 
 .aside .nav > .nav_title:last-child:hover a,.aside .nav > .nav_title:last-child.activated a{
     border-bottom: none;

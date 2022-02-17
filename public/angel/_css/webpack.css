@@ -2883,10 +2883,10 @@ table.noborder tr td,.noborder{
     color: #fff;
 }
 .btn-suc-rect{
-    background: linear-gradient(#6d9416,#556c03);
+    background: #556c03;
 }
 .btn-cancel-rect{
-    background: linear-gradient(#6d9416,#556c03);
+    background: #000;
 }
 .btn-submit-rect{
     background: url(/angel/img/button/submit.png) no-repeat 100%;
@@ -2915,13 +2915,13 @@ table.noborder tr td,.noborder{
 
 
 .btn-yes{
-    background: linear-gradient(#6d9416,#556c03);
+    background: #556c03;
     color: #fff;
     border: 1px solid #000 !important;
 }
 
 .btn-yes:hover{
-    background: linear-gradient(#556c03,#6d9416);
+    background: #6d9416;
 }
 .btn-no{
     background: #000;
