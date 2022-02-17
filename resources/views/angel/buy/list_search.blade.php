@@ -24,7 +24,7 @@
                 game_id = "";
             }
             $("#filtered_child_id").val(game_id);
-            $("#frm_search").attr('src','/sell/list_search');
+            $("#frm_search").attr('src','/buy/list_search');
             $("#frm_search").submit()
         })
     </script>
