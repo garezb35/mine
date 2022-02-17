@@ -35,8 +35,8 @@
         .box-chatting .nav-tabs .nav-link {
             border-radius: 0px;
             background: #cccccc;
-            padding-top: 10px;
-            padding-bottom: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
             font-size: 15px;
             color: #000;
             text-align: center;
