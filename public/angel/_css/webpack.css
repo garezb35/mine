@@ -331,7 +331,7 @@ table tr .left {
 }
 
 .bg-gradient-greens{
-    background: linear-gradient(#4790b5,#487490);
+    background: #4790b5;
 }
 
 .bg-gradient-pa{
@@ -351,9 +351,15 @@ table tr .left {
 
 
 
-.btn-endsb.selected,.btn-endsb:hover{
-    background: linear-gradient(#4e90c8,#336d97);
+.btn-endsb.selected{
+    background: #336d97;
     border: 1px solid #334e90c8;
+    color: #fff;
+}
+
+.btn-endsb:hover{
+    background: #648aa7;
+    border: 1px solid #648aa7;
     color: #fff;
 }
 
